@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt35/mutants/7/Solution.java:23: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\forall int i; 0 <= i && i < \result.size(); (\forall int j; 0 <= j && j < \result.size(); i != j ==> Integer.parseInt(\result.get(i)) != Integer.parseInt(\result.get(j))))
+                                                                                                                                                                                         ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt35/mutants/7/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt35/mutants/7/Solution.java:23:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt35/mutants/7/Solution.java:23: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt35/mutants/7/Solution.java:27:
+//@ ensures (\forall int i; 0 <= i && i < \result.size(); (\forall int j; 0 <= j && j < \result.size(); i != j ==> Integer.parseInt(\result.get(i)) != Integer.parseInt(\result.get(j))))
+    ^
+1 warning
+2 verification failures

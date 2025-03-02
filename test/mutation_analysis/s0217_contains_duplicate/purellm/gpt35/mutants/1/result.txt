@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0217_contains_duplicate/purellm/gpt35/mutants/1/Solution.java:23: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0217_contains_duplicate/purellm/gpt35/mutants/1/Solution.java:17:) in method containsDuplicate
+                return true;
+                ^
+./test/mutation_analysis/s0217_contains_duplicate/purellm/gpt35/mutants/1/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0217_contains_duplicate/purellm/gpt35/mutants/1/Solution.java:23:
+//@ ensures \result == true <==> (\exists int i, j; 0 <= i && i < nums.length && 0 <= j && j < nums.length && i != j; nums[i] == nums[j]);
+    ^
+2 verification failures

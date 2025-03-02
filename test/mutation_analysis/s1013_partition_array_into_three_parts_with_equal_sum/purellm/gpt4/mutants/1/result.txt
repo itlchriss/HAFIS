@@ -1,0 +1,20 @@
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/gpt4/mutants/1/Solution.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+(\sum int k; 0 <= k <= i; arr[k]) == (\sum int k; i+1 <= k < j; arr[k]) &&
+ ^
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/gpt4/mutants/1/Solution.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+(\sum int k; 0 <= k <= i; arr[k]) == (\sum int k; i+1 <= k < j; arr[k]) &&
+                                      ^
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/gpt4/mutants/1/Solution.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+(\sum int k; j <= k < arr.length; arr[k]) == (\sum int k; 0 <= k <= i; arr[k])
+ ^
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/gpt4/mutants/1/Solution.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+(\sum int k; j <= k < arr.length; arr[k]) == (\sum int k; 0 <= k <= i; arr[k])
+                                              ^
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/gpt4/mutants/1/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/gpt4/mutants/1/Solution.java:13:) in method canThreePartsEqualSum
+                return true;
+                ^
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/gpt4/mutants/1/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/gpt4/mutants/1/Solution.java:36:
+/*@ ensures \result <==> (
+    ^
+4 warnings
+2 verification failures

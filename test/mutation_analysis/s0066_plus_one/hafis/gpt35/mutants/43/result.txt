@@ -1,0 +1,46 @@
+./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:11: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method plusOne
+//@ requires(digits[0] != 0);
+                   ^
+./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:36: verify: The prover cannot establish an assertion (Precondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:314:) in method plusOne
+            System.arraycopy(digits, 0, ans, 1, ans.length + 1);
+                            ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:314: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:36:
+    public static native void arraycopy(/*@nullable*/ Object src,
+                              ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:149: verify: Precondition conjunct is false: src == null || dest == null
+      @    requires src == null || dest == null;
+                                ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:154: verify: Precondition conjunct is false: (src instanceof byte[])
+           requires (src instanceof byte[]) &&
+                    ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:208: verify: Precondition conjunct is false: (src instanceof Object[])
+        requires (src instanceof Object[]) &&
+                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:222: verify: Precondition conjunct is false: srcPos + length_ <= ((int[])src).length
+    @                 srcPos + length_ <= ((int[])src).length
+                                       ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:231: verify: Precondition conjunct is false: (src instanceof long[])
+        requires (src instanceof long[]) &&
+                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:242: verify: Precondition conjunct is false: (src instanceof char[])
+        requires (src instanceof char[]) &&
+                 ^
+./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:16:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:39:
+//@ ensures((digits[0] == 4 && digits[1] == 3 && digits[2] == 2 && digits[3] == 1 && digits.length == 4) ==> (\result[0] == 4 && \result[1] == 3 && \result[2] == 2 && \result[3] == 2 && \result.length == 4));
+    ^
+./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method plusOne
+//@ ensures((digits[0] == 4 && digits[1] == 3 && digits[2] == 2 && digits[3] == 1 && digits.length == 4) ==> (\result[0] == 4 && \result[1] == 3 && \result[2] == 2 && \result[3] == 2 && \result.length == 4));
+                                                                         ^
+./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:39: verify: Associated method exit
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:14:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/hafis/gpt35/mutants/43/Solution.java:39:
+//@ ensures((digits[0] == 1 && digits[1] == 2 && digits[2] == 3 && digits.length == 3) ==> (\result[0] == 1 && \result[1] == 2 && \result[2] == 4 && \result.length == 3));
+    ^
+15 verification failures

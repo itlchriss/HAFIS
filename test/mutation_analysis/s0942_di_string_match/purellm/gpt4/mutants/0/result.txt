@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0942_di_string_match/purellm/gpt4/mutants/0/Solution.java:17: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method diStringMatch
+                arr[i] = max;
+                   ^
+./test/mutation_analysis/s0942_di_string_match/purellm/gpt4/mutants/0/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method diStringMatch
+            if (s.charAt(i) == 'I' && arr[i + 1] == 0) {
+                                         ^
+./test/mutation_analysis/s0942_di_string_match/purellm/gpt4/mutants/0/Solution.java:28: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+3 verification failures

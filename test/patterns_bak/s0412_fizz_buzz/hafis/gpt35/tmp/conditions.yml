@@ -1,0 +1,8 @@
+ensures:
+- The type_string_array_ result's length is equal to the type_integer_ param_n_.
+- If the index the type_character_ chrs_a is divisible by both 3 and 5 , the string at index the type_character_ chrs_b in the type_string_array_ result is equal to stry_a.
+- If the index the type_character_ chrs_a is divisible by 3 , the string at index the type_character_ chrs_b in the type_string_array_ result is equal to stry_a.
+- If the index the type_character_ chrs_a is divisible by 5 , the string at index the type_character_ chrs_b in the type_string_array_ result is equal to stry_a.
+- If none of the above conditions are equal to the true literal , the string at index the type_character_ chrs_a in the type_string_array_ result is equal to the string_representation of the type_character_ chrs_b.
+requires:
+- The type_integer_ param_n_ is greater_than_or_equal to 1 and is less_than_or_equal to 10000.

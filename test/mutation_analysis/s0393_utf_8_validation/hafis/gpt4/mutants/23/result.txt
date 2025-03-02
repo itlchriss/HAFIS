@@ -1,0 +1,37 @@
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:13:) in method validUtf8
+                    return false;
+                    ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:29:
+//@ ensures((data[0] == 197 && data[1] == 130 && data[2] == 1 && data.length == 3) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method validUtf8
+//@ ensures((data[0] == 197 && data[1] == 130 && data[2] == 1 && data.length == 3) ==> (\result == true));
+                                                     ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:29: verify: Associated method exit
+                    return false;
+                    ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method validUtf8
+//@ ensures((data[0] == 197 && data[1] == 130 && data[2] == 1 && data.length == 3) ==> (\result == true));
+                                   ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:29: verify: Associated method exit
+                    return false;
+                    ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method validUtf8
+//@ ensures((data[0] == 235 && data[1] == 140 && data[2] == 4 && data.length == 3) ==> (\result == false));
+                                   ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:29: verify: Associated method exit
+                    return false;
+                    ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method validUtf8
+//@ ensures((data[0] == 235 && data[1] == 140 && data[2] == 4 && data.length == 3) ==> (\result == false));
+                                                     ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:29: verify: Associated method exit
+                    return false;
+                    ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:12:) in method validUtf8
+        return count == 0;
+        ^
+./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0393_utf_8_validation/hafis/gpt4/mutants/23/Solution.java:35:
+//@ ensures((data[0] == 235 && data[1] == 140 && data[2] == 4 && data.length == 3) ==> (\result == false));
+    ^
+12 verification failures

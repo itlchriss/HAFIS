@@ -1,0 +1,6 @@
+7 3 4
+test/s0908_smallest_range_i/gpt35/build/Solution.java:13: error: array required, but int found
+//@ ensures(((\forall int i; 0 <= i < nums.length; nums[i] == 1[i]) && (k == 0)) ==> (\result == 0));
+                                                              ^
+1 error
+

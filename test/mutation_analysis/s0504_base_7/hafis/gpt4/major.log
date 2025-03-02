@@ -1,0 +1,14 @@
+[01/25 01:58:28] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.<init>:
+    Created MajorPluginTaskListener with options: [mml:../major/mml/all.mml.bin]
+[01/25 01:58:28] [INFO   ] org.mutationtesting.major.mutation.Mutator.initOperatorSymbols:
+    Initializing operator symbols for opcode mapping
+[01/25 01:58:28] [INFO   ] org.mutationtesting.major.mutation.Mutator.mutateTree:
+    Mutating tree: Env[AttrContext[Scope[super, this]],outer=Env[AttrContext[Scope[java.util.Collections, java.util.Arrays, g0501_0600.s0504_base_7.Solution]]]]
+[01/25 01:58:28] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: g0501_0600.s0504_base_7.Solution
+[01/25 01:58:28] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[01/25 01:58:28] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: convertToBase7([int num])String
+[01/25 01:58:28] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.mutate:
+    Generated 0 mutants (25 ms)

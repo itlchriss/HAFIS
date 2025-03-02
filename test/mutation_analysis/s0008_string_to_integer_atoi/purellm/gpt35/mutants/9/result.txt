@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/gpt35/mutants/9/Solution.java:20: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method myAtoi
+        while (i <= input.length && input[i] == ' ') {
+                                         ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/gpt35/mutants/9/Solution.java:50: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/gpt35/mutants/9/Solution.java:11:) in method myAtoi
+        return num;
+        ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/gpt35/mutants/9/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/gpt35/mutants/9/Solution.java:50:
+//@ ensures \result >= Integer.MIN_VALUE && \result <= Integer.MAX_VALUE;
+    ^
+3 verification failures

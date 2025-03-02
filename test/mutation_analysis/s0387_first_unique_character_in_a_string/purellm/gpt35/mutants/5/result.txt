@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt35/mutants/5/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt35/mutants/5/Solution.java:13:) in method firstUniqChar
+        return ans;
+        ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt35/mutants/5/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt35/mutants/5/Solution.java:27:
+//@ ensures \result >= -1 && \result < s.length();
+    ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721: verify: The prover cannot establish an assertion (UndefinedNegativeIndex: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:696:) in method firstUniqChar
+      @     //-RAC@            charArray[\result] == ch &&
+                                        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:696: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721:
+      @   ensures \result == lastIndexOf(ch, (int)(length() - 1));
+                                        ^
+4 verification failures

@@ -1,0 +1,31 @@
+./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:17:) in method isValid
+        return stack.isEmpty();
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:39:
+//@ ensures((s.equals("()[]{}")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:18:) in method isValid
+                return false;
+                ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:36:
+//@ ensures((s.equals("()")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:19:) in method isValid
+        return stack.isEmpty();
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:39:
+//@ ensures((s.equals("{[]}")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:21:) in method isValid
+        return stack.isEmpty();
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:39:
+//@ ensures((s.equals("(]")) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:20:) in method isValid
+        return stack.isEmpty();
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/gpt4/mutants/0/Solution.java:39:
+//@ ensures((s.equals("([)]")) ==> (\result == false));
+    ^
+10 verification failures

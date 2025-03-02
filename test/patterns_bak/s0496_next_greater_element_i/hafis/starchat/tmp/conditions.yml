@@ -1,0 +1,11 @@
+ensures:
+- The type_integer_ result array have the same length as the type_integer_array_ param_nums1_.
+- If there exists no next greater element for a value in the type_string_ strs_a , then the corresponding value in the type_integer_ result array is negative 1.
+- The type_integer_ result array is in the same order as the type_integer_array_ param_nums1_.
+requires:
+- The type_integer_array_ param_nums1_'s length is less_than_or_equal to the type_integer_array_ param_nums2_'s length and is greater_than_or_equal to 1.
+- The type_integer_array_ param_nums2_'s length is less_than_or_equal to 1000 and is greater_than_or_equal to 1.
+- The type_integer_array_ param_nums1_'s values are less_than_or_equal to 10000 and are greater_than_or_equal to 0.
+- The type_integer_array_ param_nums2_'s values are less_than_or_equal to 10000 and are greater_than_or_equal to 0.
+- All integers in the type_integer_array_ param_nums1_ are unique.
+- All integers in the type_integer_array_ param_nums2_ are unique.

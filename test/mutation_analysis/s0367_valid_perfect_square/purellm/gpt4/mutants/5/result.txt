@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0367_valid_perfect_square/purellm/gpt4/mutants/5/Solution.java:38: error: unreachable statement
+        return false;
+        ^
+1 error

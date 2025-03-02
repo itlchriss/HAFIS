@@ -1,0 +1,1 @@
+requires((!(num2.length() == 1 && num2.charAt(0) == '0')) ==> (num2.charAt(0) != '0'));

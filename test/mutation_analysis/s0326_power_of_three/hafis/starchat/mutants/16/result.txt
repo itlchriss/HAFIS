@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0326_power_of_three/hafis/starchat/mutants/16/Solution.java:22: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0326_power_of_three/hafis/starchat/mutants/16/Solution.java:15:) in method isPowerOfThree
+                return false;
+                ^
+./test/mutation_analysis/s0326_power_of_three/hafis/starchat/mutants/16/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0326_power_of_three/hafis/starchat/mutants/16/Solution.java:22:
+//@ ensures((n == 9) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0326_power_of_three/hafis/starchat/mutants/16/Solution.java:22: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0326_power_of_three/hafis/starchat/mutants/16/Solution.java:14:) in method isPowerOfThree
+                return false;
+                ^
+./test/mutation_analysis/s0326_power_of_three/hafis/starchat/mutants/16/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0326_power_of_three/hafis/starchat/mutants/16/Solution.java:22:
+//@ ensures((n == 27) ==> (\result == true));
+    ^
+4 verification failures

@@ -1,0 +1,8 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0 and is less_than_or_equal to 32.
+- If the type_integer_ param_n_ is equal to 1011 , the type_integer_ result is equal to 3.
+- If the type_integer_ param_n_ is equal to 10000000 , the type_integer_ result is equal to 1.
+- If the type_integer_ param_n_ is equal to 11111111111111111111111111111101 , the type_integer_ result is equal to 31.
+requires:
+- The type_integer_ param_n_ is less_than_or_equal to 2147483647 and is greater_than_or_equal to 0.
+- The type_integer_ param_n_ is greater_than_or_equal to negative 2147483648 and is less_than_or_equal to 2147483647.

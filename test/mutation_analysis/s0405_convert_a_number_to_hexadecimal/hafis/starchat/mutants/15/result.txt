@@ -1,0 +1,28 @@
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:13:) in method toHex
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:29:
+//@ ensures((num == -1) ==> (\result.equals("ffffffff")));
+    ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:12:) in method toHex
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:29:
+//@ ensures((num == 26) ==> (\result.equals("1a")));
+    ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:11: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333:) in method toHex
+//@ ensures((!(\result.length() == 1 && \result.charAt(0) == '0')) ==> (\result.charAt(0) != '0'));
+                                                                                      ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:11:
+    public /*@ pure @*/ char charAt(int index)
+                             ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:79: verify: Precondition conjunct is false: 0 <= index < charArray.length
+      @      requires 0 <= index < charArray.length;
+                                 ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:11:) in method toHex
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/starchat/mutants/15/Solution.java:29:
+//@ ensures((!(\result.length() == 1 && \result.charAt(0) == '0')) ==> (\result.charAt(0) != '0'));
+    ^
+9 verification failures

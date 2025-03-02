@@ -1,0 +1,7 @@
+test/s0168_excel_sheet_column_title/starchat/build/Solution.java:11: error: <nulltype> cannot be dereferenced
+//@ ensures(\forall int i; 0 <= i < (null).size(); (\exists int i; 0 <= i < \result.length(); Character.isDigit(\result.charAt(i))));
+                                          ^
+test/s0168_excel_sheet_column_title/starchat/build/Solution.java:11: error: variable i is already defined in method convertToTitle(int)
+//@ ensures(\forall int i; 0 <= i < (null).size(); (\exists int i; 0 <= i < \result.length(); Character.isDigit(\result.charAt(i))));
+                                                                ^
+2 errors

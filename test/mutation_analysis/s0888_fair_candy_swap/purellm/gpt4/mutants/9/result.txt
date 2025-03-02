@@ -1,0 +1,20 @@
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/gpt4/mutants/9/Solution.java:18: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ requires (\sum int i; 0 <= i < aliceSizes.length; aliceSizes[i]) != (\sum int j; 0 <= j < bobSizes.length; bobSizes[j]);
+              ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/gpt4/mutants/9/Solution.java:18: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ requires (\sum int i; 0 <= i < aliceSizes.length; aliceSizes[i]) != (\sum int j; 0 <= j < bobSizes.length; bobSizes[j]);
+                                                                         ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/gpt4/mutants/9/Solution.java:20: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures (\exists int i, j; 0 <= i < aliceSizes.length && 0 <= j < bobSizes.length; aliceSizes[i] - bobSizes[j] == ((\sum int k; 0 <= k < aliceSizes.length; aliceSizes[k]) -(\sum int l; 0 <= l < bobSizes.length; bobSizes[l])) / 2 && \result[0] == aliceSizes[i] && \result[1] == bobSizes[j]);
+                                                                                                                        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/gpt4/mutants/9/Solution.java:20: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures (\exists int i, j; 0 <= i < aliceSizes.length && 0 <= j < bobSizes.length; aliceSizes[i] - bobSizes[j] == ((\sum int k; 0 <= k < aliceSizes.length; aliceSizes[k]) -(\sum int l; 0 <= l < bobSizes.length; bobSizes[l])) / 2 && \result[0] == aliceSizes[i] && \result[1] == bobSizes[j]);
+                                                                                                                                                                                 ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/gpt4/mutants/9/Solution.java:44: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/gpt4/mutants/9/Solution.java:20:) in method fairCandySwap
+        return ans;
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/gpt4/mutants/9/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/gpt4/mutants/9/Solution.java:44:
+//@ ensures (\exists int i, j; 0 <= i < aliceSizes.length && 0 <= j < bobSizes.length; aliceSizes[i] - bobSizes[j] == ((\sum int k; 0 <= k < aliceSizes.length; aliceSizes[k]) -(\sum int l; 0 <= l < bobSizes.length; bobSizes[l])) / 2 && \result[0] == aliceSizes[i] && \result[1] == bobSizes[j]);
+    ^
+4 warnings
+2 verification failures

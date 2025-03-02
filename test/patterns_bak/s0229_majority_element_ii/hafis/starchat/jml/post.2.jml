@@ -1,0 +1,1 @@
+ensures((nums.get(0) == 1) ==> (\result.get(0) == 1));

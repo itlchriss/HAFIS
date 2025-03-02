@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/61/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/61/Solution.java:16:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/61/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/61/Solution.java:40:
+//@ ensures (\result.length() >= Math.max(a.length(), b.length()));
+    ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/61/Solution.java:18: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String addBinary(String a, String b) {
+                  ^
+3 verification failures

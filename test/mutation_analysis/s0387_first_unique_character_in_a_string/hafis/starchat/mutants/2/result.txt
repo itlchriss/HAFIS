@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/starchat/mutants/2/Solution.java:25: error: unreachable statement
+        if (ans == Integer.MAX_VALUE) {
+        ^
+1 error

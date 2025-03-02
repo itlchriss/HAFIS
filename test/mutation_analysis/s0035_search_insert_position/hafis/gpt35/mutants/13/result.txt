@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0035_search_insert_position/hafis/gpt35/mutants/13/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method searchInsert
+            if (target == nums[mid]) {
+                              ^
+./test/mutation_analysis/s0035_search_insert_position/hafis/gpt35/mutants/13/Solution.java:19: verify: The prover cannot establish an assertion (LoopInvariant) in method searchInsert
+        //@ maintaining 0 <= lo <= hi < nums.length || lo == hi + 1;
+            ^
+2 verification failures

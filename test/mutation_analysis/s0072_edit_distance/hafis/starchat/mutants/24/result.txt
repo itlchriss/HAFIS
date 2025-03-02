@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/starchat/mutants/24/Solution.java:20: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int minDistance(String w1, String w2) {
+               ^
+1 verification failure

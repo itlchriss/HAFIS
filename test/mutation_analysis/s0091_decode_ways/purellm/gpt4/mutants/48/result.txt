@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt4/mutants/48/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/purellm/gpt4/mutants/48/Solution.java:15:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt4/mutants/48/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/purellm/gpt4/mutants/48/Solution.java:39:
+//@ ensures \result >= 0;
+    ^
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt4/mutants/48/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/purellm/gpt4/mutants/48/Solution.java:16:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt4/mutants/48/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/purellm/gpt4/mutants/48/Solution.java:39:
+//@ ensures \result <= Integer.MAX_VALUE;
+    ^
+4 verification failures

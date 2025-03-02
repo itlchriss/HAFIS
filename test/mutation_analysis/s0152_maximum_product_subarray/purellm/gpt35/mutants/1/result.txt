@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0152_maximum_product_subarray/purellm/gpt35/mutants/1/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0152_maximum_product_subarray/purellm/gpt35/mutants/1/Solution.java:14:) in method maxProduct
+        return ans;
+        ^
+./test/mutation_analysis/s0152_maximum_product_subarray/purellm/gpt35/mutants/1/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0152_maximum_product_subarray/purellm/gpt35/mutants/1/Solution.java:36:
+//@ ensures \result >= 0;
+    ^
+2 verification failures

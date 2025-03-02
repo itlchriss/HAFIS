@@ -1,0 +1,16 @@
+./test/syntax_check/s0560_subarray_sum_equals_k/purellm/gpt35/Solution.java:14: error: bad operand types for binary operator '!='
+//@ requires nums != null && k != null;
+                               ^
+  first type:  int
+  second type: <nulltype>
+./test/syntax_check/s0560_subarray_sum_equals_k/purellm/gpt35/Solution.java:18: error: cannot find symbol
+//@ ensures \result == countSubarrays(nums, k);
+                       ^
+  symbol:   method countSubarrays(int[],int)
+  location: class g0501_0600.s0560_subarray_sum_equals_k.Solution
+./test/syntax_check/s0560_subarray_sum_equals_k/purellm/gpt35/Solution.java:19: error: bad operand types for binary operator '!='
+//@ requires nums != null && k != null;
+                               ^
+  first type:  int
+  second type: <nulltype>
+3 errors

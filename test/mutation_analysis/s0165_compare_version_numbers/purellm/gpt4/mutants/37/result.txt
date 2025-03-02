@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0165_compare_version_numbers/purellm/gpt4/mutants/37/Solution.java:11: verify: The prover cannot establish an assertion (InvariantExceptionExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method compareVersion: g0101_0200.s0165_compare_version_numbers.Solution.compareVersion(String,String) (parameter version2)
+    public int compareVersion(String version1, String version2) {
+                                                      ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/purellm/gpt4/mutants/37/Solution.java:11:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0165_compare_version_numbers/purellm/gpt4/mutants/37/Solution.java:11: verify: The prover cannot establish an assertion (InvariantExceptionExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method compareVersion: g0101_0200.s0165_compare_version_numbers.Solution.compareVersion(String,String) (parameter version1)
+    public int compareVersion(String version1, String version2) {
+                                     ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/purellm/gpt4/mutants/37/Solution.java:11:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0165_compare_version_numbers/purellm/gpt4/mutants/37/Solution.java:11: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method compareVersion: g0101_0200.s0165_compare_version_numbers.Solution.compareVersion(String,String) (parameter version2)
+    public int compareVersion(String version1, String version2) {
+                                                      ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/purellm/gpt4/mutants/37/Solution.java:11:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0165_compare_version_numbers/purellm/gpt4/mutants/37/Solution.java:11: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method compareVersion: g0101_0200.s0165_compare_version_numbers.Solution.compareVersion(String,String) (parameter version1)
+    public int compareVersion(String version1, String version2) {
+                                     ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/purellm/gpt4/mutants/37/Solution.java:11:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+8 verification failures

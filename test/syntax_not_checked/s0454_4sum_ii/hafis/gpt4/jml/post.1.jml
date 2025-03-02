@@ -1,0 +1,1 @@
+ensures((nums1[0] == 0 && nums1.length == 1) && ((nums2[0] == 0 && nums2.length == 1) && ((nums3[0] == 0 && nums3.length == 1) && ((nums4[0] == 0 && nums4.length == 1) && (\result == 1)))));

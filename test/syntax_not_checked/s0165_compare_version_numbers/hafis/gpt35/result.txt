@@ -1,0 +1,11 @@
+./test/syntax_check/s0165_compare_version_numbers/hafis/gpt35/Solution.java:10: error: bad operand types for binary operator '<'
+//@ ensures((\result == -1) ==> (version1 < version2));
+                                          ^
+  first type:  java.lang.String
+  second type: java.lang.String
+./test/syntax_check/s0165_compare_version_numbers/hafis/gpt35/Solution.java:13: error: bad operand types for binary operator '>'
+//@ ensures((\result == 1) ==> (version1 > version2));
+                                         ^
+  first type:  java.lang.String
+  second type: java.lang.String
+2 errors

@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/15/Solution.java:31: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+//@ ensures((t.contains(s)) ==> (\result == true));
+                       ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/15/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/15/Solution.java:31:) in method isSubsequence
+        return false;
+        ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/15/Solution.java:31: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/15/Solution.java:56:
+//@ ensures((t.contains(s)) ==> (\result == true));
+    ^
+1 warning
+2 verification failures

@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt35/mutants/15/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt35/mutants/15/Solution.java:14:) in method containsNearbyDuplicate
+        return false;
+        ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt35/mutants/15/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt35/mutants/15/Solution.java:26:
+//@ ensures \result == true <==> (\exists int i, j; 0 <= i < j < nums.length && nums[i] == nums[j] && j - i <= k);
+    ^
+2 verification failures

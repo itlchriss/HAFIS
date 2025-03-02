@@ -1,0 +1,4 @@
+./test/mutate_check/s0228_summary_ranges/purellm/gpt35/Solution.java:23: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\forall int i; 0 <= i && i < \result.size(); (\forall int j; 0 <= j && j < \result.size(); i != j ==> Integer.parseInt(\result.get(i)) != Integer.parseInt(\result.get(j))))
+                                                                                                                                                                                         ^
+1 warning

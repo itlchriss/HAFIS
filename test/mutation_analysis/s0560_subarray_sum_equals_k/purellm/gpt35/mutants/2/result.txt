@@ -1,0 +1,35 @@
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:21: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures \result == (\sum int i, j; 0 <= i <= j < nums.length; (\sum int m; i <= m <= j; nums[m]) == k ? 1 : 0);
+                                                                   ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:21: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures \result == (\sum int i, j; 0 <= i <= j < nums.length; (\sum int m; i <= m <= j; nums[m]) == k ? 1 : 0);
+                        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:29: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method subarraySum
+            if (sumCount.containsKey(tempSum % k)) {
+                                             ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:16:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:38:
+//@ ensures (\forall int i; 0 <= i < nums.length; nums[i] >= -1000 && nums[i] <= 1000);
+    ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:15:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:38:
+//@ ensures \result >= 0;
+    ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:17:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:38:
+//@ ensures -10000000 <= k && k <= 10000000;
+    ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:21:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt35/mutants/2/Solution.java:38:
+//@ ensures \result == (\sum int i, j; 0 <= i <= j < nums.length; (\sum int m; i <= m <= j; nums[m]) == k ? 1 : 0);
+    ^
+2 warnings
+9 verification failures

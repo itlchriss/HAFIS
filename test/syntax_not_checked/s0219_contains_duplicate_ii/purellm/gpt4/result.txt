@@ -1,0 +1,22 @@
+./test/syntax_check/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:19: error: <identifier> expected
+@
+ ^
+./test/syntax_check/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:23: error: <identifier> expected
+@
+ ^
+./test/syntax_check/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:24: error: <identifier> expected
+@ pure function boolean containsDuplicateII(int[] nums, int k);
+               ^
+./test/syntax_check/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:24: error: Method specs may not precede a variable declaration
+@ pure function boolean containsDuplicateII(int[] nums, int k);
+                ^
+./test/syntax_check/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:25: error: <identifier> expected
+@*/
+ ^
+./test/syntax_check/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:25: error: <identifier> expected
+@*/
+  ^
+./test/syntax_check/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:25: error: <identifier> expected
+@*/
+   ^
+7 errors

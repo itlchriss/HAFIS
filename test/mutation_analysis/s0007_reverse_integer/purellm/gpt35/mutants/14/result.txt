@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0007_reverse_integer/purellm/gpt35/mutants/14/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method reverse
+            rev = (rev * 10) / (x % 10);            
+                             ^
+1 verification failure

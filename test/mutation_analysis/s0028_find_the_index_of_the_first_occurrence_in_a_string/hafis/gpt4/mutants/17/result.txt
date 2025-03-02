@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt4/mutants/17/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt4/mutants/17/Solution.java:16:) in method strStr
+        return -1;
+        ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt4/mutants/17/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt4/mutants/17/Solution.java:31:
+//@ ensures(((haystack.equals("hello")) && (needle.equals("ll"))) ==> (\result == 2));
+    ^
+2 verification failures

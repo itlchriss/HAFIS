@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0942_di_string_match/purellm/gpt4/mutants/26/Solution.java:28: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+1 verification failure

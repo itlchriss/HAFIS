@@ -1,0 +1,302 @@
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: <identifier> expected
+//@ @ requires name != null && typed != null;
+                   ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: illegal start of type
+//@ @ requires name != null && typed != null;
+                    ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: <identifier> expected
+//@ @ requires name != null && typed != null;
+                      ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: illegal start of type
+//@ @ requires name != null && typed != null;
+                       ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: <identifier> expected
+//@ @ requires name != null && typed != null;
+                           ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: illegal start of type
+//@ @ requires name != null && typed != null;
+                            ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: ';' expected
+//@ @ requires name != null && typed != null;
+                                    ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: illegal start of type
+//@ @ requires name != null && typed != null;
+                                     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: <identifier> expected
+//@ @ requires name != null && typed != null;
+                                       ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: illegal start of type
+//@ @ requires name != null && typed != null;
+                                        ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:10: error: <identifier> expected
+//@ @ requires name != null && typed != null;
+                                            ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:11: error: <identifier> expected
+//@ @ requires name.length() >= 1 && name.length() <= 1000;
+                          ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:11: error: ';' expected
+//@ @ requires name.length() >= 1 && name.length() <= 1000;
+                            ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:12: error: <identifier> expected
+//@ @ requires typed.length() >= 1 && typed.length() <= 1000;
+                           ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:12: error: ';' expected
+//@ @ requires typed.length() >= 1 && typed.length() <= 1000;
+                             ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:13: error: Orphaned modifiers found before an empty declaration
+//@ @ requires (\forall int i; 0 <= i < name.length(); Character.isLowerCase(name.charAt(i)));
+                                                                                             ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:14: error: Orphaned modifiers found before an empty declaration
+//@ @ requires (\forall int i; 0 <= i < typed.length(); Character.isLowerCase(typed.charAt(i)));
+                                                                                               ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:15: error: <identifier> expected
+//@ @
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:16: error: Token \result is not a type
+//@ @ ensures \result == true <==> (
+              ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:16: error: ';' expected
+//@ @ ensures \result == true <==> (
+                     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:16: error: illegal start of type
+//@ @ ensures \result == true <==> (
+                      ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:16: error: <identifier> expected
+//@ @ ensures \result == true <==> (
+                        ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:16: error: illegal start of type
+//@ @ ensures \result == true <==> (
+                         ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:17: error: <identifier> expected
+//@ @   (\exists int[] map; map.length == name.length();
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:18: error: <identifier> expected
+//@ @     (\forall int i; 0 <= i < name.length();
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:19: error: <identifier> expected
+//@ @       (\exists int j; 0 <= j < typed.length();
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:20: error: illegal start of expression
+//@ @         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                 ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:20: error: ')' expected
+//@ @         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                  ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:20: error: ')' expected
+//@ @         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                   ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ @         (i == 0 || map[i-1] < map[i]) &&
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:21: error: illegal start of expression
+//@ @         (i == 0 || map[i-1] < map[i]) &&
+                                            ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:22: error: <identifier> expected
+//@ @         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:23: error: illegal start of expression
+//@ @           typed.charAt(k) == name.charAt(i))
+                                ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:23: error: ')' expected
+//@ @           typed.charAt(k) == name.charAt(i))
+                                  ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:23: error: <identifier> expected
+//@ @           typed.charAt(k) == name.charAt(i))
+                                              ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:23: error: ';' expected
+//@ @           typed.charAt(k) == name.charAt(i))
+                                                 ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:24: error: <identifier> expected
+//@ @       )
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:24: error: illegal start of type
+//@ @       )
+            ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:24: error: <identifier> expected
+//@ @       )
+             ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:25: error: <identifier> expected
+//@ @     )
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:25: error: illegal start of type
+//@ @     )
+          ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:25: error: <identifier> expected
+//@ @     )
+           ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:26: error: <identifier> expected
+//@ @   )
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:26: error: illegal start of type
+//@ @   )
+        ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:26: error: <identifier> expected
+//@ @   )
+         ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:27: error: <identifier> expected
+//@ @ );
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:27: error: illegal start of type
+//@ @ );
+      ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:27: error: <identifier> expected
+//@ @ );
+       ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:28: error: <identifier> expected
+//@ @
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:30: error: Token \result is not a type
+//@ @ ensures \result == false <==> !(
+              ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:30: error: ';' expected
+//@ @ ensures \result == false <==> !(
+                     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:30: error: illegal start of type
+//@ @ ensures \result == false <==> !(
+                      ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:30: error: <identifier> expected
+//@ @ ensures \result == false <==> !(
+                        ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:30: error: illegal start of type
+//@ @ ensures \result == false <==> !(
+                         ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:30: error: ';' expected
+//@ @ ensures \result == false <==> !(
+                                   ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:30: error: illegal start of type
+//@ @ ensures \result == false <==> !(
+                                    ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:30: error: <identifier> expected
+//@ @ ensures \result == false <==> !(
+                                     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:31: error: <identifier> expected
+//@ @   (\exists int[] map; map.length == name.length();
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:32: error: <identifier> expected
+//@ @     (\forall int i; 0 <= i < name.length();
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:33: error: <identifier> expected
+//@ @       (\exists int j; 0 <= j < typed.length();
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:34: error: illegal start of expression
+//@ @         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                 ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:34: error: ')' expected
+//@ @         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                  ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:34: error: ')' expected
+//@ @         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                   ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:35: error: <identifier> expected
+//@ @         (i == 0 || map[i-1] < map[i]) &&
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:35: error: illegal start of expression
+//@ @         (i == 0 || map[i-1] < map[i]) &&
+                                            ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:36: error: <identifier> expected
+//@ @         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:37: error: illegal start of expression
+//@ @           typed.charAt(k) == name.charAt(i))
+                                ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:37: error: ')' expected
+//@ @           typed.charAt(k) == name.charAt(i))
+                                  ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:37: error: <identifier> expected
+//@ @           typed.charAt(k) == name.charAt(i))
+                                              ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:37: error: ';' expected
+//@ @           typed.charAt(k) == name.charAt(i))
+                                                 ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:38: error: <identifier> expected
+//@ @       )
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:38: error: illegal start of type
+//@ @       )
+            ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:38: error: <identifier> expected
+//@ @       )
+             ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:39: error: <identifier> expected
+//@ @     )
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:39: error: illegal start of type
+//@ @     )
+          ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:39: error: <identifier> expected
+//@ @     )
+           ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:40: error: <identifier> expected
+//@ @   )
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:40: error: illegal start of type
+//@ @   )
+        ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:40: error: <identifier> expected
+//@ @   )
+         ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:41: error: <identifier> expected
+//@ @ );
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:41: error: illegal start of type
+//@ @ );
+      ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:41: error: <identifier> expected
+//@ @ );
+       ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:42: error: <identifier> expected
+//@ @*/
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:42: error: <identifier> expected
+//@ @*/
+      ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:42: error: <identifier> expected
+//@ @*/
+       ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:46: error: illegal character: '`'
+//@ ```
+    ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:46: error: illegal character: '`'
+//@ ```
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:46: error: illegal character: '`'
+//@ ```
+      ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:48: error: illegal character: '#'
+//@ ### Explanation:
+    ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:48: error: illegal character: '#'
+//@ ### Explanation:
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:48: error: illegal character: '#'
+//@ ### Explanation:
+      ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:48: error: <identifier> expected
+//@ ### Explanation:
+                   ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:48: error: <identifier> expected
+//@ ### Explanation:
+                    ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:50: error: illegal start of type
+//@ - **Preconditions (`requires`)**:
+    ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:50: error: <identifier> expected
+//@ - **Preconditions (`requires`)**:
+     ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:50: error: illegal start of type
+//@ - **Preconditions (`requires`)**:
+      ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:50: error: <identifier> expected
+//@ - **Preconditions (`requires`)**:
+       ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:50: error: illegal character: '`'
+//@ - **Preconditions (`requires`)**:
+                       ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:50: error: illegal character: '`'
+//@ - **Preconditions (`requires`)**:
+                                ^
+./test/s0925_long_pressed_name/llm-results/gpt4/Solution.java:50: error: illegal start of type
+//@ - **Preconditions (`requires`)**:
+                                  ^
+100 errors
+only showing the first 100 errors, of 163 total; use -Xmaxerrs if you would like to see more

@@ -1,0 +1,9 @@
+./test/mutation_analysis/s0228_summary_ranges/hafis/gpt4/mutants/14/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/gpt4/mutants/14/Solution.java:25: verify: Associated method exit
+            return ranges;
+            ^
+error: An error while executing a proof script for summaryRanges: (error "Solver has unexpectedly terminated")
+1 error
+2 verification failures

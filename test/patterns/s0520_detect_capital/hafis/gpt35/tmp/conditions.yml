@@ -1,0 +1,8 @@
+ensures:
+- If the type_string_ param_word_ vocontains the uppercase_alphabets , the type_boolean_ result is equal to the true literal.
+- If the type_string_ param_word_ vocontains the lowercase_alphabets , the type_boolean_ result is equal to the true literal.
+- If type_string_ param_word_'s first_element _is the uppercase_alphabet , the type_boolean_ result is equal to the true literal.
+- If none of the above cases hold , the type_boolean_ result is equal to the false literal.
+requires:
+- The type_string_ param_word_'s length is less_than_or_equal to 100 and is greater_than_or_equal to 1.
+- The type_string_ param_word_ contains alphabets.

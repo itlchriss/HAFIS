@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0045_jump_game_ii/purellm/gpt35/mutants/8/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0045_jump_game_ii/purellm/gpt35/mutants/8/Solution.java:14:) in method jump
+        return minJump;
+        ^
+./test/mutation_analysis/s0045_jump_game_ii/purellm/gpt35/mutants/8/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0045_jump_game_ii/purellm/gpt35/mutants/8/Solution.java:39:
+//@ ensures \result >= 0;
+    ^
+2 verification failures

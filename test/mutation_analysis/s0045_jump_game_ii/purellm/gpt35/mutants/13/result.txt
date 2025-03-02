@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0045_jump_game_ii/purellm/gpt35/mutants/13/Solution.java:35: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method jump
+            if (length >= nums.length / i - 1) {
+                                      ^
+./test/mutation_analysis/s0045_jump_game_ii/purellm/gpt35/mutants/13/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0045_jump_game_ii/purellm/gpt35/mutants/13/Solution.java:14:) in method jump
+                return minJump;
+                ^
+./test/mutation_analysis/s0045_jump_game_ii/purellm/gpt35/mutants/13/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0045_jump_game_ii/purellm/gpt35/mutants/13/Solution.java:36:
+//@ ensures \result >= 0;
+    ^
+./test/mutation_analysis/s0045_jump_game_ii/purellm/gpt35/mutants/13/Solution.java:26: verify: The prover cannot establish an assertion (LoopInvariant) in method jump
+        //@ maintaining length <= nums.length - i - 1;
+            ^
+4 verification failures

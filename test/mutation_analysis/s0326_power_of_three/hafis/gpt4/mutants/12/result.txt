@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0326_power_of_three/hafis/gpt4/mutants/12/Solution.java:26: error: unreachable statement
+        return true;
+        ^
+1 error

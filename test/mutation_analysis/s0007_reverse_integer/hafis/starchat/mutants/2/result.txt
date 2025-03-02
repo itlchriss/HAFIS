@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/2/Solution.java:35: error: unreachable statement
+        if (rev > Integer.MAX_VALUE || rev < Integer.MIN_VALUE) {
+        ^
+1 error

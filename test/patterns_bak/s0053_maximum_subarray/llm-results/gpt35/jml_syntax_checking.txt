@@ -1,0 +1,11 @@
+./test/s0053_maximum_subarray/llm-results/gpt35/Solution.java:15: error: Incorrectly formed or terminated ensures statement near here
+//@ ensures \result == maximum subarray sum of nums;
+                               ^
+./test/s0053_maximum_subarray/llm-results/gpt35/Solution.java:16: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ ensures (\exists int start, end; 0 <= start && start <= end && end < nums.length;
+                                                                                     ^
+./test/s0053_maximum_subarray/llm-results/gpt35/Solution.java:16: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\exists int start, end; 0 <= start && start <= end && end < nums.length;
+                                                                                     ^
+2 errors
+1 warning

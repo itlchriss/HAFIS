@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:30: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:20:) in method twoSum
+                return new int[] {indexMap.get(requiredNum), i};
+                ^
+./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:30:
+//@ ensures (\forall int i; 0 <= i && i < \result.length; 0 <= \result[i] && \result[i] < numbers.length);
+    ^
+./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:18:) in method twoSum
+        return new int[] {-1, -1};
+        ^
+./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:34:
+//@ ensures (\exists int i, j; 0 <= i && i < numbers.length && 0 <= j && j < numbers.length && i != j; numbers[i] + numbers[j] == target);
+    ^
+./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:30: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:21:) in method twoSum
+                return new int[] {indexMap.get(requiredNum), i};
+                ^
+./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:30:
+//@ ensures numbers[\result[0]] + numbers[\result[1]] == target;
+    ^
+./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:30: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:22:) in method twoSum
+                return new int[] {indexMap.get(requiredNum), i};
+                ^
+./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/8/Solution.java:30:
+//@ ensures (\forall int i, j; 0 <= i && i < numbers.length && 0 <= j && j < numbers.length && i != j && numbers[i] + numbers[j] == target; i == \result[0] && j == \result[1]);
+    ^
+8 verification failures

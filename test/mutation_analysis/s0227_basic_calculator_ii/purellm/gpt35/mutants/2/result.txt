@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0227_basic_calculator_ii/purellm/gpt35/mutants/2/Solution.java:17: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result >= -2147483648 && \result <= 2147483647
+                                                           ^
+./test/mutation_analysis/s0227_basic_calculator_ii/purellm/gpt35/mutants/2/Solution.java:23: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error
+1 warning

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0228_summary_ranges/hafis/gpt35/mutants/4/Solution.java:34: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method summaryRanges
+            if (nums[i] != b + 1) {
+                    ^
+1 verification failure

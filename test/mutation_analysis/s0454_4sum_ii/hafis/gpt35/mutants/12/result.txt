@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0454_4sum_ii/hafis/gpt35/mutants/12/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0454_4sum_ii/hafis/gpt35/mutants/12/Solution.java:18:) in method fourSumCount
+        return count;
+        ^
+./test/mutation_analysis/s0454_4sum_ii/hafis/gpt35/mutants/12/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/hafis/gpt35/mutants/12/Solution.java:34:
+//@ ensures((\result <= 2147483647) && (\result >= -2147483648));
+    ^
+2 verification failures

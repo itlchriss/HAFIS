@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt4/mutants/9/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt4/mutants/9/Solution.java:13:) in method minMoves2
+        return ops;
+        ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt4/mutants/9/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt4/mutants/9/Solution.java:25:
+//@ ensures \result >= 0;
+    ^
+2 verification failures

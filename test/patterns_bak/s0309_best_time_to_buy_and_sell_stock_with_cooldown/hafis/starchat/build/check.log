@@ -1,0 +1,6 @@
+8 2 3
+test/s0309_best_time_to_buy_and_sell_stock_with_cooldown/starchat/build/Solution.java:63: error: array required, but int found
+//@ ensures((\forall int i; 0 <= i < prices.length; prices[i] == 1[i]) ==> (\result == 0));
+                                                                 ^
+1 error
+

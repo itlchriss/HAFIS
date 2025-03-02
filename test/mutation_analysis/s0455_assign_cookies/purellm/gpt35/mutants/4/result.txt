@@ -1,0 +1,9 @@
+./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/4/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/4/Solution.java:15:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/4/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/4/Solution.java:33:
+//@ ensures \result <= g.length;
+    ^
+error: An error while executing a proof script for findContentChildren: (error "Solver has unexpectedly terminated")
+1 error
+2 verification failures

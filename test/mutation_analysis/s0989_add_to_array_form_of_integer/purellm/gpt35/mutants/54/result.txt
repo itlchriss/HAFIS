@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/gpt35/mutants/54/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method addToArrayForm
+            int temp = num[i] + k % 10 + carry;
+                          ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/gpt35/mutants/54/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/gpt35/mutants/54/Solution.java:15:) in method addToArrayForm
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/gpt35/mutants/54/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/gpt35/mutants/54/Solution.java:37:
+//@ ensures \result != null && \result.size() == num.length;
+    ^
+3 verification failures

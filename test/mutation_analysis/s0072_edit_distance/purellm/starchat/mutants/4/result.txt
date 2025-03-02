@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/4/Solution.java:40: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+        return dp[n2];
+                 ^
+./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/4/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+            dp[j] = j;
+              ^
+./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/4/Solution.java:28: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+            int pre = dp[0];
+                        ^
+3 verification failures

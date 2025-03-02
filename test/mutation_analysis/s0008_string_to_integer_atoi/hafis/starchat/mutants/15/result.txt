@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/starchat/mutants/15/Solution.java:44: error: unreachable statement
+        while (false) {
+                      ^
+1 error

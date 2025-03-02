@@ -1,0 +1,8 @@
+./test/syntax_check/s0058_length_of_last_word/purellm/gpt35/Solution.java:113: error: ')' expected
+//@ ensures \result == 0 ==> (\forall int i; 0 <= i < s.length(); s.charAt(i) == ' '
+                                                                                    ^
+./test/syntax_check/s0058_length_of_last_word/purellm/gpt35/Solution.java:113: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result == 0 ==> (\forall int i; 0 <= i < s.length(); s.charAt(i) == ' '
+                                                                                    ^
+1 error
+1 warning

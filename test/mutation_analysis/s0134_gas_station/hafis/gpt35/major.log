@@ -1,0 +1,170 @@
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.<init>:
+    Created MajorPluginTaskListener with options: [mml:../major/mml/all.mml.bin]
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.initOperatorSymbols:
+    Initializing operator symbols for opcode mapping
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.mutateTree:
+    Mutating tree: Env[AttrContext[Scope[super, this]],outer=Env[AttrContext[Scope[java.util.Collections, java.util.Arrays, g0101_0200.s0134_gas_station.Solution]]]]
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: g0101_0200.s0134_gas_station.Solution
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: canCompleteCircuit([int[] gas, int[] cost])int
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 1
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 1: Solution.canCompleteCircuit(line 22, col 27)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> !=(int,int)
+            original:                  i < gas.length 
+            mutant:                    i != gas.length
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 2
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 2: Solution.canCompleteCircuit(line 22, col 27)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> <=(int,int)
+            original:                  i < gas.length 
+            mutant:                    i <= gas.length
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 3
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 3: Solution.canCompleteCircuit(line 22, col 27)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> FALSE(int,int)
+            original:                  i < gas.length 
+            mutant:                    false
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 4
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 4: Solution.canCompleteCircuit(line 23, col 30)
+            mutation operator group:   AOR
+            mutation operator:         -(int,int) |==> %(int,int)
+            original:                  gas[i] - cost[i] 
+            mutant:                    gas[i] % cost[i]
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 5
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 5: Solution.canCompleteCircuit(line 23, col 30)
+            mutation operator group:   AOR
+            mutation operator:         -(int,int) |==> *(int,int)
+            original:                  gas[i] - cost[i] 
+            mutant:                    gas[i] * cost[i]
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 6
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 6: Solution.canCompleteCircuit(line 23, col 30)
+            mutation operator group:   AOR
+            mutation operator:         -(int,int) |==> +(int,int)
+            original:                  gas[i] - cost[i] 
+            mutant:                    gas[i] + cost[i]
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 7
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 7: Solution.canCompleteCircuit(line 23, col 30)
+            mutation operator group:   AOR
+            mutation operator:         -(int,int) |==> /(int,int)
+            original:                  gas[i] - cost[i] 
+            mutant:                    gas[i] / cost[i]
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 8
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 8: (STD) curGas += gas[i] - cost[i]; -> <NO-OP>
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 9
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 9: Solution.canCompleteCircuit(line 25, col 24)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> !=(int,int)
+            original:                  curGas < 0 
+            mutant:                    curGas != 0
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 10
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 10: Solution.canCompleteCircuit(line 25, col 24)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> <=(int,int)
+            original:                  curGas < 0 
+            mutant:                    curGas <= 0
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 11
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 11: Solution.canCompleteCircuit(line 25, col 24)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> FALSE(int,int)
+            original:                  curGas < 0 
+            mutant:                    false
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 12
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 12: (STD) result = -1; -> <NO-OP>
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 13
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 13: (STD) curGas = 0; -> <NO-OP>
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 14
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 14: Solution.canCompleteCircuit(line 28, col 31)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  result == -1 
+            mutant:                    result <= -1
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 15
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 15: Solution.canCompleteCircuit(line 28, col 31)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  result == -1 
+            mutant:                    result >= -1
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 16
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 16: Solution.canCompleteCircuit(line 28, col 31)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  result == -1 
+            mutant:                    false
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 17
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 17: (STD) result = i; -> <NO-OP>
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 18
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 18: (STD) sumGas += gas[i]; -> <NO-OP>
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 19
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 19: (STD) sumCost += cost[i]; -> <NO-OP>
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 20
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 20: Solution.canCompleteCircuit(line 35, col 20)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> !=(int,int)
+            original:                  sumGas < sumCost 
+            mutant:                    sumGas != sumCost
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 21
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 21: Solution.canCompleteCircuit(line 35, col 20)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> <=(int,int)
+            original:                  sumGas < sumCost 
+            mutant:                    sumGas <= sumCost
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 22
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 22: Solution.canCompleteCircuit(line 35, col 20)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> FALSE(int,int)
+            original:                  sumGas < sumCost 
+            mutant:                    false
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 23
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 23: (STD) return -1; -> <NO-OP>
+[02/25 13:20:44] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.mutate:
+    Generated 23 mutants (114 ms)

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0202_happy_number/purellm/gpt35/mutants/27/Solution.java:26: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method isHappy
+                sum = sum + (rem % rem);
+                                 ^
+./test/mutation_analysis/s0202_happy_number/purellm/gpt35/mutants/27/Solution.java:30: verify: The prover cannot establish an assertion (Precondition: ./test/mutation_analysis/s0202_happy_number/purellm/gpt35/mutants/27/Solution.java:14:) in method isHappy
+                happy = isHappy(sum);
+                               ^
+./test/mutation_analysis/s0202_happy_number/purellm/gpt35/mutants/27/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0202_happy_number/purellm/gpt35/mutants/27/Solution.java:30:
+    public boolean isHappy(int n) {
+                   ^
+./test/mutation_analysis/s0202_happy_number/purellm/gpt35/mutants/27/Solution.java:12: verify: Precondition conjunct is false: n >= 1
+//@ requires n >= 1 && n <= Math.pow(2, 31) - 1;
+               ^
+4 verification failures

@@ -1,0 +1,4 @@
+./test/s0476_number_complement/hafis/gpt35/build/Solution.java:10: error: integer number too large
+//@ requires((num >= 1) && (num < 2147483648));
+                                  ^
+1 error

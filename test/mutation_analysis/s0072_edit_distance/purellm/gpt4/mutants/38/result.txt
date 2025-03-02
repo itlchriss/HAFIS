@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/38/Solution.java:42: error: not a statement
+                                ? 1 + Math.min(pre, Math.min(dp[j], dp[j - 1]))
+                                ^
+1 error

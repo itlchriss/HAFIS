@@ -1,0 +1,1 @@
+ensures(((\result == true) && (s.equals(".1"))) ==> (\result == true));

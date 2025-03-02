@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0007_reverse_integer/purellm/gpt4/mutants/2/Solution.java:30: error: unreachable statement
+        if (rev > Integer.MAX_VALUE || rev < Integer.MIN_VALUE) {
+        ^
+1 error

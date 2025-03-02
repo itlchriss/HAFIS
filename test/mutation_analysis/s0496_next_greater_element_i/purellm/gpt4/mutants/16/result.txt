@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/gpt4/mutants/16/Solution.java:38: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method nextGreaterElement
+                    if (nums2[index] > num) {
+                             ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/gpt4/mutants/16/Solution.java:38: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method nextGreaterElement
+                    if (nums2[index] > num) {
+                             ^
+2 verification failures

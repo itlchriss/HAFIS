@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0134_gas_station/purellm/starchat/mutants/6/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method canCompleteCircuit
+            curGas += gas[i] / cost[i];
+                             ^
+1 verification failure

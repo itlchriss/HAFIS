@@ -1,0 +1,13 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721: verify: The prover cannot establish an assertion (UndefinedNegativeIndex: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:41:) in method reverseWords
+      @     //-RAC@            charArray[\result] == ch &&
+                                        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:41: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721:
+public final class String
+                ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/gpt35/mutants/10/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/gpt35/mutants/10/Solution.java:13:) in method reverseWords
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/gpt35/mutants/10/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/gpt35/mutants/10/Solution.java:35:
+//@ ensures(!(\result != null && \result.length() > 0 && (\result.charAt(0) == 32 || \result.charAt(\result.length()-1) == 32)));
+    ^
+4 verification failures

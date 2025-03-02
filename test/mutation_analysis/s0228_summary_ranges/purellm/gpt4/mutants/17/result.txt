@@ -1,0 +1,23 @@
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:28: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+  @                \result.get(j).contains(Integer.toString(nums[i]))
+                                          ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:16:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:42:
+  @ ensures (\forall int i; 0 <= i && i < \result.size();
+    ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:85: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:26:) in method summaryRanges
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:26: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:85:
+  @ ensures (\forall int i; 0 <= i && i < nums.length;
+    ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:85: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:31:) in method summaryRanges
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:31: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/17/Solution.java:85:
+  @ ensures (\forall int j; 0 <= j && j < \result.size();
+    ^
+1 warning
+6 verification failures

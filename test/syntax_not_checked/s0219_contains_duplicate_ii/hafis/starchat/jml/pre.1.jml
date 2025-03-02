@@ -1,0 +1,1 @@
+requires(nums != null && nums.length > 0 && (\forall int i; 0 <= i < nums.length; nums[i] == (int)nums[i]));

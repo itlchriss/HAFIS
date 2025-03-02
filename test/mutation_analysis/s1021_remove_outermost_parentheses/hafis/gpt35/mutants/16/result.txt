@@ -1,0 +1,4 @@
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/gpt35/mutants/16/Solution.java:17: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String removeOuterParentheses(String s) {
+                  ^
+1 verification failure

@@ -1,0 +1,1 @@
+exists x01.(_algorithm{NN}(x01) & exists e02.(_deterministic{JJ}(e02) & (Subj(e02) = x01)) & exists x03.(exists e04.(_same{JJ}(e04) & (Subj(e04) = x03) & _result{NN}(x03)) & exists e05.(_produce{VB}(e05) & (Subj(e05) = x01) & (Acc(e05) = x03) & exists x06.(exists e07.(_same{JJ}(e07) & (Subj(e07) = x06) & _input{NN}(x06)) & _for{IN}(e05,x06) & _always{RB}(e05)))))

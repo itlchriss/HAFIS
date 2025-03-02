@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:14:) in method firstUniqChar
+        return ans;
+        ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:29:
+  //@ ensures (\exists int i; 0 <= i < s.length(); (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i) || \result == -1;
+      ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:17:) in method firstUniqChar
+        return ans;
+        ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:29:
+  //@ ensures \result >= 0 ==> (\forall int k; 0 <= k < \result;(\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+      ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:15:) in method firstUniqChar
+            return -1;
+            ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/purellm/gpt4/mutants/4/Solution.java:27:
+  //@ ensures \result == -1 <==> (\forall int i; 0 <= i < s.length(); (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+      ^
+6 verification failures

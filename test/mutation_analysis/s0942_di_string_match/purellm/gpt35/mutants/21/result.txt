@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0942_di_string_match/purellm/gpt35/mutants/21/Solution.java:15: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\forall int i; 0 <= i && i < s.length(); s.charAt(i) == 'I' ==> \result[i] < \result[i + 1] && s.charAt(i) == 'D' ==> \result[i] > \result[i + 1])
+                                                                                                                                                               ^
+./test/mutation_analysis/s0942_di_string_match/purellm/gpt35/mutants/21/Solution.java:25: error: unreachable statement
+        for (int i = s.length() - 1; false; i--) {
+                                                 ^
+1 error
+1 warning

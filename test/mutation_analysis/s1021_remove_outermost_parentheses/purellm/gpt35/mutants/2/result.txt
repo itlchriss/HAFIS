@@ -1,0 +1,4 @@
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/gpt35/mutants/2/Solution.java:25: error: unreachable statement
+        while (false) {
+                      ^
+1 error

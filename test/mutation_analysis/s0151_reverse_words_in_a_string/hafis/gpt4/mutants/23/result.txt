@@ -1,0 +1,10 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721: verify: The prover cannot establish an assertion (UndefinedNegativeIndex: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:35:) in method reverseWords
+      @     //-RAC@            charArray[\result] == ch &&
+                                        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:35: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721:
+ * @author Patrice Chalin
+                 ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/gpt4/mutants/23/Solution.java:18: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String reverseWords(String s) {
+                  ^
+3 verification failures

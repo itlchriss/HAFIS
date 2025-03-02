@@ -1,0 +1,28 @@
+./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333:) in method numDecodings
+//@ requires((\forall int i; 0 <= i < s.length(); Character.isDigit(s.charAt(i))) && (s.charAt(0) == '0'));
+                                                                                              ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:12:
+    public /*@ pure @*/ char charAt(int index)
+                             ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:79: verify: Precondition conjunct is false: 0 <= index < charArray.length
+      @      requires 0 <= index < charArray.length;
+                                 ^
+./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:13:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:40:
+//@ ensures((\result <= 2147483647) && (\result >= 0));
+    ^
+./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:15:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:40:
+//@ ensures((s.equals("0")) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:17:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/gpt35/mutants/2/Solution.java:40:
+//@ ensures((s.equals("06")) ==> (\result == 0));
+    ^
+9 verification failures

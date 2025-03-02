@@ -1,0 +1,4 @@
+./test/syntax_check/s0238_product_of_array_except_self/purellm/gpt35/Solution.java:93: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ ensures (\forall int i; 0 <= i && i < \result.length;
+                                                         ^
+1 error

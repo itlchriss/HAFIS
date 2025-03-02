@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/starchat/mutants/2/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method subarraySum
+            if (sumCount.containsKey(tempSum % k)) {
+                                             ^
+1 verification failure

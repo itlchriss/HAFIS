@@ -1,0 +1,4 @@
+./test/syntax_check/s0233_number_of_digit_one/purellm/gpt35/Solution.java:14: error: Incorrectly formed or terminated ensures statement near here
+//@ ensures \result == count of digit 1 appearing in all non-negative integers less than or equal to n.
+                             ^
+1 error

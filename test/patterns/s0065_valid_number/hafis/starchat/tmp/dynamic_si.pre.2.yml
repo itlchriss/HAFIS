@@ -1,0 +1,11 @@
+- term: checking_character_sequence_
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: character
+    reference_type: array
+  interpretation: or,alphabets,digits,plus_sign,minus_sign,dot_sign

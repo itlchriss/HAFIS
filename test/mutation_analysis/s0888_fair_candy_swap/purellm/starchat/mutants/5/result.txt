@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/starchat/mutants/5/Solution.java:25: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method fairCandySwap
+        diff = aSum / bSum;
+                    ^
+1 verification failure

@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:21: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:13:) in method isPowerOfFour
+        return n == 1;
+        ^
+./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:21:
+//@ ensures((n == 1) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:21: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:11:) in method isPowerOfFour
+        return n == 1;
+        ^
+./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:21:
+//@ ensures((n == 5) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:21: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:12:) in method isPowerOfFour
+        return n == 1;
+        ^
+./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0342_power_of_four/hafis/gpt4/mutants/8/Solution.java:21:
+//@ ensures((n == 16) ==> (\result == true));
+    ^
+6 verification failures

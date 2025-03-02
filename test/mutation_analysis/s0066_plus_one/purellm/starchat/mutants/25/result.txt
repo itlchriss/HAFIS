@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0066_plus_one/purellm/starchat/mutants/25/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method plusOne
+                sum = digits[i] / carry;
+                                ^
+1 verification failure

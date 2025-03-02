@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0299_bulls_and_cows/hafis/starchat/mutants/12/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0299_bulls_and_cows/hafis/starchat/mutants/12/Solution.java:15:) in method getHint
+        return bulls + "A" + cows + "B";
+        ^
+./test/mutation_analysis/s0299_bulls_and_cows/hafis/starchat/mutants/12/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0299_bulls_and_cows/hafis/starchat/mutants/12/Solution.java:40:
+//@ ensures(((secret.equals("1807")) && (guess.equals("7810"))) ==> (\result.equals("1A3B")));
+    ^
+./test/mutation_analysis/s0299_bulls_and_cows/hafis/starchat/mutants/12/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0299_bulls_and_cows/hafis/starchat/mutants/12/Solution.java:14:) in method getHint
+        return bulls + "A" + cows + "B";
+        ^
+./test/mutation_analysis/s0299_bulls_and_cows/hafis/starchat/mutants/12/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0299_bulls_and_cows/hafis/starchat/mutants/12/Solution.java:40:
+//@ ensures(((secret.equals("1123")) && (guess.equals("0111"))) ==> (\result.equals("1A1B")));
+    ^
+./test/mutation_analysis/s0299_bulls_and_cows/hafis/starchat/mutants/12/Solution.java:18: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String getHint(String secret, String guess) {
+                  ^
+5 verification failures

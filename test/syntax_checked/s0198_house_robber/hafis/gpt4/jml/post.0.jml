@@ -1,0 +1,1 @@
+ensures((\result >= 0) && (\result <= (\sum int i; 0 <= i < nums.length; nums[i])));

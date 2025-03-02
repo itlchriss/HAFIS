@@ -1,0 +1,3 @@
+error: An internal JML error occurred, possibly recoverable.  Please report the bug with as much information as you can.
+  Reason: Unexpected result when querying SMT solver for reason for an unknown result: (error "Error writing to solver: (get-info :reason-unknown) java.io.IOException: Stream closed")
+1 error

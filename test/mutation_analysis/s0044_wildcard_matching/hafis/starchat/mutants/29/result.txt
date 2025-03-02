@@ -1,0 +1,37 @@
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:15:) in method isMatch
+        return isMatch;
+        ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56:
+//@ ensures(("inputString".matches("pattern")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:16:) in method isMatch
+        return isMatch;
+        ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56:
+//@ ensures(((inputString.equals("aa")) && (pattern.equals("a"))) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:18:) in method isMatch
+        return isMatch;
+        ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56:
+//@ ensures(((inputString.equals("aa")) && (pattern.equals("*"))) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:17:) in method isMatch
+        return isMatch;
+        ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56:
+//@ ensures(((inputString.equals("cb")) && (pattern.equals("?a"))) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:20:) in method isMatch
+        return isMatch;
+        ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56:
+//@ ensures(((inputString.equals("adceb")) && (pattern.equals("*a*b"))) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:19:) in method isMatch
+        return isMatch;
+        ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/29/Solution.java:56:
+//@ ensures(((inputString.equals("acdcb")) && (pattern.equals("a*c?b"))) ==> (\result == false));
+    ^
+12 verification failures

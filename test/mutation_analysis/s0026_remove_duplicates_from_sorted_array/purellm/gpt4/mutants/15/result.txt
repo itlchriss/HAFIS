@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/gpt4/mutants/15/Solution.java:29: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method removeDuplicates
+                nums[i - 1] = nums[j];
+                    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/gpt4/mutants/15/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/gpt4/mutants/15/Solution.java:14:) in method removeDuplicates
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/gpt4/mutants/15/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/gpt4/mutants/15/Solution.java:34:
+//@ ensures (\forall int i; 0 <= i && i < \result - 1; nums[i] < nums[i + 1]);
+    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/gpt4/mutants/15/Solution.java:18: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int removeDuplicates(int[] nums) {
+               ^
+4 verification failures

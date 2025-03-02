@@ -1,0 +1,85 @@
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:12: error: ';' expected
+requires s != null;
+          ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:12: error: illegal start of type
+requires s != null;
+           ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:12: error: <identifier> expected
+requires s != null;
+             ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:12: error: illegal start of type
+requires s != null;
+              ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:12: error: <identifier> expected
+requires s != null;
+                  ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:13: error: ';' expected
+requires s.length() >= 1 && s.length() <= 100;
+          ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:13: error: ';' expected
+requires s.length() >= 1 && s.length() <= 100;
+                   ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: invalid method declaration; return type required
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: illegal character: '\'
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+          ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: ',', ')', or '[' expected
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                       ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: illegal start of type
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                         ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: <identifier> expected
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                          ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: illegal start of type
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                           ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: ';' expected
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                               ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: illegal start of type
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                                ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: ';' expected
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                                    ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: > expected
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                                        ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: <identifier> expected
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                                                                    ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: <identifier> expected
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                                                                             ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:14: error: ';' expected
+requires (\forall int i; 0 <= i && i < s.length(); Character.isDigit(s.charAt(i)));
+                                                                                ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:15: error: illegal character: '\'
+ensures \result >= 0;
+        ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:15: error: illegal start of type
+ensures \result >= 0;
+                ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:15: error: <identifier> expected
+ensures \result >= 0;
+                  ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:15: error: illegal start of type
+ensures \result >= 0;
+                   ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:15: error: <identifier> expected
+ensures \result >= 0;
+                    ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:16: error: illegal character: '\'
+ensures \result <= Integer.MAX_VALUE;
+        ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:16: error: illegal start of type
+ensures \result <= Integer.MAX_VALUE;
+                ^
+./test/s0091_decode_ways/llm-results/gpt4/Solution.java:16: error: ';' expected
+ensures \result <= Integer.MAX_VALUE;
+                          ^
+28 errors

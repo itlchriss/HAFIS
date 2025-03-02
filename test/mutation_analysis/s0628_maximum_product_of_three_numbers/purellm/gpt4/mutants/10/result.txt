@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/gpt4/mutants/10/Solution.java:13: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \max
+//@ ensures \result == (\max int i, j, k; 0 <= i < j < k < nums.length; nums[i] * nums[j] * nums[k]);
+                        ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/gpt4/mutants/10/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/gpt4/mutants/10/Solution.java:13:) in method maximumProduct
+        return Math.max(min1 * min2 * max1, max1 * max2 * max3);
+        ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/gpt4/mutants/10/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/gpt4/mutants/10/Solution.java:38:
+//@ ensures \result == (\max int i, j, k; 0 <= i < j < k < nums.length; nums[i] * nums[j] * nums[k]);
+    ^
+1 warning
+2 verification failures

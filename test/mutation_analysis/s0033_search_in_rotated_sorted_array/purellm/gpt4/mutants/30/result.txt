@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/30/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/30/Solution.java:20:) in method search
+        return -1;
+        ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/30/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/30/Solution.java:53:
+//@ ensures (\result == -1 ==> (\forall int i; 0 <= i < nums.length; nums[i] != target));
+    ^
+2 verification failures

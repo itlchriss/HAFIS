@@ -1,0 +1,34 @@
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:12: error: <identifier> expected
+@*/
+ ^
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:12: error: <identifier> expected
+@*/
+  ^
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:12: error: <identifier> expected
+@*/
+   ^
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:13: error: illegal start of type
+if (num == 0) {
+^
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:13: error: <identifier> expected
+if (num == 0) {
+  ^
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:13: error: <identifier> expected
+if (num == 0) {
+       ^
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:16: error: illegal start of expression
+    public int addDigits(int num) {
+    ^
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:16: error: ';' expected
+    public int addDigits(int num) {
+          ^
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:16: error: ';' expected
+    public int addDigits(int num) {
+                        ^
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:16: error: ';' expected
+    public int addDigits(int num) {
+                                ^
+./test/syntax_check/s0258_add_digits/purellm/gpt4/Solution.java:25: error: reached end of file while parsing
+}
+ ^
+11 errors

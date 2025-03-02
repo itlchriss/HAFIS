@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/starchat/mutants/17/Solution.java:36: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int myAtoi(String str) {
+               ^
+1 verification failure

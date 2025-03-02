@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0520_detect_capital/purellm/gpt35/Solution.java:14: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public boolean detectCapitalUse(String word) {
+                   ^
+1 verification failure

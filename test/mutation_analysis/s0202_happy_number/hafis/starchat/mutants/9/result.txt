@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0202_happy_number/hafis/starchat/mutants/9/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0202_happy_number/hafis/starchat/mutants/9/Solution.java:14:) in method isHappy
+        return happy;
+        ^
+./test/mutation_analysis/s0202_happy_number/hafis/starchat/mutants/9/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0202_happy_number/hafis/starchat/mutants/9/Solution.java:38:
+//@ ensures(n == 19);
+    ^
+./test/mutation_analysis/s0202_happy_number/hafis/starchat/mutants/9/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0202_happy_number/hafis/starchat/mutants/9/Solution.java:13:) in method isHappy
+        return happy;
+        ^
+./test/mutation_analysis/s0202_happy_number/hafis/starchat/mutants/9/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0202_happy_number/hafis/starchat/mutants/9/Solution.java:38:
+//@ ensures(n == 1);
+    ^
+4 verification failures

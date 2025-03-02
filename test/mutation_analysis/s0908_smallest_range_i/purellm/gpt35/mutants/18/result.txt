@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/18/Solution.java:95: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int smallestRangeI(int[] nums, int k) {
+               ^
+1 verification failure

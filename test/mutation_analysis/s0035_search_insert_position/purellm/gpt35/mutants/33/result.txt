@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:16:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:35:
+//@ ensures \result >= 0 && \result <= nums.length;
+    ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:19:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:35:
+//@ ensures (\forall int i; 0 <= i && i < nums.length; nums[i] > target) ==> \result == 0;
+    ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:18:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt35/mutants/33/Solution.java:35:
+//@ ensures (\forall int i; 0 <= i && i < nums.length; nums[i] < target) ==> \result == nums.length;
+    ^
+6 verification failures

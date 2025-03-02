@@ -1,0 +1,1 @@
+requires(\forall int i; 0 <= i < version2.length(); Character.isDigit(version2.charAt(i)) || version2.charAt(i) == '.');

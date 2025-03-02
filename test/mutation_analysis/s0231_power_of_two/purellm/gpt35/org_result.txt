@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0231_power_of_two/purellm/gpt35/Solution.java:19: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0231_power_of_two/purellm/gpt35/Solution.java:12:) in method isPowerOfTwo
+                return true;
+                ^
+./test/mutation_analysis/s0231_power_of_two/purellm/gpt35/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0231_power_of_two/purellm/gpt35/Solution.java:19:
+//@ ensures \result == (n > 0 && (n & (n - 1)) == 0);
+    ^
+2 verification failures

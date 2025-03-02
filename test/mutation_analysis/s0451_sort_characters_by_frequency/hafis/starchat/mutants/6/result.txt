@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/starchat/mutants/6/Solution.java:34: error: unreachable statement
+                for (int i = 0; false; i++) {
+                                            ^
+1 error

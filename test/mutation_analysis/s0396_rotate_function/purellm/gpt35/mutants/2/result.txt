@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0396_rotate_function/purellm/gpt35/mutants/2/Solution.java:19: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

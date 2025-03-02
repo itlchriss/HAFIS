@@ -1,0 +1,12 @@
+ensures:
+- The type_integer_array_ result's length is equal to the type_integer_array_ param_nums1_'s length.
+- If the type_integer_array_ param_nums1_ is equal to arr_a and the type_integer_array_ param_nums2_ is equal to arr_b , the type_integer_array_ result is equal to arr_c.
+- If the type_integer_array_ param_nums1_ is equal to arr_a and the type_integer_array_ param_nums2_ is equal to arr_b , the type_integer_array_ result is equal to arr_c.
+requires:
+- The type_integer_array_ param_nums1_'s length is less_than_or_equal to the type_integer_array_ param_nums2_'s length and is greater_than_or_equal to 1.
+- The type_integer_array_ param_nums2_'s length is less_than_or_equal to 1000 and is greater_than_or_equal to 1.
+- The type_integer_array_ param_nums1_'s values are less_than_or_equal to 10000 and are greater_than_or_equal to 0.
+- The type_integer_array_ param_nums2_'s values are less_than_or_equal to 10000 and are greater_than_or_equal to 0.
+- The type_integer_array_ param_nums1_'s values are unique.
+- The type_integer_array_ param_nums2_'s values are unique.
+- The type_integer_array_ param_nums1_ are contained by the type_integer_array_ param_nums2_.

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/8/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/8/Solution.java:16:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/8/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/8/Solution.java:40:
+//@ ensures (\result.length() >= Math.max(a.length(), b.length()));
+    ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/8/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/8/Solution.java:17:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/8/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/gpt4/mutants/8/Solution.java:40:
+//@ ensures (\forall int i; 0 <= i && i < \result.length(); \result.charAt(i) == '0' || \result.charAt(i) == '1');
+    ^
+4 verification failures

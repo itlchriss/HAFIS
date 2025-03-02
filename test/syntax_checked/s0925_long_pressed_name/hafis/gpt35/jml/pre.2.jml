@@ -1,0 +1,1 @@
+requires((\forall int i; 0 <= i < name.length(); Character.isLowerCase(name.charAt(i))) && (\forall int i; 0 <= i < typed.length(); Character.isLowerCase(typed.charAt(i))));

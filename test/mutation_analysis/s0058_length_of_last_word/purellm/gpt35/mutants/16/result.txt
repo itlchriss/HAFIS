@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:124: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:12:) in method lengthOfLastWord
+        return len;
+        ^
+./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:124:
+//@ ensures \result >= 0;
+    ^
+./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:124: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:13:) in method lengthOfLastWord
+        return len;
+        ^
+./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:124:
+//@ ensures \result == 0 ==> (\forall int i; 0 <= i < s.length(); s.charAt(i) == ' ');
+    ^
+./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:124: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:14:) in method lengthOfLastWord
+        return len;
+        ^
+./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0058_length_of_last_word/purellm/gpt35/mutants/16/Solution.java:124:
+//@ ensures \result == 0 ==> (\forall int i; 0 <= i < s.length(); s.charAt(i) != ' ');
+    ^
+6 verification failures

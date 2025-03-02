@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0367_valid_perfect_square/purellm/gpt35/mutants/17/Solution.java:26: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method isPerfectSquare
+            mid = start / ((end - start) / 2);
+                        ^
+1 verification failure

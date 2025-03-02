@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0067_add_binary/hafis/starchat/mutants/50/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/hafis/starchat/mutants/50/Solution.java:15:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/hafis/starchat/mutants/50/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/hafis/starchat/mutants/50/Solution.java:39:
+//@ ensures(((a.equals("11")) && (b.equals("1"))) ==> (\result.equals("100")));
+    ^
+./test/mutation_analysis/s0067_add_binary/hafis/starchat/mutants/50/Solution.java:17: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String addBinary(String a, String b) {
+                  ^
+3 verification failures

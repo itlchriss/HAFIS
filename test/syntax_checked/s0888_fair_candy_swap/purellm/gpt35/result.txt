@@ -1,0 +1,4 @@
+./test/mutate_check/s0888_fair_candy_swap/purellm/gpt35/Solution.java:105: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures aliceSizes.length <= 10000 && bobSizes.length <= 10000
+                                                                  ^
+1 warning

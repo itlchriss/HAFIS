@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0164_maximum_gap/purellm/gpt35/mutants/5/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method maximumGap
+            if ((nums[i + 1] - nums[i]) > ret) {
+                     ^
+1 verification failure

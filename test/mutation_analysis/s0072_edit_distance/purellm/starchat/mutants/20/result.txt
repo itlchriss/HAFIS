@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/20/Solution.java:15: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method minDistance: g0001_0100.s0072_edit_distance.Solution.minDistance(String,String) (parameter w2)
+    public int minDistance(String w1, String w2) {
+                                             ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/20/Solution.java:15:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/20/Solution.java:15: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method minDistance: g0001_0100.s0072_edit_distance.Solution.minDistance(String,String) (parameter w1)
+    public int minDistance(String w1, String w2) {
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/20/Solution.java:15:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/20/Solution.java:15: verify: The prover cannot establish an assertion (InvariantExceptionExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method minDistance: g0001_0100.s0072_edit_distance.Solution.minDistance(String,String) (parameter w1)
+    public int minDistance(String w1, String w2) {
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/20/Solution.java:15:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/20/Solution.java:15: verify: The prover cannot establish an assertion (InvariantExceptionExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method minDistance: g0001_0100.s0072_edit_distance.Solution.minDistance(String,String) (parameter w2)
+    public int minDistance(String w1, String w2) {
+                                             ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/purellm/starchat/mutants/20/Solution.java:15:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+8 verification failures

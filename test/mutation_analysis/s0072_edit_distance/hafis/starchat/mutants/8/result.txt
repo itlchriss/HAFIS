@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/starchat/mutants/8/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0072_edit_distance/hafis/starchat/mutants/8/Solution.java:18:) in method minDistance
+        return dp[n2];
+        ^
+./test/mutation_analysis/s0072_edit_distance/hafis/starchat/mutants/8/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/hafis/starchat/mutants/8/Solution.java:45:
+//@ ensures(((w1.equals("horse")) && (w2.equals("ros"))) ==> (\result == 3));
+    ^
+./test/mutation_analysis/s0072_edit_distance/hafis/starchat/mutants/8/Solution.java:20: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int minDistance(String w1, String w2) {
+               ^
+3 verification failures

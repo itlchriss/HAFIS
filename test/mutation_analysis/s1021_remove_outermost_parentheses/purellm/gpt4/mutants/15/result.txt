@@ -1,0 +1,13 @@
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/gpt4/mutants/15/Solution.java:58: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/gpt4/mutants/15/Solution.java:17:) in method removeOuterParentheses
+        return sb.toString();
+        ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/gpt4/mutants/15/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/gpt4/mutants/15/Solution.java:58:
+//@ ensures (\forall int i; 0 <= i && i < \result.length(); \result.charAt(i) == '(' || \result.charAt(i) == ')');
+    ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/gpt4/mutants/15/Solution.java:58: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/gpt4/mutants/15/Solution.java:19:) in method removeOuterParentheses
+        return sb.toString();
+        ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/gpt4/mutants/15/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/gpt4/mutants/15/Solution.java:58:
+//@ ensures \result.length() <= s.length();
+    ^
+4 verification failures

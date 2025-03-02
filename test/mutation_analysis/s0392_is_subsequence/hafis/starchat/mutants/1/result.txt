@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/1/Solution.java:31: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+//@ ensures((t.contains(s)) ==> (\result == true));
+                       ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/1/Solution.java:39: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public boolean isSubsequence(String s, String t) {
+                   ^
+1 warning
+1 verification failure

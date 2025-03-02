@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0055_jump_game/purellm/gpt35/mutants/16/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0055_jump_game/purellm/gpt35/mutants/16/Solution.java:14:) in method canJump
+                return true;
+                ^
+./test/mutation_analysis/s0055_jump_game/purellm/gpt35/mutants/16/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0055_jump_game/purellm/gpt35/mutants/16/Solution.java:42:
+//@ ensures \result == true ==> (\exists int i; 0 <= i < nums.length; i == nums.length - 1 || (\forall int j; i < j < nums.length; nums[j] > 0));
+    ^
+./test/mutation_analysis/s0055_jump_game/purellm/gpt35/mutants/16/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0055_jump_game/purellm/gpt35/mutants/16/Solution.java:15:) in method canJump
+                return false;
+                ^
+./test/mutation_analysis/s0055_jump_game/purellm/gpt35/mutants/16/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0055_jump_game/purellm/gpt35/mutants/16/Solution.java:27:
+//@ ensures \result == false ==> (\forall int i; 0 <= i < nums.length; (\exists int j; i < j < nums.length; nums[j] == 0));
+    ^
+4 verification failures

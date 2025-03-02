@@ -1,0 +1,4 @@
+./test/mutate_check/s0233_number_of_digit_one/purellm/gpt4/Solution.java:15: warning: A non-pure method is being called where it is not permitted: g0201_0300.s0233_number_of_digit_one.Solution.countDigitOne(int)
+  @ ensures \result == (\sum int i; 0 <= i && i <= n; countDigitOne(i));
+                                                                   ^
+1 warning

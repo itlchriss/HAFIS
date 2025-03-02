@@ -1,0 +1,1 @@
+ensures((nums[0] == 0 && nums.length == 1) ==> (\result.get(0) == "0"));

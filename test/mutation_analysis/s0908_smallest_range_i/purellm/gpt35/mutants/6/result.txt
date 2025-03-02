@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/6/Solution.java:102: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method smallestRangeI
+        if (min + k >= max % k) {
+                           ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/6/Solution.java:105: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/6/Solution.java:12:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/6/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/6/Solution.java:105:
+//@ ensures (\forall int i; 0 <= i && i < nums.length; nums[i] - k <= \result && \result <= nums[i] + k);
+    ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/6/Solution.java:105: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/6/Solution.java:11:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/6/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/6/Solution.java:105:
+//@ ensures \result >= 0;
+    ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/6/Solution.java:95: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int smallestRangeI(int[] nums, int k) {
+               ^
+6 verification failures

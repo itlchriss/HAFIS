@@ -1,0 +1,49 @@
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures(((\result == 2) && (nums[0] == 1 && nums[1] == 1 && nums[2] == 2 && nums.length == 3)) ==> (nums[0] == 1 && nums[1] == 2));
+                                                                    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:33: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:15:) in method removeDuplicates
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:33:
+//@ ensures(((\result == 2) && (nums[0] == 1 && nums[1] == 1 && nums[2] == 2 && nums.length == 3)) ==> (nums[0] == 1 && nums[1] == 2));
+    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures(((\result == 5) && (nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10)) ==> (nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 3 && nums[4] == 4));
+                                                                                                                    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:33: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures(((\result == 5) && (nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10)) ==> (nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 3 && nums[4] == 4));
+                                                                                                                                    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:33: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures(((\result == 5) && (nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10)) ==> (nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 3 && nums[4] == 4));
+                                                                                                                                                    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:33: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures(((\result == 5) && (nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10)) ==> (nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 3 && nums[4] == 4));
+                                                                                                                                                                    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:33: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures(((\result == 5) && (nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10)) ==> (nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 3 && nums[4] == 4));
+                                                                                                                                                                                    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:33: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:16:) in method removeDuplicates
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/gpt4/mutants/13/Solution.java:33:
+//@ ensures(((\result == 5) && (nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10)) ==> (nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 3 && nums[4] == 4));
+    ^
+16 verification failures

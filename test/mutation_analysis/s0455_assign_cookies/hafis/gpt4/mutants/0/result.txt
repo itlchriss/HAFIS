@@ -1,0 +1,37 @@
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:14:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:32:
+//@ ensures((\result <= g.length) && (\result >= 0));
+    ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method findContentChildren
+//@ ensures(((g[0] == 1 && g[1] == 2 && g[2] == 3 && g.length == 3) && (s[0] == 1 && s[1] == 1 && s.length == 2)) ==> (\result == 1));
+                            ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:32: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method findContentChildren
+//@ ensures(((g[0] == 1 && g[1] == 2 && g[2] == 3 && g.length == 3) && (s[0] == 1 && s[1] == 1 && s.length == 2)) ==> (\result == 1));
+                                         ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:32: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method findContentChildren
+//@ ensures(((g[0] == 1 && g[1] == 2 && g[2] == 3 && g.length == 3) && (s[0] == 1 && s[1] == 1 && s.length == 2)) ==> (\result == 1));
+                                                                                      ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:32: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:15:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:32:
+//@ ensures(((g[0] == 1 && g[1] == 2 && g[2] == 3 && g.length == 3) && (s[0] == 1 && s[1] == 1 && s.length == 2)) ==> (\result == 1));
+    ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method findContentChildren
+//@ ensures(((g[0] == 1 && g[1] == 2 && g[2] == 3 && g.length == 3) && (s[0] == 1 && s[1] == 1 && s.length == 2)) ==> (\result == 1));
+                                                                         ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/gpt4/mutants/0/Solution.java:32: verify: Associated method exit
+        return result;
+        ^
+12 verification failures

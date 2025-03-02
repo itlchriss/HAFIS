@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0229_majority_element_ii/purellm/gpt4/mutants/10/Solution.java:17: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+//@ ensures (\forall int x; \result.contains(x) <==> (\num_of int i; 0 <= i < nums.length; nums[i] == x) > nums.length / 3);
+                                                      ^
+./test/mutation_analysis/s0229_majority_element_ii/purellm/gpt4/mutants/10/Solution.java:70: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0229_majority_element_ii/purellm/gpt4/mutants/10/Solution.java:17:) in method majorityElement
+        return results;
+        ^
+./test/mutation_analysis/s0229_majority_element_ii/purellm/gpt4/mutants/10/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0229_majority_element_ii/purellm/gpt4/mutants/10/Solution.java:70:
+//@ ensures (\forall int x; \result.contains(x) <==> (\num_of int i; 0 <= i < nums.length; nums[i] == x) > nums.length / 3);
+    ^
+1 warning
+2 verification failures

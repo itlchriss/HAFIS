@@ -1,0 +1,91 @@
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:17: error: Expected a semicolon to separate the parts of a JML quantified expression
+//@ ensures \result >= 0;
+            ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:18: error: ')' expected
+    public int rob(int[] nums) {
+^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:18: error: Incorrectly formed or terminated ensures statement near here
+    public int rob(int[] nums) {
+    ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:13: error: Method specifications without a following method declaration
+//@ requires nums != null;
+    ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:22: error: class, interface, enum, or record expected
+        if (nums.length == 1) {
+        ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:24: error: class, interface, enum, or record expected
+        }
+        ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:27: error: class, interface, enum, or record expected
+        }
+        ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:29: error: class, interface, enum, or record expected
+        profit[0] = nums[0];
+        ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:30: error: class, interface, enum, or record expected
+        profit[1] = Math.max(nums[1], nums[0]);
+        ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:31: error: Unexpected or misspelled JML token: assume
+        //@ assume nums.length >= 2;
+            ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:31: error: Unexpected or misspelled JML token: nums
+        //@ assume nums.length >= 2;
+                   ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:31: error: Unexpected or misspelled JML token: 
+        //@ assume nums.length >= 2;
+                       ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:31: error: Unexpected or misspelled JML token: length
+        //@ assume nums.length >= 2;
+                        ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:31: error: Unexpected or misspelled JML token: >=
+        //@ assume nums.length >= 2;
+                               ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:31: error: Unexpected or misspelled JML token: 2
+        //@ assume nums.length >= 2;
+                                  ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:31: error: Unexpected or misspelled JML token: 
+        //@ assume nums.length >= 2;
+                                   ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:32: error: Unexpected or misspelled JML token: maintaining
+        //@ maintaining 2 <= i <= nums.length;
+            ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:32: error: Unexpected or misspelled JML token: 2
+        //@ maintaining 2 <= i <= nums.length;
+                        ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:32: error: Unexpected or misspelled JML token: <=
+        //@ maintaining 2 <= i <= nums.length;
+                          ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:32: error: Unexpected or misspelled JML token: i
+        //@ maintaining 2 <= i <= nums.length;
+                             ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:32: error: Unexpected or misspelled JML token: <=
+        //@ maintaining 2 <= i <= nums.length;
+                               ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:32: error: Unexpected or misspelled JML token: nums
+        //@ maintaining 2 <= i <= nums.length;
+                                  ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:32: error: Unexpected or misspelled JML token: 
+        //@ maintaining 2 <= i <= nums.length;
+                                      ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:32: error: Unexpected or misspelled JML token: length
+        //@ maintaining 2 <= i <= nums.length;
+                                       ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:32: error: Unexpected or misspelled JML token: 
+        //@ maintaining 2 <= i <= nums.length;
+                                             ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:33: error: class, interface, enum, or record expected
+        for (int i = 2; i < nums.length; i++) {
+        ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:33: error: class, interface, enum, or record expected
+        for (int i = 2; i < nums.length; i++) {
+                        ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:33: error: class, interface, enum, or record expected
+        for (int i = 2; i < nums.length; i++) {
+                                         ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:35: error: class, interface, enum, or record expected
+        }
+        ^
+./test/syntax_check/s0198_house_robber/purellm/gpt4/Solution.java:37: error: class, interface, enum, or record expected
+    }
+    ^
+30 errors

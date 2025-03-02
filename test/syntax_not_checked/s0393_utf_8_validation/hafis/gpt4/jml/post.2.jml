@@ -1,0 +1,1 @@
+ensures((data[0] == 197 && data[1] == 130 && data[2] == 1 && data.length == 3) ==> (\result == true));

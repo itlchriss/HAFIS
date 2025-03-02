@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt35/mutants/29/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0072_edit_distance/purellm/gpt35/mutants/29/Solution.java:19:) in method minDistance
+        return dp[n2];
+        ^
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt35/mutants/29/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/purellm/gpt35/mutants/29/Solution.java:46:
+//@ ensures \result >= 0;
+    ^
+2 verification failures

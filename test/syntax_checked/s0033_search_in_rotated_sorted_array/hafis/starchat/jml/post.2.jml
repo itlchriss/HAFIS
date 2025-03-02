@@ -1,0 +1,1 @@
+ensures((!(\exists int i; 0 <= i < nums.length; nums[i] == target)) ==> (\result == -1));

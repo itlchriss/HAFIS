@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt35/mutants/25/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt35/mutants/25/Solution.java:14:) in method longestConsecutive
+        return Math.max(max, thsMax);
+        ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt35/mutants/25/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt35/mutants/25/Solution.java:39:
+//@ ensures \result >= 0;
+    ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt35/mutants/25/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt35/mutants/25/Solution.java:15:) in method longestConsecutive
+        return Math.max(max, thsMax);
+        ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt35/mutants/25/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt35/mutants/25/Solution.java:39:
+//@ ensures (\forall int i, j; 0 <= i && i < nums.length && 0 <= j && j < nums.length; nums[i] == nums[j] <==> i == j);
+    ^
+4 verification failures

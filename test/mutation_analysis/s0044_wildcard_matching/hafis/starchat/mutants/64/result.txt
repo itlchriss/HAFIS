@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/64/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/64/Solution.java:15:) in method isMatch
+                return false;
+                ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/64/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/64/Solution.java:46:
+//@ ensures(("inputString".matches("pattern")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/starchat/mutants/64/Solution.java:21: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public boolean isMatch(String inputString, String pattern) {
+                   ^
+3 verification failures

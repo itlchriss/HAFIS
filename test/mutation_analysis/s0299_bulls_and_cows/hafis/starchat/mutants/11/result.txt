@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0299_bulls_and_cows/hafis/starchat/mutants/11/Solution.java:18: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String getHint(String secret, String guess) {
+                  ^
+1 verification failure

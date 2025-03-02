@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/gpt4/mutants/22/Solution.java:50: error: unreachable statement
+        return max;
+        ^
+1 error

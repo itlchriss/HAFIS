@@ -1,0 +1,1 @@
+ensures((\result == false) ==> (!(s != null && t != null && s.length() <= t.length() && (\exists int i; 0 <= i && i <= t.length() - s.length(); (\forall int j; 0 <= j && j < s.length(); t.charAt(i + j) == s.charAt(j))))));

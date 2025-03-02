@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0152_maximum_product_subarray/purellm/gpt35/mutants/14/Solution.java:30: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method maxProduct
+            cprod = cprod % arr[i];
+                          ^
+./test/mutation_analysis/s0152_maximum_product_subarray/purellm/gpt35/mutants/14/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0152_maximum_product_subarray/purellm/gpt35/mutants/14/Solution.java:14:) in method maxProduct
+        return ans;
+        ^
+./test/mutation_analysis/s0152_maximum_product_subarray/purellm/gpt35/mutants/14/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0152_maximum_product_subarray/purellm/gpt35/mutants/14/Solution.java:36:
+//@ ensures \result >= 0;
+    ^
+3 verification failures

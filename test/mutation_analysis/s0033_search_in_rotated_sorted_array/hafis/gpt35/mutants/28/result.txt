@@ -1,0 +1,43 @@
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method search
+//@ ensures(((nums[0] == 4 && nums[1] == 5 && nums[2] == 6 && nums[3] == 7 && nums[4] == 0 && nums[5] == 1 && nums[6] == 2 && nums.length == 7) && (target == 0)) ==> (\result == 4));
+                                  ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:51: verify: Associated method exit
+        return -1;
+        ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method search
+//@ ensures(((nums[0] == 4 && nums[1] == 5 && nums[2] == 6 && nums[3] == 7 && nums[4] == 0 && nums[5] == 1 && nums[6] == 2 && nums.length == 7) && (target == 0)) ==> (\result == 4));
+                                                                                                                  ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:30: verify: Associated method exit
+                return mid;
+                ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method search
+//@ ensures(((nums[0] == 4 && nums[1] == 5 && nums[2] == 6 && nums[3] == 7 && nums[4] == 0 && nums[5] == 1 && nums[6] == 2 && nums.length == 7) && (target == 0)) ==> (\result == 4));
+                                                                                  ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:51: verify: Associated method exit
+        return -1;
+        ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method search
+//@ ensures(((nums[0] == 4 && nums[1] == 5 && nums[2] == 6 && nums[3] == 7 && nums[4] == 0 && nums[5] == 1 && nums[6] == 2 && nums.length == 7) && (target == 0)) ==> (\result == 4));
+                                                                                                  ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:51: verify: Associated method exit
+        return -1;
+        ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method search
+//@ ensures(((nums[0] == 4 && nums[1] == 5 && nums[2] == 6 && nums[3] == 7 && nums[4] == 0 && nums[5] == 1 && nums[6] == 2 && nums.length == 7) && (target == 0)) ==> (\result == 4));
+                                                                  ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:51: verify: Associated method exit
+        return -1;
+        ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method search
+//@ ensures(((nums[0] == 4 && nums[1] == 5 && nums[2] == 6 && nums[3] == 7 && nums[4] == 0 && nums[5] == 1 && nums[6] == 2 && nums.length == 7) && (target == 0)) ==> (\result == 4));
+                                                  ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:51: verify: Associated method exit
+        return -1;
+        ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:51: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:18:) in method search
+        return -1;
+        ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/gpt35/mutants/28/Solution.java:51:
+//@ ensures(((nums[0] == 4 && nums[1] == 5 && nums[2] == 6 && nums[3] == 7 && nums[4] == 0 && nums[5] == 1 && nums[6] == 2 && nums.length == 7) && (target == 0)) ==> (\result == 4));
+    ^
+14 verification failures

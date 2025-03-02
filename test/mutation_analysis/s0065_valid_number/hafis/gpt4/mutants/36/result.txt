@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:13:) in method isNumber
+        return numberSeen;
+        ^
+./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:46:
+//@ ensures((s.equals("e")) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:12:) in method isNumber
+        return numberSeen;
+        ^
+./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:46:
+//@ ensures((s.equals("0")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:14:) in method isNumber
+                    return false;
+                    ^
+./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:34:
+//@ ensures((s.equals(".1")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:15:) in method isNumber
+        return numberSeen;
+        ^
+./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/36/Solution.java:46:
+//@ ensures((s.equals(".")) ==> (\result == false));
+    ^
+8 verification failures

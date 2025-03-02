@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0229_majority_element_ii/hafis/starchat/mutants/5/Solution.java:71: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0229_majority_element_ii/hafis/starchat/mutants/5/Solution.java:16:) in method majorityElement
+        return results;
+        ^
+./test/mutation_analysis/s0229_majority_element_ii/hafis/starchat/mutants/5/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0229_majority_element_ii/hafis/starchat/mutants/5/Solution.java:71:
+//@ ensures((!(\result.size() == 0)) && (\result.size() <= 2));
+    ^
+2 verification failures

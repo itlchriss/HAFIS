@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0006_zigzag_conversion/purellm/gpt4/mutants/13/Solution.java:23: verify: The prover cannot establish an assertion (LoopInvariant) in method convert
+        //@ loop_invariant 0 <= i <= k;
+            ^
+1 verification failure

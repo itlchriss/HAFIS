@@ -1,0 +1,9 @@
+- The length of the string parameter `a` is less than or equal to 100 and is greater than or equal to 1.
+- The length of the string parameter `b` is less than or equal to 100 and is greater than or equal to 1.
+- The string parameter `a` and `b` consist of only English lowercase letters.
+- If the string parameter `a` and `b` are not equal, the integer result is greater than or equal to 1 and is less than or equal to the length of the longer string parameter.
+- If the string parameter `a` and `b` are equal, the integer result is equal to -1.
+- If the string parameter `a` is equal to "aba" and the string parameter `b` is equal to "cdc", the integer result is equal to 3.
+- If the string parameter `a` is equal to "aaa" and the string parameter `b` is equal to "bbb", the integer result is equal to 3.
+- If the string parameter `a` is equal to "aaa" and the string parameter `b` is equal to "aaa", the integer result is equal to -1.
+

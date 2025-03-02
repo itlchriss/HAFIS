@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0044_wildcard_matching/hafis/gpt35/mutants/59/Solution.java:55: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/hafis/gpt35/mutants/59/Solution.java:15:) in method isMatch
+        return isMatch;
+        ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/gpt35/mutants/59/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/hafis/gpt35/mutants/59/Solution.java:55:
+//@ ensures(((inputString.equals("aa")) && (pattern.equals("*"))) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/gpt35/mutants/59/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/hafis/gpt35/mutants/59/Solution.java:18:) in method isMatch
+                return false;
+                ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/gpt35/mutants/59/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/hafis/gpt35/mutants/59/Solution.java:45:
+//@ ensures(((inputString.equals("adceb")) && (pattern.equals("*a*b"))) ==> (\result == true));
+    ^
+4 verification failures

@@ -1,0 +1,7 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:134: Note: Not implemented for static checking: method axioms with old clauses: method toBinaryString(int)
+      @   old long pos_i = (1L<<32) + i;
+          ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/53/Solution.java:16: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String addBinary(String a, String b) {
+                  ^
+1 verification failure

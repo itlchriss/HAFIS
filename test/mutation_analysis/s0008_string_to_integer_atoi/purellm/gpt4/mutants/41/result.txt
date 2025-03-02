@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/gpt4/mutants/41/Solution.java:33: error: unreachable statement
+        while (false) {
+                      ^
+1 error

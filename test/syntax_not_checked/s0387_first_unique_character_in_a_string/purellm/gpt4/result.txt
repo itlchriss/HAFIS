@@ -1,0 +1,221 @@
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:15: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ ensures (\exists int i; 0 <= i < s.length();
+                                                ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:15: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\exists int i; 0 <= i < s.length();
+                                                ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: <identifier> expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+ ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: illegal character: '\'
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+              ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: ')' expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+               ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: <identifier> expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                     ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: Method specs may not precede a variable declaration
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                      ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: illegal start of type
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                             ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: <identifier> expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                              ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: illegal start of type
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                               ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: ';' expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                   ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: > expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                       ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: <identifier> expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                                   ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: illegal start of type
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                                    ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: ';' expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                                        ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: illegal start of type
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                                         ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: <identifier> expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                                           ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: ';' expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                                              ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: <identifier> expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                                                       ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: ';' expected
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                                                        ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:16: error: illegal character: '\'
+@            (\forall int j; 0 <= j < s.length(); j != i ==> s.charAt(i) != s.charAt(j)) ==> \result == i)
+                                                                                             ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:17: error: <identifier> expected
+@         || \result == -1;
+ ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:17: error: illegal start of type
+@         || \result == -1;
+          ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:17: error: illegal character: '\'
+@         || \result == -1;
+             ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:17: error: illegal start of type
+@         || \result == -1;
+                     ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:17: error: <identifier> expected
+@         || \result == -1;
+                       ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:17: error: illegal start of type
+@         || \result == -1;
+                        ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:17: error: <identifier> expected
+@         || \result == -1;
+                         ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:17: error: <identifier> expected
+@         || \result == -1;
+                          ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:19: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ ensures \result == -1 <==> (\forall int i; 0 <= i < s.length();
+                                                                   ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:19: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result == -1 <==> (\forall int i; 0 <= i < s.length();
+                                                                   ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: <identifier> expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+ ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: illegal character: '\'
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: ')' expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                 ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:19: error: A method specification incorrectly follows non-JML modifiers
+//@ ensures \result == -1 <==> (\forall int i; 0 <= i < s.length();
+    ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: <identifier> expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                       ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: Method specs may not precede a variable declaration
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                        ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: illegal start of type
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                               ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: <identifier> expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: illegal start of type
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                 ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: ';' expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                     ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: > expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                         ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: <identifier> expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                                     ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: illegal start of type
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                                      ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: ';' expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                                          ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: illegal start of type
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                                           ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: ';' expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                                               ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: <identifier> expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                                                        ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:20: error: ';' expected
+@                              (\exists int j; 0 <= j < s.length(); j != i && s.charAt(i) == s.charAt(j)));
+                                                                                         ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:21: error: <identifier> expected
+@
+ ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:24: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ ensures \result >= 0 ==> (\forall int k; 0 <= k < \result;
+                                                              ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:24: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result >= 0 ==> (\forall int k; 0 <= k < \result;
+                                                              ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: <identifier> expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+ ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: illegal character: '\'
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                              ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: ')' expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                               ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:24: error: A method specification incorrectly follows non-JML modifiers
+//@ ensures \result >= 0 ==> (\forall int k; 0 <= k < \result;
+    ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: <identifier> expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                     ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: Method specs may not precede a variable declaration
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                      ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: illegal start of type
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                             ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: <identifier> expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                              ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: illegal start of type
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                               ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: ';' expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                                   ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: > expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                                       ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: <identifier> expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                                                   ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: illegal start of type
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                                                    ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: ';' expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                                                        ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: illegal start of type
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                                                         ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: ';' expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                                                             ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: <identifier> expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                                                                      ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:25: error: ';' expected
+@                            (\exists int j; 0 <= j < s.length(); j != k && s.charAt(k) == s.charAt(j)));
+                                                                                       ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:26: error: <identifier> expected
+@*/
+ ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:26: error: <identifier> expected
+@*/
+  ^
+./test/syntax_check/s0387_first_unique_character_in_a_string/purellm/gpt4/Solution.java:26: error: <identifier> expected
+@*/
+   ^
+70 errors
+3 warnings

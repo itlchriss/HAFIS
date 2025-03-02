@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0091_decode_ways/purellm/starchat/mutants/41/Solution.java:30: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method numDecodings
+            int twodigits = (s.charAt(i - 2) - '0') * 10 % (s.charAt(i - 1) - '0');
+                                                         ^
+1 verification failure

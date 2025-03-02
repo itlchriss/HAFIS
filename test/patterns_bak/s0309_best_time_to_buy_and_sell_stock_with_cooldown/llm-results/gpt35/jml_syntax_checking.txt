@@ -1,0 +1,11 @@
+./test/s0309_best_time_to_buy_and_sell_stock_with_cooldown/llm-results/gpt35/Solution.java:60: error: Incorrectly formed or terminated requires statement near here -- perhaps a missing semicolon
+//@ requires prices != null && prices.length >= 1 && prices.length <= 5000
+                                                                          ^
+./test/s0309_best_time_to_buy_and_sell_stock_with_cooldown/llm-results/gpt35/Solution.java:61: error: Incorrectly formed or terminated requires statement near here -- perhaps a missing semicolon
+//@ requires (\forall int i; 0 <= i && i < prices.length; prices[i] >= 0 && prices[i] <= 1000)
+                                                                                              ^
+./test/s0309_best_time_to_buy_and_sell_stock_with_cooldown/llm-results/gpt35/Solution.java:62: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result >= 0
+                        ^
+2 errors
+1 warning

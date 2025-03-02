@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt4/mutants/25/Solution.java:21: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method smallestRangeI
+        return (max - k) / (min + k);
+                         ^
+1 verification failure

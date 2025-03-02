@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt4/mutants/2/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt4/mutants/2/Solution.java:15:) in method longestConsecutive
+        return Math.max(max, thsMax);
+        ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt4/mutants/2/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt4/mutants/2/Solution.java:38:
+//@ ensures (\exists int[] seq; (\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) && (\forall int i; 0 <= i && i < seq.length; (\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) && seq.length == \result);
+    ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt4/mutants/2/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt4/mutants/2/Solution.java:16:) in method longestConsecutive
+        return Math.max(max, thsMax);
+        ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt4/mutants/2/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/gpt4/mutants/2/Solution.java:38:
+//@ ensures (\forall int[] seq; (\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) && (\forall int i; 0 <= i && i < seq.length; (\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) ==> seq.length <= \result);
+    ^
+4 verification failures

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0007_reverse_integer/purellm/starchat/mutants/22/Solution.java:31: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method reverse
+        return (int) rev;
+               ^
+1 verification failure

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0263_ugly_number/hafis/gpt4/mutants/17/Solution.java:23: error: unreachable statement
+            while (false) {
+                          ^
+1 error

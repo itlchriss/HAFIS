@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/4/Solution.java:31: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+            dp[j] = j;
+              ^
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/4/Solution.java:31: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method minDistance
+            dp[j] = j;
+              ^
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/4/Solution.java:47: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+        return dp[n2];
+                 ^
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/4/Solution.java:35: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+            int pre = dp[0];
+                        ^
+4 verification failures

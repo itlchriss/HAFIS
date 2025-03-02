@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0709_to_lower_case/purellm/gpt4/mutants/11/Solution.java:18: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method toLowerCase
+            if (c[i] <= 'Z') {
+                 ^
+./test/mutation_analysis/s0709_to_lower_case/purellm/gpt4/mutants/11/Solution.java:19: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method toLowerCase
+                c[i] = (char) (c[i] - 'A' + 'a');
+                       ^
+./test/mutation_analysis/s0709_to_lower_case/purellm/gpt4/mutants/11/Solution.java:22: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0709_to_lower_case/purellm/gpt4/mutants/11/Solution.java:14:) in method toLowerCase
+        return new String(c);
+        ^
+./test/mutation_analysis/s0709_to_lower_case/purellm/gpt4/mutants/11/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0709_to_lower_case/purellm/gpt4/mutants/11/Solution.java:22:
+//@ ensures (\forall int i; 0 <= i < s.length(); (Character.isUpperCase(\old(s.charAt(i))) ==> \result.charAt(i) == Character.toLowerCase(\old(s.charAt(i)))) && (!Character.isUpperCase(\old(s.charAt(i))) ==> \result.charAt(i) == \old(s.charAt(i))));
+    ^
+4 verification failures

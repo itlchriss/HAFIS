@@ -1,0 +1,22 @@
+./test/mutation_analysis/s0319_bulb_switcher/purellm/gpt4/mutants/2/Solution.java:15: verify: The prover cannot establish an assertion (Precondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:274:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+                              ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:274: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/purellm/gpt4/mutants/2/Solution.java:15:
+    public static /*@ pure @*/ double sqrt(double a);
+                                      ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:257: verify: Precondition conjunct is false: Double.isNaN(a) || a < 0.0
+      @   requires Double.isNaN(a) || a < 0.0;
+                                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:260: verify: Precondition conjunct is false: a == Double.POSITIVE_INFINITY
+      @   requires a == Double.POSITIVE_INFINITY;
+                     ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:263: verify: Precondition conjunct is false: java.lang.Math.isPositiveZero(a)
+      @   requires isPositiveZero(a);
+                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:266: verify: Precondition conjunct is false: java.lang.Math.isNegativeZero(a)
+      @   requires isNegativeZero(a);
+                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:269: verify: Precondition conjunct is false: a > 0.0
+      @   requires a > 0.0 && a < Double.POSITIVE_INFINITY;
+                     ^
+7 verification failures

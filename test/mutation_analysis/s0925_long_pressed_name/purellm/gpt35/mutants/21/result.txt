@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0925_long_pressed_name/purellm/gpt35/mutants/21/Solution.java:19: error: unreachable statement
+            while (false) {
+                          ^
+1 error

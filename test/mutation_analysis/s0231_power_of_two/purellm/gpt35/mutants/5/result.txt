@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0231_power_of_two/purellm/gpt35/mutants/5/Solution.java:13: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public boolean isPowerOfTwo(int n) {
+                   ^
+1 verification failure

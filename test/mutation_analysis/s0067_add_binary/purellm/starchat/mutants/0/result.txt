@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0067_add_binary/purellm/starchat/mutants/0/Solution.java:23: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method addBinary
+        //@ maintaining -1 <= i <= aArray.length - 1 && bArray.length - 1 >= j >= -1;
+            ^
+./test/mutation_analysis/s0067_add_binary/purellm/starchat/mutants/0/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/purellm/starchat/mutants/0/Solution.java:15:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/purellm/starchat/mutants/0/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/starchat/mutants/0/Solution.java:38:
+    //@ ensures!\result.startsWith("0");
+        ^
+3 verification failures

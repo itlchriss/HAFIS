@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0229_majority_element_ii/purellm/gpt35/mutants/25/Solution.java:18: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+//@ ensures (\forall int i; 0 <= i && i < \result.size(); (\num_of int j; 0 <= j && j < nums.length; nums[j] == \result.get(i)) > nums.length / 3);
+                                                           ^
+./test/mutation_analysis/s0229_majority_element_ii/purellm/gpt35/mutants/25/Solution.java:70: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0229_majority_element_ii/purellm/gpt35/mutants/25/Solution.java:18:) in method majorityElement
+        return results;
+        ^
+./test/mutation_analysis/s0229_majority_element_ii/purellm/gpt35/mutants/25/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0229_majority_element_ii/purellm/gpt35/mutants/25/Solution.java:70:
+//@ ensures (\forall int i; 0 <= i && i < \result.size(); (\num_of int j; 0 <= j && j < nums.length; nums[j] == \result.get(i)) > nums.length / 3);
+    ^
+1 warning
+2 verification failures

@@ -1,0 +1,4 @@
+./test/mutate_check/s0228_summary_ranges/purellm/gpt4/Solution.java:28: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+  @                \result.get(j).contains(Integer.toString(nums[i]))
+                                          ^
+1 warning

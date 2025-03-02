@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0455_assign_cookies/hafis/starchat/mutants/9/Solution.java:25: error: unreachable statement
+        while (false) {
+                      ^
+1 error

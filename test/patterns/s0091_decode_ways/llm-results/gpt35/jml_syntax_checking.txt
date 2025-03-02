@@ -1,0 +1,8 @@
+./test/s0091_decode_ways/llm-results/gpt35/Solution.java:96: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ ensures \result == 1 ==> (\forall int i; 0 <= i && i < s.length() - 1; s.charAt(i) == '0' || s.charAt(i +
+                                                                                                             ^
+./test/s0091_decode_ways/llm-results/gpt35/Solution.java:96: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result == 1 ==> (\forall int i; 0 <= i && i < s.length() - 1; s.charAt(i) == '0' || s.charAt(i +
+                                                                                                             ^
+1 error
+1 warning

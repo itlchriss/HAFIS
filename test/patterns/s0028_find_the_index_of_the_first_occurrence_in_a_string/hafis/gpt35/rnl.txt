@@ -1,0 +1,6 @@
+- The integer result is equal to the index of the first occurrence of the string parameter `needle` in the string parameter `haystack`.
+- If the string parameter `needle` is an empty string, the integer result is equal to 0.
+- If the string parameter `needle` is not part of the string parameter `haystack`, the integer result is equal to -1.
+- If the string parameter `haystack` is equal to "hello" and the string parameter `needle` is equal to "ll", the integer result is equal to 2.
+- If the string parameter `haystack` is equal to "aaaaa" and the string parameter `needle` is equal to "bba", the integer result is equal to -1.
+- If the string parameter `haystack` is an empty string and the string parameter `needle` is an empty string, the integer result is equal to 0.

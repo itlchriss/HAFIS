@@ -1,0 +1,52 @@
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:21: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method nextGreaterElement
+//@ ensures(((nums1[0] == 2 && nums1[1] == 4 && nums1.length == 2) && (nums2[0] == 1 && nums2[1] == 2 && nums2[2] == 3 && nums2[3] == 4 && nums2.length == 4)) ==> (\result[0] == 3 && \result[1] == -1 && \result.length == 2));
+                                    ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:49: verify: Associated method exit
+        return nums1;
+        ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method nextGreaterElement
+//@ ensures(((nums1[0] == 4 && nums1[1] == 1 && nums1[2] == 2 && nums1.length == 3) && (nums2[0] == 1 && nums2[1] == 3 && nums2[2] == 4 && nums2[3] == 2 && nums2.length == 4)) ==> (\result[0] == -1 && \result[1] == 3 && \result[2] == -1 && \result.length == 3));
+                                    ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:49: verify: Associated method exit
+        return nums1;
+        ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method nextGreaterElement
+//@ ensures(((nums1[0] == 4 && nums1[1] == 1 && nums1[2] == 2 && nums1.length == 3) && (nums2[0] == 1 && nums2[1] == 3 && nums2[2] == 4 && nums2[3] == 2 && nums2.length == 4)) ==> (\result[0] == -1 && \result[1] == 3 && \result[2] == -1 && \result.length == 3));
+                                                     ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:49: verify: Associated method exit
+        return nums1;
+        ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:37: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method nextGreaterElement
+                    if (nums2[index] > num) {
+                             ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method nextGreaterElement
+//@ ensures(((nums1[0] == 4 && nums1[1] == 1 && nums1[2] == 2 && nums1.length == 3) && (nums2[0] == 1 && nums2[1] == 3 && nums2[2] == 4 && nums2[3] == 2 && nums2.length == 4)) ==> (\result[0] == -1 && \result[1] == 3 && \result[2] == -1 && \result.length == 3));
+                                                                                                                                                ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:49: verify: Associated method exit
+        return nums1;
+        ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:21: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method nextGreaterElement
+//@ ensures(((nums1[0] == 2 && nums1[1] == 4 && nums1.length == 2) && (nums2[0] == 1 && nums2[1] == 2 && nums2[2] == 3 && nums2[3] == 4 && nums2.length == 4)) ==> (\result[0] == 3 && \result[1] == -1 && \result.length == 2));
+                                                                                                                               ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:49: verify: Associated method exit
+        return nums1;
+        ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:49: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:20:) in method nextGreaterElement
+        return nums1;
+        ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:49:
+//@ ensures(((nums1[0] == 4 && nums1[1] == 1 && nums1[2] == 2 && nums1.length == 3) && (nums2[0] == 1 && nums2[1] == 3 && nums2[2] == 4 && nums2[3] == 2 && nums2.length == 4)) ==> (\result[0] == -1 && \result[1] == 3 && \result[2] == -1 && \result.length == 3));
+    ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:49: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:21:) in method nextGreaterElement
+        return nums1;
+        ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:49:
+//@ ensures(((nums1[0] == 2 && nums1[1] == 4 && nums1.length == 2) && (nums2[0] == 1 && nums2[1] == 2 && nums2[2] == 3 && nums2[3] == 4 && nums2.length == 4)) ==> (\result[0] == 3 && \result[1] == -1 && \result.length == 2));
+    ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:21: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method nextGreaterElement
+//@ ensures(((nums1[0] == 2 && nums1[1] == 4 && nums1.length == 2) && (nums2[0] == 1 && nums2[1] == 2 && nums2[2] == 3 && nums2[3] == 4 && nums2.length == 4)) ==> (\result[0] == 3 && \result[1] == -1 && \result.length == 2));
+                                                                                                              ^
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/4/Solution.java:49: verify: Associated method exit
+        return nums1;
+        ^
+17 verification failures

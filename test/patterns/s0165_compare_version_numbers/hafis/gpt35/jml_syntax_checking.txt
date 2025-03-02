@@ -1,0 +1,46 @@
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:12: error: unclosed character literal
+//@ ensures((\result == -1) ==> ('version1' < 'version2'));
+                                 ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:12: error: ')' expected
+//@ ensures((\result == -1) ==> ('version1' < 'version2'));
+                                   ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:12: error: unclosed character literal
+//@ ensures((\result == -1) ==> ('version1' < 'version2'));
+                                          ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:12: error: unclosed character literal
+//@ ensures((\result == -1) ==> ('version1' < 'version2'));
+                                              ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:12: error: unclosed character literal
+//@ ensures((\result == -1) ==> ('version1' < 'version2'));
+                                                       ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:13: error: unclosed character literal
+//@ ensures((\result == 1) ==> ('version1' > 'version2'));
+                                ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:13: error: ')' expected
+//@ ensures((\result == 1) ==> ('version1' > 'version2'));
+                                  ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:13: error: unclosed character literal
+//@ ensures((\result == 1) ==> ('version1' > 'version2'));
+                                         ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:13: error: unclosed character literal
+//@ ensures((\result == 1) ==> ('version1' > 'version2'));
+                                             ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:13: error: unclosed character literal
+//@ ensures((\result == 1) ==> ('version1' > 'version2'));
+                                                      ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:15: error: unclosed character literal
+//@ ensures((\result == 0) ==> ('version1'.equals('version2')));
+                                ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:15: error: ')' expected
+//@ ensures((\result == 0) ==> ('version1'.equals('version2')));
+                                  ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:15: error: unclosed character literal
+//@ ensures((\result == 0) ==> ('version1'.equals('version2')));
+                                         ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:15: error: unclosed character literal
+//@ ensures((\result == 0) ==> ('version1'.equals('version2')));
+                                                  ^
+./test/s0165_compare_version_numbers/hafis/gpt35/Solution.java:15: error: unclosed character literal
+//@ ensures((\result == 0) ==> ('version1'.equals('version2')));
+                                                           ^
+15 errors

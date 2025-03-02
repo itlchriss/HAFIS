@@ -1,0 +1,7 @@
+./test/s0476_number_complement/hafis/starchat/Solution.java:10: error: integer number too large
+//@ requires((num < 2147483648) && (num >= 1));
+                    ^
+./test/s0476_number_complement/hafis/starchat/Solution.java:11: error: integer number too large
+//@ ensures((\result < 2147483648) && (\result >= 0));
+                       ^
+2 errors

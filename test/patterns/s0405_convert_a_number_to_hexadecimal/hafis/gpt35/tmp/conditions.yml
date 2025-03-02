@@ -1,0 +1,8 @@
+ensures:
+- The type_string_ result is equal to the type_integer_ param_num_'s hexadecimal_representation.
+- The type_string_ result only contains the lowercase_alphabets.
+- The type_string_ result's first_element is not_equal to the chry_a unless the type_string_ result only contains single_zero.
+- If the type_integer_ param_num_ is equal to 26 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is equal to negative 1 , the type_string_ result is equal to stry_a.
+requires:
+- The type_integer_ param_num_ is greater_than_or_equal to negative 2147483648 and is less_than_or_equal to 2147483647.

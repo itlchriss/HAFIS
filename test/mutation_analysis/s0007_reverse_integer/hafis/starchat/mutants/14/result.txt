@@ -1,0 +1,40 @@
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:30: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method reverse
+            rev = (rev * 10) / (x % 10);            
+                             ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:18:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38:
+//@ ensures((x == 0) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:15:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38:
+//@ ensures((x == -123) ==> (\result == -321));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:13:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38:
+//@ ensures((x == 123) ==> (\result == 321));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:14:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38:
+//@ ensures((x == 120) ==> (\result == 21));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:16:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38:
+//@ ensures((x == -2147483648) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:17:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/starchat/mutants/14/Solution.java:38:
+//@ ensures((x == 2147483647) ==> (\result == 0));
+    ^
+13 verification failures

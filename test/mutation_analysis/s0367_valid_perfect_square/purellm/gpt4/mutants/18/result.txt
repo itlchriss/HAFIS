@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0367_valid_perfect_square/purellm/gpt4/mutants/18/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0367_valid_perfect_square/purellm/gpt4/mutants/18/Solution.java:12:) in method isPerfectSquare
+        return false;
+        ^
+./test/mutation_analysis/s0367_valid_perfect_square/purellm/gpt4/mutants/18/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0367_valid_perfect_square/purellm/gpt4/mutants/18/Solution.java:38:
+//@ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+    ^
+./test/mutation_analysis/s0367_valid_perfect_square/purellm/gpt4/mutants/18/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method isPerfectSquare
+            if (mid % mid == num) {
+                    ^
+3 verification failures

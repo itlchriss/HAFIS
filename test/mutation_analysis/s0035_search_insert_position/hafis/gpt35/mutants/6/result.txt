@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0035_search_insert_position/hafis/gpt35/mutants/6/Solution.java:30: error: unreachable statement
+        return lo;
+        ^
+1 error

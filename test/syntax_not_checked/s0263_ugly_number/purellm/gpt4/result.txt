@@ -1,0 +1,6 @@
+./test/syntax_check/s0263_ugly_number/purellm/gpt4/Solution.java:11: error: cannot find symbol
+//@ ensures \result == isUglyNumber(n);
+                       ^
+  symbol:   method isUglyNumber(int)
+  location: class g0201_0300.s0263_ugly_number.Solution
+1 error

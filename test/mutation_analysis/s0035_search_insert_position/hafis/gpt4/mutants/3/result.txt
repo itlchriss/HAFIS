@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0035_search_insert_position/hafis/gpt4/mutants/3/Solution.java:25: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method searchInsert
+        //@ maintaining 0 <= lo <= hi < nums.length || lo == hi + 1;
+            ^
+1 verification failure

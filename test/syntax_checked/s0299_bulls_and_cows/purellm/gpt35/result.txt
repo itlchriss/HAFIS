@@ -1,0 +1,4 @@
+./test/mutate_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:21: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\forall int i; 0 <= i && i < secret.length(); secret.charAt(i) != guess.charAt(i) ==> \result.substring(2,3).equals("1"))
+                                                                                                                                      ^
+1 warning

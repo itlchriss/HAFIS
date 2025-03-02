@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/starchat/mutants/23/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method longestConsecutive
+            if (nums[i - 1] == nums[i]) {
+                    ^
+1 verification failure

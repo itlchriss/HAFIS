@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0217_contains_duplicate/hafis/gpt35/mutants/1/Solution.java:23: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0217_contains_duplicate/hafis/gpt35/mutants/1/Solution.java:17:) in method containsDuplicate
+                return true;
+                ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/gpt35/mutants/1/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0217_contains_duplicate/hafis/gpt35/mutants/1/Solution.java:23:
+//@ ensures((\result == true) ==> (!(\forall int i; 0 <= i < nums.length; (\forall int j; 0 <= j < nums.length && j != i; nums[j] != nums[i]))));
+    ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/gpt35/mutants/1/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0217_contains_duplicate/hafis/gpt35/mutants/1/Solution.java:18:) in method containsDuplicate
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/gpt35/mutants/1/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0217_contains_duplicate/hafis/gpt35/mutants/1/Solution.java:27:
+//@ ensures((\result == false) ==> (\forall int i; 0 <= i < nums.length; (\forall int j; 0 <= j < nums.length && j != i; nums[j] != nums[i])));
+    ^
+4 verification failures

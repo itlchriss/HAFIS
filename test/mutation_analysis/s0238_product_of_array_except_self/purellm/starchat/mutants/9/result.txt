@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/starchat/mutants/9/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method productExceptSelf
+                ans[i] = product / nums[i];
+                                 ^
+1 verification failure

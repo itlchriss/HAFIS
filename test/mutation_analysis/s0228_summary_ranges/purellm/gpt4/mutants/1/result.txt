@@ -1,0 +1,20 @@
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/1/Solution.java:28: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+  @                \result.get(j).contains(Integer.toString(nums[i]))
+                                          ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/1/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/1/Solution.java:16:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/1/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/1/Solution.java:42:
+  @ ensures (\forall int i; 0 <= i && i < \result.size();
+    ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/1/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/1/Solution.java:26:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/1/Solution.java:26: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/1/Solution.java:42:
+  @ ensures (\forall int i; 0 <= i && i < nums.length;
+    ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/1/Solution.java:39: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public List<String> summaryRanges(int[] nums) {
+                        ^
+1 warning
+5 verification failures

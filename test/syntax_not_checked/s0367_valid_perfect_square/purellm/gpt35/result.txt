@@ -1,0 +1,31 @@
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt35/Solution.java:12: error: Incorrectly formed or terminated ensures statement near here
+//@ ensures \result == true <==> there exists int i; i * i == num;
+                                       ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt35/Solution.java:12: error: <identifier> expected
+//@ ensures \result == true <==> there exists int i; i * i == num;
+                                                      ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt35/Solution.java:12: error: Method specs may not precede a variable declaration
+//@ ensures \result == true <==> there exists int i; i * i == num;
+                                                       ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt35/Solution.java:12: error: ';' expected
+//@ ensures \result == true <==> there exists int i; i * i == num;
+                                                          ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt35/Solution.java:12: error: illegal start of type
+//@ ensures \result == true <==> there exists int i; i * i == num;
+                                                           ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt35/Solution.java:13: error: Incorrectly formed or terminated ensures statement near here
+//@ ensures \result == false <==> there does not exist int i; i * i == num;
+                                        ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt35/Solution.java:13: error: <identifier> expected
+//@ ensures \result == false <==> there does not exist int i; i * i == num;
+                                                               ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt35/Solution.java:13: error: Method specs may not precede a variable declaration
+//@ ensures \result == false <==> there does not exist int i; i * i == num;
+                                                                ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt35/Solution.java:13: error: ';' expected
+//@ ensures \result == false <==> there does not exist int i; i * i == num;
+                                                                   ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt35/Solution.java:13: error: illegal start of type
+//@ ensures \result == false <==> there does not exist int i; i * i == num;
+                                                                    ^
+10 errors

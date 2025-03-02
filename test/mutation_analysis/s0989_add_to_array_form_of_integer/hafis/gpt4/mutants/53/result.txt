@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt4/mutants/53/Solution.java:25: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method addToArrayForm
+            int temp = num[i] + k % 10 + carry;
+                          ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt4/mutants/53/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt4/mutants/53/Solution.java:16:) in method addToArrayForm
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt4/mutants/53/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt4/mutants/53/Solution.java:40:
+//@ ensures(\result.size() >= num.length);
+    ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt4/mutants/53/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt4/mutants/53/Solution.java:17:) in method addToArrayForm
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt4/mutants/53/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt4/mutants/53/Solution.java:40:
+//@ ensures((!(\result.size() == 1 && \result.get(0) == 0)) ==> (\result.get(0) == 0));
+    ^
+5 verification failures

@@ -1,0 +1,22 @@
+./test/syntax_check/s0020_valid_parentheses/hafis/starchat/Solution.java:18: error: incomparable types: boolean and int
+//@ ensures((\result == 0) || (\result == 1));
+                     ^
+./test/syntax_check/s0020_valid_parentheses/hafis/starchat/Solution.java:18: error: incomparable types: boolean and int
+//@ ensures((\result == 0) || (\result == 1));
+                                       ^
+./test/syntax_check/s0020_valid_parentheses/hafis/starchat/Solution.java:19: error: incomparable types: boolean and int
+//@ ensures((s.equals("()")) ==> (\result == 1));
+                                          ^
+./test/syntax_check/s0020_valid_parentheses/hafis/starchat/Solution.java:20: error: incomparable types: boolean and int
+//@ ensures((s.equals("(]")) ==> (\result == 0));
+                                          ^
+./test/syntax_check/s0020_valid_parentheses/hafis/starchat/Solution.java:21: error: incomparable types: boolean and int
+//@ ensures((s.equals("()[]{}")) ==> (\result == 1));
+                                              ^
+./test/syntax_check/s0020_valid_parentheses/hafis/starchat/Solution.java:22: error: incomparable types: boolean and int
+//@ ensures((s.equals("{[]}")) ==> (\result == 1));
+                                            ^
+./test/syntax_check/s0020_valid_parentheses/hafis/starchat/Solution.java:23: error: incomparable types: boolean and int
+//@ ensures((s.equals("([)]")) ==> (\result == 0));
+                                            ^
+7 errors

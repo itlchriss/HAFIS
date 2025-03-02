@@ -1,0 +1,40 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:134: Note: Not implemented for static checking: method axioms with old clauses: method toBinaryString(int)
+      @   old long pos_i = (1L<<32) + i;
+          ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:14:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:38:
+//@ ensures \result.matches("[01]+");
+    ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:164:) in method addBinary
+//@ ensures \result.equals(Integer.toBinaryString(Integer.parseInt(a, 2) + Integer.parseInt(b, 2)));
+                                                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:164: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:15:
+    public static /*@ pure @*/ int parseInt(String s, int radix)
+                                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:156: verify: Precondition conjunct is false: java.lang.Integer.parseable(s, radix)
+      @    requires parseable(s, radix);
+                             ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:164:) in method addBinary
+//@ ensures \result.equals(Integer.toBinaryString(Integer.parseInt(a, 2) + Integer.parseInt(b, 2)));
+                                                                                           ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:164: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:15:
+    public static /*@ pure @*/ int parseInt(String s, int radix)
+                                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:156: verify: Precondition conjunct is false: java.lang.Integer.parseable(s, radix)
+      @    requires parseable(s, radix);
+                             ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:15:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/gpt35/mutants/12/Solution.java:38:
+//@ ensures \result.equals(Integer.toBinaryString(Integer.parseInt(a, 2) + Integer.parseInt(b, 2)));
+    ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:138: verify: The prover cannot establish an assertion (ArithmeticCastRange: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:14:) in method addBinary
+      @   ensures (int)Long.parseLong(\result,2) == i;
+                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:14: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:138:
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+         ^
+12 verification failures

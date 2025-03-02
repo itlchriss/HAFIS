@@ -1,0 +1,16 @@
+./test/s0044_wildcard_matching/hafis/starchat/Solution.java:15: error: unclosed character literal
+//@ ensures(('inputString'.matches('pattern')) ==> (\result == true));
+             ^
+./test/s0044_wildcard_matching/hafis/starchat/Solution.java:15: error: ')' expected
+//@ ensures(('inputString'.matches('pattern')) ==> (\result == true));
+               ^
+./test/s0044_wildcard_matching/hafis/starchat/Solution.java:15: error: unclosed character literal
+//@ ensures(('inputString'.matches('pattern')) ==> (\result == true));
+                         ^
+./test/s0044_wildcard_matching/hafis/starchat/Solution.java:15: error: unclosed character literal
+//@ ensures(('inputString'.matches('pattern')) ==> (\result == true));
+                                   ^
+./test/s0044_wildcard_matching/hafis/starchat/Solution.java:15: error: unclosed character literal
+//@ ensures(('inputString'.matches('pattern')) ==> (\result == true));
+                                           ^
+5 errors

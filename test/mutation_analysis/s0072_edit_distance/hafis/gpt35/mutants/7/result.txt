@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/gpt35/mutants/7/Solution.java:28: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+            dp[j] = j;
+              ^
+./test/mutation_analysis/s0072_edit_distance/hafis/gpt35/mutants/7/Solution.java:44: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+        return dp[n2];
+                 ^
+./test/mutation_analysis/s0072_edit_distance/hafis/gpt35/mutants/7/Solution.java:32: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+            int pre = dp[0];
+                        ^
+./test/mutation_analysis/s0072_edit_distance/hafis/gpt35/mutants/7/Solution.java:36: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+                int tmp = dp[j];
+                            ^
+./test/mutation_analysis/s0072_edit_distance/hafis/gpt35/mutants/7/Solution.java:19: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int minDistance(String w1, String w2) {
+               ^
+5 verification failures

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0228_summary_ranges/purellm/starchat/mutants/5/Solution.java:27: error: unreachable statement
+        for (int i = 1; false; i++) {
+                                    ^
+1 error

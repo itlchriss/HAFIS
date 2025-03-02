@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0006_zigzag_conversion/purellm/gpt4/mutants/31/Solution.java:27: error: unreachable statement
+                while (false) {
+                              ^
+1 error

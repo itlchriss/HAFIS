@@ -1,0 +1,64 @@
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:29: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method countNumbersWithUniqueDigits
+            ans = ans + 9 % mul;
+                          ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:21:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31:
+//@ ensures((n == 3) ==> (\result == 739));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:20:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31:
+//@ ensures((n == 4) ==> (\result == 5275));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:19:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31:
+//@ ensures((n == 6) ==> (\result == 1688228));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:18:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31:
+//@ ensures((n == 5) ==> (\result == 32491));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:15:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31:
+//@ ensures((n == 2) ==> (\result == 91));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:14:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31:
+//@ ensures((\result >= 1) && (\result <= 1000000000));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:11:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31:
+//@ ensures((n == 8) ==> (\result == 385875490));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:12:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31:
+//@ ensures((n == 7) ==> (\result == 83621143));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:17:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31:
+//@ ensures((n == 0) ==> (\result == 1));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:16:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/starchat/mutants/10/Solution.java:31:
+//@ ensures((n == 1) ==> (\result == 10));
+    ^
+21 verification failures

@@ -1,0 +1,19 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721: verify: The prover cannot establish an assertion (UndefinedNegativeIndex: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:144:) in method reverseWords
+      @     //-RAC@            charArray[\result] == ch &&
+                                        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:144: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721:
+    @Deprecated public /*@ pure @*/ String(byte[] ascii, int hibyte,
+                               ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/gpt35/mutants/19/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/gpt35/mutants/19/Solution.java:13:) in method reverseWords
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/gpt35/mutants/19/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/gpt35/mutants/19/Solution.java:46:
+//@ ensures (\forall int i; 0 <= i && i < \result.length(); \result.charAt(i) == s.charAt(\result.length() - 1 - i));
+    ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/gpt35/mutants/19/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/gpt35/mutants/19/Solution.java:14:) in method reverseWords
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/gpt35/mutants/19/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/gpt35/mutants/19/Solution.java:46:
+//@ ensures (\forall int i, j; 0 <= i && i < j && j < \result.length(); \result.charAt(i) != ' ' || \result.charAt(j) != ' ');
+    ^
+6 verification failures

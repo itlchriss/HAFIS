@@ -1,0 +1,20 @@
+./test/mutation_analysis/s0888_fair_candy_swap/hafis/gpt35/mutants/18/Solution.java:13: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ requires((\sum int i; 0 <= i < aliceSizes.length; aliceSizes[i]) != (\sum int i; 0 <= i < bobSizes.length; bobSizes[i]));
+              ^
+./test/mutation_analysis/s0888_fair_candy_swap/hafis/gpt35/mutants/18/Solution.java:13: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ requires((\sum int i; 0 <= i < aliceSizes.length; aliceSizes[i]) != (\sum int i; 0 <= i < bobSizes.length; bobSizes[i]));
+                                                                         ^
+./test/mutation_analysis/s0888_fair_candy_swap/hafis/gpt35/mutants/18/Solution.java:19: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures((\sum int i; 0 <= i < aliceSizes.length; aliceSizes[i]) - \result[0] == (\sum int i; 0 <= i < bobSizes.length; bobSizes[i]) - \result[1]);
+             ^
+./test/mutation_analysis/s0888_fair_candy_swap/hafis/gpt35/mutants/18/Solution.java:19: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures((\sum int i; 0 <= i < aliceSizes.length; aliceSizes[i]) - \result[0] == (\sum int i; 0 <= i < bobSizes.length; bobSizes[i]) - \result[1]);
+                                                                                     ^
+./test/mutation_analysis/s0888_fair_candy_swap/hafis/gpt35/mutants/18/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0888_fair_candy_swap/hafis/gpt35/mutants/18/Solution.java:19:) in method fairCandySwap
+        return ans;
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/hafis/gpt35/mutants/18/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0888_fair_candy_swap/hafis/gpt35/mutants/18/Solution.java:43:
+//@ ensures((\sum int i; 0 <= i < aliceSizes.length; aliceSizes[i]) - \result[0] == (\sum int i; 0 <= i < bobSizes.length; bobSizes[i]) - \result[1]);
+    ^
+4 warnings
+2 verification failures

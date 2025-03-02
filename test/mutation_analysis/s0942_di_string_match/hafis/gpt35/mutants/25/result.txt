@@ -1,0 +1,28 @@
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:34: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:14:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:40:
+//@ ensures(\forall int i; 0 <= i < \result.length; (\forall int j; 0 <= j < \result.length && j != i; \result[j] != \result[i]));
+    ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:15:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:40:
+//@ ensures((s.equals("III")) ==> (\result[0] == 0 && \result[1] == 1 && \result[2] == 2 && \result[3] == 3 && \result.length == 4));
+    ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:16:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:40:
+//@ ensures((s.equals("IDID")) ==> (\result[0] == 0 && \result[1] == 4 && \result[2] == 1 && \result[3] == 3 && \result[4] == 2 && \result.length == 5));
+    ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:17:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt35/mutants/25/Solution.java:40:
+//@ ensures((s.equals("DDI")) ==> (\result[0] == 3 && \result[1] == 2 && \result[2] == 0 && \result[3] == 1 && \result.length == 4));
+    ^
+9 verification failures

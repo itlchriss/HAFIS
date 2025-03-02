@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0128_longest_consecutive_sequence/hafis/gpt4/mutants/9/Solution.java:26: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/5/Solution.java:28: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+  @                \result.get(j).contains(Integer.toString(nums[i]))
+                                          ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/gpt4/mutants/5/Solution.java:52: error: unreachable statement
+        for (int i = 1; false; i++) {
+                                    ^
+1 error
+1 warning

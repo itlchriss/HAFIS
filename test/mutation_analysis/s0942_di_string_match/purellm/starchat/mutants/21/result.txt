@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0942_di_string_match/purellm/starchat/mutants/21/Solution.java:21: error: unreachable statement
+        for (int i = s.length() - 1; false; i--) {
+                                                 ^
+1 error

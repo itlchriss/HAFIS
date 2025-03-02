@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/gpt4/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/gpt4/Solution.java:13:) in method firstUniqChar
+        return ans;
+        ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/gpt4/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/gpt4/Solution.java:28:
+//@ ensures((\result >= -1) && (\result < s.length()));
+    ^
+2 verification failures

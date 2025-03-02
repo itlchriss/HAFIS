@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/16/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/16/Solution.java:12:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/16/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/16/Solution.java:38:
+//@ ensures (\forall int i; 0 <= i && i < \result.length; 0 <= \result[i] && \result[i] <= 9);
+    ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/16/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/16/Solution.java:16:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/16/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/16/Solution.java:38:
+//@ ensures \result[\result.length - 1] == digits[\result.length - 1] + 1 || (\forall int i; 0 <= i && i < \result.length - 1; \result[i] == digits[i] + 1 && \result[\result.length - 1] == 0);
+    ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/16/Solution.java:17: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int[] plusOne(int[] digits) {
+                 ^
+5 verification failures

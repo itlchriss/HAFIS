@@ -1,0 +1,32 @@
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:21: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+//@ ensures \result == (\num_of int i, j; 0 <= i && i < j && j < nums.length; Math.abs(nums[i] - nums[j]) == k);
+                        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:24: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+//@ ensures \result == (\num_of int i, j; 0 <= i && i < j && j < nums.length; Math.abs(nums[i] - nums[j]) == k);
+                        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:47: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:21:) in method findPairs
+        return res;
+        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:47:
+//@ ensures \result == (\num_of int i, j; 0 <= i && i < j && j < nums.length; Math.abs(nums[i] - nums[j]) == k);
+    ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:47: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:22:) in method findPairs
+        return res;
+        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:47:
+//@ ensures (\forall int i, j, m, n; 0 <= i && i < j && j < nums.length && 0 <= m && m < n && n < nums.length; i != m && j != n ==> (nums[i] != nums[m] || nums[j] != nums[n]));
+    ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:47: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:23:) in method findPairs
+        return res;
+        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:23: verify: Associated declaration: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:47:
+//@ ensures (\forall int i, j; 0 <= i && i < j && j < nums.length; (\exists int m, n; 0 <= m && m < n && n < nums.length; i != m && j != n && Math.abs(nums[i] - nums[j]) == k && nums[i] == nums[m] && nums[j] == nums[n]));
+    ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:47: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:14:) in method findPairs
+        return res;
+        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/Solution.java:47:
+//@ ensures \result >= 0;
+    ^
+2 warnings
+8 verification failures

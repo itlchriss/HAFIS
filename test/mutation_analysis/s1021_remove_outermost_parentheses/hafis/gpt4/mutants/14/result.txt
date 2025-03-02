@@ -1,0 +1,4 @@
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/gpt4/mutants/14/Solution.java:24: error: unreachable statement
+            while (false) {
+                          ^
+1 error

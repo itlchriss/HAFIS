@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0925_long_pressed_name/hafis/gpt4/mutants/46/Solution.java:40: error: unreachable statement
+        for (; false; j++) {
+                           ^
+1 error

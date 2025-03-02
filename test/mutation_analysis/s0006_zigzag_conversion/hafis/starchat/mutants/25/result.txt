@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/starchat/mutants/25/Solution.java:50: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/starchat/mutants/25/Solution.java:12:) in method convert
+        return buf.toString();
+        ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/starchat/mutants/25/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/starchat/mutants/25/Solution.java:50:
+//@ ensures(((numRows == 3) && (s.equals("PAYPALISHIRING"))) ==> (\result.equals("PAHNAPLSIIGYIR")));
+    ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/starchat/mutants/25/Solution.java:50: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/starchat/mutants/25/Solution.java:13:) in method convert
+        return buf.toString();
+        ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/starchat/mutants/25/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/starchat/mutants/25/Solution.java:50:
+//@ ensures(((numRows == 4) && (s.equals("PAYPALISHIRING"))) ==> (\result.equals("PINALSIGYAHRPI")));
+    ^
+4 verification failures

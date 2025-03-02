@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0551_student_attendance_record_i/hafis/gpt4/mutants/19/Solution.java:12: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+//@ ensures((\result == true) ==> (!(s.contains("LLL"))));
+                                               ^
+./test/mutation_analysis/s0551_student_attendance_record_i/hafis/gpt4/mutants/19/Solution.java:26: error: unreachable statement
+                while (false) {
+                              ^
+1 error
+1 warning

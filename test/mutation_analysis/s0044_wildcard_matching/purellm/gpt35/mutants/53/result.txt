@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0044_wildcard_matching/purellm/gpt35/mutants/53/Solution.java:20: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\forall int i; 0 <= i && i < inputString.length(); \result == false && (pattern.charAt(i) != inputString.charAt(i) && pattern.charAt(i) != '?' && pattern.charAt(i) != '*'))
+                                                                                                                                                                                         ^
+./test/mutation_analysis/s0044_wildcard_matching/purellm/gpt35/mutants/53/Solution.java:50: error: unreachable statement
+        while (false) {
+                      ^
+1 error
+1 warning

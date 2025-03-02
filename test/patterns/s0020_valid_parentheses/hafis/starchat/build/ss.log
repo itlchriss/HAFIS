@@ -1,0 +1,16 @@
+test/s0020_valid_parentheses/starchat/build/Solution.java:17: error: incomparable types: boolean and int
+//@ ensures((s.equals("()")) ==> (\result == 1));
+                                          ^
+test/s0020_valid_parentheses/starchat/build/Solution.java:18: error: incomparable types: boolean and int
+//@ ensures((s.equals("(]")) ==> (\result == 0));
+                                          ^
+test/s0020_valid_parentheses/starchat/build/Solution.java:19: error: incomparable types: boolean and int
+//@ ensures((s.equals("()[]{}")) ==> (\result == 1));
+                                              ^
+test/s0020_valid_parentheses/starchat/build/Solution.java:20: error: incomparable types: boolean and int
+//@ ensures((s.equals("{[]}")) ==> (\result == 1));
+                                            ^
+test/s0020_valid_parentheses/starchat/build/Solution.java:21: error: incomparable types: boolean and int
+//@ ensures((s.equals("([)]")) ==> (\result == 0));
+                                            ^
+5 errors

@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/purellm/gpt35/mutants/6/Solution.java:19: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method countNumbersWithUniqueDigits
+                mul *= (10 % j);
+                           ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/purellm/gpt35/mutants/6/Solution.java:23: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/purellm/gpt35/mutants/6/Solution.java:12:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/purellm/gpt35/mutants/6/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/purellm/gpt35/mutants/6/Solution.java:23:
+//@ ensures \result >= 0;
+    ^
+3 verification failures

@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/35/Solution.java:33: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/35/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/35/Solution.java:14:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/35/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/35/Solution.java:39:
+//@ ensures((s.equals("III")) ==> (\result[0] == 0 && \result[1] == 1 && \result[2] == 2 && \result[3] == 3 && \result.length == 4));
+    ^
+3 verification failures

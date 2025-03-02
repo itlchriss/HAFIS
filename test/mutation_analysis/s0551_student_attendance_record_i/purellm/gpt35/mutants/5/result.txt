@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0551_student_attendance_record_i/purellm/gpt35/mutants/5/Solution.java:27: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result == true || \result == false
+                                               ^
+1 warning

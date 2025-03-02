@@ -1,0 +1,44 @@
+- term: chrs_a
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: character
+    reference_type: undefined
+  interpretation: ''' '''
+- term: chrs_b
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: character
+    reference_type: undefined
+  interpretation: '''+'''
+- term: chrs_c
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: character
+    reference_type: undefined
+  interpretation: '''-'''
+- term: chrs_d
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: character
+    reference_type: undefined
+  interpretation: '''.'''

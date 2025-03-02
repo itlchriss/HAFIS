@@ -1,0 +1,43 @@
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:11: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333:) in method addStrings
+//@ requires((!(num2.length() == 1 && num2.charAt(0) == '0')) ==> (num2.charAt(0) != '0'));
+                                                                              ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:11:
+    public /*@ pure @*/ char charAt(int index)
+                             ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:79: verify: Precondition conjunct is false: 0 <= index < charArray.length
+      @      requires 0 <= index < charArray.length;
+                                 ^
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333:) in method addStrings
+//@ requires((!(num1.length() == 1 && num1.charAt(0) == '0')) ==> (num1.charAt(0) != '0'));
+                                                                              ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:12:
+    public /*@ pure @*/ char charAt(int index)
+                             ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:79: verify: Precondition conjunct is false: 0 <= index < charArray.length
+      @      requires 0 <= index < charArray.length;
+                                 ^
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:17:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:37:
+//@ ensures(\forall int i; 0 <= i < \result.length(); Character.isDigit(\result.charAt(i)));
+    ^
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:20:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:37:
+//@ ensures(((num1.equals("0")) && (num2.equals("0"))) ==> (\result.equals("0")));
+    ^
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:18:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:37:
+//@ ensures(((num1.equals("456")) && (num2.equals("77"))) ==> (\result.equals("533")));
+    ^
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:19:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/3/Solution.java:37:
+//@ ensures(((num1.equals("11")) && (num2.equals("123"))) ==> (\result.equals("134")));
+    ^
+14 verification failures

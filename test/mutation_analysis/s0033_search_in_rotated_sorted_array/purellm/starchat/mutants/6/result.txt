@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/starchat/mutants/6/Solution.java:44: error: unreachable statement
+        return -1;
+        ^
+1 error

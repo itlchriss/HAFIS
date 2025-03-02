@@ -1,0 +1,1 @@
+ensures((n == 175) ==> (\result == true));

@@ -1,0 +1,6 @@
+./test/syntax_check/s0989_add_to_array_form_of_integer/hafis/starchat/Solution.java:20: error: bad operand types for binary operator '&&'
+//@ ensures(((\sum int i; 0 <= i < \result.size(); \result.get(i)) == (\sum int i; 0 <= i < num.length; num[i])) && ((\sum int i; 0 <= i < num.length; num[i]) + k));
+                                                                                                                 ^
+  first type:  boolean
+  second type: int
+1 error

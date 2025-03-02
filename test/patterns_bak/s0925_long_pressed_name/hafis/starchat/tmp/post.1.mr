@@ -1,0 +1,1 @@
+(-exists x01.((x01 = _it{PRP}) & exists e02.(_possible{JJ}(e02) & (Subj(e02) = x01))) & exists x03.((x03 = _it{PRP}) & exists x04.(_name{NN}(x04) & _friend{NNS}(x04) & (x03 = x04)) & exists e05.(_press{VBN}(e05) & (Acc(e05) = x03) & _long{RB}(e05)))) -> exists x06.(_result{NN}(x06) & _type_boolean_{NN}(x06) & exists x07.(_strs_a{NN}(x07) & _type_string_{NN}(x07) & (x06 = x07)))

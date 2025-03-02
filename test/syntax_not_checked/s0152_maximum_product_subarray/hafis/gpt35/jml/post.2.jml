@@ -1,0 +1,1 @@
+ensures((arr[0] == -2 && arr[1] == 0 && arr[2] == -1 && arr.length == 3) ==> (\result == 0));

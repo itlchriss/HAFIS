@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/gpt35/mutants/2/Solution.java:25: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

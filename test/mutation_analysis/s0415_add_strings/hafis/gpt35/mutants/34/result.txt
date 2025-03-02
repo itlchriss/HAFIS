@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0415_add_strings/hafis/gpt35/mutants/34/Solution.java:11: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333:) in method addStrings
+//@ requires((\forall int i; 0 <= i < num2.length(); Character.isDigit(num2.charAt(i))) && (num2.charAt(0) == '0'));
+                                                                                                       ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/gpt35/mutants/34/Solution.java:11:
+    public /*@ pure @*/ char charAt(int index)
+                             ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:79: verify: Precondition conjunct is false: 0 <= index < charArray.length
+      @      requires 0 <= index < charArray.length;
+                                 ^
+./test/mutation_analysis/s0415_add_strings/hafis/gpt35/mutants/34/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333:) in method addStrings
+//@ requires((\forall int i; 0 <= i < num1.length(); Character.isDigit(num1.charAt(i))) && (num1.charAt(0) == '0'));
+                                                                                                       ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/gpt35/mutants/34/Solution.java:12:
+    public /*@ pure @*/ char charAt(int index)
+                             ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:79: verify: Precondition conjunct is false: 0 <= index < charArray.length
+      @      requires 0 <= index < charArray.length;
+                                 ^
+6 verification failures

@@ -1,0 +1,22 @@
+- term: from_0_4_integer_sequence_
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: integer
+    reference_type: array
+  interpretation: 0_4_0,1,2,3,4
+- term: arr_a
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: integer
+    reference_type: array
+  interpretation: 0,0,1,1,1,2,2,3,3,4

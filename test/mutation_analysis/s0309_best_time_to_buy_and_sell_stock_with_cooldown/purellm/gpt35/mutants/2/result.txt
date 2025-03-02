@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/gpt35/mutants/2/Solution.java:62: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result >= 0
+                        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/gpt35/mutants/2/Solution.java:74: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/gpt35/mutants/2/Solution.java:62:) in method maxProfit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/gpt35/mutants/2/Solution.java:62: verify: Associated declaration: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/gpt35/mutants/2/Solution.java:74:
+//@ ensures \result >= 0
+    ^
+1 warning
+2 verification failures

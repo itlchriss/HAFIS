@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/purellm/starchat/mutants/5/Solution.java:16: error: unreachable statement
+            for (int j = 1; false; j++) {
+                                        ^
+1 error

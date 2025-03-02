@@ -1,0 +1,1 @@
+ensures((n == 476) ==> (\result == false));

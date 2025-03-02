@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/gpt35/mutants/7/Solution.java:14: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result >= 0 ==> haystack.substring(\result, \result + needle.length()).equals(needle)
+                                                                                                  ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/gpt35/mutants/7/Solution.java:21: verify: The prover cannot establish an assertion (LoopDecreasesNonNegative) in method strStr
+        //@ decreases (m - n + 1) - start;
+            ^
+1 warning
+1 verification failure

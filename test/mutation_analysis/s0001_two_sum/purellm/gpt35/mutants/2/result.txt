@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0001_two_sum/purellm/gpt35/mutants/2/Solution.java:26: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

@@ -1,0 +1,1 @@
+ensures((\result == false) ==> (!(t.contains(s))));

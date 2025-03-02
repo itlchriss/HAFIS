@@ -1,0 +1,134 @@
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.<init>:
+    Created MajorPluginTaskListener with options: [mml:../major/mml/all.mml.bin]
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.initOperatorSymbols:
+    Initializing operator symbols for opcode mapping
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.mutateTree:
+    Mutating tree: Env[AttrContext[Scope[super, this]],outer=Env[AttrContext[Scope[java.util.Collections, java.util.Arrays, java.util.Map, java.util.HashMap, g0401_0500.s0454_4sum_ii.Solution]]]]
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: g0401_0500.s0454_4sum_ii.Solution
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: fourSumCount([int[] nums1, int[] nums2, int[] nums3, int[] nums4])int
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 1
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 1: Solution.fourSumCount(line 20, col 29)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> %(int,int)
+            original:                  k + i 
+            mutant:                    k % i
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 2
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 2: Solution.fourSumCount(line 20, col 29)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> *(int,int)
+            original:                  k + i 
+            mutant:                    k * i
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 3
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 3: Solution.fourSumCount(line 20, col 29)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> -(int,int)
+            original:                  k + i 
+            mutant:                    k - i
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 4
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 4: Solution.fourSumCount(line 20, col 29)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> /(int,int)
+            original:                  k + i 
+            mutant:                    k / i
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 5
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 5: Solution.fourSumCount(line 21, col 55)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> %(int,int)
+            original:                  map.getOrDefault(sum, 0) + 1 
+            mutant:                    map.getOrDefault(sum, 0) % 1
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 6
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 6: Solution.fourSumCount(line 21, col 55)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> *(int,int)
+            original:                  map.getOrDefault(sum, 0) + 1 
+            mutant:                    map.getOrDefault(sum, 0) * 1
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 7
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 7: Solution.fourSumCount(line 21, col 55)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> -(int,int)
+            original:                  map.getOrDefault(sum, 0) + 1 
+            mutant:                    map.getOrDefault(sum, 0) - 1
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 8
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 8: Solution.fourSumCount(line 21, col 55)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> /(int,int)
+            original:                  map.getOrDefault(sum, 0) + 1 
+            mutant:                    map.getOrDefault(sum, 0) / 1
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 9
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 9: (STD) map.put(sum, map.getOrDefault(sum, 0) + 1); -> <NO-OP>
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 10
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 10: Solution.fourSumCount(line 26, col 25)
+            mutation operator group:   ORU
+            mutation operator:         ---(int) |==> +++(int)
+            original:                  -(k + i) 
+            mutant:                    +(k + i)
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 11
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 11: Solution.fourSumCount(line 26, col 25)
+            mutation operator group:   ORU
+            mutation operator:         ---(int) |==> ~(int)
+            original:                  -(k + i) 
+            mutant:                    ~(k + i)
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 12
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 12: Solution.fourSumCount(line 26, col 29)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> %(int,int)
+            original:                  k + i 
+            mutant:                    k % i
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 13
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 13: Solution.fourSumCount(line 26, col 29)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> *(int,int)
+            original:                  k + i 
+            mutant:                    k * i
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 14
+[01/25 01:57:58] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 14: Solution.fourSumCount(line 26, col 29)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> -(int,int)
+            original:                  k + i 
+            mutant:                    k - i
+[01/25 01:57:59] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 15
+[01/25 01:57:59] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 15: Solution.fourSumCount(line 26, col 29)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> /(int,int)
+            original:                  k + i 
+            mutant:                    k / i
+[01/25 01:57:59] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 16
+[01/25 01:57:59] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 16: (STD) count += map.getOrDefault(m, 0); -> <NO-OP>
+[01/25 01:57:59] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.mutate:
+    Generated 16 mutants (74 ms)

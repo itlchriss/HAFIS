@@ -1,0 +1,4 @@
+./test/mutate_check/s0227_basic_calculator_ii/purellm/gpt35/Solution.java:17: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result >= -2147483648 && \result <= 2147483647
+                                                           ^
+1 warning

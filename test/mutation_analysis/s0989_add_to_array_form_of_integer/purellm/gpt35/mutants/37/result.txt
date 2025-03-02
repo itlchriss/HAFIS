@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/gpt35/mutants/37/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method addToArrayForm
+            int temp = num[i] + k % 10 + carry;
+                          ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/gpt35/mutants/37/Solution.java:28: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method addToArrayForm
+            int t = k % 10 % carry;
+                           ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/gpt35/mutants/37/Solution.java:18: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public List<Integer> addToArrayForm(int[] num, int k) {
+                         ^
+3 verification failures

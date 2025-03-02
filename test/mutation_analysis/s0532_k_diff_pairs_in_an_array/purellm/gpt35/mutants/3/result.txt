@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/mutants/3/Solution.java:21: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+//@ ensures \result == (\num_of int i, j; 0 <= i && i < j && j < nums.length; Math.abs(nums[i] - nums[j]) == k);
+                        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/mutants/3/Solution.java:24: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+//@ ensures \result == (\num_of int i, j; 0 <= i && i < j && j < nums.length; Math.abs(nums[i] - nums[j]) == k);
+                        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/gpt35/mutants/3/Solution.java:25: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int findPairs(int[] nums, int k) {
+               ^
+2 warnings
+1 verification failure

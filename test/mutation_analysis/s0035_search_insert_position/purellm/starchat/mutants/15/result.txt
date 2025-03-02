@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0035_search_insert_position/purellm/starchat/mutants/15/Solution.java:18: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method searchInsert
+            int mid = lo % ((hi - lo) / 2);
+                         ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/starchat/mutants/15/Solution.java:16: verify: The prover cannot establish an assertion (LoopInvariant) in method searchInsert
+        //@ maintaining 0 <= lo <= hi < nums.length || lo == hi + 1;
+            ^
+2 verification failures

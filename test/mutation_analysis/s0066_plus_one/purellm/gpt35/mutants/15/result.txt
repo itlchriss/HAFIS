@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:12:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:38:
+//@ ensures (\forall int i; 0 <= i && i < \result.length; 0 <= \result[i] && \result[i] <= 9);
+    ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:16:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:38:
+//@ ensures \result[\result.length - 1] == digits[\result.length - 1] + 1 || (\forall int i; 0 <= i && i < \result.length - 1; \result[i] == digits[i] + 1 && \result[\result.length - 1] == 0);
+    ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:13:) in method plusOne
+            return ans;
+            ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:36:
+//@ ensures (\forall int i; 0 <= i && i < digits.length; \result[i] == digits[i]);
+    ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:14:) in method plusOne
+            return ans;
+            ^
+./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/gpt35/mutants/15/Solution.java:36:
+//@ ensures \result.length == digits.length;
+    ^
+8 verification failures

@@ -1,0 +1,59 @@
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:15: warning: A non-pure method is being called where it is not permitted: g0201_0300.s0233_number_of_digit_one.Solution.countDigitOne(int)
+  @ ensures \result == (\sum int i; 0 <= i && i <= n; countDigitOne(i));
+                                                                   ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+  @ ensures \result == (\sum int i; 0 <= i && i <= n; countDigitOne(i));
+                        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:30: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+  @ ensures \result == (\num_of int j; 0 <= j && j < 10; j == 1);
+                        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+  @ ensures \result == (\sum int i; 0 <= i && i <= n; countDigitOne(i));
+                        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:30: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+  @ ensures \result == (\num_of int j; 0 <= j && j < 10; j == 1);
+                        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:49: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:30:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:30: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:49:
+  @ ensures \result == (\num_of int j; 0 <= j && j < 10; j == 1);
+    ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:505:) in method countDigitOne
+  @ requires 0 <= n && n <= Math.pow(10, 9);
+                                    ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:505: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:14:
+    public static /*@ pure @*/ double pow(double a, double b);
+                                      ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:444: verify: Precondition conjunct is false: b == 0.0
+      @   requires b == 0.0;
+                     ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:447: verify: Precondition conjunct is false: b == 1.0
+      @   requires b == 1.0;
+                     ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:450: verify: Precondition conjunct is false: Double.isNaN(b)
+      @   requires Double.isNaN(b);
+                               ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:453: verify: Precondition conjunct is false: Double.isNaN(a)
+      @   requires Double.isNaN(a) && b != 0.0;
+                               ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:457: verify: Precondition conjunct is false: (1.0 < java.lang.Math.abs(a) && b == Double.POSITIVE_INFINITY) || (java.lang.Math.abs(a) < 1.0 && b == Double.NEGATIVE_INFINITY)
+      @         || (abs(a) < 1.0 && b == Double.NEGATIVE_INFINITY);
+                ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:461: verify: Precondition conjunct is false: (1.0 < java.lang.Math.abs(a) && b == Double.NEGATIVE_INFINITY) || (java.lang.Math.abs(a) < 1.0 && b == Double.POSITIVE_INFINITY)
+      @         || (abs(a) < 1.0 && b == Double.POSITIVE_INFINITY);
+                ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:49: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:15:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:49:
+  @ ensures \result == (\sum int i; 0 <= i && i <= n; countDigitOne(i));
+    ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:49: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:21:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/20/Solution.java:49:
+  @ ensures \result == 6;
+    ^
+5 warnings
+14 verification failures

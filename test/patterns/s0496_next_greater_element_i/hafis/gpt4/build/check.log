@@ -1,0 +1,9 @@
+10 7 3
+test/s0496_next_greater_element_i/gpt4/build/Solution.java:14: warning: A non-pure method is being called where it is not permitted: java.util.Collections.frequency(java.util.Collection<?>,java.lang.Object)
+//@ requires(\forall int i; 0 <= i < nums2.length; (Collections.frequency(Arrays.asList(nums2), nums2[i]) == 1));
+                                                                         ^
+test/s0496_next_greater_element_i/gpt4/build/Solution.java:15: warning: A non-pure method is being called where it is not permitted: java.util.Collections.frequency(java.util.Collection<?>,java.lang.Object)
+//@ requires(\forall int i; 0 <= i < nums1.length; (Collections.frequency(Arrays.asList(nums1), nums1[i]) == 1));
+                                                                         ^
+2 warnings
+

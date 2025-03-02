@@ -1,0 +1,21 @@
+12 4 6
+test/s0989_add_to_array_form_of_integer/starchat/build/Solution.java:16: error: -> expected
+//@ ensures(((num[0] == 1 && num[1] == 2 && num[2] == 0 && num[3] == 0) && (k == 34)) ==> ());
+                                                                                            ^
+test/s0989_add_to_array_form_of_integer/starchat/build/Solution.java:16: error: ')' expected
+//@ ensures(((num[0] == 1 && num[1] == 2 && num[2] == 0 && num[3] == 0) && (k == 34)) ==> ());
+                                                                                             ^
+test/s0989_add_to_array_form_of_integer/starchat/build/Solution.java:17: error: -> expected
+//@ ensures(((num[0] == 2 && num[1] == 1 && num[2] == 5) && (k == 806)) ==> ());
+                                                                              ^
+test/s0989_add_to_array_form_of_integer/starchat/build/Solution.java:17: error: ')' expected
+//@ ensures(((num[0] == 2 && num[1] == 1 && num[2] == 5) && (k == 806)) ==> ());
+                                                                               ^
+test/s0989_add_to_array_form_of_integer/starchat/build/Solution.java:18: error: -> expected
+//@ ensures(((num[0] == 2 && num[1] == 7 && num[2] == 4) && (k == 181)) ==> ());
+                                                                              ^
+test/s0989_add_to_array_form_of_integer/starchat/build/Solution.java:18: error: ')' expected
+//@ ensures(((num[0] == 2 && num[1] == 7 && num[2] == 4) && (k == 181)) ==> ());
+                                                                               ^
+6 errors
+

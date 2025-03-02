@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/gpt4/mutants/1/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method nextGreaterElement
+            indexMap.put(nums2[i], i);
+                              ^
+1 verification failure

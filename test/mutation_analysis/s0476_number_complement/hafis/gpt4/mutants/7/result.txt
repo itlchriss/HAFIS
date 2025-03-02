@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0476_number_complement/hafis/gpt4/mutants/7/Solution.java:15: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0476_number_complement/hafis/gpt4/mutants/7/Solution.java:11:) in method findComplement
+        return ~num | ((Integer.highestOneBit(num) << 1) - 1);
+        ^
+./test/mutation_analysis/s0476_number_complement/hafis/gpt4/mutants/7/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0476_number_complement/hafis/gpt4/mutants/7/Solution.java:15:
+//@ ensures((\result >= 0) && (\result < num));
+    ^
+2 verification failures

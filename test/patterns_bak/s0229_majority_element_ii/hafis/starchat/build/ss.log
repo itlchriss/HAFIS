@@ -1,0 +1,37 @@
+test/s0229_majority_element_ii/starchat/build/Solution.java:14: error: -> expected
+//@ ensures(() ==> ());
+              ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:14: error: Token ==> does not introduce an expression
+//@ ensures(() ==> ());
+               ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:14: error: -> expected
+//@ ensures(() ==> ());
+                     ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:14: error: ')' expected
+//@ ensures(() ==> ());
+                      ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:15: error: -> expected
+//@ ensures(() ==> ());
+              ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:15: error: Token ==> does not introduce an expression
+//@ ensures(() ==> ());
+               ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:15: error: -> expected
+//@ ensures(() ==> ());
+                     ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:15: error: ')' expected
+//@ ensures(() ==> ());
+                      ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:16: error: -> expected
+//@ ensures(() ==> ());
+              ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:16: error: Token ==> does not introduce an expression
+//@ ensures(() ==> ());
+               ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:16: error: -> expected
+//@ ensures(() ==> ());
+                     ^
+test/s0229_majority_element_ii/starchat/build/Solution.java:16: error: ')' expected
+//@ ensures(() ==> ());
+                      ^
+12 errors

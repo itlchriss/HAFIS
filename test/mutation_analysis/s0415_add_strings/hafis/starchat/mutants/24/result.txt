@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0415_add_strings/hafis/starchat/mutants/24/Solution.java:34: error: unreachable statement
+        return result.reverse().toString();
+        ^
+1 error

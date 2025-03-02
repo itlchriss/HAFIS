@@ -1,0 +1,31 @@
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:26: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method searchInsert
+            if (target == nums[mid]) {
+                              ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:23: verify: The prover cannot establish an assertion (LoopInvariant) in method searchInsert
+        //@ maintaining 0 <= lo <= hi < nums.length || lo == hi + 1;
+            ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:17:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:34:
+//@ ensures \result >= 0 && \result <= nums.length;
+    ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:18:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:34:
+//@ ensures (\exists int i; 0 <= i < nums.length && nums[i] == target) ==> nums[\result] == target;
+    ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method searchInsert
+//@ ensures (\exists int i; 0 <= i < nums.length && nums[i] == target) ==> nums[\result] == target;
+                                                                               ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:34: verify: Associated method exit
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:19:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/gpt4/mutants/12/Solution.java:34:
+//@ ensures !(\exists int i; 0 <= i < nums.length && nums[i] == target) ==> (\forall int i; 0 <= i < \result; nums[i] < target) && (\forall int i; \result <= i < nums.length; nums[i] > target);
+    ^
+10 verification failures

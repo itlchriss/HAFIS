@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0412_fizz_buzz/hafis/starchat/mutants/2/Solution.java:31: error: unreachable statement
+        return result;
+        ^
+1 error

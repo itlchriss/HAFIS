@@ -1,0 +1,309 @@
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:16: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ ensures \result == true <==> (
+                                  ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:16: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result == true <==> (
+                                  ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:17: error: <identifier> expected
+@   (\exists int[] map; map.length == name.length();
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:17: error: illegal character: '\'
+@   (\exists int[] map; map.length == name.length();
+     ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:17: error: ')' expected
+@   (\exists int[] map; map.length == name.length();
+      ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:17: error: <identifier> expected
+@   (\exists int[] map; map.length == name.length();
+            ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:17: error: Method specs may not precede a variable declaration
+@   (\exists int[] map; map.length == name.length();
+             ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:17: error: <identifier> expected
+@   (\exists int[] map; map.length == name.length();
+                                  ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:17: error: illegal start of type
+@   (\exists int[] map; map.length == name.length();
+                                   ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:17: error: ';' expected
+@   (\exists int[] map; map.length == name.length();
+                                          ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:18: error: <identifier> expected
+@     (\forall int i; 0 <= i < name.length();
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:18: error: illegal character: '\'
+@     (\forall int i; 0 <= i < name.length();
+       ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:18: error: ')' expected
+@     (\forall int i; 0 <= i < name.length();
+        ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:18: error: <identifier> expected
+@     (\forall int i; 0 <= i < name.length();
+              ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:18: error: illegal start of type
+@     (\forall int i; 0 <= i < name.length();
+                      ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:18: error: <identifier> expected
+@     (\forall int i; 0 <= i < name.length();
+                       ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:18: error: illegal start of type
+@     (\forall int i; 0 <= i < name.length();
+                        ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:18: error: ';' expected
+@     (\forall int i; 0 <= i < name.length();
+                            ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:18: error: > expected
+@     (\forall int i; 0 <= i < name.length();
+                                   ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:19: error: <identifier> expected
+@       (\exists int j; 0 <= j < typed.length();
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:19: error: illegal character: '\'
+@       (\exists int j; 0 <= j < typed.length();
+         ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:19: error: ')' expected
+@       (\exists int j; 0 <= j < typed.length();
+          ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:19: error: <identifier> expected
+@       (\exists int j; 0 <= j < typed.length();
+                ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:19: error: illegal start of type
+@       (\exists int j; 0 <= j < typed.length();
+                        ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:19: error: <identifier> expected
+@       (\exists int j; 0 <= j < typed.length();
+                         ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:19: error: illegal start of type
+@       (\exists int j; 0 <= j < typed.length();
+                          ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:19: error: ';' expected
+@       (\exists int j; 0 <= j < typed.length();
+                              ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:19: error: > expected
+@       (\exists int j; 0 <= j < typed.length();
+                                      ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:20: error: illegal start of type
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+             ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:20: error: ';' expected
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+               ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:20: error: <identifier> expected
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:20: error: illegal start of type
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                 ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:20: error: ';' expected
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                     ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:20: error: illegal start of type
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                      ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:20: error: ';' expected
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                              ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:20: error: <identifier> expected
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                                       ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:20: error: ';' expected
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+                                        ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:21: error: <identifier> expected
+@         (i == 0 || map[i-1] < map[i]) &&
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:21: error: illegal start of type
+@         (i == 0 || map[i-1] < map[i]) &&
+                                        ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:21: error: <identifier> expected
+@         (i == 0 || map[i-1] < map[i]) &&
+                                          ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: <identifier> expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: illegal character: '\'
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+           ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: ')' expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+            ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: <identifier> expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                  ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: ']' expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                              ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: ';' expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                               ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: <identifier> expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                                ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: illegal start of type
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                                 ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: ';' expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                                     ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: <identifier> expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                                       ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: illegal start of type
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                                        ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: '(' expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                                           ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: > expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                                                 ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:22: error: ';' expected
+@         (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length());
+                                                          ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:23: error: illegal start of type
+@           typed.charAt(k) == name.charAt(i))
+                            ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:23: error: ';' expected
+@           typed.charAt(k) == name.charAt(i))
+                                   ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:23: error: <identifier> expected
+@           typed.charAt(k) == name.charAt(i))
+                                            ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:23: error: ';' expected
+@           typed.charAt(k) == name.charAt(i))
+                                             ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:24: error: <identifier> expected
+@       )
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:24: error: illegal start of type
+@       )
+        ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:24: error: <identifier> expected
+@       )
+         ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:25: error: <identifier> expected
+@     )
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:25: error: illegal start of type
+@     )
+      ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:25: error: <identifier> expected
+@     )
+       ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:26: error: <identifier> expected
+@   )
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:26: error: illegal start of type
+@   )
+    ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:26: error: <identifier> expected
+@   )
+     ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:27: error: <identifier> expected
+@ );
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:27: error: illegal start of type
+@ );
+  ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:27: error: <identifier> expected
+@ );
+   ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:28: error: <identifier> expected
+@
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:30: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ ensures \result == false <==> !(
+                                    ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:30: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result == false <==> !(
+                                    ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:31: error: <identifier> expected
+@   (\exists int[] map; map.length == name.length();
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:31: error: illegal character: '\'
+@   (\exists int[] map; map.length == name.length();
+     ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:31: error: ')' expected
+@   (\exists int[] map; map.length == name.length();
+      ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:30: error: A method specification incorrectly follows non-JML modifiers
+//@ ensures \result == false <==> !(
+    ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:31: error: <identifier> expected
+@   (\exists int[] map; map.length == name.length();
+            ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:31: error: Method specs may not precede a variable declaration
+@   (\exists int[] map; map.length == name.length();
+             ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:31: error: <identifier> expected
+@   (\exists int[] map; map.length == name.length();
+                                  ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:31: error: illegal start of type
+@   (\exists int[] map; map.length == name.length();
+                                   ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:31: error: ';' expected
+@   (\exists int[] map; map.length == name.length();
+                                          ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:32: error: <identifier> expected
+@     (\forall int i; 0 <= i < name.length();
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:32: error: illegal character: '\'
+@     (\forall int i; 0 <= i < name.length();
+       ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:32: error: ')' expected
+@     (\forall int i; 0 <= i < name.length();
+        ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:32: error: <identifier> expected
+@     (\forall int i; 0 <= i < name.length();
+              ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:32: error: illegal start of type
+@     (\forall int i; 0 <= i < name.length();
+                      ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:32: error: <identifier> expected
+@     (\forall int i; 0 <= i < name.length();
+                       ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:32: error: illegal start of type
+@     (\forall int i; 0 <= i < name.length();
+                        ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:32: error: ';' expected
+@     (\forall int i; 0 <= i < name.length();
+                            ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:32: error: > expected
+@     (\forall int i; 0 <= i < name.length();
+                                   ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:33: error: <identifier> expected
+@       (\exists int j; 0 <= j < typed.length();
+ ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:33: error: illegal character: '\'
+@       (\exists int j; 0 <= j < typed.length();
+         ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:33: error: ')' expected
+@       (\exists int j; 0 <= j < typed.length();
+          ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:33: error: <identifier> expected
+@       (\exists int j; 0 <= j < typed.length();
+                ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:33: error: illegal start of type
+@       (\exists int j; 0 <= j < typed.length();
+                        ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:33: error: <identifier> expected
+@       (\exists int j; 0 <= j < typed.length();
+                         ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:33: error: illegal start of type
+@       (\exists int j; 0 <= j < typed.length();
+                          ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:33: error: ';' expected
+@       (\exists int j; 0 <= j < typed.length();
+                              ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:33: error: > expected
+@       (\exists int j; 0 <= j < typed.length();
+                                      ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:34: error: illegal start of type
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+             ^
+./test/syntax_check/s0925_long_pressed_name/purellm/gpt4/Solution.java:34: error: ';' expected
+@         map[i] == j && typed.charAt(j) == name.charAt(i) &&
+               ^
+100 errors
+2 warnings
+only showing the first 100 errors, of 143 total; use -Xmaxerrs if you would like to see more

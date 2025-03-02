@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/2/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method diStringMatch
+            if (s.charAt(i) == 'I' && arr[i + 1] == 0) {
+                                         ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/2/Solution.java:33: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/2/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method diStringMatch
+                arr[i] = max;
+                   ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/2/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/2/Solution.java:13:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/2/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/hafis/gpt4/mutants/2/Solution.java:39:
+//@ ensures(\result.length == s.length() + 1);
+    ^
+5 verification failures

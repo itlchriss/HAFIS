@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/starchat/mutants/6/Solution.java:23: error: unreachable statement
+        return num;
+        ^
+1 error

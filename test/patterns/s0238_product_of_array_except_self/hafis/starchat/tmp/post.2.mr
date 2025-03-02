@@ -1,0 +1,1 @@
+exists x01.(_result{NN}(x01) & _type_integer_array_{NN}(x01) & exists e02.(_calculate{VBN}(e02) & (Acc(e02) = x01) & exists x03.(_on_time{NNP}(x03) & _in{IN}(e02,x03))))

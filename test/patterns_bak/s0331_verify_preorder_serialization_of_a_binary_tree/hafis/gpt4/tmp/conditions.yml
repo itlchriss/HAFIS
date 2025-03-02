@@ -1,0 +1,9 @@
+ensures:
+- If the type_boolean_ result is equal to the true literal , the type_string_ param_preorder_ is equal to valid preorder traversal serialization of a binary tree.
+- If the type_boolean_ result is equal to the false literal , the type_string_ param_preorder_ does not represent a valid preorder traversal serialization of a binary tree.
+- If the type_string_ param_preorder_ is equal to strkk_a , the type_boolean_ result is equal to the true literal.
+- If the type_string_ param_preorder_ is equal to strkk_a , the type_boolean_ result is equal to the false literal.
+- If the type_string_ param_preorder_ is equal to strkk_a , the type_boolean_ result is equal to the false literal.
+requires:
+- The type_string_ param_preorder_'s length is less_than_or_equal to 10000 and is greater_than_or_equal to 1.
+- The type_string_ param_preorder_ contains integers in the range from 0 to 100 and the character_sharp_comma_separated.

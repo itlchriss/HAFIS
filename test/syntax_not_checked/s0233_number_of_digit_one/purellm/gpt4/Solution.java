@@ -1,0 +1,50 @@
+package g0201_0300.s0233_number_of_digit_one;
+
+// #Hard #Dynamic_Programming #Math #Recursion
+// #2022_07_04_Time_0_ms_(100.00%)_Space_41.2_MB_(25.50%)
+
+import java.util.Arrays;
+
+import java.util.Collections;
+
+@SuppressWarnings("java:S127")
+public class Solution {
+//@ requires 0 <= n && n <= Math.pow(10, 9);
+//@ ensures \result == (\sum int i; 0 <= i && i <= n; countDigitOne(i));
+@
+@ also
+@
+//@ requires 0 <= n && n <= Math.pow(10, 9);
+//@ ensures \result == 6;
+@
+@ also
+@
+//@ requires n == 0;
+//@ ensures \result == 0;
+@
+@ helper
+@ private normal_behavior
+//@ ensures \result == (\num_of int j; 0 <= j && j < 10; j == 1);
+@*/
+
+This JML specification describes the behavior of a method `countDigitOne` that takes an integer `n` as input and returns the total number of times the digit `1` appears in all non-negative integers less than or equal to `n`. The specification includes constraints and expected outcomes for different input scenarios.
+    public int countDigitOne(int n) {
+        int ans = 0;
+        // count total number of 1s appearing in every digit, starting from the last digit
+        for (int k = n, cum = 0, curr10 = 1; k > 0; curr10 *= 10) {
+            int rem = k % 10;
+            int q = k / 10;
+            if (rem == 0) {
+                ans += q * curr10;
+            } else if (rem == 1) {
+                ans += q * curr10 + cum + 1;
+            } else {
+                ans += (q + 1) * curr10;
+            }
+            k = q;
+            // if loop is at 3rd last digit and n = 54321, cum is now = 321
+            cum += rem * curr10;
+        }
+        return ans;
+    }
+}

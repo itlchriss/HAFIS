@@ -1,0 +1,12 @@
+8 3 5
+test/s0066_plus_one/gpt4/build/Solution.java:14: error: array required, but int found
+//@ ensures((\forall int i; 0 <= i < digits.length; digits[i] == 0[i]) ==> (\forall int i; 0 <= i < \result.length; \result[i] == 1[i]));
+                                                                 ^
+test/s0066_plus_one/gpt4/build/Solution.java:14: error: array required, but int found
+//@ ensures((\forall int i; 0 <= i < digits.length; digits[i] == 0[i]) ==> (\forall int i; 0 <= i < \result.length; \result[i] == 1[i]));
+                                                                                                                                  ^
+test/s0066_plus_one/gpt4/build/Solution.java:16: error: array required, but int found
+//@ ensures((\forall int i; 0 <= i < digits.length; digits[i] == 9[i]) ==> (\result[0] == 1 && \result[1] == 0));
+                                                                 ^
+3 errors
+

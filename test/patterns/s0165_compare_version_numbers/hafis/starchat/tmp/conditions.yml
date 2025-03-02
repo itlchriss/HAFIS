@@ -1,0 +1,11 @@
+ensures:
+- The type_integer_ result is equal to negative 1 , 1 , or 0.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to 0.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to 0.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to negative 1.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to 1.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to negative 1.
+requires:
+- The type_string_ param_version1_ only contains the checking_character_sequence_ and the type_string_ param_version2_ only contains the checking_character_sequence_ .
+- The type_string_ param_version1_ and param_version2_ are valid version numbers.
+- The type_string_ param_version1_'s length is less_than_or_equal to 500 and the type_string_ param_version2_'s length is less_than_or_equal to 500.

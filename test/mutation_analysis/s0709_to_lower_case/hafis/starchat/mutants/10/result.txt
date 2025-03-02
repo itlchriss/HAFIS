@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:23: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:13:) in method toLowerCase
+        return new String(c);
+        ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:23:
+//@ ensures(\exists int i; 0 <= i < \result.length(); Character.isLowerCase(\result.charAt(i)));
+    ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:23: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:14:) in method toLowerCase
+        return new String(c);
+        ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:23:
+//@ ensures((s.equals("Hello")) ==> (\result.equals("hello")));
+    ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:23: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:15:) in method toLowerCase
+        return new String(c);
+        ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0709_to_lower_case/hafis/starchat/mutants/10/Solution.java:23:
+//@ ensures((s.equals("LOVELY")) ==> (\result.equals("lovely")));
+    ^
+6 verification failures

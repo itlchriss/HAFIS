@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/gpt4/mutants/15/Solution.java:20: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method convertToTitle
+                sb.append((char) (remainder - 64));
+                          ^
+1 verification failure

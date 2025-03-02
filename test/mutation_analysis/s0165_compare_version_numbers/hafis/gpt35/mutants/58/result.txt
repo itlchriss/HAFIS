@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/58/Solution.java:58: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/58/Solution.java:11:) in method compareVersion
+                return 0;
+                ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/58/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/58/Solution.java:58:
+//@ ensures((\result == 0) ==> (version1 == version2));
+    ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/58/Solution.java:18: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int compareVersion(String version1, String version2) {
+               ^
+3 verification failures

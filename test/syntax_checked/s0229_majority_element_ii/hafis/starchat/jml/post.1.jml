@@ -1,0 +1,1 @@
+ensures((nums.get(0) == 3 && nums.get(1) == 2 && nums.get(2) == 3) ==> (\result.get(0) == 3));

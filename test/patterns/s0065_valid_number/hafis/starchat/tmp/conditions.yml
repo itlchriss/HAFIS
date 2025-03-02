@@ -1,0 +1,29 @@
+ensures:
+- The type_integer_ result is equal to the true literal or is equal to the false literal.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , the type_integer_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , stry_b , the type_integer_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , stry_b , the type_integer_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , stry_b , the type_integer_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , stry_b , the type_integer_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , stry_b , the type_integer_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , stry_b , the type_integer_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to the type_string_ stry_a , stry_b , the type_integer_ result is equal to the false literal.
+requires:
+- The type_string_ param_s_ is not null.
+- The type_string_ param_s_'s length is less_than_or_equal to 20.
+- The type_string_ param_s_ only contains the checking_character_sequence_ .

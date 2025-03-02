@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/starchat/mutants/10/Solution.java:32: error: unreachable statement
+        for (int i = 1; i <= n1; i++) {
+        ^
+1 error

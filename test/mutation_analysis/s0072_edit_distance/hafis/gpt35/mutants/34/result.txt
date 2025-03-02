@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/gpt35/mutants/34/Solution.java:39: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method minDistance
+                                ? 1 % Math.min(pre, Math.min(dp[j], dp[j - 1]))
+                                    ^
+./test/mutation_analysis/s0072_edit_distance/hafis/gpt35/mutants/34/Solution.java:19: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int minDistance(String w1, String w2) {
+               ^
+2 verification failures

@@ -1,0 +1,1 @@
+If there exists no next greater element for a value in the type_string_ strs_a , then the corresponding value in the type_integer_ result array is negative 1 . 

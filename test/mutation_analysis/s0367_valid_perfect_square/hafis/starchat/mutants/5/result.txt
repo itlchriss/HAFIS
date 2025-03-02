@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0367_valid_perfect_square/hafis/starchat/mutants/5/Solution.java:40: error: unreachable statement
+        return false;
+        ^
+1 error

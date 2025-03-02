@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:17:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:36:
+//@ ensures \result.length() >= 1;
+    ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:19:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:36:
+//@ ensures (\forall int i; 0 <= i && i < num1.length(); \result.charAt(\result.length() - 1 - i) == num1.charAt(num1.length() - 1 - i)) || (\forall int i; 0 <= i && i < num2.length(); \result.charAt(\result.length() - 1 - i) == num2.charAt(num2.length() - 1 - i));
+    ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:16:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:36:
+//@ ensures (\result != null) && (\forall int i; 0 <= i && i < \result.length(); Character.isDigit(\result.charAt(i)));
+    ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:18:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/gpt4/mutants/33/Solution.java:36:
+//@ ensures (\forall int i; 0 <= i && i < \result.length() - 1; \result.charAt(i) != '0');
+    ^
+8 verification failures

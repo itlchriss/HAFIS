@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/gpt4/mutants/11/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/gpt4/mutants/11/Solution.java:12:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/gpt4/mutants/11/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/gpt4/mutants/11/Solution.java:24:
+//@ ensures((\result >= 1) && (\result <= Math.pow(10,n)));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/gpt4/mutants/11/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/gpt4/mutants/11/Solution.java:13:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/gpt4/mutants/11/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/gpt4/mutants/11/Solution.java:24:
+//@ ensures((n == 2) ==> (\result == 91));
+    ^
+4 verification failures

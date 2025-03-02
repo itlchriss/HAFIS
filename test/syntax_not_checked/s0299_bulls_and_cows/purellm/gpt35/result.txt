@@ -1,0 +1,35 @@
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:11: error: Incorrectly formed or terminated requires statement near here -- perhaps a missing semicolon
+//@ requires secret != null && guess != null
+                                            ^
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:12: error: Incorrectly formed or terminated requires statement near here -- perhaps a missing semicolon
+//@ requires secret.length() == guess.length()
+                                              ^
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:13: error: Incorrectly formed or terminated requires statement near here -- perhaps a missing semicolon
+//@ requires secret.length() >= 1 && secret.length() <= 1000
+                                                            ^
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:14: error: Incorrectly formed or terminated requires statement near here -- perhaps a missing semicolon
+//@ requires guess.length() >= 1 && guess.length() <= 1000
+                                                          ^
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:15: error: Incorrectly formed or terminated requires statement near here -- perhaps a missing semicolon
+//@ requires (\forall int i; 0 <= i && i < secret.length(); Character.isDigit(secret.charAt(i)))
+                                                                                                ^
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:16: error: Incorrectly formed or terminated requires statement near here -- perhaps a missing semicolon
+//@ requires (\forall int i; 0 <= i && i < guess.length(); Character.isDigit(guess.charAt(i)))
+                                                                                              ^
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:17: error: Incorrectly formed or terminated ensures statement near here -- perhaps a missing semicolon
+//@ ensures \result != null
+                           ^
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:18: error: Incorrectly formed or terminated ensures statement near here -- perhaps a missing semicolon
+//@ ensures \result.matches("\\dA\\dB")
+                                       ^
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:19: error: Incorrectly formed or terminated ensures statement near here -- perhaps a missing semicolon
+//@ ensures Integer.parseInt(\result.substring(0,1)) + Integer.parseInt(\result.substring(2,3)) <= secret.length()
+                                                                                                                  ^
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:20: error: Incorrectly formed or terminated ensures statement near here -- perhaps a missing semicolon
+//@ ensures (\forall int i; 0 <= i && i < secret.length(); secret.charAt(i) == guess.charAt(i) ==> \result.substring(0,1).equals("1"))
+                                                                                                                                      ^
+./test/syntax_check/s0299_bulls_and_cows/purellm/gpt35/Solution.java:21: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\forall int i; 0 <= i && i < secret.length(); secret.charAt(i) != guess.charAt(i) ==> \result.substring(2,3).equals("1"))
+                                                                                                                                      ^
+10 errors
+1 warning

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0067_add_binary/hafis/starchat/mutants/12/Solution.java:17: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String addBinary(String a, String b) {
+                  ^
+1 verification failure

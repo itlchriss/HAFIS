@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/2/Solution.java:15: warning: A non-pure method is being called where it is not permitted: g0201_0300.s0233_number_of_digit_one.Solution.countDigitOne(int)
+  @ ensures \result == (\sum int i; 0 <= i && i <= n; countDigitOne(i));
+                                                                   ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/gpt4/mutants/2/Solution.java:35: error: unreachable statement
+        for (int k = n, cum = 0, curr10 = 1; false; curr10 *= 10) {
+                                                                  ^
+1 error
+1 warning

@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt35/mutants/1/Solution.java:21: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method containsNearbyDuplicate
+            Integer index = map.put(nums[i], i);
+                                        ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt35/mutants/1/Solution.java:23: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt35/mutants/1/Solution.java:14:) in method containsNearbyDuplicate
+                return true;
+                ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt35/mutants/1/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt35/mutants/1/Solution.java:23:
+//@ ensures \result == true <==> (\exists int i, j; 0 <= i < j < nums.length && nums[i] == nums[j] && j - i <= k);
+    ^
+3 verification failures

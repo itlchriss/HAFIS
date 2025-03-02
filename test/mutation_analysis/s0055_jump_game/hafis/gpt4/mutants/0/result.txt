@@ -1,0 +1,61 @@
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == true));
+                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:27: verify: Associated method exit
+                return false;
+                ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == true));
+                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:42: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == true));
+                                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:42: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:49: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:15:) in method canJump
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:49:
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+                                                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:49: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+                                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:49: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:49: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:49: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == true));
+                                                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:49: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:14:) in method canJump
+                return false;
+                ^
+./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0055_jump_game/hafis/gpt4/mutants/0/Solution.java:27:
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == true));
+    ^
+20 verification failures

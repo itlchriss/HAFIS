@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0412_fizz_buzz/purellm/gpt35/mutants/32/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0412_fizz_buzz/purellm/gpt35/mutants/32/Solution.java:16:) in method fizzBuzz
+        return result;
+        ^
+./test/mutation_analysis/s0412_fizz_buzz/purellm/gpt35/mutants/32/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0412_fizz_buzz/purellm/gpt35/mutants/32/Solution.java:31:
+//@ ensures \result.size() == n;
+    ^
+2 verification failures

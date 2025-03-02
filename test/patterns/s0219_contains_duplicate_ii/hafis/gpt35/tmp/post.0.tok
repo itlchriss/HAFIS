@@ -1,0 +1,1 @@
+If the type_boolean_ result is equal to the true literal , there exist 2 unique indices the type_character_ chrs_a and the type_character_ chrs_b in the type_integer_array_ param_nums_ such that the values at these indices are equal and the absolute difference between the type_character_ chrs_c and the type_character_ chrs_d is less_than_or_equal to the type_integer_ param_k_ . 

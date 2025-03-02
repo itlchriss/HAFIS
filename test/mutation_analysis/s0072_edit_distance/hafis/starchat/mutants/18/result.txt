@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/starchat/mutants/18/Solution.java:37: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+                int tmp = dp[j];
+                            ^
+./test/mutation_analysis/s0072_edit_distance/hafis/starchat/mutants/18/Solution.java:20: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int minDistance(String w1, String w2) {
+               ^
+2 verification failures

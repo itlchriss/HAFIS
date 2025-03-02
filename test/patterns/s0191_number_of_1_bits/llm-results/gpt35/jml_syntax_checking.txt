@@ -1,0 +1,14 @@
+./test/s0191_number_of_1_bits/llm-results/gpt35/Solution.java:12: error: Incorrectly formed or terminated requires statement near here -- perhaps a missing semicolon
+//@ requires n >= 0 && n <= Integer.MAX_VALUE
+                                             ^
+./test/s0191_number_of_1_bits/llm-results/gpt35/Solution.java:13: error: Incorrectly formed or terminated ensures statement near here -- perhaps a missing semicolon
+//@ ensures \result >= 0
+                        ^
+./test/s0191_number_of_1_bits/llm-results/gpt35/Solution.java:14: error: Incorrectly formed or terminated ensures statement near here -- perhaps a missing semicolon
+//@ ensures \result <= 32
+                         ^
+./test/s0191_number_of_1_bits/llm-results/gpt35/Solution.java:15: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result == Integer.bitCount(n)
+                                          ^
+3 errors
+1 warning

@@ -1,0 +1,14 @@
+./test/mutation_analysis/s0561_array_partition_i/purellm/gpt35/mutants/0/Solution.java:13: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures \result == (\sum int i; 0 <= i && i < nums.length / 2; Math.min(nums[2*i], nums[2*i+1]));
+                        ^
+./test/mutation_analysis/s0561_array_partition_i/purellm/gpt35/mutants/0/Solution.java:18: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method arrayPairSum
+            sum += Math.min(nums[i], nums[i + 1]);
+                                ^
+./test/mutation_analysis/s0561_array_partition_i/purellm/gpt35/mutants/0/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0561_array_partition_i/purellm/gpt35/mutants/0/Solution.java:13:) in method arrayPairSum
+        return sum;
+        ^
+./test/mutation_analysis/s0561_array_partition_i/purellm/gpt35/mutants/0/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0561_array_partition_i/purellm/gpt35/mutants/0/Solution.java:20:
+//@ ensures \result == (\sum int i; 0 <= i && i < nums.length / 2; Math.min(nums[2*i], nums[2*i+1]));
+    ^
+1 warning
+3 verification failures

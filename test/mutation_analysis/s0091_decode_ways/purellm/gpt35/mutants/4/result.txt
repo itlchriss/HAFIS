@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:105: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method numDecodings
+        f[1] = 1;
+         ^
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:99: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:16:) in method numDecodings
+            return 0;
+            ^
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:99:
+//@ ensures \result == 0 ==> (\forall int i; 0 <= i && i < s.length(); s.charAt(i) != '0');
+    ^
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:99: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:19:) in method numDecodings
+            return 0;
+            ^
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:99:
+//@ ensures \result == 0 ==> (\exists int i; 0 <= i && i < s.length() - 1; s.charAt(i) == '0' && (s.charAt(i + 1) == '0' || s.charAt(i + 1) > '2'));
+    ^
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:119: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method numDecodings
+        return f[n];
+                ^
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:111: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method numDecodings
+                f[i] = f[i - 1];
+                 ^
+./test/mutation_analysis/s0091_decode_ways/purellm/gpt35/mutants/4/Solution.java:116: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method numDecodings
+                f[i] += f[i - 2];
+                 ^
+8 verification failures

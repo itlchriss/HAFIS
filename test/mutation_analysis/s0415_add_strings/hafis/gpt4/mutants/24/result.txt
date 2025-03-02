@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0415_add_strings/hafis/gpt4/mutants/24/Solution.java:37: error: unreachable statement
+        return result.reverse().toString();
+        ^
+1 error

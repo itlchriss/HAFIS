@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:105: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:13:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:105:
+//@ ensures (\forall int i, j; 0 <= i && i < nums.length && 0 <= j && j < nums.length; nums[i] - k <= nums[j] && nums[j] <= nums[i] + k);
+    ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:105: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:12:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:105:
+//@ ensures (\forall int i; 0 <= i && i < nums.length; nums[i] - k <= \result && \result <= nums[i] + k);
+    ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:105: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:11:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:105:
+//@ ensures \result >= 0;
+    ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:103: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:15:) in method smallestRangeI
+            return 0;
+            ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/gpt35/mutants/10/Solution.java:103:
+//@ ensures (\forall int i, j; 0 <= i && i < nums.length && 0 <= j && j < nums.length; nums[i] - k <= nums[j] - k && nums[j] + k <= nums[i] + k);
+    ^
+8 verification failures

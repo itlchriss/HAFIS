@@ -1,0 +1,16 @@
+./test/s0961_n_repeated_element_in_size_2n_array/llm-results/gpt4/Solution.java:16: error: cannot find symbol
+//@ requires (\exists int uniqueCount; uniqueCount == n + 1);
+                                                      ^
+  symbol:   variable n
+  location: class g0901_1000.s0961_n_repeated_element_in_size_2n_array.Solution
+./test/s0961_n_repeated_element_in_size_2n_array/llm-results/gpt4/Solution.java:18: error: cannot find symbol
+//@ (\exists int count; count == n &&
+                                 ^
+  symbol:   variable n
+  location: class g0901_1000.s0961_n_repeated_element_in_size_2n_array.Solution
+./test/s0961_n_repeated_element_in_size_2n_array/llm-results/gpt4/Solution.java:21: error: cannot find symbol
+//@ ensures (\result == repeatedElement);
+                        ^
+  symbol:   variable repeatedElement
+  location: class g0901_1000.s0961_n_repeated_element_in_size_2n_array.Solution
+3 errors

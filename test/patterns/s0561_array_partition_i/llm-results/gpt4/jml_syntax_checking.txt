@@ -1,0 +1,13 @@
+./test/s0561_array_partition_i/llm-results/gpt4/Solution.java:15: error: illegal start of type
+//@ \min(nums[2*i], nums[2*i + 1]));
+        ^
+./test/s0561_array_partition_i/llm-results/gpt4/Solution.java:15: error: ')' expected
+//@ \min(nums[2*i], nums[2*i + 1]));
+         ^
+./test/s0561_array_partition_i/llm-results/gpt4/Solution.java:17: error: illegal start of type
+//@ \min(nums[2*i], nums[2*i + 1]) <= \min(nums[2*j], nums[2*j + 1]));
+        ^
+./test/s0561_array_partition_i/llm-results/gpt4/Solution.java:17: error: ')' expected
+//@ \min(nums[2*i], nums[2*i + 1]) <= \min(nums[2*j], nums[2*j + 1]));
+         ^
+4 errors

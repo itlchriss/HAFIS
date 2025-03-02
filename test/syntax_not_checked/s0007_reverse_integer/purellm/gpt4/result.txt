@@ -1,0 +1,6 @@
+./test/syntax_check/s0007_reverse_integer/purellm/gpt4/Solution.java:13: error: cannot find symbol
+//@ ensures (\result != 0) ==> (\result == reverseDigits(x));
+                                           ^
+  symbol:   method reverseDigits(int)
+  location: class g0001_0100.s0007_reverse_integer.Solution
+1 error

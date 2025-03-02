@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:13:) in method minMoves2
+        return ops;
+        ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:24:
+//@ ensures (\forall int i; 0 <= i && i < nums.length; \result >= Math.abs(\result - nums[i]));
+    ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:14:) in method minMoves2
+        return ops;
+        ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:24:
+//@ ensures (\forall int i, j; 0 <= i && i < nums.length && 0 <= j && j < nums.length; \result >= Math.abs(\result - nums[i]) + Math.abs(\result - nums[j]));
+    ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:12:) in method minMoves2
+        return ops;
+        ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/gpt35/mutants/4/Solution.java:24:
+//@ ensures \result >= 0;
+    ^
+6 verification failures

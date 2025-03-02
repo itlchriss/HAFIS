@@ -1,0 +1,22 @@
+./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:15:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:33:
+//@ ensures \result <= g.length;
+    ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:14:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:33:
+//@ ensures \result >= 0;
+    ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method findContentChildren
+            if (s[j] >= g[i]) {
+                         ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:16:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/gpt35/mutants/3/Solution.java:33:
+//@ ensures (\forall int i; 0 <= i && i < g.length; g[i] >= 1 && g[i] <= Integer.MAX_VALUE ==> (\exists int j; 0 <= j && j < s.length; s[j] >= g[i]));
+    ^
+7 verification failures

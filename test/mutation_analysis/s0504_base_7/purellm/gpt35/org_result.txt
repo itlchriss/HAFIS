@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0504_base_7/purellm/gpt35/Solution.java:14: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0504_base_7/purellm/gpt35/Solution.java:12:) in method convertToBase7
+        return Integer.toString(num, 7);
+        ^
+./test/mutation_analysis/s0504_base_7/purellm/gpt35/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0504_base_7/purellm/gpt35/Solution.java:14:
+//@ ensures \result.equals(Integer.toString(num, 7));
+    ^
+2 verification failures

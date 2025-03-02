@@ -1,0 +1,16 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:96: Note: Not implemented for static checking: method axioms with old clauses: method toHexString(int)
+      @   old long pos_i = (1L<<32) + i;
+          ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/gpt35/mutants/15/Solution.java:17: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/gpt35/mutants/15/Solution.java:12:) in method toHex
+            return "0";
+            ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/gpt35/mutants/15/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/gpt35/mutants/15/Solution.java:17:
+//@ ensures \result.matches("[0-9a-f]+");
+    ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/gpt35/mutants/15/Solution.java:30: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/gpt35/mutants/15/Solution.java:13:) in method toHex
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/gpt35/mutants/15/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/gpt35/mutants/15/Solution.java:30:
+//@ ensures num >= 0 ==> \result.equals(Integer.toHexString(num));
+    ^
+4 verification failures

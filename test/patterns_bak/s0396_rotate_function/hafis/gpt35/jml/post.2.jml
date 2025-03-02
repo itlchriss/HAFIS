@@ -1,0 +1,1 @@
+ensures((nums[0] == 100 && nums.length == 1) ==> (\result == 0));

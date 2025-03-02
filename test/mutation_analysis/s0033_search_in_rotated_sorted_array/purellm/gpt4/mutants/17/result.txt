@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/17/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/17/Solution.java:21:) in method search
+                return mid;
+                ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/17/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/17/Solution.java:32:
+//@ ensures (\result != -1 ==> (0 <= \result < nums.length && nums[\result] == target));
+    ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/17/Solution.java:23: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int search(int[] nums, int target) {
+               ^
+3 verification failures

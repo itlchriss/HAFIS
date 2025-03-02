@@ -1,0 +1,20 @@
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt4/mutants/13/Solution.java:20: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures (\forall int start, end; 0 <= start && start <= end && end < nums.length; (\sum int i; start <= i && i <= end; nums[i]) == k ==> \result > 0);
+                                                                                       ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt4/mutants/13/Solution.java:22: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures (\forall int start, end; 0 <= start && start <= end && end < nums.length; (\sum int i; start <= i && i <= end; nums[i]) != k ==> \result >= 0);
+                                                                                       ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt4/mutants/13/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt4/mutants/13/Solution.java:19:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt4/mutants/13/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt4/mutants/13/Solution.java:39:
+//@ ensures \result >= 0;
+    ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt4/mutants/13/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt4/mutants/13/Solution.java:20:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt4/mutants/13/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/gpt4/mutants/13/Solution.java:39:
+//@ ensures (\forall int start, end; 0 <= start && start <= end && end < nums.length; (\sum int i; start <= i && i <= end; nums[i]) == k ==> \result > 0);
+    ^
+2 warnings
+4 verification failures

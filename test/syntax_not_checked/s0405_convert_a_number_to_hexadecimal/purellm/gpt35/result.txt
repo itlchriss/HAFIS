@@ -1,0 +1,4 @@
+./test/syntax_check/s0405_convert_a_number_to_hexadecimal/purellm/gpt35/Solution.java:14: error: integer number too large
+//@ ensures num < 0 ==> \result.equals(Integer.toHexString(num + 4294967296));
+                                                                 ^
+1 error

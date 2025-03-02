@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0001_two_sum/purellm/gpt4/mutants/3/Solution.java:29: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method twoSum
+            Integer requiredNum = target % numbers[i];
+                                         ^
+./test/mutation_analysis/s0001_two_sum/purellm/gpt4/mutants/3/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0001_two_sum/purellm/gpt4/mutants/3/Solution.java:21:) in method twoSum
+        return new int[] {-1, -1};
+        ^
+./test/mutation_analysis/s0001_two_sum/purellm/gpt4/mutants/3/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0001_two_sum/purellm/gpt4/mutants/3/Solution.java:35:
+//@ ensures \result[0] != \result[1];
+    ^
+3 verification failures

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0454_4sum_ii/purellm/gpt35/mutants/10/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0454_4sum_ii/purellm/gpt35/mutants/10/Solution.java:22:) in method fourSumCount
+        return count;
+        ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/gpt35/mutants/10/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/purellm/gpt35/mutants/10/Solution.java:38:
+//@ ensures (\forall int i, j, k, l; 0 <= i && i < nums1.length && 0 <= j && j < nums2.length && 0 <= k && k < nums3.length && 0 <= l && l < nums4.length; nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0 ==> \result > 0);
+    ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/gpt35/mutants/10/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0454_4sum_ii/purellm/gpt35/mutants/10/Solution.java:21:) in method fourSumCount
+        return count;
+        ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/gpt35/mutants/10/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/purellm/gpt35/mutants/10/Solution.java:38:
+//@ ensures \result >= 0;
+    ^
+4 verification failures

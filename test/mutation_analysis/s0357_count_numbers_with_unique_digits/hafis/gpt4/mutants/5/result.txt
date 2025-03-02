@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/gpt4/mutants/5/Solution.java:19: error: unreachable statement
+            for (int j = 1; false; j++) {
+                                        ^
+1 error

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/gpt35/mutants/2/Solution.java:30: error: unreachable statement
+        return count == 0;
+        ^
+1 error

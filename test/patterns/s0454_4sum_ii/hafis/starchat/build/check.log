@@ -1,0 +1,4 @@
+12 5 4
+ss_result:OK
+missing preconditions: 0,1,2,3,4
+missing postconditions: 0,2,3

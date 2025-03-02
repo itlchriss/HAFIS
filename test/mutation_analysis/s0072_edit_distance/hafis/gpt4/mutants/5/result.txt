@@ -1,0 +1,9 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/gpt4/mutants/5/Solution.java:30: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+            dp[j] = j;
+              ^
+./test/mutation_analysis/s0072_edit_distance/hafis/gpt4/mutants/5/Solution.java:46: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+        return dp[n2];
+                 ^
+error: An error while executing a proof script for minDistance: (error "Solver has unexpectedly terminated")
+1 error
+2 verification failures

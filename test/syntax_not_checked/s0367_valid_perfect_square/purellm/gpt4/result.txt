@@ -1,0 +1,10 @@
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt4/Solution.java:13: error: <identifier> expected
+@*/
+ ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt4/Solution.java:13: error: <identifier> expected
+@*/
+  ^
+./test/syntax_check/s0367_valid_perfect_square/purellm/gpt4/Solution.java:13: error: <identifier> expected
+@*/
+   ^
+3 errors

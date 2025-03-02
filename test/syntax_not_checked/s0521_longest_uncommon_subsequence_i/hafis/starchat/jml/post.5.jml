@@ -1,0 +1,1 @@
+ensures((b.equals("aba")) ==> (\result == 3));

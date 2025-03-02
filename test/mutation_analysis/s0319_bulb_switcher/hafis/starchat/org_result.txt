@@ -1,0 +1,67 @@
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:16:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((\result >= 0) && (\result <= n));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:22:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((n == 100) ==> (\result == 10));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:17:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((n == 3) ==> (\result == 1));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:21:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((n == 10000) ==> (\result == 316));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:20:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((n == 1000) ==> (\result == 31));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:12:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((n == 1000000000) ==> (\result == 316227766));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:11:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((n == 100000) ==> (\result == 31625));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:10:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((n == 1000000) ==> (\result == 316227));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:23:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:23: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((n == 10) ==> (\result == 3));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:14:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((n == 10000000) ==> (\result == 3162277));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:13:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/Solution.java:28:
+//@ ensures((n == 100000000) ==> (\result == 31622776));
+    ^
+22 verification failures

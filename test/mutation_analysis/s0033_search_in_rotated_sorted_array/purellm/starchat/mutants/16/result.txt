@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/starchat/mutants/16/Solution.java:19: verify: The prover cannot establish an assertion (LoopInvariant) in method search
+        //@ maintaining 0 <= lo <= hi < nums.length || lo == hi + 1;
+            ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/starchat/mutants/16/Solution.java:21: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method search
+            mid = ((hi - lo) >> 1) / lo;            
+                                   ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/starchat/mutants/16/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method search
+            if (target == nums[mid]) {
+                              ^
+3 verification failures

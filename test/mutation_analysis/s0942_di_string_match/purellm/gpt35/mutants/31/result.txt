@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0942_di_string_match/purellm/gpt35/mutants/31/Solution.java:15: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\forall int i; 0 <= i && i < s.length(); s.charAt(i) == 'I' ==> \result[i] < \result[i + 1] && s.charAt(i) == 'D' ==> \result[i] > \result[i + 1])
+                                                                                                                                                               ^
+./test/mutation_analysis/s0942_di_string_match/purellm/gpt35/mutants/31/Solution.java:32: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+1 warning
+1 verification failure

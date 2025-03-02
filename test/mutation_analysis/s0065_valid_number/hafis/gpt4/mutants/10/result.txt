@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0065_valid_number/hafis/gpt4/mutants/10/Solution.java:23: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

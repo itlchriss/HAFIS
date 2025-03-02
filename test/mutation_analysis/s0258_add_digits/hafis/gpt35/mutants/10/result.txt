@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0258_add_digits/hafis/gpt35/mutants/10/Solution.java:21: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0258_add_digits/hafis/gpt35/mutants/10/Solution.java:11:) in method addDigits
+        return num * 9;
+        ^
+./test/mutation_analysis/s0258_add_digits/hafis/gpt35/mutants/10/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0258_add_digits/hafis/gpt35/mutants/10/Solution.java:21:
+//@ ensures(\result >= 0 && \result <= 9);
+    ^
+2 verification failures

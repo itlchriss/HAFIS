@@ -1,0 +1,9 @@
+ensures:
+- The type_string_ result is formed by converting the type_string_ param_s_ into a zigzag pattern with the given number of rows.
+- If the type_string_ param_s_ is equal to stry_a and the type_integer_ param_numRows_ is equal to 3 , the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a and the type_integer_ param_numRows_ is equal to 4 , the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a and the type_integer_ param_numRows_ is equal to 1 , the type_string_ result is equal to stry_b.
+requires:
+- The type_string_ param_s_ is less_than_or_equal to 1000 characters and is greater_than_or_equal to 1 character.
+- The type_string_ param_s_ contains the checking_character_sequence_ .
+- The type_integer_ param_numRows_ is less_than_or_equal to 1000 and is greater_than_or_equal to 1.

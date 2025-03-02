@@ -1,0 +1,73 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ requires((!(num.length == 1 && num[0] == 0)) ==> (num[0] != 0));
+                                                         ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method addToArrayForm
+            int temp = num[i] + k % 10 + carry;
+                          ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:17:) in method addToArrayForm
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:42:
+//@ ensures(\result != null && \result.size() > 0 && (\forall int i; 0 <= i < \result.size(); \result.get(i) >= 0));
+    ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ ensures(((num[0] == 1 && num[1] == 2 && num[2] == 0 && num[3] == 0 && num.length == 4) && (k == 34)) ==> (\result.get(0) == 1 && \result.get(1) == 2 && \result.get(2) == 3 && \result.get(3) == 4));
+                                ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:42: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:21: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ ensures(((num[0] == 2 && num[1] == 1 && num[2] == 5 && num.length == 3) && (k == 806)) ==> (\result.get(0) == 1 && \result.get(1) == 0 && \result.get(2) == 2 && \result.get(3) == 1));
+                                ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:42: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:22: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ ensures(((num[0] == 2 && num[1] == 7 && num[2] == 4 && num.length == 3) && (k == 181)) ==> (\result.get(0) == 4 && \result.get(1) == 5 && \result.get(2) == 5));
+                                               ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:42: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ ensures(((num[0] == 1 && num[1] == 2 && num[2] == 0 && num[3] == 0 && num.length == 4) && (k == 34)) ==> (\result.get(0) == 1 && \result.get(1) == 2 && \result.get(2) == 3 && \result.get(3) == 4));
+                                                              ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:42: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ ensures(((num[0] == 1 && num[1] == 2 && num[2] == 0 && num[3] == 0 && num.length == 4) && (k == 34)) ==> (\result.get(0) == 1 && \result.get(1) == 2 && \result.get(2) == 3 && \result.get(3) == 4));
+                                               ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:42: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:21: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ ensures(((num[0] == 2 && num[1] == 1 && num[2] == 5 && num.length == 3) && (k == 806)) ==> (\result.get(0) == 1 && \result.get(1) == 0 && \result.get(2) == 2 && \result.get(3) == 1));
+                                               ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:42: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:22:) in method addToArrayForm
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:42:
+//@ ensures(((num[0] == 2 && num[1] == 7 && num[2] == 4 && num.length == 3) && (k == 181)) ==> (\result.get(0) == 4 && \result.get(1) == 5 && \result.get(2) == 5));
+    ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:21: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:181:) in method addToArrayForm
+//@ ensures(((num[0] == 2 && num[1] == 1 && num[2] == 5 && num.length == 3) && (k == 806)) ==> (\result.get(0) == 1 && \result.get(1) == 0 && \result.get(2) == 2 && \result.get(3) == 1));
+                                                                                                                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:181: verify: Associated declaration: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:21:
+    /*@ pure @*/ E get(int index);
+                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:173: verify: Precondition conjunct is false: index < size()
+    //@   requires 0 <= index && index < size();
+                                       ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:181:) in method addToArrayForm
+//@ ensures(((num[0] == 1 && num[1] == 2 && num[2] == 0 && num[3] == 0 && num.length == 4) && (k == 34)) ==> (\result.get(0) == 1 && \result.get(1) == 2 && \result.get(2) == 3 && \result.get(3) == 4));
+                                                                                                                                                ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:181: verify: Associated declaration: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/starchat/mutants/3/Solution.java:19:
+    /*@ pure @*/ E get(int index);
+                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:173: verify: Precondition conjunct is false: index < size()
+    //@   requires 0 <= index && index < size();
+                                       ^
+24 verification failures

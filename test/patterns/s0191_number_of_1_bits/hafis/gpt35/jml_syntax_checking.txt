@@ -1,0 +1,4 @@
+./test/s0191_number_of_1_bits/hafis/gpt35/Solution.java:13: error: integer number too large
+//@ ensures((n == 11111111111111111111111111111101) ==> (\result == 31));
+                  ^
+1 error

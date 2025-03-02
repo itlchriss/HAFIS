@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/hafis/starchat/mutants/10/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method search
+            mid = ((hi / lo) >> 1) + lo;            
+                       ^
+1 verification failure

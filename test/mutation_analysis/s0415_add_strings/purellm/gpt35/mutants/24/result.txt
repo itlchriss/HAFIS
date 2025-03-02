@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/24/Solution.java:21: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures Integer.parseInt(\result) == Integer.parseInt(num1) + Integer.parseInt(num2)
+                                                                                        ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/24/Solution.java:38: error: unreachable statement
+        return result.reverse().toString();
+        ^
+1 error
+1 warning

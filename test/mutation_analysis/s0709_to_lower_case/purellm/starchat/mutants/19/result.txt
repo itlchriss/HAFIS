@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0709_to_lower_case/purellm/starchat/mutants/19/Solution.java:15: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method toLowerCase
+            if (c[i] <= 'Z' && c[i] >= 'A') {
+                 ^
+./test/mutation_analysis/s0709_to_lower_case/purellm/starchat/mutants/19/Solution.java:16: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method toLowerCase
+                c[i] = (char) (c[i] - 'A' - 'a');
+                       ^
+2 verification failures

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0925_long_pressed_name/purellm/gpt4/mutants/19/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0925_long_pressed_name/purellm/gpt4/mutants/19/Solution.java:17:) in method isLongPressedName
+                return false;
+                ^
+./test/mutation_analysis/s0925_long_pressed_name/purellm/gpt4/mutants/19/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/purellm/gpt4/mutants/19/Solution.java:45:
+//@ ensures \result == false <==> !((\exists int[] map; map.length == name.length(); (\forall int i; 0 <= i < name.length(); (\exists int j; 0 <= j < typed.length(); map[i] == j && typed.charAt(j) == name.charAt(i) && (i == 0 || map[i-1] < map[i]) && (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length()); typed.charAt(k) == name.charAt(i)) ) ) ) );
+    ^
+./test/mutation_analysis/s0925_long_pressed_name/purellm/gpt4/mutants/19/Solution.java:48: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0925_long_pressed_name/purellm/gpt4/mutants/19/Solution.java:15:) in method isLongPressedName
+        return true;
+        ^
+./test/mutation_analysis/s0925_long_pressed_name/purellm/gpt4/mutants/19/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/purellm/gpt4/mutants/19/Solution.java:48:
+//@ ensures \result == true <==> ((\exists int[] map; map.length == name.length(); (\forall int i; 0 <= i < name.length(); (\exists int j; 0 <= j < typed.length(); map[i] == j && typed.charAt(j) == name.charAt(i) && (i == 0 || map[i-1] < map[i]) && (\forall int k; map[i] <= k < (i < name.length() - 1 ? map[i+1] : typed.length()); typed.charAt(k) == name.charAt(i))) ) ));
+    ^
+4 verification failures

@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/11/Solution.java:31: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method search
+            if (target == nums[mid]) {
+                              ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt4/mutants/11/Solution.java:23: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int search(int[] nums, int target) {
+               ^
+2 verification failures

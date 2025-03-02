@@ -1,0 +1,1 @@
+requires(\forall int i; 0 <= i < b.length(); b.charAt(i) == '0' || b.charAt(i) == '1');

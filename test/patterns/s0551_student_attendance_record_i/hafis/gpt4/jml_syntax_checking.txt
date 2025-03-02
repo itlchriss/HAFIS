@@ -1,0 +1,4 @@
+./test/s0551_student_attendance_record_i/hafis/gpt4/Solution.java:12: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+//@ ensures((\result == true) ==> (!(s.contains("LLL"))));
+                                               ^
+1 warning

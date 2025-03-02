@@ -1,0 +1,10 @@
+./test/syntax_check/s0008_string_to_integer_atoi/purellm/gpt4/Solution.java:10: error: <identifier> expected
+@*/
+ ^
+./test/syntax_check/s0008_string_to_integer_atoi/purellm/gpt4/Solution.java:10: error: <identifier> expected
+@*/
+  ^
+./test/syntax_check/s0008_string_to_integer_atoi/purellm/gpt4/Solution.java:10: error: <identifier> expected
+@*/
+   ^
+3 errors

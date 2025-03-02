@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/13/Solution.java:21: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures Integer.parseInt(\result) == Integer.parseInt(num1) + Integer.parseInt(num2)
+                                                                                        ^
+1 warning

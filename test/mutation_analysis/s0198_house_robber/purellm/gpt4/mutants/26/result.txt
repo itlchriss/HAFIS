@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0198_house_robber/purellm/gpt4/mutants/26/Solution.java:34: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method rob
+            profit[i] = Math.max(profit[i - 1], nums[i] + profit[i - 2]);
+                  ^
+./test/mutation_analysis/s0198_house_robber/purellm/gpt4/mutants/26/Solution.java:34: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method rob
+            profit[i] = Math.max(profit[i - 1], nums[i] + profit[i - 2]);
+                                       ^
+./test/mutation_analysis/s0198_house_robber/purellm/gpt4/mutants/26/Solution.java:34: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method rob
+            profit[i] = Math.max(profit[i - 1], nums[i] + profit[i - 2]);
+                                                                ^
+./test/mutation_analysis/s0198_house_robber/purellm/gpt4/mutants/26/Solution.java:36: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method rob
+        return profit[nums.length + 1];
+                     ^
+4 verification failures

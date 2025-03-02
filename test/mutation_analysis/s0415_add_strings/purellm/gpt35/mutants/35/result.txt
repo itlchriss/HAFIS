@@ -1,0 +1,38 @@
+./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:21: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures Integer.parseInt(\result) == Integer.parseInt(num1) + Integer.parseInt(num2)
+                                                                                        ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:21: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:175:) in method addStrings
+//@ ensures Integer.parseInt(\result) == Integer.parseInt(num1) + Integer.parseInt(num2)
+                            ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:175: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:21:
+    public static /*@ pure @*/ int parseInt(String s)
+                                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:168: verify: Precondition conjunct is false: java.lang.Integer.parseable(s, 10)
+      @      requires parseable(s, 10);
+                               ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:21: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:175:) in method addStrings
+//@ ensures Integer.parseInt(\result) == Integer.parseInt(num1) + Integer.parseInt(num2)
+                                                         ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:175: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:21:
+    public static /*@ pure @*/ int parseInt(String s)
+                                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:168: verify: Precondition conjunct is false: java.lang.Integer.parseable(s, 10)
+      @      requires parseable(s, 10);
+                               ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:21: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:175:) in method addStrings
+//@ ensures Integer.parseInt(\result) == Integer.parseInt(num1) + Integer.parseInt(num2)
+                                                                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:175: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:21:
+    public static /*@ pure @*/ int parseInt(String s)
+                                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:168: verify: Precondition conjunct is false: java.lang.Integer.parseable(s, 10)
+      @      requires parseable(s, 10);
+                               ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:21:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/gpt35/mutants/35/Solution.java:38:
+//@ ensures Integer.parseInt(\result) == Integer.parseInt(num1) + Integer.parseInt(num2)
+    ^
+1 warning
+11 verification failures

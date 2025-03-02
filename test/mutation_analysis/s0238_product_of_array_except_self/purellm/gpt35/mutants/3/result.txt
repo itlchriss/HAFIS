@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/gpt35/mutants/3/Solution.java:19: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method productExceptSelf
+            product = product / num;
+                              ^
+1 verification failure

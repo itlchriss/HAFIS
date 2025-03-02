@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt35/mutants/7/Solution.java:26: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method search
+            mid = ((hi % lo) >> 1) + lo;            
+                       ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/gpt35/mutants/7/Solution.java:19: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int search(int[] nums, int target) {
+               ^
+2 verification failures

@@ -1,0 +1,22 @@
+8 2 4
+test/s0331_verify_preorder_serialization_of_a_binary_tree/starchat/build/Solution.java:10: error: bad operand types for binary operator '<='
+//@ requires((preorder <= 10000) && (preorder >= 1));
+                       ^
+  first type:  java.lang.String
+  second type: int
+test/s0331_verify_preorder_serialization_of_a_binary_tree/starchat/build/Solution.java:10: error: bad operand types for binary operator '>='
+//@ requires((preorder <= 10000) && (preorder >= 1));
+                                              ^
+  first type:  java.lang.String
+  second type: int
+test/s0331_verify_preorder_serialization_of_a_binary_tree/starchat/build/Solution.java:11: error: incomparable types: boolean and int
+//@ ensures((preorder.equals("9,3,4,#,#,1,#,#,2,#,6,#,#")) ==> (\result == 1));
+                                                                        ^
+test/s0331_verify_preorder_serialization_of_a_binary_tree/starchat/build/Solution.java:12: error: incomparable types: boolean and int
+//@ ensures((preorder.equals("9,#,#,1")) ==> (\result == 0));
+                                                      ^
+test/s0331_verify_preorder_serialization_of_a_binary_tree/starchat/build/Solution.java:13: error: incomparable types: boolean and int
+//@ ensures((preorder.equals("1,#")) ==> (\result == 0));
+                                                  ^
+5 errors
+

@@ -1,0 +1,127 @@
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:50:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:50: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 5) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:46:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:46: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 2) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:41:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:41: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 24) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:10:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 10) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:13:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 14) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:15:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 40) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:14:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 12) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:31:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:31: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 20) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:32:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:32: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 32) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:33:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:33: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 26) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:35:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:35: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 36) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:48:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:48: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 8) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:44:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:44: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 1) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:49:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:49: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 6) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:42:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:42: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 38) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:21:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 30) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:25:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:25: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 28) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:34:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:34: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 22) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:24:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:24: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 34) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:22:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 18) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:20:) in method canWinNim
+        return n % 4 < 0;
+        ^
+./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0292_nim_game/hafis/starchat/mutants/4/Solution.java:53:
+//@ ensures((n == 16) ==> (\result == true));
+    ^
+42 verification failures

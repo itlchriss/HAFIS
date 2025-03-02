@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:13:) in method myAtoi
+            return 0;
+            ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:20:
+//@ ensures((str.equals("42")) ==> (\result == 42));
+    ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:15:) in method myAtoi
+            return 0;
+            ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:20:
+//@ ensures((str.equals(" negative 42")) ==> (\result == -42));
+    ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:14:) in method myAtoi
+            return 0;
+            ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:20:
+//@ ensures((str.equals("4193 with words")) ==> (\result == 4193));
+    ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:16:) in method myAtoi
+            return 0;
+            ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/gpt4/mutants/7/Solution.java:20:
+//@ ensures((str.equals("-91283472332")) ==> (\result == -2147483648));
+    ^
+8 verification failures

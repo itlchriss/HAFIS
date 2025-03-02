@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0198_house_robber/purellm/gpt35/mutants/26/Solution.java:17: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\forall int i; 0 <= i && i < nums.length - 1; \result >= nums[i] + nums[i + 2] || \result >= nums[i + 1])
+                                                                                                                      ^
+./test/mutation_analysis/s0198_house_robber/purellm/gpt35/mutants/26/Solution.java:36: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method rob
+        return profit[nums.length + 1];
+                     ^
+1 warning
+1 verification failure

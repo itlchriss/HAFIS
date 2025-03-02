@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt4/mutants/6/Solution.java:19: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int strStr(String haystack, String needle) {
+               ^
+1 verification failure

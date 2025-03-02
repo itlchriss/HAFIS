@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:59: verify: The prover cannot establish an assertion (Precondition: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:17:) in method compareVersion
+                return compareVersion(v1, v2);
+                                     ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:59:
+    public int compareVersion(String version1, String version2) {
+               ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:11: verify: Precondition conjunct is false: ((\forall int i; 0 <= i < version1.length(); Character.isDigit(version1.charAt(i)) || version1.charAt(i) == '.') && (\forall int i; 0 <= i < version2.length(); Character.isDigit(version2.charAt(i)) || version2.charAt(i) == '.'))
+//@ requires((\forall int i; 0 <= i < version1.length(); Character.isDigit(version1.charAt(i)) || version1.charAt(i) == '.') && (\forall int i; 0 <= i < version2.length(); Character.isDigit(version2.charAt(i)) || version2.charAt(i) == '.'));
+            ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:12:) in method compareVersion
+            return 1;
+            ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:42:
+//@ ensures(((version1.equals("1.01")) && (version2.equals("1.001"))) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:59: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:16:) in method compareVersion
+                return compareVersion(v1, v2);
+                ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:59:
+//@ ensures(((version1.equals("1.0.1")) && (version2.equals("1"))) ==> (\result == 1));
+    ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/starchat/mutants/56/Solution.java:17: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int compareVersion(String version1, String version2) {
+               ^
+8 verification failures

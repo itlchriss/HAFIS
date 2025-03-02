@@ -1,0 +1,306 @@
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:13: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ requires (\forall int i; 0 <= i && i < nums.length;
+                                                       ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:13: warning: Inserting missing semicolon at the end of a requires statement
+//@ requires (\forall int i; 0 <= i && i < nums.length;
+                                                       ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: illegal start of type
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: <identifier> expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+ ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: <identifier> expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+           ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: illegal start of type
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+            ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: ']' expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                    ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: <identifier> expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                     ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: <identifier> expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                      ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: illegal start of type
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                       ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: ']' expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                               ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: <identifier> expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                                ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: <identifier> expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                                 ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: illegal start of type
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                                  ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: <identifier> expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                                    ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: illegal start of type
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                                     ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: <identifier> expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                                               ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:14: error: <identifier> expected
+-1000000000 <= nums[i] && nums[i] <= 1000000000);
+                                                ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:16: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ ensures (\exists int[] seq;
+                               ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: ')' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: illegal character: '\'
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+ ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                 ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: Method specs may not precede a variable declaration
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                  ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: ';' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                      ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                       ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: ';' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                           ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: > expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                 ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: '(' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                         ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                          ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                           ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                            ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: ']' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                  ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: ';' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                   ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                    ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                     ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                      ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                       ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                        ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                         ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: ']' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                                ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                                 ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                                  ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                                   ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                                    ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                                     ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                                      ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                                       ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                                        ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:17: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                                          ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:18: error: illegal character: '\'
+(\forall int i; 0 <= i && i < seq.length;
+ ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:18: error: ',', ')', or '[' expected
+(\forall int i; 0 <= i && i < seq.length;
+              ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:18: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length;
+                ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:18: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length;
+                 ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:18: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length;
+                  ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:18: error: ';' expected
+(\forall int i; 0 <= i && i < seq.length;
+                      ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:18: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length;
+                       ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:18: error: ';' expected
+(\forall int i; 0 <= i && i < seq.length;
+                           ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:18: error: > expected
+(\forall int i; 0 <= i && i < seq.length;
+                                 ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:18: error: '(' expected
+(\forall int i; 0 <= i && i < seq.length;
+                                        ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: illegal start of type
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: illegal character: '\'
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+ ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: illegal start of type
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: <identifier> expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                 ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: illegal start of type
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                  ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: ';' expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                      ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: illegal start of type
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                       ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: ';' expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                           ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: > expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                  ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: '(' expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                         ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: ']' expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                               ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: ';' expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                                ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: <identifier> expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                                 ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: illegal start of type
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                                  ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: ']' expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                                          ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: <identifier> expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                                           ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: <identifier> expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                                            ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: <identifier> expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                                             ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: <identifier> expected
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                                              ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:19: error: illegal start of type
+(\exists int j; 0 <= j && j < nums.length; seq[i] == nums[j])) &&
+                                                               ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:20: error: ';' expected
+seq.length == \result);
+   ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:20: error: ';' expected
+seq.length == \result);
+          ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:20: error: illegal start of type
+seq.length == \result);
+           ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:20: error: illegal character: '\'
+seq.length == \result);
+              ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:20: error: illegal start of type
+seq.length == \result);
+                     ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:20: error: <identifier> expected
+seq.length == \result);
+                      ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:21: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
+//@ ensures (\forall int[] seq;
+                               ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: ')' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: illegal character: '\'
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+ ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                 ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: Method specs may not precede a variable declaration
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                  ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: ';' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                      ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                       ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: ';' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                           ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: > expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                 ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: '(' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                         ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                          ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: illegal start of type
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                           ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: <identifier> expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                            ^
+./test/syntax_check/s0128_longest_consecutive_sequence/purellm/gpt4/Solution.java:22: error: ']' expected
+(\forall int i; 0 <= i && i < seq.length - 1; seq[i] + 1 == seq[i + 1]) &&
+                                                  ^
+100 errors
+1 warning
+only showing the first 100 errors, of 154 total; use -Xmaxerrs if you would like to see more

@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0227_basic_calculator_ii/purellm/gpt4/mutants/17/Solution.java:62: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0227_basic_calculator_ii/purellm/gpt4/mutants/17/Solution.java:21:) in method calculate
+        return sum;
+        ^
+./test/mutation_analysis/s0227_basic_calculator_ii/purellm/gpt4/mutants/17/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0227_basic_calculator_ii/purellm/gpt4/mutants/17/Solution.java:62:
+//@ ensures -2147483648 <= \result && \result <= 2147483647;
+    ^
+2 verification failures

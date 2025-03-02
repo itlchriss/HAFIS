@@ -1,0 +1,7 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721: verify: The prover cannot establish an assertion (UndefinedNegativeIndex: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:14:) in method reverseWords
+      @     //-RAC@            charArray[\result] == ch &&
+                                        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:14: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721:
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+                                    ^
+2 verification failures

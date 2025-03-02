@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0396_rotate_function/purellm/gpt4/mutants/10/Solution.java:21: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method maxRotateFunction
+        //@ maintaining 0 <= i <= nums.length - 1 || i == -1;
+            ^
+1 verification failure

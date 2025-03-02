@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0044_wildcard_matching/purellm/gpt35/mutants/3/Solution.java:20: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\forall int i; 0 <= i && i < inputString.length(); \result == false && (pattern.charAt(i) != inputString.charAt(i) && pattern.charAt(i) != '?' && pattern.charAt(i) != '*'))
+                                                                                                                                                                                         ^
+./test/mutation_analysis/s0044_wildcard_matching/purellm/gpt35/mutants/3/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/purellm/gpt35/mutants/3/Solution.java:20:) in method isMatch
+                return false;
+                ^
+./test/mutation_analysis/s0044_wildcard_matching/purellm/gpt35/mutants/3/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/purellm/gpt35/mutants/3/Solution.java:46:
+//@ ensures (\forall int i; 0 <= i && i < inputString.length(); \result == false && (pattern.charAt(i) != inputString.charAt(i) && pattern.charAt(i) != '?' && pattern.charAt(i) != '*'))
+    ^
+1 warning
+2 verification failures

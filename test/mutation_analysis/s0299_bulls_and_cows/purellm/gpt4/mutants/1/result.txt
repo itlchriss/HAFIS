@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:17:) in method getHint
+        return bulls + "A" + cows + "B";
+        ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:43:
+//@ ensures (\forall int i; 0 <= i && i < \result.length(); \result.charAt(i) == 'A' || \result.charAt(i) == 'B' || Character.isDigit(\result.charAt(i)));
+    ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:18:) in method getHint
+        return bulls + "A" + cows + "B";
+        ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:43:
+//@ ensures (\result.indexOf('A') > 0 && \result.indexOf('B') > \result.indexOf('A'));
+    ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:20:) in method getHint
+        return bulls + "A" + cows + "B";
+        ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:43:
+//@ ensures (\result.length() == 4);
+    ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:19:) in method getHint
+        return bulls + "A" + cows + "B";
+        ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/gpt4/mutants/1/Solution.java:43:
+//@ ensures (\result.indexOf('A') == 1 && \result.indexOf('B') == 3);
+    ^
+8 verification failures

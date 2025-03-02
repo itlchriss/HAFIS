@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/10/Solution.java:58: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/10/Solution.java:11:) in method compareVersion
+                return 0;
+                ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/10/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/10/Solution.java:58:
+//@ ensures((\result == 0) ==> (version1 == version2));
+    ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/10/Solution.java:60: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/10/Solution.java:14:) in method compareVersion
+                return compareVersion(v1, v2);
+                ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/10/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/10/Solution.java:60:
+//@ ensures(((version1.equals("1.0.1")) && (version2.equals("1"))) ==> (\result == 1));
+    ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/gpt35/mutants/10/Solution.java:18: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int compareVersion(String version1, String version2) {
+               ^
+5 verification failures

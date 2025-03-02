@@ -1,0 +1,8 @@
+ensures:
+- The type_list_ result's values are contained by more than the quotient of the type_integer_array_ param_nums_'s length divided by 3.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_list_ result is equal to arr_b.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_list_ result is equal to arr_b.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_list_ result is equal to arr_b.
+requires:
+- The type_integer_array_ param_nums_'s length is less_than_or_equal to 50000 and is greater_than_or_equal to 1.
+- The type_integer_array_ param_nums_'s values are less_than_or_equal to 1000000000 and are greater_than_or_equal to negative 1000000000.

@@ -1,0 +1,4 @@
+./test/mutate_check/s0942_di_string_match/purellm/gpt35/Solution.java:15: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures (\forall int i; 0 <= i && i < s.length(); s.charAt(i) == 'I' ==> \result[i] < \result[i + 1] && s.charAt(i) == 'D' ==> \result[i] > \result[i + 1])
+                                                                                                                                                               ^
+1 warning

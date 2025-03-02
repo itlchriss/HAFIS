@@ -1,0 +1,20 @@
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/14/Solution.java:31: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+//@ ensures((t.contains(s)) ==> (\result == true));
+                       ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/14/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/14/Solution.java:31:) in method isSubsequence
+        return false;
+        ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/14/Solution.java:31: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/14/Solution.java:56:
+//@ ensures((t.contains(s)) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/14/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/14/Solution.java:33:) in method isSubsequence
+        return false;
+        ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/14/Solution.java:33: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/14/Solution.java:56:
+//@ ensures(((s.equals("a")) && (t.equals("ab"))) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/starchat/mutants/14/Solution.java:39: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public boolean isSubsequence(String s, String t) {
+                   ^
+1 warning
+5 verification failures

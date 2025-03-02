@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0342_power_of_four/purellm/gpt35/mutants/12/Solution.java:19: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0342_power_of_four/purellm/gpt35/mutants/12/Solution.java:11:) in method isPowerOfFour
+        return n == 1;
+        ^
+./test/mutation_analysis/s0342_power_of_four/purellm/gpt35/mutants/12/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0342_power_of_four/purellm/gpt35/mutants/12/Solution.java:19:
+//@ ensures \result == (n > 0 && (n & (n - 1)) == 0 && (n & 0x55555555) != 0);
+    ^
+2 verification failures

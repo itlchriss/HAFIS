@@ -1,0 +1,302 @@
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:11: error: <identifier> expected
+//@ @ requires num > 0 && num <= Integer.MAX_VALUE;
+                  ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:11: error: illegal start of type
+//@ @ requires num > 0 && num <= Integer.MAX_VALUE;
+                   ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:11: error: <identifier> expected
+//@ @ requires num > 0 && num <= Integer.MAX_VALUE;
+                    ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:11: error: illegal start of type
+//@ @ requires num > 0 && num <= Integer.MAX_VALUE;
+                     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:11: error: <identifier> expected
+//@ @ requires num > 0 && num <= Integer.MAX_VALUE;
+                      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:11: error: illegal start of type
+//@ @ requires num > 0 && num <= Integer.MAX_VALUE;
+                       ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:11: error: ';' expected
+//@ @ requires num > 0 && num <= Integer.MAX_VALUE;
+                             ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:11: error: illegal start of type
+//@ @ requires num > 0 && num <= Integer.MAX_VALUE;
+                              ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:11: error: ';' expected
+//@ @ requires num > 0 && num <= Integer.MAX_VALUE;
+                                        ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: Token \result is not a type
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+              ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: ';' expected
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: illegal start of type
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: <identifier> expected
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                        ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: illegal start of type
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                         ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: Token \exists is not a type
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                    ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: ',', ')', or '[' expected
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                 ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: illegal start of type
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                   ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: <identifier> expected
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                    ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: illegal start of type
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: ';' expected
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                         ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: illegal start of type
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                          ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: ';' expected
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                              ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: illegal start of type
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                               ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: ';' expected
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                                  ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: illegal start of type
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                                   ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: ';' expected
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                                         ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:12: error: <identifier> expected
+//@ @ ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);
+                                                                          ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:13: error: <identifier> expected
+//@ @*/
+     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:13: error: <identifier> expected
+//@ @*/
+      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:13: error: <identifier> expected
+//@ @*/
+       ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:17: error: illegal character: '`'
+//@ ```
+    ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:17: error: illegal character: '`'
+//@ ```
+     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:17: error: illegal character: '`'
+//@ ```
+      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:19: error: illegal character: '#'
+//@ ### Explanation:
+    ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:19: error: illegal character: '#'
+//@ ### Explanation:
+     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:19: error: illegal character: '#'
+//@ ### Explanation:
+      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:19: error: <identifier> expected
+//@ ### Explanation:
+                   ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:19: error: <identifier> expected
+//@ ### Explanation:
+                    ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+    ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+       ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal character: '`'
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+        ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                       ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                        ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                         ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                          ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                 ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                           ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal character: '`'
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                        ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                         ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                               ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                               ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal character: '`'
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal character: '`'
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                          ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                 ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                            ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                        ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                              ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                               ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: ';' expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                            ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal character: '`'
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                                ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                                  ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                                   ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                                     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                                      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: <identifier> expected
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                                       ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal start of type
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                                        ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:21: error: illegal character: '`'
+//@ - **`requires num > 0 && num <= Integer.MAX_VALUE;`**: This precondition specifies that the input `num` must be a positive integer and should not exceed the maximum value for an integer in Java, which is `2^31 - 1`.
+                                                                                                                                                                                                                         ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: illegal start of type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+    ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: <identifier> expected
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: illegal start of type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: <identifier> expected
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+       ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: illegal character: '`'
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+        ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: Token \result is not a type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                 ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: ';' expected
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                        ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: illegal start of type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                         ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: <identifier> expected
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                           ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: illegal start of type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                            ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: Token \exists is not a type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                       ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: ',', ')', or '[' expected
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                                    ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: illegal start of type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                                      ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: <identifier> expected
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                                       ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: illegal start of type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                                        ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: ';' expected
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                                            ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: illegal start of type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                                             ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: ';' expected
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                                                 ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: illegal start of type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                                                  ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: ';' expected
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                                                     ^
+./test/s0367_valid_perfect_square/llm-results/gpt4/Solution.java:23: error: illegal start of type
+//@ - **`ensures \result == true <==> (\exists int i; 1 <= i && i * i == num);`**: This postcondition specifies that the function should return `true` if and only if there exists an integer `i` such that `i * i` equals `num`. Otherwise, it should return `false`.
+                                                                      ^
+100 errors
+only showing the first 100 errors, of 147 total; use -Xmaxerrs if you would like to see more

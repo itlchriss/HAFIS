@@ -1,0 +1,17 @@
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt35/mutants/17/Solution.java:13: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+//@ ensures((!(needle.contains(haystack))) ==> (\result == -1));
+                              ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt35/mutants/17/Solution.java:18: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt35/mutants/17/Solution.java:13:) in method strStr
+            return 0;
+            ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt35/mutants/17/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt35/mutants/17/Solution.java:18:
+//@ ensures((!(needle.contains(haystack))) ==> (\result == -1));
+    ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt35/mutants/17/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt35/mutants/17/Solution.java:12:) in method strStr
+        return -1;
+        ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt35/mutants/17/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt35/mutants/17/Solution.java:28:
+//@ ensures(((haystack.equals("hello")) && (needle.equals("ll"))) ==> (\result == 2));
+    ^
+1 warning
+4 verification failures

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/gpt4/mutants/15/Solution.java:38: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method nextGreaterElement
+                    if (nums2[index] > num) {
+                             ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/gpt4/mutants/15/Solution.java:50: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0496_next_greater_element_i/purellm/gpt4/mutants/15/Solution.java:22:) in method nextGreaterElement
+        return nums1;
+        ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/gpt4/mutants/15/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0496_next_greater_element_i/purellm/gpt4/mutants/15/Solution.java:50:
+//@ ensures (\forall int i; 0 <= i < nums1.length; (\exists int j; 0 <= j < nums2.length; nums1[i] == nums2[j] ==> (\exists int k; j < k < nums2.length; nums2[k] > nums2[j] ==> \result[i] == nums2[k]) || (\forall int k; j < k < nums2.length; nums2[k] <= nums2[j] ==> \result[i] == -1)));
+    ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/gpt4/mutants/15/Solution.java:38: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method nextGreaterElement
+                    if (nums2[index] > num) {
+                             ^
+4 verification failures

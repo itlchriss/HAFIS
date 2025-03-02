@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0191_number_of_1_bits/purellm/gpt35/mutants/12/Solution.java:15: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result == Integer.bitCount(n)
+                                          ^
+./test/mutation_analysis/s0191_number_of_1_bits/purellm/gpt35/mutants/12/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0191_number_of_1_bits/purellm/gpt35/mutants/12/Solution.java:15:) in method hammingWeight
+        return flag ? sum + 1 : sum;
+        ^
+./test/mutation_analysis/s0191_number_of_1_bits/purellm/gpt35/mutants/12/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0191_number_of_1_bits/purellm/gpt35/mutants/12/Solution.java:28:
+//@ ensures \result == Integer.bitCount(n)
+    ^
+1 warning
+2 verification failures

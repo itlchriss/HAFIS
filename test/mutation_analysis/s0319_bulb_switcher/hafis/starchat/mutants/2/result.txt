@@ -1,0 +1,94 @@
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:17:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 3) ==> (\result == 1));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:16:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((\result >= 0) && (\result <= n));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:10:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 1000000) ==> (\result == 316227));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:14:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 10000000) ==> (\result == 3162277));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:13:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 100000000) ==> (\result == 31622776));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:12:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 1000000000) ==> (\result == 316227766));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:23:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:23: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 10) ==> (\result == 3));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:22:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 100) ==> (\result == 10));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:21:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 10000) ==> (\result == 316));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:20:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 1000) ==> (\result == 31));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:18:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 1) ==> (\result == 1));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:11:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+//@ ensures((n == 100000) ==> (\result == 31625));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28: verify: The prover cannot establish an assertion (Precondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:274:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+                              ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:274: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/starchat/mutants/2/Solution.java:28:
+    public static /*@ pure @*/ double sqrt(double a);
+                                      ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:257: verify: Precondition conjunct is false: Double.isNaN(a) || a < 0.0
+      @   requires Double.isNaN(a) || a < 0.0;
+                                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:260: verify: Precondition conjunct is false: a == Double.POSITIVE_INFINITY
+      @   requires a == Double.POSITIVE_INFINITY;
+                     ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:263: verify: Precondition conjunct is false: java.lang.Math.isPositiveZero(a)
+      @   requires isPositiveZero(a);
+                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:266: verify: Precondition conjunct is false: java.lang.Math.isNegativeZero(a)
+      @   requires isNegativeZero(a);
+                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Math.jml:269: verify: Precondition conjunct is false: a > 0.0
+      @   requires a > 0.0 && a < Double.POSITIVE_INFINITY;
+                     ^
+31 verification failures

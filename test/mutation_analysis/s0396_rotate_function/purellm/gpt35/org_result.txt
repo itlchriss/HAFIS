@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0396_rotate_function/purellm/gpt35/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0396_rotate_function/purellm/gpt35/Solution.java:11:) in method maxRotateFunction
+        return max;
+        ^
+./test/mutation_analysis/s0396_rotate_function/purellm/gpt35/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0396_rotate_function/purellm/gpt35/Solution.java:29:
+//@ ensures \result >= 0;
+    ^
+2 verification failures

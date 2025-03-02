@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0299_bulls_and_cows/hafis/gpt4/mutants/16/Solution.java:20: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String getHint(String secret, String guess) {
+                  ^
+1 verification failure

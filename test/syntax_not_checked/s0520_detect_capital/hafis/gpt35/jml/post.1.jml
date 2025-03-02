@@ -1,0 +1,1 @@
+ensures((word != null && word.length() > 0 && (\forall int i; 0 <= i < word.length(); Character.isLowerCase(word.charAt(i)))) ==> (\result == true));

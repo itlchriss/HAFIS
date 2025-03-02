@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt35/mutants/5/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ requires((!(num.length == 1 && num[0] == 0)) ==> (num[0] != 0));
+                                                         ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/gpt35/mutants/5/Solution.java:21: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method addToArrayForm
+            int temp = num[i] + k % 10 + carry;
+                          ^
+2 verification failures

@@ -1,0 +1,1 @@
+ensures(((!(needle.length() == 0)) && (needle.contains(haystack))) ==> ((\result >= 0) && (\result < haystack.length())));

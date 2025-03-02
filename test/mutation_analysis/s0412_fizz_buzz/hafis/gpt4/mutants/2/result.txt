@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0412_fizz_buzz/hafis/gpt4/mutants/2/Solution.java:29: error: unreachable statement
+        return result;
+        ^
+1 error

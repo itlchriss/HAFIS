@@ -1,0 +1,1 @@
+exists x01.(_result{NN}(x01) & _type_string_{NN}(x01) & exists e02.(_equal{JJ}(e02) & (Subj(e02) = x01) & exists x03.(exists e04.(_non_dash_negative{JJ}(e04) & (Subj(e04) = x03) & _integer{NN}(x03)) & exists e05.(_represent{VBN}(e05) & (Acc(e05) = x03) & exists x06.(_string{NN}(x06) & (Subj(e05) = x06))) & (Dat(e02) = x03))))

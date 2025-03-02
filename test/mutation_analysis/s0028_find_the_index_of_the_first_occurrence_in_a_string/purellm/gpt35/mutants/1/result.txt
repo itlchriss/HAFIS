@@ -1,0 +1,20 @@
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/gpt35/mutants/1/Solution.java:14: warning: Inserting missing semicolon at the end of a ensures statement
+//@ ensures \result >= 0 ==> haystack.substring(\result, \result + needle.length()).equals(needle)
+                                                                                                  ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/gpt35/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:834:) in method strStr
+//@ ensures \result >= 0 ==> haystack.substring(\result, \result + needle.length()).equals(needle)
+                                               ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:834: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/gpt35/mutants/1/Solution.java:14:
+    public /*@ pure @*/ /*@ non_null @*/ String substring(int beginIndex,
+                                                ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:821: verify: Precondition conjunct is false: 0 <= beginIndex <= endIndex <= length()
+      @   requires 0 <= beginIndex <= endIndex <= length();
+                                               ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/gpt35/mutants/1/Solution.java:17: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/gpt35/mutants/1/Solution.java:14:) in method strStr
+            return 0;
+            ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/gpt35/mutants/1/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/gpt35/mutants/1/Solution.java:17:
+//@ ensures \result >= 0 ==> haystack.substring(\result, \result + needle.length()).equals(needle)
+    ^
+1 warning
+5 verification failures

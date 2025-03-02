@@ -1,0 +1,22 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721: verify: The prover cannot establish an assertion (UndefinedNegativeIndex: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:35:) in method reverseWords
+      @     //-RAC@            charArray[\result] == ch &&
+                                        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:35: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721:
+ * @author Patrice Chalin
+                 ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/starchat/mutants/10/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/starchat/mutants/10/Solution.java:11:) in method reverseWords
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/starchat/mutants/10/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/starchat/mutants/10/Solution.java:34:
+//@ ensures((s.equals("a good example")) ==> (\result.equals("example good a")));
+    ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/starchat/mutants/10/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/starchat/mutants/10/Solution.java:12:) in method reverseWords
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/starchat/mutants/10/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/starchat/mutants/10/Solution.java:34:
+//@ ensures((s.equals(" hello world ")) ==> (\result.equals("world hello")));
+    ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/starchat/mutants/10/Solution.java:18: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String reverseWords(String s) {
+                  ^
+7 verification failures

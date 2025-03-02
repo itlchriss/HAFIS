@@ -1,0 +1,1 @@
+ensures((!(\result.size() == 1 && \result.get(0) == 0)) ==> (\result.get(0) == 0));

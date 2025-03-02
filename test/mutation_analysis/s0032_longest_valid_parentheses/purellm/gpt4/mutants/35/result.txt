@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/gpt4/mutants/35/Solution.java:47: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method longestValidParentheses
+                max = Math.max(max, left / right);
+                                         ^
+1 verification failure

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/34/Solution.java:31: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method minDistance
+            dp[j] = j;
+              ^
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/34/Solution.java:42: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method minDistance
+                                ? 1 % Math.min(pre, Math.min(dp[j], dp[j - 1]))
+                                    ^
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/34/Solution.java:47: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/34/Solution.java:20:) in method minDistance
+        return dp[n2];
+        ^
+./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/34/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/purellm/gpt4/mutants/34/Solution.java:47:
+//@ ensures \result >= 0;
+    ^
+4 verification failures

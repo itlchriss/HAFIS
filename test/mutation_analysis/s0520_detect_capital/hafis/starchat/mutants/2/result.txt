@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0520_detect_capital/hafis/starchat/mutants/2/Solution.java:19: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0520_detect_capital/hafis/starchat/mutants/2/Solution.java:14:) in method detectCapitalUse
+            return false;
+            ^
+./test/mutation_analysis/s0520_detect_capital/hafis/starchat/mutants/2/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0520_detect_capital/hafis/starchat/mutants/2/Solution.java:19:
+//@ ensures((word.equals("USA")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0520_detect_capital/hafis/starchat/mutants/2/Solution.java:19: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0520_detect_capital/hafis/starchat/mutants/2/Solution.java:16:) in method detectCapitalUse
+            return false;
+            ^
+./test/mutation_analysis/s0520_detect_capital/hafis/starchat/mutants/2/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0520_detect_capital/hafis/starchat/mutants/2/Solution.java:19:
+//@ ensures((word.equals("Google")) ==> (\result == true));
+    ^
+4 verification failures

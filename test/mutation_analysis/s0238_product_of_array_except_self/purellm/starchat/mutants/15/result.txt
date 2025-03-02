@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/starchat/mutants/15/Solution.java:28: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method productExceptSelf
+                        p = p * nums[j];
+                                    ^
+1 verification failure

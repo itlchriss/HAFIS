@@ -1,0 +1,3 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:134: Note: Not implemented for static checking: method axioms with old clauses: method toBinaryString(int)
+      @   old long pos_i = (1L<<32) + i;
+          ^

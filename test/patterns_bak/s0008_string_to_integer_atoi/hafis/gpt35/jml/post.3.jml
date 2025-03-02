@@ -1,0 +1,1 @@
+ensures(((\result == -42) && (s.equals(" negative 42"))) ==> (\result == -42));

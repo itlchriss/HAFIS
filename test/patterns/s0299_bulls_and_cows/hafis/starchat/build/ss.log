@@ -1,0 +1,11 @@
+test/s0299_bulls_and_cows/starchat/build/Solution.java:11: error: bad operand types for binary operator '>='
+//@ ensures((\result >= 0) && (\result <= secret.length()));
+                     ^
+  first type:  java.lang.String
+  second type: int
+test/s0299_bulls_and_cows/starchat/build/Solution.java:11: error: bad operand types for binary operator '<='
+//@ ensures((\result >= 0) && (\result <= secret.length()));
+                                       ^
+  first type:  java.lang.String
+  second type: int
+2 errors

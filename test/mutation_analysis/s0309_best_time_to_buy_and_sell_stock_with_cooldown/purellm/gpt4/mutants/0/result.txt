@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/gpt4/mutants/0/Solution.java:68: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method maxProfit
+            buy = Math.max(prevSell % price, prevBuy);
+                                    ^
+1 verification failure

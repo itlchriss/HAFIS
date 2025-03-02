@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0067_add_binary/purellm/starchat/mutants/17/Solution.java:35: error: unreachable statement
+        if (carry != 0) {
+        ^
+1 error

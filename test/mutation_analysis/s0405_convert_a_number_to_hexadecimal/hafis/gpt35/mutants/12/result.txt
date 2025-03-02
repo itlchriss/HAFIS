@@ -1,0 +1,37 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:96: Note: Not implemented for static checking: method axioms with old clauses: method toHexString(int)
+      @   old long pos_i = (1L<<32) + i;
+          ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:18: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:12:) in method toHex
+            return "0";
+            ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:18:
+//@ ensures(\forall int i; 0 <= i < \result.length(); Character.isLowerCase(\result.charAt(i)));
+    ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:100: verify: The prover cannot establish an assertion (ArithmeticCastRange: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:9:) in method toHex
+      @   ensures (int)Long.parseLong(\result,16) == i;
+                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:9: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:100:
+// the Free Software Foundation; either version 2, or (at your option)
+                                                                ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:100: verify: The prover cannot establish an assertion (ArithmeticCastRange: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:9:) in method toHex
+      @   ensures (int)Long.parseLong(\result,16) == i;
+                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:9: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Integer.jml:100:
+// the Free Software Foundation; either version 2, or (at your option)
+                                                                ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:18: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:11:) in method toHex
+            return "0";
+            ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:18:
+//@ ensures(\result.equals(Integer.toHexString(num)));
+    ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:13:) in method toHex
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:31:
+//@ ensures((num == 26) ==> (\result.equals("1a")));
+    ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/gpt35/mutants/12/Solution.java:16: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String toHex(int num) {
+                  ^
+11 verification failures

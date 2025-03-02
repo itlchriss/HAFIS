@@ -1,0 +1,4 @@
+./test/s0392_is_subsequence/hafis/starchat/build/Solution.java:31: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
+//@ ensures((t.contains(s)) ==> (\result == true));
+                       ^
+1 warning

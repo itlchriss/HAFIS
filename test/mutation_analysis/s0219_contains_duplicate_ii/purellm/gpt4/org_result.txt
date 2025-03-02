@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:30: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:17:) in method containsNearbyDuplicate
+        return false;
+        ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:30:
+//@ ensures \result == true <==> (\exists int i, j; 0 <= i < j < nums.length; nums[i] == nums[j] && Math.abs(i - j) <= k);
+    ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:30: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:19:) in method containsNearbyDuplicate
+        return false;
+        ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/gpt4/Solution.java:30:
+//@ ensures \result == false <==> !(\exists int i, j; 0 <= i < j < nums.length; nums[i] == nums[j] && Math.abs(i - j) <= k);
+    ^
+4 verification failures

@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0454_4sum_ii/hafis/gpt35/mutants/3/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0454_4sum_ii/hafis/gpt35/mutants/3/Solution.java:18:) in method fourSumCount
+        return count;
+        ^
+./test/mutation_analysis/s0454_4sum_ii/hafis/gpt35/mutants/3/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/hafis/gpt35/mutants/3/Solution.java:34:
+//@ ensures((\result <= 2147483647) && (\result >= -2147483648));
+    ^
+./test/mutation_analysis/s0454_4sum_ii/hafis/gpt35/mutants/3/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method fourSumCount
+                int sum = k / i;
+                            ^
+3 verification failures

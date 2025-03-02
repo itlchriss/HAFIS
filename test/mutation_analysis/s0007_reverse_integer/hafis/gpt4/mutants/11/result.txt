@@ -1,0 +1,28 @@
+./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:28: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method reverse
+            rev = (rev * 10) % (x % 10);            
+                             ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:16:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:36:
+//@ ensures((x == 120) ==> (\result == 21));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:15:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:36:
+//@ ensures((x == 0) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:14:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:36:
+//@ ensures((x == 123) ==> (\result == 321));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:13:) in method reverse
+            return 0;
+            ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/gpt4/mutants/11/Solution.java:34:
+//@ ensures((x == -123) ==> (\result == -321));
+    ^
+9 verification failures

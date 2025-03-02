@@ -1,0 +1,1 @@
+ensures((n == 500) ==> (\result == false));

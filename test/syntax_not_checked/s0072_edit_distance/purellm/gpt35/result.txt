@@ -1,0 +1,4 @@
+./test/syntax_check/s0072_edit_distance/purellm/gpt35/Solution.java:20: error: Incorrectly formed or terminated ensures statement near here
+//@ ensures \result == minimum number of operations required to convert w1 to w2;
+                               ^
+1 error

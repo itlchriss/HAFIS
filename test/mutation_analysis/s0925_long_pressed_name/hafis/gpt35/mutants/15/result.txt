@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0925_long_pressed_name/hafis/gpt35/mutants/15/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0925_long_pressed_name/hafis/gpt35/mutants/15/Solution.java:13:) in method isLongPressedName
+            return false;
+            ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/gpt35/mutants/15/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/hafis/gpt35/mutants/15/Solution.java:37:
+//@ ensures((Arrays.asList(typed.toCharArray()).containsAll(Arrays.asList(name.toCharArray()))) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/gpt35/mutants/15/Solution.java:44: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0925_long_pressed_name/hafis/gpt35/mutants/15/Solution.java:14:) in method isLongPressedName
+        return true;
+        ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/gpt35/mutants/15/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/hafis/gpt35/mutants/15/Solution.java:44:
+//@ ensures((!(Arrays.asList(typed.toCharArray()).containsAll(Arrays.asList(name.toCharArray())))) ==> (\result == false));
+    ^
+4 verification failures
