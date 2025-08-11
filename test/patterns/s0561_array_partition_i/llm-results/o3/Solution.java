@@ -1,0 +1,55 @@
+package g0501_0600.s0561_array_partition_i;
+
+// #Easy #Array #Sorting #Greedy #Counting_Sort
+// #2022_08_03_Time_14_ms_(84.99%)_Space_44.2_MB_(95.29%)
+
+import java.util.Arrays;
+
+public class Solution {
+    /*@ public pure model boolean perm(int[] a,int[] b) ;
+    public axiom (\forall int[] a,b; perm(a,b) <==>
+                    ((a==null && b==null) ? true
+                     : a!=null && b!=null &&
+                       a.length==b.length &&
+                       (\forall int v;
+                              (\num_of int i;0<=i<a.length; a[i]==v) ==
+                              (\num_of int j;0<=j<b.length; b[j]==v)))); @*/
+
+/*@ public pure model strictly_increasing int[] sort(int[] a) ;
+    public axiom (\forall int[] a;
+                    sort(a).length==((a==null)?0:a.length) &&
+                    perm(sort(a),a)                             &&
+                    (\forall int i,j; 0<=i<j<sort(a).length ==> sort(a)[i] <= sort(a)[j])); @*/
+
+
+/*@  // ========= method specification  =================================== */
+
+/*@ public normal_behavior
+      requires nums != null;
+      requires nums.length % 2 == 0;           // length is 2·n
+      requires 1 <= nums.length/2 && nums.length/2 <= 10000;
+      requires (\forall int i; 0<=i<nums.length;
+                     -10000 <= nums[i] && nums[i] <= 10000);
+
+      ensures (\exists int[] s;                 // any sorted permutation
+                   s == sort(\old(nums)) &&     // (perm + non-decreasing)
+                   \result ==
+                     (\sum int k; 0<=k<s.length/2;  s[2*k]));  // Σ even items
+
+      // maximality: no other permutation gives a larger Σ min(...)
+      ensures (\forall int[] p;
+                   p.length == nums.length && perm(p,\old(nums)) == true ==>
+                     \result >=
+                       (\sum int k; 0<=k<p.length/2;
+                                        (p[2*k] < p[2*k+1] ? p[2*k] : p[2*k+1])));
+    assignable \nothing;
+*/
+    public int arrayPairSum(int[] nums) {
+        Arrays.sort(nums);
+        int sum = 0;
+        for (int i = 0; i < nums.length - 1; i = i + 2) {
+            sum += Math.min(nums[i], nums[i + 1]);
+        }
+        return sum;
+    }
+}

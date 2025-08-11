@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/o3/mutants/2/Solution.java:86: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/o3/mutants/2/Solution.java:64:) in method maxProfit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/o3/mutants/2/Solution.java:64: verify: Associated declaration: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/o3/mutants/2/Solution.java:86:
+      @   ensures  (\exists int[] act;
+          ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/o3/mutants/2/Solution.java:42: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method profit
+      @         if (act[i] == -1) {                // buy
+                       ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/o3/mutants/2/Solution.java:42: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method profit
+      @         if (act[i] == -1) {                // buy
+                       ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/o3/mutants/2/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method validSequence
+      @         if (!isValidAction(act[i]))        return false;
+                                      ^
+5 verification failures

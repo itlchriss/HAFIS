@@ -1,9 +1,0 @@
-ensures:
-- The type_string_ result is equal to binary string representing the sum of the 2 input binary strings the type_character_ chrs_a and the type_character_ chrs_b.
-requires:
-- The type_string_ param_a_'s length is less_than_or_equal to 10000 and is greater_than_or_equal to 1.
-- The type_string_ param_b_'s length is less_than_or_equal to 10000 and is greater_than_or_equal to 1.
-- The type_string_ param_a_ only contains the checking_character_sequence_ .
-- The type_string_ param_b_ only contains the checking_character_sequence_ .
-- The type_string_ param_a_'s first_element is not_equal to the chry_a unless the type_string_ param_a_ only contains single_zero.
-- The type_string_ param_b_'s first_element is not_equal to the chry_a unless the type_string_ param_b_ only contains single_zero.

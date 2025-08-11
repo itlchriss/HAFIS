@@ -88,10 +88,10 @@
   arguments:  
   - symbol: Subj
     primitive_type: 'any'
-    reference_type: 'any'
+    reference_type: 'undefined'
   - symbol: Dat
     primitive_type: 'any'
-    reference_type: 'any'
+    reference_type: 'undefined'
   interpretation_type: 'expression'
   interpretation: (Subj) > (Dat)
 - term: less_than
@@ -100,10 +100,10 @@
   arguments:  
   - symbol: Subj
     primitive_type: 'any'
-    reference_type: 'any'
+    reference_type: 'undefined'
   - symbol: Dat
     primitive_type: 'any'
-    reference_type: 'any'
+    reference_type: 'undefined'
   interpretation_type: 'expression'
   interpretation: (Subj) < (Dat)
 - term: less_than_or_equal
@@ -325,11 +325,31 @@
   interpretation: \result
 - term: prime
   syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression_requires_param'
+  interpretation: (x) == 2 || ((x) > 2 && (\forall int k; (x) > 2 && 2 <= k && k <=
+    (x)/2; (x)%k != 0))
+- term: prime
+  syntax:
   - NN
   arguments:
   - symbol: x
     primitive_type: 'short'
     reference_type: 'undefined'
+  interpretation: (x) == 2 || ((x) > 2 && (\forall int k; (x) > 2 && 2 <= k && k <=
+    (x)/2; (x)%k != 0))
+- term: prime_number
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'function'
   interpretation: (x) == 2 || ((x) > 2 && (\forall int k; (x) > 2 && 2 <= k && k <=
     (x)/2; (x)%k != 0))
 - term: prime
@@ -365,8 +385,18 @@
   - symbol: x
     primitive_type: 'integer'
     reference_type: 'undefined'
+  interpretation_type: 'expression_requires_param'
   interpretation: (x) % 2 == 0
-- term: even
+- term: unchanged
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'array'
+  interpretation_type: 'expression_requires_param'
+  interpretation: \old((x)) == (x)
+- term: even)
   syntax:
   - RB
   arguments:
@@ -504,6 +534,21 @@
     reference_type: 'undefined'
   interpretation_type: 'expression'
   interpretation: (Subj) == (Dat)
+- term: dequal
+  syntax:
+  - JJ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'integer'
+    reference_type: 'array'
+  - symbol: Dat
+    primitive_type: 'integer'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: ((Subj) == null && (Dat) == null) ||((Subj) == (Dat)) || ((Subj).length == (Dat).length && (\forall int i; 0 <= i < (Subj).length; (Subj)[i] == (Dat)[i]))
 - term: equal
   syntax:
   - JJ
@@ -1063,6 +1108,18 @@
     reference_type: 'array'
   interpretation_type: 'expression_requires_param'
   interpretation: \forall int i; 0 <= i < (x).length; (\forall int j; 0 <= j < (x).length && j != i; (x)[j] != (x)[i])
+- term: between
+  syntax:
+  - IN
+  arguments:
+  - symbol: e
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation_type: 'collection'
+  interpretation: '(x)'  
 - term: sum
   syntax:
   - NN
@@ -1073,6 +1130,15 @@
     lazy_resolve: __REF__type
   interpretation_type: 'expression'
   interpretation: \sum int i; 0 <= i < __REF__type.length; (x)
+- term: sum
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'undefined'
+    reference_type: 'undefined'
+  interpretation_type: 'arithmetic'
+  interpretation: '+'
 - term: evenly_divided
   syntax:
   - VBN
@@ -2041,6 +2107,31 @@
     reference_type: 'undefined'
   interpretation_type: 'expression'
   interpretation: '(x) != null && (x).length() > 0 && ((x).charAt(0) == 32 || (x).charAt((x).length()-1) == 32)'
+- term: leading_zeros
+  syntax:
+  - NNS
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'undefined'
+    reference_type: 'undefined'
+  interpretation_type: 'template'
+  interpretation: '__TEMPLATE__leading_zeros'
+- term: __TEMPLATE__leading_zeros
+  syntax:
+  - NNS
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'string'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) != null && (x).length() > 0 && ((x).charAt(0) == 48)'
 - term: vocontain
   syntax:
   - VBZ

@@ -1,0 +1,4 @@
+- parameter int[] `nums` must have length between 1 and 100000 inclusive
+- each element in parameter int[] `nums` is within the range minus one billion to one billion inclusive
+- result boolean is true when at least one value appears two or more times in parameter int[] `nums`
+- result boolean is false when every value appears exactly once in parameter int[] `nums`

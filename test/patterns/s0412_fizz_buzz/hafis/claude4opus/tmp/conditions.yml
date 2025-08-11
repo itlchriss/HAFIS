@@ -1,0 +1,11 @@
+ensures:
+- The type_list_ result's length is equal to the type_integer_ param_n_.
+- If an element at index i in the type_list_ result is equal to stry_a , the value i+1 is divisible by 3 and the value i+1 is divisible by 5.
+- If an element at index i in the type_list_ result is equal to stry_a , the value i+1 is divisible by 3 and the value i+1 is not divisible by 5.
+- If an element at index i in the type_list_ result is equal to stry_a , the value i+1 is not divisible by 3 and the value i+1 is divisible by 5.
+- If an element at index i in the type_list_ result is not equal to stry_a and is not equal to stry_b and is not equal to stry_c , the element is equal to the string_representation of i+1.
+- If the type_integer_ param_n_ is equal to 3 , the type_list_ result is equal to the type_string_array_ str_seqa.
+- If the type_integer_ param_n_ is equal to 5 , the type_list_ result is equal to the type_string_array_ str_seqa.
+- If the type_integer_ param_n_ is equal to 15 , the type_list_ result is equal to the type_string_array_ str_seqa.
+requires:
+- The type_integer_ param_n_ is greater_than_or_equal to 1 and is less_than_or_equal to 10000.

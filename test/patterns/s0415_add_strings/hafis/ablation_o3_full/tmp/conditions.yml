@@ -1,0 +1,7 @@
+ensures:
+- If data type String param_the_ chry_a equals stry_a and data type String param_the_ chry_b equals stry_b the data type String result equals stry_c.
+- If 1 of data type String the chry_a or the chry_b equals stry_a and the other param_is_ equal to 0 non-negative integer without leading zeros the data type String result equals the 0 param_value_.
+- When data type String parameters the chry_a and the chry_b each represent non_negative_integers without leading zeros the data type String result is the arithmetic sum of the 2 numbers expressed in base 10 with no leading zeros.
+- The length of the data type String result is either equal to the greater of the lengths of data type String parameters the chry_a and the chry_b or 1 character longer than that greater length.
+requires:
+- When data type String param_the_ chry_a is at least 1 character long , at most 10 1000 characters long , and every character is equal to decimal digit 0 through 9 , the method accepts the as valid.

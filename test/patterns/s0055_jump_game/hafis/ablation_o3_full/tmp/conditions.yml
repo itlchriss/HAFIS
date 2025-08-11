@@ -1,0 +1,5 @@
+ensures:
+- If int[] the chry_a has length equal to 1 then type_boolean_ result is equal to the true literal.
+- If type_boolean_ result is equal to the true literal then the last index of int[] the chry_a is reachable from index 0 by a sequence of jumps that each jump length is not greater_than to the value stored at the departure index.
+- If the last index of int[] the chry_a is not reachable from index 0 by any sequence of jumps that each jump length is not greater_than to the value stored at the departure index then type_boolean_ result is equal to the false literal.
+requires: []

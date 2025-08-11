@@ -1,0 +1,68 @@
+Looking at this problem, I need to understand the pattern of bulb switching and convert it to JML (Java Modeling Language) specification.
+
+Let me analyze the problem:
+- Initially all n bulbs are off
+- Round 1: Turn on all bulbs (toggle every 1st bulb)
+- Round 2: Toggle every 2nd bulb
+- Round 3: Toggle every 3rd bulb
+- ...
+- Round i: Toggle every i-th bulb
+- Round n: Toggle every n-th bulb (only the last one)
+
+A bulb at position k gets toggled in round i if k is divisible by i. So bulb k gets toggled once for each divisor of k. Since bulbs start off, a bulb will be on at the end if it has an odd number of divisors.
+
+Only perfect squares have an odd number of divisors. Therefore, the answer is the number of perfect squares ≤ n, which is floor(√n).
+
+Here's the JML specification:
+
+```java
+public class BulbSwitcher {
+    
+    /*@ public normal_behavior
+      @ requires n >= 0;
+      @ ensures \result == (int) Math.floor(Math.sqrt(n));
+      @ ensures \result >= 0;
+      @ ensures \result * \result <= n;
+      @ ensures (\result + 1) * (\result + 1) > n;
+      @*/
+    /*@ pure @*/
+    public int bulbSwitch(int n) {
+        return (int) Math.sqrt(n);
+    }
+    
+    /*@ public normal_behavior
+      @ requires n >= 0 && n <= 1000000000;
+      @ ensures n == 0 ==> \result == 0;
+      @ ensures n == 1 ==> \result == 1;
+      @ ensures n == 3 ==> \result == 1;
+      @ ensures n == 4 ==> \result == 2;
+      @ ensures n == 9 ==> \result == 3;
+      @ ensures \result == countPerfectSquares(n);
+      @*/
+    /*@ pure @*/
+    public int bulbSwitchAlternative(int n) {
+        return (int) Math.sqrt(n);
+    }
+    
+    /*@ private normal_behavior
+      @ requires n >= 0;
+      @ ensures \result == (\num_of int i; 1 <= i && i <= n; i * i == i * i && i * i <= n);
+      @*/
+    /*@ pure helper @*/
+    private int countPerfectSquares(int n) {
+        return (int) Math.sqrt(n);
+    }
+}
+```
+
+The key JML specifications include:
+1. **Precondition**: `requires n >= 0` - n must be non-negative
+2. **Postcondition**: `ensures \result == (int) Math.floor(Math.sqrt(n))` - the result equals the floor of square root of n
+3. **Additional postconditions**: 
+   - The result is non-negative
+   - `\result * \result <= n` - the square of result doesn't exceed n
+   - `(\result + 1) * (\result + 1) > n` - the next perfect square exceeds n
+4. **Specific test cases**: Verified the examples given (n=0→0, n=1→1, n=3→1)
+5. **Pure method**: Marked as `pure` since it has no side effects
+
+The specification captures that we're counting perfect squares up to n, which is mathematically equivalent to finding floor(√n).

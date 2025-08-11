@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:24:) in method fourSumCount
+        return count;
+        ^
+./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:24: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:43:
+//@ ensures(\result >= 0);
+    ^
+./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:26:) in method fourSumCount
+        return count;
+        ^
+./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:26: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:43:
+//@ ensures((nums1[0] == 0 && nums1.length == 1) && ((nums2[0] == 0 && nums2.length == 1) && ((nums3[0] == 0 && nums3.length == 1) && ((nums4[0] == 0 && nums4.length == 1) && (\result == 1)))));
+    ^
+./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:25:) in method fourSumCount
+        return count;
+        ^
+./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:25: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:43:
+//@ ensures((nums1[0] == 1 && nums1[1] == 2 && nums1.length == 2) && ((nums2[0] == -2 && nums2[1] == -1 && nums2.length == 2) && ((nums3[0] == -1 && nums3[1] == 2 && nums3.length == 2) && ((nums4[0] == 0 && nums4[1] == 2 && nums4.length == 2) && (\result == 2)))));
+    ^
+./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:25: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method fourSumCount
+//@ ensures((nums1[0] == 1 && nums1[1] == 2 && nums1.length == 2) && ((nums2[0] == -2 && nums2[1] == -1 && nums2.length == 2) && ((nums3[0] == -1 && nums3[1] == 2 && nums3.length == 2) && ((nums4[0] == 0 && nums4[1] == 2 && nums4.length == 2) && (\result == 2)))));
+                                   ^
+./test/mutation_analysis/s0454_4sum_ii/hafis/claude4opus/mutants/13/Solution.java:43: verify: Associated method exit
+        return count;
+        ^
+8 verification failures

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/49/Solution.java:38: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method myAtoi
+        while (input[i] >= '0') {
+                    ^
+1 verification failure

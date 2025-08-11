@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0134_gas_station/hafis/ablation_o3_r50/mutants/1/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method canCompleteCircuit
+            curGas += gas[i] - cost[i];
+                         ^
+1 verification failure

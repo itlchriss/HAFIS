@@ -1,0 +1,96 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Below is a self-contained JML specification (only the contracts – **no implementation code**) for the classical
+  boolean isMatch(String s, String p)  routine that solves
+LeetCode #44 “Wildcard Matching”.
+
+File: Wildcard.java
+────────────────────────────────────────────────────────────────────────
+public final class Wildcard {
+
+    /*@ public normal_behavior
+      @   requires s != null && p != null;
+      @
+      @   // Size limits coming from the problem statement
+      @   requires s.length() <= 2000 && p.length() <= 2000;
+      @
+      @   // Alphabet constraints
+      @   requires (\forall int k ; 0 <= k && k < s.length() ;
+      @                     Character.isLowerCase(s.charAt(k)));
+      @   requires (\forall int k ; 0 <= k && k < p.length() ;
+      @                     Character.isLowerCase(p.charAt(k)) ||
+      @                     p.charAt(k) == '?'                  ||
+      @                     p.charAt(k) == '*');
+      @
+      @   // Post-condition :  result is true  iff  p matches the whole s
+      @   ensures  \result  <==>  Wildcard.matches(s,0,p,0);
+      @
+      @   // The method is observationally pure (no heap change)
+      @   assignable \nothing;
+      @*/
+    public /*@ pure @*/ static boolean isMatch(String s, String p);
+    // ------------------------------------------------------------
+
+
+    /*------------------------------------------------------------------
+     * A fully-formal, purely declarative auxiliary predicate that
+     * captures the semantics of wildcard matching exactly as described
+     * in the statement (support for ‘?’ and ‘*’; the match must cover
+     * the complete string).
+     *
+     *  –  i  is the next character to be read in   s
+     *  –  j  is the next character to be read in   p
+     *
+     * The definition is given by structural recursion on the  (i,j)
+     * indices; because the method is specified  pure  and has an
+     * assignable-\nothing clause, it is legal to reference it from the
+     * post-condition of  isMatch.
+     *-----------------------------------------------------------------*/
+
+    /*@ public normal_behavior
+      @   requires s != null && p != null;
+      @   requires 0 <= i && i <= s.length();
+      @   requires 0 <= j && j <= p.length();
+      @
+      @   // Semantic definition (three cases)
+      @   ensures \result <==>
+      @           (
+      @             /* 1. pattern consumed ⇝ success only if string also
+      @                    consumed                                          */
+      @             ( j == p.length() ?
+      @                   i == s.length()
+      @
+      @             /* 2. next pattern symbol is ‘*’ :
+      @                    either we let it absorb one char of s
+      @                    or we let it stand for the empty string          */
+      @             : ( p.charAt(j) == '*'
+      @                 ? ( ( i <  s.length() && Wildcard.matches(s,i+1,p,j) )
+      @                     || Wildcard.matches(s,i,p,j+1) )
+      @
+      @             /* 3. next pattern symbol is single :
+      @                    it must match current char in s and we advance
+      @                    both indices                                     */
+      @                 : ( i < s.length() &&
+      @                     ( p.charAt(j) == '?' ||
+      @                       p.charAt(j) == s.charAt(i) ) &&
+      @                     Wildcard.matches(s,i+1,p,j+1) )
+      @               )
+      @           );
+      @
+      @   assignable \nothing;
+      @*/
+    private /*@ pure @*/ static boolean matches(String s,int i,
+                                                String p,int j);
+}
+────────────────────────────────────────────────────────────────────────
+
+How the specification relates to the original prose
+---------------------------------------------------
+1. Preconditions encode the constraints (length ≤ 2000, allowed
+   alphabet, non-null arguments).
+2. The post-condition of  isMatch  delegates the meaning to the pure,
+   recursively-defined helper  matches (…).
+3. The helper predicate reproduces word-for-word the operational rules:
+   • end-of-pattern, • ‘*’, • ordinary character or ‘?’.
+
+Any Java implementation that satisfies these contracts will therefore be
+functionally correct with respect to the original Wildcard Matching
+specification.

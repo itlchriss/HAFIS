@@ -1,0 +1,6 @@
+ensures:
+- int[] result ensures length equals length of String the type_character_ chrs_a + 1.
+- int[] result ensures it contains each integer from 0 to length of String the type_character_ chrs_a once.
+- int[] result ensures that for every index i with i is greater_than_or_equal to 0 and i is less_than to length of String the type_character_ chrs_a when the character at index i in String the type_character_ chrs_b is uppercase I then the element at index i in int[] result is less_than to the element at index i + 1 in int[] result.
+- int[] result ensures that for every index i with i is greater_than_or_equal to 0 and i is less_than to length of String the type_character_ chrs_a when the character at index i in String the type_character_ chrs_b is uppercase D then the element at index i in int[] result is greater_than to the element at index i + 1 in int[] result.
+requires: []

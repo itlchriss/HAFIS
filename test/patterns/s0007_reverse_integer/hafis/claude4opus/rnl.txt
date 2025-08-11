@@ -1,0 +1,11 @@
+Based on the given software specification and following the pattern from the examples, here are the method behavioural specifications:
+
+- The integer parameter `x` is greater than or equal to -2147483648 and is less than or equal to 2147483647.
+- If the integer parameter `x` is equal to 123, the integer result is equal to 321.
+- If the integer parameter `x` is equal to -123, the integer result is equal to -321.
+- If the integer parameter `x` is equal to 120, the integer result is equal to 21.
+- If the integer parameter `x` is equal to 0, the integer result is equal to 0.
+- If the integer parameter `x` is greater than 0 and the integer result is greater than 0, the integer result has the same digits as the integer parameter `x` in reverse order.
+- If the integer parameter `x` is less than 0 and the integer result is less than 0, the absolute value of the integer result has the same digits as the absolute value of the integer parameter `x` in reverse order.
+- If reversing the digits of the integer parameter `x` would cause the value to be less than -2147483648 or greater than 2147483647, the integer result is equal to 0.
+- The integer result is greater than or equal to -2147483648 and is less than or equal to 2147483647.

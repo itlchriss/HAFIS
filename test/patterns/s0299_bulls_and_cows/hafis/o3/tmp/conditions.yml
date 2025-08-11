@@ -1,0 +1,14 @@
+ensures:
+- The type_string_ result is composed of the decimal representation of a non-negative integer , followed by the uppercase letter A , followed by the decimal representation of a non-negative integer , followed by the uppercase letter B.
+- The non-negative integer represented by that are contained by before the uppercase letter A in the type_string_ result is equal to the number of indices i such that the character at index i of the type_string_ param_secret_ is equal to the character at index i of the type_string_ param_guess_.
+- The non-negative integer represented by that are contained by between the uppercase letter A and the uppercase letter B in the type_string_ result is equal to the number of digit occurrences that are present in both the type_string_ param_secret_ and the type_string_ param_guess_ , excluding the digits counted as bulls , with each digit counted at most as many times as it appears outside of bull positions in both strings.
+- The sum between the integer value that appears before the uppercase letter A in the type_string_ result and the integer value that appears between the uppercase letter A and the uppercase letter B in the type_string_ result is less_than_or_equal to the type_string_ param_secret_'s length.
+- If the type_string_ param_secret_ is equal to stry_a and the type_string_ param_guess_ is equal to stry_b , the type_string_ result is equal to stry_c.
+- If the type_string_ param_secret_ is equal to stry_a and the type_string_ param_guess_ is equal to stry_b , the type_string_ result is equal to stry_c.
+- If the type_string_ param_secret_ is equal to stry_a and the type_string_ param_guess_ is equal to stry_b , the type_string_ result is equal to stry_c.
+- If the type_string_ param_secret_ is equal to stry_a and the type_string_ param_guess_ is equal to stry_b , the type_string_ result is equal to stry_c.
+requires:
+- The type_string_ param_guess_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 1000.
+- The type_string_ param_secret_'s length is equal to the type_string_ param_guess_'s length.
+- The type_string_ param_secret_ only contains digit characters.
+- The type_string_ param_guess_ only contains digit characters.

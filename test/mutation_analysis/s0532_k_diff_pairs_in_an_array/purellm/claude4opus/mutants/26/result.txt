@@ -1,0 +1,37 @@
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:13: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method countUniquePairs
+      @       if (Math.abs(nums[i] - nums[j]) == k) {
+                                         ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:13: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method countUniquePairs
+      @       if (Math.abs(nums[i] - nums[j]) == k) {
+                               ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:23: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method countUniquePairs
+      @               if (Math.abs(nums[p] - nums[q]) == k) {
+                                                 ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:23: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method countUniquePairs
+      @               if (Math.abs(nums[p] - nums[q]) == k) {
+                                       ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:76: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:52:) in method findPairs
+        return res;
+        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:52: verify: Associated declaration: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:76:
+      @ ensures \result == countUniquePairs(nums, k);
+        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:76: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:50:) in method findPairs
+        return res;
+        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:50: verify: Associated declaration: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:76:
+      @ ensures \result >= 0;
+        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:70: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:44:) in method findPairs
+                if (set.contains(n + k)) {
+                                ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:44: verify: Associated declaration: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:70:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:76: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:51:) in method findPairs
+        return res;
+        ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:51: verify: Associated declaration: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/claude4opus/mutants/26/Solution.java:76:
+      @ ensures \result <= nums.length * (nums.length - 1) / 2;
+        ^
+12 verification failures

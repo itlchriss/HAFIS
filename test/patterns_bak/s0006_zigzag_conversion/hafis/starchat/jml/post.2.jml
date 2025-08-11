@@ -1,1 +1,0 @@
-ensures(((numRows == 1) && (s.equals("A"))) ==> (\result.equals("A")));

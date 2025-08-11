@@ -1,0 +1,85 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Below is a complete JML-specification for the classical Java header
+
+    /*@ public normal_behavior
+      @   requires nums != null;
+      @   requires (\forall int i; 0 <= i && i + 1 < nums.length; nums[i] < nums[i+1]);
+      @   ensures (\result != null);
+      @
+      @   // (1)  The set of integers described by the result is
+      @   //      exactly the set contained in the argument array.
+      @
+      @   ensures (\forall int k; 0 <= k && k < nums.length;
+      @              (\exists int i; 0 <= i && i < \result.size();
+      @                   inRange(nums[k], (String)\result.get(i))));
+      @
+      @   ensures (\forall int i; 0 <= i && i < \result.size();
+      @              (\forall int x; inRange(x, (String)\result.get(i));
+      @                   (\exists int k; 0 <= k && k < nums.length; nums[k] == x)));
+      @
+      @   // (2)  The textual form of each range is either  "a"  or  "a->b".
+      @
+      @   ensures (\forall int i; 0 <= i && i < \result.size();
+      @              validRangeString((String)\result.get(i)));
+      @
+      @   // (3)  Different ranges are disjoint and appear in strictly
+      @   //      increasing order.
+      @
+      @   ensures (\forall int i,j; 0 <= i && i < j && j < \result.size();
+      @              disjointRanges((String)\result.get(i),
+      @                              (String)\result.get(j)));
+      @
+      @   ensures (\forall int i,j; 0 <= i && i < j && j < \result.size();
+      @              rangeStart((String)\result.get(i))
+      @            < rangeStart((String)\result.get(j)));
+      @*/
+    public /*@ pure @*/ java.util.List<String> summaryRanges(int[] nums);
+
+Auxiliary pure helper-functions used above
+( their bodies may be implemented any convenient way, they are only needed
+  so that the post-conditions can talk about ranges ):
+
+    /*@ public pure helper @*/ static boolean validRangeString(String s) {
+        return s != null &&
+              (s.indexOf("->") == -1     // single number
+               ? isInteger(s)
+               : (s.indexOf("->") == s.lastIndexOf("->") &&
+                  isInteger(s.substring(0, s.indexOf("->"))) &&
+                  isInteger(s.substring(s.indexOf("->") + 2))));
+    }
+
+    /*@ public pure helper @*/ static boolean inRange(int x, String r) {
+        int a = rangeStart(r);
+        int b = rangeEnd(r);
+        return a <= x && x <= b;
+    }
+
+    /*@ public pure helper @*/ static boolean disjointRanges(String r1, String r2) {
+        return rangeEnd(r1) < rangeStart(r2) ||
+               rangeEnd(r2) < rangeStart(r1);
+    }
+
+    /*@ public pure helper @*/ static int    rangeStart(String r);
+    /*@ public pure helper @*/ static int    rangeEnd  (String r);
+    /*@ public pure helper @*/ static boolean isInteger(String s);
+
+Explanations of the clauses
+
+1.  The first pair of `ensures` clauses states that every value occurring in
+    the input array is covered by (at least) one of the textual ranges and
+    that, conversely, every integer contained in any textual range
+    originates from the array.  
+    Together they guarantee “cover all numbers in the array exactly”.
+
+2.  `validRangeString` formalises the syntactic rule
+       "a"  if a == b   
+       "a->b"  if a != b
+
+3.  `disjointRanges` and the strict ordering of the `rangeStart`
+    values guarantee the returned list is the “smallest sorted” list
+    of pair-wise disjoint, ascending ranges.
+
+The single pre-condition expresses the constraint that the argument array
+must already be strictly increasing (sorted and containing unique values);
+the size limit (≤ 20) and integer bounds are purposely left out of the
+pre-conditions because they are irrelevant for the functional behaviour,
+but they can be added in exactly the same way if desired.

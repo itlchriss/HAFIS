@@ -1,0 +1,1 @@
+- If 'int[]' `gas` and 'int[]' `cost` do not permit completing the circular route from any station then 'int' result equals -1

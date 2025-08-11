@@ -1,4 +1,0 @@
-./test/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/gpt35/build/Solution.java:13: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
-//@ ensures((!(needle.contains(haystack))) ==> (\result == -1));
-                              ^
-1 warning

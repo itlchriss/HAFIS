@@ -1,0 +1,60 @@
+Here's the JML specification for the DI String Match problem:
+
+```java
+public class DIStringMatch {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires s.length() >= 1 && s.length() <= 100000;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           s.charAt(i) == 'I' || s.charAt(i) == 'D');
+      @ ensures \result != null;
+      @ ensures \result.length == s.length() + 1;
+      @ ensures isPermutation(\result, s.length());
+      @ ensures (\forall int i; 0 <= i && i < s.length();
+      @          (s.charAt(i) == 'I' ==> \result[i] < \result[i + 1]) &&
+      @          (s.charAt(i) == 'D' ==> \result[i] > \result[i + 1]));
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ int[] diStringMatch(String s) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires arr != null;
+      @ ensures \result <==> 
+      @   ((\forall int i; 0 <= i && i <= n; 
+      @     (\exists int j; 0 <= j && j < arr.length; arr[j] == i)) &&
+      @    (\forall int i; 0 <= i && i < arr.length;
+      @     0 <= arr[i] && arr[i] <= n) &&
+      @    (\forall int i, j; 0 <= i && i < arr.length && 
+      @     0 <= j && j < arr.length && i != j; arr[i] != arr[j]));
+      @*/
+    private /*@ pure @*/ boolean isPermutation(int[] arr, int n) {
+        // Helper method to check if arr is a valid permutation of [0, n]
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - The input string `s` must not be null
+   - The length must be between 1 and 10^5 (inclusive)
+   - Every character must be either 'I' or 'D'
+
+2. **Postconditions (`ensures`):**
+   - The result array is not null
+   - The result array has length `s.length() + 1`
+   - The result is a valid permutation of integers from 0 to n (where n = s.length())
+   - For each position i in the string:
+     - If s[i] == 'I', then result[i] < result[i+1]
+     - If s[i] == 'D', then result[i] > result[i+1]
+
+3. **Helper specification:**
+   - `isPermutation` is a helper predicate that verifies the result array contains exactly one occurrence of each integer from 0 to n
+
+4. **Frame condition:**
+   - `assignable \nothing` indicates this is a pure method that doesn't modify any existing state
+
+This specification captures all the requirements from the problem statement while allowing for any valid permutation to be returned (as there may be multiple valid solutions).

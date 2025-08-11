@@ -1,9 +1,0 @@
-ensures:
-- The type_integer_ result is equal to the true literal or is equal to the false literal.
-- If the type_integer_array_ param_arr_ is equal to arr_a , the type_integer_ result is equal to the false literal.
-- If the type_integer_array_ param_arr_ is equal to arr_a , the type_integer_ result is equal to the false literal.
-- If the type_integer_array_ param_arr_ is equal to arr_a , the type_integer_ result is equal to the true literal.
-requires:
-- The type_integer_array_ param_arr_'s length is less_than_or_equal to 10000 and is greater_than_or_equal to 3.
-- ' - The type_integer_array_ param_arr_''s values from index 0 to index i - 1 are strictly increasing.'
-- ' - The type_integer_array_ param_arr_''s values from index i to index arr.length - 1 are strictly decreasing.'

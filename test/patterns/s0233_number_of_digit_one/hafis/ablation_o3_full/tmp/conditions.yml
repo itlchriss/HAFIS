@@ -1,0 +1,4 @@
+ensures:
+- If int the type_character_ chrs_a equals 13 int result equals 6.
+- If int the type_character_ chrs_a equals 0 int result equals 0.
+requires: []

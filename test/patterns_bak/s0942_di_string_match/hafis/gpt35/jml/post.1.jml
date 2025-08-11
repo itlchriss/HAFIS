@@ -1,1 +1,0 @@
-ensures(\forall int i; 0 <= i < \result.length; (\forall int j; 0 <= j < \result.length && j != i; \result[j] != \result[i]));

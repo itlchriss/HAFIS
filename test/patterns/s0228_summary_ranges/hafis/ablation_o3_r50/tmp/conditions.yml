@@ -1,0 +1,12 @@
+ensures:
+- If the type_integer_array_ param_nums_'s length is equal to 0 , the length of the list of strings result is equal to 0.
+- The list of strings result is sorted to the ascending_order according to the integer values represented by its elements.
+- The sum of the counts of integers represented by all ranges described in the list of strings result is equal to the type_integer_array_ param_nums_'s length.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the list of strings result is equal to the type_string_array_ str_seqa.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the list of strings result is equal to the type_string_array_ str_seqa.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the list of strings result is equal to the type_string_array_ str_seqa.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the list of strings result is equal to the type_string_array_ str_seqa.
+requires:
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to negative 2147483648 and are less_than_or_equal to 2147483647.
+- The type_integer_array_ param_nums_'s values are unique.
+- The type_integer_array_ param_nums_ is in the ascending_order.

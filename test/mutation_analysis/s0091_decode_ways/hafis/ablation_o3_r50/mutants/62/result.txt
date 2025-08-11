@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0091_decode_ways/hafis/ablation_o3_r50/mutants/62/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/ablation_o3_r50/mutants/62/Solution.java:13:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/ablation_o3_r50/mutants/62/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/ablation_o3_r50/mutants/62/Solution.java:36:
+//@ ensures((\result <= 2147483647) && (\result >= 0));
+    ^
+2 verification failures

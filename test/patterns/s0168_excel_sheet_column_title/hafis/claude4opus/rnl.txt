@@ -1,0 +1,11 @@
+Based on the given software specification and following the pattern from the examples, here are the method behavioural specifications:
+
+- The integer parameter `n` is greater than or equal to 1 and is less than or equal to 2147483647.
+- The string result consists of only uppercase English letters.
+- The length of the string result is greater than or equal to 1.
+- If the integer parameter `n` is equal to 1, the string result is equal to "A".
+- If the integer parameter `n` is equal to 28, the string result is equal to "AB".
+- If the integer parameter `n` is equal to 701, the string result is equal to "ZY".
+- If the integer parameter `n` is equal to 2147483647, the string result is equal to "FXSHRXW".
+- If the integer parameter `n` is less than or equal to 26, the length of the string result is equal to 1.
+- If the integer parameter `n` is greater than 26 and is less than or equal to 702, the length of the string result is equal to 2.

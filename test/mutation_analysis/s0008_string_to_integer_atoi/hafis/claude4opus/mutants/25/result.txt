@@ -1,0 +1,9 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/claude4opus/mutants/25/Solution.java:49: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/claude4opus/mutants/25/Solution.java:12:) in method myAtoi
+                return Integer.MAX_VALUE;
+                ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/claude4opus/mutants/25/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/claude4opus/mutants/25/Solution.java:49:
+//@ ensures((str.equals("42")) ==> (\result == 42));
+    ^
+error: An error while executing a proof script for myAtoi: (error "Solver has unexpectedly terminated")
+1 error
+2 verification failures

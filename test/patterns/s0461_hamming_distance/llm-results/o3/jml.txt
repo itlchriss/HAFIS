@@ -1,0 +1,36 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Below is a possible JML contract for a Java method that implements “461. Hamming Distance”.
+
+```java
+public class Solution {
+
+    /**
+     * Returns the Hamming distance (the number of bit‐positions that differ)
+     * between two non–negative 32-bit integers.
+     */
+    /*@ public normal_behavior
+      @   requires 0 <= x && x <= 0x7FFFFFFF;          // 0 … 2^31 – 1
+      @   requires 0 <= y && y <= 0x7FFFFFFF;          // 0 … 2^31 – 1
+      @
+      @   assignable \nothing;                         // function is pure
+      @
+      @   ensures 0 <= \result && \result <= 31;       // at most 31 differing bits
+      @
+      @   // \result equals the number of bit positions
+      @   // (among the least–significant 32 bits) where x and y differ.
+      @   ensures \result ==
+      @           (\num_of int i; 0 <= i && i < 32;
+      @                     (((x >>> i) & 1) != ((y >>> i) & 1)));
+      @*/
+    public static /*@ pure @*/ int hammingDistance(int x, int y) {
+        // implementation goes here
+    }
+}
+```
+
+Explanation of the main JML clauses:
+
+1. `requires`: encodes the constraint `0 ≤ x, y ≤ 2³¹ − 1`.
+2. `assignable \nothing`: states that the method has no side effects.
+3. The first `ensures` line guarantees the result is a legal distance (0–31).
+4. The second `ensures` line defines the result precisely:  
+   `\num_of` counts the indices `i` (0 – 31) for which the bits of `x` and `y` differ after an unsigned right-shift (`>>>`) and masking with `1`.

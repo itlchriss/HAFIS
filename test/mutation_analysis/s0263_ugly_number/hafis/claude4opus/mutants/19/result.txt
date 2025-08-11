@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0263_ugly_number/hafis/claude4opus/mutants/19/Solution.java:24: error: unreachable statement
+            while (false) {
+                          ^
+1 error

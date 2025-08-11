@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0342_power_of_four/purellm/o3/mutants/13/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0342_power_of_four/purellm/o3/mutants/13/Solution.java:8:) in method isPowerOfFour
+        return n == 1;
+        ^
+./test/mutation_analysis/s0342_power_of_four/purellm/o3/mutants/13/Solution.java:8: verify: Associated declaration: ./test/mutation_analysis/s0342_power_of_four/purellm/o3/mutants/13/Solution.java:20:
+      @   ensures  \result <==>                      // “iff” specification
+          ^
+2 verification failures

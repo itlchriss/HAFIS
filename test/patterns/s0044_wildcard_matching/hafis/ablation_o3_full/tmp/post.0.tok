@@ -1,0 +1,1 @@
+The type_boolean_ result is equal to the true literal only when the value of stry_a matches the value of stry_b under the rule that a question mark matches any single character and an asterisk matches any sequence of characters including the empty sequence otherwise the type_boolean_ result is equal to the false literal . 

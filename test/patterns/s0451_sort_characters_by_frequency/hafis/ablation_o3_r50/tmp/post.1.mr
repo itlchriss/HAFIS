@@ -1,0 +1,1 @@
+all x01.(_occurrence{NNS}(x01) -> (all x02.(exists e03.(_unique{JJ}(e03) & (Subj(e03) = x02) & _character{NN}(x02)) -> exists e04.(_of{IN}(e04,x02) & (Subj(e04) = x01))) -> exists e05.(_contiguous{JJ}(e05) & (Subj(e05) = x01) & exists x06.(_result{NN}(x06) & _string{NN}(x06) & _in{IN}(e05,x06)))))

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0709_to_lower_case/hafis/ablation_o3_full/mutants/20/Solution.java:15: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method toLowerCase
+            if (c[i] <= 'Z' && c[i] >= 'A') {
+                 ^
+1 verification failure

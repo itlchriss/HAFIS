@@ -1,0 +1,2 @@
+- The String result contains the same sequence of characters as the String parameter "s" except that every uppercase ASCII letter in the String parameter "s" appears as its lowercase equivalent in the result
+- The length of the String result is equal to the length of the String parameter "s"

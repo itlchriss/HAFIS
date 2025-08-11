@@ -1,0 +1,34 @@
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:43: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:36:) in method frequencySort: \everything
+        TreeMap<Integer, List<Character>> reverseMap = new TreeMap<>(Collections.reverseOrder());
+                                                                                             ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:36: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:43:
+      @   assignable \nothing;
+          ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:43: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:36:) in method frequencySort: \everything
+        TreeMap<Integer, List<Character>> reverseMap = new TreeMap<>(Collections.reverseOrder());
+                                                       ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:36: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:43:
+      @   assignable \nothing;
+          ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:41: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:36:) in method frequencySort: \everything
+            map.put(c, map.getOrDefault(c, 0) + 1);
+                                       ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:36: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:41:
+      @   assignable \nothing;
+          ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:43: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:17:) in method frequencySort
+        TreeMap<Integer, List<Character>> reverseMap = new TreeMap<>(Collections.reverseOrder());
+                                                                                             ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:43:
+      @  public normal_behavior
+                ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:58: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:27:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:27: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:58:
+      @   ensures \result.length() == s.length();
+          ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/o3/mutants/10/Solution.java:38: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String frequencySort(String s) {
+                  ^
+11 verification failures

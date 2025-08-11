@@ -1,1 +1,0 @@
-ensures((n == 400) ==> (\result == false));

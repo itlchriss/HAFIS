@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/29/Solution.java:55: error: unreachable statement
+        return max;
+        ^
+1 error

@@ -1,1 +1,0 @@
-exists x01.(_n{NN}(x01) & exists x02.(_parameter{NN}(x02) & _integer{NN}(x02) & (x01 = x02)))

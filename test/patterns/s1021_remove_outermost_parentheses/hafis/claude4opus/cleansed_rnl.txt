@@ -1,0 +1,10 @@
+- The length of the string parameter `s` is greater than or equal to 1 and is less than or equal to 100000.
+- The string parameter `s` consists of only '(' and ')' characters.
+- The string parameter `s` is a valid parentheses string.
+- The length of the string result is less than or equal to the length of the string parameter `s`.
+- The string result consists of only '(' and ')' characters.
+- If the string parameter `s` is equal to "(()())(())", the string result is equal to "()()()".
+- If the string parameter `s` is equal to "(()())(())(()(()))", the string result is equal to "()()()()(())".
+- If the string parameter `s` is equal to "()()", the string result is equal to "".
+- The string result is a valid parentheses string.
+- The length of the string result is equal to the length of the string parameter `s` minus 2 times the number of primitive decompositions in the string parameter `s`.

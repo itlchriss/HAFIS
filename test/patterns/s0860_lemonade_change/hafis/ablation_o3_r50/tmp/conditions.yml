@@ -1,0 +1,8 @@
+ensures:
+- If type_boolean_ result is equal to the true literal , each customer represented by the type_integer_array_ param_bills_ receives correct change when the price of 1 lemonade is equal to 5.
+- If type_boolean_ result is equal to the false literal , at least 1 customer represented by the type_integer_array_ param_bills_ does not receive correct change when the price of 1 lemonade is equal to 5.
+- If the type_integer_array_ param_bills_ is equal to arr_a , type_boolean_ result is equal to the true literal.
+- If the type_integer_array_ param_bills_ is equal to arr_a , type_boolean_ result is equal to the false literal.
+- Boolean result is equal to the true literal only if for every processed prefix of the type_integer_array_ param_bills_ the cumulative value of collected bills - 5 times the number of processed customers is greater_than_or_equal to 0.
+requires:
+- The type_integer_array_ param_bills_'s values are equal to 5 or are equal to 10 or are equal to 20.

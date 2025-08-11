@@ -1,0 +1,28 @@
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:17:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:41:
+//@ ensures(\result.length() == s.length());
+    ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:20:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:41:
+//@ ensures((s.equals("cccaaa")) ==> (\result.equals("aaaccc")));
+    ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:18:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:41:
+//@ ensures((s.equals("tree")) ==> (\result.equals("eert")));
+    ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:19:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:41:
+//@ ensures((s.equals("Aabb")) ==> (\result.equals("bbAa")));
+    ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/o3/mutants/10/Solution.java:21: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String frequencySort(String s) {
+                  ^
+9 verification failures

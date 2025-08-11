@@ -1,1 +1,0 @@
-ensures((num == 100) ==> (\result.equals("202")));

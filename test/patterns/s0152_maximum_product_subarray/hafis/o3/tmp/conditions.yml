@@ -1,0 +1,8 @@
+ensures:
+- The type_integer_ result is less_than_or_equal to 2147483647 and is greater_than_or_equal to negative 2147483648.
+- There exists a contiguous non empty subsequence of the type_integer_array_ param_arr_ such that the type_integer_ result is equal to the product of all values in that subsequence.
+- For every contiguous non empty subsequence of the type_integer_array_ param_arr_ , the type_integer_ result is greater_than_or_equal to the product of all values in that subsequence.
+- If the type_integer_array_ param_arr_ is equal to arr_a , the type_integer_ result is equal to 6.
+- If the type_integer_array_ param_arr_ is equal to arr_a , the type_integer_ result is equal to 0.
+requires:
+- The type_integer_array_ param_arr_'s values are less_than_or_equal to 10 and are greater_than_or_equal to negative 10.

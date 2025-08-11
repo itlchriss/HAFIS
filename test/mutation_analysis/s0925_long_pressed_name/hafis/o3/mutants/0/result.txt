@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0925_long_pressed_name/hafis/o3/mutants/0/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0925_long_pressed_name/hafis/o3/mutants/0/Solution.java:14:) in method isLongPressedName
+                return false;
+                ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/o3/mutants/0/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/hafis/o3/mutants/0/Solution.java:43:
+//@ ensures((typed.equals(name)) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/o3/mutants/0/Solution.java:22: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0925_long_pressed_name/hafis/o3/mutants/0/Solution.java:16:) in method isLongPressedName
+            return false;
+            ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/o3/mutants/0/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/hafis/o3/mutants/0/Solution.java:22:
+//@ ensures(((name.equals("alex")) && (typed.equals("aaleex"))) ==> (\result == true));
+    ^
+4 verification failures

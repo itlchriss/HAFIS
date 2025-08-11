@@ -1,0 +1,1 @@
+exists x01.(_chry_a{NN}(x01) & _param_the_{NN}(x01) & _int{NN}(x01) & all x02.((_value{NN}(x02) & _integer{NN}(x02)) -> exists e03.(_accept{VBZ}(e03) & (Subj(e03) = x01) & (Acc(e03) = x02))))

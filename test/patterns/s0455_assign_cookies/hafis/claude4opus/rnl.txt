@@ -1,0 +1,10 @@
+Based on the given software specification, here are the method behavioural specifications:
+
+- The length of the integer array parameter `g` is greater than or equal to 1 and is less than or equal to 30000.
+- The length of the integer array parameter `s` is greater than or equal to 0 and is less than or equal to 30000.
+- All values in the integer array parameter `g` are greater than or equal to 1 and are less than or equal to 2147483647.
+- All values in the integer array parameter `s` are greater than or equal to 1 and are less than or equal to 2147483647.
+- The integer result is greater than or equal to 0 and is less than or equal to the minimum between the length of the integer array parameter `g` and the length of the integer array parameter `s`.
+- If the length of the integer array parameter `s` is equal to 0, the integer result is equal to 0.
+- If the integer array parameter `g` is equal to [1,2,3] and the integer array parameter `s` is equal to [1,1], the integer result is equal to 1.
+- If the integer array parameter `g` is equal to [1,2] and the integer array parameter `s` is equal to [1,2,3], the integer result is equal to 2.

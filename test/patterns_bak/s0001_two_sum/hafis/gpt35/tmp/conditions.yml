@@ -1,8 +1,0 @@
-ensures:
-- The type_integer_array_ result contains 2 elements representing the indices of the 2 numbers in the type_integer_array_ param_numbers_ that add up to the type_integer_ param_target_.
-- The 2 indices in the type_integer_array_ result are not the same.
-- The order of the indices in the type_integer_array_ result does not matter.
-requires:
-- The type_integer_array_ param_numbers_'s length is less_than_or_equal to 10000 and is greater_than_or_equal to 2.
-- The type_integer_array_ param_numbers_'s values are less_than_or_equal to 1000000000 and are greater_than_or_equal to negative 1000000000.
-- The type_integer_ param_target_ is less_than_or_equal to 1000000000 and is greater_than_or_equal to negative 1000000000.

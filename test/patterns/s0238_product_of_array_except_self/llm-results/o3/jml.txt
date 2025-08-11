@@ -1,0 +1,54 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Here is a direct translation of the informal problem statement into a Java Modeling Language (JML) contract for a (static) Java method that solves the task.
+
+```java
+public class ProductArrayExceptSelf {
+
+    /*@
+      @ public normal_behavior
+      @   // -----------  PRE-CONDITIONS  ---------------------------------
+      @   requires nums != null;                                 // array must exist
+      @   requires 2 <= nums.length && nums.length <= 100_000;   // size constraint
+      @   requires (\forall int i; 0 <= i && i < nums.length;    // element range
+      @                      -30 <= nums[i] && nums[i] <= 30);
+      @
+      @   // -----------  POST-CONDITIONS  -------------------------------
+      @   ensures \result != null;                               // result exists
+      @   ensures \result.length == nums.length;                 // same length
+      @
+      @   // product of all elements except the current one
+      @   ensures (\forall int i; 0 <= i && i < nums.length;
+      @              \result[i] == (\product int j;
+      @                                   0 <= j && j < nums.length && j != i;
+      @                                   nums[j]));
+      @
+      @   // every returned value still fits into a 32-bit signed int
+      @   ensures (\forall int i; 0 <= i && i < \result.length;
+      @              Integer.MIN_VALUE <= \result[i] &&
+      @              \result[i] <= Integer.MAX_VALUE);
+      @
+      @   // -----------  FRAME CONDITION  -------------------------------
+      @   assignable \nothing;   // the method does not mutate any existing state
+      @
+      @*/
+    public static int[] productExceptSelf(int[] nums) {
+        // implementation goes here
+    }
+}
+```
+
+Explanation of the most important parts
+
+1. `requires` clauses encode the constraints given in the problem statement:  
+   • array length (`2 … 10^5`)  
+   • each entry in the range `[-30, 30]`.
+
+2. `ensures` clauses describe the desired outcome:  
+   • result array exists and has the same length as the input;  
+   • for every index `i` the value `\result[i]` equals the product of all
+     `nums[j]` with `j ≠ i` (JML’s `\product` quantifier is used);  
+   • every returned value still fits into a 32-bit signed integer
+     (`Integer.MIN_VALUE … Integer.MAX_VALUE`).
+
+3. `assignable \nothing` expresses that the method is side-effect-free
+   with respect to the existing heap contents (allocating a fresh result
+   array is still allowed by JML).

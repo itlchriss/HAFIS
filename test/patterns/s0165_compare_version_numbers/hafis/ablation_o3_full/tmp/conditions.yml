@@ -1,0 +1,5 @@
+ensures:
+- int result equals negative 1 when the first differing revision of the type_string_ strs_a has a smaller integer value than the corresponding revision of the type_string_ strs_b after ignoring leading zeros and treating any missing revision as 0.
+- int result equals 1 when the first differing revision of the type_string_ strs_a has a larger integer value than the corresponding revision of the type_string_ strs_b after ignoring leading zeros and treating any missing revision as 0.
+- int result equals 0 when every corresponding revision of the type_string_ strs_aand the type_string_ strs_b has the same integer value after ignoring leading zeros and treating any missing revision as 0.
+requires: []

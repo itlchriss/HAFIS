@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/131/Solution.java:37: verify: The prover cannot establish an assertion (LoopDecreases) in method myAtoi
+        //@ decreases input.length - i;
+            ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/131/Solution.java:16: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int myAtoi(String str) {
+               ^
+2 verification failures

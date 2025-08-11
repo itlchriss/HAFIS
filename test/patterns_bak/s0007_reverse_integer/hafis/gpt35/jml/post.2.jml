@@ -1,1 +1,0 @@
-ensures(((\result == 21) && (x == 120)) ==> (\result == 21));

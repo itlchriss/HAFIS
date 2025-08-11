@@ -1,0 +1,12 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to negative 2147483648 and is less_than_or_equal to 2147483647.
+- All intermediate calculation results are greater_than_or_equal to negative 2147483648 and are less_than_or_equal to 2147483647.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_ result is equal to 7.
+- If the type_string_ param_s_ is equal to strl_a , the type_integer_ result is equal to 1.
+- If the type_string_ param_s_ is equal to strl_a , the type_integer_ result is equal to 5.
+- If the type_string_ param_s_ contains division operations , the type_integer_ result follows truncation toward 0 for integer division.
+requires:
+- The type_string_ param_s_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 300000.
+- The type_string_ param_s_ contains integers , operators the chry_a , the chry_b , asterisk , the chry_c , and spaces.
+- The type_string_ param_s_ is equal to valid mathematical expression.
+- All integers in the type_string_ param_s_ are greater_than_or_equal to 0 and are less_than_or_equal to 2147483647.

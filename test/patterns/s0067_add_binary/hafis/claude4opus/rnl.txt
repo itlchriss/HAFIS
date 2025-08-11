@@ -1,0 +1,13 @@
+Based on the given software specification and following the pattern from the examples, here are the method behavioural specifications:
+
+- The length of the string parameter `a` is greater than or equal to 1 and is less than or equal to 10000.
+- The length of the string parameter `b` is greater than or equal to 1 and is less than or equal to 10000.
+- The string parameter `a` consists only of '0' or '1' characters.
+- The string parameter `b` consists only of '0' or '1' characters.
+- The string parameter `a` does not contain leading zeros except when the string parameter `a` is equal to "0".
+- The string parameter `b` does not contain leading zeros except when the string parameter `b` is equal to "0".
+- The string result consists only of '0' or '1' characters.
+- The string result does not contain leading zeros except when the string result is equal to "0".
+- The string result represents the binary sum of the string parameter `a` and the string parameter `b`.
+- If the string parameter `a` is equal to "11" and the string parameter `b` is equal to "1", the string result is equal to "100".
+- If the string parameter `a` is equal to "1010" and the string parameter `b` is equal to "1011", the string result is equal to "10101".

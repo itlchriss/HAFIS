@@ -1,0 +1,69 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Below is a self-contained JML specification for a routine that behaves exactly as the informal “strStr()” description requires.  
+(The method body can be added later; only the contract is shown here.)
+
+```java
+public class Strings {
+
+/*@ public normal_behavior
+  @   // -----  PRE-CONDITIONS  -----
+  @   requires haystack != null && needle != null;
+  @   // length constraints given in the problem statement
+  @   requires haystack.length() <= 50000 && needle.length() <= 50000;
+  @   // both strings consist solely of lower-case English letters
+  @   requires (\forall int k;
+  @              0 <= k && k < haystack.length();
+  @              'a' <= haystack.charAt(k) && haystack.charAt(k) <= 'z');
+  @   requires (\forall int k;
+  @              0 <= k && k < needle.length();
+  @              'a' <= needle.charAt(k) && needle.charAt(k) <= 'z');
+  @
+  @   // -----  POST-CONDITIONS  -----
+  @
+  @   // 1.  The “empty needle” rule
+  @   ensures needle.length() == 0 ==> \result == 0;
+  @
+  @   // 2.  \result == -1  ⇔  needle is NOT a substring of haystack
+  @   ensures (\result == -1) <==>
+  @           !(\exists int i;
+  @               0 <= i && i + needle.length() <= haystack.length();
+  @               haystack.substring(i, i + needle.length())
+  @                       .equals(needle));
+  @
+  @   // 3.  If \result ≠ -1 then it must be the FIRST index
+  @   //     where needle occurs in haystack
+  @   ensures (\result != -1) ==> (
+  @              0 <= \result &&
+  @              \result + needle.length() <= haystack.length() &&
+  @
+  @              // The substring starting at \result equals needle
+  @              haystack.substring(\result, \result + needle.length())
+  @                      .equals(needle) &&
+  @
+  @              // No smaller index gives such a match
+  @              (\forall int j;
+  @                 0 <= j && j < \result;
+  @                 !haystack.substring(j, j + needle.length())
+  @                          .equals(needle))
+  @          );
+  @*/
+  public /*@ pure @*/ static int strStr(String haystack, String needle);
+}
+```
+
+Explanation of the clauses:
+
+1. Pre-conditions  
+   • `haystack` and `needle` must be non-null.  
+   • Their lengths satisfy the numerical constraints.  
+   • Every character is a lower-case English letter.  
+
+2. Post-condition for the “empty needle” corner case: result is 0.  
+
+3. When the result is −1, it is because *no* starting index `i` exists such that the substring `haystack[i .. i+|needle|)` equals `needle`.  
+
+4. When the result is not −1, it is  
+   a. A legal index inside `haystack`,  
+   b. The beginning of a copy of `needle`, and  
+   c. The *left-most* such index (no smaller `j` satisfies the same equality).  
+
+These conditions capture precisely the informal specification in a form that can be checked by JML tools.

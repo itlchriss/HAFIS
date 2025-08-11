@@ -1,0 +1,1 @@
+- int result is the single remaining integer after successively removing every other integer from the ordered sequence 1 through int `n` starting from the left direction and alternating direction each pass

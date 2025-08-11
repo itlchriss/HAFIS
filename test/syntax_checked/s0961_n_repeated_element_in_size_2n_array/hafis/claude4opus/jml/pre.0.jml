@@ -1,0 +1,1 @@
+requires((nums.length >= 4) && (nums.length <= 10000));

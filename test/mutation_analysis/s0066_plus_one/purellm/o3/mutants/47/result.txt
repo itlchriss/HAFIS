@@ -1,0 +1,37 @@
+./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/47/Solution.java:45: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/47/Solution.java:30:) in method plusOne: digits[i]
+            digits[i] = sum % 10;
+                      ^
+./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/47/Solution.java:30: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/47/Solution.java:45:
+        assignable \nothing;
+        ^
+./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/47/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/47/Solution.java:19:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/47/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/47/Solution.java:53:
+        ensures   (\forall int i; 0 <= i && i < \result.length;
+        ^
+./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/47/Solution.java:50: verify: The prover cannot establish an assertion (Precondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:315:) in method plusOne
+            System.arraycopy(digits, 0, ans, 1, ans.length / 1);
+                            ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:315: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/47/Solution.java:50:
+    public static native void arraycopy(/*@nullable*/ Object src,
+                              ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:208: verify: Precondition conjunct is false: (src instanceof Object[])
+        requires (src instanceof Object[]) &&
+                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:222: verify: Precondition conjunct is false: srcPos + length_ <= ((int[])src).length
+    @                 srcPos + length_ <= ((int[])src).length
+                                       ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:231: verify: Precondition conjunct is false: (src instanceof long[])
+        requires (src instanceof long[]) &&
+                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:242: verify: Precondition conjunct is false: (src instanceof char[])
+    @    requires (src instanceof char[]) &&
+                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:253: verify: Precondition conjunct is false: (src instanceof boolean[])
+        requires (src instanceof boolean[]) &&
+                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/System.jml:264: verify: Precondition conjunct is false: (src instanceof short[])
+        requires (src instanceof short[]) &&
+                 ^
+12 verification failures

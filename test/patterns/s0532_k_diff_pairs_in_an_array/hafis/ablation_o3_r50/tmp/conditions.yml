@@ -1,0 +1,9 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0 and is less_than_or_equal to the type_integer_array_ param_nums_'s length.
+- The type_integer_ result is equal to the number of unique pairs of integers in the type_integer_array_ param_nums_ whose absolute difference is equal to the type_integer_ param_k_.
+- If the type_integer_array_ param_nums_ is equal to arr_a and the type_integer_ param_k_ is equal to 2 the type_integer_ result is equal to 2.
+- If the type_integer_array_ param_nums_ is equal to arr_a and the type_integer_ param_k_ is equal to 1 the type_integer_ result is equal to 4.
+- If the type_integer_array_ param_nums_ is equal to arr_a and the type_integer_ param_k_ is equal to 0 the type_integer_ result is equal to 1.
+requires:
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to negative 10000000 and are less_than_or_equal to 10000000.
+- The type_integer_ param_k_ is greater_than_or_equal to 0 and is less_than_or_equal to 10000000.

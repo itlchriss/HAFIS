@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/claude4opus/mutants/26/Solution.java:47: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/claude4opus/mutants/26/Solution.java:12:) in method myAtoi
+                return Integer.MIN_VALUE;
+                ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/claude4opus/mutants/26/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/claude4opus/mutants/26/Solution.java:47:
+//@ ensures((str.equals("42")) ==> (\result == 42));
+    ^
+2 verification failures

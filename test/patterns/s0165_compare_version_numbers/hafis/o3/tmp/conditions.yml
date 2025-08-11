@@ -1,0 +1,16 @@
+ensures:
+- The type_integer_ result is equal to 1 or the type_integer_ result is equal to 0 or the type_integer_ result is equal to negative 1.
+- If the type_integer_ result is equal to 0 , the type_string_ param_version1_ and the type_string_ param_version2_ represent numerically identical sequences of revision integers after ignoring leading zeros and treating missing revisions as 0.
+- If the type_integer_ result is equal to 1 , the first revision index that the numerical value of the revision in the type_string_ param_version1_ differs from the corresponding revision in the type_string_ param_version2_ has a greater numerical value in the type_string_ param_version1_.
+- If the type_integer_ result is equal to negative 1 , the first revision index that the numerical value of the revision in the type_string_ param_version1_ differs from the corresponding revision in the type_string_ param_version2_ has a smaller numerical value in the type_string_ param_version1_.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to 0.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to 0.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to negative 1.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to 1.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to negative 1.
+requires:
+- The type_string_ param_version2_'s length is less_than_or_equal to 500 and is greater_than_or_equal to 1.
+- The type_string_ param_version1_ only contains digit characters and the dot character.
+- The type_string_ param_version2_ only contains digit characters and the dot character.
+- All numerical revision values represented in the type_string_ param_version1_ are less_than_or_equal to 2147483647 and are greater_than_or_equal to negative 2147483648.
+- All numerical revision values represented in the type_string_ param_version2_ are less_than_or_equal to 2147483647 and are greater_than_or_equal to negative 2147483648.

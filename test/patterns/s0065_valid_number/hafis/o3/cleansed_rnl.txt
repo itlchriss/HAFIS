@@ -1,0 +1,7 @@
+- All characters in the string parameter `s` are either uppercase English letters or lowercase English letters or numeric digits or the plus sign or the minus sign or the dot character.
+- If boolean result is equal to the true literal, the string parameter `s` represents a decimal number or an integer that may be followed by the character e or the character E and an integer.
+- If boolean result is equal to the false literal, the string parameter `s` does not represent a decimal number or an integer that may be followed by the character e or the character E and an integer.
+- If the string parameter `s` is equal to "0", the boolean result is equal to the true literal.
+- If the string parameter `s` is equal to "e", the boolean result is equal to the false literal.
+- If the string parameter `s` is equal to ".", the boolean result is equal to the false literal.
+- If the string parameter `s` is equal to ".1", the boolean result is equal to the true literal.

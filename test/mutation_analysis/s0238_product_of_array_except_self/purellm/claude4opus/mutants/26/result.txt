@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/claude4opus/mutants/26/Solution.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \product
+      @     \result[i] == (\product int j; 0 <= j && j < nums.length && j != i; nums[j]));
+                           ^
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/claude4opus/mutants/26/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0238_product_of_array_except_self/purellm/claude4opus/mutants/26/Solution.java:15:) in method productExceptSelf
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/claude4opus/mutants/26/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0238_product_of_array_except_self/purellm/claude4opus/mutants/26/Solution.java:45:
+      @ ensures (\forall int i; 0 <= i && i < nums.length;
+        ^
+1 warning
+2 verification failures

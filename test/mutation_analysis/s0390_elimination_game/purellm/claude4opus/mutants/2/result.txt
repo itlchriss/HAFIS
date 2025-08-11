@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0390_elimination_game/purellm/claude4opus/mutants/2/Solution.java:11: verify: The prover cannot establish an assertion (Precondition: ./test/mutation_analysis/s0390_elimination_game/purellm/claude4opus/mutants/2/Solution.java:10:) in method lastRemaining
+        return false ? 1 : 2 * (n / 2 - lastRemaining(n / 2) + 1);
+                                                     ^
+./test/mutation_analysis/s0390_elimination_game/purellm/claude4opus/mutants/2/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0390_elimination_game/purellm/claude4opus/mutants/2/Solution.java:11:
+    public int lastRemaining(int n) {
+               ^
+./test/mutation_analysis/s0390_elimination_game/purellm/claude4opus/mutants/2/Solution.java:7: verify: Precondition conjunct is false: 1 <= n
+      @ requires 1 <= n && n <= 1000000000;
+                   ^
+3 verification failures

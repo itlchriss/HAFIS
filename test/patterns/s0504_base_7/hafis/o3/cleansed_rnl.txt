@@ -1,0 +1,5 @@
+- All characters in the string result are either the minus sign or one of the digits 0123456.
+- The integer value obtained by interpreting the string result as a base seven number is equal to the integer parameter `num`.
+- The string result does not start with the character 0 unless the string result is equal to "0".
+- If the integer parameter `num` is equal to 100, the string result is equal to "202".
+- If the integer parameter `num` is equal to -7, the string result is equal to "-10".

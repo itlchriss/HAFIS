@@ -1,0 +1,1 @@
+For every index i that is less_than to the type_string_ param_s_ 's length , if the character at position i in the type_string_ param_s_ is the chry_a literal , the value at position i in the type_integer_array_ result is less_than to the value at position i + 1 in the type_integer_array_ result . 

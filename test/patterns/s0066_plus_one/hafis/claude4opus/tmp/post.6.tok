@@ -1,0 +1,1 @@
+If at least 1 value in the type_integer_array_ param_digits_ is not equal to 9 , the type_integer_array_ result 's length is equal to the type_integer_array_ param_digits_ 's length . 

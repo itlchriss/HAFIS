@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/ablation_o3_r50/mutants/16/Solution.java:25: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method removeDuplicates
+                nums[i - 1] = nums[j];
+                    ^
+1 verification failure

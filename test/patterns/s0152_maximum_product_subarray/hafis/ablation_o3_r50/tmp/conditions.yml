@@ -1,0 +1,9 @@
+ensures:
+- The type_integer_ result is representable in a 32 bit signed integer.
+- If the type_integer_array_ param_arr_'s length is equal to 1 the type_integer_ result is equal to the single value of the type_integer_array_ param_arr_.
+- The type_integer_ result is greater_than_or_equal to the product of every contiguous non empty subarray of the type_integer_array_ param_arr_.
+- If every value in the type_integer_array_ param_arr_ is equal to 0 the type_integer_ result is equal to 0.
+- If the type_integer_array_ param_arr_ is equal to arr_a the type_integer_ result is equal to 6.
+- If the type_integer_array_ param_arr_ is equal to arr_a the type_integer_ result is equal to 0.
+requires:
+- The type_integer_array_ param_arr_'s values are greater_than_or_equal to negative 10 and are less_than_or_equal to 10.

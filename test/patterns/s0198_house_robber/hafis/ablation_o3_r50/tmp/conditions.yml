@@ -1,0 +1,7 @@
+ensures:
+- The type_integer_ result is equal to the maximum obtainable sum of elements chosen from the type_integer_array_ param_nums_ under the condition that no 2 chosen elements are adjacent in the type_integer_array_ param_nums_.
+- The type_integer_ result is greater_than_or_equal to 0.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 4.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 12.
+requires:
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to 0 and are less_than_or_equal to 400.

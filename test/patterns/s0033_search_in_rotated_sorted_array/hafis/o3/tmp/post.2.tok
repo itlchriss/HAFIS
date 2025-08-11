@@ -1,0 +1,1 @@
+If the type_integer_ result is greater_than_or_equal to 0 , the value at the integer index equal to the type_integer_ result in the type_integer_array_ param_nums_ is equal to the type_integer_ param_target_ . 

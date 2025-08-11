@@ -1,0 +1,10 @@
+Based on the given software specification and following the established pattern from the examples, here are the method behavioural specifications:
+
+- The integer parameter `num` is greater than or equal to -2147483648 and is less than or equal to 2147483647.
+- The string result consists of only lowercase hexadecimal characters from '0' to '9' and 'a' to 'f'.
+- The string result does not contain leading zeros except when the string result is equal to "0".
+- If the integer parameter `num` is equal to 0, the string result is equal to "0".
+- If the integer parameter `num` is equal to 26, the string result is equal to "1a".
+- If the integer parameter `num` is equal to -1, the string result is equal to "ffffffff".
+- If the integer parameter `num` is less than 0, the length of the string result is less than or equal to 8.
+- If the integer parameter `num` is greater than or equal to 0, the length of the string result is greater than or equal to 1.

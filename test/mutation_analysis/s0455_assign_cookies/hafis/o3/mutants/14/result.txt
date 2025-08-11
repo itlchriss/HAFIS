@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:13:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:33:
+//@ ensures((\result >= 0) && (\result <= g.length));
+    ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method findContentChildren
+//@ ensures(((g[0] == 1 && g[1] == 2 && g[2] == 3 && g.length == 3) && (s[0] == 1 && s[1] == 1 && s.length == 2)) ==> (\result == 1));
+                            ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:33: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method findContentChildren
+//@ ensures(((g[0] == 1 && g[1] == 2 && g[2] == 3 && g.length == 3) && (s[0] == 1 && s[1] == 1 && s.length == 2)) ==> (\result == 1));
+               ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:33: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:14:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/hafis/o3/mutants/14/Solution.java:33:
+//@ ensures(\result <= s.length);
+    ^
+8 verification failures

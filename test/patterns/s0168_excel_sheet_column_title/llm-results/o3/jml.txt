@@ -1,0 +1,50 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Below is a precise JML contract for a (pure) Java method that produces the Excel column title that corresponds to a positive integer.  It captures
+
+1. the admissible input range (constraint),
+2. the shape of the result (only upper-case ASCII letters ‘A’ … ‘Z’), and
+3. the exact mathematical relation between the input number and the returned title,
+   treating the title as a 1-based base-26 numeral.
+
+```java
+import org.jmlspecs.lang.JMLMath;   // for JMLMath.pow(int,int)
+
+/*@ public normal_behavior
+  @   requires 1 <= columnNumber && columnNumber <= 2147483647;   // 2^31-1
+  @
+  @   ensures \result != null;
+  @
+  @   // 1.  Every character is between ‘A’ and ‘Z’.
+  @   ensures (\forall int i; 0 <= i && i < \result.length();
+  @               'A' <= \result.charAt(i) && \result.charAt(i) <= 'Z');
+  @
+  @   /* 2.  Let the string be s_ℓ … s_1 (left-most is the highest digit).
+  @    *     Define digit_k  = (s_k - 'A' + 1)   with 1 ≤ digit_k ≤ 26.
+  @    *     Then
+  @    *
+  @    *         columnNumber  =  Σ_{k=1..ℓ}  digit_k · 26^{k-1}
+  @    *
+  @    *     The summation below is written in JML using
+  @    *     (length-1-k) to index from the right-most character.
+  @    */
+  @   ensures
+  @       columnNumber ==
+  @           (\sum int k; 0 <= k && k < \result.length();
+  @               (\result.charAt(\result.length() - 1 - k) - 'A' + 1)
+  @               * ( (\bigint) JMLMath.pow(26, k) ));
+  @
+  @   assignable \nothing;       // the method is side-effect free
+  @   pure;                      // and can be used in annotations
+  @*/
+public /*@ pure @*/ String convertToTitle(int columnNumber);
+```
+
+Explanation of the essential clauses:
+
+* `requires` – states the constraint `1 ≤ columnNumber ≤ 2³¹ − 1`.
+* First `ensures` – guarantees the result is non-null.
+* Second `ensures` – guarantees every character of the result is an upper-case letter.
+* Third `ensures` – gives the formal value equation.  
+  - The summation iterates over the string from right to left (`k` is the 0-based position from the right).  
+  - Each character contributes its “digit” value (`'A'` → 1 … `'Z'` → 26) times the appropriate power of 26.
+  - `JMLMath.pow(26, k)` is used so the whole sum stays in the mathematical (unbounded) integer domain.
+* `assignable \nothing` and `pure` declare the method to be side-effect free, enabling its call inside other JML expressions.

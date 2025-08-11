@@ -1,0 +1,28 @@
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:50: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:20:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:56:
+     ensures (\forall int v; 0 <= v && v <= s.length();
+     ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:23:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:23: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:56:
+     ensures (\forall int i, j; 0 <= i && i < j && j < \result.length;
+     ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:27:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:27: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:56:
+     ensures (\forall int i; 0 <= i && i < s.length();
+     ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:44: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:8:) in method diStringMatch
+            if (s.charAt(i) == 'I' && arr[i + 1] == 0) {
+                        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:8: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/18/Solution.java:44:
+   public normal_behavior
+          ^
+9 verification failures

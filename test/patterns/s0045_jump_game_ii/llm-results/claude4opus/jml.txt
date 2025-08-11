@@ -1,0 +1,109 @@
+Here's the JML specification for the Jump Game II problem:
+
+```java
+public class JumpGameII {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 10000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           0 <= nums[i] && nums[i] <= 1000);
+      @ // The array is guaranteed to be reachable to the last index
+      @ requires isReachable(nums);
+      @ ensures \result >= 0;
+      @ ensures \result <= nums.length - 1;
+      @ // The result is the minimum number of jumps
+      @ ensures isMinimumJumps(nums, \result);
+      @ pure
+      @*/
+    public int jump(int[] nums) {
+        // Implementation here
+    }
+    
+    /*@ // Helper predicate to check if the last index is reachable
+      @ public normal_behavior
+      @ requires nums != null && nums.length >= 1;
+      @ ensures \result == canReachLastIndex(nums, 0, 0);
+      @ pure helper
+      @*/
+    /*@ spec_public @*/ private static boolean isReachable(int[] nums) {
+        // Specification-only method
+    }
+    
+    /*@ // Helper predicate to check if we can reach the last index from a given position
+      @ public normal_behavior
+      @ requires nums != null && nums.length >= 1;
+      @ requires 0 <= currentPos && currentPos < nums.length;
+      @ requires jumps >= 0;
+      @ ensures \result <==> (currentPos == nums.length - 1) ||
+      @         (\exists int nextPos; currentPos < nextPos && 
+      @          nextPos <= currentPos + nums[currentPos] && 
+      @          nextPos < nums.length &&
+      @          canReachLastIndex(nums, nextPos, jumps + 1));
+      @ pure helper
+      @*/
+    /*@ spec_public @*/ private static boolean canReachLastIndex(int[] nums, int currentPos, int jumps) {
+        // Specification-only method
+    }
+    
+    /*@ // Helper predicate to verify that the result is the minimum number of jumps
+      @ public normal_behavior
+      @ requires nums != null && nums.length >= 1;
+      @ requires minJumps >= 0;
+      @ ensures \result <==> canReachInExactlyNJumps(nums, 0, minJumps) &&
+      @         (\forall int j; 0 <= j && j < minJumps; 
+      @          !canReachInExactlyNJumps(nums, 0, j));
+      @ pure helper
+      @*/
+    /*@ spec_public @*/ private static boolean isMinimumJumps(int[] nums, int minJumps) {
+        // Specification-only method
+    }
+    
+    /*@ // Helper predicate to check if we can reach the last index in exactly n jumps
+      @ public normal_behavior
+      @ requires nums != null && nums.length >= 1;
+      @ requires 0 <= currentPos && currentPos < nums.length;
+      @ requires jumps >= 0;
+      @ ensures \result <==> 
+      @         (jumps == 0 && currentPos == nums.length - 1) ||
+      @         (jumps > 0 && (\exists int nextPos; 
+      @          currentPos < nextPos && 
+      @          nextPos <= currentPos + nums[currentPos] && 
+      @          nextPos < nums.length &&
+      @          canReachInExactlyNJumps(nums, nextPos, jumps - 1)));
+      @ pure helper
+      @*/
+    /*@ spec_public @*/ private static boolean canReachInExactlyNJumps(int[] nums, int currentPos, int jumps) {
+        // Specification-only method
+    }
+    
+    /*@ // Additional invariant for implementation
+      @ public invariant nums != null ==> 
+      @     (\forall int i; 0 <= i && i < nums.length - 1;
+      @      nums[i] > 0 ==> 
+      @      (\exists int j; i < j && j <= Math.min(i + nums[i], nums.length - 1);
+      @       canReachLastIndex(nums, j, 0)));
+      @*/
+}
+```
+
+This JML specification captures:
+
+1. **Preconditions**:
+   - The array is non-null
+   - Array length is between 1 and 10,000
+   - All elements are non-negative and at most 1000
+   - The last index is always reachable (as guaranteed by the problem)
+
+2. **Postconditions**:
+   - The result is non-negative
+   - The result is at most `nums.length - 1` (worst case: jump one index at a time)
+   - The result represents the minimum number of jumps needed
+
+3. **Helper predicates**:
+   - `isReachable`: Verifies that the last index can be reached
+   - `canReachLastIndex`: Recursively checks if we can reach the last index from a given position
+   - `isMinimumJumps`: Verifies that the returned value is indeed the minimum
+   - `canReachInExactlyNJumps`: Checks if we can reach the last index in exactly n jumps
+
+The specification uses pure helper methods to express complex properties about reachability and optimality, which are essential for this dynamic programming problem.

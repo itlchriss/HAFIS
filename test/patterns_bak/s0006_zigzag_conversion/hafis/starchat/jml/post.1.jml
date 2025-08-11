@@ -1,1 +1,0 @@
-ensures(((numRows == 4) && (s.equals("PAYPALISHIRING"))) ==> (\result.equals("PINALSIGYAHRPI")));

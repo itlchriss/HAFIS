@@ -1,0 +1,3 @@
+- int[] `arr` must have length greater than or equal to 3 and less than or equal to 50000
+- boolean result equals true if and only if there exist two indexes i and j such that i plus 1 is less than j and the contiguous elements from index 0 through i form the first non empty part and the contiguous elements from index i plus 1 through j minus 1 form the second non empty part and the contiguous elements from index j through `arr`.length minus 1 form the third non empty part and the sums of the three parts are equal
+- boolean result equals false if the condition described for result equals true is not met

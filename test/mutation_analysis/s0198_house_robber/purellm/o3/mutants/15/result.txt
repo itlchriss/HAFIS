@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0198_house_robber/purellm/o3/mutants/15/Solution.java:53: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method rob
+            profit[i] = Math.max(profit[i - 1], nums[i] + profit[i - 2]);
+                  ^
+1 verification failure

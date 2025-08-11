@@ -1,0 +1,72 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Below is a self-contained JML specification for a method that realizes the
+“Search Insert Position’’ contract.
+
+```java
+public class SearchInsertPosition {
+
+    /*@
+      public normal_behavior
+        // ---------  Pre–conditions  -------------------------------------
+        requires nums != null;
+        // size constraint
+        requires 1 <= nums.length && nums.length <= 10000;
+
+        // value range of every array element
+        requires (\forall int i; 0 <= i && i < nums.length;
+                     -10000 <= nums[i] && nums[i] <= 10000);
+
+        // array is strictly increasing  (sorted + all values distinct)
+        requires (\forall int i, j; 
+                     0 <= i && i < j && j < nums.length ==> nums[i] < nums[j]);
+
+        // value range of the target
+        requires -10000 <= target && target <= 10000;
+
+        // ---------  Frame condition  ------------------------------------
+        assignable \nothing;               // the method is observationally pure
+
+        // ---------  Post–conditions  ------------------------------------
+        // result lies in the legal insertion range
+        ensures 0 <= \result && \result <= nums.length;
+
+        // If target is present, return *its* index
+        ensures (\exists int k; 0 <= k && k < nums.length && nums[k] == target)
+                   ==> nums[\result] == target;
+
+        /* If target is not present, the returned index is the place where
+           it must be inserted to keep the array sorted.                     */
+        ensures (\forall int k; 0 <= k && k < nums.length ==> nums[k] != target)
+                   ==> ( (\forall int k; 0 <= k && k < \result; nums[k] < target)
+                        && (\forall int k; \result <= k && k < nums.length;
+                                         target < nums[k]) );
+
+        /*  Equivalent characterization: the result equals the number of
+            elements that are strictly smaller than the target.              */
+        ensures \result ==
+                (\num_of int k; 0 <= k && k < nums.length && nums[k] < target; 1);
+
+      pure;  // convenient shorthand: method is side-effect free
+    @*/
+    public /*@ pure @*/ static int searchInsert(int[] nums, int target);
+}
+```
+
+Explanation of the key clauses
+
+• `requires` clauses encode the constraints given in the original problem:  
+  – non-null array, 1 ≤ length ≤ 10 000, sorted, distinct, and bounded values.  
+  – target in the same numeric range.
+
+• `assignable \nothing`/`pure` states that the method has no side effects—
+  it only reads its parameters and returns a value.
+
+• The three `ensures` groups collectively capture the functional behaviour:
+  1. The returned index is always within `0 … nums.length`.
+  2. If the target actually occurs, that index is returned.
+  3. Otherwise the index is exactly where the target would have to be inserted
+     to maintain the strictly increasing order; equivalently it equals the
+     number of elements smaller than the target.
+
+This JML specification can be attached to any Java implementation intended to
+solve the Search Insert Position problem; a verification tool can then be used
+to prove that the implementation satisfies the specification.

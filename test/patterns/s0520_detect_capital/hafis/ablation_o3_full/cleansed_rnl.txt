@@ -1,0 +1,5 @@
+- String "word" must consist solely of uppercase and lowercase English alphabetic characters
+- boolean result is true when String "word" is composed exclusively of uppercase letters
+- boolean result is true when String "word" is composed exclusively of lowercase letters
+- boolean result is true when String "word" has its first letter uppercase and every subsequent letter lowercase
+- boolean result is false when none of the above conditions are satisfied

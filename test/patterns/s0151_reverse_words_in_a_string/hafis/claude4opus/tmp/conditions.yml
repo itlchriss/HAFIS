@@ -1,0 +1,12 @@
+ensures:
+- The type_string_ result does not contain leading_or_trailing_spaces.
+- The type_string_ result does not contain multiple consecutive spaces.
+- If the type_string_ param_s_ is equal to strz_a , the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a , the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a , the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a , the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a , the type_string_ result is equal to strz_b.
+requires:
+- The type_string_ param_s_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 10000.
+- The type_string_ param_s_ contains the checking_character_sequence_ .
+- The type_string_ param_s_ contains at least 1 word.

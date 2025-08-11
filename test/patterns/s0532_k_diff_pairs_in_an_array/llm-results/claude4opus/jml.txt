@@ -1,0 +1,107 @@
+Here's the JML specification for the K-diff Pairs problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 10000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -10000000 <= nums[i] && nums[i] <= 10000000);
+      @ requires 0 <= k && k <= 10000000;
+      @ ensures \result >= 0;
+      @ ensures \result <= nums.length * (nums.length - 1) / 2;
+      @ ensures \result == countUniquePairs(nums, k);
+      @*/
+    public /*@ pure @*/ int findPairs(int[] nums, int k);
+    
+    /*@ public model pure int countUniquePairs(int[] nums, int k) {
+      @   int count = 0;
+      @   for (int i = 0; i < nums.length; i++) {
+      @     for (int j = i + 1; j < nums.length; j++) {
+      @       if (Math.abs(nums[i] - nums[j]) == k) {
+      @         // Check if this pair (min, max) is unique
+      @         int min = Math.min(nums[i], nums[j]);
+      @         int max = Math.max(nums[i], nums[j]);
+      @         boolean isUnique = true;
+      @         
+      @         // Check against all previously found pairs
+      @         for (int p = 0; p < i; p++) {
+      @           for (int q = p + 1; q < nums.length; q++) {
+      @             if (q < j || (p == i && q == j)) {
+      @               if (Math.abs(nums[p] - nums[q]) == k) {
+      @                 int pairMin = Math.min(nums[p], nums[q]);
+      @                 int pairMax = Math.max(nums[p], nums[q]);
+      @                 if (min == pairMin && max == pairMax) {
+      @                   isUnique = false;
+      @                   break;
+      @                 }
+      @               }
+      @             }
+      @           }
+      @           if (!isUnique) break;
+      @         }
+      @         
+      @         if (isUnique) count++;
+      @       }
+      @     }
+      @   }
+      @   return count;
+      @ }
+      @*/
+    
+    /*@ // Alternative specification using ghost variables
+      @ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 10000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -10000000 <= nums[i] && nums[i] <= 10000000);
+      @ requires 0 <= k && k <= 10000000;
+      @ ensures \result == (\num_of int a, b; 
+      @         (\exists int i, j; 0 <= i && i < j && j < nums.length;
+      @          nums[i] == a && nums[j] == b && Math.abs(a - b) == k) &&
+      @         (\forall int i, j; 0 <= i && i < j && j < nums.length;
+      @          (nums[i] == a && nums[j] == b && Math.abs(a - b) == k) ==>
+      @          (i == (\min int p; 0 <= p && p < nums.length && 
+      @                 (\exists int q; p < q && q < nums.length;
+      @                  nums[p] == a && nums[q] == b && Math.abs(a - b) == k); p) &&
+      @           j == (\min int q; i < q && q < nums.length;
+      @                 nums[i] == a && nums[q] == b && Math.abs(a - b) == k; q)));
+      @         1);
+      @*/
+    
+    /*@ // Helper specification for understanding
+      @ // A k-diff pair (a,b) exists if:
+      @ // 1. There exist indices i < j such that nums[i] = a and nums[j] = b
+      @ // 2. |a - b| = k
+      @ // The pair is unique based on the values (a,b), not the indices
+      @*/
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - Array is non-null
+   - Array length is between 1 and 10,000
+   - All elements are within the range [-10^7, 10^7]
+   - k is between 0 and 10^7
+
+2. **Postconditions (`ensures`):**
+   - Result is non-negative
+   - Result is bounded by the maximum possible pairs
+   - Result equals the count of unique k-diff pairs
+
+3. **Model method `countUniquePairs`:**
+   - Provides a reference implementation for counting unique pairs
+   - Handles the uniqueness requirement by checking if a pair with the same values has been seen before
+
+4. **Alternative specification:**
+   - Uses JML's `\num_of` construct to count unique pairs
+   - Ensures that for each unique pair (a,b), we only count the first occurrence in the array
+
+The specification captures that:
+- Pairs are formed by elements at different indices (i < j)
+- The absolute difference must equal k
+- Only unique pairs (by value, not by index) are counted
+- For k=0, pairs like (1,1) are valid if the value appears at least twice

@@ -1,0 +1,7 @@
+ensures:
+- The type_string_ result's values are either the - sign or 1 of the digits 123456.
+- The integer value obtained by interpreting the type_string_ result as a base 7 number is equal to the type_integer_ param_num_.
+- The type_string_ result does not start with the character 0 unless the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is equal to 100 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is equal to negative 7 , the type_string_ result is equal to stry_a.
+requires: []

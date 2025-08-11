@@ -1,1 +1,0 @@
-ensures((n == 375) ==> (\result == true));

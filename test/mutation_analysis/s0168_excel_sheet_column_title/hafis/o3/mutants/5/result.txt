@@ -1,0 +1,37 @@
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:10:) in method convertToTitle
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:29:
+//@ ensures(\result != null && \result.length() > 0 && (\forall int i; 0 <= i < \result.length(); Character.isUpperCase(\result.charAt(i))));
+    ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:25: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method convertToTitle
+                sb.append((char) (remainder + 64));
+                          ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:25: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method convertToTitle
+                sb.append((char) (remainder + 64));
+                          ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:12:) in method convertToTitle
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:29:
+//@ ensures((n == 1) ==> (\result.equals("A")));
+    ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:14:) in method convertToTitle
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:29:
+//@ ensures((n == 701) ==> (\result.equals("ZY")));
+    ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:15:) in method convertToTitle
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:29:
+//@ ensures((n == 28) ==> (\result.equals("AB")));
+    ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:13:) in method convertToTitle
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/o3/mutants/5/Solution.java:29:
+//@ ensures((n == 2147483647) ==> (\result.equals("FXSHRXW")));
+    ^
+12 verification failures

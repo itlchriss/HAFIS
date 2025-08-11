@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0044_wildcard_matching/purellm/o3/mutants/53/Solution.java:56: error: unreachable statement
+        while (false) {
+                      ^
+1 error

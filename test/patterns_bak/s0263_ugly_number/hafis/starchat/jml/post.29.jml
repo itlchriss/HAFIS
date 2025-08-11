@@ -1,1 +1,0 @@
-ensures((n == 451) ==> (\result == false));

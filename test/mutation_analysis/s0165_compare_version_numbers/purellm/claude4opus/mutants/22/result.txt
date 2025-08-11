@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0165_compare_version_numbers/purellm/claude4opus/mutants/22/Solution.java:31: error: unreachable statement
+        for (j = 0; false; j++) {
+                                ^
+1 error

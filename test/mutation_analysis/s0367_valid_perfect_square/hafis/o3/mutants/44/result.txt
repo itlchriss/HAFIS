@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0367_valid_perfect_square/hafis/o3/mutants/44/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0367_valid_perfect_square/hafis/o3/mutants/44/Solution.java:11:) in method isPerfectSquare
+                return true;
+                ^
+./test/mutation_analysis/s0367_valid_perfect_square/hafis/o3/mutants/44/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0367_valid_perfect_square/hafis/o3/mutants/44/Solution.java:28:
+//@ ensures((num == 14) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0367_valid_perfect_square/hafis/o3/mutants/44/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0367_valid_perfect_square/hafis/o3/mutants/44/Solution.java:12:) in method isPerfectSquare
+        return false;
+        ^
+./test/mutation_analysis/s0367_valid_perfect_square/hafis/o3/mutants/44/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0367_valid_perfect_square/hafis/o3/mutants/44/Solution.java:37:
+//@ ensures((num == 16) ==> (\result == true));
+    ^
+4 verification failures

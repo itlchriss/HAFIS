@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0044_wildcard_matching/purellm/o3/mutants/8/Solution.java:56: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0044_wildcard_matching/purellm/o3/mutants/8/Solution.java:7:) in method isMatch
+        while (j < pattern.length() && pattern.charAt(j) == '*') {
+                                                     ^
+./test/mutation_analysis/s0044_wildcard_matching/purellm/o3/mutants/8/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/purellm/o3/mutants/8/Solution.java:56:
+    /*@ public normal_behavior
+               ^
+2 verification failures

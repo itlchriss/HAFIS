@@ -1,0 +1,13 @@
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/claude4opus/mutants/20/Solution.java:34: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/claude4opus/mutants/20/Solution.java:9:) in method removeOuterParentheses
+            primitives.add(s.substring(initialI, i));
+                                      ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/claude4opus/mutants/20/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/claude4opus/mutants/20/Solution.java:34:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/claude4opus/mutants/20/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/claude4opus/mutants/20/Solution.java:17:) in method removeOuterParentheses
+        return sb.toString();
+        ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/claude4opus/mutants/20/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/claude4opus/mutants/20/Solution.java:41:
+      @ ensures \result.length() <= s.length();
+        ^
+4 verification failures

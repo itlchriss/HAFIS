@@ -1,1 +1,0 @@
-requires(\forall int i; 0 <= i < str.length(); Character.isLetter(str.charAt(i)) || Character.isDigit(str.charAt(i)) || Character.isWhitespace(str.charAt(i)) || str.charAt(i) == '+' || str.charAt(i) == '-' || str.charAt(i) == '.');

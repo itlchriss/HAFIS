@@ -1,1 +1,0 @@
-requires((pattern.length() <= 2000) && (pattern.length() >= 0));

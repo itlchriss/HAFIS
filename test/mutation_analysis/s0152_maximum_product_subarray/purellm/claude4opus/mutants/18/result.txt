@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0152_maximum_product_subarray/purellm/claude4opus/mutants/18/Solution.java:29: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method maxProduct
+            cprod = cprod % arr[i];
+                          ^
+1 verification failure

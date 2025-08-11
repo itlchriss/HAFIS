@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0942_di_string_match/hafis/ablation_o3_r50/mutants/46/Solution.java:31: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+./test/mutation_analysis/s0942_di_string_match/hafis/ablation_o3_r50/mutants/46/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/hafis/ablation_o3_r50/mutants/46/Solution.java:12:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/hafis/ablation_o3_r50/mutants/46/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/hafis/ablation_o3_r50/mutants/46/Solution.java:37:
+//@ ensures((s.equals("DDI")) ==> (\result[0] == 3 && \result[1] == 2 && \result[2] == 0 && \result[3] == 1 && \result.length == 4));
+    ^
+./test/mutation_analysis/s0942_di_string_match/hafis/ablation_o3_r50/mutants/46/Solution.java:31: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+./test/mutation_analysis/s0942_di_string_match/hafis/ablation_o3_r50/mutants/46/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/hafis/ablation_o3_r50/mutants/46/Solution.java:13:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/hafis/ablation_o3_r50/mutants/46/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/hafis/ablation_o3_r50/mutants/46/Solution.java:37:
+//@ ensures((s.equals("III")) ==> (\result[0] == 0 && \result[1] == 1 && \result[2] == 2 && \result[3] == 3 && \result.length == 4));
+    ^
+6 verification failures

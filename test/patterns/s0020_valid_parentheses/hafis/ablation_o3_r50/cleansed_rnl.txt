@@ -1,0 +1,8 @@
+- The string parameter `s` consists only of the characters '(' ')' '{' '}' '[' ']'.
+- If boolean result is equal to the true literal, each opening bracket in the string parameter `s` is closed by the same type of bracket and the closures appear in the correct order.
+- If boolean result is equal to the false literal, at least one opening bracket in the string parameter `s` is not closed by the same type of bracket or the closures do not appear in the correct order.
+- If the string parameter `s` is equal to "()", the boolean result is equal to the true literal.
+- If the string parameter `s` is equal to "()[]{}", the boolean result is equal to the true literal.
+- If the string parameter `s` is equal to "(]", the boolean result is equal to the false literal.
+- If the string parameter `s` is equal to "([)]", the boolean result is equal to the false literal.
+- If the string parameter `s` is equal to "{[]}", the boolean result is equal to the true literal.

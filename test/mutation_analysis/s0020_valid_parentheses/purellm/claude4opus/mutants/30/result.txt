@@ -1,0 +1,73 @@
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:22: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19:) in method isValid: \everything
+        Stack<Character> stack = new Stack<>();
+                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:22:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:22: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:11:) in method isValid
+        Stack<Character> stack = new Stack<>();
+                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:22:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:27: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19:) in method isValid: \everything
+                stack.push(c);
+                          ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:27:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:32: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:58:) in method isValid: (Caller: g0001_0100.s0020_valid_parentheses.Solution.isValid(String), Callee: java.util.Vector.isEmpty())
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:58: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:32:
+    //-RAC@ public invariant 0 <= elementCount;
+                   ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:32: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:53:) in method isValid: (Caller: g0001_0100.s0020_valid_parentheses.Solution.isValid(String), Callee: java.util.Vector.isEmpty())
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:53: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:32:
+    //-RAC@ public invariant elementData.__owner == this; 
+                   ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:32: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:44:) in method isValid: (Caller: g0001_0100.s0020_valid_parentheses.Solution.isValid(String), Callee: java.util.Vector.isEmpty())
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:44: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:32:
+      @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
+               ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:30: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19:) in method isValid: \everything
+            } else if (c == '}' && !stack.isEmpty() && stack.peek() == '{') {
+                                                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:30:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:31: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19:) in method isValid: \everything
+                stack.pop();
+                         ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:31:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:32: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:54:) in method isValid: (Caller: g0001_0100.s0020_valid_parentheses.Solution.isValid(String), Callee: java.util.Vector.isEmpty())
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:54: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:32:
+    //-RAC@ public invariant elementData.length >= maxCapacity;
+                   ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:21: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method isValid: (Parameter: s, Caller: g0001_0100.s0020_valid_parentheses.Solution.isValid(String), Callee: java.util.Vector.isEmpty())
+    public boolean isValid(String s) {
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:21:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:32: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19:) in method isValid: \everything
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                                                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:32:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:33: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19:) in method isValid: \everything
+                stack.pop();
+                         ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/30/Solution.java:33:
+      @ pure
+        ^
+24 verification failures

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0198_house_robber/purellm/o3/mutants/31/Solution.java:55: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method rob
+        return profit[nums.length * 1];
+                     ^
+1 verification failure

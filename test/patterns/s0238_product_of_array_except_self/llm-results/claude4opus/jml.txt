@@ -1,0 +1,52 @@
+Here's the JML specification for the "Product of Array Except Self" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 2;
+      @ requires nums.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; -30 <= nums[i] && nums[i] <= 30);
+      @ ensures \result != null;
+      @ ensures \result.length == nums.length;
+      @ ensures (\forall int i; 0 <= i && i < nums.length; 
+      @     \result[i] == (\product int j; 0 <= j && j < nums.length && j != i; nums[j]));
+      @ ensures \fresh(\result);
+      @ assignable \nothing;
+      @ also
+      @ public exceptional_behavior
+      @ requires nums == null;
+      @ signals_only NullPointerException;
+      @*/
+    public /*@ pure @*/ int[] productExceptSelf(int[] nums) {
+        // Implementation here
+    }
+}
+```
+
+Key points in this JML specification:
+
+1. **Preconditions (`requires`):**
+   - `nums` must not be null
+   - Array length must be between 2 and 10^5
+   - Each element must be between -30 and 30
+
+2. **Postconditions (`ensures`):**
+   - Result array is not null
+   - Result array has the same length as input array
+   - Each element `result[i]` equals the product of all elements except `nums[i]`
+   - Result is a fresh array (newly allocated)
+
+3. **Frame condition (`assignable`):**
+   - `\nothing` indicates the method doesn't modify any existing objects
+
+4. **Exceptional behavior:**
+   - Throws `NullPointerException` if input is null
+
+5. **Method purity:**
+   - Marked as `pure` since it doesn't modify any existing state
+
+The `\product` quantifier computes the product of all elements satisfying the given condition. The condition `j != i` ensures we exclude the element at index `i` from the product.
+
+Note: The constraint about products fitting in 32-bit integers is implicitly satisfied by using `int` type in Java, which is 32-bit. The O(n) time complexity requirement is an implementation detail that cannot be directly expressed in JML.

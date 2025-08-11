@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/13/Solution.java:34: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method numDecodings
+                f[i] = f[i - 1];
+                 ^
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/13/Solution.java:34: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method numDecodings
+                f[i] = f[i - 1];
+                        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/13/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/13/Solution.java:14:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/13/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/13/Solution.java:42:
+//@ ensures((\result <= 2147483647) && (\result >= 0));
+    ^
+4 verification failures

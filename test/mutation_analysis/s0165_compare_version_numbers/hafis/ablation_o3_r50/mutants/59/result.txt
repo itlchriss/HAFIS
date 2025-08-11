@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/ablation_o3_r50/mutants/59/Solution.java:17: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int compareVersion(String version1, String version2) {
+               ^
+1 verification failure

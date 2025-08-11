@@ -1,0 +1,61 @@
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == -1 && nums.length == 1) ==> (\result.get(0) == "-1"));
+                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:24: verify: Associated method exit
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:67: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:67: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:67: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:67: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:67: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:67: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                                                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:67: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:67: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/o3/mutants/21/Solution.java:67: verify: Associated method exit
+        return ranges;
+        ^
+20 verification failures

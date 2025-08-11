@@ -1,0 +1,2 @@
+- boolean result is true if and only if int[] `arr` contains at least three elements and there exists an index strictly between the first and last positions where the values strictly increase up to that index and strictly decrease afterwards
+- boolean result is false when int[] `arr` does not satisfy the mountain array condition described above

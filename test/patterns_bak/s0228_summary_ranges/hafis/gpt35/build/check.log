@@ -1,6 +1,0 @@
-7 7 0
-test/s0228_summary_ranges/gpt35/build/Solution.java:15: warning: A non-pure method is being called where it is not permitted: java.util.Collections.frequency(java.util.Collection<?>,java.lang.Object)
-//@ requires(\forall int i; 0 <= i < nums.length; (Collections.frequency(Arrays.asList(nums), nums[i]) == 1));
-                                                                        ^
-1 warning
-

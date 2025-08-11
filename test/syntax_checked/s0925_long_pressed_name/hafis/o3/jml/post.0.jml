@@ -1,0 +1,1 @@
+ensures((typed.length() < name.length()) ==> (\result == false));

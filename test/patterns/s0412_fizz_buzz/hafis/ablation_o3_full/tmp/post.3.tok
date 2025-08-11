@@ -1,0 +1,1 @@
+For every index position in result List < String > that is divisible by 5 but not divisible by 3 result element equals the string value Buzz . 

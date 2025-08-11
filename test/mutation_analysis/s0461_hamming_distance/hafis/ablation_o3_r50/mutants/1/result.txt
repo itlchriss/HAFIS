@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:17: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:15:) in method hammingDistance
+        return Integer.bitCount(x | y);
+        ^
+./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:17:
+//@ ensures((x == y) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:17: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:12:) in method hammingDistance
+        return Integer.bitCount(x | y);
+        ^
+./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:17:
+//@ ensures((\result >= 0) && (\result <= 31));
+    ^
+./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:17: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:14:) in method hammingDistance
+        return Integer.bitCount(x | y);
+        ^
+./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:17:
+//@ ensures(((x == 1) && (y == 4)) ==> (\result == 2));
+    ^
+./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:17: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:13:) in method hammingDistance
+        return Integer.bitCount(x | y);
+        ^
+./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0461_hamming_distance/hafis/ablation_o3_r50/mutants/1/Solution.java:17:
+//@ ensures(((x == 3) && (y == 1)) ==> (\result == 1));
+    ^
+8 verification failures

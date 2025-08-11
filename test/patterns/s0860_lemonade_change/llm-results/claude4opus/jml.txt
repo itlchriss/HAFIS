@@ -1,0 +1,157 @@
+Looking at this problem, I need to convert the specification into JML (Java Modeling Language). The key aspects to model are:
+
+1. The method signature and its contract
+2. The preconditions (requires clauses)
+3. The postconditions (ensures clauses)
+4. The invariants during execution
+
+Here's the JML specification:
+
+```java
+public class LemonadeChange {
+    
+    /*@ public normal_behavior
+      @ requires bills != null;
+      @ requires bills.length >= 1 && bills.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < bills.length; 
+      @           bills[i] == 5 || bills[i] == 10 || bills[i] == 20);
+      @ ensures \result <==> canMakeChangeForAll(bills);
+      @ pure
+      @*/
+    public boolean lemonadeChange(int[] bills);
+    
+    /*@ public normal_behavior
+      @ requires bills != null;
+      @ requires bills.length >= 1;
+      @ requires (\forall int i; 0 <= i && i < bills.length; 
+      @           bills[i] == 5 || bills[i] == 10 || bills[i] == 20);
+      @ ensures \result <==> 
+      @   (\exists int[] fives, tens;
+      @     fives != null && tens != null &&
+      @     fives.length == bills.length + 1 &&
+      @     tens.length == bills.length + 1 &&
+      @     fives[0] == 0 && tens[0] == 0 &&
+      @     (\forall int i; 0 <= i && i < bills.length;
+      @       (bills[i] == 5 ==> 
+      @         fives[i+1] == fives[i] + 1 && tens[i+1] == tens[i]) &&
+      @       (bills[i] == 10 ==> 
+      @         fives[i] >= 1 && 
+      @         fives[i+1] == fives[i] - 1 && tens[i+1] == tens[i] + 1) &&
+      @       (bills[i] == 20 ==> 
+      @         ((tens[i] >= 1 && fives[i] >= 1 && 
+      @           fives[i+1] == fives[i] - 1 && tens[i+1] == tens[i] - 1) ||
+      @          (tens[i] == 0 && fives[i] >= 3 && 
+      @           fives[i+1] == fives[i] - 3 && tens[i+1] == tens[i])))));
+      @ pure
+      @ helper
+      @*/
+    private boolean canMakeChangeForAll(int[] bills);
+    
+    /*@ public normal_behavior
+      @ requires bills != null;
+      @ requires bills.length >= 1;
+      @ requires (\forall int i; 0 <= i && i < bills.length; 
+      @           bills[i] == 5 || bills[i] == 10 || bills[i] == 20);
+      @ {|
+      @   requires true;
+      @   ensures \result == lemonadeChange(bills);
+      @   also
+      @   requires bills.length == 5;
+      @   requires bills[0] == 5 && bills[1] == 5 && bills[2] == 5 && 
+      @            bills[3] == 10 && bills[4] == 20;
+      @   ensures \result == true;
+      @   also
+      @   requires bills.length == 5;
+      @   requires bills[0] == 5 && bills[1] == 5 && bills[2] == 10 && 
+      @            bills[3] == 10 && bills[4] == 20;
+      @   ensures \result == false;
+      @ |}
+      @*/
+    public boolean lemonadeChangeWithExamples(int[] bills);
+}
+```
+
+For a more implementation-oriented specification with loop invariants:
+
+```java
+public class LemonadeChange {
+    
+    //@ public ghost int fiveCount = 0;
+    //@ public ghost int tenCount = 0;
+    
+    /*@ public normal_behavior
+      @ requires bills != null;
+      @ requires bills.length >= 1 && bills.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < bills.length; 
+      @           bills[i] == 5 || bills[i] == 10 || bills[i] == 20);
+      @ assignable fiveCount, tenCount;
+      @ ensures \result <==> 
+      @   (\old(fiveCount) == 0 && \old(tenCount) == 0 &&
+      @    processedAllBills(bills));
+      @*/
+    public boolean lemonadeChange(int[] bills) {
+        int fives = 0;
+        int tens = 0;
+        
+        /*@ loop_invariant 0 <= i && i <= bills.length;
+          @ loop_invariant fives >= 0 && tens >= 0;
+          @ loop_invariant fives == fiveCount && tens == tenCount;
+          @ loop_invariant processedBills(bills, i);
+          @ decreasing bills.length - i;
+          @ assignable fiveCount, tenCount, fives, tens;
+          @*/
+        for (int i = 0; i < bills.length; i++) {
+            if (bills[i] == 5) {
+                fives++;
+                //@ set fiveCount = fives;
+            } else if (bills[i] == 10) {
+                if (fives == 0) return false;
+                fives--;
+                tens++;
+                //@ set fiveCount = fives;
+                //@ set tenCount = tens;
+            } else { // bills[i] == 20
+                if (tens > 0 && fives > 0) {
+                    tens--;
+                    fives--;
+                    //@ set fiveCount = fives;
+                    //@ set tenCount = tens;
+                } else if (fives >= 3) {
+                    fives -= 3;
+                    //@ set fiveCount = fives;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    /*@ private normal_behavior
+      @ requires bills != null && 0 <= n && n <= bills.length;
+      @ ensures \result <==> 
+      @   (\forall int j; 0 <= j && j < n; 
+      @     canMakeChangeAtStep(bills, j));
+      @ pure
+      @ helper
+      @*/
+    private boolean processedBills(int[] bills, int n);
+    
+    /*@ private normal_behavior
+      @ requires bills != null && 0 <= step && step < bills.length;
+      @ ensures \result <==> 
+      @   (sufficientChangeAt(bills, step));
+      @ pure
+      @ helper
+      @*/
+    private boolean canMakeChangeAtStep(int[] bills, int step);
+}
+```
+
+The key aspects of this JML specification are:
+
+1. **Preconditions**: The array must be non-null, have valid length, and contain only 5, 10, or 20 values
+2. **Postconditions**: The result indicates whether we can make change for all customers
+3. **Helper predicates**: Define what it means to successfully process bills
+4. **Loop invariants**: Track the state of five and ten dollar bills throughout execution
+5. **Examples**: The specification includes the examples from the problem statement

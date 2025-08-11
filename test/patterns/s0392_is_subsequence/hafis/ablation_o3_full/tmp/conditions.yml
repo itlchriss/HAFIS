@@ -1,0 +1,5 @@
+ensures:
+- If length of String stry_a is greater_than to length of String stry_b then type_boolean_ result is equal to the false literal.
+- If every character of String stry_a occurs in String stry_b preserving relative order then type_boolean_ result is equal to the true literal.
+- If at least 1 character of String stry_a does not occur in String stry_b preserving relative order then type_boolean_ result is equal to the false literal.
+requires: []

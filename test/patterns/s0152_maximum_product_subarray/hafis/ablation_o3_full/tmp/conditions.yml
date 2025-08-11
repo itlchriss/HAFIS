@@ -1,0 +1,4 @@
+ensures:
+- result int equals the maximum product obtainable from any contiguous non empty subarray of int[] the type_string_ strs_a.
+- result int is guaranteed to be in the 32 bit signed integer range.
+requires: []

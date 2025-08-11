@@ -1,0 +1,47 @@
+Here's the JML specification for the "First Unique Character in a String" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 1 <= s.length() && s.length() <= 100000;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           'a' <= s.charAt(i) && s.charAt(i) <= 'z');
+      @ ensures \result >= -1 && \result < s.length();
+      @ ensures \result == -1 <==> 
+      @         (\forall int i; 0 <= i && i < s.length();
+      @           (\exists int j; 0 <= j && j < s.length() && i != j;
+      @             s.charAt(i) == s.charAt(j)));
+      @ ensures \result >= 0 ==>
+      @         ((\forall int j; 0 <= j && j < s.length() && j != \result;
+      @           s.charAt(\result) != s.charAt(j)) &&
+      @          (\forall int k; 0 <= k && k < \result;
+      @           (\exists int m; 0 <= m && m < s.length() && m != k;
+      @             s.charAt(k) == s.charAt(m))));
+      @*/
+    public /*@ pure @*/ int firstUniqChar(String s) {
+        // Implementation here
+    }
+}
+```
+
+Let me break down the JML specification:
+
+**Preconditions (`requires`):**
+1. `s != null` - The input string must not be null
+2. `1 <= s.length() && s.length() <= 100000` - String length constraint
+3. All characters must be lowercase English letters (between 'a' and 'z')
+
+**Postconditions (`ensures`):**
+1. `\result >= -1 && \result < s.length()` - The result is either -1 or a valid index
+
+2. `\result == -1` if and only if every character in the string appears at least twice (no unique characters exist)
+
+3. When `\result >= 0` (a unique character was found):
+   - The character at position `\result` appears exactly once in the string
+   - All characters at positions before `\result` appear more than once
+
+The `pure` modifier indicates that this method has no side effects and only depends on its parameters.
+
+This specification captures the essence of finding the first non-repeating character: it must be unique (appear only once) and be the leftmost such character in the string.

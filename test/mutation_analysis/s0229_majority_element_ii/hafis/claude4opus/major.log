@@ -1,0 +1,326 @@
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.<init>:
+    Created MajorPluginTaskListener with options: [mml:../major/mml/all.mml.bin]
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.initOperatorSymbols:
+    Initializing operator symbols for opcode mapping
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.mutateTree:
+    Mutating tree: Env[AttrContext[Scope[super, this]],outer=Env[AttrContext[Scope[java.util.Collections, java.util.Arrays, java.util.List, java.util.ArrayList, g0201_0300.s0229_majority_element_ii.Solution]]]]
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: g0201_0300.s0229_majority_element_ii.Solution
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: majorityElement([int[] nums])List<Integer>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 1
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 1: Solution.majorityElement(line 26, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  temp == first 
+            mutant:                    temp <= first
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 2
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 2: Solution.majorityElement(line 26, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  temp == first 
+            mutant:                    temp >= first
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 3: Solution.majorityElement(line 26, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  temp == first 
+            mutant:                    false
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 4
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 4: (STD) count1++; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 5
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 5: Solution.majorityElement(line 28, col 29)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  temp == second 
+            mutant:                    temp <= second
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 6
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 6: Solution.majorityElement(line 28, col 29)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  temp == second 
+            mutant:                    temp >= second
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 7
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 7: Solution.majorityElement(line 28, col 29)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  temp == second 
+            mutant:                    false
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 8
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 8: (STD) count2++; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 9
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 9: Solution.majorityElement(line 30, col 31)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  count1 == 0 
+            mutant:                    count1 <= 0
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 10
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 10: Solution.majorityElement(line 30, col 31)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  count1 == 0 
+            mutant:                    count1 >= 0
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 11
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 11: Solution.majorityElement(line 30, col 31)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  count1 == 0 
+            mutant:                    false
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 12
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 12: (STD) first = temp; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 13
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 13: (STD) count1++; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 14
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 14: Solution.majorityElement(line 33, col 31)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  count2 == 0 
+            mutant:                    count2 <= 0
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 15
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 15: Solution.majorityElement(line 33, col 31)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  count2 == 0 
+            mutant:                    count2 >= 0
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 16
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 16: Solution.majorityElement(line 33, col 31)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  count2 == 0 
+            mutant:                    false
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 17
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 17: (STD) second = temp; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 18
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 18: (STD) count2++; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 19
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 19: (STD) count1--; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 20
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 20: (STD) count2--; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 21
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 21: (STD) count1 = 0; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 22
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 22: (STD) count2 = 0; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 23
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 23: Solution.majorityElement(line 54, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  temp == first 
+            mutant:                    temp <= first
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 24
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 24: Solution.majorityElement(line 54, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  temp == first 
+            mutant:                    temp >= first
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 25
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 25: Solution.majorityElement(line 54, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  temp == first 
+            mutant:                    false
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 26
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 26: (STD) count1++; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 27
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 27: Solution.majorityElement(line 57, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  temp == second 
+            mutant:                    temp <= second
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 28
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 28: Solution.majorityElement(line 57, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  temp == second 
+            mutant:                    temp >= second
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 29
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 29: Solution.majorityElement(line 57, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  temp == second 
+            mutant:                    false
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 30
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 30: (STD) count2++; -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 31
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 31: Solution.majorityElement(line 61, col 26)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> %(int,int)
+            original:                  len / 3 
+            mutant:                    len % 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 32
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 32: Solution.majorityElement(line 61, col 26)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> *(int,int)
+            original:                  len / 3 
+            mutant:                    len * 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 33
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 33: Solution.majorityElement(line 61, col 26)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> +(int,int)
+            original:                  len / 3 
+            mutant:                    len + 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 34
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 34: Solution.majorityElement(line 61, col 26)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> -(int,int)
+            original:                  len / 3 
+            mutant:                    len - 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 35
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 35: Solution.majorityElement(line 61, col 20)
+            mutation operator group:   ROR
+            mutation operator:         >(int,int) |==> !=(int,int)
+            original:                  count1 > len / 3 
+            mutant:                    count1 != len / 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 36
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 36: Solution.majorityElement(line 61, col 20)
+            mutation operator group:   ROR
+            mutation operator:         >(int,int) |==> >=(int,int)
+            original:                  count1 > len / 3 
+            mutant:                    count1 >= len / 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 37
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 37: Solution.majorityElement(line 61, col 20)
+            mutation operator group:   ROR
+            mutation operator:         >(int,int) |==> FALSE(int,int)
+            original:                  count1 > len / 3 
+            mutant:                    false
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 38
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 38: (STD) results.add(first); -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 39
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 39: Solution.majorityElement(line 64, col 26)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> %(int,int)
+            original:                  len / 3 
+            mutant:                    len % 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 40
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 40: Solution.majorityElement(line 64, col 26)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> *(int,int)
+            original:                  len / 3 
+            mutant:                    len * 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 41
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 41: Solution.majorityElement(line 64, col 26)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> +(int,int)
+            original:                  len / 3 
+            mutant:                    len + 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 42
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 42: Solution.majorityElement(line 64, col 26)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> -(int,int)
+            original:                  len / 3 
+            mutant:                    len - 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 43
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 43: Solution.majorityElement(line 64, col 20)
+            mutation operator group:   ROR
+            mutation operator:         >(int,int) |==> !=(int,int)
+            original:                  count2 > len / 3 
+            mutant:                    count2 != len / 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 44
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 44: Solution.majorityElement(line 64, col 20)
+            mutation operator group:   ROR
+            mutation operator:         >(int,int) |==> >=(int,int)
+            original:                  count2 > len / 3 
+            mutant:                    count2 >= len / 3
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 45
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 45: Solution.majorityElement(line 64, col 20)
+            mutation operator group:   ROR
+            mutation operator:         >(int,int) |==> FALSE(int,int)
+            original:                  count2 > len / 3 
+            mutant:                    false
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 46
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 46: (STD) results.add(second); -> <NO-OP>
+[06/25 14:55:50] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.mutate:
+    Generated 46 mutants (150 ms)

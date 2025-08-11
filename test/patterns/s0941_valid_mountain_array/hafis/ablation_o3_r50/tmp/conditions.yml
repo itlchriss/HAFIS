@@ -1,0 +1,8 @@
+ensures:
+- If type_boolean_ result is equal to the true literal , the type_integer_array_ param_arr_'s length is greater_than_or_equal to 3 and there exists an integer index i such that i is greater_than to 0 and is less_than to the type_integer_array_ param_arr_'s length - 1 and the subsequence of values from index 0 up to index i strictly increases and the subsequence of values from index i down to the last index strictly decreases.
+- If type_boolean_ result is equal to the false literal , the type_integer_array_ param_arr_ does not satisfy the mountain array condition.
+- If the type_integer_array_ param_arr_ is equal to arr_a , type_boolean_ result is equal to the false literal.
+- If the type_integer_array_ param_arr_ is equal to arr_a , type_boolean_ result is equal to the false literal.
+- If the type_integer_array_ param_arr_ is equal to arr_a , type_boolean_ result is equal to the true literal.
+requires:
+- The type_integer_array_ param_arr_'s values are greater_than_or_equal to 0 and are less_than_or_equal to 10000.

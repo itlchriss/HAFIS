@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/o3/mutants/0/Solution.java:18: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/o3/mutants/0/Solution.java:8:) in method titleToNumber
+        return num;
+        ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/o3/mutants/0/Solution.java:8: verify: Associated declaration: ./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/o3/mutants/0/Solution.java:18:
+      @   ensures 1 <= \result && \result <= 2147483647;   
+          ^
+2 verification failures

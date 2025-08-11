@@ -1,7 +1,0 @@
-ensures:
-- The type_boolean_ result is equal to the true literal if the student is eligible for an attendance award.
-- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the true literal.
-- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the false literal.
-requires:
-- The type_string_ param_s_'s length is less_than_or_equal to 1000 and is greater_than_or_equal to 1.
-- The type_string_ param_s_'s values are equal to the chry_a or are equal to the chry_b or are equal to the chry_c.

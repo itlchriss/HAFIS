@@ -1,0 +1,1 @@
+For every integer value y that is less_than to the type_integer_ result , reaching the last index of the type_integer_array_ param_nums_ from index 0 in y jumps with each jump length is less_than_or_equal to the value at the current position of the type_integer_array_ param_nums_ is impossible . 

@@ -1,0 +1,16 @@
+ensures:
+- The size of the type_list_ result is less_than_or_equal to the type_integer_array_ param_nums_'s length.
+- Every value in the type_integer_array_ param_nums_ appears in 1 string contained in the list result.
+- Every integer represented by any string contained in the type_list_ result belongs to the type_integer_array_ param_nums_.
+- If a string contained in the type_list_ result includes the sequence -> the integer value before the sequence is less_than to the integer value after the sequence.
+- If a string contained in the type_list_ result does not include the sequence -> the string is 1 integer.
+- The strings in the type_list_ result are ordered so that the integer value of the first number in each string increases from the type_list_ result's first_element to the last element of the list result.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_list_ result is equal to the type_string_array_ str_seqa.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_list_ result is equal to the type_string_array_ str_seqa.
+- If the type_integer_array_ param_nums_ is empty , the type_list_ result is empty.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_list_ result is equal to the type_string_array_ str_seqa.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_list_ result is equal to the type_string_array_ str_seqa.
+requires:
+- The type_integer_array_ param_nums_ is sorted to the ascending_order.
+- The type_integer_array_ param_nums_'s values are unique.
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to negative 2147483648 and are less_than_or_equal to 2147483647.

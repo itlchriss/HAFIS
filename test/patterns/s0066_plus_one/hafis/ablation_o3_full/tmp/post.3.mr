@@ -1,0 +1,1 @@
+-exists x01.(_first_element{NN}(x01) & exists x02.(_result{NN}(x02) & exists e03.(_of{IN}(e03,x02) & (Subj(e03) = x01) & _int{NN}(x01) & _[{NN}(x01) & _]{NN}(x01))) & exists x04.(_0{CD}(x04) & (x01 = x04)))

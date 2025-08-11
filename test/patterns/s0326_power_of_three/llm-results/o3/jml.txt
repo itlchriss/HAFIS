@@ -1,0 +1,37 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Below is a self-contained JML contract that captures exactly the informal specification you supplied.  
+It can be pasted in front of a corresponding Java method implementation.
+
+```java
+/*@
+  @   /* 326. Power of Three
+  @    * Returns true  ⇔  n is an exact integer power of 3.
+  @    * ---------------------------------------------------
+  @    *  -2^31 ≤ n ≤ 2^31–1  is already guaranteed by Java’s
+  @    *    ‘int’ type, but it is written explicitly to stay
+  @    *    close to the original statement of the problem.
+  @    *  - The method is pure (side-effect free).
+  @    *  - A number is a power of three iff
+  @    *      ∃ x ≥ 0 : n == 3^x .
+  @    */
+  @
+  @   // PRECONDITION  (redundant but mirrors the task text)
+  @   requires Integer.MIN_VALUE <= n && n <= Integer.MAX_VALUE;
+  @
+  @   // FRAME CONDITION: no state may be modified
+  @   assignable \nothing;
+  @
+  @   // POSTCONDITION: result is true exactly when n is a power of 3
+  @   ensures \result <==>
+  @           ( \exists int x;  x >= 0;  n == \pow(3, x) );
+  @*/
+public /*@ pure @*/ static boolean isPowerOfThree(int n);
+```
+
+Explanation of the central pieces:
+
+1. `assignable \nothing;` — expresses that the method has no side effects.
+2. `\pow(3, x)` — the mathematical power operator provided by JML (uses unbounded‐precision arithmetic, so no overflow problems in the specification).
+3. `(\exists int x; x >= 0; n == \pow(3, x))` — formalizes “there exists an integer x ≥ 0 such that n == 3^x”.
+4. The bidirectional implication `\result <==>` guarantees both directions:
+   • If the method returns true, `n` really is a power of 3.  
+   • If `n` is a power of 3, the method must return true.

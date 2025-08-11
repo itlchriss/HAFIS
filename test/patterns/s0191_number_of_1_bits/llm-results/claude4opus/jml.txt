@@ -1,0 +1,72 @@
+Based on the specification, here's the JML (Java Modeling Language) specification for the function that counts the number of 1 bits:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires true;
+      @ ensures \result >= 0 && \result <= 32;
+      @ ensures \result == (\num_of int i; 0 <= i && i < 32; ((n >> i) & 1) == 1);
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ int hammingWeight(int n) {
+        // Implementation here
+    }
+}
+```
+
+Let me break down the JML specification:
+
+1. **`public normal_behavior`**: Indicates this is a specification for normal (non-exceptional) behavior.
+
+2. **`requires true`**: No preconditions - the function accepts any integer value.
+
+3. **`ensures \result >= 0 && \result <= 32`**: The result must be between 0 and 32 inclusive (since we're counting bits in a 32-bit integer).
+
+4. **`ensures \result == (\num_of int i; 0 <= i && i < 32; ((n >> i) & 1) == 1)`**: This is the key postcondition that counts the number of 1 bits:
+   - `\num_of` is a JML quantifier that counts the number of values satisfying a condition
+   - We iterate through bit positions 0 to 31
+   - For each position `i`, we check if the bit at that position is 1 using `((n >> i) & 1) == 1`
+   - The result equals the count of positions where the bit is 1
+
+5. **`assignable \nothing`**: The method doesn't modify any fields (it's a pure function).
+
+6. **`pure`**: Indicates the method has no side effects and can be used in specifications.
+
+Alternative, more detailed specification with additional constraints:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires true;
+      @ ensures \result >= 0 && \result <= 32;
+      @ ensures \result == hammingWeightValue(n);
+      @ assignable \nothing;
+      @
+      @ also
+      @
+      @ public normal_behavior
+      @ requires n == 0;
+      @ ensures \result == 0;
+      @
+      @ also
+      @
+      @ public normal_behavior
+      @ requires n == -1; // All bits set (two's complement)
+      @ ensures \result == 32;
+      @*/
+    public /*@ pure @*/ int hammingWeight(int n) {
+        // Implementation here
+    }
+    
+    /*@ public static model pure int hammingWeightValue(int n) {
+      @   return (\num_of int i; 0 <= i && i < 32; ((n >> i) & 1) == 1);
+      @ }
+      @*/
+}
+```
+
+This alternative version includes:
+- A model method `hammingWeightValue` that encapsulates the counting logic
+- Additional specific cases for `n == 0` (result should be 0) and `n == -1` (result should be 32)

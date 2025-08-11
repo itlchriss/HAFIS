@@ -1,0 +1,55 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Below is one possible way of turning the informal problem statement into a precise JML (Java Modeling Language) specification for a Java method
+
+    public static int lastRemaining(int n);
+
+The idea is:
+
+1.  We bound the input exactly as in the statement.
+2.  We describe the result purely mathematically with a ghost/model
+    function `lastRemainingSpec`.  
+    (The well-known closed form for this problem is
+    `f(n) = 2*(1 + n/2 – f(n/2))` with the base case `f(1)=1`.)
+3.  The implementation of `lastRemaining` is completely unconstrained
+    except that it must return the value computed by the model
+    function and must not have any visible side effects
+    (`assignable \nothing`).
+
+```
+/*@  *******************************************************
+  *  Elimination Game – Formal JML specification
+  *******************************************************/
+
+/*@  // ----------  Ghost / model function  ---------------
+  @  public pure model static int lastRemainingSpec(int n) {
+  @      /*  Mathematical definition taken directly from the
+  @          well-known recurrence for the elimination game
+  @              f(1)         = 1
+  @              f(n) (n>1)   = 2 * ( 1 + n/2 – f(n/2) )
+  @          The recursive call is on ⌊n/2⌋, so the function
+  @          terminates for every n ≥ 1.                      *​/
+  @      return (n == 1)
+  @                 ? 1
+  @                 : 2 * ( 1 + n/2 - lastRemainingSpec(n/2) );
+  @  }
+  @*/
+
+/*@  // ----------  Contract for the real method ----------
+  @  public normal_behavior
+  @    requires 1 <= n && n <= 1000000000;
+  @    // The result is exactly the mathematically specified value.
+  @    ensures  \result == lastRemainingSpec(n);
+  @    // The method is side-effect free (pure from the caller’s view).
+  @    assignable \nothing;
+  @*/
+public static int lastRemaining(int n);
+```
+
+Explanations:
+
+• `requires` encodes the constraint `1 ≤ n ≤ 10⁹`.  
+• `lastRemainingSpec` is declared `pure model`, hence it can be used
+  freely in specifications but never appears in the compiled code.  
+• The only post-condition is that the concrete implementation must
+  return exactly the value delivered by the model function.  
+• `assignable \nothing` expresses that the observable state (fields,
+  array elements, …) is left unchanged; the function is “pure”.

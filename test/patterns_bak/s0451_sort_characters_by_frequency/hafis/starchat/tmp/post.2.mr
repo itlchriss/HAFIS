@@ -1,1 +1,0 @@
-exists x01.(_result{NN}(x01) & _type_string_{NN}(x01) & exists e02.(_sort{VBN}(e02) & (Acc(e02) = x01) & exists x03 x04.(_order{NN}(x04) & exists e05.(_base{VBN}(e05) & (Acc(e05) = x04) & exists x06.(_frequency{NN}(x06) & _of{IN}(x06) & _on{IN}(e05,x06))) & exists e07.(_decrease{VBG}(e07) & (Subj(e07) = x03) & (Acc(e07) = x04)))))

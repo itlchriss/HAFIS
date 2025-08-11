@@ -1,0 +1,86 @@
+Here's the JML specification for the House Robber problem:
+
+```java
+public class HouseRobber {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 100;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           0 <= nums[i] && nums[i] <= 400);
+      @ ensures \result >= 0;
+      @ ensures \result <= nums.length * 400;
+      @ ensures (\exists boolean[] robbed; 
+      @          robbed.length == nums.length &&
+      @          (\forall int i; 0 <= i && i < nums.length; 
+      @           robbed[i] ==> (i == 0 || !robbed[i-1]) && 
+      @                         (i == nums.length-1 || !robbed[i+1])) &&
+      @          \result == (\sum int i; 0 <= i && i < nums.length && robbed[i]; 
+      @                      nums[i]));
+      @ ensures (\forall boolean[] robbed; 
+      @          robbed.length == nums.length &&
+      @          (\forall int i; 0 <= i && i < nums.length; 
+      @           robbed[i] ==> (i == 0 || !robbed[i-1]) && 
+      @                         (i == nums.length-1 || !robbed[i+1])) ==>
+      @          (\sum int i; 0 <= i && i < nums.length && robbed[i]; 
+      @           nums[i]) <= \result);
+      @ pure
+      @*/
+    public int rob(int[] nums) {
+        // Implementation here
+        return 0;
+    }
+    
+    /*@ // Helper specification to clarify the constraint
+      @ public invariant (\forall boolean[] selection; 
+      @                   isValidRobberyPlan(selection) ==> 
+      @                   !hasAdjacentRobberies(selection));
+      @*/
+    
+    /*@ private pure helper
+      @ requires selection != null;
+      @ ensures \result == (\forall int i; 0 <= i && i < selection.length - 1;
+      @                     !(selection[i] && selection[i+1]));
+      @*/
+    private boolean hasAdjacentRobberies(boolean[] selection) {
+        for (int i = 0; i < selection.length - 1; i++) {
+            if (selection[i] && selection[i+1]) return false;
+        }
+        return true;
+    }
+    
+    /*@ private pure helper
+      @ requires selection != null;
+      @ requires nums != null;
+      @ requires selection.length == nums.length;
+      @ ensures \result == (\sum int i; 0 <= i && i < nums.length && selection[i]; 
+      @                     nums[i]);
+      @*/
+    private int calculateTotal(int[] nums, boolean[] selection) {
+        int total = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (selection[i]) total += nums[i];
+        }
+        return total;
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - `nums` is not null
+   - Array length is between 1 and 100 (inclusive)
+   - Each element is between 0 and 400 (inclusive)
+
+2. **Postconditions (`ensures`):**
+   - Result is non-negative
+   - Result doesn't exceed the theoretical maximum (all houses × 400)
+   - There exists a valid robbery plan that achieves the result
+   - No other valid robbery plan yields a higher total
+
+3. **Core constraint:** The specification ensures that no two adjacent houses are robbed by checking that for any robbed house at index `i`, neither `i-1` nor `i+1` (if they exist) are robbed.
+
+4. **Optimality:** The last `ensures` clause guarantees that the returned value is the maximum possible among all valid robbery plans.
+
+The specification uses JML's `\sum` construct to calculate the total money robbed and `\forall` and `\exists` quantifiers to express the constraints and optimality conditions.

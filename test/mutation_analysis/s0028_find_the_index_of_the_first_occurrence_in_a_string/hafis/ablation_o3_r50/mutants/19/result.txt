@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:12:) in method strStr
+                return start;
+                ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:25:
+//@ ensures((\result >= -1) && (\result <= haystack.length()));
+    ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:15:) in method strStr
+                return start;
+                ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:25:
+//@ ensures(((haystack.equals("hello")) && (needle.equals("ll"))) ==> (\result == 2));
+    ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:14:) in method strStr
+                return start;
+                ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/ablation_o3_r50/mutants/19/Solution.java:25:
+//@ ensures(((haystack.equals("aaaaa")) && (needle.equals("bba"))) ==> (\result == -1));
+    ^
+6 verification failures

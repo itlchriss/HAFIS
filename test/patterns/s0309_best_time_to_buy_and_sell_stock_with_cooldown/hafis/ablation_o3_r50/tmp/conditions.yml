@@ -1,0 +1,6 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0.
+- If the type_integer_array_ param_prices_ is equal to arr_a , the type_integer_ result is equal to 3.
+- If the type_integer_array_ param_prices_ is equal to arr_a , the type_integer_ result is equal to 0.
+requires:
+- The type_integer_array_ param_prices_'s values are greater_than_or_equal to 0 and are less_than_or_equal to 1000.

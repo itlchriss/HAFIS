@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0520_detect_capital/hafis/claude4opus/mutants/11/Solution.java:22: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0164_maximum_gap/purellm/o3/mutants/7/Solution.java:24: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0164_maximum_gap/purellm/o3/mutants/7/Solution.java:14:) in method maximumGap: a[*]
+        Arrays.sort(nums);
+                   ^
+./test/mutation_analysis/s0164_maximum_gap/purellm/o3/mutants/7/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0164_maximum_gap/purellm/o3/mutants/7/Solution.java:24:
+      @             assignable \nothing;     
+                    ^
+./test/mutation_analysis/s0164_maximum_gap/purellm/o3/mutants/7/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method maximumGap
+            if ((nums[i + 1] - nums[i]) > ret) {
+                     ^
+3 verification failures

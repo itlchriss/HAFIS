@@ -1,0 +1,1 @@
+The type_integer_ result is equal to the count of unique unordered pairs of integer values selected from the type_integer_array_ param_nums_ whose absolute difference is equal to the type_integer_ param_k_ . 

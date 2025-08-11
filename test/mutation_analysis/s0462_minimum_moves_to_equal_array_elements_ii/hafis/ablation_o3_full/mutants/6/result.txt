@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/ablation_o3_full/mutants/6/Solution.java:16: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minMoves2
+            if (num != nums[median]) {
+                           ^
+1 verification failure

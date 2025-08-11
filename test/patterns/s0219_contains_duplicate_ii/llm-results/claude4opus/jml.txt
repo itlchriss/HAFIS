@@ -1,0 +1,45 @@
+Here's the JML specification for the "Contains Duplicate II" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 100000;
+      @ requires k >= 0 && k <= 100000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           nums[i] >= -1000000000 && nums[i] <= 1000000000);
+      @ ensures \result == (\exists int i, j; 
+      @           0 <= i && i < nums.length && 
+      @           0 <= j && j < nums.length && 
+      @           i != j && 
+      @           nums[i] == nums[j] && 
+      @           Math.abs(i - j) <= k);
+      @ pure
+      @*/
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        // Implementation here
+    }
+}
+```
+
+Key points in this JML specification:
+
+1. **Preconditions (`requires`):**
+   - `nums` is not null
+   - Array length is between 1 and 10^5
+   - `k` is between 0 and 10^5
+   - All array elements are between -10^9 and 10^9
+
+2. **Postcondition (`ensures`):**
+   - The result is `true` if and only if there exist two distinct indices `i` and `j` such that:
+     - Both indices are valid (within array bounds)
+     - The indices are different (`i != j`)
+     - The values at those indices are equal (`nums[i] == nums[j]`)
+     - The absolute difference between indices is at most `k` (`Math.abs(i - j) <= k`)
+
+3. **Method properties:**
+   - `pure`: The method has no side effects
+   - `public normal_behavior`: The method executes normally when preconditions are met
+
+This specification precisely captures the problem requirements and can be used for formal verification or as documentation for the method's behavior.

@@ -1,0 +1,86 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Below is a complete JML specification for the usual LeetCode signature
+
+    public int removeDuplicates(int[] nums)
+
+The specification is written so that any Java implementation that satisfies it will exhibit exactly the externally visible behaviour requested in the informal problem statement.
+
+```java
+public class Solution {
+
+    /*@
+      =====================================================================
+      == Preconditions                                                   ==
+      ===================================================================*/
+
+      // 1. The array reference itself must be non-null.
+      requires nums != null;
+
+      // 2. The input array is sorted in non-decreasing order.
+      //    (That is what the exercise promises.)
+      requires (\forall int i; 0 <= i && i + 1 < nums.length;
+                              nums[i] <= nums[i + 1]);
+
+    /*@
+      =====================================================================
+      == Post-conditions                                                 ==
+      ===================================================================*/
+
+      // 0 <= k <= nums.length
+      ensures 0 <= \result && \result <= nums.length;
+
+      // -----------------------------------------------------------------
+      // A.  No duplicates among the first k == \result elements.
+      // -----------------------------------------------------------------
+      ensures (\forall int i, j; 0 <= i && i < j && j < \result
+                               ==> nums[i] != nums[j]);
+
+      // -----------------------------------------------------------------
+      // B.  “Exactly once” property
+      //     Every value that was present in the original array appears
+      //     exactly once in the first k cells, and nothing else appears
+      //     there.
+      // -----------------------------------------------------------------
+      // (at least once)
+      ensures (\forall int p; 0 <= p && p < \old(nums.length);
+                              (\exists int q; 0 <= q && q < \result;
+                                             nums[q] == \old(nums[p])));
+      // (at most once – together with Part A that means “exactly once”)
+      ensures (\forall int q; 0 <= q && q < \result;
+                              (\exists int p; 0 <= p && p < \old(nums.length);
+                                             nums[q] == \old(nums[p])));
+
+      // -----------------------------------------------------------------
+      // C.  Relative order of the surviving elements is preserved.
+      // -----------------------------------------------------------------
+      ensures (\forall int i, j;
+                 0 <= i && i < j && j < \result ==>
+                 (\exists int p, q;
+                       0 <= p && p < q && q < \old(nums.length) &&
+                       \old(nums[p]) == nums[i] &&
+                       \old(nums[q]) == nums[j]));
+
+      // -----------------------------------------------------------------
+      // D.  The method is allowed to change any cell of the array,
+      //     but no other heap location (frame condition).
+      // -----------------------------------------------------------------
+      assignable nums[*];
+    @*/
+    public /*@ strictly_pure false @*/ int removeDuplicates(int[] nums) {
+        /* your implementation here */
+    }
+}
+```
+
+Explanations of the most important clauses
+
+1.  The `requires` clauses encode the two assumptions the algorithm is allowed to make: the array reference is not `null`, and the input is sorted.
+
+2.  Clause A ensures there are no duplicates in the meaningful prefix of the array that the method returns (`k == \result`).
+
+3.  Clause B establishes that every value occurring in the original array appears exactly once in that prefix, and nothing else appears there.
+
+4.  Clause C formalises “relative order is kept”: for any two indices `i < j` in the prefix produced by the algorithm, the position where `nums[i]` originally occurred is to the left of the position where `nums[j]` originally occurred.
+
+5.  The `assignable` clause states that the method may modify any cell of `nums` but nothing else, thereby capturing the “in-place, O(1) extra memory” requirement from the informal statement.
+
+Any implementation of `removeDuplicates` that fulfils this JML contract automatically satisfies the complete informal specification given in the problem description.

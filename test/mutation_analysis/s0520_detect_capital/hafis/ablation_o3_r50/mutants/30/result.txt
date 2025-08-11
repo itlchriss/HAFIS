@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0520_detect_capital/hafis/ablation_o3_r50/mutants/30/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0520_detect_capital/hafis/ablation_o3_r50/mutants/30/Solution.java:11:) in method detectCapitalUse
+        return upper == n || lower >= n || firstUpper;
+        ^
+./test/mutation_analysis/s0520_detect_capital/hafis/ablation_o3_r50/mutants/30/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0520_detect_capital/hafis/ablation_o3_r50/mutants/30/Solution.java:31:
+//@ ensures((word.equals("USA")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0520_detect_capital/hafis/ablation_o3_r50/mutants/30/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0520_detect_capital/hafis/ablation_o3_r50/mutants/30/Solution.java:12:) in method detectCapitalUse
+        return upper == n || lower >= n || firstUpper;
+        ^
+./test/mutation_analysis/s0520_detect_capital/hafis/ablation_o3_r50/mutants/30/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0520_detect_capital/hafis/ablation_o3_r50/mutants/30/Solution.java:31:
+//@ ensures((word.equals("FlaG")) ==> (\result == false));
+    ^
+4 verification failures

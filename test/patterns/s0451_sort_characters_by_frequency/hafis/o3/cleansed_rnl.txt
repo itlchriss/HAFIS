@@ -1,0 +1,7 @@
+- The string parameter `s` consists only of uppercase English letters lowercase English letters and digits.
+- The length of the string result is equal to the length of the string parameter `s`.
+- For every two distinct characters that occur in the string parameter `s`, if the frequency of the first character in the string parameter `s` is greater than the frequency of the second character in the string parameter `s`, every occurrence of the first character appears in the string result before any occurrence of the second character.
+- For each distinct character that occurs in the string parameter `s`, all of its occurrences appear consecutively in the string result.
+- If the string parameter `s` is equal to "tree", the string result is equal to "eert".
+- If the string parameter `s` is equal to "cccaaa", the string result is equal to "aaaccc".
+- If the string parameter `s` is equal to "Aabb", the string result is equal to "bbAa".

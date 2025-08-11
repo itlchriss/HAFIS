@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0128_longest_consecutive_sequence/hafis/ablation_o3_full/mutants/7/Solution.java:23: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method longestConsecutive
+            if (nums[i + 1] == nums[i] + 1) {
+                    ^
+1 verification failure

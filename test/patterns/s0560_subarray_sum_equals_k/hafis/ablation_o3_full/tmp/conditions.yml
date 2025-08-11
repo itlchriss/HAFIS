@@ -1,0 +1,5 @@
+ensures:
+- After successful execution result of data type int equals the total number of continuous subarrays in param_the_ chry_a whose element sum equals param_the_ chry_b.
+- After successful execution result is greater_than_or_equal to 0 and result is less_than_or_equal to the product of the length of param_the_ chry_a and 1 more than the length of param_the_ chry_b divided by 2.
+requires:
+- The data type int param_the_ chry_a is in - 10 1000000 and 10 1000000 inclusive before method execution.

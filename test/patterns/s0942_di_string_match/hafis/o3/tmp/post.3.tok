@@ -1,0 +1,1 @@
+For every position i that is greater_than_or_equal to 0 and is less_than to the type_string_ param_s_ 's length , if the character at position i in the type_string_ param_s_ is equal to the chry_a , the value at position i in the type_integer_array_ result is greater_than to the value at position i + 1 in the type_integer_array_ result . 

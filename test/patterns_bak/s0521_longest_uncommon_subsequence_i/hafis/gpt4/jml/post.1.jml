@@ -1,1 +1,0 @@
-ensures((a.equals(b)) ==> (\result == -1));

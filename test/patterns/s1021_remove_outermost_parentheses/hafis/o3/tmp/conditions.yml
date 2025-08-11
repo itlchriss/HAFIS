@@ -1,0 +1,10 @@
+ensures:
+- The type_string_ result only contains the left parenthesis character and the right parenthesis character.
+- The type_string_ result is equal to valid parentheses string or the type_string_ result is empty.
+- The type_string_ result's length is less_than to the type_string_ param_s_'s length or the type_string_ result is empty.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is empty.
+requires:
+- The type_string_ param_s_ only contains the left parenthesis character and the right parenthesis character.
+- The type_string_ param_s_ is equal to valid parentheses string.

@@ -1,0 +1,9 @@
+ensures:
+- The type_string_ result's length is greater_than_or_equal to 0 and is less_than to the type_string_ param_s_'s length.
+- The type_string_ result is obtained from the type_string_ param_s_ by deleting the first_element and the last character of every primitive valid parentheses substring of the type_string_ param_s_ while preserving the relative order of all remaining characters.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to empty_str.
+requires:
+- The type_string_ param_s_'s values are either the character leftp or the character rightp.
+- The type_string_ param_s_ is equal to valid parentheses string.

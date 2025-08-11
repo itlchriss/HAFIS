@@ -1,0 +1,77 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Below is one possible JML-specification that captures the whole informal statement for the routine
+
+    public static int findLUSlength(String a, String b)
+
+It is intentionally written so that
+ • all constraints from the problem statement are explicit,
+ • the notion of “subsequence” is formalised once in a reusable model method,
+ • the two required cases (return –1 or return the maximal length of an uncommon subsequence) are expressed with first–order quantifiers.
+
+--------------------------------------------------------------------
+/*@ public helper pure static boolean isLowerCaseLetter(char c) {
+  @     return 'a' <= c && c <= 'z';
+  @ } @*/
+
+/*@  //  sub is a subsequence of str
+  @ public model pure static boolean isSubsequence(String sub, String str) {
+  @     if (sub == null || str == null)          return false;
+  @     int j = 0;
+  @     for (int i = 0; i < str.length() && j < sub.length(); i++) {
+  @         if (sub.charAt(j) == str.charAt(i))  j++;
+  @     }
+  @     return j == sub.length();
+  @ } @*/
+
+/*@ public normal_behavior
+  @   requires a != null && b != null;
+  @   requires 1 <= a.length() && a.length() <= 100;
+  @   requires 1 <= b.length() && b.length() <= 100;
+  @   requires (\forall int i; 0 <= i < a.length(); isLowerCaseLetter(a.charAt(i)));
+  @   requires (\forall int i; 0 <= i < b.length(); isLowerCaseLetter(b.charAt(i)));
+  @
+  @   assignable \nothing;         // the method has no observable side-effects
+  @
+  @   /* CASE 1  – no uncommon subsequence exists:                       * /
+  @   ensures
+  @       ((\forall String s; isSubsequence(s,a) ==> isSubsequence(s,b)) &&
+  @        (\forall String s; isSubsequence(s,b) ==> isSubsequence(s,a)))
+  @       ==> \result == -1;
+  @
+  @   /* CASE 2  – at least one uncommon subsequence exists:             * /
+  @   ensures
+  @       !((\forall String s; isSubsequence(s,a) ==> isSubsequence(s,b)) &&
+  @         (\forall String s; isSubsequence(s,b) ==> isSubsequence(s,a)))
+  @       ==>
+  @       (
+  @          /* some uncommon subsequence has exactly \result characters */
+  @          (\exists String s;
+  @                ((isSubsequence(s,a) && !isSubsequence(s,b)) ||
+  @                 (isSubsequence(s,b) && !isSubsequence(s,a)))
+  @                && s.length() == \result)
+  @          &&
+  @          /* none is longer                                            */
+  @          (\forall String s;
+  @                ((isSubsequence(s,a) && !isSubsequence(s,b)) ||
+  @                 (isSubsequence(s,b) && !isSubsequence(s,a)))
+  @                ==> s.length() <= \result)
+  @       );
+  @
+  @   /* trivial bound on the result when it is not –1                  * /
+  @   ensures (\result == -1) || (1 <= \result && \result <= 100);
+  @*/
+public /*@ pure @*/ static int findLUSlength(String a, String b) {
+    // Concrete code – any correct implementation satisfies the specification.
+    return a.equals(b) ? -1 : Math.max(a.length(), b.length());
+}
+--------------------------------------------------------------------
+
+Remarks
+
+1.  The helper predicate `isLowerCaseLetter` encodes the “lower–case English letter” constraint.
+2.  `isSubsequence` is declared as a pure model function; its body serves two purposes:
+     • it gives the verifier an executable definition, and  
+     • it documents the intended meaning to human readers.
+3.  The two `ensures` clauses mirror exactly the informal wording:  
+     • If every subsequence of one string is also a subsequence of the other, the result must be –1.  
+     • Otherwise the result is the length of the longest sequence that is a subsequence of exactly one of the two strings.
+4.  `assignable \nothing` states that the method is functionally pure, matching the mathematical nature of the task.

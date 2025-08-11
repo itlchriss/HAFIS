@@ -1,0 +1,15 @@
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/3/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/3/Solution.java:16:) in method removeOuterParentheses
+        return sb.toString();
+        ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/3/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/3/Solution.java:41:
+//@ ensures(\forall int i; 0 <= i < \result.length(); \result.charAt(i) == '(' || \result.charAt(i) == ')');
+    ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/3/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/3/Solution.java:15:) in method removeOuterParentheses
+        return sb.toString();
+        ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/3/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/3/Solution.java:41:
+//@ ensures(\result.length() <= s.length());
+    ^
+error: An error while executing a proof script for removeOuterParentheses: (error "Solver has unexpectedly terminated")
+1 error
+4 verification failures

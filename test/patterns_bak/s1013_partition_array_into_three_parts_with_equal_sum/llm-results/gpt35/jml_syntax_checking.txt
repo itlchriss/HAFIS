@@ -1,8 +1,0 @@
-./test/s1013_partition_array_into_three_parts_with_equal_sum/llm-results/gpt35/Solution.java:14: error: The type or expression near here is invalid (or not implemented): ( token ? in JmlParser.term3())
-//@ ensures (\exists int i, j; 0 <= i && i + 1 < j && j < arr.length;
-                                                                     ^
-./test/s1013_partition_array_into_three_parts_with_equal_sum/llm-results/gpt35/Solution.java:14: warning: Inserting missing semicolon at the end of a ensures statement
-//@ ensures (\exists int i, j; 0 <= i && i + 1 < j && j < arr.length;
-                                                                     ^
-1 error
-1 warning

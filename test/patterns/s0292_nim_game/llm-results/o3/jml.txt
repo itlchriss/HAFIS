@@ -1,0 +1,35 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Below is a straightforward JML-specification for a method  
+
+    public boolean canWinNim(int n)
+
+that must satisfy the problem statement.  
+The logical fact that the first player wins iff n mod 4 ≠ 0 is captured
+directly in the post-condition.  Hence the “both players play optimally”
+part of the prose is reduced to that arithmetic property.
+
+```java
+public class Nim {
+
+/*@  // 292. Nim Game
+  @  public normal_behavior
+  @    // 1 ≤ n ≤ 2^31 − 1
+  @    requires 1 <= n && n <= Integer.MAX_VALUE;
+  @
+  @    // The first player can win  ⇔  n mod 4 ≠ 0
+  @    ensures  \result == ((n % 4) != 0);
+  @
+  @    // The method is pure (no visible state change)
+  @    assignable \nothing;
+  @*/
+  /*@ pure @*/                  // also marks the method as side-effect-free
+  public boolean canWinNim(int n) {
+      return (n & 3) != 0;      // one admissible implementation
+  }
+}
+```
+
+Explanation of the JML clauses:
+
+• `requires` Encodes the constraint 1 ≤ n ≤ 2³¹ − 1.  
+• `ensures` States the observable behavior: the result is true exactly when n mod 4 ≠ 0.  
+• `assignable \nothing` (together with the `/*@ pure @*/` modifier) guarantees that the method produces no side effects; it merely returns a value computed from its argument.

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0058_length_of_last_word/purellm/o3/mutants/11/Solution.java:44: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0058_length_of_last_word/purellm/o3/mutants/11/Solution.java:24:) in method lengthOfLastWord
+        return len;
+        ^
+./test/mutation_analysis/s0058_length_of_last_word/purellm/o3/mutants/11/Solution.java:24: verify: Associated declaration: ./test/mutation_analysis/s0058_length_of_last_word/purellm/o3/mutants/11/Solution.java:44:
+      @   ensures (\exists int start, end;
+          ^
+./test/mutation_analysis/s0058_length_of_last_word/purellm/o3/mutants/11/Solution.java:37: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0058_length_of_last_word/purellm/o3/mutants/11/Solution.java:7:) in method lengthOfLastWord
+            char ch = s.charAt(i);
+                              ^
+./test/mutation_analysis/s0058_length_of_last_word/purellm/o3/mutants/11/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0058_length_of_last_word/purellm/o3/mutants/11/Solution.java:37:
+    /*@ public normal_behavior
+               ^
+4 verification failures

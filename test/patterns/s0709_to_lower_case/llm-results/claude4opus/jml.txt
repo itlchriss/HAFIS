@@ -1,0 +1,54 @@
+Here's the JML specification for the toLowerCase method:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 1 <= s.length() && s.length() <= 100;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           32 <= s.charAt(i) && s.charAt(i) <= 126);
+      @ ensures \result != null;
+      @ ensures \result.length() == s.length();
+      @ ensures (\forall int i; 0 <= i && i < s.length();
+      @           (65 <= s.charAt(i) && s.charAt(i) <= 90) ==>
+      @               \result.charAt(i) == (char)(s.charAt(i) + 32));
+      @ ensures (\forall int i; 0 <= i && i < s.length();
+      @           !(65 <= s.charAt(i) && s.charAt(i) <= 90) ==>
+      @               \result.charAt(i) == s.charAt(i));
+      @ assignable \nothing;
+      @ also
+      @ public exceptional_behavior
+      @ requires s == null;
+      @ signals_only NullPointerException;
+      @*/
+    public /*@ pure @*/ String toLowerCase(String s) {
+        // Implementation here
+    }
+}
+```
+
+Key points in this JML specification:
+
+1. **Preconditions (`requires`):**
+   - `s` must not be null
+   - Length must be between 1 and 100 (inclusive)
+   - All characters must be printable ASCII (32-126)
+
+2. **Postconditions (`ensures`):**
+   - Result is not null
+   - Result has the same length as input
+   - Uppercase letters (ASCII 65-90) are converted to lowercase by adding 32
+   - Non-uppercase characters remain unchanged
+
+3. **Side effects:**
+   - `assignable \nothing` indicates the method doesn't modify any existing objects
+   - `pure` annotation indicates the method has no side effects
+
+4. **Exception handling:**
+   - Handles the case when `s` is null by throwing `NullPointerException`
+
+The specification uses ASCII values:
+- Uppercase letters: 65-90 (A-Z)
+- Lowercase letters: 97-122 (a-z)
+- The difference is 32, so we add 32 to convert uppercase to lowercase

@@ -1,0 +1,8 @@
+- The length of the integer array parameter `nums` is greater than or equal to 1 and is less than or equal to 100000.
+- All values in the integer array parameter `nums` are greater than or equal to -1000000000 and are less than or equal to 1000000000.
+- The integer parameter `k` is greater than or equal to 0 and is less than or equal to 100000.
+- If the boolean result is equal to the true literal, there exist two distinct indices in the integer array parameter `nums` where the values at those indices are equal and the absolute difference between the indices is less than or equal to the integer parameter `k`.
+- If the boolean result is equal to the false literal, there do not exist two distinct indices in the integer array parameter `nums` where the values at those indices are equal and the absolute difference between the indices is less than or equal to the integer parameter `k`.
+- If the integer array parameter `nums` is equal to [1,2,3,1] and the integer parameter `k` is equal to 3, the boolean result is equal to the true literal.
+- If the integer array parameter `nums` is equal to [1,0,1,1] and the integer parameter `k` is equal to 1, the boolean result is equal to the true literal.
+- If the integer array parameter `nums` is equal to [1,2,3,1,2,3] and the integer parameter `k` is equal to 2, the boolean result is equal to the false literal.

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/ablation_o3_full/mutants/131/Solution.java:32: verify: The prover cannot establish an assertion (LoopDecreases) in method myAtoi
+        //@ decreases input.length - i;
+            ^
+1 verification failure

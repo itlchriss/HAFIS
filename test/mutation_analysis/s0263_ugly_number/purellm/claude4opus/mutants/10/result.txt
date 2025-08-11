@@ -1,0 +1,15 @@
+./test/mutation_analysis/s0263_ugly_number/purellm/claude4opus/mutants/10/Solution.java:31: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method divides
+      @     return b % a == 0;
+                     ^
+error: An error while executing a proof script for isPrime: (error "line 257 column 191: unknown constant d")
+  >>>(define-fun BL_1040_then_15__A2 () Bool (= (|_g0201_0300.s0263_ugly_number.Solution.d-1455572274| |d_1075_1075___11| |p_1010_1010___6|) (|g0201_0300_s0263_ugly_number_Solution_di-1011144033| |d| |p_1010_1010___6|)))
+./test/mutation_analysis/s0263_ugly_number/purellm/claude4opus/mutants/10/Solution.java:13: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0263_ugly_number/purellm/claude4opus/mutants/10/Solution.java:6:) in method isUglyNumber
+      @            (num > 1 && onlyHasPrimeFactors235(num));
+                                                     ^
+./test/mutation_analysis/s0263_ugly_number/purellm/claude4opus/mutants/10/Solution.java:6: verify: Associated declaration: ./test/mutation_analysis/s0263_ugly_number/purellm/claude4opus/mutants/10/Solution.java:13:
+    /*@ public normal_behavior
+               ^
+error: An error while executing a proof script for onlyHasPrimeFactors235: (error "line 263 column 188: unknown constant p")
+  >>>(define-fun BL_738_then_15__A3 () Bool (= (|_g0201_0300.s0263_ugly_number.Solution.d-1455572274| |p_773_773___11| |num_704_704___6|) (|g0201_0300_s0263_ugly_number_Solution_di-1039773184| |p| |num_704_704___6|)))
+2 errors
+3 verification failures

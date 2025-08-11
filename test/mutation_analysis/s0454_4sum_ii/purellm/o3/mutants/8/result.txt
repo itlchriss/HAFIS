@@ -1,0 +1,38 @@
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:31: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @                 (\sum int l; 0 <= l && l < nums1.length;
+                         ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:30: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @               (\sum int k; 0 <= k && k < nums1.length;
+                       ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:29: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @             (\sum int j; 0 <= j && j < nums1.length;
+                     ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:28: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @           (\sum int i; 0 <= i && i < nums1.length;
+                   ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:52: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:24:) in method fourSumCount: \everything
+                count += map.getOrDefault(m, 0);
+                                         ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:24: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:52:
+      @   assignable \nothing;      // the method has no side-effects
+          ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:55: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:36:) in method fourSumCount
+        return count;
+        ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:36: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:55:
+      @   ensures 0 <= \result &&
+          ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:55: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:27:) in method fourSumCount
+        return count;
+        ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:27: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:55:
+      @   ensures \result ==
+          ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:52: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:10:) in method fourSumCount
+                count += map.getOrDefault(m, 0);
+                                         ^
+./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0454_4sum_ii/purellm/o3/mutants/8/Solution.java:52:
+    /*@ public normal_behavior
+               ^
+4 warnings
+8 verification failures

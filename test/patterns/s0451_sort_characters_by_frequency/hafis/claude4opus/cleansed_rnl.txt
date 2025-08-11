@@ -1,0 +1,10 @@
+- The length of the string parameter `s` is greater than or equal to 1 and is less than or equal to 500000.
+- The string parameter `s` consists of uppercase and lowercase English letters and digits.
+- The length of the string result is equal to the length of the string parameter `s`.
+- The string result contains the same characters as the string parameter `s` with the same frequencies.
+- If a character appears more frequently in the string parameter `s` than another character, that character appears before the other character in the string result.
+- If two characters have the same frequency in the string parameter `s`, their relative order in the string result can be arbitrary.
+- All occurrences of the same character in the string result are consecutive.
+- If the string parameter `s` is equal to "tree", the string result is equal to "eert" or "eetr".
+- If the string parameter `s` is equal to "cccaaa", the string result is equal to "aaaccc" or "cccaaa".
+- If the string parameter `s` is equal to "Aabb", the string result is equal to "bbAa" or "bbaA".

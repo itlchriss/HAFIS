@@ -1,0 +1,12 @@
+Based on the given software specification and following the established pattern, here are the method behavioural specifications:
+
+- The length of the string parameter `str` is greater than or equal to 0 and is less than or equal to 200.
+- The string parameter `str` consists of English letters, digits, space character ' ', plus sign '+', minus sign '-', and period '.'.
+- The integer result is greater than or equal to -2147483648 and is less than or equal to 2147483647.
+- If the string parameter `str` is equal to "42", the integer result is equal to 42.
+- If the string parameter `str` is equal to " -42", the integer result is equal to -42.
+- If the string parameter `str` is equal to "4193 with words", the integer result is equal to 4193.
+- If the string parameter `str` is equal to "words and 987", the integer result is equal to 0.
+- If the string parameter `str` is equal to "-91283472332", the integer result is equal to -2147483648.
+- If the string parameter `str` contains no digits after ignoring leading whitespace and optional sign, the integer result is equal to 0.
+- If the string parameter `str` starts with a non-digit character after ignoring leading whitespace and optional sign, the integer result is equal to 0.

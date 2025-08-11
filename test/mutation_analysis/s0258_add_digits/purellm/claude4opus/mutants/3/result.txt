@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0258_add_digits/purellm/claude4opus/mutants/3/Solution.java:18: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0258_add_digits/purellm/claude4opus/mutants/3/Solution.java:9:) in method addDigits
+            return 9;
+            ^
+./test/mutation_analysis/s0258_add_digits/purellm/claude4opus/mutants/3/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s0258_add_digits/purellm/claude4opus/mutants/3/Solution.java:18:
+      @ ensures num == 0 ==> \result == 0;
+        ^
+2 verification failures

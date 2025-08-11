@@ -1,0 +1,9 @@
+- The string parameter `s` consists of only English letters and of comma characters and of period characters.
+- The integer parameter `numRows` is less than or equal to 1000 and is greater than or equal to 1.
+- The length of the string result is equal to the length of the string parameter `s`.
+- The string result contains exactly the same multiset of characters as the string parameter `s`.
+- If the integer parameter `numRows` is equal to 1, the string result is equal to the string parameter `s`.
+- If the integer parameter `numRows` is greater than or equal to the length of the string parameter `s`, the string result is equal to the string parameter `s`.
+- If the string parameter `s` is equal to "PAYPALISHIRING" and the integer parameter `numRows` is equal to 3, the string result is equal to "PAHNAPLSIIGYIR".
+- If the string parameter `s` is equal to "PAYPALISHIRING" and the integer parameter `numRows` is equal to 4, the string result is equal to "PINALSIGYAHRPI".
+- If the string parameter `s` is equal to "A" and the integer parameter `numRows` is equal to 1, the string result is equal to "A".

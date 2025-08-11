@@ -1,0 +1,124 @@
+Here's the JML specification for the Maximum Subarray problem:
+
+```java
+public class MaximumSubarray {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1;
+      @ requires nums.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -10000 <= nums[i] && nums[i] <= 10000);
+      @ ensures \result == maxSubarraySum(nums);
+      @ ensures (\exists int start, end; 0 <= start && start <= end && end < nums.length;
+      @          \result == sumRange(nums, start, end));
+      @ ensures (\forall int start, end; 0 <= start && start <= end && end < nums.length;
+      @          \result >= sumRange(nums, start, end));
+      @*/
+    public /*@ pure @*/ int maxSubArray(int[] nums);
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires 0 <= start && start <= end && end < nums.length;
+      @ ensures \result == (\sum int k; start <= k && k <= end; nums[k]);
+      @*/
+    /*@ helper @*/ public /*@ pure @*/ int sumRange(int[] nums, int start, int end);
+    
+    /*@ public normal_behavior
+      @ requires nums != null && nums.length >= 1;
+      @ ensures \result == (\max int start, end; 
+      @                     0 <= start && start <= end && end < nums.length;
+      @                     sumRange(nums, start, end));
+      @*/
+    /*@ helper @*/ public /*@ pure @*/ int maxSubarraySum(int[] nums);
+}
+```
+
+Alternative specification with more detailed postconditions:
+
+```java
+public class MaximumSubarray {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1;
+      @ requires nums.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -10000 <= nums[i] && nums[i] <= 10000);
+      @ ensures isMaxSubarraySum(nums, \result);
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ int maxSubArray(int[] nums);
+    
+    /*@ public normal_behavior
+      @ requires nums != null && nums.length >= 1;
+      @ ensures \result <==> 
+      @   ((\exists int i, j; 0 <= i && i <= j && j < nums.length;
+      @     sum == (\sum int k; i <= k && k <= j; nums[k])) &&
+      @    (\forall int i, j; 0 <= i && i <= j && j < nums.length;
+      @     sum >= (\sum int k; i <= k && k <= j; nums[k])));
+      @*/
+    /*@ helper @*/ public /*@ pure @*/ boolean isMaxSubarraySum(int[] nums, int sum);
+}
+```
+
+Implementation with loop invariants (Kadane's algorithm):
+
+```java
+public class MaximumSubarray {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1;
+      @ requires nums.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -10000 <= nums[i] && nums[i] <= 10000);
+      @ ensures isMaxSubarraySum(nums, \result);
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ int maxSubArray(int[] nums) {
+        int maxSoFar = nums[0];
+        int maxEndingHere = nums[0];
+        
+        /*@ loop_invariant 1 <= i && i <= nums.length;
+          @ loop_invariant maxSoFar == maxSubarraySumUpTo(nums, i-1);
+          @ loop_invariant maxEndingHere == maxSubarraySumEndingAt(nums, i-1);
+          @ loop_invariant maxSoFar >= maxEndingHere;
+          @ decreases nums.length - i;
+          @*/
+        for (int i = 1; i < nums.length; i++) {
+            maxEndingHere = Math.max(nums[i], maxEndingHere + nums[i]);
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        }
+        
+        return maxSoFar;
+    }
+    
+    /*@ public normal_behavior
+      @ requires nums != null && 0 <= index && index < nums.length;
+      @ ensures \result == (\max int start; 0 <= start && start <= index;
+      @                     (\sum int k; start <= k && k <= index; nums[k]));
+      @*/
+    /*@ helper @*/ private /*@ pure @*/ int maxSubarraySumEndingAt(int[] nums, int index);
+    
+    /*@ public normal_behavior
+      @ requires nums != null && 0 <= index && index < nums.length;
+      @ ensures \result == (\max int start, end; 
+      @                     0 <= start && start <= end && end <= index;
+      @                     (\sum int k; start <= k && k <= end; nums[k]));
+      @*/
+    /*@ helper @*/ private /*@ pure @*/ int maxSubarraySumUpTo(int[] nums, int index);
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions**: Array must be non-null, have at least one element, and satisfy the size and value constraints.
+
+2. **Postconditions**: The result is the maximum sum of any contiguous subarray.
+
+3. **Helper methods**: Define auxiliary pure methods to express complex properties about subarrays and their sums.
+
+4. **Loop invariants**: For the implementation, maintain that `maxSoFar` tracks the maximum subarray sum seen so far, and `maxEndingHere` tracks the maximum subarray sum ending at the current position.
+
+5. **Quantifiers**: Use JML's `\sum`, `\max`, `\exists`, and `\forall` to express the mathematical properties of the maximum subarray problem.

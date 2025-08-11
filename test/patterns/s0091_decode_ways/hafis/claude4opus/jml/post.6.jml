@@ -1,0 +1,1 @@
+ensures(("00" != null && s != null && "00".length() <= s.length() && (\exists int i; 0 <= i && i <= s.length() - "00".length(); (\forall int j; 0 <= j && j < "00".length(); s.charAt(i + j) == "00".charAt(j)))) ==> (\result == 0));

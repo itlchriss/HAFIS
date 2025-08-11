@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0067_add_binary/hafis/ablation_o3_full/mutants/20/Solution.java:21: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method addBinary
+            int sum = (true ? aArray[i] - '0' : 0) + (j >= 0 ? bArray[j] - '0' : 0) + carry;
+                                    ^
+1 verification failure

@@ -1,0 +1,9 @@
+ensures:
+- The type_string_ result vocontains the uppercase_alphabets.
+- The type_string_ result's length is greater_than_or_equal to 1.
+- The integer value obtained by converting the type_string_ result to its corresponding Excel column number is equal to the type_integer_ param_n_.
+- If the type_integer_ param_n_ is equal to 1 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_n_ is equal to 28 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_n_ is equal to 701 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_n_ is equal to 2147483647 , the type_string_ result is equal to stry_a.
+requires: []

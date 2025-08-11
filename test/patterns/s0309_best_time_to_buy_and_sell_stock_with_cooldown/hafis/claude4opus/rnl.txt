@@ -1,0 +1,10 @@
+Based on the given software specification and following the established pattern from the examples, here are the method behavioural specifications:
+
+- The length of the integer array parameter `prices` is greater than or equal to 1 and is less than or equal to 5000.
+- All values in the integer array parameter `prices` are greater than or equal to 0 and are less than or equal to 1000.
+- The integer result is greater than or equal to 0.
+- The integer result is less than or equal to the sum of all positive differences between consecutive elements in the integer array parameter `prices`.
+- If the length of the integer array parameter `prices` is equal to 1, the integer result is equal to 0.
+- If the integer array parameter `prices` is equal to [1,2,3,0,2], the integer result is equal to 3.
+- If the integer array parameter `prices` is equal to [1], the integer result is equal to 0.
+- If the integer array parameter `prices` is sorted in descending order, the integer result is equal to 0.

@@ -1,0 +1,8 @@
+ensures:
+- The type_string_ result only contains characters 123456789 a b c d e f.
+- The type_string_ result's length is greater_than_or_equal to 1.
+- The type_string_ result's first_element is not_equal to the chry_a unless the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is equal to 0 the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is equal to 26 the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is equal to negative 1 the type_string_ result is equal to stry_a.
+requires: []

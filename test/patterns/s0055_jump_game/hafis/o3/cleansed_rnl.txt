@@ -1,0 +1,5 @@
+- All values in the integer array parameter `nums` are greater than or equal to 0 and are less than or equal to 100000.
+- If the boolean result is equal to the true literal, the last index of the integer array parameter `nums` is reachable from the first index by taking successive jumps whose lengths are less than or equal to the corresponding values stored in the integer array parameter `nums`.
+- If the boolean result is equal to the false literal, the last index of the integer array parameter `nums` is not reachable from the first index when only successive jumps whose lengths are less than or equal to the corresponding values stored in the integer array parameter `nums` are allowed.
+- If the integer array parameter `nums` is equal to [2,3,1,1,4], the boolean result is equal to the true literal.
+- If the integer array parameter `nums` is equal to [3,2,1,0,4], the boolean result is equal to the false literal.

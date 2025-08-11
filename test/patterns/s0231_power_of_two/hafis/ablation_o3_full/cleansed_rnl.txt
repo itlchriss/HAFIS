@@ -1,0 +1,1 @@
+- When no integer x satisfies int `n` equals 2 raised to x then boolean result is false

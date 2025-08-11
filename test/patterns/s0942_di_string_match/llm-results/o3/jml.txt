@@ -1,0 +1,64 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Below is a complete JML contract for a Java method that realises the “DI String Match” problem.  
+Feel free to adapt the method name or visibility to your code base – the behavioural part of the
+specification (everything between `/*@` and `@*/`) already captures the whole textual
+description given in the statement.
+
+```java
+/**
+ * Reconstructs one permutation {@code perm} of the integers 0 … n
+ * (where n = {@code s.length()}) that fulfils the “DI” constraints
+ * described in LeetCode #942.
+ */
+ /*@
+   public normal_behavior
+     //  ──  PRE-CONDITIONS  ────────────────────────────────────────────────
+     requires s != null;
+     requires 1 <= s.length() && s.length() <= 100000;
+     requires (\forall int k; 0 <= k && k < s.length();
+                  s.charAt(k) == 'I' || s.charAt(k) == 'D');
+
+     //  ──  POST-CONDITIONS  ───────────────────────────────────────────────
+     ensures \result != null;
+     ensures \result.length == s.length() + 1;
+
+     //  every value 0 … n occurs exactly once
+     ensures (\forall int v; 0 <= v && v <= s.length();
+                (\exists int idx; 0 <= idx && idx < \result.length;
+                                 \result[idx] == v));
+     ensures (\forall int i, j; 0 <= i && i < j && j < \result.length;
+                                \result[i] != \result[j]);
+
+     //  order constraints imposed by the characters in s
+     ensures (\forall int i; 0 <= i && i < s.length();
+                (s.charAt(i) == 'I' ==> \result[i]   < \result[i+1]) &&
+                (s.charAt(i) == 'D' ==> \result[i]   > \result[i+1]));
+
+     //  no visible side effects except object creation
+     assignable \strictly_nothing;
+ @*/
+public int[] diStringMatch(String s);
+```
+
+Explanation of the main clauses:
+
+• `requires`  
+  – input must be non-null, have length 1 … 100 000, and contain only the
+    characters ‘I’ and ‘D’.
+
+• `ensures` (array shape)  
+  – the returned array is non-null and has length n + 1.
+
+• `ensures` (permutation property)  
+  – every integer in 0 … n appears exactly once (two clauses: existence and
+    pairwise difference).
+
+• `ensures` (“DI” property)  
+  – for every position i the array values respect the ‘I’/‘D’ relation to the
+    next element.
+
+• `assignable \strictly_nothing`  
+  – the method must not modify any pre-existing state; allocation of the result
+    array is still allowed.
+
+This contract is faithful to the original specification and allows any correct
+implementation that produces one permissible permutation.

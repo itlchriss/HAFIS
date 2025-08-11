@@ -1,0 +1,3 @@
+ensures:
+- String result is the base 7 representation of int stry_a and includes a leading - sign if int stry_b is negative.
+requires: []

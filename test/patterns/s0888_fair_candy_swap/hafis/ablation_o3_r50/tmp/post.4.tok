@@ -1,0 +1,1 @@
+The sum of the type_integer_array_ param_aliceSizes_ - the type_integer_array_ result 's first_element + the type_integer_array_ result 's second_element is equal to the sum of the type_integer_array_ param_bobSizes_ - the type_integer_array_ result 's second_element + the type_integer_array_ result 's first_element . 

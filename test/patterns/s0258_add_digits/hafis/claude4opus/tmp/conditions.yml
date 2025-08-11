@@ -1,0 +1,8 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0 and is less_than_or_equal to 9.
+- If the type_integer_ param_num_ is equal to 0 , the type_integer_ result is equal to 0.
+- If the type_integer_ param_num_ is equal to 38 , the type_integer_ result is equal to 2.
+- If the type_integer_ param_num_ is less_than to 10 and is greater_than to 0 , the type_integer_ result is equal to the type_integer_ param_num_.
+- If the type_integer_ result is greater_than to 0 , the type_integer_ result is equal to 1 + the remainder of the type_integer_ param_num_ - 1 divided by 9.
+requires:
+- The type_integer_ param_num_ is greater_than_or_equal to 0 and is less_than_or_equal to 2147483647.

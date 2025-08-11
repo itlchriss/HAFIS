@@ -1,0 +1,7 @@
+- The length of the string parameter `typed` is less than or equal to 1000 and is greater than or equal to 1.
+- The string parameter `name` consists of only English lowercase letters.
+- The string parameter `typed` consists of only English lowercase letters.
+- If the boolean result is equal to the true literal, the string parameter `typed` contains the characters of the string parameter `name` in the same order and each contiguous repetition of a character in the string parameter `typed` has a length that is greater than or equal to one and is greater than or equal to the length of the corresponding contiguous repetition in the string parameter `name`.
+- If the boolean result is equal to the false literal, the string parameter `typed` does not satisfy the ordering or repetition condition described for the true literal with respect to the string parameter `name`.
+- If the string parameter `name` is equal to the literal "alex" and the string parameter `typed` is equal to the literal "aaleex", the boolean result is equal to the true literal.
+- If the string parameter `name` is equal to the literal "saeed" and the string parameter `typed` is equal to the literal "ssaaedd", the boolean result is equal to the false literal.

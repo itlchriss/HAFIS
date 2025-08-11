@@ -1,0 +1,10 @@
+ensures:
+- The type_string_ result only contains lowercase hexadecimal characters from the chry_a to the chry_b and the chry_c to the chry_d.
+- The type_string_ result does not contain leading zeros except when the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is equal to 0 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is equal to 26 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is equal to negative 1 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is less_than to 0 , the type_string_ result's length is less_than_or_equal to 8.
+- If the type_integer_ param_num_ is greater_than_or_equal to 0 , the type_string_ result's length is greater_than_or_equal to 1.
+requires:
+- The type_integer_ param_num_ is greater_than_or_equal to negative 2147483648 and is less_than_or_equal to 2147483647.

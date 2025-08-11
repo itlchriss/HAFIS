@@ -1,0 +1,22 @@
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:39: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method diStringMatch
+                arr[i] = max;
+                   ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:44: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method diStringMatch
+            if (s.charAt(i) == 'I' && arr[i + 1] == 0) {
+                                         ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:38: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:8:) in method diStringMatch
+            if (s.charAt(i) == 'D') {
+                        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:8: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:38:
+   public normal_behavior
+          ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:50: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:17:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/o3/mutants/0/Solution.java:56:
+     ensures \result.length == s.length() + 1;
+     ^
+7 verification failures

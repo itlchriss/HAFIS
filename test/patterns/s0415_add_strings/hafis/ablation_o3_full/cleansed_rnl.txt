@@ -1,0 +1,5 @@
+- When data type String parameter 'num2' is at least one character long, at most ten thousand characters long, and every character is a decimal digit zero through nine, the method accepts the input as valid.
+- If data type String parameter 'num1' equals "0" and data type String parameter 'num2' equals "0" the data type String result equals "0".
+- If one of data type String parameters 'num1' or 'num2' equals "0" and the other parameter represents a non-zero non-negative integer without leading zeros the data type String result equals the non-zero parameter value.
+- When data type String parameters 'num1' and 'num2' each represent non-negative integers without leading zeros the data type String result represents the arithmetic sum of the two numbers expressed in base ten with no leading zeros.
+- The length of the data type String result is either equal to the greater of the lengths of data type String parameters 'num1' and 'num2' or exactly one character longer than that greater length.

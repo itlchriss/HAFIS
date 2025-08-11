@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:16:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:43:
+      @ ensures 0 <= \result && \result <= nums.length;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:17:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:43:
+      @ ensures (\result < nums.length) ==>
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:23:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:23: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:43:
+      @ ensures (\exists int i; 0 <= i && i < nums.length; nums[i] == target) ==>
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:21:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/21/Solution.java:43:
+      @ ensures (\result == nums.length) ==>
+        ^
+8 verification failures

@@ -1,4 +1,0 @@
-test/s0035_search_insert_position/gpt4/build/Solution.java:19: error: array required, but int found
-//@ ensures(((\forall int i; 0 <= i < nums.length; nums[i] == 1[i]) && (target == 0)) ==> (\result == 0));
-                                                              ^
-1 error

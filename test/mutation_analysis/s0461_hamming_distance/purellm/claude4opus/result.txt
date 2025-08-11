@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0461_hamming_distance/purellm/claude4opus/Solution.java:15: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0461_hamming_distance/purellm/claude4opus/Solution.java:11:) in method hammingDistance
+        return Integer.bitCount(x ^ y);
+        ^
+./test/mutation_analysis/s0461_hamming_distance/purellm/claude4opus/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0461_hamming_distance/purellm/claude4opus/Solution.java:15:
+      @ ensures \result >= 0 && \result <= 32;
+        ^
+2 verification failures

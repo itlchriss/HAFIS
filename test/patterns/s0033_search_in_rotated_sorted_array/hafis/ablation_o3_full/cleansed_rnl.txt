@@ -1,0 +1,8 @@
+- int[] "nums" must contain at least one element and at most five thousand elements
+- int[] "nums" must contain strictly increasing integer values that may be rotated once around a pivot
+- int[] "nums" must contain only integer values between minus ten thousand and ten thousand inclusive
+- int "target" may be any integer between minus ten thousand and ten thousand inclusive
+- int result equals the zero based index at which int "target" appears in int[] "nums" when int "target" is present
+- int result equals minus one when int "target" is absent from int[] "nums"
+- int result is never less than zero and never greater than the length of int[] "nums" minus one when int "target" is present
+- int result satisfies the condition that int[] "nums" at position result equals int "target" when int "target" is present

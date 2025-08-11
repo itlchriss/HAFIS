@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0035_search_insert_position/hafis/ablation_o3_r50/mutants/6/Solution.java:37: error: unreachable statement
+        return lo;
+        ^
+1 error

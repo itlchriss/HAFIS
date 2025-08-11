@@ -1,0 +1,1 @@
+If no possible grouping of 1 or 2 substrings of String the type_character_ chrs_a yields only numeric values from 1 to 26 with no leading zeros then the int result is 0 . 

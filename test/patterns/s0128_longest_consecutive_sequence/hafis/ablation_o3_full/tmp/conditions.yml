@@ -1,0 +1,4 @@
+ensures:
+- int result equals the length of the longest sequence of consecutive integer values that is formed from the elements of int[] the type_string_ strs_a.
+- int result equals 0 when int[] the type_string_ strs_a's length is equal to 0.
+requires: []

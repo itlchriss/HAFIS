@@ -1,0 +1,1 @@
+If the numeric value obtained from the first contiguous digit sequence after ignoring leading spaces and optional sign is greater_than to 2147483647 , the type_integer_ result is equal to 2147483647 . 

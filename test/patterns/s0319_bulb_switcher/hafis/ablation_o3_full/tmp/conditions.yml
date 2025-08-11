@@ -1,0 +1,6 @@
+ensures:
+- if int the type_character_ chrs_a equals 0 then result int equals 0.
+- if int the type_character_ chrs_a equals 1 then result int equals 1.
+- result int equals the number of bulbs that are on after completing the type_character_ chrs_a sequential toggle rounds as described in the specification.
+- result int is greater_than_or_equal to 0 and is less_than_or_equal to int the type_character_ chrs_a.
+requires: []

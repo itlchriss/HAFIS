@@ -1,0 +1,23 @@
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:17: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+      @           (\num_of int i; 0 <= i && i < nums.length; nums[i] == repeated)
+                   ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:19: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+      @ requires (\num_of int v; 0 <= v && v <= 10000;
+                  ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:22: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+      @ ensures (\num_of int i; 0 <= i && i < nums.length; nums[i] == \result)
+                 ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:24:) in method repeatedNTimes
+        return -1;
+        ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:24: verify: Associated declaration: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:34:
+      @ ensures 0 <= \result && \result <= 10000;
+        ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:22:) in method repeatedNTimes
+        return -1;
+        ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/claude4opus/mutants/0/Solution.java:34:
+      @ ensures (\num_of int i; 0 <= i && i < nums.length; nums[i] == \result)
+        ^
+3 warnings
+4 verification failures

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/22/Solution.java:31: error: unreachable statement
+            if (sum != 1) {
+            ^
+1 error

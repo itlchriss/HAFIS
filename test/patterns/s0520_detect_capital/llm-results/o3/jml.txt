@@ -1,0 +1,56 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Below is a minimal, self-contained JML specification for the problem “520. Detect Capital”.  
+The Java body of the method is omitted on purpose; only the formal contract is given.
+
+```java
+public class DetectCapital {
+
+    /**
+     * Returns {@code true} iff the use of capital letters in {@code word}
+     * is correct, that is, iff one of the following holds:
+     *
+     * 1) every character is an upper-case Latin letter;
+     * 2) every character is a lower-case Latin letter;
+     * 3) only the first character is an upper-case Latin letter
+     *    and all remaining characters are lower-case Latin letters.
+     */
+    /*@
+      @ // --- Preconditions --------------------------------------------------
+      @ requires word != null;
+      @ requires 1 <= word.length() && word.length() <= 100;
+      @ requires (\forall int i; 0 <= i && i < word.length();
+      @                     Character.isLetter(word.charAt(i)));
+      @
+      @ // --- Postcondition --------------------------------------------------
+      @ ensures \result ==
+      @           // All characters are upper-case
+      @           (\forall int i; 0 <= i && i < word.length();
+      @                     Character.isUpperCase(word.charAt(i)))
+      @        || // All characters are lower-case
+      @           (\forall int i; 0 <= i && i < word.length();
+      @                     Character.isLowerCase(word.charAt(i)))
+      @        || // First is upper-case and the rest are lower-case
+      @           ( Character.isUpperCase(word.charAt(0))
+      @             && ( word.length() == 1
+      @                  || (\forall int i; 1 <= i && i < word.length();
+      @                                 Character.isLowerCase(word.charAt(i))) )
+      @           );
+      @
+      @ // --- Pure method: no state is mutated ------------------------------
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ boolean detectCapitalUse(String word);
+}
+```
+
+Explanation of the main clauses:
+
+1. `requires`  
+   • Non-null string.  
+   • Length in the interval [1, 100].  
+   • Every character is a letter (so only ‘A’–‘Z’ or ‘a’–‘z’ appear).
+
+2. `ensures`  
+   The result is `true` exactly when one of the three allowed capital-usage patterns is satisfied; otherwise the result is `false`.
+
+3. `assignable \nothing` / `pure`  
+   The method is read-only: it does not modify any program state.

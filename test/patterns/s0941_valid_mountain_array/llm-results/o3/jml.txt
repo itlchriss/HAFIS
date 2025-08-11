@@ -1,0 +1,62 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Below is a compact JML (Java Modeling Language) specification that captures exactly the informal definition of a “valid mountain array”.
+
+```java
+public class MountainArray {
+
+/*@  // 941. Valid Mountain Array
+    @  ------------------------------------------------------------
+    @  A mountain array satisfies
+    @      – length ≥ 3, and
+    @      – there is an index peak with 0 < peak < length-1 such that
+    @          strictly increasing up to peak
+    @          strictly decreasing from peak to the end.
+    @  ------------------------------------------------------------
+    @
+    @  Preconditions
+    @  -------------
+    @  1. arr is not null.
+    @  2. Each element is in the range allowed by the original
+    @     LeetCode statement (0 … 10 000).  This is optional for
+    @     the mountain-shape property itself, but we include it to
+    @     mirror the problem constraints.
+    @
+    @  Postcondition
+    @  -------------
+    @    \result is true  ⇔  arr is a mountain array.
+    @
+    @  The method is declared pure and does not modify any
+    @  program state (assignable \nothing).
+    @*/
+  /*@  requires arr != null;
+    @  requires (\forall int k; 0 <= k && k < arr.length;
+    @                       0 <= arr[k] && arr[k] <= 10000);
+    @
+    @  assignable \nothing;
+    @
+    @  ensures  \result <==>
+    @           (arr.length >= 3 &&
+    @            (\exists int peak;
+    @               1 <= peak && peak < arr.length - 1;
+    @
+    @               /* strictly increasing to peak */ 
+    @               (\forall int j; 0 <= j && j < peak;
+    @                             arr[j] < arr[j + 1]) &&
+    @
+    @               /* strictly decreasing after peak */
+    @               (\forall int j; peak <= j && j < arr.length - 1;
+    @                             arr[j] > arr[j + 1])
+    @            ));
+    @*/
+  public /*@ pure @*/ boolean isValidMountainArray(int[] arr) {
+      /* implementation goes here */
+  }
+}
+```
+
+Explanation of the key JML clauses:
+
+• `requires` clauses state the pre-conditions (non-null array and allowed value range).  
+• `assignable \nothing` declares that the method is side-effect free.  
+• `ensures` uses logical equivalence (`<==>`) so that the boolean result is true exactly when the mountain-array predicate holds.  
+• Two nested `\forall` quantifiers express the strict increase (left slope) and strict decrease (right slope).  
+• The existential quantifier `\exists peak` captures the existence of a single peak index lying strictly inside the array.

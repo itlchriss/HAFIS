@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/claude4opus/mutants/6/Solution.java:25: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/claude4opus/mutants/6/Solution.java:7:) in method getHint
+            final int s = Character.getNumericValue(secret.charAt(i));
+                                                                 ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/claude4opus/mutants/6/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/claude4opus/mutants/6/Solution.java:25:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/claude4opus/mutants/6/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/claude4opus/mutants/6/Solution.java:16:) in method getHint
+        return bulls + "A" + cows + "B";
+        ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/claude4opus/mutants/6/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/claude4opus/mutants/6/Solution.java:42:
+      @ ensures \result.matches("\\d+A\\d+B");
+        ^
+4 verification failures

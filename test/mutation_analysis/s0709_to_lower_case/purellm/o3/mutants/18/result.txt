@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0709_to_lower_case/purellm/o3/mutants/18/Solution.java:28: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String toLowerCase(String s) {
+                  ^
+1 verification failure

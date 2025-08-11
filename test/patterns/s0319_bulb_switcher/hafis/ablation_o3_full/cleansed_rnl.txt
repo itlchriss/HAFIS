@@ -1,0 +1,4 @@
+- if int `n` equals 0 then result int equals 0
+- if int `n` equals 1 then result int equals 1
+- result int equals the number of bulbs that are on after completing `n` sequential toggle rounds as described in the specification
+- result int is greater than or equal to 0 and less than or equal to int `n`

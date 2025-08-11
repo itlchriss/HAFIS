@@ -1,0 +1,4 @@
+- The integer array parameter `arr` is not null.
+- The length of the integer array parameter `arr` is greater than or equal to 0.
+- If the length of the integer array parameter `arr` is greater than 1, all values in the integer array parameter `arr` are sorted in descending order after execution.
+- If the length of the integer array parameter `arr` is equal to 0 or 1, the integer array parameter `arr` remains unchanged after execution.

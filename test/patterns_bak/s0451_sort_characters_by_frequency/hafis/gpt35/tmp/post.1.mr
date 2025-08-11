@@ -1,1 +1,0 @@
-exists e01.(_exist{VBP}(e01) & (Subj(e01) = _there{EX})) -> exists x02.(_any{DT}(x02) & exists x03.((x03 = _they{PRP}) & exists e04.(_of{IN}(e04,x03) & (Subj(e04) = x02))) & exists e05.(_return{VBN}(e05) & (Acc(e05) = x02) & exists x06.(_result{NN}(x06) & _as{IN}(e05,x06))))

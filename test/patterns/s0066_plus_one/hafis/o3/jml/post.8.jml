@@ -1,0 +1,1 @@
+ensures((digits[0] == 9 && digits.length == 1) ==> (\result[0] == 1 && \result[1] == 0 && \result.length == 2));

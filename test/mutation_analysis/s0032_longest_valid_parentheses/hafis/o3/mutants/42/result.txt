@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:54: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:12:) in method longestValidParentheses
+        return max;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:54:
+//@ ensures((\result >= 0) && (\result <= s.length()));
+    ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:54: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:13:) in method longestValidParentheses
+        return max;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:54:
+//@ ensures((s.equals(")()())")) ==> (\result == 4));
+    ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:54: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:14:) in method longestValidParentheses
+        return max;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/o3/mutants/42/Solution.java:54:
+//@ ensures((s.equals("(()")) ==> (\result == 2));
+    ^
+6 verification failures

@@ -1,0 +1,1 @@
+If the type_integer_ param_x_ is less_than to 0 and the type_integer_ result is less_than to 0 , the absolute value of the type_integer_ result has the same digits as the absolute value of the type_integer_ param_x_ in reverse order . 

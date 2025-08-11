@@ -1,0 +1,11 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)- String `version1` length is between 1 and 500 inclusive  
+- String `version2` length is between 1 and 500 inclusive  
+- String `version1` contains only digit characters and dot characters  
+- String `version2` contains only digit characters and dot characters  
+- String `version1` represents one or more revisions separated by a dot and each revision contains at least one digit character  
+- String `version2` represents one or more revisions separated by a dot and each revision contains at least one digit character  
+- Each revision within `version1` fits within a 32 bit signed integer  
+- Each revision within `version2` fits within a 32 bit signed integer  
+- int result equals negative one when the first differing revision of `version1` has a smaller integer value than the corresponding revision of `version2` after ignoring leading zeros and treating any missing revision as zero  
+- int result equals one when the first differing revision of `version1` has a larger integer value than the corresponding revision of `version2` after ignoring leading zeros and treating any missing revision as zero  
+- int result equals zero when every corresponding revision of `version1` and `version2` has the same integer value after ignoring leading zeros and treating any missing revision as zero

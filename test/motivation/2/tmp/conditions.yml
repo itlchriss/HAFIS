@@ -1,0 +1,6 @@
+ensures:
+- The type_boolean_ result is equal to the true literal if the type_integer_array_ param_x_ is dequal to the type_integer_array_ param_y_.
+- The type_boolean_ result is equal to the false literal if the type_integer_array_ param_x_ is not dequal to the type_integer_array_ param_y_.
+requires:
+- The type_integer_array_ param_x_ is not null.
+- The type_integer_array_ param_y_ is not null.

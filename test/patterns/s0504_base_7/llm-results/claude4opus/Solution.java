@@ -1,0 +1,19 @@
+package g0501_0600.s0504_base_7;
+
+// #Easy #Math #2022_07_24_Time_0_ms_(100.00%)_Space_39.4_MB_(98.67%)
+
+public class Solution {
+    /*@ public normal_behavior
+      @ requires -10000000 <= num && num <= 10000000;
+      @ ensures \result != null;
+      @ ensures num == 0 ==> \result.equals("0");
+      @ ensures num > 0 ==> isValidBase7Positive(\result) && 
+      @                     base7ToDecimal(\result) == num;
+      @ ensures num < 0 ==> \result.charAt(0) == '-' && 
+      @                     isValidBase7Positive(\result.substring(1)) &&
+      @                     base7ToDecimal(\result.substring(1)) == -num;
+      @*/
+    public String convertToBase7(int num) {
+        return Integer.toString(num, 7);
+    }
+}

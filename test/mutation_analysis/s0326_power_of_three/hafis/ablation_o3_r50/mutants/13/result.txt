@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/13/Solution.java:25: error: unreachable statement
+        return true;
+        ^
+1 error

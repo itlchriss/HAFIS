@@ -1,0 +1,31 @@
+./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:51: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:48:) in method findContentChildren: a[*]
+        Arrays.sort(g);
+                   ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:48: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:51:
+      @ pure                                                        // no side effects
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:52: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:48:) in method findContentChildren: a[*]
+        Arrays.sort(s);
+                   ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:48: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:52:
+      @ pure                                                        // no side effects
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:65: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:20:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:65:
+      @   ensures 0 <= \result && \result <= g.length
+          ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:65: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:23:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:23: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:65:
+      @   ensures (\exists int[] child; \exists int[] cookie;
+          ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:65: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:35:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:35: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/o3/mutants/17/Solution.java:65:
+      @   ensures (\forall int n;
+          ^
+10 verification failures

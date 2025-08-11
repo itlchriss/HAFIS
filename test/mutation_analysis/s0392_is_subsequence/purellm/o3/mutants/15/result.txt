@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/15/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/15/Solution.java:22:) in method isSubsequence
+                    return true;
+                    ^
+./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/15/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/15/Solution.java:45:
+      @   ensures (\result == true) <==>
+          ^
+./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/15/Solution.java:42: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/15/Solution.java:7:) in method isSubsequence
+            if (s.charAt(i) == t.charAt(j)) {
+                        ^
+./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/15/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/15/Solution.java:42:
+    /*@ public normal_behavior
+               ^
+4 verification failures

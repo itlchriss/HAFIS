@@ -1,0 +1,122 @@
+Here's the JML specification for the wildcard matching problem:
+
+```java
+public class WildcardMatcher {
+    
+    /*@ public normal_behavior
+      @ requires s != null && p != null;
+      @ requires s.length() >= 0 && s.length() <= 2000;
+      @ requires p.length() >= 0 && p.length() <= 2000;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           'a' <= s.charAt(i) && s.charAt(i) <= 'z');
+      @ requires (\forall int i; 0 <= i && i < p.length(); 
+      @           ('a' <= p.charAt(i) && p.charAt(i) <= 'z') || 
+      @           p.charAt(i) == '?' || p.charAt(i) == '*');
+      @ ensures \result == matches(s, p);
+      @ pure
+      @*/
+    public boolean isMatch(String s, String p);
+    
+    /*@ public model pure boolean matches(String s, String p) {
+      @   return matchesFrom(s, 0, p, 0);
+      @ }
+      @
+      @ public model pure boolean matchesFrom(String s, int si, String p, int pi) {
+      @   if (pi == p.length()) {
+      @     return si == s.length();
+      @   }
+      @   
+      @   if (p.charAt(pi) == '*') {
+      @     // '*' can match empty sequence
+      @     if (matchesFrom(s, si, p, pi + 1)) return true;
+      @     // '*' can match one or more characters
+      @     for (int i = si; i < s.length(); i++) {
+      @       if (matchesFrom(s, i + 1, p, pi + 1)) return true;
+      @     }
+      @     return false;
+      @   }
+      @   
+      @   if (si == s.length()) {
+      @     return false;
+      @   }
+      @   
+      @   if (p.charAt(pi) == '?' || p.charAt(pi) == s.charAt(si)) {
+      @     return matchesFrom(s, si + 1, p, pi + 1);
+      @   }
+      @   
+      @   return false;
+      @ }
+      @*/
+    
+    // Additional helper specifications for clarity
+    
+    /*@ public invariant
+      @ (\forall String str, String pat; str != null && pat != null;
+      @   isMatch(str, pat) <==> 
+      @   (\exists int[] mapping; mapping.length == pat.length() + 1;
+      @     validMapping(str, pat, mapping)));
+      @*/
+    
+    /*@ public model pure boolean validMapping(String s, String p, int[] mapping) {
+      @   return mapping != null &&
+      @          mapping.length == p.length() + 1 &&
+      @          mapping[0] == 0 &&
+      @          mapping[p.length()] == s.length() &&
+      @          (\forall int i; 0 <= i && i < p.length();
+      @            0 <= mapping[i] && mapping[i] <= mapping[i+1] && mapping[i+1] <= s.length() &&
+      @            (p.charAt(i) == '*' ||
+      @             (mapping[i] < mapping[i+1] && 
+      @              (p.charAt(i) == '?' || p.charAt(i) == s.charAt(mapping[i])))));
+      @ }
+      @*/
+    
+    // Example specifications
+    
+    /*@ public normal_behavior
+      @ requires s.equals("aa") && p.equals("a");
+      @ ensures \result == false;
+      @ also
+      @ public normal_behavior
+      @ requires s.equals("aa") && p.equals("*");
+      @ ensures \result == true;
+      @ also
+      @ public normal_behavior
+      @ requires s.equals("cb") && p.equals("?a");
+      @ ensures \result == false;
+      @ also
+      @ public normal_behavior
+      @ requires s.equals("adceb") && p.equals("*a*b");
+      @ ensures \result == true;
+      @ also
+      @ public normal_behavior
+      @ requires s.equals("acdcb") && p.equals("a*c?b");
+      @ ensures \result == false;
+      @*/
+}
+```
+
+This JML specification includes:
+
+1. **Preconditions**: 
+   - Both strings must be non-null
+   - Length constraints (0-2000 characters)
+   - Character constraints (lowercase letters for `s`, lowercase letters/'?'/'*' for `p`)
+
+2. **Postcondition**: 
+   - The result should match the model method `matches(s, p)`
+
+3. **Model methods**:
+   - `matches`: Entry point for the matching logic
+   - `matchesFrom`: Recursive helper that implements the matching algorithm
+   - `validMapping`: Alternative specification using the concept of character mappings
+
+4. **Invariant**: 
+   - Establishes that a match exists if and only if there's a valid mapping from pattern positions to string positions
+
+5. **Example specifications**: 
+   - Explicit contracts for the given examples to ensure correctness
+
+The specification captures the wildcard matching semantics where:
+- `'?'` matches exactly one character
+- `'*'` matches zero or more characters
+- The entire string must be matched (not just a substring)

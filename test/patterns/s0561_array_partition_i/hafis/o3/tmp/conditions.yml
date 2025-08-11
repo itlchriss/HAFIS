@@ -1,0 +1,8 @@
+ensures:
+- The type_integer_ result is less_than_or_equal to the type_integer_array_ param_nums_'s summation.
+- The type_integer_ result is greater_than_or_equal to the product between the quotient between the type_integer_array_ param_nums_'s length and 2 and the minimum value in the type_integer_array_ param_nums_.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 4.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 9.
+requires:
+- The remainder of the type_integer_array_ param_nums_'s length mod 2 is equal to 0.
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to negative 10000 and are less_than_or_equal to 10000.

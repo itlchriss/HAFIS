@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/119/Solution.java:54: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/119/Solution.java:10:) in method myAtoi
+        return num;
+        ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/119/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/119/Solution.java:54:
+//@ ensures((str.equals("-91283472332")) ==> (\result == -2147483648));
+    ^
+2 verification failures

@@ -1,0 +1,87 @@
+Here's the JML specification for the Gas Station problem:
+
+```java
+public class GasStation {
+    
+    /*@ public normal_behavior
+      @ requires gas != null && cost != null;
+      @ requires gas.length == cost.length;
+      @ requires gas.length >= 1 && gas.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < gas.length; 
+      @          0 <= gas[i] && gas[i] <= 10000);
+      @ requires (\forall int i; 0 <= i && i < cost.length; 
+      @          0 <= cost[i] && cost[i] <= 10000);
+      @ ensures \result >= -1 && \result < gas.length;
+      @ ensures \result == -1 <==> 
+      @         (\forall int start; 0 <= start && start < gas.length;
+      @          !canCompleteCircuit(gas, cost, start));
+      @ ensures \result >= 0 ==> canCompleteCircuit(gas, cost, \result);
+      @ ensures \result >= 0 ==> 
+      @         (\forall int start; 0 <= start && start < gas.length && start != \result;
+      @          !canCompleteCircuit(gas, cost, start));
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ int canCompleteCircuit(int[] gas, int[] cost);
+    
+    /*@ private normal_behavior
+      @ requires gas != null && cost != null;
+      @ requires gas.length == cost.length;
+      @ requires 0 <= start && start < gas.length;
+      @ ensures \result <==> canCompleteCircuitFrom(gas, cost, start, 0, 0);
+      @ assignable \nothing;
+      @*/
+    private /*@ pure @*/ boolean canCompleteCircuit(int[] gas, int[] cost, int start);
+    
+    /*@ private normal_behavior
+      @ requires gas != null && cost != null;
+      @ requires gas.length == cost.length;
+      @ requires 0 <= start && start < gas.length;
+      @ requires 0 <= steps && steps <= gas.length;
+      @ requires tank >= 0;
+      @ measured_by gas.length - steps;
+      @ ensures \result <==> 
+      @     (steps == gas.length) ||
+      @     (steps < gas.length && 
+      @      tank + gas[(start + steps) % gas.length] >= cost[(start + steps) % gas.length] &&
+      @      canCompleteCircuitFrom(gas, cost, start, steps + 1,
+      @          tank + gas[(start + steps) % gas.length] - cost[(start + steps) % gas.length]));
+      @ assignable \nothing;
+      @*/
+    private /*@ pure @*/ boolean canCompleteCircuitFrom(int[] gas, int[] cost, int start, int steps, int tank);
+    
+    /*@ public invariant
+      @ (\forall int[] g, int[] c; g != null && c != null && g.length == c.length;
+      @     (\sum int i; 0 <= i && i < g.length; g[i]) < 
+      @     (\sum int i; 0 <= i && i < c.length; c[i]) ==>
+      @     canCompleteCircuit(g, c) == -1);
+      @*/
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`)**:
+   - Both arrays must be non-null and have equal length
+   - Array length must be between 1 and 10^5
+   - All gas and cost values must be between 0 and 10^4
+
+2. **Postconditions (`ensures`)**:
+   - Result is either -1 or a valid index in the array
+   - If result is -1, no starting position allows completing the circuit
+   - If result is >= 0, starting from that position allows completing the circuit
+   - The solution is unique (if one exists, no other starting position works)
+
+3. **Helper Methods**:
+   - `canCompleteCircuit(gas, cost, start)`: Checks if circuit can be completed starting from a specific index
+   - `canCompleteCircuitFrom(...)`: Recursive helper that tracks the current position, steps taken, and gas in tank
+
+4. **Invariant**:
+   - If total gas is less than total cost, it's impossible to complete the circuit
+
+5. **Pure Methods**:
+   - All methods are marked as `pure` since they don't modify any state
+
+6. **Termination**:
+   - The recursive helper uses `measured_by` to ensure termination
+
+This specification captures the essential requirements of the problem while maintaining formal correctness for verification tools.

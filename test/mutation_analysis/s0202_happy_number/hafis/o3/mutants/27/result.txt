@@ -1,0 +1,17 @@
+./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/27/Solution.java:12: warning: Method isHappy(int) has 'assignable \everything', making its caller likely impossible to verify
+//@ ensures((n == 2) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/27/Solution.java:30: warning: Associated declaration: ./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/27/Solution.java:12:
+                happy = isHappy(sum);
+                               ^
+./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/27/Solution.java:26: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method isHappy
+                sum = sum + (rem % rem);
+                                 ^
+./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/27/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/27/Solution.java:13:) in method isHappy
+        return happy;
+        ^
+./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/27/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/27/Solution.java:35:
+//@ ensures((n == 19) ==> (\result == true));
+    ^
+2 warnings
+3 verification failures

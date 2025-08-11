@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/18/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method myAtoi
+        while (input[i] == ' ') {
+                    ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/18/Solution.java:48: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/18/Solution.java:10:) in method myAtoi
+                return Integer.MAX_VALUE;
+                ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/18/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/18/Solution.java:48:
+//@ ensures((str.equals("-91283472332")) ==> (\result == -2147483648));
+    ^
+3 verification failures

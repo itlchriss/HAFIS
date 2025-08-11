@@ -1,0 +1,43 @@
+./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:16: verify: The prover cannot establish an assertion (InvariantExceptionExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method isValid: g0001_0100.s0020_valid_parentheses.Solution.isValid(String) (parameter s)
+    public boolean isValid(String s) {
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:16:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:16: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method isValid: (Parameter: s, Caller: g0001_0100.s0020_valid_parentheses.Solution.isValid(String), Callee: java.util.Vector.isEmpty())
+    public boolean isValid(String s) {
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:16:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:27: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:44:) in method isValid: (Caller: g0001_0100.s0020_valid_parentheses.Solution.isValid(String), Callee: java.util.Vector.isEmpty())
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:44: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:27:
+      @ public invariant maxCapacity >= 0 && elementCount <= maxCapacity;
+               ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:27: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:53:) in method isValid: (Caller: g0001_0100.s0020_valid_parentheses.Solution.isValid(String), Callee: java.util.Vector.isEmpty())
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:53: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:27:
+    //-RAC@ public invariant elementData.__owner == this; 
+                   ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:27: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:54:) in method isValid: (Caller: g0001_0100.s0020_valid_parentheses.Solution.isValid(String), Callee: java.util.Vector.isEmpty())
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:54: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:27:
+    //-RAC@ public invariant elementData.length >= maxCapacity;
+                   ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:27: verify: The prover cannot establish an assertion (InvariantLeaveCaller: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:58:) in method isValid: (Caller: g0001_0100.s0020_valid_parentheses.Solution.isValid(String), Callee: java.util.Vector.isEmpty())
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                                                 ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/Vector.jml:58: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:27:
+    //-RAC@ public invariant 0 <= elementCount;
+                   ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:16: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method isValid: g0001_0100.s0020_valid_parentheses.Solution.isValid(String) (parameter s)
+    public boolean isValid(String s) {
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_full/mutants/40/Solution.java:16:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+14 verification failures

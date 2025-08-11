@@ -1,0 +1,102 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (47s elapsed)Below is a self-contained JML contract for the Java method
+
+    public static String convert(String s, int numRows);
+
+The contract contains
+
+1.  the usual pre-conditions taken from the informal statement,
+2.  a **model** predicate `isZigZag` that formalises *exactly* the behaviour
+    demanded by the exercise, and
+3.  a single post-condition that simply states that the returned
+    value satisfies that predicate.
+
+Everything that is not directly needed by the implementer is declared
+`model` so that it will never be compiled into the byte-code of the
+program under verification.
+
+```java
+public class ZigZag {
+
+/*---------------------------------------------------------------*/
+/*--- Auxiliary (model) definitions -----------------------------*/
+/*---------------------------------------------------------------*/
+
+/*@ public model pure static int cycle(int rows) {
+      // length of one “zig-zag cycle”
+      return (rows <= 1 ? 1 : 2*(rows-1));
+  } @*/
+
+/*@ public model pure static int rowOf(int pos, int rows) {
+      // row in which the character with original index ‘pos’
+      // is placed when the zig-zag is written
+      int m = pos % cycle(rows);
+      return (m < rows) ? m : cycle(rows) - m;
+  } @*/
+
+/*@ public model pure static boolean isZigZag(String s,
+                                              String t,
+                                              int rows) {
+      // 1. same length
+      if (t.length() != s.length())        return false;
+
+      // 2. t is exactly the concatenation of the rows of the zig-zag
+      int n = s.length();
+      int k = 0;                                  // pointer in t
+
+      // for each row, copy from s to t
+      for (int r = 0; r < rows; r++) {
+          for (int i = 0; i < n; i++) {
+              if (rowOf(i,rows) == r) {
+                  if (t.charAt(k) != s.charAt(i)) return false;
+                  k++;
+              }
+          }
+      }
+      // all characters consumed?
+      return k == n;
+  } @*/
+
+/*---------------------------------------------------------------*/
+/*--- CONTRACT for convert --------------------------------------*/
+/*---------------------------------------------------------------*/
+
+/*@ requires s != null;
+  @ requires 1 <= s.length() && s.length() <= 1000;
+  @ requires 1 <= numRows           && numRows   <= 1000;
+  @
+  @ assignable \nothing;                       // 100 % functional
+  @
+  @ ensures  isZigZag(s, \result, numRows);    // full behaviour
+  @*/
+public static /*@ pure @*/ String convert(String s, int numRows) {
+    /* implementation goes here */
+}
+
+}
+```
+
+Explanation of the specification.
+
+• `cycle(int rows)`  
+  `= 1` when only one row is requested, otherwise `2·(rows–1)`.  
+  That is the classical “period” of the zig-zag pattern.
+
+• `rowOf(int pos,int rows)`  
+  Computes, for a zero-based original index `pos`, the row (0 … rows-1) in
+  which the character appears when the zig-zag is written.
+
+• `isZigZag(s,t,rows)`  
+  Returns `true` iff  
+  1. `t` has the same length as `s`, and  
+  2. reading the written zig-zag row by row (top to bottom, each row
+     left-to-right) yields exactly `t`.  
+  The two nested loops implement precisely that reading order; any
+  difference between `t` and the expected character aborts with
+  `false`.
+
+The lone post-condition
+
+    ensures isZigZag(s, \result, numRows);
+
+asserts that the method’s result is *the* correct zig-zag conversion of
+the input string under the requested number of rows.

@@ -1,0 +1,12 @@
+ensures:
+- If the type_boolean_ result is equal to the true literal , the type_string_ param_pattern_ matches the type_string_ param_inputString_ under the rules that the character ? matches any single character and the character * matches any sequence of characters including the empty sequence.
+- If the type_boolean_ result is equal to the false literal , the type_string_ param_pattern_ does not match the type_string_ param_inputString_ under the rules that the character ? matches any single character and the character * matches any sequence of characters including the empty sequence.
+- If the type_string_ param_inputString_ is equal to stry_a and the type_string_ param_pattern_ is equal to stry_b , the type_boolean_ result is equal to the false literal.
+- If the type_string_ param_inputString_ is equal to stry_a and the type_string_ param_pattern_ is equal to stry_b , the type_boolean_ result is equal to the true literal.
+- If the type_string_ param_inputString_ is equal to stry_a and the type_string_ param_pattern_ is equal to stry_b , the type_boolean_ result is equal to the false literal.
+- If the type_string_ param_inputString_ is equal to stry_a and the type_string_ param_pattern_ is equal to stry_b , the type_boolean_ result is equal to the true literal.
+- If the type_string_ param_inputString_ is equal to stry_a and the type_string_ param_pattern_ is equal to stry_b , the type_boolean_ result is equal to the false literal.
+requires:
+- The type_string_ param_pattern_'s length is greater_than_or_equal to 0 and is less_than_or_equal to 2000.
+- The type_string_ param_inputString_ only contains lowercase_alphabets.
+- The type_string_ param_pattern_ only contains lowercase_alphabets or ? or *.

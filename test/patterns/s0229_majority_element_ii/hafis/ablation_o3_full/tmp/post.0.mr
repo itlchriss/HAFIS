@@ -1,0 +1,1 @@
+exists x01.(_result{NN}(x01) & _list{NNP}(x01) & _<{NNP}(x01) & _integer{NNP}(x01) & _>{NNP}(x01) & exists e02.(_produce{VBN}(e02) & (Acc(e02) = x01) & all x03.(exists e04.(_valid{JJ}(e04) & (Subj(e04) = x03) & _input{NN}(x03) & _]{NNP}(x03) & _[{NNP}(x03) & _int{NN}(x03) & _chry_a{NN}(x03) & _the{DT}(x03)) -> _for{IN}(e02,x03))))

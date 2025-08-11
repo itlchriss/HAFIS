@@ -1,0 +1,4 @@
+ensures:
+- Ensures that result of type boolean is equal to the true literal when every open bracket in parameterthe chry_a of type String is closed by the same type of bracket and all brackets in parameterthe chry_b of type String are closed in the correct order.
+- Ensures that result of type boolean is equal to the false literal when parameterthe chry_a of type String violates the same type closing rule or violates the correct order closing rule for its brackets.
+requires: []

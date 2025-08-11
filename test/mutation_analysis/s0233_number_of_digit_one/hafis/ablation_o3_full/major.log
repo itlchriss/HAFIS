@@ -1,0 +1,394 @@
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.<init>:
+    Created MajorPluginTaskListener with options: [mml:../major/mml/all.mml.bin]
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.initOperatorSymbols:
+    Initializing operator symbols for opcode mapping
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.mutateTree:
+    Mutating tree: Env[AttrContext[Scope[super, this]],outer=Env[AttrContext[Scope[java.util.Collections, java.util.Arrays, g0201_0300.s0233_number_of_digit_one.Solution]]]]
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: g0201_0300.s0233_number_of_digit_one.Solution
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: countDigitOne([int n])int
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 1: Solution.countDigitOne(line 16, col 48)
+            mutation operator group:   ROR
+            mutation operator:         >(int,int) |==> !=(int,int)
+            original:                  k > 0 
+            mutant:                    k != 0
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 2
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 2: Solution.countDigitOne(line 16, col 48)
+            mutation operator group:   ROR
+            mutation operator:         >(int,int) |==> >=(int,int)
+            original:                  k > 0 
+            mutant:                    k >= 0
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 3
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 3: Solution.countDigitOne(line 16, col 48)
+            mutation operator group:   ROR
+            mutation operator:         >(int,int) |==> FALSE(int,int)
+            original:                  k > 0 
+            mutant:                    false
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 4
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 4: Solution.countDigitOne(line 17, col 25)
+            mutation operator group:   AOR
+            mutation operator:         %(int,int) |==> *(int,int)
+            original:                  k % 10 
+            mutant:                    k * 10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 5
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 5: Solution.countDigitOne(line 17, col 25)
+            mutation operator group:   AOR
+            mutation operator:         %(int,int) |==> +(int,int)
+            original:                  k % 10 
+            mutant:                    k + 10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 6
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 6: Solution.countDigitOne(line 17, col 25)
+            mutation operator group:   AOR
+            mutation operator:         %(int,int) |==> -(int,int)
+            original:                  k % 10 
+            mutant:                    k - 10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 7
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 7: Solution.countDigitOne(line 17, col 25)
+            mutation operator group:   AOR
+            mutation operator:         %(int,int) |==> /(int,int)
+            original:                  k % 10 
+            mutant:                    k / 10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 8
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 8: Solution.countDigitOne(line 18, col 23)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> %(int,int)
+            original:                  k / 10 
+            mutant:                    k % 10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 9
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 9: Solution.countDigitOne(line 18, col 23)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> *(int,int)
+            original:                  k / 10 
+            mutant:                    k * 10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 10: Solution.countDigitOne(line 18, col 23)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> +(int,int)
+            original:                  k / 10 
+            mutant:                    k + 10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 11
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 11: Solution.countDigitOne(line 18, col 23)
+            mutation operator group:   AOR
+            mutation operator:         /(int,int) |==> -(int,int)
+            original:                  k / 10 
+            mutant:                    k - 10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 12
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 12: Solution.countDigitOne(line 19, col 21)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  rem == 0 
+            mutant:                    rem <= 0
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 13
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 13: Solution.countDigitOne(line 19, col 21)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  rem == 0 
+            mutant:                    rem >= 0
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 14
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 14: Solution.countDigitOne(line 19, col 21)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  rem == 0 
+            mutant:                    false
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 15
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 15: Solution.countDigitOne(line 20, col 26)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> %(int,int)
+            original:                  q * curr10 
+            mutant:                    q % curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 16
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 16: Solution.countDigitOne(line 20, col 26)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> +(int,int)
+            original:                  q * curr10 
+            mutant:                    q + curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 17
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 17: Solution.countDigitOne(line 20, col 26)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> -(int,int)
+            original:                  q * curr10 
+            mutant:                    q - curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 18
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 18: Solution.countDigitOne(line 20, col 26)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> /(int,int)
+            original:                  q * curr10 
+            mutant:                    q / curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 19
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 19: (STD) ans += q * curr10; -> <NO-OP>
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 20
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 20: Solution.countDigitOne(line 21, col 28)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  rem == 1 
+            mutant:                    rem <= 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 21
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 21: Solution.countDigitOne(line 21, col 28)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  rem == 1 
+            mutant:                    rem >= 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 22
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 22: Solution.countDigitOne(line 21, col 28)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  rem == 1 
+            mutant:                    false
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 23
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 23: Solution.countDigitOne(line 22, col 26)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> %(int,int)
+            original:                  q * curr10 
+            mutant:                    q % curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 24
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 24: Solution.countDigitOne(line 22, col 26)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> +(int,int)
+            original:                  q * curr10 
+            mutant:                    q + curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 25
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 25: Solution.countDigitOne(line 22, col 26)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> -(int,int)
+            original:                  q * curr10 
+            mutant:                    q - curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 26
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 26: Solution.countDigitOne(line 22, col 26)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> /(int,int)
+            original:                  q * curr10 
+            mutant:                    q / curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 27
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 27: Solution.countDigitOne(line 22, col 35)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> %(int,int)
+            original:                  q * curr10 + cum 
+            mutant:                    q * curr10 % cum
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 28
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 28: Solution.countDigitOne(line 22, col 35)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> *(int,int)
+            original:                  q * curr10 + cum 
+            mutant:                    q * curr10 * cum
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 29
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 29: Solution.countDigitOne(line 22, col 35)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> -(int,int)
+            original:                  q * curr10 + cum 
+            mutant:                    q * curr10 - cum
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 30
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 30: Solution.countDigitOne(line 22, col 35)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> /(int,int)
+            original:                  q * curr10 + cum 
+            mutant:                    q * curr10 / cum
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 31
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 31: Solution.countDigitOne(line 22, col 41)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> %(int,int)
+            original:                  q * curr10 + cum + 1 
+            mutant:                    (q * curr10 + cum) % 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 32
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 32: Solution.countDigitOne(line 22, col 41)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> *(int,int)
+            original:                  q * curr10 + cum + 1 
+            mutant:                    (q * curr10 + cum) * 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 33
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 33: Solution.countDigitOne(line 22, col 41)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> -(int,int)
+            original:                  q * curr10 + cum + 1 
+            mutant:                    q * curr10 + cum - 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 34
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 34: Solution.countDigitOne(line 22, col 41)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> /(int,int)
+            original:                  q * curr10 + cum + 1 
+            mutant:                    (q * curr10 + cum) / 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 35
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 35: (STD) ans += q * curr10 + cum + 1; -> <NO-OP>
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 36
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 36: Solution.countDigitOne(line 24, col 27)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> %(int,int)
+            original:                  q + 1 
+            mutant:                    q % 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 37
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 37: Solution.countDigitOne(line 24, col 27)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> *(int,int)
+            original:                  q + 1 
+            mutant:                    q * 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 38
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 38: Solution.countDigitOne(line 24, col 27)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> -(int,int)
+            original:                  q + 1 
+            mutant:                    q - 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 39
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 39: Solution.countDigitOne(line 24, col 27)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> /(int,int)
+            original:                  q + 1 
+            mutant:                    q / 1
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 40
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 40: Solution.countDigitOne(line 24, col 32)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> %(int,int)
+            original:                  (q + 1) * curr10 
+            mutant:                    (q + 1) % curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 41
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 41: Solution.countDigitOne(line 24, col 32)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> +(int,int)
+            original:                  (q + 1) * curr10 
+            mutant:                    (q + 1) + curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 42
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 42: Solution.countDigitOne(line 24, col 32)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> -(int,int)
+            original:                  (q + 1) * curr10 
+            mutant:                    (q + 1) - curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 43
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 43: Solution.countDigitOne(line 24, col 32)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> /(int,int)
+            original:                  (q + 1) * curr10 
+            mutant:                    (q + 1) / curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 44
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 44: (STD) ans += (q + 1) * curr10; -> <NO-OP>
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 45
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 45: (STD) k = q; -> <NO-OP>
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 46
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 46: Solution.countDigitOne(line 28, col 24)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> %(int,int)
+            original:                  rem * curr10 
+            mutant:                    rem % curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 47
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 47: Solution.countDigitOne(line 28, col 24)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> +(int,int)
+            original:                  rem * curr10 
+            mutant:                    rem + curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 48
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 48: Solution.countDigitOne(line 28, col 24)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> -(int,int)
+            original:                  rem * curr10 
+            mutant:                    rem - curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 49
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 49: Solution.countDigitOne(line 28, col 24)
+            mutation operator group:   AOR
+            mutation operator:         *(int,int) |==> /(int,int)
+            original:                  rem * curr10 
+            mutant:                    rem / curr10
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 50
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 50: (STD) cum += rem * curr10; -> <NO-OP>
+[07/25 18:40:52] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.mutate:
+    Generated 50 mutants (147 ms)

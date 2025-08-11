@@ -1,0 +1,31 @@
+package g0101_0200.s0191_number_of_1_bits;
+
+// #Easy #Top_Interview_Questions #Bit_Manipulation #Algorithm_I_Day_13_Bit_Manipulation
+// #Programming_Skills_I_Day_2_Operator #Udemy_Bit_Manipulation
+// #2022_06_28_Time_1_ms_(84.87%)_Space_41.8_MB_(10.40%)
+
+import java.util.Arrays;
+
+import java.util.Collections;
+
+public class Solution {
+//@ requires((n >= -2147483648) && (n <= 2147483647));
+//@ ensures((\result >= 0) && (\result <= 32));
+//@ ensures((n == 128) ==> (\result == 1));
+//@ ensures((n == 11) ==> (\result == 3));
+//@ ensures((n == -3) ==> (\result == 31));
+    public int hammingWeight(int n) {
+        int sum = 0;
+        boolean flag = false;
+        if (n < 0) {
+            flag = true;
+            n = n - Integer.MIN_VALUE;
+        }
+        while (n > 0) {
+            int k = n % 2;
+            sum += k;
+            n /= 2;
+        }
+        return flag ? sum + 1 : sum;
+    }
+}

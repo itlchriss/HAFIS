@@ -1,1 +1,0 @@
-ensures((s.equals("luffy is still joyboy")) ==> (\result == 6));

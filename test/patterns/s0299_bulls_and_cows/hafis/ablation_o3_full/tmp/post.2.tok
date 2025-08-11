@@ -1,0 +1,1 @@
+Ensures the integer value of the substring of result that occurs between A and B equals the count of characters from String the type_string_ strs_a that are not bulls yet occur in String the type_string_ strs_b at a different index with multiplicity taken into account . 

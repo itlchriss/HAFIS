@@ -1,0 +1,68 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Below is a minimal but complete JML-annotated Java “contract” that captures everything the informal statement says, and nothing it does not.
+
+```java
+public class Base7 {
+
+    /*@
+      @ public model pure static int valueOfBase7(String s);
+      @
+      @ requires s != null
+      @      && s.length() > 0
+      @      && (\forall int i; 0 <= i && i < s.length();
+      @              (i == 0 && s.charAt(i) == '-')      // optional leading ‘-’
+      @           || ('0' <= s.charAt(i) && s.charAt(i) <= '6'));
+      @
+      @ ensures (\result ==                                            // sign
+      @              (s.charAt(0) == '-' ? -1 : 1)
+      @            * (\sum int k;                                      // positional value
+      @                    (s.charAt(0) == '-' ? 1 : 0) <= k
+      @                 && k < s.length();
+      @                 (s.charAt(k) - '0')
+      @               * (int)Math.pow(7, (s.length() - 1 - k))));
+      @*/
+    private static /*@ pure @*/ int valueOfBase7(String s) {
+        int start = (s.charAt(0) == '-') ? 1 : 0;
+        int sign  = (start == 1) ? -1 : 1;
+        int val   = 0;
+        for (int i = start; i < s.length(); i++) {
+            val = val * 7 + (s.charAt(i) - '0');
+        }
+        return sign * val;
+    }
+
+    /*@
+      @ requires -10000000 <= num && num <= 10000000;          // problem’s bounds
+      @
+      @ ensures valueOfBase7(\result) == num;                  // semantic correctness
+      @ ensures (\result.length() == 1)                        // no leading zeros
+      @        || (\result.charAt(0) != '0' 
+      @            && !(\result.charAt(0) == '-' 
+      @                 && \result.charAt(1) == '0'));
+      @
+      @ assignable \nothing;                                   // method is side-effect free
+      @*/
+    public /*@ pure @*/ static String convertToBase7(int num) {
+        if (num == 0) return "0";
+
+        boolean neg = num < 0;
+        int n = Math.abs(num);
+
+        StringBuilder sb = new StringBuilder();
+        while (n != 0) {
+            sb.append((char) ('0' + (n % 7)));
+            n /= 7;
+        }
+        if (neg) sb.append('-');
+        return sb.reverse().toString();
+    }
+}
+```
+
+Explanation of the contract:
+
+1. valueOfBase7 is introduced purely for specification purposes; it converts a syntactically correct base-7 string back to an int.
+2. convertToBase7 is the function requested in the task.  
+   • Precondition: the integer lies in the range −10⁷ … 10⁷ (exactly the constraint from the problem).  
+   • Postcondition 1: if the returned string is interpreted as a base-7 numeral (using the model method) the result equals the original number.  
+   • Postcondition 2: there are no superfluous leading zeros, again matching the informal “string representation” requirement.  
+   • assignable \nothing states that the method is functionally pure (no side effects).

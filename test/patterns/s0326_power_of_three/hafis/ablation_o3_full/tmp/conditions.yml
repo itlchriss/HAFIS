@@ -1,0 +1,5 @@
+ensures:
+- boolean result is equal to the true literal if there exists an integer x such that 3 raised to x equals int the chry_a.
+- boolean result is equal to the false literal when int the chry_a is less_than_or_equal to 0.
+- boolean result is equal to the false literal when int the chry_a is greater_than to 0 and not equal to any integral power of 3.
+requires: []

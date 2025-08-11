@@ -1,0 +1,71 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Below is a compact JML contract that captures exactly the natural–language requirements of
+“Jump Game II”.
+
+• The public method jump(int[ ]) returns the minimum number of jumps that are sufficient (and, by contract, necessary) to get from index 0 to the last index.  
+• The usual domain restrictions (array not null, length in the required range, each entry between 0 and 1000) are expressed as pre-conditions.  
+• The hypothesis “the last index is always reachable” is also stated as a pre-condition.  
+• Two auxiliary model predicates are introduced:
+  – reachableInK(a,k) ─ true iff one can reach the last index in exactly k jumps;  
+  – minJumps(a) ─ the least k that satisfies reachableInK(a,k).
+
+A correct implementation of jump must therefore return minJumps(nums).
+
+```java
+public class JumpGameII {
+
+    /*@  // --------------------------------------------------------------
+      @  //  AUXILIARY (model) PREDICATES
+      @  // -------------------------------------------------------------- */
+
+    /*@ public model pure boolean reachableInK(int[] a, int k) {
+      @     /*  There exists a strictly increasing path p[0..k]
+      @         starting at 0 and finishing at a.length-1, such that every
+      @         step is feasible w.r.t. the jump length stored at the
+      @         departure index. * /
+      @     return (\exists int[] p ;
+      @                p != null &&
+      @                p.length == k + 1 &&
+      @                p[0] == 0 &&
+      @                p[k] == a.length - 1 &&
+      @                (\forall int t ; 0 <= t && t < k ;
+      @                     p[t] < p[t+1] &&
+      @                     p[t+1] - p[t] <= a[p[t]]));
+      @ }
+      @*/
+
+    /*@ public model pure int minJumps(int[] a) {
+      @     /* The least k that satisfies reachableInK(a,k).  Because the
+      @        problem guarantees reachability, such a k exists.          * /
+      @     return (\min int k ;
+      @                 0 <= k && k < a.length && reachableInK(a,k) ;
+      @                 k);
+      @ }
+      @*/
+
+
+    /*@  // --------------------------------------------------------------
+      @  //  OPERATIONAL SPECIFICATION
+      @  // -------------------------------------------------------------- */
+
+    /*@ public normal_behavior
+      @   requires nums != null;
+      @   requires 1 <= nums.length && nums.length <= 10000;
+      @   requires (\forall int i ; 0 <= i && i < nums.length ;
+      @                0 <= nums[i] && nums[i] <= 1000);
+      @   requires reachableInK(nums , nums.length - 1);   // “always reachable”
+      @
+      @   ensures  \result == minJumps(nums);              // minimal # of jumps
+      @
+      @   assignable \nothing;                             // must be pure
+      @*/
+    public /*@ pure @*/ int jump(int[] nums) {
+        /* implementation goes here */
+    }
+}
+```
+
+Explanation of the most important JML constructs used:
+
+• reachableInK: existentially quantifies over a full path (represented by an int[ ]) and checks every hop’s feasibility.  
+• minJumps: JML’s `\min` quantifier picks the smallest integer satisfying a predicate.  
+• Post-condition: the returned value equals `minJumps(nums)`, guaranteeing both (1) sufficiency of the number of jumps and (2) its optimality.

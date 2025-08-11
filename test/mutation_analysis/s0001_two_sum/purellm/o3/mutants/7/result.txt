@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/7/Solution.java:67: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/7/Solution.java:41:) in method twoSum
+        return new int[] {-1, -1};
+        ^
+./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/7/Solution.java:41: verify: Associated declaration: ./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/7/Solution.java:67:
+      @   ensures \result[0] != \result[1];
+          ^
+2 verification failures

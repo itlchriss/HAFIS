@@ -1,0 +1,9 @@
+ensures:
+- The type_string_ result's values are lowercase and are 1 of the literals 123456789 a b c d e f.
+- The type_string_ result does not start with the literal 0 unless the type_string_ result is equal to the literal 0.
+- If the type_integer_ param_num_ is equal to 0 , the type_string_ result is equal to the literal 0.
+- If the type_integer_ param_num_ is equal to 26 , the type_string_ result is equal to the literal 1a.
+- If the type_integer_ param_num_ is equal to negative 1 , the type_string_ result is equal to the literal ffffffff.
+- If the type_integer_ param_num_ is less_than to 0 , the type_string_ result's length is equal to 8.
+- The integer value represented by the type_string_ result when interpreted as a signed 32 bit integer using 2 complement is equal to the type_integer_ param_num_.
+requires: []

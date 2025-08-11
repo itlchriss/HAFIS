@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0217_contains_duplicate/purellm/claude4opus/mutants/0/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0217_contains_duplicate/purellm/claude4opus/mutants/0/Solution.java:16:) in method containsDuplicate
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/purellm/claude4opus/mutants/0/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0217_contains_duplicate/purellm/claude4opus/mutants/0/Solution.java:29:
+      @ ensures \result == (\exists int i, j; 0 <= i && i < nums.length &&
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/purellm/claude4opus/mutants/0/Solution.java:27: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0217_contains_duplicate/purellm/claude4opus/mutants/0/Solution.java:11:) in method containsDuplicate
+            set.add(n);
+                   ^
+./test/mutation_analysis/s0217_contains_duplicate/purellm/claude4opus/mutants/0/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0217_contains_duplicate/purellm/claude4opus/mutants/0/Solution.java:27:
+    /*@ public normal_behavior
+               ^
+4 verification failures

@@ -1,0 +1,7 @@
+ensures:
+- The type_integer_ result is less_than_or_equal to 2147483647 and is greater_than_or_equal to negative 2147483648.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 4.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 9.
+requires:
+- The type_integer_array_ param_nums_'s length is divisible by 2.
+- The type_integer_array_ param_nums_'s values are less_than_or_equal to 10000 and are greater_than_or_equal to negative 10000.

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0263_ugly_number/hafis/claude4opus/mutants/25/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0263_ugly_number/hafis/claude4opus/mutants/25/Solution.java:13:) in method isUgly
+        return false;
+        ^
+./test/mutation_analysis/s0263_ugly_number/hafis/claude4opus/mutants/25/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0263_ugly_number/hafis/claude4opus/mutants/25/Solution.java:28:
+//@ ensures((n == 8) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0263_ugly_number/hafis/claude4opus/mutants/25/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0263_ugly_number/hafis/claude4opus/mutants/25/Solution.java:14:) in method isUgly
+        return false;
+        ^
+./test/mutation_analysis/s0263_ugly_number/hafis/claude4opus/mutants/25/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0263_ugly_number/hafis/claude4opus/mutants/25/Solution.java:28:
+//@ ensures((n == 6) ==> (\result == true));
+    ^
+4 verification failures

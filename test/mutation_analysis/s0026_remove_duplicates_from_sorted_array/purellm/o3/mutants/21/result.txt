@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/o3/mutants/21/Solution.java:76: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/o3/mutants/21/Solution.java:36:) in method removeDuplicates
+        return i % 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/o3/mutants/21/Solution.java:36: verify: Associated declaration: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/o3/mutants/21/Solution.java:76:
+      ensures (\forall int p; 0 <= p && p < \old(nums.length);
+      ^
+2 verification failures

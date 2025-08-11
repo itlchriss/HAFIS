@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/o3/mutants/10/Solution.java:32: error: unreachable statement
+        return i + 1;
+        ^
+1 error

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0044_wildcard_matching/hafis/o3/mutants/2/Solution.java:23: error: unreachable statement
+        while (false) {
+                      ^
+1 error

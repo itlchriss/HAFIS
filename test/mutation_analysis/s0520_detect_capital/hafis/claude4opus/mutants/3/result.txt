@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0520_detect_capital/hafis/claude4opus/mutants/3/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0520_detect_capital/hafis/claude4opus/mutants/3/Solution.java:12:) in method detectCapitalUse
+        return upper == n || lower == n || firstUpper;
+        ^
+./test/mutation_analysis/s0520_detect_capital/hafis/claude4opus/mutants/3/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0520_detect_capital/hafis/claude4opus/mutants/3/Solution.java:32:
+//@ ensures((word.equals("FlaG")) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0520_detect_capital/hafis/claude4opus/mutants/3/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0520_detect_capital/hafis/claude4opus/mutants/3/Solution.java:13:) in method detectCapitalUse
+        return upper == n || lower == n || firstUpper;
+        ^
+./test/mutation_analysis/s0520_detect_capital/hafis/claude4opus/mutants/3/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0520_detect_capital/hafis/claude4opus/mutants/3/Solution.java:32:
+//@ ensures((word.equals("USA")) ==> (\result == true));
+    ^
+4 verification failures

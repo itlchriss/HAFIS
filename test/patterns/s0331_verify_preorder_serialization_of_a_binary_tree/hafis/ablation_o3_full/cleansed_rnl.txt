@@ -1,0 +1,2 @@
+- If 'preorder' of type String represents a correct preorder traversal serialization of a binary tree then result of type boolean is true
+- If 'preorder' of type String does not represent a correct preorder traversal serialization of a binary tree then result of type boolean is false

@@ -1,0 +1,11 @@
+Based on the given software specification and following the established pattern from the examples, here are the method behavioural specifications:
+
+- The length of the integer array parameter `arr` is greater than or equal to 1 and is less than or equal to 20000.
+- All values in the integer array parameter `arr` are greater than or equal to -10 and are less than or equal to 10.
+- The integer result is greater than or equal to -2147483648 and is less than or equal to 2147483647.
+- The integer result is greater than or equal to the minimum value in the integer array parameter `arr`.
+- The integer result is less than or equal to the product of all positive values in the integer array parameter `arr`.
+- If the integer array parameter `arr` is equal to [2,3,-2,4], the integer result is equal to 6.
+- If the integer array parameter `arr` is equal to [-2,0,-1], the integer result is equal to 0.
+- If all values in the integer array parameter `arr` are positive, the integer result is equal to the product of all values in the integer array parameter `arr`.
+- If the integer array parameter `arr` contains only one element, the integer result is equal to that element.

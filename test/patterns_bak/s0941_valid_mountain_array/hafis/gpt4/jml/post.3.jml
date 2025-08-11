@@ -1,1 +1,0 @@
-ensures((arr[0] == 3 && arr[1] == 5 && arr[2] == 5 && arr.length == 3) ==> (\result == false));

@@ -1,0 +1,59 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Below is a compact JML specification that captures everything that is stated (and implied) in the informal problem description.  It assumes a Java method
+
+    public static int maxProduct(int[] nums)
+
+to be placed in any class you like (e.g. Solution).
+
+```java
+public class Solution {
+
+    /*@  public model pure static int prod(int[] a, int lo, int hi);
+      @    //  Meaning of the model function (informal, because JML has no
+      @    //  built-in product operator):  prod(a,lo,hi) is
+      @    //      a[lo] * a[lo+1] * … * a[hi]
+      @    //  for 0 ≤ lo ≤ hi < a.length.
+      @*/
+
+    /*@  public normal_behavior
+      @    //  ------------  Pre-conditions  -------------
+      @    requires nums != null;
+      @    requires 1 <= nums.length && nums.length <= 20000;
+      @    // individual element bounds given in the statement
+      @    requires (\forall int k; 0 <= k && k < nums.length;
+      @                       -10 <= nums[k] && nums[k] <= 10);
+      @
+      @    //  ------------  Post-conditions -------------
+      @
+      @    // 1)  The returned value is the product of a
+      @    //     non-empty contiguous sub-array
+      @    ensures (\exists int i; 0 <= i && i < nums.length;
+      @             (\exists int j; i <= j && j < nums.length;
+      @                    \result == prod(nums,i,j)));
+      @
+      @    // 2)  … and no other contiguous sub-array has a larger product
+      @    ensures (\forall int i; 0 <= i && i < nums.length;
+      @             (\forall int j; i <= j && j < nums.length;
+      @                    prod(nums,i,j) <= \result));
+      @
+      @    // 3)  Nothing outside the method is modified
+      @    assignable \nothing;
+      @*/
+    public static int maxProduct(final int[] nums) {
+        /* implementation goes here */
+    }
+}
+```
+
+Explanation of the specification
+---------------------------------
+1. Pre-conditions  
+   • `nums` must be non-null and its length must satisfy the constraint `1 ≤ n ≤ 2·10⁴`.  
+   • Each element is within the stated range [`-10`,`10`].
+
+2. Post-conditions  
+   • Existence clause: the result equals the product of at least one contiguous, non-empty sub-array.  
+   • Maximality clause: every product of a contiguous, non-empty sub-array is **≤** the returned value, i.e. the result is the maximum possible product.  
+   • The method is pure (`assignable \nothing`).
+
+3. Model function `prod`  
+   Because JML does not provide a built-in product quantifier, a ghost (model) function `prod` is declared and documented informally.  It may be given an executable body for runtime assertion checking, or left abstract for static verification.

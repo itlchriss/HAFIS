@@ -1,6 +1,6 @@
 The result is:The method returns,The method generates,The method yields,The method produces
-:some,the characters,in the context,representing null pointer,a character
-is:represents,must be,can be
+:some,the characters,in the context,representing null pointer,a character,after execution
+is:represents,must be,can be,remains
 :some,the characters,entire,also,respectively
 is:represents,must be,will be
 unique:distinct
@@ -17,10 +17,14 @@ stronger than to:stronger than
 in:within
 result:indices in the result
 is in the range of a signedint:is a 32-bit integer
+is prime:has no divisors other than 1 and itself,is equal to prime,is a prime number
+is not prime:has at least 1 divisor other than 1 and itself,is not a prime number
+is even:mod 2 is equal to 0
+is not even:mod 2 is not equal to 0
 signedint:32-bit signed integer [-2147483648 \, 2147483648 - 1],32-bit signed integer [-2^31, 2^31 - 1],32-bit signed integer
 :exactly,immediately,The method must handle cases,can
-is equal to the true literal:is true
-is equal to the false literal:is false,is not true
+is equal to the true literal:is true,is `true`
+is equal to the false literal:is false,is not true,is `false`
 are equal to the true literal:are true
 at least 1 time:at least once
 that:where
@@ -50,8 +54,8 @@ period:dot '.'
 -:minus
 all values:all letters
 All values:The values,All characters,All the values,all characters
-2147483647:the maximum value of java integer,the maximum value of a 32-bit integer
-negative 2147483648:the minimum value of java integer,the minimum value of a 32-bit integer
+2147483647:the maximum value of java integer,the maximum value of a 32-bit integer,the maximum value of a java integer
+negative 2147483648:the minimum value of java integer,the minimum value of a 32-bit integer,the minimum value of a java integer
 empty_str:""
 empty:an empty string
 is equal to:is an ,is a 
@@ -114,3 +118,6 @@ string_representation:string representation
 hexadecimal_representation:hexadecimal representation
 the:the input
 ones_complement:complement of the binary representation
+is dequal to:deeply equals
+is not dequal to:does not deeply equal
+

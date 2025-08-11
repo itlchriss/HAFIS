@@ -1,0 +1,8 @@
+ensures:
+- If the String the type_character_ chrs_a has length 0 then int result equals 0.
+- The int result denotes the maximum length of a contiguous substring of the String the type_character_ chrs_a that forms a well formed sequence of opening and closing brackets.
+- The int result is never negative.
+- The int result is never is greater_than to the length of the String the type_character_ chrs_a.
+- The int result equals 0 when the String the type_character_ chrs_a contains no well formed bracket substring.
+- The int result equals the length of the String the type_character_ chrs_a when the String the type_character_ chrs_b is equal to well formed bracket sequence.
+requires: []

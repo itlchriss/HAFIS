@@ -1,0 +1,4 @@
+ensures:
+- 'Behaviour: If the chry_a contains fewer than 2 characters A and never contains 3 consecutive characters L then type_boolean_ result is equal to the true literal.'
+- 'Behaviour: If the chry_a contains 2 or more characters A or contains any sequence of 3 consecutive characters L then type_boolean_ result is equal to the false literal.'
+requires: []

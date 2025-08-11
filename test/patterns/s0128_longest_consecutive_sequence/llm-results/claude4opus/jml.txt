@@ -1,0 +1,85 @@
+Here's the JML specification for the Longest Consecutive Sequence problem:
+
+```java
+public class LongestConsecutiveSequence {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 0 && nums.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -1000000000 <= nums[i] && nums[i] <= 1000000000);
+      @ ensures \result >= 0;
+      @ ensures \result <= nums.length;
+      @ ensures \result == longestConsecutiveLength(nums);
+      @ pure
+      @*/
+    public int longestConsecutive(int[] nums);
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ ensures \result == 
+      @   (\max int len; 0 <= len && len <= nums.length;
+      @     (\exists int start; true;
+      @       isConsecutiveSequence(nums, start, len)));
+      @ pure
+      @ model
+      @*/
+    public static /*@ pure @*/ int longestConsecutiveLength(int[] nums);
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ ensures \result <==> 
+      @   (len == 0 || 
+      @    (len > 0 && containsDistinct(nums, start, len) &&
+      @     (\forall int i; start <= i && i < start + len;
+      @       contains(nums, i))));
+      @ pure
+      @ model
+      @*/
+    public static /*@ pure @*/ boolean isConsecutiveSequence(int[] nums, int start, int len);
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ ensures \result <==> 
+      @   (\exists int i; 0 <= i && i < nums.length; nums[i] == value);
+      @ pure
+      @ model
+      @*/
+    public static /*@ pure @*/ boolean contains(int[] nums, int value);
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ ensures \result <==>
+      @   (\forall int i; start <= i && i < start + len;
+      @     (\exists int j; 0 <= j && j < nums.length; nums[j] == i) &&
+      @     (\num_of int k; 0 <= k && k < nums.length; nums[k] == i) == 1);
+      @ pure
+      @ model
+      @*/
+    public static /*@ pure @*/ boolean containsDistinct(int[] nums, int start, int len);
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`)**:
+   - The array must not be null
+   - Array length is between 0 and 10^5
+   - Each element is between -10^9 and 10^9
+
+2. **Postconditions (`ensures`)**:
+   - Result is non-negative and at most the array length
+   - Result equals the length of the longest consecutive sequence
+
+3. **Model methods**:
+   - `longestConsecutiveLength`: Defines what we mean by the longest consecutive sequence length
+   - `isConsecutiveSequence`: Checks if a sequence starting at `start` with length `len` forms a valid consecutive sequence
+   - `contains`: Helper to check if a value exists in the array
+   - `containsDistinct`: Ensures the consecutive sequence uses distinct elements from the array
+
+4. **Important properties captured**:
+   - A consecutive sequence of length `len` starting at `start` means all integers from `start` to `start + len - 1` appear in the array
+   - The sequence must use distinct occurrences (handles duplicates correctly)
+   - Empty sequence (len = 0) is valid
+
+This specification allows for duplicate values in the input array (as shown in Example 2) while ensuring that the consecutive sequence counts each value only once.

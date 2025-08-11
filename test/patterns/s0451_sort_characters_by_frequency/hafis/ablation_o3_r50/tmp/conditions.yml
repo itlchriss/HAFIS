@@ -1,0 +1,12 @@
+ensures:
+- The type_string_ result has the same length as the type_string_ param_s_ and every character appears the same number of times in the type_string_ result and in the type_string_ param_s_.
+- All occurrences of each unique character are contiguous in the string result.
+- Whenever 2 different characters are contained by consecutively in the type_string_ result the number of occurrences of the leading character in the type_string_ param_s_ is greater_than_or_equal to the number of occurrences of the following character in the type_string_ param_s_.
+- If the type_string_ param_s_ is equal to stry_a the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a the type_string_ result is equal to stry_b.
+requires:
+- The type_string_ param_s_ contains uppercase_alphabets lowercase_alphabets and digits.

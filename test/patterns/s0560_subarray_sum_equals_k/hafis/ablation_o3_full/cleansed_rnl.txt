@@ -1,0 +1,3 @@
+- The data type int parameter 'k' must be within minus ten million and ten million inclusive before method execution
+- After successful execution result of data type int equals the total number of continuous subarrays in parameter 'nums' whose element sum equals parameter 'k'
+- After successful execution result is greater than or equal to zero and result is less than or equal to the product of the length of parameter 'nums' and one more than the length of parameter 'nums' divided by two

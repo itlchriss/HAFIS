@@ -1,0 +1,75 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Below is a pure-specification (no implementation) of the routine
+
+    boolean isLongPressedName(String name, String typed)
+
+written in JML (Java Modeling Language).  
+The post-condition characterises exactly the situations in which the
+value True must be returned.
+
+```java
+public class LongPressedName {
+
+    /*@
+      @  // ---------- PRECONDITIONS ----------
+      @  requires name  != null && typed != null;
+      @  // length constraints (1 ≤ … ≤ 1000)
+      @  requires 1 <= name.length()  && name.length()  <= 1000;
+      @  requires 1 <= typed.length() && typed.length() <= 1000;
+      @
+      @  // only lower-case English letters are allowed
+      @  requires (\forall int i; 0 <= i && i < name.length();
+      @                        Character.isLowerCase(name.charAt(i)));
+      @  requires (\forall int i; 0 <= i && i < typed.length();
+      @                        Character.isLowerCase(typed.charAt(i)));
+      @
+      @  // The method is side-effect free
+      @  assignable \nothing;
+      @
+      @  // ---------- POSTCONDITION ----------
+      @  /*  “typed” is a valid long-pressed version of “name”
+      @      ⇔ there exists a partition of the indices of “typed” into
+      @      |name| consecutive, non-empty blocks, one for each
+      @      character of “name”, such that every character occurring
+      @      inside the k-th block equals  name.charAt(k).
+      @  * /
+      @  ensures (\result <==>
+      @           (\exists int[] b;
+      @               //  b[0] … b[|name|] are the block boundaries
+      @               b.length == name.length() + 1         &&
+      @               b[0] == 0                             &&
+      @               b[name.length()] == typed.length()    &&
+      @
+      @               // every block is non-empty
+      @               (\forall int k; 0 <= k && k < name.length();
+      @                   b[k] < b[k+1])                    &&
+      @
+      @               // all characters inside block k equal name[k]
+      @               (\forall int k; 0 <= k && k < name.length();
+      @                   (\forall int j; b[k] <= j && j < b[k+1];
+      @                       typed.charAt(j) == name.charAt(k)))
+      @            ));
+      @*/
+    public /*@ pure @*/ boolean isLongPressedName(String name, String typed);
+}
+```
+
+Explanation of the post-condition
+
+1. We existentially quantify an integer array `b`
+   representing the block boundaries in `typed`.
+   For `name` of length `n` the array must have length `n+1`.
+
+2. `b[0]` is fixed at `0` and `b[n]` at `typed.length()` so the blocks
+   cover the whole `typed` string.
+
+3. `b[k] < b[k+1]` guarantees that every block contains at least one
+   character (long-pressing ⇒ “one or more” occurrences).
+
+4. The nested ∀-∀ states that every character inside the k-th block
+   equals `name.charAt(k)`.  
+   Hence each block is a (possibly long-pressed) repetition of the
+   corresponding character from `name`.
+
+The equivalence `<==>` ensures that the method returns True
+iff such a partition exists, i.e. exactly when `typed`
+could result from `name` by long-pressing some keys.

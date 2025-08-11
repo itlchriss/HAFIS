@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/claude4opus/mutants/1/Solution.java:30: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/claude4opus/mutants/1/Solution.java:11:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/claude4opus/mutants/1/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/claude4opus/mutants/1/Solution.java:30:
+      @ ensures \result >= 0;
+        ^
+2 verification failures

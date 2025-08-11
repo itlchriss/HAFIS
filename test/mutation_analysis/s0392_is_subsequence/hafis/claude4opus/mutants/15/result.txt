@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/15/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/15/Solution.java:17:) in method isSubsequence
+                    return true;
+                    ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/15/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/15/Solution.java:31:
+//@ ensures((s.length() > t.length()) ==> (\result == false));
+    ^
+2 verification failures

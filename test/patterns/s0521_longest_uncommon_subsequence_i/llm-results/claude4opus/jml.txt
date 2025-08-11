@@ -1,0 +1,40 @@
+Looking at this problem, I need to understand what constitutes an "uncommon subsequence" - it's a subsequence of one string but not the other.
+
+The key insight is that if two strings are different, then each string itself is a subsequence of itself but not a subsequence of the other string. Therefore, the longest uncommon subsequence would be the longer of the two strings.
+
+If the strings are identical, then every subsequence of one is also a subsequence of the other, so no uncommon subsequence exists.
+
+Here's the JML specification:
+
+```java
+public class Solution {
+    
+    /*@ requires a != null && b != null;
+      @ requires a.length() >= 1 && a.length() <= 100;
+      @ requires b.length() >= 1 && b.length() <= 100;
+      @ requires (\forall int i; 0 <= i && i < a.length(); 
+      @           'a' <= a.charAt(i) && a.charAt(i) <= 'z');
+      @ requires (\forall int i; 0 <= i && i < b.length(); 
+      @           'a' <= b.charAt(i) && b.charAt(i) <= 'z');
+      @ ensures a.equals(b) ==> \result == -1;
+      @ ensures !a.equals(b) ==> \result == Math.max(a.length(), b.length());
+      @*/
+    public /*@ pure @*/ int findLUSlength(String a, String b) {
+        // Implementation
+        return a.equals(b) ? -1 : Math.max(a.length(), b.length());
+    }
+}
+```
+
+The JML specification captures:
+
+1. **Preconditions (`requires`):**
+   - Both strings are non-null
+   - Length constraints (1-100 characters)
+   - Character constraints (lowercase English letters only)
+
+2. **Postconditions (`ensures`):**
+   - If strings are equal, return -1
+   - If strings are different, return the length of the longer string
+
+The `pure` modifier indicates that this method has no side effects and only depends on its parameters.

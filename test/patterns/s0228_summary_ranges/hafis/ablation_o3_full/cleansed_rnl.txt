@@ -1,0 +1,7 @@
+- If the length of int[] "nums" equals zero then result List<String> is empty
+- result List<String> contains strings that collectively describe contiguous numeric ranges which include every integer found in int[] "nums" and no integers that are not found in int[] "nums"
+- result List<String> is ordered so that the numeric start of each described range is strictly less than the numeric start of the next described range
+- result List<String> has the smallest possible number of elements while still satisfying full and exact coverage of int[] "nums"
+- For each string r in result List<String> if r contains the sequence -> then r represents a range a->b where a and b are integers drawn from int[] "nums" and a is strictly less than b
+- For each string r in result List<String> that does not contain the sequence -> r represents a single integer a where a is an element of int[] "nums"
+- The size of result List<String> is at least one and at most the length of int[] "nums" when the length of int[] "nums" is greater than zero

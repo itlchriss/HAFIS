@@ -1,0 +1,12 @@
+ensures:
+- The type_string_ result's length is less_than_or_equal to the type_string_ param_s_'s length.
+- The type_string_ result only contains the checking_character_sequence_ .
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to empty_str.
+- The type_string_ result is equal to valid parentheses string.
+- The type_string_ result's length is equal to the type_string_ param_s_'s length - 2 times the number of primitive decompositions in the type_string_ param_s_.
+requires:
+- The type_string_ param_s_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 100000.
+- The type_string_ param_s_ only contains the checking_character_sequence_ .
+- The type_string_ param_s_ is equal to valid parentheses string.

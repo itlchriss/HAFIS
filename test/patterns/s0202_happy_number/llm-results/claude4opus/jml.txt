@@ -1,0 +1,113 @@
+Here's the JML specification for the Happy Number problem:
+
+```java
+public class HappyNumber {
+    
+    /*@ public normal_behavior
+      @ requires 1 <= n && n <= Integer.MAX_VALUE;
+      @ ensures \result == isHappyNumber(n);
+      @ pure
+      @*/
+    public boolean isHappy(int n) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ requires n >= 0;
+      @ ensures \result == sumOfSquaresOfDigits(n);
+      @ ensures \result >= 0;
+      @ pure
+      @ model helper
+      @*/
+    /*@ spec_public @*/ private /*@ pure @*/ int sumOfSquares(int n) {
+        int sum = 0;
+        while (n > 0) {
+            int digit = n % 10;
+            sum += digit * digit;
+            n /= 10;
+        }
+        return sum;
+    }
+    
+    /*@ // Ghost/model method to define what a happy number is
+      @ public model pure boolean isHappyNumber(int n) {
+      @     return eventuallyReachesOne(n);
+      @ }
+      @*/
+    
+    /*@ // Ghost/model method to check if the sequence eventually reaches 1
+      @ public model pure boolean eventuallyReachesOne(int n) {
+      @     int current = n;
+      @     int iterations = 0;
+      @     // We use a bounded iteration to ensure termination in the specification
+      @     while (iterations < 1000 && current != 1) {
+      @         current = sumOfSquares(current);
+      @         iterations++;
+      @     }
+      @     return current == 1;
+      @ }
+      @*/
+    
+    /*@ // Alternative specification using loop detection
+      @ public normal_behavior
+      @ requires 1 <= n && n <= Integer.MAX_VALUE;
+      @ ensures \result <==> reachesOneBeforeCycle(n);
+      @ pure
+      @*/
+    public boolean isHappyAlternative(int n) {
+        // Implementation using Floyd's cycle detection
+    }
+    
+    /*@ // Model method for cycle detection approach
+      @ public model pure boolean reachesOneBeforeCycle(int n) {
+      @     int slow = n;
+      @     int fast = n;
+      @     
+      @     do {
+      @         slow = sumOfSquares(slow);
+      @         fast = sumOfSquares(sumOfSquares(fast));
+      @         if (slow == 1 || fast == 1) return true;
+      @     } while (slow != fast);
+      @     
+      @     return false;
+      @ }
+      @*/
+    
+    /*@ // Lemma: The sum of squares of digits is bounded
+      @ public invariant
+      @   (\forall int x; x >= 0; sumOfSquares(x) <= sumOfSquares(9999999999L));
+      @*/
+    
+    /*@ // Lemma: Known happy numbers
+      @ public invariant
+      @   isHappyNumber(1) && isHappyNumber(7) && isHappyNumber(10) &&
+      @   isHappyNumber(13) && isHappyNumber(19) && isHappyNumber(23) &&
+      @   isHappyNumber(28) && isHappyNumber(31);
+      @*/
+    
+    /*@ // Lemma: Known unhappy numbers
+      @ public invariant
+      @   !isHappyNumber(2) && !isHappyNumber(3) && !isHappyNumber(4) &&
+      @   !isHappyNumber(5) && !isHappyNumber(6) && !isHappyNumber(8) &&
+      @   !isHappyNumber(9);
+      @*/
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Main Contract**: The `isHappy` method requires `n` to be within the valid range and ensures it returns true if and only if `n` is a happy number.
+
+2. **Helper Method**: `sumOfSquares` computes the sum of squares of digits, which is marked as `pure` and has its own specification.
+
+3. **Model Methods**: 
+   - `isHappyNumber` and `eventuallyReachesOne` are ghost/model methods that define what it means to be a happy number
+   - `reachesOneBeforeCycle` provides an alternative definition using cycle detection
+
+4. **Bounded Iteration**: In the model methods, we use bounded loops to ensure termination in the specification context.
+
+5. **Invariants**: We include some mathematical properties and known happy/unhappy numbers as class invariants.
+
+6. **Alternative Specification**: The `isHappyAlternative` method shows how you might specify the problem using Floyd's cycle detection algorithm.
+
+The specification captures the essence of the happy number problem while being verifiable and maintaining the pure nature of the computation.

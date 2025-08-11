@@ -1,0 +1,6 @@
+- 'needle' String length is between 0 and fifty thousand inclusive
+- 'haystack' String contains only lower case English letters
+- 'needle' String contains only lower case English letters
+- If 'needle' String is empty then result int equals 0
+- If 'needle' String is not empty and 'needle' String occurs within 'haystack' String then result int equals the smallest non negative index at which 'needle' String starts in 'haystack' String
+- If 'needle' String is not empty and 'needle' String does not occur within 'haystack' String then result int equals -1

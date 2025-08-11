@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0504_base_7/purellm/claude4opus/Solution.java:12: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0504_base_7/purellm/claude4opus/Solution.java:9:) in method convertToBase7
+        return Integer.toString(num, 7);
+        ^
+./test/mutation_analysis/s0504_base_7/purellm/claude4opus/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s0504_base_7/purellm/claude4opus/Solution.java:12:
+      @ ensures num == 0 ==> \result.equals("0");
+        ^
+2 verification failures

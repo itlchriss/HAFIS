@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0227_basic_calculator_ii/purellm/o3/mutants/22/Solution.java:81: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0227_basic_calculator_ii/purellm/o3/mutants/22/Solution.java:29:) in method calculate
+        return sum;
+        ^
+./test/mutation_analysis/s0227_basic_calculator_ii/purellm/o3/mutants/22/Solution.java:29: verify: Associated declaration: ./test/mutation_analysis/s0227_basic_calculator_ii/purellm/o3/mutants/22/Solution.java:81:
+      @   ensures Integer.MIN_VALUE <= \result && \result <= Integer.MAX_VALUE;
+          ^
+./test/mutation_analysis/s0227_basic_calculator_ii/purellm/o3/mutants/22/Solution.java:48: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0227_basic_calculator_ii/purellm/o3/mutants/22/Solution.java:7:) in method calculate
+            char c = s.charAt(i);
+                             ^
+./test/mutation_analysis/s0227_basic_calculator_ii/purellm/o3/mutants/22/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0227_basic_calculator_ii/purellm/o3/mutants/22/Solution.java:48:
+    /*@ public normal_behavior
+               ^
+4 verification failures

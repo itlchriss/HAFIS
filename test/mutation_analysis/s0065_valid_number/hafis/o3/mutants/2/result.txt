@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/2/Solution.java:16: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/2/Solution.java:12:) in method isNumber
+            return false;
+            ^
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/2/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/2/Solution.java:16:
+//@ ensures((s.equals(".1")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/2/Solution.java:16: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/2/Solution.java:11:) in method isNumber
+            return false;
+            ^
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/2/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/2/Solution.java:16:
+//@ ensures((s.equals("0")) ==> (\result == true));
+    ^
+4 verification failures

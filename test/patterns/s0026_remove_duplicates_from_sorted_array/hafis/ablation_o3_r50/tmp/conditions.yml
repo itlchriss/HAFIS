@@ -1,0 +1,11 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0 and is less_than_or_equal to the type_integer_array_ param_nums_'s length.
+- All values whose indices are lower than the type_integer_ result in the type_integer_array_ param_nums_ are unique.
+- The order of the values whose indices are lower than the type_integer_ result in the type_integer_array_ param_nums_ is unchanged from their original order before the method call.
+- If all the values in the type_integer_array_ param_nums_ are unique , the type_integer_ result is equal to the type_integer_array_ param_nums_'s length.
+- If the type_integer_array_ param_nums_'s length is equal to 0 , the type_integer_ result is equal to 0.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 2 and the type_integer_array_ param_nums_'s first_element is 1 and the type_integer_array_ param_nums_'s second_element is 2.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 5 and the sequence 1234 occupies indices 0 to 4 in the type_integer_array_ param_nums_.
+requires:
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to negative 100 and are less_than_or_equal to 100.
+- The type_integer_array_ param_nums_ is sorted to non decreasing order.

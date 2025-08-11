@@ -1,0 +1,1 @@
+If all the values in the type_integer_array_ param_nums_ are unique , the type_integer_ result is equal to the type_integer_array_ param_nums_ 's length . 

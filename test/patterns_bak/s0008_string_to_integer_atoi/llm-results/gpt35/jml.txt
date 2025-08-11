@@ -1,3 +1,0 @@
-- public int myAtoi(String str)
-- requires str != null;
-- ensures \result >= Integer.MIN_VALUE && \result <= Integer.MAX_VALUE;

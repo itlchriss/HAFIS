@@ -1,0 +1,121 @@
+Here's the JML specification for the Longest Valid Parentheses problem:
+
+```java
+public class LongestValidParentheses {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires s.length() <= 30000;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           s.charAt(i) == '(' || s.charAt(i) == ')');
+      @ ensures \result >= 0;
+      @ ensures \result <= s.length();
+      @ ensures \result % 2 == 0;
+      @ ensures (\exists int start; 0 <= start && start + \result <= s.length();
+      @          isValidParentheses(s, start, start + \result) &&
+      @          (\forall int len; \result < len && len <= s.length() && len % 2 == 0;
+      @           (\forall int st; 0 <= st && st + len <= s.length();
+      @            !isValidParentheses(s, st, st + len))));
+      @ pure
+      @*/
+    public int longestValidParentheses(String s);
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 0 <= start && start <= end && end <= s.length();
+      @ requires (end - start) % 2 == 0;
+      @ ensures \result <==> 
+      @   ((end - start == 0) ||
+      @    ((\exists int mid; start < mid && mid < end && (mid - start) % 2 == 0;
+      @      isValidParentheses(s, start, mid) && isValidParentheses(s, mid, end)) ||
+      @     (s.charAt(start) == '(' && s.charAt(end - 1) == ')' && 
+      @      isValidParentheses(s, start + 1, end - 1))));
+      @ pure helper
+      @*/
+    private boolean isValidParentheses(String s, int start, int end);
+}
+```
+
+Alternative, more detailed specification with additional helper predicates:
+
+```java
+public class LongestValidParentheses {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires s.length() <= 30000;
+      @ requires isParenthesesString(s);
+      @ ensures \result >= 0;
+      @ ensures \result <= s.length();
+      @ ensures \result % 2 == 0;
+      @ ensures hasValidSubstring(s, \result);
+      @ ensures !hasLongerValidSubstring(s, \result);
+      @ pure
+      @*/
+    public int longestValidParentheses(String s);
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ ensures \result <==> (\forall int i; 0 <= i && i < s.length(); 
+      @                       s.charAt(i) == '(' || s.charAt(i) == ')');
+      @ pure helper
+      @*/
+    private boolean isParenthesesString(String s);
+    
+    /*@ private normal_behavior
+      @ requires s != null && len >= 0 && len <= s.length() && len % 2 == 0;
+      @ ensures \result <==> (\exists int start; 0 <= start && start + len <= s.length();
+      @                       isValidParenthesesSubstring(s, start, len));
+      @ pure helper
+      @*/
+    private boolean hasValidSubstring(String s, int len);
+    
+    /*@ private normal_behavior
+      @ requires s != null && len >= 0 && len <= s.length();
+      @ ensures \result <==> (\forall int longerLen; len < longerLen && 
+      @                       longerLen <= s.length() && longerLen % 2 == 0;
+      @                       !hasValidSubstring(s, longerLen));
+      @ pure helper
+      @*/
+    private boolean hasLongerValidSubstring(String s, int len);
+    
+    /*@ private normal_behavior
+      @ requires s != null && start >= 0 && len >= 0 && start + len <= s.length();
+      @ requires len % 2 == 0;
+      @ ensures \result <==> isBalanced(s, start, len) && isProperlyNested(s, start, len);
+      @ pure helper
+      @*/
+    private boolean isValidParenthesesSubstring(String s, int start, int len);
+    
+    /*@ private normal_behavior
+      @ requires s != null && start >= 0 && len >= 0 && start + len <= s.length();
+      @ ensures \result <==> countChar(s, start, len, '(') == countChar(s, start, len, ')');
+      @ pure helper
+      @*/
+    private boolean isBalanced(String s, int start, int len);
+    
+    /*@ private normal_behavior
+      @ requires s != null && start >= 0 && len >= 0 && start + len <= s.length();
+      @ requires len % 2 == 0;
+      @ ensures \result <==> (\forall int i; start <= i && i < start + len;
+      @                       countChar(s, start, i - start + 1, '(') >= 
+      @                       countChar(s, start, i - start + 1, ')'));
+      @ pure helper
+      @*/
+    private boolean isProperlyNested(String s, int start, int len);
+    
+    /*@ private normal_behavior
+      @ requires s != null && start >= 0 && len >= 0 && start + len <= s.length();
+      @ requires ch == '(' || ch == ')';
+      @ ensures \result == (\num_of int i; start <= i && i < start + len; s.charAt(i) == ch);
+      @ pure helper
+      @*/
+    private int countChar(String s, int start, int len, char ch);
+}
+```
+
+The specification captures:
+1. Input constraints (non-null string, length limit, only parentheses characters)
+2. Output constraints (non-negative, even number, at most string length)
+3. The key property that the result is the length of the longest valid parentheses substring
+4. Helper predicates to define what constitutes a valid parentheses substring (balanced and properly nested)

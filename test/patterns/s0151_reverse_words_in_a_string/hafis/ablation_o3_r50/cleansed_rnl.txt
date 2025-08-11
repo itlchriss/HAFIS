@@ -1,0 +1,10 @@
+- The string parameter `s` contains at least one word
+- The string parameter `s` consists of English letters digits and spaces
+- The string result contains the words of the string parameter `s` in reverse order separated by a single space
+- The string result does not start with a space and does not end with a space
+- The string result does not contain multiple consecutive spaces
+- If the string parameter `s` is equal to "the sky is blue" the string result is equal to "blue is sky the"
+- If the string parameter `s` is equal to " hello world " the string result is equal to "world hello"
+- If the string parameter `s` is equal to "a good example" the string result is equal to "example good a"
+- If the string parameter `s` is equal to " Bob Loves Alice " the string result is equal to "Alice Loves Bob"
+- If the string parameter `s` is equal to "Alice does not even like bob" the string result is equal to "bob like even not does Alice"

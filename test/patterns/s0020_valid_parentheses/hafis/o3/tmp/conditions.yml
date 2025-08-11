@@ -1,0 +1,10 @@
+ensures:
+- If the type_boolean_ result is equal to the true literal , every opening bracket in the type_string_ param_s_ is closed by a bracket of the same type and all brackets in the type_string_ param_s_ are closed in the correct order.
+- If the type_boolean_ result is equal to the false literal , at least 1 opening bracket in the type_string_ param_s_ is not closed by a bracket of the same type or the brackets in the type_string_ param_s_ are not closed in the correct order.
+- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the true literal.
+requires:
+- The type_string_ param_s_ only contains leftp rightp leftbp rightbp leftb rightb.

@@ -1,0 +1,1 @@
+-exists x01.(_param_num_{NN}(x01) & _type_integer_array_{NN}(x01) & (-exists x02.(_param_num_{NN}(x02) & _type_integer_array_{NN}(x02) & exists x03.(_0{CD}(x03) & _itself{PRP}(x03) & (x02 = x03))) -> exists x04.(_zero{NNS}(x04) & exists e05.(_lead{VBG}(e05) & (Subj(e05) = x01) & (Acc(e05) = x04) & _contain{VB}(e05)))))

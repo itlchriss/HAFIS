@@ -1,0 +1,22 @@
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/ablation_o3_r50/mutants/8/Solution.java:20: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method minMoves2
+            if (num != nums[median]) {
+                           ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/ablation_o3_r50/mutants/8/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/ablation_o3_r50/mutants/8/Solution.java:11:) in method minMoves2
+        return ops;
+        ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/ablation_o3_r50/mutants/8/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/ablation_o3_r50/mutants/8/Solution.java:24:
+//@ ensures(\result >= 0);
+    ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/ablation_o3_r50/mutants/8/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method minMoves2
+//@ ensures((nums[0] == 1 && nums[1] == 10 && nums[2] == 2 && nums[3] == 9 && nums.length == 4) ==> (\result == 16));
+                 ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/ablation_o3_r50/mutants/8/Solution.java:24: verify: Associated method exit
+        return ops;
+        ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/ablation_o3_r50/mutants/8/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method minMoves2
+//@ ensures((nums[0] == 1 && nums[1] == 10 && nums[2] == 2 && nums[3] == 9 && nums.length == 4) ==> (\result == 16));
+                                 ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/ablation_o3_r50/mutants/8/Solution.java:24: verify: Associated method exit
+        return ops;
+        ^
+7 verification failures

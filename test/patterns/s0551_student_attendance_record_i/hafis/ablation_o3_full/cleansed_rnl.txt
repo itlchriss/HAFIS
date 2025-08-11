@@ -1,0 +1,3 @@
+- Prerequisite: 'String' 's' contains only the characters A L P
+- Behaviour: If 'String' 's' contains fewer than 2 characters A and never contains 3 consecutive characters L then boolean result is true
+- Behaviour: If 'String' 's' contains 2 or more characters A or contains any sequence of 3 consecutive characters L then boolean result is false

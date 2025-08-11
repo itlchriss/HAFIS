@@ -1,0 +1,42 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Below is a concise JML contract that captures exactly (and only) what the LeetCode 560 statement requires.  
+Drop-in the contract in front of the method that is supposed to solve the task.
+
+```java
+/**
+ * Returns the number of (start,end) pairs such that
+ *     0 ≤ start ≤ end < nums.length                 and
+ *     Σ_{t=start..end} nums[t] == k.                (continuous sub-array sum)
+ */
+ /*@ public normal_behavior
+   @   requires nums != null;                                       // array must exist
+   @   requires 1      <= nums.length && nums.length <= 20000;      // length constraint
+   @   requires (\forall int i; 0 <= i && i < nums.length;          // element bounds
+   @                    -1000 <= nums[i] && nums[i] <= 1000);
+   @   requires -10000000 <= k && k <= 10000000;                    // k constraint
+   @
+   @   // Nothing in the heap is modified (pure function)
+   @   assignable \nothing;
+   @
+   @   // Result is exactly the amount of index pairs whose segment‐sum equals k
+   @   ensures \result ==
+   @           (\num_of int start, end;
+   @              0 <= start && start < nums.length &&
+   @              start <= end  && end  < nums.length &&
+   @              (\sum int t; start <= t && t <= end; nums[t]) == k);
+   @
+   @   // (optional but useful) the answer can never exceed N·(N+1)/2
+   @   ensures 0 <= \result && \result <=
+   @           ((long)nums.length * (nums.length + 1)) / 2;
+   @*/
+public static /*@ pure @*/ int subarraySum(int[] nums, int k);
+```
+
+Explanation of the main JML clauses:
+
+• `requires` clauses encode the “Constraints” section (array size, value ranges, k-range, non-null).  
+• `assignable \nothing` states the method is observationally pure.  
+• The big `ensures` quantifier is the formal translation of “the total number of continuous subarrays whose sum equals k”.  
+  - `(\num_of … )` counts how many tuples satisfy the given Boolean.  
+  - `(\sum … )` is JML’s summation operator, giving the sum of that slice.
+
+With this contract, any implementation that passes runtime or static JML checking is guaranteed to fulfill the exact problem specification.

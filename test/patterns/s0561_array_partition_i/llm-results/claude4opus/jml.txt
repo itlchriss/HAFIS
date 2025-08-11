@@ -1,0 +1,81 @@
+Looking at this problem, I need to convert the specification into JML (Java Modeling Language). The key insight is that to maximize the sum of minimums from pairs, we should sort the array and pair adjacent elements, taking every other element starting from index 0.
+
+Here's the JML specification:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 2;
+      @ requires nums.length % 2 == 0;
+      @ requires nums.length <= 20000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -10000 <= nums[i] && nums[i] <= 10000);
+      @ ensures \result == optimalPairSum(nums);
+      @ pure
+      @*/
+    public int arrayPairSum(int[] nums);
+    
+    /*@ public normal_behavior
+      @ requires nums != null && nums.length >= 2 && nums.length % 2 == 0;
+      @ ensures \result == (\sum int i; 0 <= i && i < nums.length && i % 2 == 0;
+      @                     sortedArray(nums)[i]);
+      @ pure
+      @ model
+      @*/
+    public static int optimalPairSum(int[] nums);
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ ensures \result != null;
+      @ ensures \result.length == nums.length;
+      @ ensures isPermutation(nums, \result);
+      @ ensures (\forall int i; 0 <= i && i < \result.length - 1;
+      @          \result[i] <= \result[i + 1]);
+      @ pure
+      @ model
+      @*/
+    public static int[] sortedArray(int[] nums);
+    
+    /*@ public normal_behavior
+      @ requires a != null && b != null && a.length == b.length;
+      @ ensures \result <==> 
+      @   (\forall int x; ; count(a, x) == count(b, x));
+      @ pure
+      @ model
+      @*/
+    public static boolean isPermutation(int[] a, int[] b);
+    
+    /*@ public normal_behavior
+      @ requires arr != null;
+      @ ensures \result == (\num_of int i; 0 <= i && i < arr.length; 
+      @                     arr[i] == value);
+      @ pure
+      @ model
+      @*/
+    public static int count(int[] arr, int value);
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - Array is non-null
+   - Array has at least 2 elements
+   - Array length is even (2n elements)
+   - Array length doesn't exceed 20,000 (2 * 10^4)
+   - All elements are within [-10^4, 10^4]
+
+2. **Postcondition (`ensures`):**
+   - The result equals the optimal pair sum
+
+3. **Model methods:**
+   - `optimalPairSum`: Defines the optimal solution as the sum of elements at even indices in the sorted array
+   - `sortedArray`: Returns a sorted permutation of the input array
+   - `isPermutation`: Verifies that two arrays are permutations of each other
+   - `count`: Counts occurrences of a value in an array
+
+4. **Pure methods:** All methods are marked as `pure` since they don't modify state
+
+The specification captures that the optimal solution involves sorting the array and summing every other element starting from index 0, which gives us the maximum possible sum of minimums from all possible pairings.

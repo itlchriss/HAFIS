@@ -1,0 +1,36 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Below is a self-contained Java header whose JML annotations capture exactly the informal “Fizz Buzz” requirements.  
+Feel free to copy the comments into an existing class or adapt the header to your coding style.
+
+```java
+public class FizzBuzz {
+
+    /*@ requires 1 <= n && n <= 10000;                       // constraint on the input
+      @
+      @ ensures \result != null;                            // a result is always returned
+      @ ensures \result.length == n;                        // 1-to-1 correspondence with 1 … n
+      @
+      @ // --- Value of every entry ----------------------------------------------------------
+      @ ensures (\forall int i; 0 <= i && i < n;
+      @            ((i+1) % 3 == 0 && (i+1) % 5 == 0) ==>    \result[i].equals("FizzBuzz"));
+      @
+      @ ensures (\forall int i; 0 <= i && i < n;
+      @            ((i+1) % 3 == 0 && (i+1) % 5 != 0) ==>    \result[i].equals("Fizz"));
+      @
+      @ ensures (\forall int i; 0 <= i && i < n;
+      @            ((i+1) % 3 != 0 && (i+1) % 5 == 0) ==>    \result[i].equals("Buzz"));
+      @
+      @ ensures (\forall int i; 0 <= i && i < n;
+      @            ((i+1) % 3 != 0 && (i+1) % 5 != 0) ==>    
+      @                 \result[i].equals(Integer.toString(i+1)));
+      @*/
+    public /*@ pure @*/ String[] fizzBuzz(int n);
+}
+```
+
+Explanation of the clauses:
+
+1. `requires` expresses the domain constraint `1 ≤ n ≤ 10⁴`.
+2. The first two `ensures` clauses state general facts about the returned array (non-null and the correct length).
+3. The remaining `ensures` clauses partition the indices `0 … n-1` (which correspond to the numbers `1 … n`) into the four mutually exclusive cases of the informal specification, asserting the exact string that must appear in each situation.
+
+Every index `i` refers to the array position, so the number being classified is `i + 1`.

@@ -1,0 +1,1 @@
+requires((haystack.length() >= 0) && (haystack.length() <= 50000));

@@ -1,0 +1,4 @@
+ensures:
+- String result contains of the type_character_ chrs_a arranged by writing the type_character_ chrs_b in a zigzag pattern across the type_string_ strs_c rows and then concatenating the rows from top to bottom.
+- String result equals the type_character_ chrs_a when int the type_string_ strs_b is 1.
+requires: []

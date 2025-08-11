@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/claude4opus/mutants/7/Solution.java:25: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/claude4opus/mutants/7/Solution.java:18:) in method longestConsecutive: a[*]
+        Arrays.sort(nums);
+                   ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/claude4opus/mutants/7/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/claude4opus/mutants/7/Solution.java:25:
+      @ pure
+        ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/claude4opus/mutants/7/Solution.java:30: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method longestConsecutive
+            if (nums[i + 1] == nums[i] + 1) {
+                    ^
+3 verification failures

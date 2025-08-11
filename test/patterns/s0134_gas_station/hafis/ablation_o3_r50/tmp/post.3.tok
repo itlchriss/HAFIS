@@ -1,0 +1,1 @@
+If the type_integer_ result is greater_than_or_equal to 0 , the type_integer_ result is the only index between 0 and the difference between the type_integer_array_ param_gas_ 's length and 1 that allows completing 1 full circuit using the type_integer_array_ param_gas_and the type_string_ strs_a . 

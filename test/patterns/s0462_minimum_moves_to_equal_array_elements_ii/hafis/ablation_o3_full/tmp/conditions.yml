@@ -1,0 +1,6 @@
+ensures:
+- The int result equals the minimum number of single unit increment or single unit decrement operations required to transform all values in the chry_a to the same value.
+- The int result is always 0 or positive.
+- The int result always fits in the range supported by a signed 30 2 bit integer.
+requires:
+- Every value in int[] param_the_ chry_a is in - 1 1000000000 and 1 1000000000 inclusive.

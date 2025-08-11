@@ -1,0 +1,69 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (47s elapsed)Thinking... (47s elapsed)Thinking... (47s elapsed)Thinking... (47s elapsed)Thinking... (47s elapsed)Thinking... (48s elapsed)Thinking... (48s elapsed)Thinking... (48s elapsed)Thinking... (48s elapsed)Thinking... (48s elapsed)Thinking... (49s elapsed)Thinking... (49s elapsed)Thinking... (49s elapsed)Thinking... (49s elapsed)Thinking... (49s elapsed)Thinking... (50s elapsed)Thinking... (50s elapsed)Thinking... (50s elapsed)Thinking... (50s elapsed)Below is a complete JML contract (together with a few auxiliary “model” functions) for a Java‐method  
+boolean isHappy(int n) that must return exactly the mathematical notion of “happy” described in the
+natural-language statement.
+
+```java
+public class HappyNumber {
+
+    /**********************************************************************
+     *  AUXILIARY  (model)  FUNCTIONS                                     *
+     *********************************************************************/
+
+    /*@ public pure model static int digitSquareSum(int x);
+      @   requires 0 <= x && x <= Integer.MAX_VALUE;
+      @   assignable \nothing;
+      @   //  Result is the sum of the squares of the decimal digits of x.
+      @*/
+
+    /*@ public pure model static int iter(int x, int k);
+      @   requires 0 <= k                     &&
+      @            0 <= x && x <= Integer.MAX_VALUE;
+      @   assignable \nothing;
+      @   //  iter(x,0)   == x
+      @   //  iter(x,k+1) == digitSquareSum( iter(x,k) )
+      @   ensures (k == 0 ==> \result == x)
+      @        && (k > 0  ==> \result == digitSquareSum(iter(x,k-1)));
+      @*/
+
+    /*@ public pure model static boolean happy(int x);
+      @   requires 1 <= x && x <= Integer.MAX_VALUE;
+      @   assignable \nothing;
+      @   //  A number is happy  IFF  the iteration ever reaches 1.
+      @   ensures \result  <==>
+      @           (\exists int k; k >= 0; iter(x,k) == 1);
+      @*/
+
+    /**********************************************************************
+     *  SPECIFICATION  OF  THE  PUBLIC  METHOD                            *
+     *********************************************************************/
+
+    /*@ public normal_behavior
+      @   requires 1 <= n && n <= Integer.MAX_VALUE;   // 1 ≤ n ≤ 2³¹−1
+      @   assignable \nothing;                         // method is pure
+      @   ensures  \result == happy(n);                // exact characterisation
+      @*/
+    public /*@ pure @*/ static boolean isHappy(int n) {
+        /* implementation left to the programmer */
+        return false;   // dummy
+    }
+}
+```
+
+Explanation of the clauses
+
+1. Preconditions (`requires`) reproduce the stated input constraint  
+   `1 <= n <= 2^31 − 1`.
+
+2. `assignable \nothing` says the routine is side-effect free.
+
+3. The post-condition (`ensures`) ties the return value to the
+   abstract, mathematical predicate `happy(n)` introduced just above.
+
+4. `happy`, in turn, is defined by quantification over the iterative
+   sequence `iter`, which is itself defined axiomatically by
+   the two equations shown in the specification of `iter`.
+
+In this way the informal description (“repeat the sum-of-squares of digits
+until either reaching 1 or falling into a non-1 cycle”) is translated into
+a precise JML contract that any implementation of
+`isHappy` must satisfy.

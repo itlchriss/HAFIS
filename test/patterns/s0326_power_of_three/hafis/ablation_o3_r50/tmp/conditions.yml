@@ -1,0 +1,7 @@
+ensures:
+- If the type_integer_ param_n_ is equal to 0 , the type_boolean_ result is equal to the false literal.
+- If the type_integer_ param_n_ is equal to 27 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 9 , the type_boolean_ result is equal to the true literal.
+- If the type_boolean_ result is equal to the true literal , there exists an integer exponent such that 3 raised to that exponent is equal to the type_integer_ param_n_.
+- If the type_boolean_ result is equal to the false literal , there does not exist an integer exponent such that 3 raised to that exponent is equal to the type_integer_ param_n_.
+requires: []

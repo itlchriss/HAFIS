@@ -1,0 +1,4 @@
+- if String 's' length is less than one or greater than twenty then boolean result is false
+- if String 's' contains any character other than the digits plus sign minus sign dot uppercase E or lowercase e then boolean result is false
+- if String 's' represents a valid number according to the decimal number or integer rules and optional exponent rule described in the software specification then boolean result is true
+- if String 's' does not represent a valid number according to the decimal number or integer rules and optional exponent rule described in the software specification then boolean result is false

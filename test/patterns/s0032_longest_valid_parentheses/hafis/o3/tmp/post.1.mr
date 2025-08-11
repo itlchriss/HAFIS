@@ -1,0 +1,1 @@
+exists x01.(_mod{NN}(x01) & _2{CD}(x01) & exists e02.(_equal{JJ}(e02) & (Subj(e02) = x01) & exists x03.(_0{CD}(x03) & (Dat(e02) = x03)))) & exists x04 e05.(_type_integer_{JJ}(e05) & (Subj(e05) = x04) & _result{NN}(x04))

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/2/Solution.java:32: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

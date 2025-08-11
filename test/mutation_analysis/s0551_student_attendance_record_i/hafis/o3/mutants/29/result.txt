@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0551_student_attendance_record_i/hafis/o3/mutants/29/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0551_student_attendance_record_i/hafis/o3/mutants/29/Solution.java:10:) in method checkRecord
+        return true;
+        ^
+./test/mutation_analysis/s0551_student_attendance_record_i/hafis/o3/mutants/29/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0551_student_attendance_record_i/hafis/o3/mutants/29/Solution.java:34:
+//@ ensures((s.equals("PPALLL")) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0551_student_attendance_record_i/hafis/o3/mutants/29/Solution.java:19: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0551_student_attendance_record_i/hafis/o3/mutants/29/Solution.java:11:) in method checkRecord
+                    return false;
+                    ^
+./test/mutation_analysis/s0551_student_attendance_record_i/hafis/o3/mutants/29/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0551_student_attendance_record_i/hafis/o3/mutants/29/Solution.java:19:
+//@ ensures((s.equals("PPALLP")) ==> (\result == true));
+    ^
+4 verification failures

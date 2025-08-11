@@ -1,7 +1,0 @@
-./test/s0392_is_subsequence/hafis/gpt35/Solution.java:13: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
-//@ ensures((\result == true) ==> (t.contains(s)));
-                                             ^
-./test/s0392_is_subsequence/hafis/gpt35/Solution.java:14: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
-//@ ensures((\result == false) ==> (!(t.contains(s))));
-                                                ^
-2 warnings

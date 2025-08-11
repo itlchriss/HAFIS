@@ -1,0 +1,6 @@
+- The length of the string parameter `word` is greater than or equal to 1 and is less than or equal to 100.
+- The string parameter `word` consists of lowercase and uppercase English letters.
+- If the boolean result is equal to the true literal, all characters in the string parameter `word` are uppercase or all characters in the string parameter `word` are lowercase or only the first character in the string parameter `word` is uppercase.
+- If the boolean result is equal to the false literal, the string parameter `word` contains both uppercase and lowercase characters and either the first character is lowercase or at least one character after the first character is uppercase while at least one other character after the first character is lowercase.
+- If the string parameter `word` is equal to "USA", the boolean result is equal to the true literal.
+- If the string parameter `word` is equal to "FlaG", the boolean result is equal to the false literal.

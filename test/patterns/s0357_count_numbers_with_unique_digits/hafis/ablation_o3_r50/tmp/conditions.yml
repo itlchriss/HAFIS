@@ -1,0 +1,6 @@
+ensures:
+- The type_integer_ result is equal to 1 when the type_integer_ param_n_ is equal to 0.
+- The type_integer_ result is equal to 91 when the type_integer_ param_n_ is equal to 2.
+- The type_integer_ result is greater_than_or_equal to 1 and is less_than_or_equal to 10 power the type_integer_ param_n_.
+- The type_integer_ result is equal to the count of values in the range from 0 inclusive to 1 is less_than to 10 power the type_integer_ param_n_ whose decimal representations contain no repeated digits.
+requires: []

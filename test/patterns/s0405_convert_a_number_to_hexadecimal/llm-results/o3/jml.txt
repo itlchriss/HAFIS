@@ -1,0 +1,63 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Below is a concise JML contract that captures everything the original English specification requires.  
+(The implementation body is deliberately left out; you can fill it with any library-free code that satisfies the contract.)
+
+```java
+public final class HexConverter {
+
+    /*@ public normal_behavior
+      @   // 1.  Result equals the canonical, lower-case, 32-bit two’s–complement
+      @   //     hexadecimal representation of num (exactly what the Java
+      @   //     library routine Integer.toHexString(int) would return).
+      @   ensures  \result.equals(Integer.toHexString(num));
+      @
+      @   // 2.  Shape constraints that follow from the previous clause, written
+      @   //     explicitly so that a verifier does not need to know the library:
+      @   ensures  \result != null;                         // never null
+      @   ensures  1 <= \result.length() <= 8;              // at most 32 bits → 8 hex digits
+      @   ensures  (\forall int i; 0 <= i && i < \result.length();
+      @               ('0' <= \result.charAt(i) && \result.charAt(i) <= '9') ||
+      @               ('a' <= \result.charAt(i) && \result.charAt(i) <= 'f')); // only lower-case hex digits
+      @
+      @   // 3.  No leading zeroes (except for the number zero itself).
+      @   ensures  (num == 0) ==> \result.equals("0");
+      @   ensures  (num != 0) ==> \result.charAt(0) != '0';
+      @
+      @   // 4.  Result interpreted as an unsigned 32-bit value equals num’s
+      @   //     two’s-complement bit pattern (guarantees correct handling
+      @   //     of negative inputs).
+      @   ensures  unsignedValueOfHex(\result) == ((long)num & 0xFFFF_FFFFL);
+      @
+      @   // 5.  Method is total and side-effect-free.
+      @   signals (Exception e) false;
+      @   assignable \nothing;
+      @*/
+    public static /*@ pure @*/ String toHex(int num) {
+        // --- implementation goes here (must NOT use built-in hex routines) ---
+    }
+
+
+    /*@ public model pure static long unsignedValueOfHex(String s);
+      @  represents unsignedValueOfHex <- (
+      @      (\sum int i; 0 <= i && i < s.length();
+      @           charToValue(s.charAt(i)) * pow16(s.length() - 1 - i))
+      @  );
+      @*/
+
+    /*@ public model pure static int charToValue(char c);
+      @  represents charToValue <- (
+      @      ( '0' <= c && c <= '9' ) ?  c - '0' : 10 + (c - 'a')
+      @  );
+      @*/
+
+    /*@ public model pure static long pow16(int k);
+      @  represents pow16 <- (\pow 16L k);   // 16^k as a long
+      @*/
+}
+```
+
+Explanation of the clauses
+
+1. `\result.equals(Integer.toHexString(num))` directly captures the full mathematical meaning in one line; the rest merely expands it for formal tools that may not trust library code.
+2. Additional `ensures` clauses spell out shape, character set, and leading-zero rules.
+3. The unsigned equality guarantees the required two’s-complement behaviour for negative inputs.
+4. The helper model methods (`unsignedValueOfHex`, `charToValue`, `pow16`) give a pure, mathematical definition of how the string is interpreted—no implementation is needed; they exist solely for specification and proof purposes.

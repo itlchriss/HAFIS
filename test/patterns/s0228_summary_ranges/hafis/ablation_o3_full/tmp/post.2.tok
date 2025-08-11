@@ -1,0 +1,1 @@
+result List < String > is ordered so that the numeric start of each described range is strictly is less_than to the numeric start of the next described range . 

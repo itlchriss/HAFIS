@@ -1,0 +1,3 @@
+ensures:
+- When int the type_character_ chrs_a is such that reversing its decimal digits yields a value outside the range negative 2147483648 to 2147483647 , result int equals 0.
+requires: []

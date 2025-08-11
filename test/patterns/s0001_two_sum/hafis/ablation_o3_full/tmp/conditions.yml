@@ -1,0 +1,8 @@
+ensures:
+- When 1 pair of elements in the int type_array_ param_the_ chry_a sums to the int param_the_ chry_b result int array contains the 2 indices of that pair.
+- Upon completion result int array's length is equal to 2.
+- Upon completion the 2 elements in result int array are unique.
+- Upon completion every element in result int array is greater_than_or_equal to 0 and is less_than to the length of the int type_array_ param_the_ chry_a.
+- Upon completion the ordering of indices in result int array is unspecified.
+requires:
+- The int param_the_ chry_a accepts any integer value.

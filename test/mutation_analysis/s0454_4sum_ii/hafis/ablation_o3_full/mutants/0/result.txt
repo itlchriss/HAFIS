@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0454_4sum_ii/hafis/ablation_o3_full/mutants/0/Solution.java:20: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method fourSumCount
+                int sum = k % i;
+                            ^
+1 verification failure

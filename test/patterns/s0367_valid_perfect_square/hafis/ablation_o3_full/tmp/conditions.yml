@@ -1,0 +1,4 @@
+ensures:
+- boolean result is equal to the true literal if int the type_string_ strs_a equals the square of positive integer.
+- boolean result is equal to the false literal if int the type_string_ strs_a does not equal the square of any positive integer.
+requires: []

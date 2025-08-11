@@ -1,0 +1,93 @@
+Here's the JML specification for the Ugly Number problem:
+
+```java
+public class UglyNumber {
+    
+    /*@ public normal_behavior
+      @ requires Integer.MIN_VALUE <= n && n <= Integer.MAX_VALUE;
+      @ ensures \result == (n > 0 && isUglyNumber(n));
+      @
+      @ // Helper specification to define what makes a number ugly
+      @ public static pure model boolean isUglyNumber(int num) {
+      @     return num == 1 || 
+      @            (num > 1 && onlyHasPrimeFactors235(num));
+      @ }
+      @
+      @ // Helper specification to check if a number only has prime factors 2, 3, and 5
+      @ public static pure model boolean onlyHasPrimeFactors235(int num) {
+      @     return num > 1 &&
+      @            (\forall int p; p > 1 && p <= num && isPrime(p) && divides(p, num);
+      @             p == 2 || p == 3 || p == 5);
+      @ }
+      @
+      @ // Helper specification to check if a number is prime
+      @ public static pure model boolean isPrime(int p) {
+      @     return p > 1 && 
+      @            (\forall int d; d > 1 && d < p; !divides(d, p));
+      @ }
+      @
+      @ // Helper specification to check if a divides b
+      @ public static pure model boolean divides(int a, int b) {
+      @     return b % a == 0;
+      @ }
+      @*/
+    public boolean isUgly(int n) {
+        // Implementation would go here
+        if (n <= 0) return false;
+        if (n == 1) return true;
+        
+        while (n % 2 == 0) n /= 2;
+        while (n % 3 == 0) n /= 3;
+        while (n % 5 == 0) n /= 5;
+        
+        return n == 1;
+    }
+    
+    /*@ // Alternative, more implementation-oriented specification
+      @ public normal_behavior
+      @ requires Integer.MIN_VALUE <= n && n <= Integer.MAX_VALUE;
+      @ ensures \result == (n > 0 && canReduceToOne(n));
+      @
+      @ // Helper specification that matches the implementation approach
+      @ public static pure model boolean canReduceToOne(int num) {
+      @     return num == 1 ||
+      @            (num % 2 == 0 && canReduceToOne(num / 2)) ||
+      @            (num % 3 == 0 && canReduceToOne(num / 3)) ||
+      @            (num % 5 == 0 && canReduceToOne(num / 5));
+      @ }
+      @*/
+    public boolean isUgly_v2(int n) {
+        // Same implementation
+        if (n <= 0) return false;
+        if (n == 1) return true;
+        
+        while (n % 2 == 0) n /= 2;
+        while (n % 3 == 0) n /= 3;
+        while (n % 5 == 0) n /= 5;
+        
+        return n == 1;
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Precondition**: The input `n` is within the valid integer range (though this is automatically satisfied for int type).
+
+2. **Postcondition**: The result is `true` if and only if:
+   - `n` is positive (greater than 0), AND
+   - `n` is an ugly number (only has prime factors 2, 3, and 5)
+
+3. **Model methods**: I've defined several pure model methods to formally specify what makes a number ugly:
+   - `isUglyNumber`: Main helper that checks if a positive number is ugly
+   - `onlyHasPrimeFactors235`: Verifies all prime factors are limited to 2, 3, and 5
+   - `isPrime`: Checks if a number is prime
+   - `divides`: Checks divisibility
+
+4. **Alternative specification**: I've also provided a more implementation-oriented specification using `canReduceToOne`, which directly models the algorithm of repeatedly dividing by 2, 3, and 5.
+
+5. **Special cases**: 
+   - Negative numbers and 0 return `false`
+   - 1 is considered ugly (as it has no prime factors)
+
+The specification captures all the requirements from the problem statement and handles all the edge cases mentioned in the examples.

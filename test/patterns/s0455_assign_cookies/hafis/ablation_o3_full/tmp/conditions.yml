@@ -1,0 +1,9 @@
+ensures:
+- result int is greater_than_or_equal to 0.
+- result int is less_than_or_equal to the length of int[] stry_a.
+- result int is less_than_or_equal to the length of int[] stry_a.
+- result int equals 0 when the length of int[] stry_a equals 0.
+- For any feasible assignment that each child receives at most 1 cookie whose size is greater_than_or_equal to that child’s greed factor the number of content children in that assignment does not exceed result int.
+- There exists a feasible assignment that each child receives at most 1 cookie whose size is greater_than_or_equal to that child’s greed factor and the number of content children in that assignment equals result int.
+requires:
+- The param_int_[] stry_a is not null.

@@ -1,0 +1,1 @@
+ensures((w1.equals(w2)) ==> (\result == 0));

@@ -1,0 +1,1 @@
+For every bit position set to 0 in the type_integer_ param_num_ that is not more significant than its most significant 1 bit the corresponding bit position is set to 1 in the integer result . 

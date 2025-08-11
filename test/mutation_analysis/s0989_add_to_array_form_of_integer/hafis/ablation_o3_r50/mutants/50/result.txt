@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/ablation_o3_r50/mutants/50/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method addToArrayForm
+            int temp = num[i] + k % 10 + carry;
+                          ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/ablation_o3_r50/mutants/50/Solution.java:20: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public List<Integer> addToArrayForm(int[] num, int k) {
+                         ^
+2 verification failures

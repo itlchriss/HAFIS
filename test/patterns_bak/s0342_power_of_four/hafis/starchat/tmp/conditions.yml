@@ -1,8 +1,0 @@
-ensures:
-- If the type_integer_ param_n_ is equal to power of 4 , the type_boolean_ result is equal to the true literal.
-- If the type_integer_ param_n_ is not equal to power of 4 , the type_boolean_ result is equal to the false literal.
-- If the type_integer_ param_n_ is equal to 16 , the type_boolean_ result is equal to the true literal.
-- If the type_integer_ param_n_ is equal to 5 , the type_boolean_ result is equal to the false literal.
-- If the type_integer_ param_n_ is equal to 1 , the type_boolean_ result is equal to the true literal.
-requires:
-- The type_integer_ param_n_ is less_than_or_equal to 2147483647 and is greater_than_or_equal to negative 2147483648.

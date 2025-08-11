@@ -1,0 +1,89 @@
+package g0801_0900.s0860_lemonade_change;
+
+// #Easy #Array #Greedy #Programming_Skills_II_Day_17
+// #2022_03_27_Time_2_ms_(90.84%)_Space_75.8_MB_(55.09%)
+
+public class Solution {
+    /*@ 
+      @ // ----------  PRECONDITIONS  ----------
+      @
+      @ requires bills != null;                            // array exists
+      @ requires 1 <= bills.length && bills.length <= 100_000;
+      @ requires (\forall int i; 0 <= i < bills.length;    // only 5, 10 or 20 dollar notes
+      @                         bills[i] == 5  ||
+      @                         bills[i] == 10 ||
+      @                         bills[i] == 20);
+      @
+      @ // ----------  POSTCONDITION  ----------
+      @
+      @ /*  The method returns true  IFF  there exists a feasible way
+      @     to give change to every customer, starting with no money
+      @     in the cash-box and following the usual rules for making
+      @     change with $5 and $10 bills.                                     * /
+      @
+      @ ensures \result <==>                                         // logical equivalence
+      @         (\exists int[] fives, tens;                          // history of cash-box
+      @            fives.length == bills.length + 1 &&
+      @            tens.length  == bills.length + 1 &&
+      @
+      @            // start with an empty cash-box
+      @            fives[0] == 0 && tens[0] == 0 &&
+      @
+      @            // handle every customer i (0 … n-1)
+      @            (\forall int i; 0 <= i < bills.length;
+      @
+      @                // case 1 : customer pays with a $5
+      @                (bills[i] == 5  &&
+      @                 fives[i]   >= 0               && tens[i]   >= 0 &&
+      @                 fives[i+1] == fives[i] + 1    && tens[i+1] == tens[i]) ||
+      @
+      @                // case 2 : customer pays with a $10
+      @                (bills[i] == 10 &&
+      @                 fives[i]   >= 1               && tens[i]   >= 0 &&
+      @                 fives[i+1] == fives[i] - 1    && tens[i+1] == tens[i] + 1) ||
+      @
+      @                // case 3 : customer pays with a $20
+      @                (bills[i] == 20 &&
+      @                   (  // use one $10 and one $5
+      @                      (tens[i]  >= 1 && fives[i] >= 1 &&
+      @                       fives[i+1] == fives[i] - 1 &&
+      @                       tens[i+1]  == tens[i]  - 1)
+      @                   || // OR three $5 bills
+      @                      (tens[i]  == 0 && fives[i] >= 3 &&
+      @                       fives[i+1] == fives[i] - 3 &&
+      @                       tens[i+1]  == tens[i])
+      @                   )
+      @                )
+      @            ) &&
+      @
+      @            // never go negative at any time
+      @            (\forall int k; 0 <= k <= bills.length;
+      @                fives[k] >= 0 && tens[k] >= 0)
+      @         );
+      @*/
+    public boolean lemonadeChange(int[] bills) {
+        int countFive = 0;
+        int countTen = 0;
+        for (int bill : bills) {
+            if (bill == 5) {
+                countFive++;
+            } else if (bill == 10) {
+                if (countFive == 0) {
+                    return false;
+                }
+                countFive--;
+                countTen++;
+            } else if (bill == 20) {
+                if (countFive > 0 && countTen > 0) {
+                    countFive--;
+                    countTen--;
+                } else if (countFive >= 3) {
+                    countFive -= 3;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}

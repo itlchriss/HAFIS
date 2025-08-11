@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0319_bulb_switcher/purellm/o3/mutants/1/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/purellm/o3/mutants/1/Solution.java:22:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/purellm/o3/mutants/1/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/purellm/o3/mutants/1/Solution.java:28:
+      @    ensures 0 <= \result && \result <= 31623;      // √1 000 000 000 ≈ 31623
+           ^
+2 verification failures

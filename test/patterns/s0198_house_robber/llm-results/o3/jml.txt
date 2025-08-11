@@ -1,0 +1,67 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Below is a self-contained Java signature equipped with a complete JML specification that formalises the “House Robber” problem statement.
+
+```java
+public class HouseRobber {
+
+    /**
+     * Returns the maximum amount of money that can be robbed from a row of
+     * houses without ever robbing two adjacent houses.
+     *
+     * @param nums  an array whose i-th element is the amount of money stashed
+     *              in house i (0-based)
+     * @return      the largest attainable sum that respects the adjacency
+     *              constraint
+     */
+    /*@
+        public normal_behavior
+        requires nums != null;
+        requires 1 <= nums.length && nums.length <= 100;
+        requires (\forall int i; 0 <= i && i < nums.length;
+                     0 <= nums[i] && nums[i] <= 400);
+
+        // -------------- Functional specification ---------------------------
+        // There exists at least one admissible rob-plan that realises \result
+        ensures (\exists boolean robbed[];
+                   robbed.length == nums.length &&
+                   (\forall int i; 0 <= i && i < nums.length - 1;
+                        robbed[i] ==> !robbed[i+1]) &&
+                   \result ==
+                     (\sum int i; 0 <= i && i < nums.length;
+                         robbed[i] ? nums[i] : 0));
+
+        // \result is maximal among all admissible rob-plans
+        ensures (\forall boolean robbed[];
+                    robbed != null && robbed.length == nums.length &&
+                    (\forall int i; 0 <= i && i < nums.length - 1;
+                         robbed[i] ==> !robbed[i+1]);
+                 (\sum int i; 0 <= i && i < nums.length;
+                     robbed[i] ? nums[i] : 0) <= \result);
+
+        // -------------- Frame condition ------------------------------------
+        assignable \nothing;        // the method is observationally pure
+    @*/
+    public static int rob(int[] nums) {
+        // implementation goes here
+    }
+}
+```
+
+Explanation of the main JML clauses:
+
+1. Preconditions (`requires`)
+   • `nums` is non-null and its length obeys 1 ≤ n ≤ 100.  
+   • Every entry respects 0 ≤ nums[i] ≤ 400.
+
+2. Post-conditions (`ensures`)
+   • Existence: there is an array `robbed[]` (a Boolean choice for every
+     house) that satisfies the “no two adjacent true” constraint and whose
+     associated sum equals `\result`.
+   • Optimality: for every admissible `robbed[]`, its sum is **at most**
+     `\result`; hence `\result` is the maximum possible value.
+
+3. `assignable \nothing` marks the method as *observationally pure*: it
+   neither writes into `nums` nor modifies any visible state, which matches
+   the problem’s purely functional nature.
+
+This JML annotation captures precisely the informal specification given in
+the original problem statement.

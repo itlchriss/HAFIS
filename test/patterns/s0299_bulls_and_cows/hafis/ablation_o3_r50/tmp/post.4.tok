@@ -1,0 +1,1 @@
+The integer value represented by the digits that are contained by before the uppercase letter A in the String result is equal to the count of indices that the character at that index in the String param_secret_ is equal to the character at that index in the String param_guess_ . 

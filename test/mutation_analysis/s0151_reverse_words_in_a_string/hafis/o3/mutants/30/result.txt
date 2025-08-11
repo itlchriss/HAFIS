@@ -1,0 +1,15 @@
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721: verify: The prover cannot establish an assertion (UndefinedNegativeIndex: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:27:) in method reverseWords
+      @     //-RAC@            charArray[\result] == ch &&
+                                        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:27: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721:
+import java.nio.charset.Charset;
+         ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/o3/mutants/30/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/o3/mutants/30/Solution.java:12:) in method reverseWords
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/o3/mutants/30/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0151_reverse_words_in_a_string/hafis/o3/mutants/30/Solution.java:32:
+//@ ensures((s.equals("a good example")) ==> (\result.equals("example good a")));
+    ^
+error: An error while executing a proof script for reverseWords: (error "Solver has unexpectedly terminated")
+1 error
+4 verification failures

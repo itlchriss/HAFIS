@@ -1,0 +1,1 @@
+If an element at index i in the type_list_ result is not equal to stry_a and is not equal to stry_b and is not equal to stry_c , the element is equal to the string_representation of i+1 . 

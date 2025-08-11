@@ -1,0 +1,55 @@
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:22: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19:) in method isValid: \everything
+        Stack<Character> stack = new Stack<>();
+                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:22:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:22: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:11:) in method isValid
+        Stack<Character> stack = new Stack<>();
+                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:22:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:28: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19:) in method isValid: \everything
+            } else if (stack.peek() == '(') {
+                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:28:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:29: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19:) in method isValid: \everything
+                stack.pop();
+                         ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:29:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:27: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19:) in method isValid: \everything
+                stack.push(c);
+                          ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:27:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:30: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19:) in method isValid: \everything
+            } else if (c == '}' && !stack.isEmpty() && stack.peek() == '{') {
+                                                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:30:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:32: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19:) in method isValid: \everything
+            } else if (c == ']' && !stack.isEmpty() && stack.peek() == '[') {
+                                                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:32:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:33: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19:) in method isValid: \everything
+                stack.pop();
+                         ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:33:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:31: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19:) in method isValid: \everything
+                stack.pop();
+                         ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/34/Solution.java:31:
+      @ pure
+        ^
+18 verification failures

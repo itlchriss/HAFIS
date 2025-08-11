@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0020_valid_parentheses/purellm/o3/mutants/4/Solution.java:28: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0020_valid_parentheses/purellm/o3/mutants/4/Solution.java:12:) in method isValid
+        Stack<Character> stack = new Stack<>();
+                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/o3/mutants/4/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/o3/mutants/4/Solution.java:28:
+      @ public normal_behavior
+               ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/o3/mutants/4/Solution.java:27: verify: The prover cannot establish an assertion (InvariantExceptionExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method isValid: g0001_0100.s0020_valid_parentheses.Solution.isValid(String) (parameter s)
+    public boolean isValid(String s) {
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/o3/mutants/4/Solution.java:27:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/o3/mutants/4/Solution.java:27: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method isValid: g0001_0100.s0020_valid_parentheses.Solution.isValid(String) (parameter s)
+    public boolean isValid(String s) {
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/o3/mutants/4/Solution.java:27:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+6 verification failures

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0455_assign_cookies/hafis/claude4opus/mutants/14/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/hafis/claude4opus/mutants/14/Solution.java:14:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/claude4opus/mutants/14/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/hafis/claude4opus/mutants/14/Solution.java:32:
+//@ ensures((s.length == 0) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/claude4opus/mutants/14/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method findContentChildren
+//@ ensures(((g[0] == 1 && g[1] == 2 && g.length == 2) && (s[0] == 1 && s[1] == 2 && s[2] == 3 && s.length == 3)) ==> (\result == 2));
+                            ^
+./test/mutation_analysis/s0455_assign_cookies/hafis/claude4opus/mutants/14/Solution.java:32: verify: Associated method exit
+        return result;
+        ^
+4 verification failures

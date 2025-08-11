@@ -1,1 +1,0 @@
-ensures((n == 3) ==> (\result == 1));

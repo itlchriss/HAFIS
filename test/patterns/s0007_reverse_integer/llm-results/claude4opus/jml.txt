@@ -1,0 +1,112 @@
+Here's the JML specification for the reverse integer problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires Integer.MIN_VALUE <= x && x <= Integer.MAX_VALUE;
+      @ ensures \result == reverseDigits(x) || \result == 0;
+      @ ensures \result != 0 ==> 
+      @     Integer.MIN_VALUE <= reverseDigits(x) && 
+      @     reverseDigits(x) <= Integer.MAX_VALUE;
+      @ ensures \result == 0 ==> 
+      @     (reverseDigits(x) > Integer.MAX_VALUE || 
+      @      reverseDigits(x) < Integer.MIN_VALUE);
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ int reverse(int x) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ ensures \result == computeReverse(x);
+      @ assignable \nothing;
+      @ 
+      @ model pure helper long reverseDigits(int x) {
+      @     return computeReverse(x);
+      @ }
+      @*/
+    
+    /*@ private normal_behavior
+      @ ensures x == 0 ==> \result == 0;
+      @ ensures x > 0 ==> \result == reversePositive(x);
+      @ ensures x < 0 ==> \result == -reversePositive(-x);
+      @ assignable \nothing;
+      @ 
+      @ model pure helper long computeReverse(int x) {
+      @     if (x == 0) return 0;
+      @     if (x > 0) return reversePositive(x);
+      @     return -reversePositive(-x);
+      @ }
+      @*/
+    
+    /*@ private normal_behavior
+      @ requires x > 0;
+      @ ensures \result >= 0;
+      @ ensures x < 10 ==> \result == x;
+      @ ensures x >= 10 ==> 
+      @     \result == (x % 10) * pow10(countDigits(x) - 1) + 
+      @                reversePositive(x / 10);
+      @ measured_by x;
+      @ assignable \nothing;
+      @ 
+      @ model pure helper long reversePositive(int x) {
+      @     if (x < 10) return x;
+      @     int lastDigit = x % 10;
+      @     int remaining = x / 10;
+      @     int digitCount = countDigits(x);
+      @     return lastDigit * pow10(digitCount - 1) + reversePositive(remaining);
+      @ }
+      @*/
+    
+    /*@ private normal_behavior
+      @ requires x > 0;
+      @ ensures \result >= 1;
+      @ ensures x < 10 ==> \result == 1;
+      @ ensures x >= 10 ==> \result == 1 + countDigits(x / 10);
+      @ measured_by x;
+      @ assignable \nothing;
+      @ 
+      @ model pure helper int countDigits(int x) {
+      @     if (x < 10) return 1;
+      @     return 1 + countDigits(x / 10);
+      @ }
+      @*/
+    
+    /*@ private normal_behavior
+      @ requires n >= 0;
+      @ ensures n == 0 ==> \result == 1;
+      @ ensures n > 0 ==> \result == 10 * pow10(n - 1);
+      @ measured_by n;
+      @ assignable \nothing;
+      @ 
+      @ model pure helper long pow10(int n) {
+      @     if (n == 0) return 1;
+      @     return 10 * pow10(n - 1);
+      @ }
+      @*/
+}
+```
+
+This JML specification captures the following key aspects:
+
+1. **Main method contract** (`reverse`):
+   - The input is a valid 32-bit signed integer
+   - The result is either the reversed number or 0
+   - If the result is non-zero, the reversed number fits in 32-bit range
+   - If the result is 0, the reversed number would overflow
+
+2. **Helper model methods**:
+   - `reverseDigits`: Returns the mathematical reverse as a long (to handle overflow)
+   - `computeReverse`: Handles the sign and delegates to `reversePositive`
+   - `reversePositive`: Recursively reverses positive numbers
+   - `countDigits`: Counts the number of digits in a positive number
+   - `pow10`: Computes powers of 10
+
+3. **Key properties**:
+   - Pure methods (no side effects)
+   - Handles negative numbers by reversing the absolute value and negating
+   - Explicitly models the overflow behavior
+   - Uses `measured_by` for termination in recursive methods
+
+The specification allows for checking that the implementation correctly reverses digits while properly handling the overflow cases as required by the problem.

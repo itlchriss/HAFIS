@@ -1,0 +1,79 @@
+Here's the JML specification for the "Reverse Words in a String" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 1 <= s.length() && s.length() <= 10000;
+      @ requires (\exists int i; 0 <= i && i < s.length(); s.charAt(i) != ' ');
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           s.charAt(i) == ' ' || Character.isLetter(s.charAt(i)) || Character.isDigit(s.charAt(i)));
+      @ ensures \result != null;
+      @ ensures !\result.isEmpty();
+      @ ensures \result.length() > 0 && \result.charAt(0) != ' ' && \result.charAt(\result.length() - 1) != ' ';
+      @ ensures !(\exists int i; 0 <= i && i < \result.length() - 1; 
+      @          \result.charAt(i) == ' ' && \result.charAt(i + 1) == ' ');
+      @ ensures wordsAreReversed(s, \result);
+      @ ensures wordCountEqual(s, \result);
+      @ pure
+      @*/
+    public String reverseWords(String s) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires original != null && reversed != null;
+      @ ensures \result <==> 
+      @   (\forall int i; 0 <= i && i < wordCount(original); 
+      @     getWord(original, i).equals(getWord(reversed, wordCount(original) - 1 - i)));
+      @ pure
+      @ model private static boolean wordsAreReversed(String original, String reversed);
+      @*/
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ ensures \result == wordCount(s);
+      @ pure
+      @ model private static int wordCount(String s);
+      @*/
+    
+    /*@ private normal_behavior
+      @ requires original != null && reversed != null;
+      @ ensures \result <==> (wordCount(original) == wordCount(reversed));
+      @ pure
+      @ model private static boolean wordCountEqual(String original, String reversed);
+      @*/
+    
+    /*@ private normal_behavior
+      @ requires s != null && 0 <= index && index < wordCount(s);
+      @ ensures \result != null && !\result.isEmpty();
+      @ ensures (\forall int i; 0 <= i && i < \result.length(); \result.charAt(i) != ' ');
+      @ pure
+      @ model private static String getWord(String s, int index);
+      @*/
+}
+```
+
+This JML specification captures the following key requirements:
+
+1. **Preconditions (`requires`):**
+   - The input string `s` is not null
+   - The length is between 1 and 10,000 characters
+   - There is at least one non-space character (at least one word)
+   - The string contains only spaces, letters, and digits
+
+2. **Postconditions (`ensures`):**
+   - The result is not null and not empty
+   - No leading or trailing spaces in the result
+   - No consecutive spaces in the result (single space between words)
+   - Words are in reversed order (using the model method `wordsAreReversed`)
+   - The same number of words are preserved (using the model method `wordCountEqual`)
+
+3. **Model methods:**
+   - `wordsAreReversed`: Verifies that words appear in reverse order
+   - `wordCount`: Counts the number of words in a string
+   - `wordCountEqual`: Checks if two strings have the same word count
+   - `getWord`: Extracts the nth word from a string
+
+The specification uses model methods to abstract the complex logic of word extraction and comparison, making the specification more readable while maintaining precision. The `pure` modifier indicates that these methods have no side effects and can be used in specifications.

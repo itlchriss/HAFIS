@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/10/Solution.java:67: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/10/Solution.java:41:) in method twoSum
+        return new int[] {-1, -1};
+        ^
+./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/10/Solution.java:41: verify: Associated declaration: ./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/10/Solution.java:67:
+      @   ensures \result[0] != \result[1];
+          ^
+./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/10/Solution.java:62: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/10/Solution.java:11:) in method twoSum
+            if (indexMap.containsKey(requiredNum)) {
+                                    ^
+./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/10/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/10/Solution.java:62:
+    /*@ public normal_behavior
+               ^
+4 verification failures

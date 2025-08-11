@@ -1,0 +1,1 @@
+If the result is true, the input number is even.

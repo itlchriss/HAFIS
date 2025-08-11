@@ -1,1 +1,0 @@
-ensures((!(\result.size() == 0)) && (\result.size() <= 2));

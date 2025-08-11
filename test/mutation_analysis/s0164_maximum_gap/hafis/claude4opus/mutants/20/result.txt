@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0164_maximum_gap/hafis/claude4opus/mutants/20/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maximumGap
+//@ ensures((nums[0] == 3 && nums[1] == 6 && nums[2] == 9 && nums[3] == 1 && nums.length == 4) ==> (\result == 3));
+                                 ^
+./test/mutation_analysis/s0164_maximum_gap/hafis/claude4opus/mutants/20/Solution.java:19: verify: Associated method exit
+            return 0;
+            ^
+./test/mutation_analysis/s0164_maximum_gap/hafis/claude4opus/mutants/20/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0164_maximum_gap/hafis/claude4opus/mutants/20/Solution.java:14:) in method maximumGap
+        return ret;
+        ^
+./test/mutation_analysis/s0164_maximum_gap/hafis/claude4opus/mutants/20/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0164_maximum_gap/hafis/claude4opus/mutants/20/Solution.java:29:
+//@ ensures((\result >= 0) && (\result <= 1000000000));
+    ^
+4 verification failures

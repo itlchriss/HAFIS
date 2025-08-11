@@ -1,0 +1,49 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Below is a self-contained JML specification for a Java method that solves “387. First Unique Character in a String”.  
+Only the specification (no implementation) is given; it can be pasted into any Java file compiled with a JML tool.
+
+```java
+public class FirstUniqueCharacter {
+
+    /*@
+      @ // ----------  Preconditions  ----------------------------------------
+      @ requires s != null;
+      @ requires 1 <= s.length() && s.length() <= 100_000;
+      @ // only lower-case English letters
+      @ requires (\forall int i; 0 <= i && i < s.length();
+      @                         'a' <= s.charAt(i) && s.charAt(i) <= 'z');
+      @
+      @ // ----------  Postconditions  ---------------------------------------
+      @
+      @ /* 1.  If the result is –1 then every character occurring in the
+      @        string appears at least twice.                            * /
+      @ ensures (\result == -1) ==>
+      @           (\forall int i; 0 <= i && i < s.length();
+      @               (\exists int j; 0 <= j && j < s.length();
+      @                              j != i && s.charAt(i) == s.charAt(j)));
+      @
+      @ /* 2.  If the result is a valid index, it is the first (left-most)
+      @        character whose occurrence count is exactly one.          * /
+      @ ensures (0 <= \result && \result < s.length()) ==>
+      @         (
+      @           // (a) the character at \result is unique
+      @           (\forall int j; 0 <= j && j < s.length();
+      @                          j != \result ==> s.charAt(j) != s.charAt(\result))
+      @           &&
+      @           // (b) all indices before \result are *not* unique
+      @           (\forall int k; 0 <= k && k < \result;
+      @               (\exists int m; 0 <= m && m < s.length();
+      @                              m != k && s.charAt(k) == s.charAt(m)))
+      @         );
+      @
+      @ // ----------  Frame condition  --------------------------------------
+      @ assignable \nothing;          // the method is pure (no side effects)
+      @*/
+    public /*@ pure @*/ static int firstUniqChar(String s);
+}
+```
+
+Explanation of the clauses
+
+• Precondition “requires” lines encode the constraints from the problem (length bounds and lowercase letters only).  
+• Postcondition (ensures) lines encode exactly what it means to return –1 (no unique character) or a valid index (the returned character is unique and is the left-most such one).  
+• `assignable \nothing` declares that the method has no side effects; `pure` allows it to be called from other JML specifications.

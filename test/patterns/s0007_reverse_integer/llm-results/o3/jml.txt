@@ -1,0 +1,72 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Below is a compact JML-specification for a Java method
+
+ int reverse(int x)
+
+that captures exactly the natural–language requirements you supplied.
+
+```java
+public class ReverseInteger {
+
+    /*+ ------------------------------------------------------------------+
+      |  A specification–only (model) function that returns the decimal   |
+      |  digits of a non–negative number in reverse order.                |
+      |  It is written with mathematical (un-bounded) integers so it      |
+      |  can be used safely in the specification even though the program  |
+      |  itself may not use 64-bit types.                                 |
+      +------------------------------------------------------------------*/
+    /*@ public
+      @ model  pure  \bigint reverseDigits(\bigint v) {
+      @     /*  v is known to be non–negative in every call site below  */
+      @     \bigint r = 0;
+      @     while (v != 0) {
+      @         r = 10 * r + (v % 10);
+      @         v = v / 10;
+      @     }
+      @     return r;
+      @ } @*/
+
+    /*@ public normal_behavior
+      @   requires true;                 // x is already an 'int'
+      @
+      @   assignable \nothing;           // the method is pure
+      @
+      @   ensures
+      @     /* sign of the incoming value --------------------------------*/
+      @     (\let s  = (x < 0 ? -1 : 1);
+      @
+      @      /* mathematical (un-bounded) reverse of |x| -----------------*/
+      @      \let rev = reverseDigits( (x < 0 ? -x : x) );
+      @
+      @      /* CASE 1  ––  result inside 32-bit range  ------------------*/
+      @      ((s * rev >= (new \bigint(Integer.MIN_VALUE))) &&
+      @       (s * rev <= (new \bigint(Integer.MAX_VALUE))))
+      @        ==> \result == (int)(s * rev)
+      @
+      @   && /* CASE 2  ––  would overflow, so the method must return 0 --*/
+      @      (((s * rev) < (new \bigint(Integer.MIN_VALUE))  ||
+      @        (s * rev) > (new \bigint(Integer.MAX_VALUE))))
+      @        ==> \result == 0);
+      @*/
+    public /*@ pure @*/ static int reverse(int x) {
+        /* implementation goes here */
+    }
+}
+```
+
+Explanation of the specification
+
+1. `reverseDigits`  
+   • A model (specification-only) function that computes the reversed sequence of decimal digits of a non-negative integer.  
+   • It operates on JML’s mathematical type `\bigint`, so there is no danger of overflow inside the specification itself.  
+   • The program code may not use 64-bit types, but the specification may use un-bounded mathematics freely.
+
+2. Method contract for `reverse`  
+   • `assignable \nothing` declares the method to be free of side–effects.  
+   • The post-condition first extracts the sign `s` (+1 or –1).  
+   • `rev` is the mathematical reverse of `|x|`.  
+   • If `s * rev` still fits into the 32-bit range `[Integer.MIN_VALUE, Integer.MAX_VALUE]`, the method must return that value.  
+   • Otherwise it must return `0`.  
+
+This JML specification is a literal, formal translation of the informal statement:
+
+“Return the reversed-digit value when it fits into a signed 32-bit integer; otherwise return 0.”

@@ -1,4 +1,0 @@
-./test/s0033_search_in_rotated_sorted_array/llm-results/gpt4/Solution.java:25: error: incomparable types: int and boolean
-//@ ensures \result == -1 || \result == (\exists int i; 0 <= i < nums.length; nums[i] == target);
-                                     ^
-1 error

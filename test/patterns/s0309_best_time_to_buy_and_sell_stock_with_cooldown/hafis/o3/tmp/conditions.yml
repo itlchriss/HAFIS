@@ -1,0 +1,8 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0.
+- The type_integer_ result is equal to the maximum total profit obtainable from the sequence of prices in the type_integer_array_ param_prices_ when any number of transactions may be performed under the conditions that a new buy cannot occur until the previous stock has been sold and that at least 1 full day elapses after each sell operation before another buy operation.
+- If the type_integer_array_ param_prices_ is equal to arr_a , the type_integer_ result is equal to 3.
+- If the type_integer_array_ param_prices_ is equal to arr_a , the type_integer_ result is equal to 0.
+- If every element of the type_integer_array_ param_prices_ is greater_than_or_equal to the subsequent element , the type_integer_ result is equal to 0.
+requires:
+- The type_integer_array_ param_prices_'s values are greater_than_or_equal to 0 and are less_than_or_equal to 1000.

@@ -1,0 +1,8 @@
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/o3/mutants/2/Solution.java:31: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+      @   requires (\num_of int i;
+                    ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/o3/mutants/2/Solution.java:52: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method search
+        //@ maintaining 0 <= lo <= hi < nums.length || lo == hi + 1;
+            ^
+1 warning
+1 verification failure

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0941_valid_mountain_array/purellm/claude4opus/mutants/14/Solution.java:21: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method validMountainArray
+            if (arr[i] == arr[i + 1]) {
+                   ^
+./test/mutation_analysis/s0941_valid_mountain_array/purellm/claude4opus/mutants/14/Solution.java:31: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method validMountainArray
+            if (arr[i] <= arr[i + 1]) {
+                   ^
+./test/mutation_analysis/s0941_valid_mountain_array/purellm/claude4opus/mutants/14/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0941_valid_mountain_array/purellm/claude4opus/mutants/14/Solution.java:10:) in method validMountainArray
+        return i == arr.length - 1;
+        ^
+./test/mutation_analysis/s0941_valid_mountain_array/purellm/claude4opus/mutants/14/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0941_valid_mountain_array/purellm/claude4opus/mutants/14/Solution.java:35:
+      @ ensures \result == (arr.length >= 3 &&
+        ^
+4 verification failures

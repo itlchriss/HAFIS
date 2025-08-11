@@ -1,0 +1,6 @@
+ensures:
+- Ensures int result equals 0 when length of the chry_a is 1.
+- Ensures int result is greater_than to 0 strictly is less_than to length of the chry_a when length of the chry_b is greater_than to 1.
+- Ensures starting at index 0 and obeying the maximum jump lengths given by int[] the chry_a the last index is reachable in result jumps.
+- Ensures there exists no valid sequence of jumps from index 0 to the last index that uses fewer jumps than int result.
+requires: []

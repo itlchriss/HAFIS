@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0476_number_complement/hafis/claude4opus/mutants/9/Solution.java:15: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0476_number_complement/hafis/claude4opus/mutants/9/Solution.java:12:) in method findComplement
+        return ~num | ((Integer.highestOneBit(num) << 1) - 1);
+        ^
+./test/mutation_analysis/s0476_number_complement/hafis/claude4opus/mutants/9/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0476_number_complement/hafis/claude4opus/mutants/9/Solution.java:15:
+//@ ensures((num == 5) ==> (\result == 2));
+    ^
+./test/mutation_analysis/s0476_number_complement/hafis/claude4opus/mutants/9/Solution.java:15: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0476_number_complement/hafis/claude4opus/mutants/9/Solution.java:13:) in method findComplement
+        return ~num | ((Integer.highestOneBit(num) << 1) - 1);
+        ^
+./test/mutation_analysis/s0476_number_complement/hafis/claude4opus/mutants/9/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0476_number_complement/hafis/claude4opus/mutants/9/Solution.java:15:
+//@ ensures((num == 1) ==> (\result == 0));
+    ^
+4 verification failures

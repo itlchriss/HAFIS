@@ -1,0 +1,10 @@
+ensures:
+- The type_list_ result's length is less_than_or_equal to 2.
+- All integer values in the type_list_ result are unique.
+- Each integer value in the type_list_ result appears in the type_integer_array_ param_nums_ more times than the quotient between the type_integer_array_ param_nums_'s length and 3.
+- If an integer value is not contained in the type_list_ result , the number of its occurrences in the type_integer_array_ param_nums_ is less_than_or_equal to the quotient between the type_integer_array_ param_nums_'s length and 3.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_list_ result is equal to arr_b.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_list_ result is equal to arr_b.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_list_ result is equal to arr_b.
+requires:
+- The type_integer_array_ param_nums_'s values are less_than_or_equal to 1000000000 and are greater_than_or_equal to negative 1000000000.

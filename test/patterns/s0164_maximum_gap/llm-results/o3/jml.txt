@@ -1,0 +1,83 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Below is a possible JML contract for a Java method that solves LeetCode 164 “Maximum Gap”.
+
+```java
+public class MaximumGap {
+
+    /*@
+      @ /* ==========  PRE-CONDITIONS  ========== */
+      @   requires nums != null;
+      @   requires 1 <= nums.length && nums.length <= 100_000;
+      @   requires (\forall int i; 0 <= i && i < nums.length;
+      @                0 <= nums[i] && nums[i] <= 1_000_000_000);
+      @
+      @ /* ==========  MODIFIES-CLAUSE  ========== */
+      @   assignable \nothing;     // the input array is not modified
+      @
+      @ /* ==========  POST-CONDITIONS  ========== */
+      @
+      @   /*  If the array is too small, the answer is 0. */
+      @   ensures (nums.length < 2) ==> (\result == 0);
+      @
+      @   /*  Otherwise, result is the largest distance between two
+      @       consecutive elements of some ascending permutation of nums. */
+      @   ensures (nums.length >= 2) ==>
+      @           (\exists int[] s;
+      @               isSortedPermutation(nums, s) &&
+      @               \result ==
+      @                   (\max int k; 1 <= k && k < s.length; s[k] - s[k-1]));
+      @
+      @*/
+    public /*@ pure @*/ static int maximumGap(int[] nums) {
+        // …implementation…
+    }
+    
+    
+    /*--------------------------------------------------------------------
+     *                          HELPER SPECIFICATIONS
+     *------------------------------------------------------------------*/
+    
+    /*@
+      @ public model static boolean isSortedPermutation(int[] a, int[] b);
+      @
+      @  normal_behavior
+      @    ensures \result <==>
+      @            /* same length */ (a.length == b.length) &&
+      @            /* same multiset of values */
+      @            (\forall int i; 0 <= i && i < a.length;
+      @                 (\num_of int j; 0 <= j && j < a.length; a[i] == a[j])
+      @               == (\num_of int j; 0 <= j && j < b.length; a[i] == b[j])) &&
+      @            /* ascending order */
+      @            (\forall int k; 1 <= k && k < b.length; b[k-1] <= b[k]);
+      @*/
+    private /*@ pure helper @*/ static boolean isSortedPermutation(int[] a,
+                                                                   int[] b) {
+        return false; // never executed – specification only
+    }
+}
+```
+
+Explanation of the contract
+
+1. Preconditions  
+   • The array is non-null, its length ∈ [1, 100 000], and each element is in the
+     range [0, 1 000 000 000].  
+2. Assignable clause  
+   • `assignable \nothing` states that the method does not mutate any
+     pre-existing memory; the input array `nums` therefore remains unchanged.  
+3. Postconditions  
+   • If the array has fewer than two elements, the result is 0.  
+   • Otherwise, there exists an array `s` that  
+     – is a permutation of `nums`,  
+     – is sorted in non-decreasing order, and  
+     – the returned value equals  
+       `max_{1 ≤ k < s.length} (s[k] – s[k-1])`, expressed with JML’s `\max`
+       quantifier.  
+4. Helper predicate  
+   • `isSortedPermutation` is a pure model method that formally captures
+     “`b` is a non-decreasing permutation of `a`”.  It is only used in the
+     specification; its Java body is never executed.
+
+The functional requirement (“return the maximum adjacent difference in the
+sorted order of the array”) is now fully captured by the JML annotations; the
+time- and space-complexity requirements belong to the implementation and
+therefore are left as informal comments.

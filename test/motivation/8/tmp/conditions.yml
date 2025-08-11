@@ -1,0 +1,6 @@
+ensures:
+- If the type_integer_array_ param_arr_'s length is greater_than to 1 , the type_integer_array_ param_arr_ is sorted to the descending_order .
+- If the type_integer_array_ param_arr_'s length is equal to 0 or the type_integer_array_ param_arr_'s length is equal to 1 , the type_integer_array_ param_arr_ is unchanged .
+requires:
+- The type_integer_array_ param_arr_ is not null.
+- The type_integer_array_ param_arr_'s length is greater_than_or_equal to 0.

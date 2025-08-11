@@ -1,6 +1,0 @@
-5 2 3
-test/s0396_rotate_function/gpt35/build/Solution.java:14: error: array required, but int found
-//@ ensures((\forall int i; 0 <= i < nums.length; nums[i] == 100[i]) ==> (\result == 0));
-                                                             ^
-1 error
-

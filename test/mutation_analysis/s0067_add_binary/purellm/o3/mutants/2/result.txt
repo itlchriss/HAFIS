@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/2/Solution.java:46: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method addBinary
+        //@ maintaining -1 <= i <= aArray.length - 1 && bArray.length - 1 >= j >= -1;
+            ^
+1 verification failure

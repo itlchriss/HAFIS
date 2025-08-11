@@ -1,0 +1,1 @@
+ensures((bills[0] == 5) ==> (\result == false));

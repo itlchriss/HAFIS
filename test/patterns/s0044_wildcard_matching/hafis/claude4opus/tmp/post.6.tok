@@ -1,0 +1,1 @@
+If the type_boolean_ result is equal to the true literal and the type_string_ param_pattern_ does not contain asterisk , the type_string_ param_inputString_ 's length is equal to the type_string_ param_pattern_ 's length . 

@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/4/Solution.java:12: warning: Method isHappy(int) has 'assignable \everything', making its caller likely impossible to verify
+//@ ensures((n == 2) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/4/Solution.java:30: warning: Associated declaration: ./test/mutation_analysis/s0202_happy_number/hafis/o3/mutants/4/Solution.java:12:
+                happy = isHappy(sum);
+                               ^
+2 warnings

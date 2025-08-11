@@ -1,0 +1,23 @@
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/3/Solution.java:17: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @ requires (\sum int i; 0 <= i && i < aliceSizes.length; aliceSizes[i]) !=
+                  ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/3/Solution.java:18: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @          (\sum int j; 0 <= j && j < bobSizes.length; bobSizes[j]);
+                  ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/3/Solution.java:21: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @            (\sum int k; 0 <= k && k < aliceSizes.length; aliceSizes[k]) - aliceSizes[i] + bobSizes[j] ==
+                    ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/3/Solution.java:22: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @            (\sum int k; 0 <= k && k < bobSizes.length; bobSizes[k]) - bobSizes[j] + aliceSizes[i]));
+                    ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/3/Solution.java:30: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @ ensures (\sum int i; 0 <= i && i < aliceSizes.length; aliceSizes[i]) - \result[0] + \result[1] ==
+                 ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/3/Solution.java:31: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @         (\sum int j; 0 <= j && j < bobSizes.length; bobSizes[j]) - \result[1] + \result[0];
+                 ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/3/Solution.java:34: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
+                 ^
+6 warnings
+1 verification failure

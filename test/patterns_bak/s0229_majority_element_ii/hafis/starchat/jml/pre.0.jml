@@ -1,1 +1,0 @@
-requires((nums.size() <= 50000) && (nums.size() >= 1));

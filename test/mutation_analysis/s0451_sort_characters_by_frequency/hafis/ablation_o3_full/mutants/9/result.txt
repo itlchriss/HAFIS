@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/ablation_o3_full/mutants/9/Solution.java:33: error: unreachable statement
+                for (int i = 0; false; i++) {
+                                            ^
+1 error

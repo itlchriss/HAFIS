@@ -1,0 +1,1 @@
+requires((bobSizes.length >= 1) && (bobSizes.length <= 10000));

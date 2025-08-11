@@ -1,0 +1,50 @@
+Here's the JML specification for the 4Sum II problem:
+
+```java
+public class FourSumII {
+    
+    /*@ public normal_behavior
+      @ requires nums1 != null && nums2 != null && nums3 != null && nums4 != null;
+      @ requires nums1.length == nums2.length && nums2.length == nums3.length && 
+      @          nums3.length == nums4.length;
+      @ requires 1 <= nums1.length && nums1.length <= 200;
+      @ requires (\forall int i; 0 <= i && i < nums1.length; 
+      @           -268435456 <= nums1[i] && nums1[i] <= 268435456);
+      @ requires (\forall int i; 0 <= i && i < nums2.length; 
+      @           -268435456 <= nums2[i] && nums2[i] <= 268435456);
+      @ requires (\forall int i; 0 <= i && i < nums3.length; 
+      @           -268435456 <= nums3[i] && nums3[i] <= 268435456);
+      @ requires (\forall int i; 0 <= i && i < nums4.length; 
+      @           -268435456 <= nums4[i] && nums4[i] <= 268435456);
+      @ ensures \result == (\num_of int i, j, k, l; 
+      @                     0 <= i && i < nums1.length && 
+      @                     0 <= j && j < nums2.length && 
+      @                     0 <= k && k < nums3.length && 
+      @                     0 <= l && l < nums4.length;
+      @                     nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0);
+      @ ensures \result >= 0;
+      @*/
+    public /*@ pure @*/ int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
+        // Implementation here
+    }
+}
+```
+
+Key points in this JML specification:
+
+1. **Preconditions (`requires`):**
+   - All arrays must be non-null
+   - All arrays must have the same length
+   - Array length must be between 1 and 200 (inclusive)
+   - Each element must be within the range [-2^28, 2^28] (represented as -268435456 to 268435456)
+
+2. **Postconditions (`ensures`):**
+   - The result equals the count of all valid 4-tuples (i, j, k, l) where the sum of elements at those indices equals 0
+   - The result is non-negative
+
+3. **Additional notes:**
+   - The `\num_of` quantifier counts the number of tuples satisfying the given condition
+   - The method is marked as `pure` since it doesn't modify any state
+   - The specification uses `normal_behavior` to indicate that the method doesn't throw exceptions under the given preconditions
+
+This specification captures the essential requirements of the 4Sum II problem while being verifiable by JML tools.

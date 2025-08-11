@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0561_array_partition_i/hafis/claude4opus/mutants/7/Solution.java:20: error: unreachable statement
+        for (int i = 0; false; i = i + 2) {
+                                          ^
+1 error

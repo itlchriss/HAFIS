@@ -1,0 +1,1 @@
+exists x01.(exists x02.(_param_s_{NN}(x02) & _type_string_{NN}(x02) & Rel(x01,x02)) & _value{NNS}(x01) & (exists x03.(_literal{NN}(x03) & _chry_a{NN}(x03) & (x01 = x03)) | exists x04.(_literal{NN}(x04) & _chry_b{NN}(x04) & (x01 = x04))))

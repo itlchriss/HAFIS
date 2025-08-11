@@ -1,0 +1,1 @@
+If the type_integer_ result is equal to 1 , the first revision index that the numerical value of the revision in the type_string_ param_version1_ differs from the corresponding revision in the type_string_ param_version2_ has a greater numerical value in the type_string_ param_version1_ . 

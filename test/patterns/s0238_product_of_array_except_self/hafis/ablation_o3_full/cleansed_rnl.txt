@@ -1,0 +1,2 @@
+- For any int[] `nums` each element at index i in the int[] result equals the product of all elements in `nums` except the element at index i
+- For any int[] `nums` every element in the int[] result is guaranteed to fit within the 32 bit signed integer range

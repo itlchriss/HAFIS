@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0393_utf_8_validation/purellm/o3/mutants/34/Solution.java:20: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method utf8ValidModel
+              int b = bytes[i];
+                           ^
+./test/mutation_analysis/s0393_utf_8_validation/purellm/o3/mutants/34/Solution.java:73: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0393_utf_8_validation/purellm/o3/mutants/34/Solution.java:47:) in method validUtf8
+        return count <= 0;
+        ^
+./test/mutation_analysis/s0393_utf_8_validation/purellm/o3/mutants/34/Solution.java:47: verify: Associated declaration: ./test/mutation_analysis/s0393_utf_8_validation/purellm/o3/mutants/34/Solution.java:73:
+          ensures  \result == utf8ValidModel(data);
+          ^
+3 verification failures

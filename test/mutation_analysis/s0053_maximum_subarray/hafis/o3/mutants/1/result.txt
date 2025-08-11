@@ -1,0 +1,97 @@
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:16:) in method maxSubArray
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29:
+//@ ensures((nums[0] == 1 && nums.length == 1) ==> (\result == 1));
+    ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == -2 && nums[1] == 1 && nums[2] == -3 && nums[3] == 4 && nums[4] == -1 && nums[5] == 2 && nums[6] == 1 && nums[7] == -5 && nums[8] == 4 && nums.length == 9) ==> (\result == 6));
+                                  ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == -2 && nums[1] == 1 && nums[2] == -3 && nums[3] == 4 && nums[4] == -1 && nums[5] == 2 && nums[6] == 1 && nums[7] == -5 && nums[8] == 4 && nums.length == 9) ==> (\result == 6));
+                                                  ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == -2 && nums[1] == 1 && nums[2] == -3 && nums[3] == 4 && nums[4] == -1 && nums[5] == 2 && nums[6] == 1 && nums[7] == -5 && nums[8] == 4 && nums.length == 9) ==> (\result == 6));
+                                                                   ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == -2 && nums[1] == 1 && nums[2] == -3 && nums[3] == 4 && nums[4] == -1 && nums[5] == 2 && nums[6] == 1 && nums[7] == -5 && nums[8] == 4 && nums.length == 9) ==> (\result == 6));
+                                                                                   ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == -2 && nums[1] == 1 && nums[2] == -3 && nums[3] == 4 && nums[4] == -1 && nums[5] == 2 && nums[6] == 1 && nums[7] == -5 && nums[8] == 4 && nums.length == 9) ==> (\result == 6));
+                 ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == 5 && nums[1] == 4 && nums[2] == -1 && nums[3] == 7 && nums[4] == 8 && nums.length == 5) ==> (\result == 23));
+                                 ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == 5 && nums[1] == 4 && nums[2] == -1 && nums[3] == 7 && nums[4] == 8 && nums.length == 5) ==> (\result == 23));
+                                                 ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == 5 && nums[1] == 4 && nums[2] == -1 && nums[3] == 7 && nums[4] == 8 && nums.length == 5) ==> (\result == 23));
+                                                                  ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == 5 && nums[1] == 4 && nums[2] == -1 && nums[3] == 7 && nums[4] == 8 && nums.length == 5) ==> (\result == 23));
+                                                                                  ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:15:) in method maxSubArray
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29:
+//@ ensures((nums[0] == 5 && nums[1] == 4 && nums[2] == -1 && nums[3] == 7 && nums[4] == 8 && nums.length == 5) ==> (\result == 23));
+    ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == -2 && nums[1] == 1 && nums[2] == -3 && nums[3] == 4 && nums[4] == -1 && nums[5] == 2 && nums[6] == 1 && nums[7] == -5 && nums[8] == 4 && nums.length == 9) ==> (\result == 6));
+                                                                                                    ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == -2 && nums[1] == 1 && nums[2] == -3 && nums[3] == 4 && nums[4] == -1 && nums[5] == 2 && nums[6] == 1 && nums[7] == -5 && nums[8] == 4 && nums.length == 9) ==> (\result == 6));
+                                                                                                                    ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == -2 && nums[1] == 1 && nums[2] == -3 && nums[3] == 4 && nums[4] == -1 && nums[5] == 2 && nums[6] == 1 && nums[7] == -5 && nums[8] == 4 && nums.length == 9) ==> (\result == 6));
+                                                                                                                                    ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxSubArray
+//@ ensures((nums[0] == -2 && nums[1] == 1 && nums[2] == -3 && nums[3] == 4 && nums[4] == -1 && nums[5] == 2 && nums[6] == 1 && nums[7] == -5 && nums[8] == 4 && nums.length == 9) ==> (\result == 6));
+                                                                                                                                                     ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: Associated method exit
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14:) in method maxSubArray
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0053_maximum_subarray/hafis/o3/mutants/1/Solution.java:29:
+//@ ensures((nums[0] == -2 && nums[1] == 1 && nums[2] == -3 && nums[3] == 4 && nums[4] == -1 && nums[5] == 2 && nums[6] == 1 && nums[7] == -5 && nums[8] == 4 && nums.length == 9) ==> (\result == 6));
+    ^
+32 verification failures

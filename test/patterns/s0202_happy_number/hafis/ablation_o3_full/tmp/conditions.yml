@@ -1,0 +1,4 @@
+ensures:
+- boolean result is equal to the true literal when repeatedly replacing the current value of int the chry_a by the sum of the squares of its decimal digits eventually produces the value 1.
+- boolean result is equal to the false literal when the described replacement process enters a recurring cycle that never produces the value 1.
+requires: []

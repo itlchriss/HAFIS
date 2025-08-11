@@ -1,0 +1,85 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Below is a concise JML-specification of a method that must return “the number of ways to decode” a digit string as described in the informal text.  
+(The Java body of the method is left out on purpose – only the formal contract is required.)
+
+```java
+public class DecodeWays {
+
+    /**
+     * Returns the number of different ways the digit string {@code s}
+     * can be decoded into letters according to the mapping
+     *   1  -> 'A', 2  -> 'B', … , 26 -> 'Z'.
+     */
+    /*@
+      @ requires s != null;                                            // non–null reference
+      @ requires 1 <= s.length() && s.length() <= 100;                 // length constraint
+      @ requires (\forall int i; 0 <= i && i < s.length();
+      @                    Character.isDigit(s.charAt(i)));            // only digits 0–9
+      @
+      @ ensures  0 <= \result && \result <= Integer.MAX_VALUE;         // 32-bit answer
+      @
+      @ // the returned value equals the mathematical function
+      @ // #Dec(s) defined below (ghost specification only):
+      @ ensures \result == countDecodings(s);
+      @*/
+    public static int numDecodings(String s)/*@*/ { /* implementation here */ }
+    
+    
+    /******************************************************************
+     *                         Ghost section
+     *****************************************************************/
+    
+    /**
+     * Ghost / model method that formalises “the number of ways to decode”.
+     * It is used only in the specification (`ensures` clause above) – it
+     * never has to be executed.
+     */
+    /*@ public normal_behavior
+      @   requires s != null &&
+      @            (\forall int i; 0 <= i && i < s.length();
+      @                        Character.isDigit(s.charAt(i)));
+      @
+      @   // Definition by (pure) recursion:
+      @   ensures
+      @       // base cases
+      @       (s.length() == 0 ==> \result == 1) &&                     // empty suffix
+      @       (s.length()  > 0 && s.charAt(0) == '0' ==> \result == 0)  // leading 0
+      @       ||
+      @       // inductive step
+      @       (s.length()  > 0 && s.charAt(0) != '0'
+      @        ==> \result ==
+      @              countDecodings(s.substring(1))                    // take 1 digit
+      @            + ((s.length() >= 2 &&
+      @                (s.charAt(0) == '1'
+      @                 || (s.charAt(0) == '2' && s.charAt(1) <= '6')))
+      @                 ? countDecodings(s.substring(2))               // take 2 digits
+      @                 : 0));
+      @
+      @ pure
+      @*/
+    private static int countDecodings(/*@ nullable @*/ String s);
+}
+```
+
+Explanation of the contract.
+
+1. Preconditions (requires):
+   • `s` is non-null.  
+   • `1 ≤ s.length() ≤ 100`.  
+   • Every character of `s` is a decimal digit.
+
+2. Postconditions (ensures):
+   • The result is a non-negative 32-bit quantity – i.e. it fits into `int`.  
+   • The result equals the mathematical function `countDecodings(s)` that is
+     specified in the ghost section.  
+     The ghost method expresses the exact informal rules:
+       – If the string is empty, there is one valid decoding (the empty one).  
+       – A string that starts with `'0'` cannot be decoded.  
+       – Otherwise we may consume one digit (always allowed) or
+         two digits when the first two characters form a value
+         between 10 and 26; the number of decodings is the sum of both
+         possibilities.
+
+Because `countDecodings` is declared `pure` and never implemented,
+it serves solely as a mathematical abstraction, allowing any concrete
+implementation of `numDecodings` (DP, recursion, etc.) to be verified
+against the original informal specification.

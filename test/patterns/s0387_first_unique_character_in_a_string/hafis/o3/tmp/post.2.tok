@@ -1,0 +1,1 @@
+If the type_integer_ result is greater_than_or_equal to 0 , every character at an index smaller than the type_integer_ result in the type_string_ param_s_ occurs more than 1 time in the type_string_ param_s_ . 

@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:16:) in method hammingWeight
+        return flag ? sum + 1 : sum;
+        ^
+./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:29:
+//@ ensures((n == -3) ==> (\result == 31));
+    ^
+./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:13:) in method hammingWeight
+        return flag ? sum + 1 : sum;
+        ^
+./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:29:
+//@ ensures((\result >= 0) && (\result <= 32));
+    ^
+./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:14:) in method hammingWeight
+        return flag ? sum + 1 : sum;
+        ^
+./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:29:
+//@ ensures((n == 128) ==> (\result == 1));
+    ^
+./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:15:) in method hammingWeight
+        return flag ? sum + 1 : sum;
+        ^
+./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0191_number_of_1_bits/hafis/claude4opus/mutants/15/Solution.java:29:
+//@ ensures((n == 11) ==> (\result == 3));
+    ^
+8 verification failures

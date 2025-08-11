@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_full/mutants/19/Solution.java:31: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method reverse
+        return (int) rev;
+               ^
+1 verification failure

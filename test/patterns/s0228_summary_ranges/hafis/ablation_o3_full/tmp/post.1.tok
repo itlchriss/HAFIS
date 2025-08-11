@@ -1,0 +1,1 @@
+result List < String > contains strings that collectively describe contiguous numeric ranges which include every integer found in int [ ] stry_a and no integers that are not found in int [ ] stry_b . 

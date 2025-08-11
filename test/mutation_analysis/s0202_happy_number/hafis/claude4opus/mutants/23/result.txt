@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/23/Solution.java:32: verify: The prover cannot establish an assertion (Precondition: ./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/23/Solution.java:16:) in method isHappy
+                happy = isHappy(sum);
+                               ^
+./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/23/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/23/Solution.java:32:
+    public boolean isHappy(int n) {
+                   ^
+./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/23/Solution.java:12: verify: Precondition conjunct is false: ((n >= 1) && (n <= 2147483647))
+//@ requires((n >= 1) && (n <= 2147483647));
+            ^
+./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/23/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/23/Solution.java:14:) in method isHappy
+        return happy;
+        ^
+./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/23/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/23/Solution.java:37:
+//@ ensures((n == 19) ==> (\result == true));
+    ^
+5 verification failures

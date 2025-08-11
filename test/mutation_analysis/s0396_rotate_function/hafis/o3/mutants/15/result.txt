@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0396_rotate_function/hafis/o3/mutants/15/Solution.java:29: error: unreachable statement
+        return max;
+        ^
+1 error

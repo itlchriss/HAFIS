@@ -1,0 +1,1 @@
+Interpreting the type_integer_array_ param_num_ as a left to right digit sequence produces an integer N and adding the type_integer_ param_k_ to N produces an integer M such that the type_list_ result contains the digits of M in left to right order . 

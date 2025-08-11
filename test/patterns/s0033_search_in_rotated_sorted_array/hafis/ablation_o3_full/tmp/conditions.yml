@@ -1,0 +1,6 @@
+ensures:
+- int result equals the 0 based index at which int stry_a appears in int[] stry_b when int stry_c is present.
+- int result equals - 1 when int stry_a is absent from int[] stry_b.
+- int result is never is less_than to 0 and never is greater_than to the length of int[] stry_a - 1 when int stry_b is present.
+- int result satisfies the condition that int[] stry_a at position result equals int stry_b when int stry_c is present.
+requires: []

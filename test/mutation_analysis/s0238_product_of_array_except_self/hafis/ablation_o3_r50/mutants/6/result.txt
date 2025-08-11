@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/ablation_o3_r50/mutants/6/Solution.java:25: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method productExceptSelf
+            if (nums[i] != 0) {
+                    ^
+1 verification failure

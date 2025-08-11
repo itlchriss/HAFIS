@@ -1,6 +1,0 @@
-./test/s0888_fair_candy_swap/hafis/gpt4/build/Solution.java:19: error: bad operand types for binary operator '&&'
-//@ ensures((\result[0] + \result[1]) && (((\sum int i; 0 <= i < aliceSizes.length; aliceSizes[i]) - \result[0] == (\sum int i; 0 <= i < bobSizes.length; bobSizes[i]) - \result[1]) && (\result[1] + \result[0])));
-                                                                                                                                                                                     ^
-  first type:  boolean
-  second type: int
-1 error

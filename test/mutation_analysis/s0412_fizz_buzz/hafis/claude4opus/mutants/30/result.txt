@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0412_fizz_buzz/hafis/claude4opus/mutants/30/Solution.java:19: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public List<String> fizzBuzz(int n) {
+                        ^
+1 verification failure

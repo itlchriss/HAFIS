@@ -1,0 +1,13 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to negative 1 and is less_than_or_equal to the type_string_ param_haystack_'s length.
+- If the type_string_ param_needle_ is equal to the empty string literal , the type_integer_ result is equal to 0.
+- If the type_string_ param_needle_'s length is greater_than to the type_string_ param_haystack_'s length , the type_integer_ result is equal to negative 1.
+- If the type_integer_ result is equal to negative 1 , the type_string_ param_needle_ is not equal to substring of the type_string_ param_haystack_.
+- If the type_integer_ result is not equal to negative 1 , the substring of the type_string_ param_haystack_ that starts at the index equal to the type_integer_ result and whose length is equal to the type_string_ param_needle_'s length is equal to the type_string_ param_needle_.
+- If the type_string_ param_haystack_ is equal to stry_a and the type_string_ param_needle_ is equal to stry_b , the type_integer_ result is equal to 2.
+- If the type_string_ param_haystack_ is equal to stry_a and the type_string_ param_needle_ is equal to stry_b , the type_integer_ result is equal to negative 1.
+- If the type_string_ param_haystack_ is equal to the empty string literal and the type_string_ param_needle_ is equal to the empty string literal , the type_integer_ result is equal to 0.
+requires:
+- The type_string_ param_needle_'s length is less_than_or_equal to 50000 and is greater_than_or_equal to 0.
+- The type_string_ param_haystack_ only contains lower case alphabets.
+- The type_string_ param_needle_ only contains lower case alphabets.

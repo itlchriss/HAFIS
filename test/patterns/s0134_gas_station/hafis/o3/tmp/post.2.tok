@@ -1,0 +1,1 @@
+If the type_integer_ result is greater_than_or_equal to 0 , starting from the index equal to the type_integer_ result and moving clockwise , the running total of the difference between each value in the type_integer_array_ param_gas_ and the corresponding value in the type_integer_array_ param_cost_ is never negative and the traversal returns to the starting index . 

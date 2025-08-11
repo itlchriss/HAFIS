@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/o3/mutants/10/Solution.java:76: error: unreachable statement
+        return i + 1;
+        ^
+1 error

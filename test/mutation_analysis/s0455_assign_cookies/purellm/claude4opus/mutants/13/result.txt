@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:20: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:17:) in method findContentChildren: a[*]
+        Arrays.sort(g);
+                   ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:20:
+      @ assignable \nothing;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:21: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:17:) in method findContentChildren: a[*]
+        Arrays.sort(s);
+                   ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:21:
+      @ assignable \nothing;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:14:) in method findContentChildren
+        return result;
+        ^
+./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0455_assign_cookies/purellm/claude4opus/mutants/13/Solution.java:34:
+      @ ensures \result >= 0 && \result <= Math.min(g.length, s.length);
+        ^
+6 verification failures

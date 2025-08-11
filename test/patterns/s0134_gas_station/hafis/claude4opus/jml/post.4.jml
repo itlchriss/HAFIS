@@ -1,0 +1,1 @@
+ensures(((\sum int i; 0 <= i < gas.length; gas[i]) < (\sum int i; 0 <= i < cost.length; cost[i])) ==> (\result == -1));

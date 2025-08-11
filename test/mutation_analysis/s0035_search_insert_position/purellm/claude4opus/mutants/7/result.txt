@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:34: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method searchInsert
+            int mid = lo + (hi % lo) / 2;
+                               ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:16:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:43:
+      @ ensures 0 <= \result && \result <= nums.length;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:17:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:43:
+      @ ensures (\result < nums.length) ==>
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:21:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:43:
+      @ ensures (\result == nums.length) ==>
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/7/Solution.java:29: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int searchInsert(int[] nums, int target) {
+               ^
+8 verification failures

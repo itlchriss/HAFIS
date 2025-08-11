@@ -1,0 +1,9 @@
+- The parameter int[] "s" must not be null
+- Every element in int[] "g" must be at least 1 and at most 2147483647
+- Every element in int[] "s" must be at least 1 and at most 2147483647
+- result int is greater than or equal to 0
+- result int is less than or equal to the length of int[] "g"
+- result int is less than or equal to the length of int[] "s"
+- result int equals 0 when the length of int[] "s" equals 0
+- For any feasible assignment where each child receives at most one cookie whose size is greater than or equal to that child’s greed factor the number of content children in that assignment does not exceed result int
+- There exists a feasible assignment where each child receives at most one cookie whose size is greater than or equal to that child’s greed factor and the number of content children in that assignment equals result int

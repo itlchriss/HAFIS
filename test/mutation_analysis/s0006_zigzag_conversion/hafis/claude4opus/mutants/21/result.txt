@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:52: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:12:) in method convert
+        return buf.toString();
+        ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:52:
+//@ ensures(\result.length() == s.length());
+    ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:52: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:16:) in method convert
+        return buf.toString();
+        ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:52:
+//@ ensures(((s.equals("PAYPALISHIRING")) && (numRows == 4)) ==> (\result.equals("PINALSIGYAHRPI")));
+    ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:52: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:13:) in method convert
+        return buf.toString();
+        ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/claude4opus/mutants/21/Solution.java:52:
+//@ ensures(((s.equals("PAYPALISHIRING")) && (numRows == 3)) ==> (\result.equals("PAHNAPLSIIGYIR")));
+    ^
+6 verification failures

@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0561_array_partition_i/purellm/claude4opus/mutants/3/Solution.java:20: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0561_array_partition_i/purellm/claude4opus/mutants/3/Solution.java:17:) in method arrayPairSum: a[*]
+        Arrays.sort(nums);
+                   ^
+./test/mutation_analysis/s0561_array_partition_i/purellm/claude4opus/mutants/3/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0561_array_partition_i/purellm/claude4opus/mutants/3/Solution.java:20:
+      @ pure
+        ^
+./test/mutation_analysis/s0561_array_partition_i/purellm/claude4opus/mutants/3/Solution.java:23: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method arrayPairSum
+            sum += Math.min(nums[i], nums[i + 1]);
+                                         ^
+./test/mutation_analysis/s0561_array_partition_i/purellm/claude4opus/mutants/3/Solution.java:23: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method arrayPairSum
+            sum += Math.min(nums[i], nums[i + 1]);
+                                ^
+./test/mutation_analysis/s0561_array_partition_i/purellm/claude4opus/mutants/3/Solution.java:23: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method arrayPairSum
+            sum += Math.min(nums[i], nums[i + 1]);
+                                ^
+5 verification failures

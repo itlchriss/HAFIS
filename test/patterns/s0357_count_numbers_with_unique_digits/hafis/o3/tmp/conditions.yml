@@ -1,0 +1,6 @@
+ensures:
+- If the type_integer_ param_n_ is equal to 0 , the type_integer_ result is equal to 1.
+- If the type_integer_ param_n_ is equal to 2 , the type_integer_ result is equal to 91.
+- The type_integer_ result is greater_than_or_equal to 1 and is less_than_or_equal to 2345851.
+- The type_integer_ result is equal to the count of all integers the type_character_ chrs_a such that the type_character_ chrs_b is greater_than_or_equal to 0 and the type_character_ chrs_c is less_than to the type_integer_ int_expr and all digits in the type_character_ chrs_d are unique.
+requires: []

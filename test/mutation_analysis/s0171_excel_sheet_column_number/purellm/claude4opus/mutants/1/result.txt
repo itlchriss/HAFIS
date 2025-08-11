@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/claude4opus/mutants/1/Solution.java:22: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/claude4opus/mutants/1/Solution.java:12:) in method titleToNumber
+        return num;
+        ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/claude4opus/mutants/1/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/claude4opus/mutants/1/Solution.java:22:
+      @ ensures \result >= 1;
+        ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/claude4opus/mutants/1/Solution.java:20: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/claude4opus/mutants/1/Solution.java:6:) in method titleToNumber
+            num += (int) Math.pow(26, pow++) * (s.charAt(i) - 'A' + 1);
+                                                        ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/claude4opus/mutants/1/Solution.java:6: verify: Associated declaration: ./test/mutation_analysis/s0171_excel_sheet_column_number/purellm/claude4opus/mutants/1/Solution.java:20:
+    /*@ public normal_behavior
+               ^
+4 verification failures

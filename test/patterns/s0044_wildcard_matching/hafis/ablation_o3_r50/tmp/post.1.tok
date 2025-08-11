@@ -1,0 +1,1 @@
+If type_boolean_ result is equal to the false literal , the type_string_ param_pattern_ does not match the type_string_ param_inputString_ when the questionmark character is any single character and the asterisk character is any sequence of characters including the empty sequence . 

@@ -1,0 +1,6 @@
+ensures:
+- boolean result is equal to the true literal when String stry_a is composed exclusively of uppercase_alphabets.
+- boolean result is equal to the true literal when String stry_a is composed exclusively of lowercase_alphabets.
+- boolean result is equal to the true literal when String stry_a has its first letter uppercase and every subsequent letter lowercase.
+- boolean result is equal to the false literal when none of the above conditions are satisfied.
+requires: []

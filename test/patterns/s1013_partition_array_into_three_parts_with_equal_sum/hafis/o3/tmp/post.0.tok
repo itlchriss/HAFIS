@@ -1,0 +1,1 @@
+If type_boolean_ result is equal to the true literal , the type_integer_array_ param_arr_ is split into 3 contiguous non empty sections such that the sum of the first section is equal to the sum of the second section and is equal to the sum of the third section . 

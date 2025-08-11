@@ -1,0 +1,17 @@
+./test/mutation_analysis/s0551_student_attendance_record_i/purellm/o3/mutants/13/Solution.java:24: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @              (\sum int i; 0 <= i && i < s.length();
+                      ^
+./test/mutation_analysis/s0551_student_attendance_record_i/purellm/o3/mutants/13/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0551_student_attendance_record_i/purellm/o3/mutants/13/Solution.java:21:) in method checkRecord
+                    return false;
+                    ^
+./test/mutation_analysis/s0551_student_attendance_record_i/purellm/o3/mutants/13/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0551_student_attendance_record_i/purellm/o3/mutants/13/Solution.java:46:
+      @   ensures \result <==>
+          ^
+./test/mutation_analysis/s0551_student_attendance_record_i/purellm/o3/mutants/13/Solution.java:43: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0551_student_attendance_record_i/purellm/o3/mutants/13/Solution.java:6:) in method checkRecord
+            if (s.charAt(i) == 'A') {
+                        ^
+./test/mutation_analysis/s0551_student_attendance_record_i/purellm/o3/mutants/13/Solution.java:6: verify: Associated declaration: ./test/mutation_analysis/s0551_student_attendance_record_i/purellm/o3/mutants/13/Solution.java:43:
+    /*@ public normal_behavior
+               ^
+1 warning
+4 verification failures

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_full/mutants/39/Solution.java:29: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method plusOne
+            ans[0] = carry;
+               ^
+1 verification failure

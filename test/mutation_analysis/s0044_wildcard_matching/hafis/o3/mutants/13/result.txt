@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0044_wildcard_matching/hafis/o3/mutants/13/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0044_wildcard_matching/hafis/o3/mutants/13/Solution.java:14:) in method isMatch
+        return isMatch;
+        ^
+./test/mutation_analysis/s0044_wildcard_matching/hafis/o3/mutants/13/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0044_wildcard_matching/hafis/o3/mutants/13/Solution.java:53:
+//@ ensures(((inputString.equals("aa")) && (pattern.equals("a"))) ==> (\result == false));
+    ^
+2 verification failures

@@ -1,0 +1,7 @@
+- All values in the integer array parameter `nums` are less than or equal to 1000000000 and are greater than or equal to -1000000000.
+- The integer parameter `k` is less than or equal to 100000 and is greater than or equal to 0.
+- The boolean result is true if there exists a value that appears at least twice in the integer array parameter `nums` such that the difference between the positions of the first two occurrences of that value is less than or equal to the integer parameter `k`.
+- The boolean result is false if every pair of equal values in the integer array parameter `nums` occurs with a difference between their positions that is greater than the integer parameter `k`.
+- If the integer array parameter `nums` is equal to [1,2,3,1] and the integer parameter `k` is equal to 3, the boolean result is true.
+- If the integer array parameter `nums` is equal to [1,0,1,1] and the integer parameter `k` is equal to 1, the boolean result is true.
+- If the integer array parameter `nums` is equal to [1,2,3,1,2,3] and the integer parameter `k` is equal to 2, the boolean result is false.

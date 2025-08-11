@@ -1,0 +1,10 @@
+ensures:
+- The type_string_ result's length is equal to the type_string_ param_s_'s length.
+- The type_string_ result's values are printable_ASCII_characters.
+- For every position that the character in the type_string_ param_s_ is an uppercase English letter , the character at the same position in the type_string_ result is equal to the lowercase version of that uppercase English letter.
+- For every position that the character in the type_string_ param_s_ is not an uppercase English letter , the character at the same position in the type_string_ result is equal to the character at the same position in the type_string_ param_s_.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b.
+requires:
+- The type_string_ param_s_'s values are printable_ASCII_characters.

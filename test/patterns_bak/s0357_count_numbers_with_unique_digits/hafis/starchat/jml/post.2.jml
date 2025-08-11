@@ -1,1 +1,0 @@
-ensures((n == 0) ==> (\result == 1));

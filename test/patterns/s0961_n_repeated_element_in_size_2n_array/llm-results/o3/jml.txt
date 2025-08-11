@@ -1,0 +1,49 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Below is a complete JML specification for a Java method  
+  int repeatedNTimes(int[] nums)  
+that solves the problem “961. N-Repeated Element in Size 2 N Array”.
+
+```java
+public class Solution {
+
+    /*@
+      public normal_behavior
+        // --- Pre-conditions ---
+        requires nums != null;
+        requires nums.length % 2 == 0;                  // |nums| = 2·n
+        requires 4 <= nums.length && nums.length <= 10000;
+        requires (\forall int i; 0 <= i && i < nums.length;
+                               0 <= nums[i] && nums[i] <= 10000);
+
+        // There is exactly one element that occurs n times
+        requires (\let int n = nums.length / 2;
+                  (\exists int e;
+                       (\num_of int k; 0 <= k && k < nums.length; nums[k] == e) == n
+                    && (\forall int v; v != e ==> 
+                          (\num_of int k; 0 <= k && k < nums.length; nums[k] == v) == 1)));
+
+        // --- Frame condition ---
+        assignable \nothing;     // method must be pure w.r.t. visible state
+
+        // --- Post-conditions ---
+        ensures (\let int n = nums.length / 2;
+                 (\num_of int k; 0 <= k && k < nums.length; nums[k] == \result) == n);
+
+        ensures (\forall int v; v != \result ==>
+                  (\num_of int k; 0 <= k && k < nums.length; nums[k] == v) == 1);
+
+        ensures 0 <= \result && \result <= 10000;
+     @*/
+    public /*@ pure @*/ static int repeatedNTimes(int[] nums);
+}
+```
+
+Explanation of the main clauses:
+
+• `requires` lines formalise the constraints from the problem statement  
+  – array length is even (2·n) and within the allowed range  
+  – every entry satisfies 0 ≤ nums[i] ≤ 10⁴  
+  – exactly one value occurs `n = nums.length / 2` times, all others once.
+
+• `assignable \nothing;` states that the method does not mutate any visible state (it only reads the array and returns a value).
+
+• `ensures` lines guarantee that the returned value is precisely the one that appears `n` times and that every other element appears exactly once, as required.

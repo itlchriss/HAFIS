@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0228_summary_ranges/hafis/ablation_o3_r50/mutants/17/Solution.java:18: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Iterable.jml:10:) in method summaryRanges: g0201_0300.s0228_summary_ranges.Solution.summaryRanges(int[]) (for result type)
+            return ranges;
+            ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/hafis/ablation_o3_r50/mutants/17/Solution.java:18:
+    //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
+                   ^
+2 verification failures

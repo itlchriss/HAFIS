@@ -1,0 +1,1 @@
+If the type_boolean_ result is equal to the true literal , the type_string_ param_pattern_ matches the type_string_ param_inputString_ under the rules that the character ? matches any single character and the character * matches any sequence of characters including the empty sequence . 

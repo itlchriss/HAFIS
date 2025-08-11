@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/ablation_o3_r50/mutants/2/Solution.java:22: error: unreachable statement
+        return ans;
+        ^
+1 error

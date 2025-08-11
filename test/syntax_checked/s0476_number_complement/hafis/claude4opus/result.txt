@@ -1,0 +1,7 @@
+./test/syntax_check/s0476_number_complement/hafis/claude4opus/Solution.java:10: error: integer number too large
+//@ requires((num >= 1) && (num < 2147483648));
+                                  ^
+./test/syntax_check/s0476_number_complement/hafis/claude4opus/Solution.java:11: error: integer number too large
+//@ ensures((\result >= 0) && (\result < 2147483648));
+                                         ^
+2 errors

@@ -1,0 +1,81 @@
+Here's the JML specification for the "Power of Two" problem:
+
+```java
+public class PowerOfTwo {
+    
+    /*@ public normal_behavior
+      @ requires true;
+      @ ensures \result == (\exists int x; 0 <= x && x <= 30; n == Math.pow(2, x));
+      @ ensures \result == (n > 0 && (n & (n - 1)) == 0);
+      @ ensures n == 1 ==> \result == true;
+      @ ensures n == 16 ==> \result == true;
+      @ ensures n == 3 ==> \result == false;
+      @ ensures n == 4 ==> \result == true;
+      @ ensures n == 5 ==> \result == false;
+      @ ensures n <= 0 ==> \result == false;
+      @*/
+    public /*@ pure @*/ boolean isPowerOfTwo(int n) {
+        // Implementation here
+    }
+}
+```
+
+Alternative, more detailed specification:
+
+```java
+public class PowerOfTwo {
+    
+    /*@ public normal_behavior
+      @ requires true;
+      @ ensures \result <==> isPowerOfTwoProperty(n);
+      @
+      @ // Define helper predicate for clarity
+      @ public static model pure boolean isPowerOfTwoProperty(int n) {
+      @     return n > 0 && (\exists int x; 0 <= x && x <= 30; n == (1 << x));
+      @ }
+      @*/
+    /*@ 
+      @ // Alternative postconditions (all equivalent)
+      @ ensures \result == (n > 0 && (n & (n - 1)) == 0);
+      @ ensures \result == (n > 0 && Integer.bitCount(n) == 1);
+      @
+      @ // Specific test cases from examples
+      @ ensures n == 1 ==> \result == true;   // 2^0 = 1
+      @ ensures n == 16 ==> \result == true;  // 2^4 = 16
+      @ ensures n == 3 ==> \result == false;
+      @ ensures n == 4 ==> \result == true;   // 2^2 = 4
+      @ ensures n == 5 ==> \result == false;
+      @
+      @ // Edge cases
+      @ ensures n <= 0 ==> \result == false;
+      @ ensures n == Integer.MAX_VALUE ==> \result == false; // 2^31 - 1 is not a power of 2
+      @ ensures n == (1 << 30) ==> \result == true; // 2^30 is the largest power of 2 in int range
+      @*/
+    public /*@ pure @*/ boolean isPowerOfTwo(int n) {
+        // Implementation here
+    }
+    
+    /*@ // Lemma: relationship between consecutive powers of two
+      @ public invariant (\forall int k; 0 <= k && k < 30; 
+      @     isPowerOfTwoProperty(1 << k) && 
+      @     !isPowerOfTwoProperty((1 << k) + 1) &&
+      @     isPowerOfTwoProperty(1 << (k + 1)));
+      @*/
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Main postcondition**: The result is true if and only if there exists an integer x (0 ≤ x ≤ 30) such that n = 2^x. The upper bound of 30 is because 2^31 would overflow the int type.
+
+2. **Bit manipulation postcondition**: `(n & (n - 1)) == 0` is a well-known bit manipulation trick that checks if n is a power of two. This works because powers of two have exactly one bit set in their binary representation.
+
+3. **Test cases**: All the examples from the problem are included as postconditions to ensure the implementation handles these specific cases correctly.
+
+4. **Edge cases**: 
+   - Negative numbers and zero cannot be powers of two
+   - The largest power of two that fits in an int is 2^30 = 1,073,741,824
+
+5. **Pure method**: The method is marked as `pure` since it has no side effects and only depends on its input parameter.
+
+The specification allows for multiple implementation strategies, including the bit manipulation approach mentioned in the "follow up" question.

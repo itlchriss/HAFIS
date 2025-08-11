@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0908_smallest_range_i/purellm/o3/mutants/15/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/o3/mutants/15/Solution.java:27:) in method smallestRangeI
+        return (max * k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/o3/mutants/15/Solution.java:27: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/o3/mutants/15/Solution.java:39:
+  @   ensures 0 <= \result && \result <= 10000;
+      ^
+2 verification failures

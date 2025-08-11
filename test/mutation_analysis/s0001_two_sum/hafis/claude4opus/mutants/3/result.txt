@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0001_two_sum/hafis/claude4opus/mutants/3/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0001_two_sum/hafis/claude4opus/mutants/3/Solution.java:19:) in method twoSum
+        return new int[] {-1, -1};
+        ^
+./test/mutation_analysis/s0001_two_sum/hafis/claude4opus/mutants/3/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0001_two_sum/hafis/claude4opus/mutants/3/Solution.java:31:
+//@ ensures((\result[0] >= 0) && (\result[0] < numbers.length));
+    ^
+./test/mutation_analysis/s0001_two_sum/hafis/claude4opus/mutants/3/Solution.java:25: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method twoSum
+            Integer requiredNum = target % numbers[i];
+                                         ^
+3 verification failures

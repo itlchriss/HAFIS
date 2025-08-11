@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/32/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/32/Solution.java:19:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/32/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/32/Solution.java:53:
+        ensures   (\forall int i; 0 <= i && i < \result.length;
+        ^
+./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/32/Solution.java:45: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/32/Solution.java:30:) in method plusOne: digits[i]
+            digits[i] = sum + 10;
+                      ^
+./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/32/Solution.java:30: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/32/Solution.java:45:
+        assignable \nothing;
+        ^
+4 verification failures

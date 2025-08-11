@@ -1,0 +1,1 @@
+- For any int parameter 'n' within negative two power thirty one to two power thirty one minus one inclusive when no int value x satisfies 'n' equals four raised to x boolean result is false

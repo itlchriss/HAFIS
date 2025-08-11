@@ -1,0 +1,9 @@
+- All values in the integer array parameter `num` are less than or equal to 9 and are greater than or equal to 0.
+- If the first value of the integer array parameter `num` is equal to 0, the length of the integer array parameter `num` is equal to 1.
+- The integer parameter `k` is less than or equal to 10000 and is greater than or equal to 1.
+- All values in the list result are less than or equal to 9 and are greater than or equal to 0.
+- If the length of the list result is greater than 1, the first value of the list result is greater than 0.
+- The integer value represented by the sequence of digits in the list result is equal to the sum between the integer value represented by the sequence of digits in the integer array parameter `num` and the integer parameter `k`.
+- If the integer array parameter `num` is equal to [1,2,0,0] and the integer parameter `k` is equal to 34, the list result is equal to [1,2,3,4].
+- If the integer array parameter `num` is equal to [2,7,4] and the integer parameter `k` is equal to 181, the list result is equal to [4,5,5].
+- If the integer array parameter `num` is equal to [2,1,5] and the integer parameter `k` is equal to 806, the list result is equal to [1,0,2,1].

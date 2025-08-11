@@ -1,1 +1,0 @@
-ensures((\result[0] + \result[1]) && (((\sum int i; 0 <= i < aliceSizes.length; aliceSizes[i]) - \result[0] == (\sum int i; 0 <= i < bobSizes.length; bobSizes[i]) - \result[1]) && (\result[1] + \result[0])));

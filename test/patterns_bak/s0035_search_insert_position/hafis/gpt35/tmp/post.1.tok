@@ -1,1 +1,0 @@
-If the type_string_ strs_a value is not found in the type_string_ strs_b array , the type_integer_ result is the index that the type_string_ strs_c value would be inserted in order to maintain the sorted order . 

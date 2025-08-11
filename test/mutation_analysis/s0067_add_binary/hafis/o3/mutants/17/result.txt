@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0067_add_binary/hafis/o3/mutants/17/Solution.java:31: error: unreachable statement
+        if (carry != 0) {
+        ^
+1 error

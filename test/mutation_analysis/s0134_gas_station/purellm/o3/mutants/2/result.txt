@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0134_gas_station/purellm/o3/mutants/2/Solution.java:31: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

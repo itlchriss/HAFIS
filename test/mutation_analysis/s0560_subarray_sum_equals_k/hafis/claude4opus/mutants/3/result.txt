@@ -1,0 +1,37 @@
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:17:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:36:
+//@ ensures((\result >= 0) && (\result <= nums.length));
+    ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method subarraySum
+//@ ensures(((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums.length == 3) && (k == 2)) ==> (\result == 2));
+                                  ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:36: verify: Associated method exit
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:19:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:36:
+//@ ensures(((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums.length == 3) && (k == 3)) ==> (\result == 2));
+    ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method subarraySum
+//@ ensures(((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums.length == 3) && (k == 3)) ==> (\result == 2));
+                                                  ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:36: verify: Associated method exit
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method subarraySum
+//@ ensures(((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums.length == 3) && (k == 2)) ==> (\result == 2));
+                                                  ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:36: verify: Associated method exit
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:18:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/hafis/claude4opus/mutants/3/Solution.java:36:
+//@ ensures(((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums.length == 3) && (k == 2)) ==> (\result == 2));
+    ^
+12 verification failures

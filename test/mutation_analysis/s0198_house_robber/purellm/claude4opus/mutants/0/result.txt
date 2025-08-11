@@ -1,0 +1,26 @@
+./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:21: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @          \result == (\sum int i; 0 <= i && i < nums.length && robbed[i];
+                             ^
+./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:28: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @          (\sum int i; 0 <= i && i < nums.length && robbed[i];
+                  ^
+./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:16:) in method rob
+            return Math.max(nums[0], nums[1]);
+            ^
+./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:40:
+      @ ensures (\exists boolean[] robbed;
+        ^
+./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:50: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:15:) in method rob
+        return profit[nums.length - 1];
+        ^
+./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:50:
+      @ ensures \result <= nums.length * 400;
+        ^
+./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:50: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:14:) in method rob
+        return profit[nums.length - 1];
+        ^
+./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0198_house_robber/purellm/claude4opus/mutants/0/Solution.java:50:
+      @ ensures \result >= 0;
+        ^
+2 warnings
+6 verification failures

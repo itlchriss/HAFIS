@@ -1,0 +1,1 @@
+ensures((target < nums[0]) ==> (\result == 0));

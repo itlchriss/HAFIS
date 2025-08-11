@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/ablation_o3_r50/mutants/44/Solution.java:48: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/ablation_o3_r50/mutants/44/Solution.java:10:) in method myAtoi
+                return Integer.MAX_VALUE;
+                ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/ablation_o3_r50/mutants/44/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/ablation_o3_r50/mutants/44/Solution.java:48:
+//@ ensures((str.equals("words and 987")) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/ablation_o3_r50/mutants/44/Solution.java:16: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int myAtoi(String str) {
+               ^
+3 verification failures

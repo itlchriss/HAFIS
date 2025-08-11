@@ -1,0 +1,6 @@
+- If the String `s` has length zero then int result equals zero
+- The int result denotes the maximum length of a contiguous substring of the String `s` that forms a well formed sequence of opening and closing brackets
+- The int result is never negative
+- The int result is never greater than the length of the String `s`
+- The int result equals zero when the String `s` contains no well formed bracket substring
+- The int result equals the length of the String `s` when the entire String `s` is a well formed bracket sequence

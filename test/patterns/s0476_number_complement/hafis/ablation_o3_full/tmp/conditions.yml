@@ -1,0 +1,6 @@
+ensures:
+- int result has a binary representation whose length equals the binary length of int the chry_a when written without leading 0 bits.
+- every bit in result is 1 when the corresponding bit in int the chry_a is 0.
+- every bit in result is 0 when the corresponding bit in int the chry_a is 1.
+- int result lies in the closed interval from 0 to 2 raised to the power of the binary length of int the chry_a - 1 and result is different from int the chry_b.
+requires: []

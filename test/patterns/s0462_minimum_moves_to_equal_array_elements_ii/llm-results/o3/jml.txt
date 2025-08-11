@@ -1,0 +1,92 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Below is a pure-specification skeleton that captures the whole textual
+requirement with JML (Java Modeling Language) annotations.
+Only the contract is given – the implementation body is intentionally
+omitted, because the user asked for “the specification”.  The
+annotations say, in essence, that the returned value is
+
+    min_{t ∈ ℤ}  Σ |nums[i] – t|   (0 ≤ i < n)
+
+and that all
+pre-conditions and result-range guarantees taken from the LeetCode
+statement hold.
+
+```java
+import java.util.Arrays;   // ← may be handy for an implementation
+                           //   (has no impact on the spec)
+
+/** 462. Minimum Moves to Equal Array Elements II */
+public class MinMovesII {
+
+    /********************************************************************
+     *  Auxiliary (pure) model functions used only in the specification *
+     ********************************************************************/
+
+    /*@  public pure model long abs(long x);
+      @    ensures \result == (x < 0 ? -x : x);
+      @    assignable \nothing;
+      @*/
+
+    /*@  public pure model long sumAbs(int[] a, int t);
+      @    requires a != null;
+      @    ensures  \result ==
+      @             (\sum int k; 0 <= k && k < a.length;
+      @                    abs( (long)a[k] - (long)t ));
+      @    assignable \nothing;
+      @*/
+
+    /********************************************************************
+     *                         Requested routine                        *
+     ********************************************************************/
+
+    /*@
+      @  // ---------------  Pre-conditions  ---------------------------
+      @  requires nums != null;
+      @  requires 1 <= nums.length && nums.length <= 100000;
+      @  requires (\forall int i; 0 <= i && i < nums.length;
+      @                       -1000000000 <= nums[i] &&
+      @                        nums[i]    <= 1000000000);
+      @
+      @  // ---------------  Post-conditions  --------------------------
+      @
+      @  // 1.  Result equals a minimum total number of moves
+      @  ensures (\exists int t;
+      @              \result == sumAbs(nums, t) &&
+      @              (\forall int u;
+      @                   sumAbs(nums, t) <= sumAbs(nums, u)));
+      @
+      @  // 2.  The returned value is guaranteed to fit into a 32-bit int
+      @  ensures Integer.MIN_VALUE <= \result && \result <= Integer.MAX_VALUE;
+      @
+      @  // 3.  Pure function – it does not modify any visible state
+      @  assignable \nothing;
+      @*/
+    public static /*@ pure @*/ int minMoves2(int[] nums);
+}
+```
+
+Explanation of the main clauses
+--------------------------------
+• `requires` reproduces the input constraints (`nums` non-null,
+  1 ≤ n ≤ 10⁵, values in [–10⁹, 10⁹]).
+
+• `sumAbs(int[] a, int t)` is a pure *model* function that *denotes*
+  (but does not implement) the expression  
+  Σ |a[i] – t|.  
+  It is defined once and reused in the post-condition to
+  keep the contract readable.
+
+• The first `ensures` clause says that there exists some integer `t`
+  (the optimal common value, **e.g.** a median) such that
+  the returned value is exactly that cost and
+  is no larger than the cost for any other integer `u`
+  — hence it is the minimum.
+
+• The second `ensures` clause records the promise that the answer fits
+  into a 32-bit signed integer, as stated in the original task.
+
+• `assignable \nothing` turns the method into a *pure* function from
+  the viewpoint of JML – it must not mutate any visible state.
+
+With this contract in place, any Java implementation that passes
+Run-time Assertion Checking (RAC) for the JML above is guaranteed to
+satisfy the exact behaviour described in the LeetCode specification.

@@ -1,0 +1,1 @@
+Boolean result is equal to the true literal only if for every processed prefix of the type_integer_array_ param_bills_ the cumulative value of collected bills - 5 times the number of processed customers is greater_than_or_equal to 0 . 

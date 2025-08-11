@@ -1,1 +1,0 @@
-Each element in the type_integer_array_ result is equal to the product of all elements in the type_integer_array_ param_nums_ except the element at the same index . 

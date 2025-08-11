@@ -1,0 +1,52 @@
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:13:) in method jump
+        return minJump;
+        ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:37:
+//@ ensures((\result >= 0) && (\result <= nums.length - 1));
+    ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method jump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == 2));
+                                                 ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:37: verify: Associated method exit
+        return minJump;
+        ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:24: verify: The prover cannot establish an assertion (LoopInvariant) in method jump
+        //@ maintaining length <= nums.length - i - 1;
+            ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method jump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 0 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == 2));
+                                                                 ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:34: verify: Associated method exit
+                return minJump;
+                ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method jump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 0 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == 2));
+                                                                                 ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:34: verify: Associated method exit
+                return minJump;
+                ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method jump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == 2));
+                                                                 ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:34: verify: Associated method exit
+                return minJump;
+                ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:16:) in method jump
+                return minJump;
+                ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:34:
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 0 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == 2));
+    ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method jump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == 2));
+                                                                                 ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:34: verify: Associated method exit
+                return minJump;
+                ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:15:) in method jump
+        return minJump;
+        ^
+./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0045_jump_game_ii/hafis/o3/mutants/20/Solution.java:37:
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == 2));
+    ^
+17 verification failures

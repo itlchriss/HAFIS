@@ -1,1 +1,0 @@
-ensures(((haystack.length() == 0) && (!(needle.length() == 0))) ==> (\result == -1));

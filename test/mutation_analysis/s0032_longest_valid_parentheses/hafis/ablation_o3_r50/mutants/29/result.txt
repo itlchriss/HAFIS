@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/29/Solution.java:52: error: unreachable statement
+        return max;
+        ^
+1 error

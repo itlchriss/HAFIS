@@ -1,0 +1,91 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Below is a compact JML specification that captures exactly the natural-language
+requirements of the “Longest Valid Parentheses” problem.
+
+```java
+import org.jmlspecs.annotation.*;
+
+/**
+ * Utilities for parenthesis processing.
+ */
+public class ParenthesesUtils {
+
+    /*@ public normal_behavior
+      @   requires s        != null;
+      @   requires 0 <= from && from <= to && to <= s.length();
+      @   requires (\forall int k; from <= k && k < to;
+      @                       s.charAt(k) == '(' || s.charAt(k) == ')');
+      @
+      @   //  A substring is valid iff
+      @   //     1. the number of '(' equals the number of ')', and
+      @   //     2. for every prefix of the substring the number of '('
+      @   //        is never smaller than the number of ')'.
+      @   //  The implementation of this pure method must return true
+      @   //  exactly in that case – it is *the* formal definition of
+      @   //  “well-formed / valid” used everywhere else in the spec.
+      @   ensures \result <==>
+      @           ( (\sum int k; from <= k && k <  to;
+      @                     (s.charAt(k) == '(' ? 1 : -1)) == 0 ) &&
+      @           (\forall int p; from <= p && p <  to;
+      @                 (\sum int k; from <= k && k <= p;
+      @                       (s.charAt(k) == '(' ? 1 : -1)) >= 0 );
+      @   pure
+      @*/
+    public /*@ pure @*/ static boolean isValidParentheses(String s,
+                                                          int from,
+                                                          int to) {
+        int bal = 0;
+        for (int i = from; i < to; ++i) {
+            bal += (s.charAt(i) == '(' ? 1 : -1);
+            if (bal < 0) { return false; }
+        }
+        return bal == 0;
+    }
+
+    /*@ public normal_behavior
+      @   requires s != null;
+      @   requires 0 <= s.length() && s.length() <= 30000;
+      @   requires (\forall int k; 0 <= k && k < s.length();
+      @                       s.charAt(k) == '(' || s.charAt(k) == ')');
+      @
+      @   //  Range guarantee
+      @   ensures 0 <= \result && \result <= s.length();
+      @
+      @   //  There exists at least one valid substring whose length
+      @   //  equals the returned value
+      @   ensures (\exists int i, j;
+      @              0 <= i && i <= j && j <= s.length();
+      @              isValidParentheses(s,i,j) && \result == j - i);
+      @
+      @   //  No other valid substring is longer
+      @   ensures (\forall int i, j;
+      @              0 <= i && i <= j && j <= s.length();
+      @              isValidParentheses(s,i,j) ==> \result >= j - i);
+      @*/
+    public static int longestValidParentheses(String s) {
+        /* implementation goes here */
+        return 0; // dummy return to make the file compile
+    }
+}
+```
+
+Explanation of the essential JML clauses:
+
+1. Preconditions (`requires`):
+   • `s` is non-null.  
+   • Its length lies between 0 and 30 000, inclusive.  
+   • Every character is either '(' or ')'.
+
+2. Auxiliary pure method `isValidParentheses`:
+   Supplies a precise mathematical definition of a *well-formed* substring,
+   expressed by:
+   • A global balance of zero (`sum (…) == 0`).  
+   • Every prefix has non-negative balance.
+
+3. Post-conditions for `longestValidParentheses`:
+   • The returned value is a legal length.  
+   • There exists at least one valid substring whose length equals the
+     returned value.  
+   • No valid substring is longer than the returned value.
+
+Together, these annotations are a faithful JML formalisation of the original
+LeetCode specification.

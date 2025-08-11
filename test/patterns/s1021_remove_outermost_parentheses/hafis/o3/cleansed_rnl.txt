@@ -1,0 +1,8 @@
+- The string parameter `s` consists only of the left parenthesis character and the right parenthesis character.
+- The string parameter `s` is a valid parentheses string.
+- The string result consists only of the left parenthesis character and the right parenthesis character.
+- The string result is a valid parentheses string or the string result is empty.
+- The length of the string result is less than the length of the string parameter `s` or the string result is empty.
+- If the string parameter `s` is equal to "(()())(())", the string result is equal to "()()()".
+- If the string parameter `s` is equal to "(()())(())(()(()))", the string result is equal to "()()()()(())".
+- If the string parameter `s` is equal to "()()", the string result is empty.

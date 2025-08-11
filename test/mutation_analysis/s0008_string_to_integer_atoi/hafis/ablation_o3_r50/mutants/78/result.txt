@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/ablation_o3_r50/mutants/78/Solution.java:16: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int myAtoi(String str) {
+               ^
+1 verification failure

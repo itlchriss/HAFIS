@@ -1,0 +1,1 @@
+If the parameter x deeply equals to the parameter y, then the result is true.

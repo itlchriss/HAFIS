@@ -1,0 +1,43 @@
+./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method majorityElement
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums.length == 2) ==> (\result.get(0) == 1 && \result.get(1) == 2));
+                                 ^
+./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:70: verify: Associated method exit
+        return results;
+        ^
+./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method majorityElement
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums.length == 2) ==> (\result.get(0) == 1 && \result.get(1) == 2));
+                 ^
+./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:70: verify: Associated method exit
+        return results;
+        ^
+./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:187:) in method majorityElement
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 3 && nums.length == 3) ==> (\result.get(0) == 3));
+                                                                                               ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:187: verify: Associated declaration: ./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:18:
+    /*@ pure @*/ E get(int index);
+                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:178: verify: Precondition conjunct is false: index < size()
+    //@   requires 0 <= index && index < size();
+                                       ^
+./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method majorityElement
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 3 && nums.length == 3) ==> (\result.get(0) == 3));
+                                                 ^
+./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:70: verify: Associated method exit
+        return results;
+        ^
+./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method majorityElement
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 3 && nums.length == 3) ==> (\result.get(0) == 3));
+                                 ^
+./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:70: verify: Associated method exit
+        return results;
+        ^
+./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:187:) in method majorityElement
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums.length == 2) ==> (\result.get(0) == 1 && \result.get(1) == 2));
+                                                                               ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:187: verify: Associated declaration: ./test/mutation_analysis/s0229_majority_element_ii/hafis/o3/mutants/31/Solution.java:16:
+    /*@ pure @*/ E get(int index);
+                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:178: verify: Precondition conjunct is false: index < size()
+    //@   requires 0 <= index && index < size();
+                                       ^
+14 verification failures

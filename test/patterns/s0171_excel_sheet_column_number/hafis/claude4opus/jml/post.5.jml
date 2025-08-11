@@ -1,0 +1,1 @@
+ensures(((s.length() == 1) && (s.equals("Z"))) ==> (\result == 26));

@@ -1,0 +1,11 @@
+ensures:
+- The type_list_ result's values are less_than_or_equal to 9 and are greater_than_or_equal to 0.
+- If the type_list_ result's length is greater_than to 1 , the type_list_ result's first_element is greater_than to 0.
+- The integer value represented by the sequence of digits in the type_list_ result is equal to the sum between the integer value represented by the sequence of digits in the type_integer_array_ param_num_ and the type_integer_ param_k_.
+- If the type_integer_array_ param_num_ is equal to arr_a and the type_integer_ param_k_ is equal to 34 , the type_list_ result is equal to arr_b.
+- If the type_integer_array_ param_num_ is equal to arr_a and the type_integer_ param_k_ is equal to 181 , the type_list_ result is equal to arr_b.
+- If the type_integer_array_ param_num_ is equal to arr_a and the type_integer_ param_k_ is equal to 806 , the type_list_ result is equal to arr_b.
+requires:
+- The type_integer_array_ param_num_'s values are less_than_or_equal to 9 and are greater_than_or_equal to 0.
+- If the type_integer_array_ param_num_'s first_element is equal to 0 , the type_integer_array_ param_num_'s length is equal to 1.
+- The type_integer_ param_k_ is less_than_or_equal to 10000 and is greater_than_or_equal to 1.

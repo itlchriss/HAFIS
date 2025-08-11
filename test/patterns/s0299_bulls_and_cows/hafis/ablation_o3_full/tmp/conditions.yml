@@ -1,0 +1,5 @@
+ensures:
+- Ensures String result is formatted as 1 or more decimal digits followed by the character A followed by 1 or more decimal digits followed by the character B.
+- Ensures the integer value of the substring of result that precedes the character A equals the number of positions i that the character at index i of String the type_string_ strs_a equals the character at index i of String the type_string_ strs_b.
+- Ensures the integer value of the substring of result that occurs between A and B equals the count of characters from String the type_string_ strs_a that are not bulls yet occur in String the type_string_ strs_b at a different index with multiplicity taken into account.
+requires: []

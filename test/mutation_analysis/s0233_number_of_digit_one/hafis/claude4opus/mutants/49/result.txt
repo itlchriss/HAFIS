@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:14:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:35:
+//@ ensures((n == 0) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:13:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:35:
+//@ ensures(\result >= 0);
+    ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:15:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:35:
+//@ ensures(\result <= n);
+    ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:16:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/claude4opus/mutants/49/Solution.java:35:
+//@ ensures((n == 13) ==> (\result == 6));
+    ^
+8 verification failures

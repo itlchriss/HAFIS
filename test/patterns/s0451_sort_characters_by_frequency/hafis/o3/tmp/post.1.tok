@@ -1,0 +1,1 @@
+For every 2 unique characters that occur in the type_string_ param_s_ , if the frequency of the type_string_ param_s_ 's first_element is greater_than to the frequency of the second character in the type_string_ param_s_ , every occurrence of the first_element appears in the type_string_ result before any occurrence of the second character . 

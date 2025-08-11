@@ -1,1 +1,0 @@
-ensures(!(\forall int i; 0 <= i < s.length(); (\forall int j; 0 <= j < s.length() && j != i; s.charAt(j) != s.charAt(i))));

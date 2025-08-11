@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/o3/mutants/31/Solution.java:31: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+      @   requires (\num_of int i;
+                    ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/o3/mutants/31/Solution.java:77: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/o3/mutants/31/Solution.java:37:) in method search
+        return -1;
+        ^
+./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/o3/mutants/31/Solution.java:37: verify: Associated declaration: ./test/mutation_analysis/s0033_search_in_rotated_sorted_array/purellm/o3/mutants/31/Solution.java:77:
+      @   ensures (\result == -1) <==>
+          ^
+1 warning
+2 verification failures

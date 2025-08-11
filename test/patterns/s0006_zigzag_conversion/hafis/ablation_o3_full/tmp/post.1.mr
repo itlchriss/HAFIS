@@ -1,0 +1,1 @@
+exists x01.(_result{NN}(x01) & _string{VBG}(x01) & exists x02.(_chrs_a{NN}(x02) & _type_character_{NN}(x02) & exists e03.(_equal{VBZ}(e03) & (Subj(e03) = x01) & (Acc(e03) = x02)))) & exists x04.(_strs_b{NN}(x04) & _type_string_{NN}(x04) & exists x05.(_1{CD}(x05) & (x04 = x05)))

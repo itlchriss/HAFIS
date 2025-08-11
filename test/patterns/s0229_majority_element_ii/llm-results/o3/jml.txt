@@ -1,0 +1,53 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Below is a complete JML contract for a Java method that solves “LeetCode 229 – Majority Element II”.  
+The contract is written for a method that receives an `int[] nums` and returns a `java.util.List<Integer>` containing every value that occurs strictly more than `⌊ n/3 ⌋` times (where `n == nums.length`).
+
+```java
+import java.util.List;
+
+/*@ public normal_behavior
+  @   // --- PRECONDITIONS (the given constraints) ----------------------------
+  @   requires nums != null;
+  @   requires 1  <= nums.length && nums.length <= 50000;
+  @   requires (\forall int i; 0 <= i && i < nums.length;
+  @                     -1000000000 <= nums[i] && nums[i] <= 1000000000);
+  @
+  @   // --- POSTCONDITIONS ---------------------------------------------------
+  @   ensures \result != null;
+  @
+  @   // 1.  Every element contained in the result occurs more than ⌊n/3⌋ times.
+  @   ensures (\forall int k; 0 <= k && k < \result.size();
+  @              (\num_of int i; 0 <= i && i < nums.length && 
+  @                                nums[i] == ((Integer)\result.get(k)).intValue(); 1)
+  @              > nums.length / 3);
+  @
+  @   // 2.  Completeness:  each value that occurs more than ⌊n/3⌋ times is present
+  @   //     in the result list.
+  @   ensures (\forall int v;
+  @              (\num_of int i; 0 <= i && i < nums.length && nums[i] == v; 1)
+  @              > nums.length / 3
+  @              ==> \result.contains(new Integer(v)));
+  @
+  @   // 3.  No duplicates in the resulting list.
+  @   ensures (\forall int p, q;
+  @              0 <= p && p < \result.size() &&
+  @              0 <= q && q < \result.size() &&
+  @              p != q ==> !\result.get(p).equals(\result.get(q)));
+  @
+  @   // 4.  There can be at most two such majority-elements.
+  @   ensures \result.size() <= 2;
+  @
+  @   // --- FRAME CONDITION ---------------------------------------------------
+  @   assignable \nothing;           //  The method is observationally pure.
+  @*/
+public /*@ pure @*/ List<Integer> majorityElement(int[] nums);
+```
+
+Explanation of the most important clauses
+
+• `requires` lines copy the constraints from the exercise directly into the specification.  
+• Clause 1 guarantees that everything returned is indeed a valid “majority-element‐II”.  
+• Clause 2 guarantees completeness: nothing that should be returned is omitted.  
+• Clause 3 forbids duplicates, while Clause 4 states the well-known upper bound (there are never more than two numbers that satisfy the predicate).  
+• `assignable \nothing` marks the method as **side-effect free**, i.e. it must not modify any heap-visible state (the time- and space-requirements asked in the “Follow up” cannot be expressed directly in JML).
+
+Any Java implementation that satisfies this contract solves the given problem.

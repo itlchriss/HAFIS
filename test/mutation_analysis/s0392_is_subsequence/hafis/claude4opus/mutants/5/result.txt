@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:17:) in method isSubsequence
+                    return true;
+                    ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:31:
+//@ ensures((s.length() > t.length()) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:16:) in method isSubsequence
+        return false;
+        ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:36:
+//@ ensures(((s.equals("abc")) && (t.equals("ahbgdc"))) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:18:) in method isSubsequence
+                    return true;
+                    ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/hafis/claude4opus/mutants/5/Solution.java:31:
+//@ ensures(((s.equals("axc")) && (t.equals("ahbgdc"))) ==> (\result == false));
+    ^
+6 verification failures

@@ -1,0 +1,28 @@
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:55: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:14:) in method longestValidParentheses
+        return max;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:55:
+      @ ensures \result % 2 == 0;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:55: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:13:) in method longestValidParentheses
+        return max;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:55:
+      @ ensures \result <= s.length();
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:52: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method longestValidParentheses
+                max = Math.max(max, left / right);
+                                         ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:55: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:12:) in method longestValidParentheses
+        return max;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:55:
+      @ ensures \result >= 0;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:24: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:7:) in method longestValidParentheses
+            ch = s.charAt(i);
+                         ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0032_longest_valid_parentheses/purellm/claude4opus/mutants/46/Solution.java:24:
+    /*@ public normal_behavior
+               ^
+9 verification failures

@@ -1,0 +1,1 @@
+int [ ] result ensures that for every index i with i is greater_than_or_equal to 0 and i is less_than to length of String the type_character_ chrs_a when the character at index i in String the type_character_ chrs_b is uppercase D then the element at index i in int [ ] result is greater_than to the element at index i + 1 in int [ ] result . 

@@ -1,1 +1,0 @@
-requires((\forall int i; 0 <= i < nums.length; (\forall int j; 0 <= j < nums.length && j != i; nums[j] != nums[i])) && (\forall int i; 0 <= i < nums.length-1; nums[i] <= nums[i+1]));

@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:18: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:11:) in method toHex
+            return "0";
+            ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:18:
+//@ ensures((num == 26) ==> (\result.equals("1a")));
+    ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:14:) in method toHex
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:31:
+//@ ensures((num < 0) ==> (\result.length() <= 8));
+    ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:15:) in method toHex
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/claude4opus/mutants/1/Solution.java:31:
+//@ ensures((num == -1) ==> (\result.equals("ffffffff")));
+    ^
+6 verification failures

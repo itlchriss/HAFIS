@@ -1,1 +1,0 @@
-If the type_list_ result is not empty , each element in the type_list_ result is equal to string representing a range that covers all numbers in the type_integer_array_ param_nums_ . 

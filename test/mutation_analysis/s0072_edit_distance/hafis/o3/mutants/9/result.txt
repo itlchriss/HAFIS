@@ -1,0 +1,26 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:14: warning: Method minDistance(java.lang.String,java.lang.String) has 'assignable \everything', making its caller likely impossible to verify
+//@ requires(\forall int i; 0 <= i < w2.length(); Character.isLowerCase(w2.charAt(i)));
+    ^
+./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:24: warning: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:14:
+            return minDistance(w2, w1);
+                              ^
+./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:17:) in method minDistance
+        return dp[n2];
+        ^
+./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:45:
+//@ ensures(\result >= 0);
+    ^
+./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:18:) in method minDistance
+        return dp[n2];
+        ^
+./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:45:
+//@ ensures(((w1.equals("horse")) && (w2.equals("ros"))) ==> (\result == 3));
+    ^
+./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:19:) in method minDistance
+        return dp[n2];
+        ^
+./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/hafis/o3/mutants/9/Solution.java:45:
+//@ ensures(((w1.equals("intention")) && (w2.equals("execution"))) ==> (\result == 5));
+    ^
+2 warnings
+6 verification failures

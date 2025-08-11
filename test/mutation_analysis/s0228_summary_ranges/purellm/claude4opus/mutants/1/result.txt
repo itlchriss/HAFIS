@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:16:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:25:
+      @ ensures \result.size() >= 0;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:18:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:25:
+      @ ensures nums.length > 0 ==> \result.size() > 0;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:17:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:25:
+      @ ensures nums.length == 0 ==> \result.size() == 0;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:19:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/1/Solution.java:25:
+      @ ensures (\forall int i; 0 <= i && i < \result.size(); \result.get(i) != null);
+        ^
+8 verification failures

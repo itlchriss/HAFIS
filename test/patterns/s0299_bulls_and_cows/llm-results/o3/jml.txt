@@ -1,0 +1,87 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Below is a self-contained Java skeleton whose contract is written entirely in JML.  
+It captures every requirement that appears in the natural-language statement
+(i.e. input constraints, definition of bulls, definition of cows and of the
+returned string).
+
+```java
+public class BullsAndCows {
+
+    /*@
+      @ public normal_behavior
+      @
+      @   // -----------  Pre-conditions  ----------------------------------
+      @   requires secret != null && guess != null;
+      @   requires 1 <= secret.length() && secret.length() <= 1000;
+      @   requires secret.length() == guess.length();
+      @   // every character must be a decimal digit
+      @   requires (\forall int i; 0 <= i && i < secret.length();
+      @                   Character.isDigit(secret.charAt(i)) &&
+      @                   Character.isDigit(guess.charAt(i)));
+      @
+      @   // -----------  Post-conditions  ---------------------------------
+      @   ensures (\exists int bulls, cows;
+      @
+      @              /* bulls = positions where the same digit occurs */      
+      @              bulls ==
+      @                 (\sum int i; 0 <= i && i < secret.length();
+      @                         secret.charAt(i) == guess.charAt(i) ? 1 : 0)
+      @           &&
+      @              /* cows = digit matches in the wrong position
+      @               *
+      @               * For every digit d ('0' … '9') we take the
+      @               * minimum of its multiplicity in secret and in guess.
+      @               * After summing those minima we subtract the bulls
+      @               * (because they have already been counted above).
+      @               */
+      @              cows ==
+      @                 ( \sum int d; 0 <= d && d <= 9;
+      @                         min(count(secret,(char)('0'+d)),
+      @                             count(guess ,(char)('0'+d))) )
+      @                 - bulls
+      @           &&
+      @              /* returned string has the required format */             
+      @              \result.equals(
+      @                   Integer.toString(bulls) + "A"
+      @                 + Integer.toString(cows ) + "B")
+      @           );
+      @
+      @   assignable \nothing;           // the method is side-effect free
+      @*/
+    public static /*@ pure @*/ String getHint(String secret, String guess) {
+        /* implementation left open */ 
+        return null;
+    }
+    
+    /*@ public model pure static int count(String s, char c);
+      @   ensures \result ==
+      @          ( \sum int i; 0 <= i && i < s.length();
+      @                s.charAt(i) == c ? 1 : 0 );
+      @*/
+
+    /*@ public model pure static int min(int a, int b);
+      @   ensures (a <= b ==> \result == a) && (b < a ==> \result == b);
+      @*/
+}
+```
+
+Explanation of the main clauses
+
+1. Pre-conditions enforce the bounds on the string lengths and that both
+   parameters are made of decimal digits only.
+
+2. `bulls` is specified as the sum over all indices where the two characters
+   coincide.
+
+3. To specify `cows`, we first count, for each digit `d ∈ {0,…,9}`,
+   how many times it occurs in `secret` and in `guess` (`count`);  
+   the smaller of the two numbers is the amount that can be “matched”.  
+   Summing these minima over the ten digits gives all matches, from which
+   the already-counted bulls are subtracted.  
+
+   (A small helper model function `min` is introduced because JML lacks a
+   built-in minimum operator.)
+
+4. The result must equal `"bullsA" + "cowsB"` exactly.
+
+5. `assignable \nothing` together with `pure` states that the method has no
+   observable side effects.

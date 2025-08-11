@@ -1,0 +1,5 @@
+- The length of the integer array parameter `nums` is divisible by 2
+- All values in the integer array parameter `nums` are less than or equal to 10000 and are greater than or equal to -10000
+- The integer result is less than or equal to the maximum value of java integer and is greater than or equal to the minimum value of java integer
+- If the integer array parameter `nums` is equal to [1,4,3,2], the integer result is equal to 4
+- If the integer array parameter `nums` is equal to [6,2,6,5,1,2], the integer result is equal to 9

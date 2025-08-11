@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0561_array_partition_i/hafis/ablation_o3_full/mutants/10/Solution.java:16: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method arrayPairSum
+            sum += Math.min(nums[i], nums[i + 1]);
+                                ^
+1 verification failure

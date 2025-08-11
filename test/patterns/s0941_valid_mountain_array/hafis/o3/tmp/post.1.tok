@@ -1,0 +1,1 @@
+If type_boolean_ result is equal to the true literal , the position of the largest value in the type_integer_array_ param_arr_ is greater_than to 0 and is less_than to the type_integer_array_ param_arr_ 's length - 1 . 

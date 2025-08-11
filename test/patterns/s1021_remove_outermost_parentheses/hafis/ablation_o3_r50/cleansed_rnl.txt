@@ -1,0 +1,7 @@
+- All characters in the string parameter `s` are either the character '(' or the character ')'.
+- The string parameter `s` is a valid parentheses string.
+- The length of the string result is greater than or equal to 0 and is less than the length of the string parameter `s`.
+- The string result is obtained from the string parameter `s` by deleting the first character and the last character of every primitive valid parentheses substring of the string parameter `s` while preserving the relative order of all remaining characters.
+- If the string parameter `s` is equal to "(()())(())", the string result is equal to "()()()".
+- If the string parameter `s` is equal to "(()())(())(()(()))", the string result is equal to "()()()()(())".
+- If the string parameter `s` is equal to "()()", the string result is equal to "".

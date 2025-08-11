@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:17:) in method minDistance
+        return dp[n2];
+        ^
+./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:45:
+//@ ensures((\result <= 500) && (\result >= 0));
+    ^
+./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:18:) in method minDistance
+        return dp[n2];
+        ^
+./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:45:
+//@ ensures(((w1.equals("horse")) && (w2.equals("ros"))) ==> (\result == 3));
+    ^
+./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:19:) in method minDistance
+        return dp[n2];
+        ^
+./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_r50/mutants/36/Solution.java:45:
+//@ ensures(((w1.equals("intention")) && (w2.equals("execution"))) ==> (\result == 5));
+    ^
+6 verification failures

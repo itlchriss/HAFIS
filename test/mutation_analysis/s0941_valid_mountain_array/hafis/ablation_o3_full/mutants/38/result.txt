@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0941_valid_mountain_array/hafis/ablation_o3_full/mutants/38/Solution.java:14: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method validMountainArray
+            if (arr[i] == arr[i + 1]) {
+                   ^
+./test/mutation_analysis/s0941_valid_mountain_array/hafis/ablation_o3_full/mutants/38/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method validMountainArray
+            if (arr[i] <= arr[i + 1]) {
+                   ^
+2 verification failures

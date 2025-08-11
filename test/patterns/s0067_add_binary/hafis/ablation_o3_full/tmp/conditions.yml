@@ -1,0 +1,7 @@
+ensures:
+- String result equals the binary representation of the sum of the integer values represented by parameters the type_character_ chrs_aand the type_character_ chrs_b.
+- String result only contain characters the chry_a or the chry_b.
+- String result must not have a leading the chry_a unless its length is 1.
+- String result length is either the maximum of the lengths of parameters the type_character_ chrs_aand the type_character_ chrs_b or that maximum + 1.
+requires:
+- String param_b_ must contain at least 1 character and every character is either the chry_a or the chry_b with no leading the chry_c unless the string equals stry_a.

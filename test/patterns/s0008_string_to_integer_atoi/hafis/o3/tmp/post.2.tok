@@ -1,0 +1,1 @@
+If the numeric value obtained from the first contiguous digit sequence after ignoring leading spaces and optional sign is less_than to negative 2147483648 , the type_integer_ result is equal to negative 2147483648 . 

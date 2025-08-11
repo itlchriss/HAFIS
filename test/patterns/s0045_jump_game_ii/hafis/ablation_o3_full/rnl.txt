@@ -1,0 +1,7 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)- Requires the array int[] 'nums' is not null  
+- Requires length of 'nums' is at least 1 and at most 10000  
+- Requires every element of int[] 'nums' is between 0 and 1000 inclusive  
+- Ensures int result equals 0 when length of 'nums' is exactly 1  
+- Ensures int result is a positive integer strictly less than length of 'nums' when length of 'nums' is greater than 1  
+- Ensures starting at index zero and obeying the maximum jump lengths given by int[] 'nums' the last index is reachable in exactly result jumps  
+- Ensures there exists no valid sequence of jumps from index zero to the last index that uses fewer jumps than int result

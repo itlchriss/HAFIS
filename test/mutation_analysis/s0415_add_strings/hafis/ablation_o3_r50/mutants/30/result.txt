@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:14:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:31:
+//@ ensures(((num1.equals("456")) && (num2.equals("77"))) ==> (\result.equals("533")));
+    ^
+./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:13:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:31:
+//@ ensures(((num1.equals("0")) && (num2.equals("0"))) ==> (\result.equals("0")));
+    ^
+./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:12:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/30/Solution.java:31:
+//@ ensures(((num1.equals("11")) && (num2.equals("123"))) ==> (\result.equals("134")));
+    ^
+6 verification failures

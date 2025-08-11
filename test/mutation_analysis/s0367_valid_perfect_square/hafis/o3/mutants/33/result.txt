@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0367_valid_perfect_square/hafis/o3/mutants/33/Solution.java:13: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public boolean isPerfectSquare(int num) {
+                   ^
+1 verification failure

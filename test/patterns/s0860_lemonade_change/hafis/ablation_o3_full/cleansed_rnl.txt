@@ -1,0 +1,3 @@
+- int[] 'bills' has a length greater than or equal to 1 and less than or equal to 100000 prior to method execution
+- int[] 'bills' contains only the integer values 510 or 20 prior to method execution
+- boolean result is true exclusively when every customer represented in int[] 'bills' can receive the correct change starting from no initial cash otherwise result is false

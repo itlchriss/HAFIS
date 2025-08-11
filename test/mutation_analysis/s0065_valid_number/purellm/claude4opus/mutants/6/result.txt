@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0065_valid_number/purellm/claude4opus/mutants/6/Solution.java:19: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0065_valid_number/purellm/claude4opus/mutants/6/Solution.java:6:) in method isNumber
+            char c = s.charAt(i);
+                             ^
+./test/mutation_analysis/s0065_valid_number/purellm/claude4opus/mutants/6/Solution.java:6: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/purellm/claude4opus/mutants/6/Solution.java:19:
+        /*@ public normal_behavior
+                   ^
+2 verification failures

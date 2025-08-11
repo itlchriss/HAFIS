@@ -1,0 +1,51 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Below is a self-contained Java “skeleton” that captures the informal description of
+LeetCode 367 “Valid Perfect Square” in JML (Java Modeling Language).  
+Only the behavioral specification is given; the implementation body can be filled
+in any way that satisfies these contracts and **does not** call
+`java.lang.Math.sqrt` (the “follow-up” requirement is recorded as a comment
+because JML itself cannot forbid a particular library call).
+
+```java
+public class PerfectSquare {
+
+    /**
+     * Returns {@code true} iff {@code num} is a perfect square.
+     *
+     * Informal follow-up requirement (not enforceable by JML alone):
+     *   – The implementation must not invoke any built-in square–root routine
+     *     such as {@code java.lang.Math.sqrt}.
+     */
+    /*@
+      @ public normal_behavior
+      @   // 1.  Input domain (problem constraint)
+      @   requires 1 <= num && num <= 2147483647;           // 2^31 − 1
+      @
+      @   // 2.  Purity / frame condition (no state is changed)
+      @   assignable \nothing;
+      @
+      @   // 3.  Postcondition:  result is true  ⇔  num is k² for some k ≥ 1
+      @   //     A tighter upper bound 46340 (= floor(sqrt(2^31−1))) is used
+      @   //     to guarantee that the multiplication k*k never overflows.
+      @   ensures (\result  <==>  (\exists int k;
+      @                             1 <= k && k <= 46340;
+      @                             k * k == num));
+      @
+      @   // 4.  No exceptional behavior is allowed for legal inputs
+      @*/
+    public static /*@ pure @*/ boolean isPerfectSquare(int num);
+}
+```
+
+Explanation of the key clauses:
+
+1. `requires` encodes the constraint `1 ≤ num ≤ 2^31 − 1`.
+
+2. `assignable \nothing` declares the method to be side-effect–free.
+
+3. `ensures` specifies “exactly if”:  
+   • If the method returns `true`, there exists an integer `k` (bounded so that `k * k` is safe in `int`) with `k² == num`.  
+   • If it returns `false`, no such `k` exists.
+
+4. No `signals` clause is needed; by default this means no checked exceptions are permitted when the precondition holds.
+
+Any implementation that obeys this JML contract—and avoids calling `sqrt`—is a correct solution to the stated problem.

@@ -1,0 +1,7 @@
+- The string parameter `s` consists of only the characters '(' and ')'.
+- The integer result is greater than or equal to 0 and is less than or equal to the length of the string parameter `s`.
+- The integer result mod 2 is equal to 0.
+- If the string parameter `s` is equal to "(()", the integer result is equal to 2.
+- If the string parameter `s` is equal to ")()())", the integer result is equal to 4.
+- If the string parameter `s` is equal to "", the integer result is equal to 0.
+- If the integer result is equal to 0, the string parameter `s` does not contain any substring that is a well formed sequence of parentheses.

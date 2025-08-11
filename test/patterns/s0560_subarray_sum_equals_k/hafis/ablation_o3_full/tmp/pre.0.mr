@@ -1,0 +1,1 @@
+exists x01.(_chry_a{NN}(x01) & _param_the_{NN}(x01) & _int{NN}(x01) & _type{NN}(x01) & _datum{NNS}(x01) & exists e02.(_inclusive{JJ}(e02) & (Subj(e02) = x01) & _in{IN}(e02) & exists x03.(_1000000{CD}(x03) & _10{CD}(x03) & _1000000{CD}(x03) & _10{CD}(x03) & _HYPHEN{IN}(e02,x03) & exists x04.(_method{NN}(x04) & _execution{NN}(x04) & _before{IN}(e02,x04)))))

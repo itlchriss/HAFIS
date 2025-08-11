@@ -1,0 +1,45 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Below is a possible JML contract for a (pure) Java method that realises the “709. To Lower Case” problem statement.
+
+```java
+/**
+ * Returns the string obtained from {@code s} by replacing every
+ * upper-case ASCII letter (‘A’–‘Z’) with its lower-case counterpart.
+ */
+/*@ public normal_behavior
+  @
+  @   // -------- Preconditions --------
+  @   requires s != null;                                 // non-null reference
+  @   requires 1 <= s.length() && s.length() <= 100;      // size constraint
+  @   // printable ASCII: 32 (space) … 126 ('~')
+  @   requires (\forall int i; 0 <= i && i < s.length();
+  @                32 <= s.charAt(i) && s.charAt(i) <= 126);
+  @
+  @   // -------- Postconditions --------
+  @   ensures \result.length() == s.length();             // length is preserved
+  @   ensures (\forall int i; 0 <= i && i < s.length();
+  @              (\let char c = s.charAt(i);
+  @               \result.charAt(i) ==
+  @                 (('A' <= c && c <= 'Z')
+  @                       ? (char)(c + ('a' - 'A'))      // mapped to lower case
+  @                       : c)));                         // unchanged otherwise
+  @
+  @   // -------- Frame condition --------
+  @   assignable \nothing;                                // pure function
+  @*/
+public /*@ pure @*/ static String toLowerCase(String s);
+```
+
+Explanation of the clauses
+
+• `requires` clauses encode the Constraints section:  
+  – non-null input;  
+  – 1 ≤ length ≤ 100;  
+  – every character lies in the printable ASCII interval 32–126.
+
+• `ensures` clauses capture the behavioural part of the description:  
+  – the result’s length equals the input’s length;  
+  – for every index `i`, the result character is either the same character
+    (if it is not an uppercase ASCII letter) or its lowercase counterpart.
+
+• `assignable \nothing` marks the method as side-effect free; the `pure`
+  modifier is added for clarity.

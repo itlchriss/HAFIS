@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/o3/mutants/6/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/o3/mutants/6/Solution.java:12:) in method firstUniqChar
+        return ans;
+        ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/o3/mutants/6/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/o3/mutants/6/Solution.java:27:
+//@ ensures((\result >= -1) && (\result < s.length()));
+    ^
+2 verification failures

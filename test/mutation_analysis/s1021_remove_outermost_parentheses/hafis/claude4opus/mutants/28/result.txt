@@ -1,0 +1,31 @@
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:15:) in method removeOuterParentheses
+        return sb.toString();
+        ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:41:
+//@ ensures(\result.length() <= s.length());
+    ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:16:) in method removeOuterParentheses
+        return sb.toString();
+        ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:41:
+//@ ensures(\forall int i; 0 <= i < \result.length(); \result.charAt(i) == '(' || \result.charAt(i) == ')');
+    ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:18:) in method removeOuterParentheses
+        return sb.toString();
+        ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:41:
+//@ ensures((s.equals("(()())(())")) ==> (\result.equals("()()()")));
+    ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:17:) in method removeOuterParentheses
+        return sb.toString();
+        ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:41:
+//@ ensures((s.equals("(()())(())(()(()))")) ==> (\result.equals("()()()()(())")));
+    ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:19:) in method removeOuterParentheses
+        return sb.toString();
+        ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/hafis/claude4opus/mutants/28/Solution.java:41:
+//@ ensures((s.equals("()()")) ==> (\result.equals("")));
+    ^
+10 verification failures

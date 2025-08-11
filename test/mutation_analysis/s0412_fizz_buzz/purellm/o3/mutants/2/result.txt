@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0412_fizz_buzz/purellm/o3/mutants/2/Solution.java:30: error: unreachable statement
+        return result;
+        ^
+1 error

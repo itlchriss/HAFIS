@@ -1,0 +1,1 @@
+int result ensures value is at most the sum of all elements in int [ ] the type_string_ strs_a . 

@@ -1,0 +1,78 @@
+Here's the JML specification for the Student Attendance Record problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 1 <= s.length() && s.length() <= 1000;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           s.charAt(i) == 'A' || s.charAt(i) == 'L' || s.charAt(i) == 'P');
+      @ ensures \result == (countAbsences(s) < 2 && !hasThreeConsecutiveLates(s));
+      @*/
+    public /*@ pure @*/ boolean checkRecord(String s) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ ensures \result == (\num_of int i; 0 <= i && i < s.length(); s.charAt(i) == 'A');
+      @*/
+    private /*@ pure @*/ int countAbsences(String s) {
+        int count = 0;
+        /*@ maintaining 0 <= i && i <= s.length();
+          @ maintaining count == (\num_of int j; 0 <= j && j < i; s.charAt(j) == 'A');
+          @ decreasing s.length() - i;
+          @*/
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'A') {
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ ensures \result == (\exists int i; 0 <= i && i <= s.length() - 3;
+      @                    s.charAt(i) == 'L' && s.charAt(i+1) == 'L' && s.charAt(i+2) == 'L');
+      @*/
+    private /*@ pure @*/ boolean hasThreeConsecutiveLates(String s) {
+        /*@ maintaining 0 <= i && i <= s.length() - 2;
+          @ maintaining (\forall int j; 0 <= j && j < i - 2;
+          @              !(s.charAt(j) == 'L' && s.charAt(j+1) == 'L' && s.charAt(j+2) == 'L'));
+          @ decreasing s.length() - i;
+          @*/
+        for (int i = 0; i <= s.length() - 3; i++) {
+            if (s.charAt(i) == 'L' && s.charAt(i+1) == 'L' && s.charAt(i+2) == 'L') {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`)**:
+   - The string `s` must not be null
+   - The length must be between 1 and 1000 (inclusive)
+   - Each character must be either 'A', 'L', or 'P'
+
+2. **Postcondition (`ensures`)**:
+   - The result is true if and only if:
+     - The number of absences is strictly less than 2, AND
+     - There are no 3 consecutive late days
+
+3. **Helper Methods**:
+   - `countAbsences`: Counts the total number of 'A' characters using the `\num_of` quantifier
+   - `hasThreeConsecutiveLates`: Checks if there exists any position where 3 consecutive 'L' characters appear
+
+4. **Loop Invariants**:
+   - For `countAbsences`: Maintains that `count` equals the number of 'A's seen so far
+   - For `hasThreeConsecutiveLates`: Maintains that no 3 consecutive 'L's have been found in the portion already checked
+
+5. **Pure Methods**: All methods are marked as `pure` since they don't modify any state
+
+This specification precisely captures the requirements: a student is eligible for the award if they have fewer than 2 total absences AND never have 3 or more consecutive late days.

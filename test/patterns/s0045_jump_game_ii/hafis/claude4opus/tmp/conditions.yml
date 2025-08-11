@@ -1,0 +1,8 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0 and is less_than_or_equal to the type_integer_array_ param_nums_'s length - 1.
+- If the type_integer_array_ param_nums_'s length is equal to 1 , the type_integer_ result is equal to 0.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 2.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 2.
+requires:
+- The type_integer_array_ param_nums_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 10000.
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to 0 and are less_than_or_equal to 1000.

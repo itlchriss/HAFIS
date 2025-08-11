@@ -1,0 +1,145 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Below is a self-contained Java skeleton whose behaviour is described completely in JML.  
+Only the contracts (the part that starts with /*@ … @*/) are relevant – the Java bodies
+may be replaced by any implementation that satisfies the specification.
+
+/*  File:   Atoi.java
+ *
+ *  A JML specification of LeetCode problem 8  (String to Integer – “atoi”).
+ *  -----------------------------------------------------------------------
+ *  The method myAtoi has the same observable behaviour that the informal
+ *  statement describes:
+ *
+ *      1.  Skip leading white–space (character ’ ’ only).
+ *      2.  Read an optional sign ‘+’ or ‘-’; default is ‘+’.
+ *      3.  Read a (possibly empty) sequence of decimal digits.
+ *      4.  Convert the digit sequence to an (un-bounded) integer.
+ *      5.  Apply the sign.
+ *      6.  Clamp the value to the 32-bit signed range
+ *                [  INT_MIN , INT_MAX ].
+ *      7.  If no digit was read, the value is 0.
+ *      8.  Return the resulting 32-bit value.
+ *
+ *  All of the above is stated formally in the JML post-condition of
+ *  myAtoi by delegating the tedious sub-tasks to pure helper functions that
+ *  are also specified (but need not be executed at run–time).
+ */
+
+public class Atoi {
+
+    /* ------------------------------------------------------------------
+     *  Public service method
+     * ------------------------------------------------------------------*/
+
+    /*@
+      @ public normal_behavior
+      @
+      @   //  PRE–CONDITIONS
+      @   requires s != null;                 // the library never returns null
+      @   requires s.length() <= 200;         // problem constraint
+      @
+      @   //  POST–CONDITIONS
+      @   ensures Integer.MIN_VALUE <= \result && \result <= Integer.MAX_VALUE;
+      @
+      @   //  Let us describe the algorithm in a single mathematical term.
+      @   //
+      @   ensures \result ==
+      @           ( \let  int   p      = skipSpaces(s);               // step 1
+      @             ( p == s.length() ?                              // nothing but spaces?
+      @                  0                                             // -> finished (rules 3+7)
+      @                : (\let boolean neg   = isMinus (s,p);        // step 2
+      @                   \let int     q     = p + (isSign(s,p)?1:0); // first digit position
+      @                   \let \bigint raw   = digitsAsBig(s,q);      // step 3+4  (possibly 0)
+      @                   \let \bigint val   = (neg ? -raw : raw);    // step 5
+      @
+      @                   clampToInt(val) )                           // step 6
+      @             )
+      @           );
+      @
+      @*/
+    public /*@ pure @*/ static int myAtoi(final String s) {
+        // Any implementation that fulfils the above contract is acceptable.
+        // A reference implementation could be inserted here; it is omitted
+        // because the exercise only asked for the formal specification.
+        return 0;   // “dummy” so the file compiles
+    }
+
+
+    /* ------------------------------------------------------------------
+     *  Pure helper functions used in the contract
+     * ------------------------------------------------------------------*/
+
+    /*@ public pure model int skipSpaces(String s);
+      @
+      @  //  FIRST position that is NOT a space; s.length()  if none exists
+      @  assignable \nothing;
+      @  ensures 0 <= \result && \result <= s.length();
+      @  ensures (\forall int i; 0 <= i && i < \result; s.charAt(i) == ' ');
+      @  ensures \result == s.length() ==> true;                       // all spaces
+      @  ensures \result <  s.length() ==> s.charAt(\result) != ' ';
+      @*/
+
+    /*@ public pure model boolean isSign(String s,int i);
+      @   assignable \nothing;
+      @   requires 0 <= i && i < s.length();
+      @   ensures  \result <==> (s.charAt(i) == '+' || s.charAt(i) == '-');
+      @*/
+
+    /*@ public pure model boolean isMinus(String s,int i);
+      @   assignable \nothing;
+      @   requires 0 <= i && i < s.length();
+      @   ensures  \result <==> (s.charAt(i) == '-');
+      @*/
+
+    /*@ public pure model \bigint digitsAsBig(String s,int from);
+      @
+      @   //  Reads the longest prefix of decimal digits that starts at
+      @   //  position ‘from’.  Returns the mathematical (non-negative)
+      @   //  value represented by that prefix, or 0 if the first char
+      @   //  is already a non-digit.
+      @
+      @   assignable \nothing;
+      @
+      @   requires 0 <= from && from <= s.length();
+      @
+      @   ensures
+      @     (\forall int k; from <= k && k < s.length();
+      @        !Character.isDigit(s.charAt(k))
+      @        ==> (\result == 0) );                   // no leading digit
+      @
+      @   ensures
+      @     (\exists int end; from <= end && end <= s.length();
+      @        (\forall int j; from <= j && j < end; Character.isDigit(s.charAt(j))) &&
+      @        (end == s.length() || !Character.isDigit(s.charAt(end)))
+      @        ==> \result ==
+      @              (\sum int j; from <= j && j < end;
+      @                    ((\bigint)(s.charAt(j) - '0'))
+      @                    * (\pow 10 (end - j - 1)) ) );
+      @
+      @*/
+
+    /*@ public pure model int clampToInt(\bigint v);
+      @   assignable \nothing;
+      @   ensures \result == (v < Integer.MIN_VALUE ? Integer.MIN_VALUE
+      @                     : v > Integer.MAX_VALUE ? Integer.MAX_VALUE
+      @                     : (int) v);
+      @*/
+
+}
+/*  End of file “Atoi.java”                                                     */
+
+
+How to read the contract (high-level view)
+
+1.  skipSpaces returns the first index of a non-blank character.
+2.  If the whole string is blanks, the specification immediately forces
+    the result to 0 (rule 7).
+3.  Otherwise we look at the optional sign (`isMinus` / `isSign`).
+4.  digitsAsBig extracts the numeric value of the longest digit prefix
+    that follows the sign; BigInteger (JML type ‘\bigint’) is used so
+    that no overflow can occur inside the specification.
+5.  The sign is applied and the value is clamped by clampToInt.
+6.  The final expression in the post-condition states that myAtoi must
+    return exactly that clamped value.
+
+This JML contract is a faithful formalisation of the informal
+requirements given in the original problem statement.

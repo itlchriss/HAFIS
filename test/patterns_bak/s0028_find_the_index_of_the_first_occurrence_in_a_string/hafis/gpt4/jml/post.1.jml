@@ -1,1 +1,0 @@
-ensures(((haystack.equals("hello")) && (needle.equals("ll"))) ==> (\result == 2));

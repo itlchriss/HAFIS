@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/ablation_o3_full/mutants/7/Solution.java:18: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method addToArrayForm
+            int temp = num[i] + k * 10 + carry;
+                          ^
+1 verification failure

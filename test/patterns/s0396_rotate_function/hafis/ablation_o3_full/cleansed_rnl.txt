@@ -1,0 +1,2 @@
+- Every element in int array `nums` must be between -100 and 100 inclusive before the method is invoked
+- The int result equals the greatest rotation function value computed across all clockwise rotations of the array provided in `nums` and the value of result is guaranteed to lie within the range of a 32 bit signed integer

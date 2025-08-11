@@ -1,1 +1,0 @@
-ensures(((\result == 4193) && (s.equals("4193 with words"))) ==> (\result == 4193));

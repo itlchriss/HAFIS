@@ -1,0 +1,14 @@
+./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/o3/mutants/24/Solution.java:26: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @            (\sum int k; 0 <= k <= i;
+                    ^
+./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/o3/mutants/24/Solution.java:30: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @              (\sum int k; 0 <= k < tok.length;
+                      ^
+./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/o3/mutants/24/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/o3/mutants/24/Solution.java:21:) in method isValidSerialization
+                    return false;
+                    ^
+./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/o3/mutants/24/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/o3/mutants/24/Solution.java:42:
+      @  ensures
+         ^
+2 warnings
+2 verification failures

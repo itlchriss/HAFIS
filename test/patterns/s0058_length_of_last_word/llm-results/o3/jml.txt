@@ -1,0 +1,65 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Below is one possible Java-Modeling-Language (JML) contract that captures exactly the informal requirements of problem “58. Length of Last Word”.
+
+```java
+public class LastWord {
+
+    /**
+     * Returns the length of the last (right-most) word contained in the
+     * given string.  A word is a maximal, non-empty sequence of characters
+     * that are not single blanks (<code>' '</code>).
+     */
+    /*@ public normal_behavior
+      @   // ----------  Pre-conditions  ----------
+      @   requires s != null;                                 // the reference itself is not null
+      @   requires 1 <= s.length() && s.length() <= 10000;    // stated size bound
+      @   // the string contains only English letters or spaces
+      @   requires (\forall int i; 0 <= i && i < s.length();
+      @                        Character.isLetter(s.charAt(i)) ||
+      @                        s.charAt(i) == ' ');
+      @   // at least one non-space character (= at least one word)
+      @   requires (\exists int i; 0 <= i && i < s.length(); s.charAt(i) != ' ');
+      @
+      @   // ----------  Post-condition  ----------
+      @   //  There exists an interval [start .. end] that:
+      @   //    * consists entirely of non-space characters       … the word itself
+      @   //    * is preceded (if anything precedes it) by a space
+      @   //    * is followed only by spaces up to the end of s   … ==> it is the *last* word
+      @   //    * has a length equal to the returned value
+      @   ensures (\exists int start, end;
+      @              0 <= start && start <= end && end < s.length() &&
+      @              (\forall int k; start <= k && k <= end; s.charAt(k) != ' ') &&
+      @              (start == 0          || s.charAt(start-1) == ' ') &&
+      @              (\forall int k; end  < k && k < s.length(); s.charAt(k) == ' ') &&
+      @              \result == end - start + 1);
+      @
+      @   // ----------  Frame condition ----------
+      @   assignable \nothing;    // the method is side-effect free
+      @*/
+    public /*@ pure @*/ static int lengthOfLastWord(String s) {
+        /*  (any correct implementation goes here)  */
+        int end = s.length() - 1;
+        while (end >= 0 && s.charAt(end) == ' ') end--;
+        int start = end;
+        while (start >= 0 && s.charAt(start) != ' ') start--;
+        return end - start;
+    }
+}
+```
+
+Explanation of the JML clauses
+
+1. `requires` clauses transcribe all constraints from the informal statement:
+   • non-null string  
+   • length between 1 and 10 000  
+   • only letters or spaces  
+   • at least one letter (⇒ at least one word)
+
+2. `ensures` clause formalises what it means to be “the length of the **last** word”:
+   • `[start .. end]` is a maximal block of non-space characters (a word)  
+   • everything **after** `end` is a space ⇒ no later word exists  
+   • if something precedes the block, that character is a space  
+   • the returned integer is exactly the size of this block
+
+3. `assignable \nothing` states that the method has no side effects.
+
+This JML contract can be checked by any compliant JML tool to ensure that an implementation (such as the one sketched above) meets the original specification precisely.

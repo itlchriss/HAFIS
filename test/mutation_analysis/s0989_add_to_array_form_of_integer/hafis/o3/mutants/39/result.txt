@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/o3/mutants/39/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ requires((num[0] == 0) ==> (num.length == 1));
+                 ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/o3/mutants/39/Solution.java:21: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public List<Integer> addToArrayForm(int[] num, int k) {
+                         ^
+2 verification failures

@@ -1,0 +1,1 @@
+exists x01.(_chry_a{NN}(x01) & exists e02.(_string{VBG}(e02) & (Subj(e02) = x01)) & exists e03.(_empty{JJ}(e03) & (Subj(e03) = x01) & _then{RB}(e03))) -> exists x04.(_result{NN}(x04) & _int{NN}(x04) & exists x05.(_0{CD}(x05) & exists e06.(_equal{VBZ}(e06) & (Subj(e06) = x04) & (Acc(e06) = x05))))

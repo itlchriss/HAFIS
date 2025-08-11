@@ -1,0 +1,1 @@
+The result String result is obtained by removing the outermost pair of parentheses from every primitive substring in the param_String_ the type_character_ chrs_a and concatenating their remaining characters in the original sequence . 

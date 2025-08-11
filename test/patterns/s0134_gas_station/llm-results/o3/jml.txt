@@ -1,0 +1,88 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Below is a self-contained JML contract that captures exactly the informal requirements of the “Gas Station” problem.  
+The contract is written for the classical LeetCode signature
+
+    int canCompleteCircuit(int[] gas, int[] cost)
+
+and assumes the method is placed in a class called Solution.
+
+```
+public class Solution {
+
+    /*@
+      // ----------  PRECONDITIONS  ----------
+      // basic well-formedness of the two input arrays
+      requires gas  != null;
+      requires cost != null;
+      requires gas.length  == cost.length;
+
+      // size and value constraints taken literally from the statement
+      requires 1  <= gas.length  && gas.length  <= 100_000;
+      requires (\forall int i; 0 <= i && i < gas.length;
+                   0 <= gas[i]  && gas[i]  <= 10_000
+                && 0 <= cost[i] && cost[i] <= 10_000);
+
+      // ----------  FRAME CONDITION ----------
+      assignable \nothing;          // the routine is pure (no visible side effects)
+
+      // ----------  POSTCONDITIONS ----------
+      // the returned value is either a valid index or –1
+      ensures \result == -1
+           || (0 <= \result && \result < gas.length);
+
+      // result == -1  ⇔  there is NO start position that allows a full tour
+      ensures (\result == -1)
+              <==>
+              (\forall int s; 0 <= s && s < gas.length;
+                   !canTravel(gas, cost, s));
+
+      // if the routine returns a proper index, that index really works …
+      ensures (\result != -1) ==> canTravel(gas, cost, \result);
+
+      // … and it is the ONLY one that works (uniqueness)
+      ensures (\result != -1)
+              ==> (\forall int s; 0 <= s && s < gas.length && s != \result;
+                      !canTravel(gas, cost, s));
+    @*/
+    public /*@ pure @*/ int canCompleteCircuit(int[] gas, int[] cost);
+
+    /*@ public pure model boolean canTravel(int[] gas, int[] cost, int start) =
+          // for every intermediate step the tank is never negative  …
+          (\forall int step; 0 <= step && step < gas.length;
+               (\sum int j; 0 <= j && j <= step;
+                    gas[(start + j) % gas.length]
+                  - cost[(start + j) % gas.length]) >= 0)
+
+          // … and after n steps we are back with a non-negative balance
+       &&  (\sum int j; 0 <= j && j < gas.length;
+               gas[(start + j) % gas.length]
+             - cost[(start + j) % gas.length]) >= 0;
+    @*/
+}
+```
+
+Explanation of the most important clauses
+
+1. Preconditions  
+   – Reproduce the size, range and value limits appearing verbatim in the problem statement.  
+   – Guarantee non-null arrays of equal length.
+
+2. `assignable \nothing`  
+   Marks the method as _pure_ (it does not modify any location visible to the caller).
+
+3. `canTravel` (model predicate)  
+   Formalises the intuitive “can you finish the whole circle starting from
+   station start without the tank ever going negative?”  
+   • The first conjunct ensures the fuel balance is non-negative after every
+     intermediate hop.  
+   • The second conjunct ensures the final balance (after completing `n` hops) is
+     also non-negative.
+
+4. Postconditions  
+   • If the method says “-1” then _no_ start index is feasible.  
+   • If it supplies an index, that index is feasible and all others are not
+     (uniqueness).  
+   • In all cases a returned index, if any, is inside the valid range.
+
+This JML specification is a faithful, formal translation of the natural-language
+requirements and is ready to be used by runtime assertion checkers or static
+verifiers that understand JML.

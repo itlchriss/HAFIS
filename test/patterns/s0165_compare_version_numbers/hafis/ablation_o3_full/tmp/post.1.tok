@@ -1,0 +1,1 @@
+int result equals 1 when the first differing revision of the type_string_ strs_a has a larger integer value than the corresponding revision of the type_string_ strs_b after ignoring leading zeros and treating any missing revision as 0 . 

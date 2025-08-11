@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_full/mutants/19/Solution.java:30: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method longestValidParentheses
+                max = Math.max(max, left / right);
+                                         ^
+1 verification failure

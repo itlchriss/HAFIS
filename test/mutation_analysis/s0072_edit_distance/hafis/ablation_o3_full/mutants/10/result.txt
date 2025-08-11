@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_full/mutants/10/Solution.java:27: error: unreachable statement
+        for (int i = 1; i <= n1; i++) {
+        ^
+1 error

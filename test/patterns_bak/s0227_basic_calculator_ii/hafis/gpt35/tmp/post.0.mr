@@ -1,1 +1,0 @@
-exists x01.(_result{NNS}(x01) & exists e02.(exists x03.(_range{NN}(x03) & exists x04.(_strs_a{NN}(x04) & _type_string_{NN}(x04) & exists e05.(_of{IN}(e05,x04) & (Subj(e05) = x03))) & _in{IN}(e02,x03)) & (Subj(e02) = x01)))

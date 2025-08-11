@@ -1,0 +1,60 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Below is one possible way to express the informal problem statement completely in JML.  
+The Java code that really computes the result has been elided – the task here is
+only to encode the original constraints and the required functional behaviour.  
+
+```
+public class AddToArrayForm {
+
+    /*@ public pure model 
+      @    bigint valueOf(int[] a) =
+      @         (\sum int i; 0 <= i && i < a.length;
+      @                ((\bigint) a[i]) * \pow(10, a.length - 1 - i));
+      @*/
+
+    /*@ public normal_behavior
+      @
+      @  // ---------- Pre-conditions (original “Constraints”) ----------
+      @  requires num != null;
+      @  requires 1          <= num.length && num.length <= 10000;
+      @  requires (\forall int i; 0 <= i && i < num.length; 0 <= num[i] && num[i] <= 9);
+      @  // no leading zeros (except the number zero itself)
+      @  requires num.length == 1 || num[0] != 0;
+      @
+      @  requires 1 <= k && k <= 10000;
+      @
+      @  // ---------- Post-conditions ----------
+      @  ensures \result != null;
+      @  ensures 1 <= \result.length;
+      @  ensures (\forall int i; 0 <= i && i < \result.length; 0 <= \result[i] && \result[i] <= 9);
+      @  // no leading zeros in the answer (except when the answer is zero)
+      @  ensures \result.length == 1 || \result[0] != 0;
+      @
+      @  // functional property:  value(num) + k == value(result)
+      @  ensures valueOf(\result) == valueOf(num) + (\bigint) k;
+      @
+      @  assignable \nothing;               // ← for a pure specification‐only stub
+      @*/
+    public static /*@ pure @*/ int[] addToArrayForm(int[] num, int k) {
+        // implementation intentionally omitted
+        return null;
+    }
+}
+```
+
+Explanation of the relevant clauses
+
+• `valueOf` is a pure model function that turns an array of digits into the
+   corresponding mathematical (unbounded) integer.  It is defined with
+   a summation (`\sum`) and the usual power function (`\pow`).
+
+• The `requires` clauses directly encode every bullet of the
+   “Constraints” section of the original statement.
+
+• The `ensures` clauses encode
+   – the syntactic properties that a correct array-form must have  
+   – and, most importantly, the functional requirement that the integer
+     represented by the returned array equals `valueOf(num) + k`.
+
+With these annotations a static verifier can check any concrete Java
+implementation of `addToArrayForm` against the given problem
+specification.

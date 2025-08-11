@@ -1,0 +1,5 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)- The integer parameter `n` is greater than or equal to 1 and is less than or equal to 1000000000.  
+- The integer result is less than or equal to the integer parameter `n` and is greater than or equal to 1.  
+- The integer result is less than or equal to the maximum value of java integer and is greater than or equal to the minimum value of java integer.  
+- If the integer parameter `n` is equal to 1, the integer result is equal to 1.  
+- If the integer parameter `n` is equal to 9, the integer result is equal to 6.

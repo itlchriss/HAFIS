@@ -1,0 +1,1 @@
+exists x01.(exists e02.(_int{JJ}(e02) & (Subj(e02) = x01) & _result{NN}(x01)) & exists e03.(exists x04.(_range{NN}(x04) & exists x05.(exists e06.(_signed{JJ}(e06) & (Subj(e06) = x05) & exists e07.(_32_dash_bit{JJ}(e07) & (Subj(e07) = x05) & _integer{NN}(x05))) & exists e08.(_of{IN}(e08,x05) & (Subj(e08) = x04))) & _in{IN}(e03,x04)) & (Subj(e03) = x01) & _always{RB}(e03)))

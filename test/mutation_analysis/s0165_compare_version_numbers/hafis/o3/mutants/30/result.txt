@@ -1,0 +1,20 @@
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/o3/mutants/30/Solution.java:10: warning: Method compareVersion(java.lang.String,java.lang.String) has 'assignable \everything', making its caller likely impossible to verify
+//@ ensures(((version1.equals("7.5.2.4")) && (version2.equals("7.5.3"))) ==> (\result == -1));
+    ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/o3/mutants/30/Solution.java:59: warning: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/o3/mutants/30/Solution.java:10:
+                return compareVersion(v1, v2);
+                                     ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/o3/mutants/30/Solution.java:59: verify: The prover cannot establish an assertion (Precondition: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/o3/mutants/30/Solution.java:17:) in method compareVersion
+                return compareVersion(v1, v2);
+                                     ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/o3/mutants/30/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/hafis/o3/mutants/30/Solution.java:59:
+    public int compareVersion(String version1, String version2) {
+               ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/o3/mutants/30/Solution.java:11: verify: Precondition conjunct is false: ((version2.length() <= 500) && (version2.length() >= 1))
+//@ requires((version2.length() <= 500) && (version2.length() >= 1));
+            ^
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/o3/mutants/30/Solution.java:17: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int compareVersion(String version1, String version2) {
+               ^
+2 warnings
+4 verification failures

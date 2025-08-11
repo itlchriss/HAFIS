@@ -1,0 +1,28 @@
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:26: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method numDecodings
+        f[1] = 1;
+         ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:13:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:40:
+//@ ensures((\result <= 2147483647) && (\result >= 0));
+    ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:14:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:40:
+//@ ensures((s.equals("226")) ==> (\result == 3));
+    ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:15:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:40:
+//@ ensures((s.equals("12")) ==> (\result == 2));
+    ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:17:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/2/Solution.java:40:
+//@ ensures((s.equals("0")) ==> (\result == 0));
+    ^
+9 verification failures

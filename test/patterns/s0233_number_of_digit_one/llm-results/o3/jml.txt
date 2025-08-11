@@ -1,0 +1,69 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Below is a self-contained Java/JML “stub’’ that captures, in a precise and executable way, the informal requirement
+
+   “Given an integer n (0 ≤ n ≤ 10⁹), return the total number of digit 1’s
+    occurring in the decimal representations of all integers 0 … n.”
+
+Only the specification is supplied; the implementation body may be filled in any convenient way.
+
+/* 233. Number of Digit One -- formalised in JML                */
+
+public class DigitOneCounter {
+
+    /* =======================================================================
+     *  Auxiliary (model) functions                                           *
+     * =====================================================================*/
+
+    /*@ public pure model int power10(int k) {
+      @     // 10^k  (k ≥ 0)
+      @     return (k == 0 ? 1 : 10 * power10(k-1));
+      @ } @*/
+
+    /*@ public pure model int numDigits(int x) {
+      @     // number of decimal digits of a non-negative integer
+      @     return (x < 10 ? 1 : 1 + numDigits(x / 10));
+      @ } @*/
+
+    /*@ public pure model int digitAt(int x, int pos) {
+      @     // decimal digit at position pos (1 = least significant)
+      @     return (x / power10(pos-1)) % 10;
+      @ } @*/
+
+    /* =======================================================================
+     *  Required method                                                       *
+     * =====================================================================*/
+
+    /*@ public normal_behavior
+      @   requires 0 <= n && n <= 1_000_000_000;
+      @
+      @   ensures \result ==
+      @           (\sum int i; 0 <= i && i <= n;
+      @                (\sum int p; 1 <= p && p <= numDigits(i);
+      @                     (digitAt(i,p) == 1 ? 1 : 0)));
+      @
+      @   // result is obviously non-negative and fits in a 64-bit signed int
+      @   ensures 0 <= \result && \result <= 10_000_000_010L; // coarse bound
+      @
+      @   assignable \nothing;
+      @*/
+    public /*@ pure @*/ static long countDigitOne(int n) {
+        /* implementation goes here */
+        return 0;          // dummy placeholder
+    }
+}
+
+Explanation of the JML clauses
+
+• requires … — the constraint 0 ≤ n ≤ 10⁹ taken directly from the problem statement.
+
+• ensures … — a double ∑‐quantifier:
+    – outer sum iterates over every integer i from 0 to n,
+    – inner sum iterates over every decimal position p of i,
+      adding 1 exactly when that position holds the digit 1.
+
+• assignable \nothing — the method is pure (no state is changed).
+
+• Additional helper model methods (power10, numDigits, digitAt) are supplied
+  purely for specification purposes; they need not be implemented at run-time.
+
+Any implementation that satisfies this JML contract is a correct solution to
+LeetCode 233.

@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:14:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:32:
+//@ ensures((n == 0) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:13:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:32:
+//@ ensures((n == 13) ==> (\result == 6));
+    ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:12:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_r50/mutants/5/Solution.java:32:
+//@ ensures(\result >= 0);
+    ^
+6 verification failures

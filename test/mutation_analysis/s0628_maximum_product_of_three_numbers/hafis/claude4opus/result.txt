@@ -1,0 +1,31 @@
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:12:) in method maximumProduct
+        return Math.max(min1 * min2 * max1, max1 * max2 * max3);
+        ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:40:
+//@ ensures((\result >= -1000000000) && (\result <= 1000000000));
+    ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:15:) in method maximumProduct
+        return Math.max(min1 * min2 * max1, max1 * max2 * max3);
+        ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:40:
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result == 24));
+    ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:13:) in method maximumProduct
+        return Math.max(min1 * min2 * max1, max1 * max2 * max3);
+        ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:40:
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums.length == 3) ==> (\result == 6));
+    ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:14:) in method maximumProduct
+        return Math.max(min1 * min2 * max1, max1 * max2 * max3);
+        ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:40:
+//@ ensures((nums[0] == -1 && nums[1] == -2 && nums[2] == -3 && nums.length == 3) ==> (\result == -6));
+    ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maximumProduct
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result == 24));
+                                                                 ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/hafis/claude4opus/Solution.java:40: verify: Associated method exit
+        return Math.max(min1 * min2 * max1, max1 * max2 * max3);
+        ^
+10 verification failures

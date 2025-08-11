@@ -1,0 +1,1 @@
+If the computed numeric value before clamping is less_than to negative 2147483648 then int result equals negative 2147483648 . 

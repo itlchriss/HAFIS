@@ -1,0 +1,46 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Below is a precise JML contract for the routine that solves LeetCode 628 “Maximum Product of Three Numbers”.  
+(It is written for a Java class `Solution` that provides a static method `maximumProduct`.)
+
+```java
+public class Solution {
+
+    /*@
+      // --- Pre-conditions -----------------------------------------------
+      public normal_behavior
+      requires nums != null;
+      requires nums.length >= 3 && nums.length <= 10000;
+      requires (\forall int i; 0 <= i && i < nums.length;
+                   -1000 <= nums[i] && nums[i] <= 1000);
+
+      // --- Post-conditions ----------------------------------------------
+      /* 1.  The returned value equals the product of some three
+             (distinct-index) elements of the input array.             */
+      ensures (\exists int i, j, k;
+                   0 <= i && i < j && j < k && k < nums.length;
+                   \result == nums[i] * nums[j] * nums[k])
+          /* 2.  No other triple yields a larger product.                  */
+          &&  (\forall int i, j, k;
+                   0 <= i && i < j && j < k && k < nums.length;
+                   nums[i] * nums[j] * nums[k] <= \result);
+
+      // --- Frame condition ----------------------------------------------
+      assignable \nothing;          // the method is free of side effects
+    @*/
+    public static int maximumProduct(int[] nums) {
+        /* implementation goes here */
+    }
+}
+```
+
+Contract explanation
+
+1. requires-clauses encode the constraints from the original problem statement:
+   • non-null array  
+   • 3 ≤ length ≤ 10 000  
+   • every element in the closed range [-1000, 1000].
+
+2. The first ensures-clause guarantees that the result is indeed a product of three different elements from `nums`.
+
+3. The second ensures-clause states the optimality: every possible triple product is less than or equal to the returned value, i.e. the method returns the maximum achievable product.
+
+4. `assignable \nothing` asserts that the method has no observable side effects on any heap location (the input array itself is left untouched).

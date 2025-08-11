@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:22: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:19:) in method isValid: \everything
+        Stack<Character> stack = new Stack<>();
+                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:22:
+      @ pure
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:22: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:11:) in method isValid
+        Stack<Character> stack = new Stack<>();
+                                 ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:22:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:27: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:19:) in method isValid: \everything
+                stack.push(c);
+                          ^
+./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/purellm/claude4opus/mutants/4/Solution.java:27:
+      @ pure
+        ^
+6 verification failures

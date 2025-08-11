@@ -1,1 +1,0 @@
-exists x01.(_result{NN}(x01) & _type_integer_{NN}(x01) & exists e02.(_greater_than_or_equal{JJ}(e02) & (Subj(e02) = x01) & exists x03.(_0{CD}(x03) & (Dat(e02) = x03))) & exists e04.(_less_than_or_equal{JJ}(e04) & (Subj(e04) = x01) & exists x05.(exists x06.(_param_nums_{NN}(x06) & _type_integer_array_{NN}(x06) & Rel(x05,x06)) & _summation{NN}(x05) & (Dat(e04) = x05))))

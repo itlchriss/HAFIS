@@ -1,0 +1,12 @@
+ensures:
+- The type_string_ result contains the words of the type_string_ param_s_ in reverse order separated by a single space.
+- The type_string_ result does not start with a space and does not end with a space.
+- The type_string_ result does not contain multiple consecutive spaces.
+- If the type_string_ param_s_ is equal to strz_a the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a the type_string_ result is equal to strz_b.
+requires:
+- The type_string_ param_s_ contains at least 1 word.
+- The type_string_ param_s_ contains alphabets digits and spaces.

@@ -1,1 +1,0 @@
-ensures((s.equals("a good example")) ==> (\result.equals("example good a")));

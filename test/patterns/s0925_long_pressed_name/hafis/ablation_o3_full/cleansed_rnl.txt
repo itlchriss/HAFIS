@@ -1,0 +1,3 @@
+- If any character of data type String 'name' is absent from data type String 'typed' or appears out of order result boolean is false
+- If the length of data type String 'typed' is less than the length of data type String 'name' result boolean is false
+- When data type String 'typed' is exactly equal to data type String 'name' result boolean is true

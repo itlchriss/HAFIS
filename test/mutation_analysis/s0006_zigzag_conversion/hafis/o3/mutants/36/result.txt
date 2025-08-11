@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/36/Solution.java:39: error: unreachable statement
+                while (false) {
+                              ^
+1 error

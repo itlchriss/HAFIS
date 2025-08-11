@@ -1,0 +1,3 @@
+ensures:
+- If the chry_a the type_string_ strs_a and the chry_b the type_string_ strs_b do not permit completing the circular route from any station then the chry_c result equals negative 1.
+requires: []

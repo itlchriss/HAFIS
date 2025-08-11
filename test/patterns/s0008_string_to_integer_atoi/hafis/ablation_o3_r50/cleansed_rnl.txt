@@ -1,0 +1,12 @@
+- The string parameter `str` consists only of uppercase English letters, lowercase English letters, digits, the space character, the plus sign, the minus sign, and the dot character.
+- The integer result is greater than or equal to -2147483648 and is less than or equal to 2147483647.
+- If no digit character is encountered after any leading spaces and an optional sign in the string parameter `str`, the integer result is equal to 0.
+- If the first non space character of the string parameter `str` is the plus sign, the integer result is non negative.
+- If the first non space character of the string parameter `str` is the minus sign, the integer result is negative.
+- If the numeric value obtained from the contiguous digit characters and an optional sign in the string parameter `str` is less than -2147483648, the integer result is equal to -2147483648.
+- If the numeric value obtained from the contiguous digit characters and an optional sign in the string parameter `str` is greater than 2147483647, the integer result is equal to 2147483647.
+- If the string parameter `str` is equal to "42", the integer result is equal to 42.
+- If the string parameter `str` is equal to " -42", the integer result is equal to -42.
+- If the string parameter `str` is equal to "4193 with words", the integer result is equal to 4193.
+- If the string parameter `str` is equal to "words and 987", the integer result is equal to 0.
+- If the string parameter `str` is equal to "-91283472332", the integer result is equal to -2147483648.

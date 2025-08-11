@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0925_long_pressed_name/purellm/o3/mutants/10/Solution.java:51: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0925_long_pressed_name/purellm/o3/mutants/10/Solution.java:29:) in method isLongPressedName
+            return false;
+            ^
+./test/mutation_analysis/s0925_long_pressed_name/purellm/o3/mutants/10/Solution.java:29: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/purellm/o3/mutants/10/Solution.java:51:
+      @  ensures (\result <==>
+         ^
+2 verification failures

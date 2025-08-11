@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:17:) in method isPowerOfTwo
+                return false;
+                ^
+./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:27:
+//@ ensures((n == 16) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:14:) in method isPowerOfTwo
+                return false;
+                ^
+./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:27:
+//@ ensures((n == 4) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:12:) in method isPowerOfTwo
+                return false;
+                ^
+./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0231_power_of_two/hafis/claude4opus/mutants/7/Solution.java:27:
+//@ ensures((n == 1) ==> (\result == true));
+    ^
+6 verification failures

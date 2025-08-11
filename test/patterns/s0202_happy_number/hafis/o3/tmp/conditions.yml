@@ -1,0 +1,6 @@
+ensures:
+- If the type_boolean_ result is equal to the true literal , repeatedly replacing the type_integer_ param_n_ by the sum of the squares of its digits eventually produces the integer value 1.
+- If the type_boolean_ result is equal to the false literal , repeatedly replacing the type_integer_ param_n_ by the sum of the squares of its digits eventually produces an integer value that has appeared earlier in the sequence and the integer value 1 is never produced.
+- If the type_integer_ param_n_ is equal to 19 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 2 , the type_boolean_ result is equal to the false literal.
+requires: []

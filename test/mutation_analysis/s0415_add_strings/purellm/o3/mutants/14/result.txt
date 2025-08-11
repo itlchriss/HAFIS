@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/14/Solution.java:66: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/14/Solution.java:20:) in method addStrings
+                sum += Character.digit(num1.charAt(i), 10);
+                                                  ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/14/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/14/Solution.java:66:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/14/Solution.java:74: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/14/Solution.java:41:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/14/Solution.java:41: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/14/Solution.java:74:
+      @   ensures valueOf(\result) == valueOf(num1) + valueOf(num2);
+          ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/14/Solution.java:58: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String addStrings(String num1, String num2) {
+                  ^
+5 verification failures

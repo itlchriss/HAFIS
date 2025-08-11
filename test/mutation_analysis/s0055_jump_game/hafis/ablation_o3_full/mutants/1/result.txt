@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_full/mutants/1/Solution.java:37: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method canJump
+            tmp = Math.max(tmp, nums[i]);
+                                    ^
+1 verification failure

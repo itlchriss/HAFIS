@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0066_plus_one/purellm/o3/mutants/3/Solution.java:37: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method plusOne
+        //@ maintaining -1 <= i <= digits.length - 1;
+            ^
+1 verification failure

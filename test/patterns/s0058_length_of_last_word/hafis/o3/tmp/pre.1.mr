@@ -1,0 +1,1 @@
+exists x01.(_param_s_{NN}(x01) & _type_string_{NN}(x01) & exists e02.(_contain{VBZ}(e02) & (Subj(e02) = x01) & exists x03.(exists e04.(_least{JJS}(e04) & (Subj(e04) = x03) & exists e05.(_english{JJ}(e05) & (Subj(e05) = x03) & _letter{NN}(x03)) & _1{CD}(x03)) & _at{IN}(e02,x03))))

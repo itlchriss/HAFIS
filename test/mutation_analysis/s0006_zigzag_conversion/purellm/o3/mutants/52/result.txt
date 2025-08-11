@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0006_zigzag_conversion/purellm/o3/mutants/52/Solution.java:57: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0006_zigzag_conversion/purellm/o3/mutants/52/Solution.java:52:) in method convert
+            return s;
+            ^
+./test/mutation_analysis/s0006_zigzag_conversion/purellm/o3/mutants/52/Solution.java:52: verify: Associated declaration: ./test/mutation_analysis/s0006_zigzag_conversion/purellm/o3/mutants/52/Solution.java:57:
+  @ ensures  isZigZag(s, \result, numRows);    // full behaviour
+    ^
+./test/mutation_analysis/s0006_zigzag_conversion/purellm/o3/mutants/52/Solution.java:15: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method rowOf
+      int m = pos % cycle(rows);
+                  ^
+3 verification failures

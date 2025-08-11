@@ -1,0 +1,1 @@
+After execution the summation in param_int_ [ ] the type_string_ strs_a - the first_element of result int [ ] + the second_element of result int [ ] equals the summation in param_int_ [ ] the type_string_ strs_b - the second_element of result int [ ] + the first_element of result int [ ] . 

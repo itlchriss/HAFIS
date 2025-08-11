@@ -1,0 +1,4 @@
+- String `s` must consist solely of English letters comma characters or period characters
+- int `numRows` must be between 1 and 1000 inclusive
+- String result contains the characters of `s` arranged by writing `s` in a zigzag pattern across `numRows` rows and then concatenating the rows from top to bottom
+- String result equals `s` when int `numRows` is 1

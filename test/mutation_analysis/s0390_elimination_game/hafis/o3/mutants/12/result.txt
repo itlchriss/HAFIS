@@ -1,0 +1,14 @@
+./test/mutation_analysis/s0390_elimination_game/hafis/o3/mutants/12/Solution.java:10: warning: Method lastRemaining(int) has 'assignable \everything', making its caller likely impossible to verify
+//@ ensures((\result >= 1) && (\result <= n));
+    ^
+./test/mutation_analysis/s0390_elimination_game/hafis/o3/mutants/12/Solution.java:14: warning: Associated declaration: ./test/mutation_analysis/s0390_elimination_game/hafis/o3/mutants/12/Solution.java:10:
+        return n == 1 ? 1 : 2 * (n / 2 * lastRemaining(n / 2) + 1);
+                                                      ^
+./test/mutation_analysis/s0390_elimination_game/hafis/o3/mutants/12/Solution.java:14: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0390_elimination_game/hafis/o3/mutants/12/Solution.java:10:) in method lastRemaining
+        return n == 1 ? 1 : 2 * (n / 2 * lastRemaining(n / 2) + 1);
+        ^
+./test/mutation_analysis/s0390_elimination_game/hafis/o3/mutants/12/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0390_elimination_game/hafis/o3/mutants/12/Solution.java:14:
+//@ ensures((\result >= 1) && (\result <= n));
+    ^
+2 warnings
+2 verification failures

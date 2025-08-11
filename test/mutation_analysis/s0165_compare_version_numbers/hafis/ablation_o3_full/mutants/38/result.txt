@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0165_compare_version_numbers/hafis/ablation_o3_full/mutants/38/Solution.java:31: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method compareVersion
+                numB = numB * 10 / (c - 48);
+                                 ^
+1 verification failure

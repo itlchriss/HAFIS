@@ -1,0 +1,7 @@
+ensures:
+- result List<String> contains int the type_character_ chrs_a elements and is conceptually indexed starting from 1.
+- For every index position in result List<String> that is divisible by 3 and 5 result element equals the string value FizzBuzz.
+- For every index position in result List<String> that is divisible by 3 but not divisible by 5 result element equals the string value Fizz.
+- For every index position in result List<String> that is divisible by 5 but not divisible by 3 result element equals the string value Buzz.
+- For every index position in result List<String> that is not divisible by 3 or 5 result element equals the string_representation of that index.
+requires: []

@@ -1,1 +1,0 @@
-ensures((\result == true) ==> (\exists int i; 0 <= i <= num; i*i == num));

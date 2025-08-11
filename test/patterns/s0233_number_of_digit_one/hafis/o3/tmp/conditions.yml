@@ -1,0 +1,6 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0.
+- The type_integer_ result is equal to the total count of the digit 1 in the decimal representations of all integers is greater_than_or_equal to 0 and is less_than_or_equal to the type_integer_ param_n_.
+- If the type_integer_ param_n_ is equal to 0 , the type_integer_ result is equal to 0.
+- If the type_integer_ param_n_ is equal to 13 , the type_integer_ result is equal to 6.
+requires: []

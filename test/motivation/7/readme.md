@@ -1,0 +1,1 @@
+If the result is false, the input number is not even.

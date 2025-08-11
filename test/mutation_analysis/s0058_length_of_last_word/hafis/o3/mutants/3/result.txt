@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:12:) in method lengthOfLastWord
+        return len;
+        ^
+./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:26:
+//@ ensures((\result >= 1) && (\result <= s.length()));
+    ^
+./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:13:) in method lengthOfLastWord
+        return len;
+        ^
+./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:26:
+//@ ensures((s.equals(" fly me to the moon ")) ==> (\result == 4));
+    ^
+./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:14:) in method lengthOfLastWord
+        return len;
+        ^
+./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:26:
+//@ ensures((s.equals("Hello World")) ==> (\result == 5));
+    ^
+./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:15:) in method lengthOfLastWord
+        return len;
+        ^
+./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0058_length_of_last_word/hafis/o3/mutants/3/Solution.java:26:
+//@ ensures((s.equals("luffy is still joyboy")) ==> (\result == 6));
+    ^
+8 verification failures

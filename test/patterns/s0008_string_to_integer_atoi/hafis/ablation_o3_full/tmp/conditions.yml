@@ -1,0 +1,10 @@
+ensures:
+- If every character in String the type_string_ strs_a is the space character then int result equals 0.
+- All leading space characters in String the type_string_ strs_a are ignored when determining int result.
+- If the first non space character of String the type_string_ strs_a is the character the chry_a and at least 1 decimal digit follows then int result equals the numeric value represented by the consecutive decimal digits that follow the character the chry_b subject to clamping to the range negative 2147483648 to 2147483647.
+- If the first non space character of String the type_string_ strs_a is the character the chry_a and at least 1 decimal digit follows then int result equals the negated numeric value represented by the consecutive decimal digits that follow the character the chry_b subject to clamping to the range negative 2147483648 to 2147483647.
+- If the first non space character of String the type_string_ strs_a is equal to decimal digit then int result equals the numeric value represented by the consecutive decimal digits starting at that position subject to clamping to the range negative 2147483648 to 2147483647.
+- If no decimal digit exists after processing optional leading spaces and optional sign indicator in String the type_string_ strs_a then int result equals 0.
+- If the computed numeric value before clamping exceeds 2147483647 then int result equals 2147483647.
+- If the computed numeric value before clamping is less_than to negative 2147483648 then int result equals negative 2147483648.
+requires: []

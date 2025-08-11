@@ -1,0 +1,3 @@
+ensures:
+- boolean result is equal to the true literal exclusively when every customer represented in int[] the chry_a receive the correct change starting from no initial cash otherwise result is equal to the false literal.
+requires: []

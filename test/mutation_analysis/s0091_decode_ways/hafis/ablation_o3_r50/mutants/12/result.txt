@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0091_decode_ways/hafis/ablation_o3_r50/mutants/12/Solution.java:36: error: unreachable statement
+        return f[n];
+        ^
+1 error

@@ -1,0 +1,6 @@
+- The string result only contains characters 0123456789 a b c d e f
+- The length of the string result is greater than or equal to 1
+- The string result does not contain leading zeros unless the string result is equal to "0"
+- If the integer parameter `num` is equal to 0 the string result is equal to "0"
+- If the integer parameter `num` is equal to 26 the string result is equal to "1a"
+- If the integer parameter `num` is equal to -1 the string result is equal to "ffffffff"

@@ -1,0 +1,8 @@
+- All characters in the string parameter `s` are either space characters digits from 0 to 9 the plus sign character the minus sign character the asterisk character or the forward slash character.
+- All integer literals contained in the string parameter `s` are greater than or equal to 0 and are less than or equal to 2147483647.
+- The string parameter `s` represents a syntactically valid arithmetic expression formed from non-negative integers the operators plus minus asterisk and forward slash and optional spaces.
+- The integer result is greater than or equal to -2147483648 and is less than or equal to 2147483647.
+- If the string parameter `s` is equal to "3+2*2", the integer result is equal to 7.
+- If the string parameter `s` is equal to " 3/2 ", the integer result is equal to 1.
+- If the string parameter `s` is equal to " 3+5 / 2 ", the integer result is equal to 5.
+- If the string parameter `s` contains a division operator, each division operation contributing to the integer result uses truncation toward the zero literal.

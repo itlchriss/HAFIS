@@ -1,0 +1,1 @@
+- When int[] 'nums' contains at least two elements result int is the greatest positive difference between any two consecutive elements in the nondecreasingly sorted ordering of int[] 'nums'

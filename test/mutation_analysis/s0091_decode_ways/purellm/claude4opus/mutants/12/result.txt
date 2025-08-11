@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0091_decode_ways/purellm/claude4opus/mutants/12/Solution.java:42: error: unreachable statement
+        return f[n];
+        ^
+1 error

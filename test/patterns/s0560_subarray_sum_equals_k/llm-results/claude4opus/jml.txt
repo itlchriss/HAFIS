@@ -1,0 +1,41 @@
+Here's the JML specification for the "Subarray Sum Equals K" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires 1 <= nums.length && nums.length <= 20000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -1000 <= nums[i] && nums[i] <= 1000);
+      @ requires -10000000 <= k && k <= 10000000;
+      @ ensures \result >= 0;
+      @ ensures \result == (\num_of int i, j; 0 <= i && i <= j && j < nums.length;
+      @                     (\sum int m; i <= m && m <= j; nums[m]) == k);
+      @ pure
+      @*/
+    public int subarraySum(int[] nums, int k) {
+        // Implementation here
+    }
+}
+```
+
+Key points about this JML specification:
+
+1. **Preconditions (`requires`):**
+   - `nums` is not null
+   - Array length is between 1 and 20,000
+   - Each element is between -1000 and 1000
+   - `k` is between -10^7 and 10^7
+
+2. **Postconditions (`ensures`):**
+   - Result is non-negative (count of subarrays)
+   - Result equals the count of all continuous subarrays whose sum equals `k`
+   - Uses `\num_of` to count the number of valid (i,j) pairs where i is the start index and j is the end index of a subarray
+   - Uses `\sum` to calculate the sum of elements from index i to j (inclusive)
+
+3. **Method properties:**
+   - Marked as `pure` since it doesn't modify any state
+   - Uses `normal_behavior` since the method should not throw exceptions given valid inputs
+
+The specification captures that we need to count all continuous subarrays (represented by start index i and end index j where i ≤ j) whose elements sum to exactly k.

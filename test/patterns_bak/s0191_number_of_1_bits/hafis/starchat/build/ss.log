@@ -1,4 +1,0 @@
-test/s0191_number_of_1_bits/starchat/build/Solution.java:15: error: integer number too large
-//@ ensures((n == 11111111111111111111111111111101) ==> (\result == 31));
-                  ^
-1 error

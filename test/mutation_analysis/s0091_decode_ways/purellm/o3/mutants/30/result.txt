@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0091_decode_ways/purellm/o3/mutants/30/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/purellm/o3/mutants/30/Solution.java:14:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/purellm/o3/mutants/30/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/purellm/o3/mutants/30/Solution.java:42:
+      @ ensures  0 <= \result && \result <= Integer.MAX_VALUE;         // 32-bit answer
+        ^
+2 verification failures

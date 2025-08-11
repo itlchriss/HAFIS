@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/o3/mutants/13/Solution.java:24: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/o3/mutants/13/Solution.java:8:) in method getHint
+final int s = Character.getNumericValue(secret.charAt(i));
+                                                     ^
+./test/mutation_analysis/s0299_bulls_and_cows/purellm/o3/mutants/13/Solution.java:8: verify: Associated declaration: ./test/mutation_analysis/s0299_bulls_and_cows/purellm/o3/mutants/13/Solution.java:24:
+      @ public normal_behavior
+               ^
+2 verification failures

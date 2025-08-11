@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0164_maximum_gap/purellm/o3/mutants/0/Solution.java:24: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0164_maximum_gap/purellm/o3/mutants/0/Solution.java:14:) in method maximumGap: a[*]
+        Arrays.sort(nums);
+                   ^
+./test/mutation_analysis/s0164_maximum_gap/purellm/o3/mutants/0/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0164_maximum_gap/purellm/o3/mutants/0/Solution.java:24:
+      @             assignable \nothing;     
+                    ^
+2 verification failures

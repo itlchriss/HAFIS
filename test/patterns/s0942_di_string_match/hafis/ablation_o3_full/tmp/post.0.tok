@@ -1,0 +1,1 @@
+int [ ] result ensures length equals length of String the type_character_ chrs_a + 1 . 

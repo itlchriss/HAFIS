@@ -1,0 +1,10 @@
+ensures:
+- The type_list_ result's length is equal to the type_integer_ param_n_.
+- For every integer value v between 1 and the type_integer_ param_n_ inclusive , if the integer value v mod 3 is equal to 0 and the integer value v mod 5 is equal to 0 , the string at index v - 1 in the type_list_ result is equal to the string literal FizzBuzz.
+- For every integer value v between 1 and the type_integer_ param_n_ inclusive , if the integer value v mod 3 is equal to 0 and the integer value v mod 5 is not equal to 0 , the string at index v - 1 in the type_list_ result is equal to the string literal Fizz.
+- For every integer value v between 1 and the type_integer_ param_n_ inclusive , if the integer value v mod 5 is equal to 0 and the integer value v mod 3 is not equal to 0 , the string at index v - 1 in the type_list_ result is equal to the string literal Buzz.
+- For every integer value v between 1 and the type_integer_ param_n_ inclusive , if the integer value v mod 3 is not equal to 0 and the integer value v mod 5 is not equal to 0 , the string at index v - 1 in the type_list_ result is equal to the string_representation of the integer value v.
+- If the type_integer_ param_n_ is equal to 3 , the type_list_ result is equal to the type_string_array_ str_seqa.
+- If the type_integer_ param_n_ is equal to 5 , the type_list_ result is equal to the type_string_array_ str_seqa.
+- If the type_integer_ param_n_ is equal to 15 , the type_list_ result is equal to the type_string_array_ str_seqa.
+requires: []

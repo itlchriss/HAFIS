@@ -1,0 +1,85 @@
+Here's the JML specification for the zigzag conversion method:
+
+```java
+public class ZigzagConversion {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 1 <= s.length() && s.length() <= 1000;
+      @ requires 1 <= numRows && numRows <= 1000;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @     (('a' <= s.charAt(i) && s.charAt(i) <= 'z') ||
+      @      ('A' <= s.charAt(i) && s.charAt(i) <= 'Z') ||
+      @      s.charAt(i) == ',' || s.charAt(i) == '.'));
+      @ ensures \result != null;
+      @ ensures \result.length() == s.length();
+      @ ensures isValidZigzagConversion(s, numRows, \result);
+      @ ensures (\forall int i; 0 <= i && i < \result.length(); 
+      @     (('a' <= \result.charAt(i) && \result.charAt(i) <= 'z') ||
+      @      ('A' <= \result.charAt(i) && \result.charAt(i) <= 'Z') ||
+      @      \result.charAt(i) == ',' || \result.charAt(i) == '.'));
+      @ ensures containsSameCharacters(s, \result);
+      @*/
+    public /*@ pure @*/ String convert(String s, int numRows);
+    
+    /*@ private normal_behavior
+      @ requires original != null && converted != null;
+      @ requires original.length() == converted.length();
+      @ ensures \result <==> (\forall char c; 
+      @     countOccurrences(original, c) == countOccurrences(converted, c));
+      @*/
+    private /*@ pure @*/ boolean containsSameCharacters(String original, String converted);
+    
+    /*@ private normal_behavior
+      @ requires str != null;
+      @ requires 0 <= c && c <= 65535;
+      @ ensures \result >= 0;
+      @ ensures \result <= str.length();
+      @ ensures \result == (\num_of int i; 0 <= i && i < str.length(); 
+      @     str.charAt(i) == c);
+      @*/
+    private /*@ pure @*/ int countOccurrences(String str, char c);
+    
+    /*@ private normal_behavior
+      @ requires original != null && converted != null;
+      @ requires numRows >= 1;
+      @ requires original.length() == converted.length();
+      @ ensures \result <==> (numRows == 1 ? converted.equals(original) :
+      @     zigzagPatternMatches(original, numRows, converted));
+      @*/
+    private /*@ pure @*/ boolean isValidZigzagConversion(String original, int numRows, String converted);
+    
+    /*@ private normal_behavior
+      @ requires original != null && converted != null;
+      @ requires numRows > 1;
+      @ requires original.length() == converted.length();
+      @ // This is an abstract specification of the zigzag pattern matching
+      @ // The actual implementation would verify that characters appear in the
+      @ // correct order when read row by row from the zigzag pattern
+      @*/
+    private /*@ pure @*/ boolean zigzagPatternMatches(String original, int numRows, String converted);
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - Input string `s` is not null
+   - String length is between 1 and 1000
+   - `numRows` is between 1 and 1000
+   - String contains only English letters, comma, and period
+
+2. **Postconditions (`ensures`):**
+   - Result is not null
+   - Result has the same length as input
+   - Result contains the same characters as input (same frequency)
+   - Result is a valid zigzag conversion of the input
+   - Result contains only valid characters
+
+3. **Helper methods:**
+   - `containsSameCharacters`: Verifies that the conversion preserves all characters
+   - `countOccurrences`: Counts character occurrences for verification
+   - `isValidZigzagConversion`: Abstract specification for validating the zigzag pattern
+   - `zigzagPatternMatches`: Helper for pattern validation when numRows > 1
+
+The specification captures the essential properties without implementing the actual zigzag algorithm, allowing for different valid implementations while ensuring correctness.

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/o3/mutants/16/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method minMoves2
+//@ ensures((nums[0] == 1 && nums[1] == 10 && nums[2] == 2 && nums[3] == 9 && nums.length == 4) ==> (\result == 16));
+                 ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/o3/mutants/16/Solution.java:23: verify: Associated method exit
+        return ops;
+        ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/o3/mutants/16/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method minMoves2
+//@ ensures((nums[0] == 1 && nums[1] == 10 && nums[2] == 2 && nums[3] == 9 && nums.length == 4) ==> (\result == 16));
+                                 ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/hafis/o3/mutants/16/Solution.java:23: verify: Associated method exit
+        return ops;
+        ^
+4 verification failures

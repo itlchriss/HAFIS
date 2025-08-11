@@ -1,1 +1,0 @@
-ensures((word.equals("leetcode")) ==> (\result == false));

@@ -1,0 +1,64 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Below is a complete JML contract (together with a Java stub) that captures exactly the natural-language specification of the “4-Sum II” problem.
+
+```java
+public class FourSumII {
+
+    /*@ public normal_behavior
+      @   requires nums1 != null && nums2 != null && nums3 != null && nums4 != null;
+      @   requires nums1.length == nums2.length &&
+      @            nums1.length == nums3.length &&
+      @            nums1.length == nums4.length;               // n is the common length
+      @   requires 1 <= nums1.length && nums1.length <= 200;   // 1 ≤ n ≤ 200
+      @
+      @   //  −2^28 ≤ every element ≤  2^28
+      @   requires (\forall int i; 0 <= i && i < nums1.length;
+      @               -268435456 <= nums1[i] && nums1[i] <= 268435456 &&
+      @               -268435456 <= nums2[i] && nums2[i] <= 268435456 &&
+      @               -268435456 <= nums3[i] && nums3[i] <= 268435456 &&
+      @               -268435456 <= nums4[i] && nums4[i] <= 268435456);
+      @
+      @   assignable \nothing;      // the method has no side-effects
+      @
+      @   // Result = number of quadruples whose sum is zero
+      @   ensures \result ==
+      @           (\sum int i; 0 <= i && i < nums1.length;
+      @             (\sum int j; 0 <= j && j < nums1.length;
+      @               (\sum int k; 0 <= k && k < nums1.length;
+      @                 (\sum int l; 0 <= l && l < nums1.length;
+      @                   (nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0 ? 1 : 0)))));
+      @
+      @   // A few useful corollaries (not strictly required, but provable from the
+      @   // post-condition and the bounds on n):
+      @   ensures 0 <= \result &&
+      @           \result <= nums1.length * nums1.length *
+      @                      nums1.length * nums1.length;
+      @*/
+    public /*@ pure @*/ static int fourSumCount(int[] nums1,
+                                                int[] nums2,
+                                                int[] nums3,
+                                                int[] nums4) {
+        // --- implementation goes here ---
+        // The JML above specifies *what* the method must do.
+        return 0; // dummy return so that the file compiles
+    }
+}
+```
+
+Explanation of the main JML clauses
+
+1. `requires …`  
+   • Non-null arrays.  
+   • All arrays have the same length `n`.  
+   • 1 ≤ n ≤ 200.  
+   • Every element lies in the range [−2²⁸, 2²⁸].
+
+2. `assignable \nothing` (and the `pure` keyword)  
+   The method must not modify any heap-allocated data or perform I/O.
+
+3. `ensures …`  
+   The nested `\sum` quantifiers count how many index quadruples `(i,j,k,l)` in
+   `[0,n−1]⁴` satisfy  
+   `nums1[i] + nums2[j] + nums3[k] + nums4[l] == 0`;  
+   the result returned by the method must equal that count.
+
+This contract is executable by common JML tools (OpenJML, KeY, etc.) and is a faithful formalisation of the original problem statement.

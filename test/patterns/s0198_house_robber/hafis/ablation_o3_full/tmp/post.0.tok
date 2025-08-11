@@ -1,0 +1,1 @@
+int result ensures value is at least 0 . 

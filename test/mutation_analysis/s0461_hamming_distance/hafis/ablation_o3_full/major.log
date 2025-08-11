@@ -1,0 +1,30 @@
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.<init>:
+    Created MajorPluginTaskListener with options: [mml:../major/mml/all.mml.bin]
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.mutation.Mutator.initOperatorSymbols:
+    Initializing operator symbols for opcode mapping
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.mutation.Mutator.mutateTree:
+    Mutating tree: Env[AttrContext[Scope[super, this]],outer=Env[AttrContext[Scope[java.util.Collections, java.util.Arrays, g0401_0500.s0461_hamming_distance.Solution]]]]
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: g0401_0500.s0461_hamming_distance.Solution
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: hammingDistance([int x, int y])int
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 1
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 1: Solution.hammingDistance(line 13, col 35)
+            mutation operator group:   LOR
+            mutation operator:         ^(int,int) |==> &(int,int)
+            original:                  x ^ y 
+            mutant:                    x & y
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 2
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 2: Solution.hammingDistance(line 13, col 35)
+            mutation operator group:   LOR
+            mutation operator:         ^(int,int) |==> |(int,int)
+            original:                  x ^ y 
+            mutant:                    x | y
+[07/25 18:41:33] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.mutate:
+    Generated 2 mutants (27 ms)

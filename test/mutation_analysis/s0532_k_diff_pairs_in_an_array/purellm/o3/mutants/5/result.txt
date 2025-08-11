@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/o3/mutants/5/Solution.java:41: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/o3/mutants/5/Solution.java:10:) in method findPairs
+            set.add(n);
+                   ^
+./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/o3/mutants/5/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0532_k_diff_pairs_in_an_array/purellm/o3/mutants/5/Solution.java:41:
+      @   public normal_behavior
+                 ^
+2 verification failures

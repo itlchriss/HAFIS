@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:11:) in method isPowerOfFour
+        return n == 1;
+        ^
+./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:20:
+      @ ensures \result ==> (n & 0x55555555) != 0;  // n has a 1 bit in an even position
+        ^
+./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:10:) in method isPowerOfFour
+        return n == 1;
+        ^
+./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:20:
+      @ ensures \result ==> (n & (n - 1)) == 0;  // n is a power of 2
+        ^
+./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:9:) in method isPowerOfFour
+        return n == 1;
+        ^
+./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s0342_power_of_four/purellm/claude4opus/mutants/11/Solution.java:20:
+      @ ensures \result ==> n > 0;
+        ^
+6 verification failures

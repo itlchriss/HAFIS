@@ -1,0 +1,70 @@
+package g0301_0400.s0331_verify_preorder_serialization_of_a_binary_tree;
+
+// #Medium #String #Tree #Binary_Tree #Stack #2022_07_10_Time_2_ms_(99.12%)_Space_42.5_MB_(79.33%)
+
+public class Solution {
+    /*@  requires preorder != null;
+      @  // 1 ≤ |preorder| ≤ 10 000
+      @  requires 1 <= preorder.length() && preorder.length() <= 10_000;
+      @
+      @  // The lexical form is guaranteed to be correct according to the
+      @  // statement of the problem, but we record it anyway:
+      @  //  – every character is a digit, ‘#’ or ‘,’
+      @  //  – first and last characters are not ‘,’
+      @  //  – there are no two consecutive commas.
+      @  requires (\forall int i; 0 <= i < preorder.length();
+      @                 preorder.charAt(i) == ',' ||
+      @                 preorder.charAt(i) == '#' ||
+      @                 Character.isDigit(preorder.charAt(i)));
+      @  requires preorder.charAt(0) != ',' &&
+      @           preorder.charAt(preorder.length() - 1) != ',';
+      @  requires (\forall int i; 0 <= i < preorder.length() - 1;
+      @                 !(preorder.charAt(i) == ',' &&
+      @                   preorder.charAt(i + 1) == ','));
+      @
+      @  /*  The result is true  IFF
+      @      – while scanning the tokens from left to right the number of
+      @        “slots” (open child positions) never becomes negative, and
+      @      – when the last token is processed the number of slots is 0.
+      @
+      @      We formalise this with
+      @           delta(t) = +1  if token t is an integer
+      @           delta(t) = −1  if token t is ‘#’
+      @
+      @      Let  tok[]  be  preorder.split(",")
+      @      and let
+      @           S(i) = 1 + Σ_{k=0}^{i} delta(tok[k])        (0-based)
+      @
+      @      Then the stream is valid  ⇔
+      @           (∀ i : 0 ≤ i < tok.length  •  S(i) > 0)  ∧  S(n−1) = 0
+      @   * /
+      @
+      @  ensures
+      @     \result <==>
+      @       (\let String[] tok = preorder.split(",");
+      @        (\forall int i; 0 <= i < tok.length;
+      @           1 +
+      @           (\sum int k; 0 <= k <= i;
+      @                  tok[k].equals("#") ? -1 : 1)  > 0)
+      @        &&
+      @        1 +
+      @        (\sum int k; 0 <= k < tok.length;
+      @               tok[k].equals("#") ? -1 : 1)  == 0);
+      @
+      @  assignable \nothing;               // a pure function
+      @*/
+    public boolean isValidSerialization(String preorder) {
+        int count = 1;
+        int length = preorder.length();
+        for (int i = 1; i <= length; i++) {
+            if (i == length || preorder.charAt(i) == ',') {
+                --count;
+                if (count < 0) {
+                    return false;
+                }
+                count += preorder.charAt(i - 1) == '#' ? 0 : 2;
+            }
+        }
+        return count == 0;
+    }
+}

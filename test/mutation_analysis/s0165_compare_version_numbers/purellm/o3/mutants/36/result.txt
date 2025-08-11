@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0165_compare_version_numbers/purellm/o3/mutants/36/Solution.java:40: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0165_compare_version_numbers/purellm/o3/mutants/36/Solution.java:6:) in method compareVersion
+            char c = version2.charAt(j);
+                                    ^
+./test/mutation_analysis/s0165_compare_version_numbers/purellm/o3/mutants/36/Solution.java:6: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/purellm/o3/mutants/36/Solution.java:40:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0165_compare_version_numbers/purellm/o3/mutants/36/Solution.java:63: verify: The prover cannot establish an assertion (Precondition: ./test/mutation_analysis/s0165_compare_version_numbers/purellm/o3/mutants/36/Solution.java:26:) in method compareVersion
+                return compareVersion(v1, v2);
+                                     ^
+./test/mutation_analysis/s0165_compare_version_numbers/purellm/o3/mutants/36/Solution.java:26: verify: Associated declaration: ./test/mutation_analysis/s0165_compare_version_numbers/purellm/o3/mutants/36/Solution.java:63:
+    public int compareVersion(String version1, String version2) {
+               ^
+./test/mutation_analysis/s0165_compare_version_numbers/purellm/o3/mutants/36/Solution.java:10: verify: Precondition conjunct is false: 1 <= version2.length()
+    @   requires 1 <= version2.length() && version2.length() <= 500;
+                   ^
+5 verification failures

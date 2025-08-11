@@ -1,0 +1,13 @@
+ensures:
+- If the type_integer_ param_target_ is present in the type_integer_array_ param_nums_ , the type_integer_ result is equal to the index of the type_integer_ param_target_ in the type_integer_array_ param_nums_.
+- If the type_integer_ param_target_ is not contained by the type_integer_array_ param_nums_ , the type_integer_ result is equal to negative 1.
+- If the type_integer_ result is different from negative 1 , the type_integer_ result is greater_than_or_equal to 0 and is less_than to the type_integer_array_ param_nums_'s length.
+- If the type_integer_array_ param_nums_ is equal to arr_a and the type_integer_ param_target_ is equal to 0 , the type_integer_ result is equal to 4.
+- If the type_integer_array_ param_nums_ is equal to arr_a and the type_integer_ param_target_ is equal to 3 , the type_integer_ result is equal to negative 1.
+- If the type_integer_array_ param_nums_ is equal to arr_a and the type_integer_ param_target_ is equal to 0 , the type_integer_ result is equal to negative 1.
+- The type_integer_ result is greater_than_or_equal to negative 1 and is less_than to the type_integer_array_ param_nums_'s length.
+requires:
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to negative 10000 and are less_than_or_equal to 10000.
+- The type_integer_array_ param_nums_'s values are unique.
+- The type_integer_array_ param_nums_ is in the ascending_order and may be rotated around 1 pivot index.
+- The type_integer_ param_target_ is greater_than_or_equal to negative 10000 and is less_than_or_equal to 10000.

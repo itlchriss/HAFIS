@@ -1,0 +1,7 @@
+ensures:
+- If the type_boolean_ result is equal to the true literal , the last index of the type_integer_array_ param_nums_ is reachable from the first index by taking successive jumps whose lengths are less_than_or_equal to the corresponding values stored in the type_integer_array_ param_nums_.
+- If the type_boolean_ result is equal to the false literal , the last index of the type_integer_array_ param_nums_ is not reachable from the first index when only successive jumps whose lengths are less_than_or_equal to the corresponding values stored in the type_integer_array_ param_nums_ are allowed.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_boolean_ result is equal to the true literal.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_boolean_ result is equal to the false literal.
+requires:
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to 0 and are less_than_or_equal to 100000.

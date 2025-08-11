@@ -1,0 +1,5 @@
+ensures:
+- if data type String param_s_ contains that occurs once then data type int result equals the lowest index of such character.
+- if no character in data type String param_s_ occurs once then data type int result equals negative 1.
+requires:
+- All values in data type String param_s_ only contain the lowercase_alphabets.

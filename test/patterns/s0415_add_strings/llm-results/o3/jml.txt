@@ -1,0 +1,100 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Below is a self-contained JML specification (contract) for the classical
+LeetCode problem 415 “Add Strings”.
+It is written as annotations for a Java class that would contain a method
+
+    public static String addStrings(String num1, String num2)
+
+Only the specification is given – the method body can be filled in with
+any implementation that satisfies the contract and that does **not** rely
+on `BigInteger`, `Long.parseLong`, or similar “big-number” libraries.
+
+```java
+public class AddStrings {
+
+    /*------------------------------------------------------------------
+     * A model (ghost) function that turns a decimal digit string into
+     * a mathematical integer.  It is only used in the specification;
+     * it never has to be implemented.
+     *-----------------------------------------------------------------*/
+    /*@ public model pure static \bigint valueOf(String s);
+      @
+      @ //  PRE‐CONDITIONS for the model function
+      @ requires s != null;
+      @ requires (\forall int i; 0 <= i && i < s.length();
+      @                     Character.isDigit(s.charAt(i)));
+      @ ensures  \result >= 0;
+      @*/
+      // (no implementation body is needed – the function is “axiomatic”)
+
+    /*------------------------------------------------------------------
+     * 415.  Add Strings
+     *-----------------------------------------------------------------*/
+    /*@ public normal_behavior
+      @
+      @   // -----------------------  PRE–CONDITIONS  --------------------
+      @   requires num1 != null && num2 != null;
+      @   requires 1 <= num1.length() && num1.length() <= 10000;
+      @   requires 1 <= num2.length() && num2.length() <= 10000;
+      @
+      @   // every character must be a decimal digit
+      @   requires (\forall int i; 0 <= i && i < num1.length();
+      @                         Character.isDigit(num1.charAt(i)));
+      @   requires (\forall int i; 0 <= i && i < num2.length();
+      @                         Character.isDigit(num2.charAt(i)));
+      @
+      @   // no leading zeros except for the single character "0"
+      @   requires num1.length() == 1 || num1.charAt(0) != '0';
+      @   requires num2.length() == 1 || num2.charAt(0) != '0';
+      @
+      @   // -----------------------  POST–CONDITIONS --------------------
+      @   ensures \result != null;
+      @
+      @   // numeric correctness:  valueOf(result) = valueOf(num1)+valueOf(num2)
+      @   ensures valueOf(\result) == valueOf(num1) + valueOf(num2);
+      @
+      @   // result contains only digits
+      @   ensures (\forall int i; 0 <= i && i < \result.length();
+      @                         Character.isDigit(\result.charAt(i)));
+      @
+      @   // canonical representation – no leading zeros (except "0")
+      @   ensures \result.length() == 1 || \result.charAt(0) != '0';
+      @
+      @   // the result is at most one digit longer than the longer operand
+      @   ensures \result.length()
+      @           <= ((num1.length() >= num2.length()) ? num1.length()
+      @                                                : num2.length()) + 1;
+      @
+      @   // the method is side-effect free w.r.t. visible state
+      @   assignable \nothing;
+      @*/
+    public static String addStrings(String num1, String num2) {
+        /* implementation goes here */
+    }
+}
+```
+
+Explanation of the main clauses
+
+1. `requires` combine the constraints stated in the English description:
+   • non-null inputs  
+   • length between 1 and 10 000  
+   • digits only  
+   • no leading zeros except for “0”.
+
+2. `valueOf` is an *axiomatic* (model) function mapping a digit string
+   to a mathematical (unbounded) integer.  
+   Using it lets the post-condition express the required numerical
+   equality even though the concrete program is not allowed to rely on
+   `BigInteger`.
+
+3. Post-conditions guarantee
+   • correct numerical sum  
+   • result is a valid canonical digit string  
+   • result length bound (optional but useful).
+
+4. `assignable \nothing;` makes the method observationally pure (it may
+   create new objects such as the result string, but it may not modify
+   any pre-existing heap locations).
+
+Any Java implementation that fulfills these conditions and does not call
+big-integer libraries will satisfy the original specification.

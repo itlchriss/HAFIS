@@ -1,7 +1,0 @@
-ensures:
-- The type_string_ result is equal to valid string and has the same characters as the type_string_ param_s_.
-- The type_string_ result has the same frequency of each character as the type_string_ param_s_.
-- The type_string_ result is sorted to decreasing order based on the frequency of .
-requires:
-- The type_string_ param_s_'s length is less_than_or_equal to 500000 and is greater_than_or_equal to 1.
-- The type_string_ param_s_ only contains the checking_character_sequence_ .

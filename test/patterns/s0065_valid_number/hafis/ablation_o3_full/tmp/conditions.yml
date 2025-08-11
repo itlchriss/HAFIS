@@ -1,0 +1,6 @@
+ensures:
+- if Stringthe chry_a length is less_than to 1 or is greater_than to 20 then type_boolean_ result is equal to the false literal.
+- if Stringthe chry_a contains any character other than the digits + sign - sign dot uppercase E or lowercase e then type_boolean_ result is equal to the false literal.
+- if Stringthe chry_a is equal to valid number according to the decimal number or integer rules and optional exponent rule described in the software specification then type_boolean_ result is equal to the true literal.
+- if Stringthe chry_a does not represent a valid number according to the decimal number or integer rules and optional exponent rule described in the software specification then type_boolean_ result is equal to the false literal.
+requires: []

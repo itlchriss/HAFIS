@@ -1,0 +1,1 @@
+- The String result equals the Excel column title that matches the positional value specified by int 'n'

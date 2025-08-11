@@ -1,0 +1,67 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method productExceptSelf
+//@ ensures((nums[0] == -1 && nums[1] == 1 && nums[2] == 0 && nums[3] == -3 && nums[4] == 3 && nums.length == 5) ==> (\result[0] == 0 && \result[1] == 0 && \result[2] == 9 && \result[3] == 0 && \result[4] == 0 && \result.length == 5));
+                                                  ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: Associated method exit
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:15:) in method productExceptSelf
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38:
+//@ ensures((\forall int i; 0 <= i < \result.length; \result[i] <= 2147483647) && (\forall int i; 0 <= i < \result.length; \result[i] >= -2147483648));
+    ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:16:) in method productExceptSelf
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38:
+//@ ensures((nums[0] == -1 && nums[1] == 1 && nums[2] == 0 && nums[3] == -3 && nums[4] == 3 && nums.length == 5) ==> (\result[0] == 0 && \result[1] == 0 && \result[2] == 9 && \result[3] == 0 && \result[4] == 0 && \result.length == 5));
+    ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method productExceptSelf
+//@ ensures((nums[0] == -1 && nums[1] == 1 && nums[2] == 0 && nums[3] == -3 && nums[4] == 3 && nums.length == 5) ==> (\result[0] == 0 && \result[1] == 0 && \result[2] == 9 && \result[3] == 0 && \result[4] == 0 && \result.length == 5));
+                                  ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: Associated method exit
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method productExceptSelf
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result[0] == 24 && \result[1] == 12 && \result[2] == 8 && \result[3] == 6 && \result.length == 4));
+                                 ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: Associated method exit
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method productExceptSelf
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result[0] == 24 && \result[1] == 12 && \result[2] == 8 && \result[3] == 6 && \result.length == 4));
+                                                                 ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: Associated method exit
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method productExceptSelf
+//@ ensures((nums[0] == -1 && nums[1] == 1 && nums[2] == 0 && nums[3] == -3 && nums[4] == 3 && nums.length == 5) ==> (\result[0] == 0 && \result[1] == 0 && \result[2] == 9 && \result[3] == 0 && \result[4] == 0 && \result.length == 5));
+                                                                  ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: Associated method exit
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method productExceptSelf
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result[0] == 24 && \result[1] == 12 && \result[2] == 8 && \result[3] == 6 && \result.length == 4));
+                 ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: Associated method exit
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method productExceptSelf
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result[0] == 24 && \result[1] == 12 && \result[2] == 8 && \result[3] == 6 && \result.length == 4));
+                                                 ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: Associated method exit
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method productExceptSelf
+//@ ensures((nums[0] == -1 && nums[1] == 1 && nums[2] == 0 && nums[3] == -3 && nums[4] == 3 && nums.length == 5) ==> (\result[0] == 0 && \result[1] == 0 && \result[2] == 9 && \result[3] == 0 && \result[4] == 0 && \result.length == 5));
+                                                                                   ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: Associated method exit
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:14:) in method productExceptSelf
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0238_product_of_array_except_self/hafis/o3/mutants/1/Solution.java:38:
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result[0] == 24 && \result[1] == 12 && \result[2] == 8 && \result[3] == 6 && \result.length == 4));
+    ^
+22 verification failures

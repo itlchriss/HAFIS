@@ -1,0 +1,5 @@
+- All values in the integer array parameter `bills` are equal to 5 or are equal to 10 or are equal to 20.
+- If the boolean result is equal to the true literal, there exists an order-preserving sequence of payments and change returns whereby every customer in the integer array parameter `bills` receives the correct change for a five dollar purchase.
+- If the boolean result is equal to the false literal, no order-preserving sequence of payments and change returns can ensure that every customer in the integer array parameter `bills` receives the correct change for a five dollar purchase.
+- If the integer array parameter `bills` is equal to [5,5,5,10,20], the boolean result is equal to the true literal.
+- If the integer array parameter `bills` is equal to [5,5,10,10,20], the boolean result is equal to the false literal.

@@ -1,0 +1,1 @@
+If the computed numeric value before clamping exceeds 2147483647 then int result equals 2147483647 . 

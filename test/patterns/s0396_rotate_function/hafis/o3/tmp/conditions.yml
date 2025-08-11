@@ -1,0 +1,7 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to negative 2147483648 and is less_than_or_equal to 2147483647.
+- The type_integer_ result is equal to the maximum rotation function value obtained from all arrays produced by rotating the type_integer_array_ param_nums_ any number of positions clockwise.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 26.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 0.
+requires:
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to negative 100 and are less_than_or_equal to 100.

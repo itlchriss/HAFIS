@@ -1,0 +1,23 @@
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:28: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @                (\sum int p; 1 <= p && p <= numDigits(i);
+                        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:27: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @           (\sum int i; 0 <= i && i <= n;
+                   ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:32:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:32: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:53:
+      @   ensures 0 <= \result && \result <= 10_000_000_010L; // coarse bound
+          ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:26:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:26: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:53:
+      @   ensures \result ==
+          ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/o3/mutants/38/Solution.java:20: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method digitAt
+      @     return (x / power10(pos-1)) % 10;
+                      ^
+2 warnings
+5 verification failures

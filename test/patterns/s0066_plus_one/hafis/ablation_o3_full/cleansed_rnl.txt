@@ -1,0 +1,6 @@
+- every element in 'digits' int[] must be an integer value from zero to nine inclusive before the method is invoked
+- the first element of 'digits' int[] must not be zero unless the length of 'digits' int[] equals one before the method is invoked
+- result int[] represents the decimal value obtained by adding one to the decimal value represented by 'digits' int[] before the method is invoked
+- result int[] length equals the length of 'digits' int[] or the length of 'digits' int[] plus one after the method finishes
+- every element in result int[] is an integer value from zero to nine inclusive after the method finishes
+- the first element of result int[] is never zero after the method finishes

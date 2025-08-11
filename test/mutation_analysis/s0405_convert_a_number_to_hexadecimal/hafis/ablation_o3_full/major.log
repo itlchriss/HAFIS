@@ -1,0 +1,166 @@
+[07/25 18:41:22] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.<init>:
+    Created MajorPluginTaskListener with options: [mml:../major/mml/all.mml.bin]
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.initOperatorSymbols:
+    Initializing operator symbols for opcode mapping
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.mutateTree:
+    Mutating tree: Env[AttrContext[Scope[super, this]],outer=Env[AttrContext[Scope[java.util.Collections, java.util.Arrays, g0401_0500.s0405_convert_a_number_to_hexadecimal.Solution]]]]
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: g0401_0500.s0405_convert_a_number_to_hexadecimal.Solution
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: toHex([int num])String
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 1
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 1: Solution.toHex(line 12, col 17)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  num == 0 
+            mutant:                    num <= 0
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 2
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 2: Solution.toHex(line 12, col 17)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  num == 0 
+            mutant:                    num >= 0
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 3
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 3: Solution.toHex(line 12, col 17)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  num == 0 
+            mutant:                    false
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 4
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 4: (STD) return "0"; -> <NO-OP>
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 5
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 5: Solution.toHex(line 17, col 20)
+            mutation operator group:   ROR
+            mutation operator:         !=(int,int) |==> <(int,int)
+            original:                  num != 0 
+            mutant:                    num < 0
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 6
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 6: Solution.toHex(line 17, col 20)
+            mutation operator group:   ROR
+            mutation operator:         !=(int,int) |==> >(int,int)
+            original:                  num != 0 
+            mutant:                    num > 0
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 7
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 7: Solution.toHex(line 17, col 20)
+            mutation operator group:   ROR
+            mutation operator:         !=(int,int) |==> TRUE(int,int)
+            original:                  num != 0 
+            mutant:                    true
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 8
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 8: Solution.toHex(line 18, col 21)
+            mutation operator group:   LOR
+            mutation operator:         &(int,int) |==> ^(int,int)
+            original:                  num & 15 
+            mutant:                    num ^ 15
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 9
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 9: Solution.toHex(line 18, col 21)
+            mutation operator group:   LOR
+            mutation operator:         &(int,int) |==> |(int,int)
+            original:                  num & 15 
+            mutant:                    num | 15
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 10
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 10: Solution.toHex(line 19, col 19)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> !=(int,int)
+            original:                  x < 10 
+            mutant:                    x != 10
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 11
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 11: Solution.toHex(line 19, col 19)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> <=(int,int)
+            original:                  x < 10 
+            mutant:                    x <= 10
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 12
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 12: Solution.toHex(line 19, col 19)
+            mutation operator group:   ROR
+            mutation operator:         <(int,int) |==> FALSE(int,int)
+            original:                  x < 10 
+            mutant:                    false
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 13
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 13: (STD) sb.append(x); -> <NO-OP>
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 14
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 14: Solution.toHex(line 22, col 37)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> %(int,int)
+            original:                  x + 87 
+            mutant:                    x % 87
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 15
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 15: Solution.toHex(line 22, col 37)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> *(int,int)
+            original:                  x + 87 
+            mutant:                    x * 87
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 16
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 16: Solution.toHex(line 22, col 37)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> -(int,int)
+            original:                  x + 87 
+            mutant:                    x - 87
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 17
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 17: Solution.toHex(line 22, col 37)
+            mutation operator group:   AOR
+            mutation operator:         +(int,int) |==> /(int,int)
+            original:                  x + 87 
+            mutant:                    x / 87
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 18
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 18: (STD) sb.append((char)(x + 87)); -> <NO-OP>
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 19
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 19: Solution.toHex(line 24, col 23)
+            mutation operator group:   SOR
+            mutation operator:         >>>(int,int) |==> <<(int,int)
+            original:                  num >>> 4 
+            mutant:                    num << 4
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 20
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 20: Solution.toHex(line 24, col 23)
+            mutation operator group:   SOR
+            mutation operator:         >>>(int,int) |==> >>(int,int)
+            original:                  num >>> 4 
+            mutant:                    num >> 4
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 21
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 21: (STD) num = num >>> 4; -> <NO-OP>
+[07/25 18:41:23] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.mutate:
+    Generated 21 mutants (96 ms)

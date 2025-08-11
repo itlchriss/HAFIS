@@ -1,0 +1,3 @@
+ensures:
+- result of type int equals the maximum obtainable total of the smaller member from every pair when all elements of int[] the type_string_ strs_a are grouped into n non-overlapping pairs.
+requires: []

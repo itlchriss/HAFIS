@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/o3/mutants/47/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ requires((num[0] == 0) ==> (num.length == 1));
+                 ^
+error: An internal JML error occurred, possibly recoverable.  Please report the bug with as much information as you can.
+  Reason: Unexpected result when querying SMT solver for reason for an unknown result: (error "Error writing to solver: (get-info :reason-unknown) java.io.IOException: Broken pipe")
+1 error
+1 verification failure

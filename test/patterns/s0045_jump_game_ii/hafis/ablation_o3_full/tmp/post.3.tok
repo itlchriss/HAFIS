@@ -1,0 +1,1 @@
+Ensures there exists no valid sequence of jumps from index 0 to the last index that uses fewer jumps than int result . 

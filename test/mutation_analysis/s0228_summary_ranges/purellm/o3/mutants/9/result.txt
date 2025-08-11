@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0228_summary_ranges/purellm/o3/mutants/9/Solution.java:24: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Iterable.jml:10:) in method summaryRanges: g0201_0300.s0228_summary_ranges.Solution.summaryRanges(int[]) (for result type)
+            return ranges;
+            ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/o3/mutants/9/Solution.java:24:
+    //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
+                   ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/o3/mutants/9/Solution.java:42: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/o3/mutants/9/Solution.java:9:) in method summaryRanges
+                strB.setLength(0);
+                              ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/o3/mutants/9/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/o3/mutants/9/Solution.java:42:
+    /*@ public normal_behavior
+               ^
+4 verification failures

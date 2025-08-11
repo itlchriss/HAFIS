@@ -1,0 +1,47 @@
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:14: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \max
+      @           (\max int i; 0 <= i && i < nums.length; nums[i]) -
+                   ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:15: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \min
+      @           (\min int i; 0 <= i && i < nums.length; nums[i]) - 2 * k);
+                   ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \max
+      @ ensures \result <= (\max int i; 0 <= i && i < nums.length; nums[i]) -
+                            ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:17: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \min
+      @                    (\min int i; 0 <= i && i < nums.length; nums[i]);
+                            ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:23: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \max
+      @           \result <= (\max int i; 0 <= i && i < modifiedNums.length; modifiedNums[i]) -
+                              ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:24: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \min
+      @                     (\min int i; 0 <= i && i < modifiedNums.length; modifiedNums[i]));
+                             ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:33: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method smallestRangeI
+        if (min / k >= max - k) {
+                ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:12:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:36:
+      @ ensures \result >= 0;
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:13:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:36:
+      @ ensures \result == Math.max(0,
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:18:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:36:
+      @ ensures (\forall int[] modifiedNums;
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:16:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/purellm/claude4opus/mutants/5/Solution.java:36:
+      @ ensures \result <= (\max int i; 0 <= i && i < nums.length; nums[i]) -
+        ^
+6 warnings
+9 verification failures

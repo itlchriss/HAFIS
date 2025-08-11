@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_r50/mutants/65/Solution.java:20: verify: The prover cannot establish an assertion (InvariantExceptionExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method isValid: g0001_0100.s0020_valid_parentheses.Solution.isValid(String) (parameter s)
+    public boolean isValid(String s) {
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/ablation_o3_r50/mutants/65/Solution.java:20:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+2 verification failures

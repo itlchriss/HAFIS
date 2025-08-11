@@ -1,0 +1,10 @@
+- The string parameter `s` consists only of English letters digits and space characters.
+- The string result contains no leading space characters and contains no trailing space characters.
+- Any two consecutive sequences of non space characters in the string result are separated by exactly one space character.
+- The number of sequences of non space characters in the string result is equal to the number of sequences of non space characters in the string parameter `s`.
+- The order of the sequences of non space characters in the string result is the reverse order of the sequences of non space characters in the string parameter `s`.
+- If the string parameter `s` is equal to "the sky is blue", the string result is equal to "blue is sky the".
+- If the string parameter `s` is equal to " hello world ", the string result is equal to "world hello".
+- If the string parameter `s` is equal to "a good example", the string result is equal to "example good a".
+- If the string parameter `s` is equal to " Bob Loves Alice ", the string result is equal to "Alice Loves Bob".
+- If the string parameter `s` is equal to "Alice does not even like bob", the string result is equal to "bob like even not does Alice".

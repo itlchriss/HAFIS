@@ -1,0 +1,5 @@
+ensures:
+- int result ensures value is at least 0.
+- int result ensures value is at most the sum of all elements in int[] the type_string_ strs_a.
+- int result ensures value equals the maximum possible sum of elements selected from int[] the type_string_ strs_a that no 2 selected elements are located at consecutive indices.
+requires: []

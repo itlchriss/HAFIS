@@ -1,0 +1,14 @@
+ensures:
+- The type_string_ result is the sum of the integer value of the type_string_ param_num1_ and the integer value of the type_string_ param_num2_.
+- The type_string_ result only contains digits.
+- The type_string_ result does not have leading zeros except when the type_string_ result is equal to stry_a.
+- If the type_string_ param_num1_ is equal to stry_a and the type_string_ param_num2_ is equal to stry_b , the type_string_ result is equal to stry_c.
+- If the type_string_ param_num1_ is equal to stry_a and the type_string_ param_num2_ is equal to stry_b , the type_string_ result is equal to stry_c.
+- If the type_string_ param_num1_ is equal to stry_a and the type_string_ param_num2_ is equal to stry_b , the type_string_ result is equal to stry_c.
+requires:
+- The type_string_ param_num1_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 10000.
+- The type_string_ param_num2_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 10000.
+- The type_string_ param_num1_ only contains digits.
+- The type_string_ param_num2_ only contains digits.
+- The type_string_ param_num1_ does not have leading zeros except when the type_string_ param_num1_ is equal to stry_a.
+- The type_string_ param_num2_ does not have leading zeros except when the type_string_ param_num2_ is equal to stry_a.

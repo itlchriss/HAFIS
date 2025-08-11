@@ -1,0 +1,31 @@
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:16:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:25:
+      @ ensures \result.size() >= 0;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:17:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:25:
+      @ ensures nums.length == 0 ==> \result.size() == 0;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:68: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:18:) in method summaryRanges
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:68:
+      @ ensures nums.length > 0 ==> \result.size() > 0;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:55: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:20:) in method summaryRanges: \everything
+                strB.setLength(0);
+                              ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:55:
+      @ pure
+        ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:55: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:9:) in method summaryRanges
+                strB.setLength(0);
+                              ^
+./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/purellm/claude4opus/mutants/13/Solution.java:55:
+    /*@ public normal_behavior
+               ^
+10 verification failures

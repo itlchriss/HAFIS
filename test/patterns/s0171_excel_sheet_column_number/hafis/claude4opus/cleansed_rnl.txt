@@ -1,0 +1,8 @@
+- The length of the string parameter `s` is greater than or equal to 1 and is less than or equal to 7.
+- The string parameter `s` consists of only uppercase English letters.
+- The integer result is greater than or equal to 1 and is less than or equal to 2147483647.
+- If the string parameter `s` is equal to "A", the integer result is equal to 1.
+- If the string parameter `s` is equal to "AB", the integer result is equal to 28.
+- If the string parameter `s` is equal to "ZY", the integer result is equal to 701.
+- If the string parameter `s` is equal to "FXSHRXW", the integer result is equal to 2147483647.
+- If the length of the string parameter `s` is equal to 1 and the string parameter `s` is equal to "Z", the integer result is equal to 26.

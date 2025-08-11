@@ -1,0 +1,10 @@
+ensures:
+- The type_string_ result is the base 7 representation of the type_integer_ param_num_.
+- If the type_integer_ param_num_ is equal to 0 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is greater_than to 0 , the type_string_ result does not contain a - sign.
+- If the type_integer_ param_num_ is less_than to 0 , the type_string_ result starts with a - sign.
+- If the type_integer_ param_num_ is equal to 100 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_num_ is equal to negative 7 , the type_string_ result is equal to stry_a.
+- The type_string_ result only contains digits from 0 to 6 and optionally a - sign at the beginning.
+requires:
+- The type_integer_ param_num_ is greater_than_or_equal to negative 10000000 and is less_than_or_equal to 10000000.

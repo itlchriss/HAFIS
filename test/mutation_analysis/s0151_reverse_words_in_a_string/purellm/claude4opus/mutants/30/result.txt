@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:39: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:7:) in method reverseWords
+            if (s.charAt(i) == ' ') {
+                        ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:39:
+    /*@ private normal_behavior
+                ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721: verify: The prover cannot establish an assertion (UndefinedNegativeIndex: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:46:) in method reverseWords
+      @     //-RAC@            charArray[\result] == ch &&
+                                        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:46: verify: Associated declaration: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:721:
+    public static final Comparator<String> CASE_INSENSITIVE_ORDER;
+                                                      ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:51: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:18:) in method reverseWords
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:51:
+      @ ensures \result != null && !\result.isEmpty();
+        ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:51: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:19:) in method reverseWords
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0151_reverse_words_in_a_string/purellm/claude4opus/mutants/30/Solution.java:51:
+      @ ensures (\forall int i; 0 <= i && i < \result.length(); \result.charAt(i) != ' ');
+        ^
+8 verification failures

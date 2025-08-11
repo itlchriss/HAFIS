@@ -1,0 +1,28 @@
+./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:35: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method reverse
+        return (int) rev;
+               ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:15:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:35:
+//@ ensures((x == -123) ==> (\result == -321));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:13:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:35:
+//@ ensures((x == 0) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:12:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:35:
+//@ ensures((x == 123) ==> (\result == 321));
+    ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:14:) in method reverse
+        return (int) rev;
+        ^
+./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0007_reverse_integer/hafis/ablation_o3_r50/mutants/19/Solution.java:35:
+//@ ensures((x == 120) ==> (\result == 21));
+    ^
+9 verification failures

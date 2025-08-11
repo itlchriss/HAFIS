@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0045_jump_game_ii/purellm/claude4opus/mutants/7/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0045_jump_game_ii/purellm/claude4opus/mutants/7/Solution.java:16:) in method jump
+        return minJump;
+        ^
+./test/mutation_analysis/s0045_jump_game_ii/purellm/claude4opus/mutants/7/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0045_jump_game_ii/purellm/claude4opus/mutants/7/Solution.java:41:
+      @ ensures \result <= nums.length - 1;
+        ^
+./test/mutation_analysis/s0045_jump_game_ii/purellm/claude4opus/mutants/7/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0045_jump_game_ii/purellm/claude4opus/mutants/7/Solution.java:15:) in method jump
+        return minJump;
+        ^
+./test/mutation_analysis/s0045_jump_game_ii/purellm/claude4opus/mutants/7/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0045_jump_game_ii/purellm/claude4opus/mutants/7/Solution.java:41:
+      @ ensures \result >= 0;
+        ^
+4 verification failures

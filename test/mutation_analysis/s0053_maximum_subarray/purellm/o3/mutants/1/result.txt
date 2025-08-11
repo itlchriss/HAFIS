@@ -1,0 +1,20 @@
+./test/mutation_analysis/s0053_maximum_subarray/purellm/o3/mutants/1/Solution.java:23: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+                    \result == (\sum int k; start <= k && k <= end; nums[k]));
+                                ^
+./test/mutation_analysis/s0053_maximum_subarray/purellm/o3/mutants/1/Solution.java:28: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+                    (\sum int k; s <= k && k <= e; nums[k]) <= \result);
+                     ^
+./test/mutation_analysis/s0053_maximum_subarray/purellm/o3/mutants/1/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0053_maximum_subarray/purellm/o3/mutants/1/Solution.java:26:) in method maxSubArray
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/purellm/o3/mutants/1/Solution.java:26: verify: Associated declaration: ./test/mutation_analysis/s0053_maximum_subarray/purellm/o3/mutants/1/Solution.java:45:
+        ensures (\forall int s, e;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/purellm/o3/mutants/1/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0053_maximum_subarray/purellm/o3/mutants/1/Solution.java:21:) in method maxSubArray
+        return maxi;
+        ^
+./test/mutation_analysis/s0053_maximum_subarray/purellm/o3/mutants/1/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0053_maximum_subarray/purellm/o3/mutants/1/Solution.java:45:
+        ensures (\exists int start, end;
+        ^
+2 warnings
+4 verification failures

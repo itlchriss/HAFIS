@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0091_decode_ways/purellm/o3/mutants/4/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method numDecodings
+        f[0] = 1;
+         ^
+1 verification failure

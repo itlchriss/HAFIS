@@ -1,0 +1,1 @@
+If the type_integer_ param_target_ is greater_than to the last value of the type_integer_array_ param_nums_ , the type_integer_ result is equal to the type_integer_array_ param_nums_ 's length . 

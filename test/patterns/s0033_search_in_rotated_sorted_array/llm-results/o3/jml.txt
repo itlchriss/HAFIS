@@ -1,0 +1,79 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Below is a possible JML-specification for a Java method  
+
+    int search(int[] nums, int target)
+
+that is supposed to solve the “Search in Rotated Sorted Array” problem.
+
+```
+public class RotatedSortedArray {
+
+    /**
+     *  Returns the index of {@code target} in the possibly-rotated,
+     *  strictly-ascending array {@code nums}; returns {@code -1} if
+     *  {@code target} is not contained.
+     */
+    /*@
+      @ public normal_behavior
+      @
+      @   // ----------  Preconditions  ----------
+      @
+      @   // parameter not null
+      @   requires nums != null;
+      @
+      @   // constraint on the array length
+      @   requires 1 <= nums.length && nums.length <= 5000;
+      @
+      @   // every element is inside the given value range
+      @   requires (\forall int i; 0 <= i && i < nums.length;
+      @                        -10000 <= nums[i] && nums[i] <= 10000);
+      @
+      @   // all values are distinct
+      @   requires (\forall int i,j; 0 <= i && i < j && j < nums.length;
+      @                            nums[i] != nums[j]);
+      @
+      @   // target is inside the required range
+      @   requires -10000 <= target && target <= 10000;
+      @
+      @   /*  The array is strictly ascending or a single rotation of such an
+      @       array.  Equivalently: travelling from index 0 to index n-1 there
+      @       is at most one “descent” (nums[i] > nums[i+1]).
+      @    */
+      @   requires (\num_of int i;
+      @                 0 <= i && i < nums.length-1 && nums[i] > nums[i+1]) <= 1;
+      @
+      @
+      @   // ----------  Postconditions  ----------
+      @
+      @   /*  The result is -1  ⇔  the target does not appear. */
+      @   ensures (\result == -1) <==>
+      @           (\forall int i; 0 <= i && i < nums.length; nums[i] != target);
+      @
+      @   /*  If the result is not -1 it is a valid index whose element
+      @       equals the target.                                      */
+      @   ensures (\result != -1) ==> 
+      @           (0 <= \result && \result < nums.length &&
+      @            nums[\result] == target);
+      @
+      @   // the method is side-effect free
+      @   assignable \nothing;
+      @*/
+    public /*@ pure @*/ static int search(int[] nums, int target) {
+        /* implementation goes here */
+        return -1;            // dummy return to make the file compile
+    }
+}
+```
+
+Explanation of the main clauses
+
+• `requires` clauses encode all constraints given in the original statement:  
+  – array length, element range, and uniqueness;  
+  – the rotated-sorted condition is captured by demanding that there is **at most one** pair of consecutive elements in descending order.  
+
+• `ensures` clauses specify the correct functional behaviour:  
+  – if `target` is absent the method must return `-1`;  
+  – otherwise it must return a valid index whose element equals `target`.
+
+• `assignable \nothing;` declares that the method has no side effects.
+
+• The complexity requirement (O(log n)) cannot be expressed directly in first-order JML, so it is left as an informal comment in the JavaDoc.

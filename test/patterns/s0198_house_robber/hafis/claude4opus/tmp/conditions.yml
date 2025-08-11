@@ -1,0 +1,9 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0.
+- The type_integer_ result is less_than_or_equal to the type_integer_array_ param_nums_'s summation.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 4.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 12.
+- If the type_integer_array_ param_nums_'s length is equal to 1 , the type_integer_ result is equal to the type_integer_array_ param_nums_'s first_element.
+requires:
+- The type_integer_array_ param_nums_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 100.
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to 0 and are less_than_or_equal to 400.

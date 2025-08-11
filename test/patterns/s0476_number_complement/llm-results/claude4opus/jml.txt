@@ -1,0 +1,58 @@
+Here's the JML specification for the Number Complement problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires 1 <= num && num < Integer.MAX_VALUE;
+      @ ensures \result >= 0;
+      @ ensures \result < num || (num == 1 && \result == 0);
+      @ ensures (\forall int i; 0 <= i && i < 32; 
+      @     (num & (1 << i)) != 0 ==> (\result & (1 << i)) == 0);
+      @ ensures (\forall int i; 0 <= i && i < highestBitPosition(num);
+      @     (num & (1 << i)) == 0 ==> (\result & (1 << i)) != 0);
+      @ ensures (\forall int i; highestBitPosition(num) <= i && i < 32;
+      @     (\result & (1 << i)) == 0);
+      @ ensures num == 5 ==> \result == 2;
+      @ ensures num == 1 ==> \result == 0;
+      @*/
+    public /*@ pure @*/ int findComplement(int num) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires num >= 1;
+      @ ensures \result >= 0 && \result < 32;
+      @ ensures (num & (1 << \result)) != 0;
+      @ ensures (\forall int i; \result < i && i < 32; (num & (1 << i)) == 0);
+      @*/
+    private /*@ pure @*/ static int highestBitPosition(int num) {
+        int pos = 0;
+        int temp = num;
+        while (temp > 0) {
+            pos++;
+            temp >>= 1;
+        }
+        return pos - 1;
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Precondition**: `requires 1 <= num && num < Integer.MAX_VALUE` ensures the input is within the valid range.
+
+2. **Basic postconditions**:
+   - `ensures \result >= 0`: The complement is non-negative
+   - `ensures \result < num || (num == 1 && \result == 0)`: The complement is generally less than the original number
+
+3. **Bit-level specification**:
+   - For all bit positions where `num` has a 1, the result has a 0
+   - For all bit positions below the highest set bit where `num` has a 0, the result has a 1
+   - All bits above the highest set bit in `num` are 0 in the result
+
+4. **Example postconditions**: Explicitly states the expected outputs for the given examples.
+
+5. **Helper method**: `highestBitPosition` is specified to find the position of the most significant bit, which helps in defining the complement behavior.
+
+The specification captures that the complement operation only affects bits up to the highest set bit in the original number, ensuring no leading 1s are introduced in the result.

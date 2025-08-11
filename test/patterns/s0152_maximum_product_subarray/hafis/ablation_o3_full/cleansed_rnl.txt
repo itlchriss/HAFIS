@@ -1,0 +1,4 @@
+- int[] `arr` must have a length between 1 and 20000 inclusive.
+- every element of int[] `arr` must be between -10 and 10 inclusive.
+- result int equals the maximum product obtainable from any contiguous non empty subarray of int[] `arr`.
+- result int is guaranteed to be within the 32 bit signed integer range.

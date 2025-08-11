@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/claude4opus/mutants/22/Solution.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \product
+      @     \result[i] == (\product int j; 0 <= j && j < nums.length && j != i; nums[j]));
+                           ^
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/claude4opus/mutants/22/Solution.java:39: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method productExceptSelf
+                        p = p % nums[j];
+                              ^
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/claude4opus/mutants/22/Solution.java:24: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int[] productExceptSelf(int[] nums) {
+                 ^
+1 warning
+2 verification failures

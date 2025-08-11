@@ -1,0 +1,286 @@
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.<init>:
+    Created MajorPluginTaskListener with options: [mml:../major/mml/all.mml.bin]
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.initOperatorSymbols:
+    Initializing operator symbols for opcode mapping
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.mutateTree:
+    Mutating tree: Env[AttrContext[Scope[super, this]],outer=Env[AttrContext[Scope[g0301_0400.s0393_utf_8_validation.Solution]]]]
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: g0301_0400.s0393_utf_8_validation.Solution
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: validUtf8([int[] data])boolean
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 1
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 1: Solution.validUtf8(line 55, col 23)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  count == 0 
+            mutant:                    count <= 0
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 2
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 2: Solution.validUtf8(line 55, col 23)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  count == 0 
+            mutant:                    count >= 0
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 3
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 3: Solution.validUtf8(line 55, col 23)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  count == 0 
+            mutant:                    false
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 4
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 4: Solution.validUtf8(line 56, col 23)
+            mutation operator group:   SOR
+            mutation operator:         >>(int,int) |==> <<(int,int)
+            original:                  d >> 5 
+            mutant:                    d << 5
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 5
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 5: Solution.validUtf8(line 56, col 23)
+            mutation operator group:   SOR
+            mutation operator:         >>(int,int) |==> >>>(int,int)
+            original:                  d >> 5 
+            mutant:                    d >>> 5
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 6
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 6: Solution.validUtf8(line 56, col 28)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  d >> 5 == 6 
+            mutant:                    d >> 5 <= 6
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 7
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 7: Solution.validUtf8(line 56, col 28)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  d >> 5 == 6 
+            mutant:                    d >> 5 >= 6
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 8
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 8: Solution.validUtf8(line 56, col 28)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  d >> 5 == 6 
+            mutant:                    false
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 9
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 9: (STD) count = 1; -> <NO-OP>
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 10
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 10: Solution.validUtf8(line 58, col 30)
+            mutation operator group:   SOR
+            mutation operator:         >>(int,int) |==> <<(int,int)
+            original:                  d >> 4 
+            mutant:                    d << 4
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 11
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 11: Solution.validUtf8(line 58, col 30)
+            mutation operator group:   SOR
+            mutation operator:         >>(int,int) |==> >>>(int,int)
+            original:                  d >> 4 
+            mutant:                    d >>> 4
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 12
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 12: Solution.validUtf8(line 58, col 35)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  d >> 4 == 14 
+            mutant:                    d >> 4 <= 14
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 13
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 13: Solution.validUtf8(line 58, col 35)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  d >> 4 == 14 
+            mutant:                    d >> 4 >= 14
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 14
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 14: Solution.validUtf8(line 58, col 35)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  d >> 4 == 14 
+            mutant:                    false
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 15
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 15: (STD) count = 2; -> <NO-OP>
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 16
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 16: Solution.validUtf8(line 60, col 30)
+            mutation operator group:   SOR
+            mutation operator:         >>(int,int) |==> <<(int,int)
+            original:                  d >> 3 
+            mutant:                    d << 3
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 17
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 17: Solution.validUtf8(line 60, col 30)
+            mutation operator group:   SOR
+            mutation operator:         >>(int,int) |==> >>>(int,int)
+            original:                  d >> 3 
+            mutant:                    d >>> 3
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 18
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 18: Solution.validUtf8(line 60, col 35)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  d >> 3 == 30 
+            mutant:                    d >> 3 <= 30
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 19
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 19: Solution.validUtf8(line 60, col 35)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  d >> 3 == 30 
+            mutant:                    d >> 3 >= 30
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 20
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 20: Solution.validUtf8(line 60, col 35)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  d >> 3 == 30 
+            mutant:                    false
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 21
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 21: (STD) count = 3; -> <NO-OP>
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 22
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 22: Solution.validUtf8(line 62, col 30)
+            mutation operator group:   SOR
+            mutation operator:         >>(int,int) |==> <<(int,int)
+            original:                  d >> 7 
+            mutant:                    d << 7
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 23
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 23: Solution.validUtf8(line 62, col 30)
+            mutation operator group:   SOR
+            mutation operator:         >>(int,int) |==> >>>(int,int)
+            original:                  d >> 7 
+            mutant:                    d >>> 7
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 24
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 24: Solution.validUtf8(line 62, col 35)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  d >> 7 == 1 
+            mutant:                    d >> 7 <= 1
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 25
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 25: Solution.validUtf8(line 62, col 35)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  d >> 7 == 1 
+            mutant:                    d >> 7 >= 1
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 26
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 26: Solution.validUtf8(line 62, col 35)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  d >> 7 == 1 
+            mutant:                    false
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 27
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 27: (STD) return false; -> <NO-OP>
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 28
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 28: Solution.validUtf8(line 66, col 23)
+            mutation operator group:   SOR
+            mutation operator:         >>(int,int) |==> <<(int,int)
+            original:                  d >> 6 
+            mutant:                    d << 6
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 29
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 29: Solution.validUtf8(line 66, col 23)
+            mutation operator group:   SOR
+            mutation operator:         >>(int,int) |==> >>>(int,int)
+            original:                  d >> 6 
+            mutant:                    d >>> 6
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 30
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 30: Solution.validUtf8(line 66, col 28)
+            mutation operator group:   ROR
+            mutation operator:         !=(int,int) |==> <(int,int)
+            original:                  d >> 6 != 2 
+            mutant:                    d >> 6 < 2
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 31
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 31: Solution.validUtf8(line 66, col 28)
+            mutation operator group:   ROR
+            mutation operator:         !=(int,int) |==> >(int,int)
+            original:                  d >> 6 != 2 
+            mutant:                    d >> 6 > 2
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 32
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 32: Solution.validUtf8(line 66, col 28)
+            mutation operator group:   ROR
+            mutation operator:         !=(int,int) |==> TRUE(int,int)
+            original:                  d >> 6 != 2 
+            mutant:                    true
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 33
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 33: (STD) return false; -> <NO-OP>
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 34
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 34: (STD) count--; -> <NO-OP>
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 35
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 35: Solution.validUtf8(line 73, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> <=(int,int)
+            original:                  count == 0 
+            mutant:                    count <= 0
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 36
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 36: Solution.validUtf8(line 73, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> >=(int,int)
+            original:                  count == 0 
+            mutant:                    count >= 0
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 37
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 37: Solution.validUtf8(line 73, col 22)
+            mutation operator group:   ROR
+            mutation operator:         ==(int,int) |==> FALSE(int,int)
+            original:                  count == 0 
+            mutant:                    false
+[07/25 23:39:38] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.mutate:
+    Generated 37 mutants (131 ms)

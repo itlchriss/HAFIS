@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0067_add_binary/hafis/ablation_o3_r50/mutants/20/Solution.java:23: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method addBinary
+            int sum = (true ? aArray[i] - '0' : 0) + (j >= 0 ? bArray[j] - '0' : 0) + carry;
+                                    ^
+./test/mutation_analysis/s0067_add_binary/hafis/ablation_o3_r50/mutants/20/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/hafis/ablation_o3_r50/mutants/20/Solution.java:13:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/hafis/ablation_o3_r50/mutants/20/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/hafis/ablation_o3_r50/mutants/20/Solution.java:36:
+//@ ensures(((a.equals("11")) && (b.equals("1"))) ==> (\result.equals("100")));
+    ^
+./test/mutation_analysis/s0067_add_binary/hafis/ablation_o3_r50/mutants/20/Solution.java:36: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/hafis/ablation_o3_r50/mutants/20/Solution.java:12:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/hafis/ablation_o3_r50/mutants/20/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/hafis/ablation_o3_r50/mutants/20/Solution.java:36:
+//@ ensures(((a.equals("1010")) && (b.equals("1011"))) ==> (\result.equals("10101")));
+    ^
+5 verification failures

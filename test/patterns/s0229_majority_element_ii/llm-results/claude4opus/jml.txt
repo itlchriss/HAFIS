@@ -1,0 +1,100 @@
+Here's the JML specification for the Majority Element II problem:
+
+```java
+import java.util.List;
+import java.util.ArrayList;
+
+public class MajorityElementII {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 50000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -1000000000 <= nums[i] && nums[i] <= 1000000000);
+      @ ensures \result != null;
+      @ ensures (\forall int i; 0 <= i && i < \result.size();
+      @           countOccurrences(nums, \result.get(i)) > nums.length / 3);
+      @ ensures (\forall int elem; 
+      @           countOccurrences(nums, elem) > nums.length / 3;
+      @           \result.contains(elem));
+      @ ensures \result.size() <= 2;
+      @ ensures isDistinct(\result);
+      @ pure
+      @*/
+    public List<Integer> majorityElement(int[] nums) {
+        // Implementation here
+        return new ArrayList<>();
+    }
+    
+    /*@ private normal_behavior
+      @ requires nums != null;
+      @ ensures \result == (\num_of int i; 0 <= i && i < nums.length; 
+      @                     nums[i] == value);
+      @ pure helper
+      @*/
+    private /*@ pure @*/ int countOccurrences(int[] nums, int value) {
+        int count = 0;
+        /*@ loop_invariant 0 <= i && i <= nums.length;
+          @ loop_invariant count == (\num_of int j; 0 <= j && j < i; 
+          @                          nums[j] == value);
+          @ decreasing nums.length - i;
+          @*/
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == value) {
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    /*@ private normal_behavior
+      @ requires list != null;
+      @ ensures \result == (\forall int i, j; 
+      @                     0 <= i && i < j && j < list.size();
+      @                     !list.get(i).equals(list.get(j)));
+      @ pure helper
+      @*/
+    private /*@ pure @*/ boolean isDistinct(List<Integer> list) {
+        /*@ loop_invariant 0 <= i && i <= list.size();
+          @ loop_invariant (\forall int k, l; 0 <= k && k < l && l < i;
+          @                  !list.get(k).equals(list.get(l)));
+          @ decreasing list.size() - i;
+          @*/
+        for (int i = 0; i < list.size(); i++) {
+            /*@ loop_invariant i < j && j <= list.size();
+              @ loop_invariant (\forall int k; i < k && k < j;
+              @                  !list.get(i).equals(list.get(k)));
+              @ decreasing list.size() - j;
+              @*/
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).equals(list.get(j))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`)**:
+   - The input array must not be null
+   - Array length must be between 1 and 50,000
+   - Each element must be within the range [-10^9, 10^9]
+
+2. **Postconditions (`ensures`)**:
+   - The result list is not null
+   - Every element in the result appears more than ⌊n/3⌋ times in the input
+   - Every element that appears more than ⌊n/3⌋ times is included in the result
+   - The result can have at most 2 elements (mathematical property: at most 2 elements can appear more than n/3 times)
+   - The result contains no duplicates
+
+3. **Helper Methods**:
+   - `countOccurrences`: A pure helper method to count how many times a value appears in the array
+   - `isDistinct`: A pure helper method to verify that the result list has no duplicates
+
+4. **Loop Invariants**: Added to helper methods to ensure correctness of the counting and distinctness checking logic
+
+The specification captures the essential requirements of finding all elements that appear more than ⌊n/3⌋ times while ensuring the mathematical constraint that there can be at most 2 such elements.

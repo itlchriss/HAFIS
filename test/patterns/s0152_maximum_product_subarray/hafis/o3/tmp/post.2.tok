@@ -1,0 +1,1 @@
+For every contiguous non empty subsequence of the type_integer_array_ param_arr_ , the type_integer_ result is greater_than_or_equal to the product of all values in that subsequence . 

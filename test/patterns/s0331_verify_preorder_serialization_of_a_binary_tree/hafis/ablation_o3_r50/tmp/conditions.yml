@@ -1,0 +1,10 @@
+ensures:
+- The type_boolean_ result is equal to the true literal or the type_boolean_ result is equal to the false literal.
+- If type_boolean_ result is equal to the true literal , the type_string_ param_preorder_ is interpreted as a valid preorder traversal serialization of a binary tree that uses the character the chry_a to denote null nodes.
+- If type_boolean_ result is equal to the false literal , the type_string_ param_preorder_ cannot be interpreted as a valid preorder traversal serialization of a binary tree that uses the character the chry_a to denote null nodes.
+- 'If the type_string_ param_preorder_ is equal to the string literal ''9 , 3 , 4 , # , # , 1 , # , # , 2 , # , 6 , # , #'' , the type_boolean_ result is equal to the true literal.'
+- 'If the type_string_ param_preorder_ is equal to the string literal ''1 , #'' , the type_boolean_ result is equal to the false literal.'
+- 'If the type_string_ param_preorder_ is equal to the string literal ''9 , # , # , 1'' , the type_boolean_ result is equal to the false literal.'
+requires:
+- The type_string_ param_preorder_ uses the comma character as delimiter and every token is either the character the chry_a or a decimal string_representation of an integer that is greater_than_or_equal to 0 and is less_than_or_equal to 100.
+- The type_string_ param_preorder_ does not contain 2 consecutive comma characters.

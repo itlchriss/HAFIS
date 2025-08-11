@@ -1,0 +1,56 @@
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:17: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @ requires (\sum int i; 0 <= i && i < aliceSizes.length; aliceSizes[i]) !=
+                  ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:18: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @          (\sum int j; 0 <= j && j < bobSizes.length; bobSizes[j]);
+                  ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:21: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @            (\sum int k; 0 <= k && k < aliceSizes.length; aliceSizes[k]) - aliceSizes[i] + bobSizes[j] ==
+                    ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:22: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @            (\sum int k; 0 <= k && k < bobSizes.length; bobSizes[k]) - bobSizes[j] + aliceSizes[i]));
+                    ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:30: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @ ensures (\sum int i; 0 <= i && i < aliceSizes.length; aliceSizes[i]) - \result[0] + \result[1] ==
+                 ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:31: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @         (\sum int j; 0 <= j && j < bobSizes.length; bobSizes[j]) - \result[1] + \result[0];
+                 ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:57: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:30:) in method fairCandySwap
+        return ans;
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:30: verify: Associated declaration: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:57:
+      @ ensures (\sum int i; 0 <= i && i < aliceSizes.length; aliceSizes[i]) - \result[0] + \result[1] ==
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:57: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:24:) in method fairCandySwap
+        return ans;
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:24: verify: Associated declaration: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:57:
+      @ ensures \result[0] >= 1 && \result[0] <= 100000;
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:51: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:9:) in method fairCandySwap
+            if (set.contains(bar + diff / 2)) {
+                            ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:51:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:57: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:25:) in method fairCandySwap
+        return ans;
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:25: verify: Associated declaration: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:57:
+      @ ensures \result[1] >= 1 && \result[1] <= 100000;
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:57: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:28:) in method fairCandySwap
+        return ans;
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:28: verify: Associated declaration: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:57:
+      @ ensures (\exists int j; 0 <= j && j < bobSizes.length;
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:57: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:26:) in method fairCandySwap
+        return ans;
+        ^
+./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:26: verify: Associated declaration: ./test/mutation_analysis/s0888_fair_candy_swap/purellm/claude4opus/mutants/25/Solution.java:57:
+      @ ensures (\exists int i; 0 <= i && i < aliceSizes.length;
+        ^
+6 warnings
+12 verification failures

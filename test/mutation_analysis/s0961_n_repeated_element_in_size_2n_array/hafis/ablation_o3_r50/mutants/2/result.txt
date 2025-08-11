@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/hafis/ablation_o3_r50/mutants/2/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/hafis/ablation_o3_r50/mutants/2/Solution.java:14:) in method repeatedNTimes
+        return -1;
+        ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/hafis/ablation_o3_r50/mutants/2/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/hafis/ablation_o3_r50/mutants/2/Solution.java:25:
+//@ ensures((\result >= 0) && (\result <= 10000));
+    ^
+2 verification failures

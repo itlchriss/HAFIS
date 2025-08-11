@@ -1,0 +1,57 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Below is one possible JML-specification for the routine that solves LeetCode #67 “Add Binary”.  
+(Only the specification is given – the method body can be filled with any
+implementation that satisfies the contract.)
+
+```java
+public class Solution {
+
+    /*@ public normal_behavior
+      @   // ----- Pre-conditions (problem constraints) ---------------------
+      @   requires a != null && b != null;
+      @   requires 1 <= a.length() && a.length() <= 10000;
+      @   requires 1 <= b.length() && b.length() <= 10000;
+      @   // every character is either ‘0’ or ‘1’
+      @   requires (\forall int i; 0 <= i && i < a.length();
+      @                      a.charAt(i) == '0' || a.charAt(i) == '1');
+      @   requires (\forall int i; 0 <= i && i < b.length();
+      @                      b.charAt(i) == '0' || b.charAt(i) == '1');
+      @   // no leading zeros unless the string is exactly "0"
+      @   requires a.length() == 1 || a.charAt(0) == '1';
+      @   requires b.length() == 1 || b.charAt(0) == '1';
+      @
+      @   // ----- Post-conditions -----------------------------------------
+      @   ensures \result != null;
+      @   // result consists only of ‘0’ and ‘1’
+      @   ensures (\forall int i; 0 <= i && i < \result.length();
+      @                       \result.charAt(i) == '0' || \result.charAt(i) == '1');
+      @   // no leading zeros unless the result itself is "0"
+      @   ensures \result.length() == 1 || \result.charAt(0) == '1';
+      @   // numeric correctness (expressed with BigInteger in base 2)
+      @   ensures (new java.math.BigInteger(\result, 2))
+      @               .equals(
+      @                 (new java.math.BigInteger(a, 2))
+      @                    .add(new java.math.BigInteger(b, 2))
+      @               );
+      @
+      @   // ----- Frame condition -----------------------------------------
+      @   assignable \nothing;          // no side–effects
+      @   pure;                         //   ”       ”
+      @*/
+    public String addBinary(String a, String b) {
+        /* implementation goes here */
+        return null;  // stub
+    }
+}
+```
+
+Explanation of the most important clauses:
+
+• `requires` clauses encode exactly the constraints from the exercise  
+  (length limits, allowed characters, and the “no leading zero” rule).  
+• `ensures` clauses guarantee  
+  1. the returned string is well-formed binary without leading zeros, and  
+  2. its numeric value (interpreted as base-2 with `BigInteger`) equals the
+   sum of the numeric values of the two input strings.  
+• `assignable \nothing` and the `pure` annotation state that the method must
+  have no observable side effects—appropriate for a deterministic, functional
+  routine like “Add Binary”.

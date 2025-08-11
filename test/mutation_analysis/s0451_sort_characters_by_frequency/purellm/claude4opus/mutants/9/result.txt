@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0451_sort_characters_by_frequency/purellm/claude4opus/mutants/9/Solution.java:41: error: unreachable statement
+                for (int i = 0; false; i++) {
+                                            ^
+1 error

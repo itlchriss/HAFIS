@@ -1,0 +1,4 @@
+- Each element in the parameter "nums" of type int[] must be an integer in the inclusive range minus one billion to one billion
+- The parameter "k" of type int must be an integer between 0 and 100000 inclusive
+- The boolean result is true if and only if there exist two distinct indices i and j in the parameter "nums" of type int[] such that the values at those indices are equal and the absolute difference between i and j is less than or equal to the parameter "k" of type int
+- The boolean result is false when no pair of distinct indices in the parameter "nums" of type int[] satisfies both value equality and the distance constraint defined by the parameter "k" of type int

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/o3/mutants/32/Solution.java:30: error: unreachable statement
+        while (false) {
+                      ^
+1 error

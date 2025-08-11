@@ -1,0 +1,3 @@
+ensures:
+- When no integer x satisfies int the type_character_ chrs_a equals 2 raised to x then type_boolean_ result is equal to the false literal.
+requires: []

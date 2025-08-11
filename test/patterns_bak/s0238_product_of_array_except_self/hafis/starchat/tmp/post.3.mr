@@ -1,1 +1,0 @@
--exists x01.(_result{NN}(x01) & _type_integer_array_{NN}(x01) & all x02.(exists e03.(_extra{JJ}(e03) & (Subj(e03) = x02) & _complexity{NN}(x02) & _space{NN}(x02)) -> exists e04.(_use{VB}(e04) & (Subj(e04) = x01) & (Acc(e04) = x02))))

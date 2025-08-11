@@ -1,0 +1,12 @@
+ensures:
+- The type_string_ result follows the format stry_a that x and y are greater_than to 0 integers.
+- If the type_string_ param_secret_ is equal to stry_a and the type_string_ param_guess_ is equal to stry_b , the type_string_ result is equal to stry_c.
+- If the type_string_ param_secret_ is equal to stry_a and the type_string_ param_guess_ is equal to stry_b , the type_string_ result is equal to stry_c.
+- If the type_string_ param_secret_ is equal to stry_a and the type_string_ param_guess_ is equal to stry_b , the type_string_ result is equal to stry_c.
+- If the type_string_ param_secret_ is equal to stry_a and the type_string_ param_guess_ is equal to stry_b , the type_string_ result is equal to stry_c.
+requires:
+- The type_string_ param_secret_'s length is less_than_or_equal to 1000 and is greater_than_or_equal to 1.
+- The type_string_ param_guess_'s length is less_than_or_equal to 1000 and is greater_than_or_equal to 1.
+- The type_string_ param_secret_'s length is equal to the type_string_ param_guess_'s length.
+- The type_string_ param_secret_ only contains digits.
+- The type_string_ param_guess_ only contains digits.

@@ -1,0 +1,52 @@
+Here's the JML specification for the "Power of Three" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires Integer.MIN_VALUE <= n && n <= Integer.MAX_VALUE;
+      @ ensures \result == (\exists int x; x >= 0; n == pow3(x));
+      @ ensures \result ==> n > 0;
+      @ ensures n <= 0 ==> !\result;
+      @
+      @ // Specific test cases from examples
+      @ ensures n == 27 ==> \result == true;
+      @ ensures n == 0 ==> \result == false;
+      @ ensures n == 9 ==> \result == true;
+      @ ensures n == 1 ==> \result == true;
+      @*/
+    public /*@ pure @*/ boolean isPowerOfThree(int n) {
+        // Implementation here
+    }
+    
+    /*@ // Helper function to compute 3^x
+      @ public normal_behavior
+      @ requires x >= 0;
+      @ ensures x == 0 ==> \result == 1;
+      @ ensures x > 0 ==> \result == 3 * pow3(x-1);
+      @ ensures \result > 0;
+      @ measured_by x;
+      @*/
+    public /*@ pure @*/ /*@ helper @*/ static int pow3(int x) {
+        if (x == 0) return 1;
+        return 3 * pow3(x - 1);
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Precondition**: The input `n` is within the valid integer range (which is automatically satisfied for Java int type).
+
+2. **Main postcondition**: The result is true if and only if there exists a non-negative integer `x` such that `n == 3^x`.
+
+3. **Additional postconditions**:
+   - If the result is true, then `n` must be positive
+   - If `n` is non-positive, the result must be false
+   - Specific test cases from the examples are encoded as postconditions
+
+4. **Helper function**: `pow3(x)` is defined recursively to compute 3^x, which helps make the specification clearer and more verifiable.
+
+5. **Pure methods**: Both methods are marked as `pure` since they don't have side effects.
+
+Note: In practice, the implementation might use the mathematical property that the largest power of 3 that fits in a 32-bit integer is 3^19 = 1162261467, and check if this number is divisible by n. However, the specification focuses on the logical requirement rather than the implementation strategy.

@@ -1,0 +1,7 @@
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/o3/mutants/15/Solution.java:29: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/o3/mutants/15/Solution.java:9:) in method removeOuterParentheses
+                if (s.charAt(i) == '(') {
+                            ^
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/o3/mutants/15/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/o3/mutants/15/Solution.java:29:
+        /*@ public normal_behavior
+                   ^
+2 verification failures

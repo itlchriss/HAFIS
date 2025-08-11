@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/58/Solution.java:24: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/58/Solution.java:7:) in method diStringMatch
+            if (s.charAt(i) == 'D') {
+                        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/58/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/58/Solution.java:24:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/58/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/58/Solution.java:15:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/58/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/58/Solution.java:42:
+      @ ensures (\forall int i; 0 <= i && i < s.length();
+        ^
+4 verification failures

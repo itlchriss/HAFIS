@@ -1,0 +1,11 @@
+Based on the given software specification and following the established pattern from the examples, here are the method behavioural specifications:
+
+- The integer parameter `n` is greater than or equal to 1 and is less than or equal to 10000.
+- The length of the list result is equal to the integer parameter `n`.
+- If an element at index i in the list result is equal to "FizzBuzz", the value i+1 is divisible by 3 and the value i+1 is divisible by 5.
+- If an element at index i in the list result is equal to "Fizz", the value i+1 is divisible by 3 and the value i+1 is not divisible by 5.
+- If an element at index i in the list result is equal to "Buzz", the value i+1 is not divisible by 3 and the value i+1 is divisible by 5.
+- If an element at index i in the list result is not equal to "FizzBuzz" and is not equal to "Fizz" and is not equal to "Buzz", the element is equal to the string representation of i+1.
+- If the integer parameter `n` is equal to 3, the list result is equal to ["1","2","Fizz"].
+- If the integer parameter `n` is equal to 5, the list result is equal to ["1","2","Fizz","4","Buzz"].
+- If the integer parameter `n` is equal to 15, the list result is equal to ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"].

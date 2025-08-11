@@ -1,9 +1,0 @@
-ensures:
-- If the type_boolean_ result is equal to the true literal , the type_string_ param_s_ contains fewer than 2 occurrences of the character the chry_a.
-- If the type_boolean_ result is equal to the true literal , the type_string_ param_s_ does not contain the stry_a.
-- If the type_boolean_ result is equal to the false literal , the type_string_ param_s_ contains 2 or more occurrences of the character the chry_a or contains the substring stry_a.
-- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the true literal.
-- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the false literal.
-requires:
-- The type_string_ param_s_'s length is less_than_or_equal to 1000 and is greater_than_or_equal to 1.
-- The type_string_ param_s_ only contains the chry_a , the chry_b , and the chry_c.

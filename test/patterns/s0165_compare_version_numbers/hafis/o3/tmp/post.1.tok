@@ -1,0 +1,1 @@
+If the type_integer_ result is equal to 0 , the type_string_ param_version1_ and the type_string_ param_version2_ represent numerically identical sequences of revision integers after ignoring leading zeros and treating missing revisions as 0 . 

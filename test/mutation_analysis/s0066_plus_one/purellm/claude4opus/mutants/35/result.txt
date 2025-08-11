@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0066_plus_one/purellm/claude4opus/mutants/35/Solution.java:66: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/purellm/claude4opus/mutants/35/Solution.java:19:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/purellm/claude4opus/mutants/35/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/purellm/claude4opus/mutants/35/Solution.java:66:
+      @ ensures (
+        ^
+2 verification failures

@@ -1,0 +1,102 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Below is a self-contained Java “stub’’ whose only purpose is to show the
+behavioural contract of the *Assign Cookies* problem.  
+Everything that has been put between `/*@ … @*/` is written in JML
+(Java Modeling Language); the Java statements themselves are only
+place-holders (`return 0;`) so that the file can be compiled.
+
+```java
+public class AssignCookies {
+
+    /**
+     * Compute the maximum number of content children that can be obtained
+     * by giving each child at most one cookie whose size is not smaller
+     * than that child’s greed factor.
+     *
+     * JML SPECIFICATION
+     */
+    /*@
+      @ public normal_behavior
+      @
+      @   /**********************************************************
+      @    *  Pre-conditions (assumptions about the caller)
+      @    *********************************************************/
+      @
+      @   requires g != null && s != null;                        // arrays exist
+      @   requires 1  <= g.length && g.length <= 30000;           // constraints
+      @   requires      0 <= s.length && s.length <= 30000;
+      @   requires (\forall int i; 0 <= i && i < g.length;
+      @                 1 <= g[i] && g[i] <= Integer.MAX_VALUE);  // 1 … 2³¹-1
+      @   requires (\forall int j; 0 <= j && j < s.length;
+      @                 1 <= s[j] && s[j] <= Integer.MAX_VALUE);
+      @
+      @   /**********************************************************
+      @    *  Post-conditions (guarantees about the result)
+      @    *********************************************************/
+      @
+      @   ensures 0 <= \result && \result <= g.length
+      @                && \result <= s.length;
+      @
+      @   /*-------------------------------------------------------
+      @    *  Feasibility :  \result is really achievable
+      @    *------------------------------------------------------*/
+      @   ensures (\exists int[] child; \exists int[] cookie;
+      @               child.length  == \result &&
+      @               cookie.length == \result               &&
+      @
+      @               /* every pair (child[i],cookie[i]) is legal */
+      @               (\forall int i; 0 <= i && i < child.length;
+      @                       0 <= child[i]  && child[i]  < g.length   &&
+      @                       0 <= cookie[i] && cookie[i] < s.length  &&
+      @                       s[cookie[i]] >= g[child[i]]             &&
+      @
+      @                       /* all children and cookies are unique */
+      @                       (\forall int j; 0 <= j && j < i;
+      @                             child[i]  != child[j]  &&
+      @                             cookie[i] != cookie[j])));
+      @
+      @   /*-------------------------------------------------------
+      @    *  Maximality : no bigger feasible matching exists
+      @    *------------------------------------------------------*/
+      @   ensures (\forall int n;
+      @               n > \result && n <= g.length && n <= s.length ==>
+      @                 !(\exists int[] child2; \exists int[] cookie2;
+      @                       child2.length  == n &&
+      @                       cookie2.length == n &&
+      @                       (\forall int i; 0 <= i && i < n;
+      @                               0 <= child2[i]  && child2[i]  < g.length   &&
+      @                               0 <= cookie2[i] && cookie2[i] < s.length  &&
+      @                               s[cookie2[i]] >= g[child2[i]]             &&
+      @                               (\forall int j; 0 <= j && j < i;
+      @                                        child2[i]  != child2[j]  &&
+      @                                        cookie2[i] != cookie2[j]))));
+      @
+      @ pure                                                        // no side effects
+      @*/
+    public static int findContentChildren(int[] g, int[] s) {
+        /* implementation deliberately omitted */
+        return 0;   // makes the file compile; replace with real code
+    }
+}
+```
+
+How to read this contract
+
+1. Preconditions  
+   • `g` and `s` must be non-null.  
+   • `g.length` and `s.length` must respect the limits given in the original
+     problem statement (1 … 30000 and 0 … 30000 respectively).  
+   • Every greed factor `g[i]` and cookie size `s[j]` has to be inside
+     the value range `1 … 2³¹ - 1`.
+
+2. Postconditions  
+   • The returned value `\result` is between 0 and the number of children
+     and cookies.  
+   • There really exists a matching of that many distinct children to
+     distinct cookies (`Feasibility`).  
+   • No larger matching exists (`Maximality`), therefore the result is
+     optimal.
+
+The contract is completely *behavioural*: it says what the method must
+achieve without prescribing any particular algorithm (greedy, sorting,
+etc.). Any Java implementation that satisfies these JML clauses is a
+correct solution to LeetCode 455.

@@ -1,0 +1,8 @@
+ensures:
+- The type_integer_ result is less_than_or_equal to 1000000000 and is greater_than_or_equal to negative 1000000000.
+- The type_integer_ result is equal to the maximum value between all the products obtained by multiplying any 3 unique values in the type_integer_array_ param_nums_.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 6.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 24.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to negative 6.
+requires:
+- The type_integer_array_ param_nums_'s values are less_than_or_equal to 1000 and are greater_than_or_equal to negative 1000.

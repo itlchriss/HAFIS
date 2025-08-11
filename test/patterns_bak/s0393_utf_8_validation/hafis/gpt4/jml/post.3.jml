@@ -1,1 +1,0 @@
-ensures((data[0] == 235 && data[1] == 140 && data[2] == 4 && data.length == 3) ==> (\result == false));

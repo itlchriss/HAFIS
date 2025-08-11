@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/claude4opus/mutants/39/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method countDigitOne
+                ans += (q + 1) % curr10;
+                               ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/claude4opus/mutants/39/Solution.java:30: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/claude4opus/mutants/39/Solution.java:11:) in method countDigitOne
+        return ans;
+        ^
+./test/mutation_analysis/s0233_number_of_digit_one/purellm/claude4opus/mutants/39/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0233_number_of_digit_one/purellm/claude4opus/mutants/39/Solution.java:30:
+      @ ensures \result >= 0;
+        ^
+3 verification failures

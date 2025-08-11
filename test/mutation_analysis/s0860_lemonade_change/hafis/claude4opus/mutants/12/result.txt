@@ -1,0 +1,55 @@
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:13:) in method lemonadeChange
+                    return false;
+                    ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:34:
+//@ ensures((bills[0] == 5 && bills[1] == 5 && bills[2] == 5 && bills[3] == 10 && bills[4] == 20 && bills.length == 5) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:14:) in method lemonadeChange
+        return true;
+        ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:38:
+//@ ensures((bills[0] == 5) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method lemonadeChange
+//@ ensures((bills[0] == 5 && bills[1] == 5 && bills[2] == 10 && bills[3] == 10 && bills[4] == 20 && bills.length == 5) ==> (\result == false));
+                                   ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:38: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method lemonadeChange
+//@ ensures((bills[0] == 5 && bills[1] == 5 && bills[2] == 10 && bills[3] == 10 && bills[4] == 20 && bills.length == 5) ==> (\result == false));
+                                                    ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:38: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method lemonadeChange
+//@ ensures((bills[0] == 5 && bills[1] == 5 && bills[2] == 5 && bills[3] == 10 && bills[4] == 20 && bills.length == 5) ==> (\result == true));
+                                                                     ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:38: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method lemonadeChange
+//@ ensures((bills[0] == 5 && bills[1] == 5 && bills[2] == 10 && bills[3] == 10 && bills[4] == 20 && bills.length == 5) ==> (\result == false));
+                                                                      ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:23: verify: Associated method exit
+                    return false;
+                    ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:12: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method lemonadeChange
+//@ ensures((bills[0] == 5 && bills[1] == 5 && bills[2] == 10 && bills[3] == 10 && bills[4] == 20 && bills.length == 5) ==> (\result == false));
+                                                                                        ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:23: verify: Associated method exit
+                    return false;
+                    ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:12:) in method lemonadeChange
+        return true;
+        ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:38:
+//@ ensures((bills[0] == 5 && bills[1] == 5 && bills[2] == 10 && bills[3] == 10 && bills[4] == 20 && bills.length == 5) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method lemonadeChange
+//@ ensures((bills[0] == 5 && bills[1] == 5 && bills[2] == 5 && bills[3] == 10 && bills[4] == 20 && bills.length == 5) ==> (\result == true));
+                                                                                       ^
+./test/mutation_analysis/s0860_lemonade_change/hafis/claude4opus/mutants/12/Solution.java:38: verify: Associated method exit
+        return true;
+        ^
+18 verification failures

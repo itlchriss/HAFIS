@@ -1,0 +1,1 @@
+If the first non space character of String the type_string_ strs_a is equal to decimal digit then int result equals the numeric value represented by the consecutive decimal digits starting at that position subject to clamping to the range negative 2147483648 to 2147483647 . 

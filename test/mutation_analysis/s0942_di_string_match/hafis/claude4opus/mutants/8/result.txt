@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0942_di_string_match/hafis/claude4opus/mutants/8/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/hafis/claude4opus/mutants/8/Solution.java:14:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/hafis/claude4opus/mutants/8/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/hafis/claude4opus/mutants/8/Solution.java:38:
+//@ ensures((\forall int i; 0 <= i < \result.length; \result[i] >= 0) && (\forall int i; 0 <= i < \result.length; \result[i] <= s.length()));
+    ^
+./test/mutation_analysis/s0942_di_string_match/hafis/claude4opus/mutants/8/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/hafis/claude4opus/mutants/8/Solution.java:15:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/hafis/claude4opus/mutants/8/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/hafis/claude4opus/mutants/8/Solution.java:38:
+//@ ensures(\forall int i; 0 <= i < \result.length; (\forall int j; 0 <= j < \result.length && j != i; \result[j] != \result[i]));
+    ^
+./test/mutation_analysis/s0942_di_string_match/hafis/claude4opus/mutants/8/Solution.java:32: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+5 verification failures

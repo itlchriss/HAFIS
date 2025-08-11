@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0415_add_strings/purellm/claude4opus/mutants/20/Solution.java:36: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0415_add_strings/purellm/claude4opus/mutants/20/Solution.java:7:) in method addStrings
+                sum += Character.digit(num1.charAt(i), 10);
+                                                  ^
+./test/mutation_analysis/s0415_add_strings/purellm/claude4opus/mutants/20/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/claude4opus/mutants/20/Solution.java:36:
+    /*@ public normal_behavior
+               ^
+2 verification failures

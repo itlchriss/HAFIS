@@ -1,0 +1,3 @@
+- If length of String "s" is greater than length of String "t" then boolean result is false
+- If every character of String "s" occurs in String "t" preserving relative order then boolean result is true
+- If at least one character of String "s" does not occur in String "t" preserving relative order then boolean result is false

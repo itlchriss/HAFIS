@@ -1,0 +1,111 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Below is a compact yet complete JML-specification for a (static) Java method  
+
+    int maxProfit(int[] prices)
+
+that must solve LeetCode problem 309, “Best Time to Buy and Sell Stock with Cool-down”.
+
+The specification is self–contained: every concept that occurs in the
+post-condition is first defined as a pure “model” method so that the contract
+can be checked independently of any particular algorithm you will later write
+in the method body.
+
+```java
+public class StockCoolDown {
+
+    /*------------------------------------------------------------------
+     * Auxiliary “model” definitions used by the post–condition
+     *----------------------------------------------------------------*/
+
+    /*@ public pure model boolean isValidAction(int a) {
+      @     // -1 : buy,  0 : cooldown,  1 : sell
+      @     return a == -1 || a == 0 || a == 1;
+      @ } @*/
+
+    /*@ public pure model boolean validSequence(int[] act) {
+      @     // A sequence is valid iff
+      @     //   1) it only contains the three legal symbols (-1,0,1);
+      @     //   2) you never buy while already holding a share;
+      @     //   3) you never sell while not holding;
+      @     //   4) the day after a sell you cannot buy (cool-down);
+      @     //   5) you end with no stock in hand.
+      @
+      @     boolean holding = false;
+      @     for (int i = 0; i < act.length; i++) {
+      @         if (!isValidAction(act[i]))        return false;
+      @
+      @         if (act[i] == -1) {                // buy
+      @             if (holding)                  return false;
+      @             holding = true;
+      @         } else if (act[i] == 1) {          // sell
+      @             if (!holding)                 return false;
+      @             holding = false;
+      @             if (i + 1 < act.length &&
+      @                 act[i + 1] == -1)         return false; // cool-down
+      @         }
+      @     }
+      @     return !holding;                       // must finish flat
+      @ } @*/
+
+    /*@ public pure model int profit(int[] prices, int[] act) {
+      @     // Assumes act.length == prices.length  &&  validSequence(act)
+      @     int p = 0, buyPrice = 0;
+      @     boolean holding = false;
+      @     for (int i = 0; i < prices.length; i++) {
+      @         if (act[i] == -1) {                // buy
+      @             holding   = true;
+      @             buyPrice  = prices[i];
+      @         } else if (act[i] == 1) {          // sell
+      @             holding   = false;
+      @             p        += prices[i] - buyPrice;
+      @         }
+      @     }
+      @     return p;
+      @ } @*/
+
+    /*------------------------------------------------------------------
+     * The required method
+     *----------------------------------------------------------------*/
+
+    /*@ public normal_behavior
+      @   requires prices != null
+      @        && 1 <= prices.length && prices.length <= 5000
+      @        && (\forall int i; 0 <= i && i < prices.length;
+      @                             0 <= prices[i] && prices[i] <= 1000);
+      @
+      @   // Optimality — “\result” is the maximum reachable profit:
+      @   ensures  (\exists int[] act;
+      @                act.length == prices.length
+      @             && validSequence(act)
+      @             && \result == profit(prices, act))          // attainable
+      @        &&  (\forall int[] act;
+      @                act != null && act.length == prices.length
+      @             && validSequence(act);
+      @             \result >= profit(prices, act));            // no better
+      @
+      @   assignable \nothing;   // Pure function: no visible state changed
+      @*/
+    public static int maxProfit(int[] prices) {
+        // ——— Implementation goes here ———
+        // Any algorithm that satisfies the contract is acceptable.
+        return 0; // stub
+    }
+}
+```
+
+Explanation of the main points:
+
+1. Actions are encoded as −1 (buy), 0 (cool-down) and 1 (sell).  
+2. `validSequence` expresses exactly the rules of the exercise, including the
+   mandatory one-day cool-down after a sale and the impossibility of holding
+   more than one share at a time.
+3. `profit` computes the net gain of a given action sequence.
+4. The post-condition states that
+   • there exists at least one valid sequence that reaches `\result`, and
+   • no other valid sequence can yield more than `\result`.  
+   Hence `\result` is the maximum achievable profit.
+5. `assignable \nothing` declares that the method has no side effects,
+   matching the mathematical nature of the problem.
+
+Any Java implementation plugged into the method body that makes the contract
+true (for instance, the usual dynamic-programming solution) will now be
+provably correct with respect to the LeetCode specification.

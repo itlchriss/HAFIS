@@ -1,3 +1,0 @@
-- requires num >= -10000000 && num <= 10000000;
-- ensures \result != null;
-- ensures \result.equals(Integer.toString(num, 7));

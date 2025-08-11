@@ -1,0 +1,75 @@
+Here's the JML specification for the "Assign Cookies" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires g != null && s != null;
+      @ requires 1 <= g.length && g.length <= 30000;
+      @ requires 0 <= s.length && s.length <= 30000;
+      @ requires (\forall int i; 0 <= i && i < g.length; 1 <= g[i] && g[i] <= Integer.MAX_VALUE);
+      @ requires (\forall int j; 0 <= j && j < s.length; 1 <= s[j] && s[j] <= Integer.MAX_VALUE);
+      @ ensures \result >= 0 && \result <= Math.min(g.length, s.length);
+      @ ensures \result <= g.length;
+      @ ensures \result <= s.length;
+      @ // The result is the maximum number of children that can be content
+      @ ensures (\forall int k; k > \result; 
+      @          !(\exists int[] childAssignment; childAssignment.length == k &&
+      @            isValidAssignment(g, s, childAssignment, k)));
+      @ // There exists a valid assignment for \result children
+      @ ensures \result == 0 || (\exists int[] childAssignment; 
+      @          childAssignment.length == \result &&
+      @          isValidAssignment(g, s, childAssignment, \result));
+      @ assignable \nothing;
+      @*/
+    public int findContentChildren(int[] g, int[] s) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires g != null && s != null && assignment != null;
+      @ requires assignment.length == numChildren;
+      @ requires numChildren >= 0 && numChildren <= g.length && numChildren <= s.length;
+      @ // Helper predicate to check if an assignment is valid
+      @ ensures \result == (
+      @   // Each element in assignment is a valid cookie index
+      @   (\forall int i; 0 <= i && i < numChildren; 
+      @     0 <= assignment[i] && assignment[i] < s.length) &&
+      @   // Each cookie is assigned to at most one child (no duplicates)
+      @   (\forall int i, j; 0 <= i && i < numChildren && 0 <= j && j < numChildren && i != j;
+      @     assignment[i] != assignment[j]) &&
+      @   // Each assigned cookie satisfies the child's greed factor
+      @   (\forall int i; 0 <= i && i < numChildren;
+      @     s[assignment[i]] >= g[i])
+      @ );
+      @ assignable \nothing;
+      @*/
+    private /*@ pure @*/ boolean isValidAssignment(int[] g, int[] s, int[] assignment, int numChildren) {
+        // This is a specification helper method
+        return true;
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - Arrays `g` and `s` must not be null
+   - Array lengths must be within specified bounds
+   - All elements must be within valid ranges (1 to Integer.MAX_VALUE)
+
+2. **Postconditions (`ensures`):**
+   - The result is non-negative and cannot exceed the minimum of the two array lengths
+   - The result represents the maximum number of content children
+   - There exists a valid assignment for the returned number of children
+   - No assignment exists for any number greater than the result
+
+3. **Frame condition (`assignable`):**
+   - The method is pure and doesn't modify any state
+
+4. **Helper method:**
+   - `isValidAssignment` is a specification-only helper that defines what constitutes a valid cookie assignment
+   - It ensures each cookie is assigned to at most one child
+   - It ensures each assigned cookie satisfies the child's greed factor
+
+This specification captures the essence of the problem: finding the maximum number of children that can be made content by assigning cookies, where each child gets at most one cookie and only accepts cookies that meet their minimum size requirement.

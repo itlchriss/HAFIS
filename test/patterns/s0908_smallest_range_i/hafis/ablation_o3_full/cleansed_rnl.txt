@@ -1,0 +1,6 @@
+- The method requires every element of `int[]` `nums` to lie within the inclusive range zero to ten thousand
+- The method requires `int` `k` to lie within the inclusive range zero to ten thousand
+- If the length of `int[]` `nums` is one then result of type int is zero
+- If the difference between the maximum value and the minimum value in `int[]` `nums` is less than or equal to twice `int` `k` then result of type int is zero
+- Otherwise result of type int equals the difference between the maximum value and the minimum value in `int[]` `nums` minus twice `int` `k`
+- Result of type int is always greater than or equal to zero

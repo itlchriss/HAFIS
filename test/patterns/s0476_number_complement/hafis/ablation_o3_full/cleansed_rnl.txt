@@ -1,0 +1,4 @@
+- int result has a binary representation whose length equals the binary length of int 'num' when written without leading zero bits
+- every bit in result is one exactly when the corresponding bit in int 'num' is zero
+- every bit in result is zero exactly when the corresponding bit in int 'num' is one
+- int result lies in the closed interval from zero to two raised to the power of the binary length of int 'num' minus one and result is different from int 'num'

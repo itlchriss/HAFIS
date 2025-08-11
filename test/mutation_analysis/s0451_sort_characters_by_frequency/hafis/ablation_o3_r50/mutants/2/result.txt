@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/ablation_o3_r50/mutants/2/Solution.java:18: verify: The prover cannot establish an assertion (InvariantExceptionExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method frequencySort: g0401_0500.s0451_sort_characters_by_frequency.Solution.frequencySort(String) (parameter s)
+    public String frequencySort(String s) {
+                                       ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/ablation_o3_r50/mutants/2/Solution.java:18:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/ablation_o3_r50/mutants/2/Solution.java:18: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method frequencySort: g0401_0500.s0451_sort_characters_by_frequency.Solution.frequencySort(String) (parameter s)
+    public String frequencySort(String s) {
+                                       ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/ablation_o3_r50/mutants/2/Solution.java:18:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/ablation_o3_r50/mutants/2/Solution.java:38: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method frequencySort: g0401_0500.s0451_sort_characters_by_frequency.Solution.frequencySort(String) (for result type)
+        return sb.toString();
+        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/ablation_o3_r50/mutants/2/Solution.java:38:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+6 verification failures

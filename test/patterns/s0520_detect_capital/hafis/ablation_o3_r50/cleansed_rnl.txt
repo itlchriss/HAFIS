@@ -1,0 +1,4 @@
+- The string parameter `word` consists of only uppercase and lowercase English letters.
+- The boolean result is true when the usage of capital letters in the string parameter `word` follows the rules stated in the software specification and the boolean result is false otherwise.
+- If the string parameter `word` is equal to "USA", the boolean result is true.
+- If the string parameter `word` is equal to "FlaG", the boolean result is false.

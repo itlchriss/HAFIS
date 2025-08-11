@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/117/Solution.java:48: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/117/Solution.java:15:) in method myAtoi
+                return Integer.MAX_VALUE;
+                ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/117/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/117/Solution.java:48:
+//@ ensures((str.equals("42")) ==> (\result == 42));
+    ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/117/Solution.java:48: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/117/Solution.java:10:) in method myAtoi
+                return Integer.MAX_VALUE;
+                ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/117/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/117/Solution.java:48:
+//@ ensures((str.equals("-91283472332")) ==> (\result == -2147483648));
+    ^
+4 verification failures

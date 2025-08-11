@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/o3/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/o3/Solution.java:10:) in method toHex
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/o3/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/hafis/o3/Solution.java:26:
+//@ ensures((num < 0) ==> (\result.length() == 8));
+    ^
+2 verification failures

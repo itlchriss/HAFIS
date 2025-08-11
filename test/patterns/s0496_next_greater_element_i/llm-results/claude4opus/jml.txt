@@ -1,0 +1,74 @@
+Here's the JML specification for the Next Greater Element I problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums1 != null && nums2 != null;
+      @ requires 1 <= nums1.length && nums1.length <= nums2.length && nums2.length <= 1000;
+      @ requires (\forall int i; 0 <= i && i < nums1.length; 
+      @              0 <= nums1[i] && nums1[i] <= 10000);
+      @ requires (\forall int i; 0 <= i && i < nums2.length; 
+      @              0 <= nums2[i] && nums2[i] <= 10000);
+      @ requires (\forall int i, j; 0 <= i && i < nums1.length && 0 <= j && j < nums1.length && i != j;
+      @              nums1[i] != nums1[j]);
+      @ requires (\forall int i, j; 0 <= i && i < nums2.length && 0 <= j && j < nums2.length && i != j;
+      @              nums2[i] != nums2[j]);
+      @ requires (\forall int i; 0 <= i && i < nums1.length;
+      @              (\exists int j; 0 <= j && j < nums2.length; nums1[i] == nums2[j]));
+      @ ensures \result != null;
+      @ ensures \result.length == nums1.length;
+      @ ensures (\forall int i; 0 <= i && i < nums1.length;
+      @              \result[i] == nextGreaterElement(nums1[i], nums2));
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires nums2 != null;
+      @ requires (\exists int j; 0 <= j && j < nums2.length; element == nums2[j]);
+      @ requires (\forall int i, j; 0 <= i && i < nums2.length && 0 <= j && j < nums2.length && i != j;
+      @              nums2[i] != nums2[j]);
+      @ ensures \result == -1 || 
+      @         (\exists int k; 0 <= k && k < nums2.length; 
+      @              nums2[k] == \result &&
+      @              (\exists int j; 0 <= j && j < k; nums2[j] == element) &&
+      @              \result > element &&
+      @              (\forall int m; 0 <= m && m < nums2.length;
+      @                  ((\exists int j; 0 <= j && j < m; nums2[j] == element) && 
+      @                   nums2[m] > element) ==> m >= k));
+      @ assignable \nothing;
+      @*/
+    private /*@ pure @*/ int nextGreaterElement(int element, int[] nums2) {
+        // Helper method to find next greater element
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - Both arrays are non-null
+   - Length constraints are satisfied (1 ≤ nums1.length ≤ nums2.length ≤ 1000)
+   - All elements are in the range [0, 10^4]
+   - All elements in both arrays are unique (no duplicates within each array)
+   - All elements of nums1 appear in nums2
+
+2. **Postconditions (`ensures`):**
+   - Result is non-null
+   - Result array has the same length as nums1
+   - Each element in the result corresponds to the next greater element as defined
+
+3. **Helper method specification:**
+   - I've included a helper method specification that captures the logic of finding the next greater element for a single element
+   - The postcondition states that the result is either -1 (no greater element) or the first element in nums2 that:
+     - Appears after the target element
+     - Is greater than the target element
+     - Is the first such element (no other greater element appears between them)
+
+4. **Pure methods:**
+   - Both methods are marked as `pure` since they don't modify any state
+
+This specification captures all the requirements from the problem description while being formal and verifiable.

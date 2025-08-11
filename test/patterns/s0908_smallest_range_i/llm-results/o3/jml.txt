@@ -1,0 +1,52 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Below is a compact JML contract that captures the whole problem statement for a (pure) Java method  
+
+    int smallestRangeI(int[ ] nums, int k)
+
+It expresses  
+• all input‐domain constraints, and  
+• the exact value that has to be returned, i.e. the minimum achievable score after every
+  array element may be shifted once by any integer in [-k, k].
+
+```
+public class SmallestRangeI {
+
+/*@ public normal_behavior
+  @   requires nums != null;                               // array is provided
+  @   requires 1 <= nums.length && nums.length <= 10000;   // constraint 1
+  @   requires 0 <= k && k <= 10000;                       // constraint 3
+  @   requires (\forall int i; 0 <= i && i < nums.length;
+  @                        0 <= nums[i] && nums[i] <= 10000); // constraint 2
+  @
+  @   assignable \nothing;         // pure function – does not modify any state
+  @
+  @   // Abbreviations for current maximum and minimum
+  @   def max = (\max int i; 0 <= i && i < nums.length; nums[i]);
+  @   def min = (\min int i; 0 <= i && i < nums.length; nums[i]);
+  @
+  @   // Closed-form answer obtained from the optimisation problem
+  @   ensures (max - min <= 2 * k)
+  @           ==>  \result == 0;
+  @
+  @   ensures (max - min >  2 * k)
+  @           ==>  \result == max - min - 2 * k;
+  @
+  @   // Some cheap sanity bounds for free
+  @   ensures 0 <= \result && \result <= 10000;
+  @*/
+  public /*@ pure @*/ int smallestRangeI(int[] nums, int k);
+}
+```
+
+Explanation of the post-conditions
+
+1. Let `max = max(nums)` and `min = min(nums)`.  
+2. Each element can be moved up or down by at most `k`, so in the best case the
+   entire spread can shrink by `2 k`.  
+3. If the original spread `max − min` is already ≤ `2 k`, it can be collapsed to
+   0; otherwise the remaining spread is `max − min − 2 k`.  
+4. The two `ensures` clauses encode this exact piecewise function. Together they
+   uniquely determine `\result`.
+
+This contract therefore states precisely what any correct implementation of
+`smallestRangeI` must return, while remaining faithful to all constraints in
+LeetCode problem 908.

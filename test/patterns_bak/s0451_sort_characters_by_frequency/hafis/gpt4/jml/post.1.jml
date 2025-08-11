@@ -1,1 +1,0 @@
-ensures((s.equals("tree")) ==> ((\result.equals("eert")) || (\result.equals("eetr"))));

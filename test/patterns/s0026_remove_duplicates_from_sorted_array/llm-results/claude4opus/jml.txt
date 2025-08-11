@@ -1,0 +1,66 @@
+Here's the JML specification for the `removeDuplicates` method:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 0 && nums.length <= 30000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -100 <= nums[i] && nums[i] <= 100);
+      @ requires (\forall int i; 0 <= i && i < nums.length - 1; 
+      @           nums[i] <= nums[i + 1]);
+      @ 
+      @ ensures \result >= 0 && \result <= nums.length;
+      @ ensures nums.length == 0 ==> \result == 0;
+      @ ensures nums.length > 0 ==> \result >= 1;
+      @ 
+      @ ensures (\forall int i; 0 <= i && i < \result - 1; 
+      @          nums[i] < nums[i + 1]);
+      @ 
+      @ ensures (\forall int i; 0 <= i && i < \result;
+      @          (\exists int j; 0 <= j && j < \old(nums.length); 
+      @           nums[i] == \old(nums[j])));
+      @ 
+      @ ensures (\forall int i; 0 <= i && i < \old(nums.length);
+      @          (\exists int j; 0 <= j && j < nums.length; 
+      @           \old(nums[i]) == nums[j]));
+      @ 
+      @ ensures (\forall int v; 
+      @          (\exists int i; 0 <= i && i < \old(nums.length); \old(nums[i]) == v) 
+      @          <==> 
+      @          (\exists int j; 0 <= j && j < \result; nums[j] == v));
+      @ 
+      @ assignable nums[*];
+      @*/
+    public int removeDuplicates(int[] nums) {
+        // Implementation goes here
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - `nums` is not null
+   - Array length is within constraints (0 to 30,000)
+   - All elements are within range [-100, 100]
+   - Array is sorted in non-decreasing order
+
+2. **Postconditions (`ensures`):**
+   - Return value `k` is between 0 and the array length
+   - If array is empty, return 0; if non-empty, return at least 1
+   - First `k` elements are strictly increasing (no duplicates)
+   - First `k` elements come from the original array
+   - All elements from the original array still exist somewhere in the modified array
+   - The first `k` positions contain exactly one copy of each unique value from the original array
+
+3. **Frame condition (`assignable`):**
+   - Only the array contents can be modified (in-place modification)
+
+This specification captures the essential requirements:
+- Duplicates are removed
+- Unique elements appear in the first `k` positions
+- Original order is preserved
+- All unique values from the original array are present in the result
+- The operation is done in-place

@@ -1,0 +1,116 @@
+Here's the JML specification for the "Best Time to Buy and Sell Stock with Cooldown" problem:
+
+```java
+public class StockWithCooldown {
+    
+    /*@ public normal_behavior
+      @ requires prices != null;
+      @ requires prices.length >= 1 && prices.length <= 5000;
+      @ requires (\forall int i; 0 <= i && i < prices.length; 
+      @          prices[i] >= 0 && prices[i] <= 1000);
+      @ ensures \result >= 0;
+      @ ensures \result <= maxPossibleProfit(prices);
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ int maxProfit(int[] prices) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires prices != null && prices.length >= 1;
+      @ requires (\forall int i; 0 <= i && i < prices.length; 
+      @          prices[i] >= 0 && prices[i] <= 1000);
+      @ ensures \result >= 0;
+      @ ensures \result == computeMaxProfit(prices, 0, false, false);
+      @*/
+    private /*@ pure @*/ /*@ spec_public @*/ int maxPossibleProfit(int[] prices) {
+        // This is a specification method to define the maximum possible profit
+        // considering all valid transaction sequences with cooldown
+    }
+    
+    /*@ private normal_behavior
+      @ requires prices != null && 0 <= day && day <= prices.length;
+      @ requires (\forall int i; 0 <= i && i < prices.length; 
+      @          prices[i] >= 0 && prices[i] <= 1000);
+      @ measured_by prices.length - day;
+      @ ensures \result >= 0;
+      @ ensures day == prices.length ==> \result == 0;
+      @ ensures day < prices.length && holding && !cooldown ==> 
+      @         \result == Math.max(
+      @             computeMaxProfit(prices, day + 1, true, false),
+      @             prices[day] + computeMaxProfit(prices, day + 1, false, true)
+      @         );
+      @ ensures day < prices.length && !holding && cooldown ==>
+      @         \result == computeMaxProfit(prices, day + 1, false, false);
+      @ ensures day < prices.length && !holding && !cooldown ==>
+      @         \result == Math.max(
+      @             computeMaxProfit(prices, day + 1, false, false),
+      @             -prices[day] + computeMaxProfit(prices, day + 1, true, false)
+      @         );
+      @*/
+    private /*@ pure @*/ /*@ spec_public @*/ int computeMaxProfit(
+        int[] prices, int day, boolean holding, boolean cooldown) {
+        // This is a specification method that recursively defines the maximum profit
+        // from day 'day' onwards, given the current state (holding stock, in cooldown)
+    }
+    
+    /*@ public invariant true;
+      @*/
+}
+```
+
+Additional JML specifications for key properties:
+
+```java
+/*@ public model class Transaction {
+  @   public final int buyDay;
+  @   public final int sellDay;
+  @   
+  @   public invariant 0 <= buyDay && buyDay < sellDay;
+  @   public invariant sellDay < prices.length;
+  @ }
+  @*/
+
+/*@ public model class TransactionSequence {
+  @   public final Transaction[] transactions;
+  @   
+  @   // No overlapping transactions
+  @   public invariant (\forall int i; 0 <= i && i < transactions.length - 1;
+  @                    transactions[i].sellDay < transactions[i+1].buyDay);
+  @   
+  @   // Cooldown constraint: at least one day between sell and next buy
+  @   public invariant (\forall int i; 0 <= i && i < transactions.length - 1;
+  @                    transactions[i].sellDay + 1 < transactions[i+1].buyDay);
+  @   
+  @   // Total profit from this sequence
+  @   public pure model int totalProfit(int[] prices) {
+  @     return (\sum int i; 0 <= i && i < transactions.length;
+  @             prices[transactions[i].sellDay] - prices[transactions[i].buyDay]);
+  @   }
+  @ }
+  @*/
+
+/*@ // Alternative specification using ghost variables
+  @ public normal_behavior
+  @ requires prices != null;
+  @ requires prices.length >= 1 && prices.length <= 5000;
+  @ requires (\forall int i; 0 <= i && i < prices.length; 
+  @          prices[i] >= 0 && prices[i] <= 1000);
+  @ ensures \result >= 0;
+  @ ensures (\forall TransactionSequence seq; 
+  @          isValidSequence(seq, prices) ==> \result >= seq.totalProfit(prices));
+  @ ensures (\exists TransactionSequence seq;
+  @          isValidSequence(seq, prices) && \result == seq.totalProfit(prices));
+  @*/
+```
+
+This JML specification captures:
+
+1. **Preconditions**: Valid input array with proper bounds on length and values
+2. **Postconditions**: Result is non-negative and represents the maximum possible profit
+3. **Recursive specification**: The `computeMaxProfit` method models the dynamic programming solution with three states (holding stock, not holding with cooldown, not holding without cooldown)
+4. **Model classes**: `Transaction` and `TransactionSequence` to formally represent valid trading sequences
+5. **Invariants**: Cooldown constraint is enforced in the transaction sequence
+6. **Purity**: Methods are marked as pure since they don't modify state
+
+The specification ensures that the implementation correctly handles the cooldown period and finds the optimal profit among all valid transaction sequences.

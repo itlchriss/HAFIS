@@ -1,0 +1,1 @@
+If the type_string_ param_s_ contains a division operator , each division operation contributing to the type_integer_ result uses truncation toward the 0 literal . 

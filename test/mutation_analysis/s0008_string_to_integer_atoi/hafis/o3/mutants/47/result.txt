@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/hafis/o3/mutants/47/Solution.java:38: error: unreachable statement
+        while (false) {
+                      ^
+1 error

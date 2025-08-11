@@ -1,0 +1,119 @@
+Here's the JML specification for the Maximum Gap problem:
+
+```java
+public class MaximumGap {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           0 <= nums[i] && nums[i] <= 1000000000);
+      @ ensures nums.length < 2 ==> \result == 0;
+      @ ensures nums.length >= 2 ==> 
+      @         \result == maxGapInSorted(nums);
+      @ ensures \result >= 0;
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ int maximumGap(int[] nums) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires nums != null && nums.length >= 2;
+      @ ensures \result == 
+      @   (\max int i; 0 <= i && i < sortedArray(nums).length - 1;
+      @     sortedArray(nums)[i + 1] - sortedArray(nums)[i]);
+      @*/
+    private /*@ pure @*/ /*@ helper @*/ int maxGapInSorted(int[] nums) {
+        // Helper specification
+    }
+    
+    /*@ private normal_behavior
+      @ requires nums != null;
+      @ ensures \result != null;
+      @ ensures \result.length == nums.length;
+      @ ensures (\forall int i; 0 <= i && i < nums.length;
+      @           (\exists int j; 0 <= j && j < nums.length;
+      @             nums[j] == \result[i]));
+      @ ensures (\forall int i; 0 <= i && i < \result.length - 1;
+      @           \result[i] <= \result[i + 1]);
+      @ ensures isPermutation(nums, \result);
+      @*/
+    private /*@ pure @*/ /*@ helper @*/ int[] sortedArray(int[] nums) {
+        // Helper specification for sorted array
+    }
+    
+    /*@ private normal_behavior
+      @ requires a != null && b != null;
+      @ ensures \result <==> 
+      @   (a.length == b.length &&
+      @    (\forall int x; true;
+      @      count(a, x) == count(b, x)));
+      @*/
+    private /*@ pure @*/ /*@ helper @*/ boolean isPermutation(int[] a, int[] b) {
+        // Helper specification
+    }
+    
+    /*@ private normal_behavior
+      @ requires arr != null;
+      @ ensures \result == 
+      @   (\num_of int i; 0 <= i && i < arr.length; arr[i] == value);
+      @*/
+    private /*@ pure @*/ /*@ helper @*/ int count(int[] arr, int value) {
+        // Helper specification
+    }
+}
+```
+
+Alternative, more concise version using model methods:
+
+```java
+public class MaximumGap {
+    
+    /*@ public model pure int[] sorted(int[] arr) {
+      @   // Returns a sorted version of arr
+      @ }
+      @*/
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires 1 <= nums.length && nums.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           0 <= nums[i] && nums[i] <= 1000000000);
+      @ ensures nums.length < 2 ==> \result == 0;
+      @ ensures nums.length >= 2 ==> {
+      @   int[] sortedNums = sorted(nums);
+      @   \result == (\max int i; 0 <= i && i < sortedNums.length - 1;
+      @               sortedNums[i + 1] - sortedNums[i])
+      @ };
+      @ ensures \result >= 0;
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ int maximumGap(int[] nums) {
+        // Implementation here
+    }
+}
+```
+
+Key aspects of the JML specification:
+
+1. **Preconditions (`requires`):**
+   - Array is not null
+   - Array length is between 1 and 10^5
+   - All elements are between 0 and 10^9
+
+2. **Postconditions (`ensures`):**
+   - If array has less than 2 elements, return 0
+   - Otherwise, return the maximum gap between consecutive elements in sorted order
+   - Result is non-negative
+
+3. **Frame condition (`assignable`):**
+   - The method is pure and doesn't modify any state
+
+4. **Helper specifications:**
+   - `sortedArray`: Returns a sorted permutation of the input
+   - `maxGapInSorted`: Calculates the maximum gap in a sorted array
+   - `isPermutation`: Verifies that two arrays are permutations of each other
+   - `count`: Counts occurrences of a value in an array
+
+The specification captures the essence of the problem while maintaining the linear time complexity requirement implicitly (the actual implementation would need to ensure this).

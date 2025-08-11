@@ -1,0 +1,7 @@
+- The string parameter `preorder` contains only digits commas and the character '#'.
+- Each comma separated value in the string parameter `preorder` is either the character '#' or the string representation of an integer that is greater than or equal to 0 and is less than or equal to 100.
+- If boolean result is equal to the true literal, there exists at least one binary tree whose preorder traversal serialization that uses the character '#' for null nodes is equal to the string parameter `preorder`.
+- If boolean result is equal to the false literal, there does not exist any binary tree whose preorder traversal serialization that uses the character '#' for null nodes is equal to the string parameter `preorder`.
+- If the string parameter `preorder` is equal to the string "9,3,4,#,#,1,#,#,2,#,6,#,#", the boolean result is equal to the true literal.
+- If the string parameter `preorder` is equal to the string "1,#", the boolean result is equal to the false literal.
+- If the string parameter `preorder` is equal to the string "9,#,#,1", the boolean result is equal to the false literal.

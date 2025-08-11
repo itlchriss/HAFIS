@@ -1,0 +1,1 @@
+For every index i , if the type_integer_array_ result at index i is equal to negative 1 , there exists no value in the type_integer_array_ param_nums2_ that is greater_than to the type_integer_array_ param_nums1_ at index i and appears to the right of that value in the type_integer_array_ param_nums2_ . 

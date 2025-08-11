@@ -1,0 +1,7 @@
+ensures:
+- If type_boolean_ result is equal to the true literal , the type_integer_ param_n_ mod 4 is not equal to 0.
+- If type_boolean_ result is equal to the false literal , the type_integer_ param_n_ mod 4 is equal to 0.
+- If the type_integer_ param_n_ is equal to 4 , the type_boolean_ result is equal to the false literal.
+- If the type_integer_ param_n_ is equal to 1 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 2 , the type_boolean_ result is equal to the true literal.
+requires: []

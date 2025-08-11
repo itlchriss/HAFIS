@@ -1,0 +1,47 @@
+package g0001_0100.s0053_maximum_subarray;
+
+// #Easy #Top_100_Liked_Questions #Top_Interview_Questions #Array #Dynamic_Programming
+// #Divide_and_Conquer #Data_Structure_I_Day_1_Array #Dynamic_Programming_I_Day_5
+// #Udemy_Famous_Algorithm #Big_O_Time_O(n)_Space_O(1)
+// #2023_08_11_Time_1_ms_(100.00%)_Space_57.7_MB_(90.58%)
+
+public class Solution {
+    /*@
+      public normal_behavior
+        // --- Pre-conditions --------------------------------------------------
+        requires nums != null;
+        // size constraint given in the statement
+        requires 1 <= nums.length && nums.length <= 100000;
+        // element range constraint given in the statement
+        requires (\forall int i; 0 <= i && i < nums.length;
+                                  -10000 <= nums[i] && nums[i] <= 10000);
+
+        // --- Post-conditions -------------------------------------------------
+        // 1.  The returned value is the sum of *some* contiguous segment …
+        ensures (\exists int start, end;
+                    0 <= start && start <= end && end < nums.length;
+                    \result == (\sum int k; start <= k && k <= end; nums[k]));
+
+        // 2.  … and that segment’s sum is maximal among *all* segments.
+        ensures (\forall int s, e;
+                    0 <= s && s <= e && e < nums.length;
+                    (\sum int k; s <= k && k <= e; nums[k]) <= \result);
+
+        // implementation must not have any visible side effects
+        assignable \nothing;
+     @*/
+    public int maxSubArray(int[] nums) {
+        int maxi = Integer.MIN_VALUE;
+        int sum = 0;
+        for (int num : nums) {
+            // calculating sub-array sum
+            sum += num;
+            maxi = Math.max(sum, maxi);
+            if (sum <= 0) {
+                // there is no point to carry a -ve subarray sum. hence setting to 0
+                sum = 0;
+            }
+        }
+        return maxi;
+    }
+}

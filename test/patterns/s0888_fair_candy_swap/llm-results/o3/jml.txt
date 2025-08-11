@@ -1,0 +1,60 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Below is a pure‐specification (no implementation) of the problem written in JML for a Java method  
+
+    public static /*@ pure @*/ int[] fairCandySwap(int[] aliceSizes,
+                                                   int[] bobSizes)
+
+You can copy-paste the annotation in front of the actual method header.
+
+```java
+/*@
+  @ // ---------- PRECONDITIONS ----------
+  @ requires aliceSizes != null && bobSizes != null;
+  @
+  @ // Length constraints
+  @ requires 1 <= aliceSizes.length && aliceSizes.length <= 10000;
+  @ requires 1 <= bobSizes.length  && bobSizes.length  <= 10000;
+  @
+  @ // Element value constraints
+  @ requires (\forall int i; 0 <= i && i < aliceSizes.length;
+  @                     1 <= aliceSizes[i] && aliceSizes[i] <= 100000);
+  @ requires (\forall int j; 0 <= j && j < bobSizes.length;
+  @                     1 <= bobSizes[j] && bobSizes[j] <= 100000);
+  @
+  @ // Alice and Bob have different initial totals
+  @ requires (\sum int i; 0 <= i && i < aliceSizes.length;  aliceSizes[i])
+  @        != (\sum int j; 0 <= j && j < bobSizes.length; bobSizes[j]);
+  @
+  @ // ---------- POSTCONDITIONS ----------
+  @ ensures \result != null && \result.length == 2;
+  @
+  @ // \result[0] must be a value appearing in aliceSizes
+  @ ensures (\exists int i; 0 <= i && i < aliceSizes.length;
+  @                    \result[0] == aliceSizes[i]);
+  @
+  @ // \result[1] must be a value appearing in bobSizes
+  @ ensures (\exists int j; 0 <= j && j < bobSizes.length;
+  @                    \result[1] == bobSizes[j]);
+  @
+  @ // After exchanging the two chosen boxes, totals are equal
+  @ ensures (
+  @     (\sum int k; 0 <= k && k < aliceSizes.length; aliceSizes[k])
+  @       - \result[0] + \result[1]
+  @   ==
+  @     (\sum int k; 0 <= k && k < bobSizes.length;  bobSizes[k])
+  @       - \result[1] + \result[0]
+  @ );
+  @*/
+public static int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
+    // implementation goes here
+}
+```
+
+Explanation of the clauses:
+
+• The `requires` clauses encode all input constraints from the original statement (array sizes, element ranges, different totals).  
+• The `ensures` clauses demand that:
+  1. The returned array is non-null and of length two.  
+  2. Its first component equals the size of some box Alice owns, and the second equals the size of some box Bob owns.  
+  3. If Alice and Bob swap exactly those two boxes, their total numbers of candies become identical.
+
+Any implementation that satisfies these JML conditions correctly solves LeetCode problem 888 “Fair Candy Swap.”

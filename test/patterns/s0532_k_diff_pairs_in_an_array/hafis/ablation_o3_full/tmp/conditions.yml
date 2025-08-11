@@ -1,0 +1,4 @@
+ensures:
+- int result equals the count of unique pairs of values in int[] the chry_a whose absolute difference is int the chry_b.
+- int result equals 0 when no pair in int[] the chry_a satisfies the absolute difference requirement with int the chry_b.
+requires: []

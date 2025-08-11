@@ -1,0 +1,64 @@
+Here's the JML specification for the Edit Distance problem:
+
+```java
+public class EditDistance {
+    
+    /*@ public normal_behavior
+      @ requires word1 != null && word2 != null;
+      @ requires word1.length() >= 0 && word1.length() <= 500;
+      @ requires word2.length() >= 0 && word2.length() <= 500;
+      @ requires (\forall int i; 0 <= i && i < word1.length(); 
+      @           'a' <= word1.charAt(i) && word1.charAt(i) <= 'z');
+      @ requires (\forall int i; 0 <= i && i < word2.length(); 
+      @           'a' <= word2.charAt(i) && word2.charAt(i) <= 'z');
+      @ ensures \result >= 0;
+      @ ensures \result <= Math.max(word1.length(), word2.length());
+      @ ensures \result == 0 <==> word1.equals(word2);
+      @ ensures word1.length() == 0 ==> \result == word2.length();
+      @ ensures word2.length() == 0 ==> \result == word1.length();
+      @ pure
+      @*/
+    public int minDistance(String word1, String word2) {
+        // Implementation would go here
+        return 0;
+    }
+    
+    /*@ // Helper specification to define edit distance property
+      @ public ghost boolean isEditDistance(String s1, String s2, int dist) {
+      @     // This is a ghost method that would verify if dist is indeed
+      @     // the minimum edit distance between s1 and s2
+      @     return true;
+      @ }
+      @*/
+    
+    /*@ // Additional invariant for the actual edit distance
+      @ public invariant (\forall String w1, w2; 
+      @     w1 != null && w2 != null && 
+      @     w1.length() <= 500 && w2.length() <= 500 &&
+      @     (\forall int i; 0 <= i && i < w1.length(); 
+      @         'a' <= w1.charAt(i) && w1.charAt(i) <= 'z') &&
+      @     (\forall int i; 0 <= i && i < w2.length(); 
+      @         'a' <= w2.charAt(i) && w2.charAt(i) <= 'z');
+      @     minDistance(w1, w2) == minDistance(w2, w1));
+      @*/
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`)**:
+   - Both strings must be non-null
+   - Length constraints: 0 to 500 characters
+   - All characters must be lowercase English letters
+
+2. **Postconditions (`ensures`)**:
+   - Result is non-negative
+   - Result cannot exceed the length of the longer string
+   - Result is 0 if and only if the strings are equal
+   - Special cases for empty strings
+
+3. **Method purity**: The method is marked as `pure`, meaning it has no side effects
+
+4. **Additional invariant**: The edit distance is symmetric (distance from word1 to word2 equals distance from word2 to word1)
+
+Note: The actual algorithm to compute edit distance (typically dynamic programming) would need to be implemented in the method body. The specification captures the contract without specifying the implementation details.

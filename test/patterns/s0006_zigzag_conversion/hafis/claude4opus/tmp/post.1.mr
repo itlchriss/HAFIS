@@ -1,0 +1,1 @@
+exists x01.(_result{NN}(x01) & _type_string_{NN}(x01) & all x02.(exists x03.(exists e04.(_same{JJ}(e04) & (Subj(e04) = x03) & _character{NNS}(x03)) & (x02 = x03) & exists x05.(_param_s_{NN}(x05) & _type_string_{NN}(x05) & exists e06.(_as{IN}(e06,x05) & (Subj(e06) = x03)))) -> exists e07.(_contain{VBZ}(e07) & (Subj(e07) = x01) & (Acc(e07) = x02))))

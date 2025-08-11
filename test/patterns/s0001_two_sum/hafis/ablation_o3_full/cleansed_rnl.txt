@@ -1,0 +1,6 @@
+- The int parameter 'target' accepts any integer value
+- When exactly one pair of elements in the int array parameter 'numbers' sums to the int parameter 'target' result int array contains the two indices of that pair
+- Upon completion result int array has a length of two
+- Upon completion the two elements in result int array are distinct
+- Upon completion every element in result int array is greater than or equal to zero and less than the length of the int array parameter 'numbers'
+- Upon completion the ordering of indices in result int array is unspecified

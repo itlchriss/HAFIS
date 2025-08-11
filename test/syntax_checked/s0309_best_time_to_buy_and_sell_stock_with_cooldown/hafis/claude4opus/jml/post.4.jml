@@ -1,0 +1,1 @@
+ensures((prices[0] == 1 && prices.length == 1) ==> (\result == 0));

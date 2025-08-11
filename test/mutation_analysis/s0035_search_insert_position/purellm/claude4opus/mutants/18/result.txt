@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/18/Solution.java:34: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method searchInsert
+            int mid = lo / ((hi - lo) / 2);
+                         ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/claude4opus/mutants/18/Solution.java:29: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int searchInsert(int[] nums, int target) {
+               ^
+2 verification failures

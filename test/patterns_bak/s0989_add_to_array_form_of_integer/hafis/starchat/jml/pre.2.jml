@@ -1,1 +1,0 @@
-requires((!(num.length == 1 && num[0] == 0)) ==> (num[0] != 0));

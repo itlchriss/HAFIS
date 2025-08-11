@@ -1,1 +1,0 @@
-ensures((n == 225) ==> (\result == true));

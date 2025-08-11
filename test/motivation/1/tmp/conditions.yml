@@ -1,0 +1,3 @@
+ensures: []
+requires:
+- The type_integer_array_ param_arr_ is not null.

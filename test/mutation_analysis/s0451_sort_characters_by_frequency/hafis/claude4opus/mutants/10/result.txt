@@ -1,0 +1,22 @@
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:19:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:43:
+//@ ensures(\result.length() == s.length());
+    ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:20:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:43:
+//@ ensures((s.equals("cccaaa")) ==> ((\result.equals("aaaccc")) || (\result.equals("cccaaa"))));
+    ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:21:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:43:
+//@ ensures((s.equals("Aabb")) ==> ((\result.equals("bbAa")) || (\result.equals("bbaA"))));
+    ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/10/Solution.java:23: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String frequencySort(String s) {
+                  ^
+7 verification failures

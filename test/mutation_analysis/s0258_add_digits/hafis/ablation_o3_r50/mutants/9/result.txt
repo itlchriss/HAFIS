@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:21: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:10:) in method addDigits
+        return num % 9;
+        ^
+./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:21:
+//@ ensures((\result >= 0) && (\result <= 9));
+    ^
+./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:19: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:13:) in method addDigits
+            return 9;
+            ^
+./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:19:
+//@ ensures((num == 38) ==> (\result == 2));
+    ^
+./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:19: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:11:) in method addDigits
+            return 9;
+            ^
+./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0258_add_digits/hafis/ablation_o3_r50/mutants/9/Solution.java:19:
+//@ ensures((num <= 9) ==> (\result == num));
+    ^
+6 verification failures

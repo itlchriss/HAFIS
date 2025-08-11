@@ -1,0 +1,2 @@
+- If String `a` equals String `b` then result int is -1
+- If String `a` is not equal to String `b` then result int equals the greater of length of String `a` and length of String `b`

@@ -1,0 +1,83 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Below is a straight‐forward JML (Java Modeling Language) contract for the classical “Two-Sum” routine.  
+It captures:
+
+•  the domain constraints given in the statement,  
+•  the existence and uniqueness of one single valid answer, and  
+•  the properties the returned array of indices must satisfy.
+
+```java
+public class TwoSum {
+
+    /**
+     * Returns the indices (in any order) of the two distinct elements
+     * in {@code nums} whose values add up exactly to {@code target}.
+     */
+    /*@ public normal_behavior
+      @   // ----------  Pre-conditions  ----------
+      @   requires nums != null;
+      @   requires 2 <= nums.length && nums.length <= 10000;
+      @
+      @   // element range
+      @   requires (\forall int i; 0 <= i < nums.length;
+      @                       -1000000000 <= nums[i] && nums[i] <= 1000000000);
+      @
+      @   // target range
+      @   requires -1000000000 <= target && target <= 1000000000;
+      @
+      @   // at least one (i , j) s.t. nums[i] + nums[j] == target
+      @   requires (\exists int i, j;
+      @                0 <= i < nums.length && 0 <= j < nums.length && i != j;
+      @                nums[i] + nums[j] == target);
+      @
+      @   // and that answer is unique
+      @   requires (\forall int i1, j1, i2, j2;
+      @               0 <= i1 < nums.length && 0 <= j1 < nums.length &&
+      @               0 <= i2 < nums.length && 0 <= j2 < nums.length &&
+      @               i1 != j1 && i2 != j2 &&
+      @               nums[i1] + nums[j1] == target &&
+      @               nums[i2] + nums[j2] == target
+      @            ==> (i1 == i2 && j1 == j2));
+      @
+      @   // ----------  Post-conditions  ----------
+      @   ensures \result != null && \result.length == 2;
+      @   ensures 0 <= \result[0] < nums.length;
+      @   ensures 0 <= \result[1] < nums.length;
+      @   ensures \result[0] != \result[1];
+      @
+      @   // correctness of the returned pair
+      @   ensures nums[\result[0]] + nums[\result[1]] == target;
+      @
+      @   // and its uniqueness (the “only one valid answer” clause)
+      @   ensures (\forall int i, j;
+      @              0 <= i < nums.length && 0 <= j < nums.length && i != j;
+      @              nums[i] + nums[j] == target
+      @            ==> ((i == \result[0] && j == \result[1]) ||
+      @                (i == \result[1] && j == \result[0])));
+      @
+      @   // the method does not mutate any pre-existing object state
+      @   assignable \nothing;
+      @*/
+    public static int[] twoSum(int[] nums, int target);
+}
+```
+
+Explanation of the main clauses:
+
+1. `requires` (pre-conditions)  
+   • Array length and value ranges come directly from the “Constraints” section.  
+   • The `exists` clause states that at least one valid pair exists.  
+   • The following `forall … ==> …` clause enforces uniqueness: if two pairs both satisfy the
+     sum condition they must be the very same indices.
+
+2. `ensures` (post-conditions)  
+   • The result must be a fresh array of length 2 whose indices are within bounds,
+     distinct, and whose associated values add up to `target`.  
+   • A final `forall` reiterates uniqueness from the point of view of the result:
+     every pair that meets the sum condition must be the returned pair (up to order).
+
+3. `assignable \nothing`  
+   • Indicates a side-effect–free method (it does not modify any heap location
+     existing before the call).
+
+This JML specification is independent of the actual algorithm (O(n²), O(n log n), O(n), …); it describes
+what the method must do, not how it must do it.

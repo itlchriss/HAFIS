@@ -1,0 +1,10 @@
+- All values in the integer array parameter `numbers` are greater than or equal to -1000000000 and are less than or equal to 1000000000.
+- The integer parameter `target` is greater than or equal to -1000000000 and is less than or equal to 1000000000.
+- Exactly one pair of distinct indices exists in the integer array parameter `numbers` whose corresponding values sum to the integer parameter `target`.
+- The length of the integer array result is equal to 2.
+- The first value of the integer array result is not equal to the second value of the integer array result.
+- Both values in the integer array result are greater than or equal to 0 and are less than the length of the integer array parameter `numbers`.
+- The sum between the value at the index equal to the first value of the integer array result of the integer array parameter `numbers` and the value at the index equal to the second value of the integer array result of the integer array parameter `numbers` is equal to the integer parameter `target`.
+- If the integer array parameter `numbers` is equal to [2,7,11,15] and the integer parameter `target` is equal to 9, the integer array result is equal to [0,1].
+- If the integer array parameter `numbers` is equal to [3,2,4] and the integer parameter `target` is equal to 6, the integer array result is equal to [1,2].
+- If the integer array parameter `numbers` is equal to [3,3] and the integer parameter `target` is equal to 6, the integer array result is equal to [0,1].

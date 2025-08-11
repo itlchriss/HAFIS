@@ -1,0 +1,90 @@
+package g1001_1100.s1021_remove_outermost_parentheses;
+
+// #Easy #String #Stack #2022_02_25_Time_4_ms_(75.39%)_Space_42.3_MB_(50.45%)
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+    /*@  // ────────────────────────────────────────────────────────────
+        //  AUXILIARY ― vocabulary required by the post–conditions
+        // ─────────────────────────────────────────────────────────── */
+
+        // (1) prefixBalance(str,i)  ==  #‘(’ − #‘)’  in   str[0 .. i-1]
+        public model pure static /*@ nullable @*/ int prefixBalance(String str, int i);
+
+        // (2)  A valid parentheses string is one whose
+        //      a) every prefix has non–negative balance and
+        //      b) complete balance is zero.
+        public model pure static boolean isValid(String str);
+
+        // (3)  A primitive VPS is a non–empty valid VPS that cannot be
+        //      split into two non-empty valid VPSs.
+        public model pure static boolean isPrimitive(String str);
+
+        // (4)  Splits str into its consecutive primitive factors.
+        //      For every k : 0 ≤ k < primitiveCount(str) the substring
+        //          primitiveAt(str,k)
+        //      is the k-th primitive, and their concatenation is str itself.
+        public model pure static int    primitiveCount(String str);
+        public model pure static String primitiveAt  (String str, int k);
+
+        // (5)  Removes ONE level of parenthesis from a primitive string.
+        public model pure static String stripOuter(String primitive);
+
+        // (6)  The mathematical result the method has to return.
+        public model pure static String removeOuterSpec(String s);
+        /*@ public normal_behavior
+              requires s != null;
+              requires 1 <= s.length() && s.length() <= 100000;
+
+              // only '(' or ')' may occur
+              requires (\forall int i; 0 <= i && i < s.length();
+                           s.charAt(i) == '(' || s.charAt(i) == ')');
+
+              // the input has to be a valid parenthesis string
+              requires isValid(s);
+
+              // Definition of the required result (informal helper):
+              // removeOuterSpec concatenates stripOuter over all primitives.
+              defines removeOuterSpec;
+
+              // ───────────────────────────────────────────────────
+              //  MAIN POST-CONDITIONS
+              // ───────────────────────────────────────────────────
+              ensures \result.equals(removeOuterSpec(s));
+
+              // size bookkeeping:
+              ensures \result.length() ==
+                      s.length() - 2 * primitiveCount(s);
+
+              // the result itself is a valid VPS (possibly the empty string)
+              ensures \result.length() == 0 || isValid(\result);
+
+              // No frame condition: the method is pure.
+              assignable \nothing;
+          @*/
+    public String removeOuterParentheses(String s) {
+        List<String> primitives = new ArrayList<>();
+        int i = 1;
+        while (i < s.length()) {
+            int initialI = i - 1;
+            int left = 1;
+            while (i < s.length() && left > 0) {
+                if (s.charAt(i) == '(') {
+                    left++;
+                } else {
+                    left--;
+                }
+                i++;
+            }
+            primitives.add(s.substring(initialI, i));
+            i++;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (String primitive : primitives) {
+            sb.append(primitive, 1, primitive.length() - 1);
+        }
+        return sb.toString();
+    }
+}

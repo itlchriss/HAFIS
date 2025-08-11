@@ -1,0 +1,10 @@
+ensures:
+- The type_integer_ result is an element of the type_integer_array_ param_nums_.
+- The number of occurrences of the type_integer_ result in the type_integer_array_ param_nums_ is equal to 1 half of the type_integer_array_ param_nums_'s length.
+- Every value in the type_integer_array_ param_nums_ that is not_equal to the type_integer_ result appears once in the type_integer_array_ param_nums_.
+- The type_integer_ result is greater_than_or_equal to 0 and is less_than_or_equal to 10000.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 3.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 2.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 5.
+requires:
+- The type_integer_array_ param_nums_'s values are less_than_or_equal to 10000 and are greater_than_or_equal to 0.

@@ -1,0 +1,1 @@
+exists x01.(exists e02.(_int{JJ}(e02) & (Subj(e02) = x01) & _result{NN}(x01)) & exists x03.((_0{CD}(x03) | _positive{JJ}(x03)) & (x01 = x03)))

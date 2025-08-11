@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0888_fair_candy_swap/hafis/o3/mutants/2/Solution.java:32: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method fairCandySwap
+        diff = aSum % bSum;
+                    ^
+./test/mutation_analysis/s0888_fair_candy_swap/hafis/o3/mutants/2/Solution.java:21: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
+                 ^
+2 verification failures

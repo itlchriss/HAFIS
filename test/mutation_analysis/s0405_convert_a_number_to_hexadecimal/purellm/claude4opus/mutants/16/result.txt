@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/claude4opus/mutants/16/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/claude4opus/mutants/16/Solution.java:9:) in method toHex
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/claude4opus/mutants/16/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/claude4opus/mutants/16/Solution.java:35:
+      @ ensures \result.length() >= 1;
+        ^
+2 verification failures

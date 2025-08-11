@@ -1,0 +1,16 @@
+ensures:
+- The String result contains 1 or more decimal digits followed by the uppercase letter A followed by 1 or more decimal digits followed by the uppercase letter B.
+- The integer value represented by the digits that are contained by before the uppercase letter A in the String result is greater_than_or_equal to 0 and is less_than_or_equal to the length of the String param_secret_.
+- The integer value represented by the digits that are contained by between the uppercase_alphabets A and B in the String result is greater_than_or_equal to 0 and is less_than_or_equal to the length of the String param_secret_.
+- The sum of the integer values represented before the uppercase letter A and between the uppercase_alphabets A and B in the String result is less_than_or_equal to the length of the String param_secret_.
+- The integer value represented by the digits that are contained by before the uppercase letter A in the String result is equal to the count of indices that the character at that index in the String param_secret_ is equal to the character at that index in the String param_guess_.
+- The integer value represented by the digits that are contained by between the uppercase_alphabets A and B in the String result is equal to the count of digits that are present in both the String param_secret_ and the String param_guess_ excluding the positions counted as bulls.
+- If the String param_secret_ is equal to stry_a and the String param_guess_ is equal to stry_b , the String result is equal to stry_c.
+- If the String param_secret_ is equal to stry_a and the String param_guess_ is equal to stry_b , the String result is equal to stry_c.
+- If the String param_secret_ is equal to stry_a and the String param_guess_ is equal to stry_b , the String result is equal to stry_c.
+- If the String param_secret_ is equal to stry_a and the String param_guess_ is equal to stry_b , the String result is equal to stry_c.
+requires:
+- The length of the String param_guess_ is greater_than_or_equal to 1 and is less_than_or_equal to 1000.
+- The length of the String param_secret_ is equal to the length of the String param_guess_.
+- The String param_secret_ contains digits only.
+- The String param_guess_ contains digits only.

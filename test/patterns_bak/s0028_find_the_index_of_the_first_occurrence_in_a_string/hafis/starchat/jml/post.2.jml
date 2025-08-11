@@ -1,1 +1,0 @@
-ensures(((!(needle.length() == 0)) && (!(haystack != null && needle != null && haystack.length() <= needle.length() && (\exists int i; 0 <= i && i <= needle.length() - haystack.length(); (\forall int j; 0 <= j && j < haystack.length(); needle.charAt(i + j) == haystack.charAt(j)))))) ==> (\result == -1));

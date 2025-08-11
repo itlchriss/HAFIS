@@ -1,1 +1,0 @@
-requires((\forall int i; 0 <= i < gas.length; gas[i] <= 10000) && (\forall int i; 0 <= i < gas.length; gas[i] >= 0));

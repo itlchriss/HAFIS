@@ -1,0 +1,1 @@
+If the type_boolean_ result is equal to the true literal , there exist 2 unique integer indices inside the range from 0 to the type_integer_array_ param_nums_ 's length - 1 whose absolute difference is less_than_or_equal to the type_integer_ param_k_ and whose corresponding elements in the type_integer_array_ param_nums_ are equal . 

@@ -1,1 +1,0 @@
-ensures(((s.equals("xyz")) && (t.equals("abc"))) ==> (\result == false));

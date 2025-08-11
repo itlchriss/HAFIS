@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0521_longest_uncommon_subsequence_i/purellm/claude4opus/mutants/1/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0521_longest_uncommon_subsequence_i/purellm/claude4opus/mutants/1/Solution.java:23:) in method findLUSlength
+            return -1;
+            ^
+./test/mutation_analysis/s0521_longest_uncommon_subsequence_i/purellm/claude4opus/mutants/1/Solution.java:23: verify: Associated declaration: ./test/mutation_analysis/s0521_longest_uncommon_subsequence_i/purellm/claude4opus/mutants/1/Solution.java:27:
+      @ ensures !a.equals(b) ==> \result == Math.max(a.length(), b.length());
+        ^
+2 verification failures

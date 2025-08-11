@@ -1,0 +1,6 @@
+- All values in the integer array parameter `nums` are less than or equal to 1000 and are greater than or equal to -1000.
+- The integer result is less than or equal to 1000000000 and is greater than or equal to -1000000000.
+- The integer result is equal to the maximum value between all the products obtained by multiplying any three distinct values in the integer array parameter `nums`.
+- If the integer array parameter `nums` is equal to [1,2,3], the integer result is equal to 6.
+- If the integer array parameter `nums` is equal to [1,2,3,4], the integer result is equal to 24.
+- If the integer array parameter `nums` is equal to [-1,-2,-3], the integer result is equal to -6.

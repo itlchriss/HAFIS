@@ -1,0 +1,40 @@
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:23: verify: The prover cannot establish an assertion (InvariantExceptionExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method frequencySort: g0401_0500.s0451_sort_characters_by_frequency.Solution.frequencySort(String) (parameter s)
+    public String frequencySort(String s) {
+                                       ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:23:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:43: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method frequencySort: g0401_0500.s0451_sort_characters_by_frequency.Solution.frequencySort(String) (for result type)
+        return sb.toString();
+        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:43:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:23: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30:) in method frequencySort: g0401_0500.s0451_sort_characters_by_frequency.Solution.frequencySort(String) (parameter s)
+    public String frequencySort(String s) {
+                                       ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:30: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:23:
+	//-RAC@ public invariant charArray != null; // FIXME - why this when there is a non_null declaration
+	               ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:19:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:43:
+//@ ensures(\result.length() == s.length());
+    ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:20:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:43:
+//@ ensures((s.equals("cccaaa")) ==> ((\result.equals("aaaccc")) || (\result.equals("cccaaa"))));
+    ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:43: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:21:) in method frequencySort
+        return sb.toString();
+        ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:43:
+//@ ensures((s.equals("Aabb")) ==> ((\result.equals("bbAa")) || (\result.equals("bbaA"))));
+    ^
+./test/mutation_analysis/s0451_sort_characters_by_frequency/hafis/claude4opus/mutants/4/Solution.java:23: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String frequencySort(String s) {
+                  ^
+13 verification failures

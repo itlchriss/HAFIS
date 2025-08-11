@@ -1,0 +1,22 @@
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:52: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:11:) in method convert
+        return buf.toString();
+        ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:52:
+//@ ensures(\result.length() == s.length());
+    ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:52: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:12:) in method convert
+        return buf.toString();
+        ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:52:
+//@ ensures((numRows >= s.length()) ==> (\result.equals(s)));
+    ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:52: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:15:) in method convert
+        return buf.toString();
+        ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:52:
+//@ ensures(((s.equals("PAYPALISHIRING")) && (numRows == 4)) ==> (\result.equals("PINALSIGYAHRPI")));
+    ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/o3/mutants/33/Solution.java:17: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String convert(String s, int numRows) {
+                  ^
+7 verification failures

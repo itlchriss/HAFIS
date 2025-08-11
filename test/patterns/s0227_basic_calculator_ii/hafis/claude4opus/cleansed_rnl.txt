@@ -1,0 +1,10 @@
+- The length of the string parameter `s` is greater than or equal to 1 and is less than or equal to 300000.
+- The string parameter `s` consists of integers, operators '+', '-', '*', '/', and spaces.
+- The string parameter `s` represents a valid mathematical expression.
+- All integers in the string parameter `s` are greater than or equal to 0 and are less than or equal to 2147483647.
+- The integer result is greater than or equal to -2147483648 and is less than or equal to 2147483647.
+- All intermediate calculation results are greater than or equal to -2147483648 and are less than or equal to 2147483647.
+- If the string parameter `s` is equal to "3+2*2", the integer result is equal to 7.
+- If the string parameter `s` is equal to " 3/2 ", the integer result is equal to 1.
+- If the string parameter `s` is equal to " 3+5 / 2 ", the integer result is equal to 5.
+- If the string parameter `s` contains division operations, the integer result follows truncation toward zero for integer division.

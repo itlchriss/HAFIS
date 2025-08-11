@@ -1,0 +1,8 @@
+- The length of the list result is equal to the integer parameter `n`.
+- For every integer value v between 1 and the integer parameter `n` inclusive, if the integer value v mod 3 is equal to 0 and the integer value v mod 5 is equal to 0, the string at index v minus 1 in the list result is equal to the string literal FizzBuzz.
+- For every integer value v between 1 and the integer parameter `n` inclusive, if the integer value v mod 3 is equal to 0 and the integer value v mod 5 is not equal to 0, the string at index v minus 1 in the list result is equal to the string literal Fizz.
+- For every integer value v between 1 and the integer parameter `n` inclusive, if the integer value v mod 5 is equal to 0 and the integer value v mod 3 is not equal to 0, the string at index v minus 1 in the list result is equal to the string literal Buzz.
+- For every integer value v between 1 and the integer parameter `n` inclusive, if the integer value v mod 3 is not equal to 0 and the integer value v mod 5 is not equal to 0, the string at index v minus 1 in the list result is equal to the string representation of the integer value v.
+- If the integer parameter `n` is equal to 3, the list result is equal to ["1","2","Fizz"].
+- If the integer parameter `n` is equal to 5, the list result is equal to ["1","2","Fizz","4","Buzz"].
+- If the integer parameter `n` is equal to 15, the list result is equal to ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"].

@@ -1,0 +1,44 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Below is a compact, self-contained JML contract for a method that returns the maximum-sum sub-array of an integer array.  
+Only the specification is important here; the body may be filled with any correct implementation (Kadane, divide-and-conquer, …).
+
+```java
+public class MaximumSubarray {
+
+    /*@
+      public normal_behavior
+        // --- Pre-conditions --------------------------------------------------
+        requires nums != null;
+        // size constraint given in the statement
+        requires 1 <= nums.length && nums.length <= 100000;
+        // element range constraint given in the statement
+        requires (\forall int i; 0 <= i && i < nums.length;
+                                  -10000 <= nums[i] && nums[i] <= 10000);
+
+        // --- Post-conditions -------------------------------------------------
+        // 1.  The returned value is the sum of *some* contiguous segment …
+        ensures (\exists int start, end;
+                    0 <= start && start <= end && end < nums.length;
+                    \result == (\sum int k; start <= k && k <= end; nums[k]));
+
+        // 2.  … and that segment’s sum is maximal among *all* segments.
+        ensures (\forall int s, e;
+                    0 <= s && s <= e && e < nums.length;
+                    (\sum int k; s <= k && k <= e; nums[k]) <= \result);
+
+        // implementation must not have any visible side effects
+        assignable \nothing;
+     @*/
+    public /*@ pure @*/ static int maxSubArray(int[] nums) {
+        // Implementation goes here (e.g., Kadane’s algorithm).
+        return 0; // placeholder
+    }
+}
+```
+
+Explanation of the key JML clauses:
+
+• `requires` clauses encode the problem’s “Constraints” section.  
+• The first `ensures` clause states that the result is *some* contiguous sum.  
+• The second `ensures` clause states that no other contiguous sum is larger, i.e. the result is *maximal*.  
+• `assignable \nothing` says the method must not change any heap-visible state (it may use local variables freely).  
+• The built-in JML summation `(\sum int k; … ; …)` is used to talk about the arithmetic sum of a slice of the array.

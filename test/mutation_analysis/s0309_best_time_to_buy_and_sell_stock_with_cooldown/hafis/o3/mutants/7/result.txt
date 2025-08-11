@@ -1,0 +1,49 @@
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:63: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxProfit
+//@ ensures((prices[0] == 1 && prices[1] == 2 && prices[2] == 3 && prices[3] == 0 && prices[4] == 2 && prices.length == 5) ==> (\result == 3));
+                                                                                           ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75: verify: Associated method exit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:63: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxProfit
+//@ ensures((prices[0] == 1 && prices[1] == 2 && prices[2] == 3 && prices[3] == 0 && prices[4] == 2 && prices.length == 5) ==> (\result == 3));
+                                                                         ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75: verify: Associated method exit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:63: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxProfit
+//@ ensures((prices[0] == 1 && prices[1] == 2 && prices[2] == 3 && prices[3] == 0 && prices[4] == 2 && prices.length == 5) ==> (\result == 3));
+                                                       ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75: verify: Associated method exit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:63: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxProfit
+//@ ensures((prices[0] == 1 && prices[1] == 2 && prices[2] == 3 && prices[3] == 0 && prices[4] == 2 && prices.length == 5) ==> (\result == 3));
+                                     ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75: verify: Associated method exit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:62:) in method maxProfit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:62: verify: Associated declaration: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75:
+//@ ensures((prices[0] == 1 && prices.length == 1) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:61:) in method maxProfit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:61: verify: Associated declaration: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75:
+//@ ensures(\result >= 0);
+    ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:62: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maxProfit
+//@ ensures((prices[0] == 1 && prices.length == 1) ==> (\result == 0));
+                   ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75: verify: Associated method exit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:63:) in method maxProfit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:63: verify: Associated declaration: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/hafis/o3/mutants/7/Solution.java:75:
+//@ ensures((prices[0] == 1 && prices[1] == 2 && prices[2] == 3 && prices[3] == 0 && prices[4] == 2 && prices.length == 5) ==> (\result == 3));
+    ^
+16 verification failures

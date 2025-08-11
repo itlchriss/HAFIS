@@ -1,0 +1,1 @@
+For every integer value v between 1 and the type_integer_ param_n_ inclusive , if the integer value v mod 5 is equal to 0 and the integer value v mod 3 is not equal to 0 , the string at index v - 1 in the type_list_ result is equal to the string literal Buzz . 

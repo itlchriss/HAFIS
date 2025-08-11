@@ -1,0 +1,102 @@
+Here's the JML specification for the Summary Ranges problem:
+
+```java
+public class SummaryRanges {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length <= 20;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           Integer.MIN_VALUE <= nums[i] && nums[i] <= Integer.MAX_VALUE);
+      @ requires (\forall int i; 0 <= i && i < nums.length - 1; nums[i] < nums[i+1]);
+      @ ensures \result != null;
+      @ ensures \result.size() >= 0;
+      @ ensures nums.length == 0 ==> \result.size() == 0;
+      @ ensures nums.length > 0 ==> \result.size() > 0;
+      @ ensures (\forall int i; 0 <= i && i < \result.size(); \result.get(i) != null);
+      @ ensures (\forall int i; 0 <= i && i < nums.length; 
+      @          (\exists int j; 0 <= j && j < \result.size(); 
+      @           rangeContains(\result.get(j), nums[i])));
+      @ ensures (\forall int j; 0 <= j && j < \result.size(); 
+      @          (\exists int i; 0 <= i && i < nums.length; 
+      @           rangeStartsWith(\result.get(j), nums[i])));
+      @ ensures (\forall int j; 0 <= j && j < \result.size() - 1;
+      @          rangeEnd(\result.get(j)) < rangeStart(\result.get(j+1)) - 1);
+      @ pure
+      @*/
+    public List<String> summaryRanges(int[] nums) {
+        // Implementation
+    }
+    
+    /*@ private pure helper
+      @ requires range != null;
+      @ ensures \result == (range.indexOf("->") == -1 ? 
+      @                     Integer.parseInt(range) : 
+      @                     Integer.parseInt(range.substring(0, range.indexOf("->"))));
+      @*/
+    private /*@ pure @*/ int rangeStart(String range) {
+        // Helper to extract start value from range string
+    }
+    
+    /*@ private pure helper
+      @ requires range != null;
+      @ ensures \result == (range.indexOf("->") == -1 ? 
+      @                     Integer.parseInt(range) : 
+      @                     Integer.parseInt(range.substring(range.indexOf("->") + 2)));
+      @*/
+    private /*@ pure @*/ int rangeEnd(String range) {
+        // Helper to extract end value from range string
+    }
+    
+    /*@ private pure helper
+      @ requires range != null;
+      @ ensures \result == (rangeStart(range) <= value && value <= rangeEnd(range));
+      @*/
+    private /*@ pure @*/ boolean rangeContains(String range, int value) {
+        // Helper to check if a range contains a value
+    }
+    
+    /*@ private pure helper
+      @ requires range != null;
+      @ ensures \result == (rangeStart(range) == value);
+      @*/
+    private /*@ pure @*/ boolean rangeStartsWith(String range, int value) {
+        // Helper to check if a range starts with a value
+    }
+    
+    /*@ private pure helper
+      @ requires range != null;
+      @ ensures \result == (rangeEnd(range) == value);
+      @*/
+    private /*@ pure @*/ boolean rangeEndsWith(String range, int value) {
+        // Helper to check if a range ends with a value
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - `nums` is not null
+   - Array length is at most 20
+   - All values are within integer bounds
+   - Array is sorted in strictly ascending order (unique values)
+
+2. **Postconditions (`ensures`):**
+   - Result is not null
+   - Result size is 0 if and only if input is empty
+   - All strings in result are non-null
+   - Every number in `nums` is covered by exactly one range
+   - Every range in the result starts with a number from `nums`
+   - Ranges are non-overlapping and minimal (no gaps that could be filled)
+
+3. **Helper methods:**
+   - Pure helper methods to parse range strings and check properties
+   - These help express the complex postconditions about range coverage
+
+4. **Additional invariants that could be added:**
+   - Ranges are in sorted order
+   - Each range string follows the correct format ("a" or "a->b")
+   - No range can be extended to include adjacent numbers from `nums`
+
+This specification captures the essential requirements: the output must be a minimal set of ranges that covers exactly the input numbers, with no gaps or overlaps.

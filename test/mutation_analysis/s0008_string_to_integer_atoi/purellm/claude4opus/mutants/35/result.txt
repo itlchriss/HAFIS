@@ -1,0 +1,67 @@
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:101: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method computeAtoi
+      @     return negative ? -(int)num : (int)num;
+                                          ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:101: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method computeAtoi
+      @     return negative ? -(int)num : (int)num;
+                                          ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:83: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:59:) in method computeAtoi
+      @     while (i < s.length() && '0' <= s.charAt(i) && s.charAt(i) <= '9') {
+                                                    ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:59: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:83:
+    /*@ private normal_behavior
+                ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:101: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method computeAtoi
+      @     return negative ? -(int)num : (int)num;
+                               ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:101: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method computeAtoi
+      @     return negative ? -(int)num : (int)num;
+                               ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:101: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:61:) in method computeAtoi
+      @     return negative ? -(int)num : (int)num;
+            ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:61: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:101:
+      @ ensures \result >= Integer.MIN_VALUE && \result <= Integer.MAX_VALUE;
+        ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:32: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method parseResult
+      @     return negative ? -(int)result : (int)result;
+                               ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:32: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method parseResult
+      @     return negative ? -(int)result : (int)result;
+                               ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:8:) in method parseResult
+      @     return negative ? -(int)result : (int)result;
+            ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:8: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:32:
+      @ ensures \result == computeAtoi(s);
+        ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:32: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method parseResult
+      @     return negative ? -(int)result : (int)result;
+                                             ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:32: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method parseResult
+      @     return negative ? -(int)result : (int)result;
+                                             ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:25: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:6:) in method parseResult
+      @     while (index < s.length() && isDigit(s.charAt(index))) {
+                                                         ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:6: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:25:
+    /*@ private normal_behavior
+                ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:47: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:38:) in method skipWhitespace
+      @     return i;
+            ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:38: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:47:
+      @ ensures \result >= start && \result <= s.length();
+        ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:44: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:36:) in method skipWhitespace
+      @     while (i < s.length() && s.charAt(i) == ' ') {
+                                             ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:36: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:44:
+    /*@ private normal_behavior
+                ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:47: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:40:) in method skipWhitespace
+      @     return i;
+            ^
+./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:40: verify: Associated declaration: ./test/mutation_analysis/s0008_string_to_integer_atoi/purellm/claude4opus/mutants/35/Solution.java:47:
+      @ ensures (\forall int i; start <= i && i < \result; s.charAt(i) == ' ');
+        ^
+22 verification failures

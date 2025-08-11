@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/7/Solution.java:32: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method numDecodings
+                f[i] = f[i - 1];
+                 ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/7/Solution.java:40: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method numDecodings
+        return f[n];
+                ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/7/Solution.java:26: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method numDecodings
+        f[1] = 1;
+         ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/7/Solution.java:37: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method numDecodings
+                f[i] += f[i - 2];
+                 ^
+4 verification failures

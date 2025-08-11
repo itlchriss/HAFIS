@@ -1,0 +1,1 @@
+If the type_boolean_ result is equal to the true literal , repeatedly replacing the type_integer_ param_n_ by the sum of the squares of its digits eventually produces the integer value 1 . 

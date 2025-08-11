@@ -1,0 +1,1 @@
+ensures((numRows >= s.length()) ==> (\result.equals(s)));

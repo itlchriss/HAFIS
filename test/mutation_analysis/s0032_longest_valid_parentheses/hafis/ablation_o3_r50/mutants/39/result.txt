@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:52: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:11:) in method longestValidParentheses
+        return max;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:52:
+//@ ensures((\result <= s.length()) && (\result >= 0));
+    ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:52: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:12:) in method longestValidParentheses
+        return max;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:52:
+//@ ensures((s.equals("(()")) ==> (\result == 2));
+    ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:52: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:13:) in method longestValidParentheses
+        return max;
+        ^
+./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0032_longest_valid_parentheses/hafis/ablation_o3_r50/mutants/39/Solution.java:52:
+//@ ensures((s.equals(")()())")) ==> (\result == 4));
+    ^
+6 verification failures

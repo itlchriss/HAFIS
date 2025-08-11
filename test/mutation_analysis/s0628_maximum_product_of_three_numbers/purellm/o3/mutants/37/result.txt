@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/o3/mutants/37/Solution.java:45: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/o3/mutants/37/Solution.java:13:) in method maximumProduct
+        return Math.max(min1 * min2 * max1, max1 * max2 + max3);
+        ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/o3/mutants/37/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/o3/mutants/37/Solution.java:45:
+    ensures (\exists int i, j, k; 0 <= i && i < j && j < k && k < nums.length;
+    ^
+2 verification failures

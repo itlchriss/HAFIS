@@ -1,0 +1,43 @@
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method smallestRangeI
+//@ ensures(((nums[0] == 1 && nums[1] == 3 && nums[2] == 6 && nums.length == 3) && (k == 3)) ==> (\result == 0));
+                                  ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:26: verify: Associated method exit
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:12:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:26:
+//@ ensures(\result >= 0);
+    ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:14:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:26:
+//@ ensures(((nums[0] == 0 && nums[1] == 10 && nums.length == 2) && (k == 2)) ==> (\result == 6));
+    ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method smallestRangeI
+//@ ensures(((nums[0] == 1 && nums[1] == 3 && nums[2] == 6 && nums.length == 3) && (k == 3)) ==> (\result == 0));
+                                                  ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:26: verify: Associated method exit
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:13:) in method smallestRangeI
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:26:
+//@ ensures(((nums[0] == 1 && nums[1] == 3 && nums[2] == 6 && nums.length == 3) && (k == 3)) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method smallestRangeI
+//@ ensures(((nums[0] == 1 && nums[1] == 3 && nums[2] == 6 && nums.length == 3) && (k == 3)) ==> (\result == 0));
+                  ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:26: verify: Associated method exit
+        return (max - k) - (min + k);
+        ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method smallestRangeI
+//@ ensures(((nums[0] == 0 && nums[1] == 10 && nums.length == 2) && (k == 2)) ==> (\result == 6));
+                                  ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/o3/mutants/10/Solution.java:26: verify: Associated method exit
+        return (max - k) - (min + k);
+        ^
+14 verification failures

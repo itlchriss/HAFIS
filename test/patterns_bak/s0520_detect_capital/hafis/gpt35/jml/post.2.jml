@@ -1,1 +1,0 @@
-ensures((Character.isUpperCase(word.charAt(0))) ==> (\result == true));

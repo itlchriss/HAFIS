@@ -1,0 +1,5 @@
+- String parameter `b` must contain at least one character and every character must be either '0' or '1' with no leading '0' unless the entire string equals "0"
+- String result equals the binary representation of the sum of the integer values represented by parameters `a`and`b`
+- String result must consist only of characters '0' or '1'
+- String result must not have a leading '0' unless its length is one
+- String result length is either the maximum of the lengths of parameters `a`and`b` or that maximum plus one

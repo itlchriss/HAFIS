@@ -1,0 +1,4 @@
+- The integer result is less than or equal to the integer parameter `n` and is greater than or equal to 1.
+- The integer result is less than or equal to the maximum value of java integer and is greater than or equal to the minimum value of java integer.
+- If the integer parameter `n` is equal to 1, the integer result is equal to 1.
+- If the integer parameter `n` is equal to 9, the integer result is equal to 6.

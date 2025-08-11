@@ -1,0 +1,50 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Below is a self-contained Java method header that captures the whole informal problem statement in JML.  
+Everything that is required by the original description (array size, value range, and what the returned
+boolean means) is expressed formally.
+
+```java
+/**
+ * Return {@code true} iff the given array contains two equal elements.
+ */
+public class Solution {
+
+    /*@
+      @ // ----------  Pre-conditions  ----------
+      @ requires nums != null;                                       // array must exist
+      @ requires 1 <= nums.length && nums.length <= 100_000;         // constraint on length
+      @ requires (\forall int k; 0 <= k && k < nums.length;          // constraint on element values
+      @                       -1_000_000_000 <= nums[k] &&
+      @                       nums[k] <=  1_000_000_000);
+      @
+      @ // ----------  Frame condition ----------
+      @ assignable \nothing;     // the method is observational only
+      @
+      @ // ----------  Post-condition ----------
+      @ ensures \result <==>                                     // result is true  …
+      @           (\exists int i; 0 <= i && i < nums.length;      // … iff there are two
+      @             (\exists int j; i < j && j < nums.length;     //     different indices
+      @                 nums[i] == nums[j]));                     //     with equal values
+      @
+      @ // ----------  Purity ----------
+      @ pure;                       // declares the method side-effect free
+      @*/
+    public /*@ pure @*/ boolean containsDuplicate(int[] nums);
+}
+```
+
+Explanation of the clauses
+
+1. `requires`  
+   • Non-null array  
+   • Length between 1 and 100 000  
+   • Every entry lies between −10⁹ and 10⁹  
+
+2. `assignable \nothing;`  
+   Guarantees no memory locations are modified (fits the original read-only intent).
+
+3. `pure`  
+   Marks the method as side-effect free, allowing it to be used inside other JML expressions.
+
+4. `ensures`  
+   Uses a double `∃` (expressed with nested `\exists`) to say “there exist indices i < j whose values are equal”.  
+   The biconditional `<==>` makes the result precisely correspond to that condition.

@@ -1,1 +1,0 @@
-requires((digits.length <= 100) && (digits.length >= 1));

@@ -1,0 +1,9 @@
+ensures:
+- If the type_boolean_ result is equal to the true literal , there exist 2 unique integer indices inside the range from 0 to the type_integer_array_ param_nums_'s length - 1 whose absolute difference is less_than_or_equal to the type_integer_ param_k_ and whose corresponding elements in the type_integer_array_ param_nums_ are equal.
+- If the type_boolean_ result is equal to the false literal , for every pair of unique integer indices inside the range from 0 to the type_integer_array_ param_nums_'s length - 1 whose absolute difference is less_than_or_equal to the type_integer_ param_k_ the corresponding elements in the type_integer_array_ param_nums_ are not equal.
+- If the type_integer_array_ param_nums_ is equal to arr_a and the type_integer_ param_k_ is equal to 3 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_array_ param_nums_ is equal to arr_a and the type_integer_ param_k_ is equal to 1 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_array_ param_nums_ is equal to arr_a and the type_integer_ param_k_ is equal to 2 , the type_boolean_ result is equal to the false literal.
+requires:
+- The type_integer_array_ param_nums_'s values are less_than_or_equal to 1000000000 and are greater_than_or_equal to negative 1000000000.
+- The type_integer_ param_k_ is less_than_or_equal to 100000 and is greater_than_or_equal to 0.

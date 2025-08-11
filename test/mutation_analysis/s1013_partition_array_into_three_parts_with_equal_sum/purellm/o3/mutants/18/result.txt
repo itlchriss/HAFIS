@@ -1,0 +1,20 @@
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/o3/mutants/18/Solution.java:26: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+  @                 (\sum int k; 0      <= k && k <= i;         arr[k])
+                     ^
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/o3/mutants/18/Solution.java:27: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+  @              == (\sum int k; i + 1  <= k && k <= j - 1;    arr[k])
+                     ^
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/o3/mutants/18/Solution.java:28: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+  @              && (\sum int k; j      <= k && k <  arr.length; arr[k])
+                     ^
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/o3/mutants/18/Solution.java:29: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+  @              == (\sum int k; 0      <= k && k <= i;         arr[k]) );
+                     ^
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/o3/mutants/18/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/o3/mutants/18/Solution.java:16:) in method canThreePartsEqualSum
+            return false;
+            ^
+./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/o3/mutants/18/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s1013_partition_array_into_three_parts_with_equal_sum/purellm/o3/mutants/18/Solution.java:41:
+  @   ensures \result <==>
+      ^
+4 warnings
+2 verification failures

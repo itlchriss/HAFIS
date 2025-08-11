@@ -1,0 +1,10 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0 and is less_than_or_equal to 10000.
+- The type_integer_ result is equal to value contained in the type_integer_array_ param_nums_.
+- The type_integer_ result appears the quotient between the type_integer_array_ param_nums_'s length and 2 times in the type_integer_array_ param_nums_.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 3.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 2.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 5.
+requires:
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to 0 and are less_than_or_equal to 10000.
+- Exactly 1 value in the type_integer_array_ param_nums_ appears the quotient between the type_integer_array_ param_nums_'s length and 2 times and all other values in the type_integer_array_ param_nums_ are contained by 1 time.

@@ -1,0 +1,1 @@
+ensures((\result <= gas.length - 1) && (\result >= -1));

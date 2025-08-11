@@ -1,0 +1,6 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0 and is less_than to 2147483648.
+- The sum between the type_integer_ param_num_ and the type_integer_ result is equal to the difference between 2 raised to the power of the count of bits in the binary representation of the type_integer_ param_num_ and 1.
+- If the type_integer_ param_num_ is equal to 5 , the type_integer_ result is equal to 2.
+- If the type_integer_ param_num_ is equal to 1 , the type_integer_ result is equal to 0.
+requires: []

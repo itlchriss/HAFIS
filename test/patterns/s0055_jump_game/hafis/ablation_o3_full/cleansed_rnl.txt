@@ -1,0 +1,3 @@
+- If int[] 'nums' has length equal to one then boolean result is true
+- If boolean result is true then the last index of int[] 'nums' is reachable from index zero by a sequence of jumps where each jump length is not greater than the value stored at the departure index
+- If the last index of int[] 'nums' is not reachable from index zero by any sequence of jumps where each jump length is not greater than the value stored at the departure index then boolean result is false

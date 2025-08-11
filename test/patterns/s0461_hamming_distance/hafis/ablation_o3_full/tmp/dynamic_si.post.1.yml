@@ -1,0 +1,44 @@
+- term: chry_a
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: character
+    reference_type: undefined
+  interpretation: '''x'''
+- term: chry_b
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: character
+    reference_type: undefined
+  interpretation: '''y'''
+- term: chry_c
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: character
+    reference_type: undefined
+  interpretation: '''x'''
+- term: chry_d
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: character
+    reference_type: undefined
+  interpretation: '''y'''

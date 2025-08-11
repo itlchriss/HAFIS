@@ -1,1 +1,0 @@
-ensures((\result >= 0) && (\result <= nums.length - 1));

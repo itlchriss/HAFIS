@@ -1,0 +1,46 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Below is a compact JML contract that captures exactly what the English specification requires.
+It assumes you have a Java method  
+
+    public static int bulbSwitch(int n)
+
+that must return the number of bulbs that are on after the `n`-th round.
+
+```java
+public class BulbSwitcher {
+
+    /*@
+      @  public normal_behavior
+      @    // Domain constraint taken from the problem statement
+      @    requires 0 <= n && n <= 1_000_000_000;
+      @
+      @    /*  Functional specification.
+      @        After the n-th round a bulb is on iff its index is a perfect
+      @        square.  Hence the answer is the number of perfect squares that
+      @        are ≤ n, i.e. ⌊√n⌋.
+      @     * /
+      @
+      @    // \result is the greatest k such that k² ≤ n  ( = ⌊√n⌋ )
+      @    ensures (\result * \result <= n)
+      @         && (((\result + 1) * (\result + 1) > n));
+      @
+      @    // Some obvious corollaries (optional but often useful)
+      @    ensures 0 <= \result && \result <= 31623;      // √1 000 000 000 ≈ 31623
+      @*/
+    public static /*@ pure @*/ int bulbSwitch(int n) {
+        // …implementation…
+    }
+}
+```
+
+Explanation of the two essential clauses:
+
+1. The `requires` clause exactly mirrors the constraint  
+   `0 <= n <= 10⁹`.
+
+2. The `ensures` clause characterises the return value as  
+   the largest integer whose square does not exceed `n`; equivalently,  
+   the floor of the square root of `n`.  
+   This is true because, after all the toggling rounds, only the bulbs
+   in positions 1², 2², 3², … remain on.
+
+(You can of course supply any correct implementation of `bulbSwitch`; the JML contract itself is completely implementation-independent.)

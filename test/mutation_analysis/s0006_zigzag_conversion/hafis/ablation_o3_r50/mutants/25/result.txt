@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/ablation_o3_r50/mutants/25/Solution.java:16: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String convert(String s, int numRows) {
+                  ^
+1 verification failure

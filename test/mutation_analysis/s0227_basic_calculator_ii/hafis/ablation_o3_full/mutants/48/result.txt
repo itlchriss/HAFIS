@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_full/mutants/48/Solution.java:39: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method calculate
+                            tempSum /= num;
+                                    ^
+1 verification failure

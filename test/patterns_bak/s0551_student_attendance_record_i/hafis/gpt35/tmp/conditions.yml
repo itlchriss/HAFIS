@@ -1,6 +1,0 @@
-ensures:
-- If the type_boolean_ result is equal to the true literal , the total number of the chry_a characters in the type_string_ param_s_ is less_than to 2 and there exist no sequences of 3 or more consecutive the chry_b characters.
-- If the type_boolean_ result is equal to the false literal , the total number of the chry_a characters in the type_string_ param_s_ is greater_than_or_equal to 2 or there exists at least 1 sequence of 3 or more consecutive the chry_b characters.
-requires:
-- The type_string_ param_s_'s length is less_than_or_equal to 1000 and is greater_than_or_equal to 1.
-- The type_string_ param_s_ only contains checking_character_sequence_.

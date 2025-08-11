@@ -1,1 +1,0 @@
-If the type_list_ result contains a string that is equal to numeric representation of an integer , the index of that string + 1 is not divisible by 3 and is not divisible by 5 . 

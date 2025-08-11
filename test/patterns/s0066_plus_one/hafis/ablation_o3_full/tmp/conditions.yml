@@ -1,0 +1,6 @@
+ensures:
+- result int[] is the decimal value obtained by adding 1 to the decimal value represented by the chry_a int[] before the method is invoked.
+- result int[] length equals the length of the chry_a int[] or the length of the chry_b int[] + 1 after the method finishes.
+- every element in result int[] is an integer value from 0 to 9 inclusive after the method finishes.
+- the first_element of result int[] is never 0 after the method finishes.
+requires: []

@@ -1,7 +1,0 @@
-- The length of the integer array parameter `arr` is less than or equal to 10000 and is greater than or equal to 1.
-- All values in the integer array parameter `arr` are less than or equal to 10000 and are greater than or equal to 0.
-- If the boolean result is equal to the true literal, there exists an index `i` such that `0 < i <` the length of the integer array parameter `arr` minus 1, and the integer array parameter `arr` is strictly increasing up to index `i` and strictly decreasing after index `i`.
-- If the boolean result is equal to the false literal, the integer array parameter `arr` does not satisfy the conditions of a valid mountain array.
-- If the integer array parameter `arr` is equal to [2,1], the boolean result is equal to the false literal.
-- If the integer array parameter `arr` is equal to [3,5,5], the boolean result is equal to the false literal.
-- If the integer array parameter `arr` is equal to [0,3,2,1], the boolean result is equal to the true literal.

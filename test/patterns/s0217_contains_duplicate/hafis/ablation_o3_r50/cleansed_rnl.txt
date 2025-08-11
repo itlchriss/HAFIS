@@ -1,0 +1,6 @@
+- All values in the integer array parameter `nums` are less than or equal to 1000000000 and are greater than or equal to -1000000000.
+- If boolean result is equal to the true literal, at least two values in the integer array parameter `nums` are equal to each other.
+- If boolean result is equal to the false literal, all values in the integer array parameter `nums` are unique.
+- If the integer array parameter `nums` is equal to [1,2,3,1], the boolean result is equal to the true literal.
+- If the integer array parameter `nums` is equal to [1,2,3,4], the boolean result is equal to the false literal.
+- If the integer array parameter `nums` is equal to [1,1,1,3,3,4,3,2,4,2], the boolean result is equal to the true literal.

@@ -1,0 +1,12 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to negative 2147483648 and is less_than_or_equal to 2147483647.
+- If the type_string_ param_str_ is equal to stry_a , the type_integer_ result is equal to 42.
+- If the type_string_ param_str_ is equal to strl_a , the type_integer_ result is equal to negative 42.
+- If the type_string_ param_str_ is equal to strl_a , the type_integer_ result is equal to 4193.
+- If the type_string_ param_str_ is equal to strl_a , the type_integer_ result is equal to 0.
+- If the type_string_ param_str_ is equal to stry_a , the type_integer_ result is equal to negative 2147483648.
+- If the type_string_ param_str_ contains no digits after ignoring leading whitespace and optional sign , the type_integer_ result is equal to 0.
+- If the type_string_ param_str_ starts with a non-digit character after ignoring leading whitespace and optional sign , the type_integer_ result is equal to 0.
+requires:
+- The type_string_ param_str_'s length is greater_than_or_equal to 0 and is less_than_or_equal to 200.
+- The type_string_ param_str_ contains alphabets , digits , space character ' ' , + sign the chry_a , - sign the chry_b , and period period .

@@ -1,0 +1,64 @@
+Looking at this problem, I need to find the maximum product of three numbers from an array. The key insight is that the maximum product can come from either:
+1. The three largest numbers (all positive or one negative with two largest positives)
+2. The two smallest numbers (if negative) and the largest number (to get a positive product)
+
+Here's the JML specification:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 3;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -1000 <= nums[i] && nums[i] <= 1000);
+      @ ensures \result == maximumProductOfThree(nums);
+      @ ensures (\exists int i, j, k; 
+      @           0 <= i && i < nums.length && 
+      @           0 <= j && j < nums.length && 
+      @           0 <= k && k < nums.length && 
+      @           i != j && i != k && j != k &&
+      @           \result == nums[i] * nums[j] * nums[k]);
+      @ ensures (\forall int i, j, k; 
+      @           0 <= i && i < nums.length && 
+      @           0 <= j && j < nums.length && 
+      @           0 <= k && k < nums.length && 
+      @           i != j && i != k && j != k;
+      @           \result >= nums[i] * nums[j] * nums[k]);
+      @*/
+    public /*@ pure @*/ int maximumProduct(int[] nums) {
+        // Implementation
+    }
+    
+    /*@ public normal_behavior
+      @ requires nums != null && nums.length >= 3;
+      @ ensures \result == (\max int i, j, k; 
+      @           0 <= i && i < nums.length && 
+      @           0 <= j && j < nums.length && 
+      @           0 <= k && k < nums.length && 
+      @           i != j && i != k && j != k;
+      @           nums[i] * nums[j] * nums[k]);
+      @*/
+    public /*@ pure helper @*/ int maximumProductOfThree(int[] nums) {
+        // This is a specification-only helper method
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - Array must not be null
+   - Array must have at least 3 elements
+   - All elements must be within the range [-1000, 1000]
+
+2. **Postconditions (`ensures`):**
+   - The result equals the maximum product of any three distinct numbers
+   - There exist three distinct indices whose product equals the result
+   - The result is greater than or equal to any other product of three distinct numbers
+
+3. **Helper method:** I've included a specification-only helper method `maximumProductOfThree` to make the specification clearer. This method formally defines what we mean by the maximum product of three numbers.
+
+4. **Pure methods:** Both methods are marked as `pure` since they don't modify any state.
+
+The specification captures that we need to find three distinct numbers (at different indices) whose product is maximum among all possible combinations of three distinct numbers from the array.

@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:44: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:11:) in method isNumber
+        return numberSeen;
+        ^
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:44:
+//@ ensures((s.equals("0")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:32: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:12:) in method isNumber
+                    return false;
+                    ^
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:32:
+//@ ensures((s.equals(".1")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:44: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:10:) in method isNumber
+        return numberSeen;
+        ^
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:44:
+//@ ensures((s.equals("e")) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:44: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:13:) in method isNumber
+        return numberSeen;
+        ^
+./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/hafis/o3/mutants/41/Solution.java:44:
+//@ ensures((s.equals(".")) ==> (\result == false));
+    ^
+8 verification failures

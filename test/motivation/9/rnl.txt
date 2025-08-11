@@ -1,0 +1,4 @@
+- The integer parameter `num1` is greater than or equal to 0 and is less than or equal to 2000.  
+- The integer parameter `num2` is greater than or equal to 0 and is less than or equal to 2000.  
+- The integer result is less than or equal to 2000 and is greater than or equal to 0.  
+- The integer result is equal to the sum between the integer parameter `num1` and the integer parameter `num2`.  

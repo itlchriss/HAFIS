@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0342_power_of_four/purellm/o3/mutants/10/Solution.java:13: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public boolean isPowerOfFour(int n) {
+                   ^
+1 verification failure

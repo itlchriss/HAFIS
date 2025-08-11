@@ -1,0 +1,37 @@
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:12:) in method titleToNumber
+        return num;
+        ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24:
+//@ ensures((\result >= 1) && (\result <= 2147483647));
+    ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:13:) in method titleToNumber
+        return num;
+        ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24:
+//@ ensures((s.equals("A")) ==> (\result == 1));
+    ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:14:) in method titleToNumber
+        return num;
+        ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24:
+//@ ensures((s.equals("ZY")) ==> (\result == 701));
+    ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:15:) in method titleToNumber
+        return num;
+        ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24:
+//@ ensures((s.equals("AB")) ==> (\result == 28));
+    ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:16:) in method titleToNumber
+        return num;
+        ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24:
+//@ ensures(((s.length() == 1) && (s.equals("Z"))) ==> (\result == 26));
+    ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:17:) in method titleToNumber
+        return num;
+        ^
+./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0171_excel_sheet_column_number/hafis/claude4opus/mutants/10/Solution.java:24:
+//@ ensures((s.equals("FXSHRXW")) ==> (\result == 2147483647));
+    ^
+12 verification failures

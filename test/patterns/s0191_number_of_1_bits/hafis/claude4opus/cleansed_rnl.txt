@@ -1,0 +1,6 @@
+- The integer parameter `n` is greater than or equal to the minimum value of java integer and is less than or equal to the maximum value of java integer.
+- The integer result is greater than or equal to 0 and is less than or equal to 32.
+- The integer result is equal to the number of 1 bits in the binary representation of the integer parameter `n`.
+- If the integer parameter `n` is equal to 11, the integer result is equal to 3.
+- If the integer parameter `n` is equal to 128, the integer result is equal to 1.
+- If the integer parameter `n` is equal to -3, the integer result is equal to 31.

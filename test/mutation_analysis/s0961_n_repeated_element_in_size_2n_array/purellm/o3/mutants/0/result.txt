@@ -1,0 +1,32 @@
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:21: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+                       (\num_of int k; 0 <= k && k < nums.length; nums[k] == e) == n
+                        ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:23: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+                          (\num_of int k; 0 <= k && k < nums.length; nums[k] == v) == 1)));
+                           ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:30: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+                 (\num_of int k; 0 <= k && k < nums.length; nums[k] == \result) == n);
+                  ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:33: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+                  (\num_of int k; 0 <= k && k < nums.length; nums[k] == v) == 1);
+                   ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:44: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:32:) in method repeatedNTimes
+        return -1;
+        ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:32: verify: Associated declaration: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:44:
+        ensures (\forall int v; v != \result ==>
+        ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:44: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:35:) in method repeatedNTimes
+        return -1;
+        ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:35: verify: Associated declaration: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:44:
+        ensures 0 <= \result && \result <= 10000;
+        ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:44: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:29:) in method repeatedNTimes
+        return -1;
+        ^
+./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:29: verify: Associated declaration: ./test/mutation_analysis/s0961_n_repeated_element_in_size_2n_array/purellm/o3/mutants/0/Solution.java:44:
+        ensures (\let int n = nums.length / 2;
+        ^
+4 warnings
+6 verification failures

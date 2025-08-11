@@ -1,0 +1,1 @@
+exists x01.(exists x02.(_result{NN}(x02) & _type_string_{NN}(x02) & Rel(x01,x02)) & _value{NNS}(x01) & exists x03.((_sign{NN}(x03) | _1{CD}(x03)) & exists x04.(_digit{NNS}(x04) & _123456{CD}(x04) & exists e05.(_of{IN}(e05,x04) & (Subj(e05) = x03))) & (x01 = x03)))

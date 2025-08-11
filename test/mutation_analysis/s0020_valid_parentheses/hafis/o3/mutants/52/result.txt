@@ -1,0 +1,31 @@
+./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:15:) in method isValid
+                return false;
+                ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:34:
+//@ ensures((s.equals("()[]{}")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:16:) in method isValid
+                return false;
+                ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:34:
+//@ ensures((s.equals("()")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:17:) in method isValid
+        return stack.isEmpty();
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:37:
+//@ ensures((s.equals("{[]}")) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:19:) in method isValid
+        return stack.isEmpty();
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:37:
+//@ ensures((s.equals("(]")) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:18:) in method isValid
+        return stack.isEmpty();
+        ^
+./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0020_valid_parentheses/hafis/o3/mutants/52/Solution.java:37:
+//@ ensures((s.equals("([)]")) ==> (\result == false));
+    ^
+10 verification failures

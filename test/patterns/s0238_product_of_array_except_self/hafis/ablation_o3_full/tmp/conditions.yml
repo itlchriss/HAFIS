@@ -1,0 +1,4 @@
+ensures:
+- For any int[] the type_string_ strs_a each element at index i in the int[] result equals the product of all elements in the type_string_ strs_b except the element at index i.
+- For any int[] the type_string_ strs_a every element in the int[] result is guaranteed to fit in the 32 bit signed integer range.
+requires: []

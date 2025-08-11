@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0405_convert_a_number_to_hexadecimal/purellm/claude4opus/mutants/15/Solution.java:31: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method toHex
+                sb.append((char) (x - 87));
+                          ^
+1 verification failure

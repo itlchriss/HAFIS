@@ -1,0 +1,109 @@
+Looking at this problem, I need to convert the specification into JML (Java Modeling Language). Let me analyze what the method should do:
+
+1. Given an integer `n`, count all numbers with unique digits in the range [0, 10^n)
+2. A number has unique digits if no digit appears more than once
+3. For n=0, the range is [0,1), so only 0 is counted
+4. For n=2, we exclude numbers like 11, 22, 33, etc.
+
+Here's the JML specification:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires 0 <= n && n <= 8;
+      @ ensures \result == countUniqueDigitNumbers(n);
+      @ ensures n == 0 ==> \result == 1;
+      @ ensures n == 1 ==> \result == 10;
+      @ ensures n == 2 ==> \result == 91;
+      @ ensures \result > 0;
+      @*/
+    /*@ pure @*/
+    public int countNumbersWithUniqueDigits(int n) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ requires 0 <= n && n <= 8;
+      @ ensures n == 0 ==> \result == 1;
+      @ ensures n == 1 ==> \result == 10;
+      @ ensures n == 2 ==> \result == 91;
+      @ ensures n >= 1 ==> \result == 
+      @     10 + (\sum int i; 1 <= i && i < n; 
+      @           9 * (\product int j; 0 <= j && j < i && j < 9; 9 - j));
+      @ ensures \result == 
+      @     (\num_of int x; 0 <= x && x < pow(10, n); hasUniqueDigits(x));
+      @*/
+    /*@ pure @*/ 
+    /*@ spec_public @*/
+    private static int countUniqueDigitNumbers(int n) {
+        // Specification helper method
+    }
+    
+    /*@ public normal_behavior
+      @ ensures \result == (base == 0 ? 1 : 
+      @     (exp == 0 ? 1 : base * pow(base, exp - 1)));
+      @*/
+    /*@ pure @*/
+    /*@ spec_public @*/
+    private static int pow(int base, int exp) {
+        // Power function for specification
+    }
+    
+    /*@ public normal_behavior
+      @ ensures \result == (\forall int i, j; 
+      @     0 <= i && i < digitCount(num) && 
+      @     0 <= j && j < digitCount(num) && i != j;
+      @     getDigit(num, i) != getDigit(num, j));
+      @ ensures num == 0 ==> \result == true;
+      @*/
+    /*@ pure @*/
+    /*@ spec_public @*/
+    private static boolean hasUniqueDigits(int num) {
+        // Check if a number has all unique digits
+    }
+    
+    /*@ public normal_behavior
+      @ requires num >= 0;
+      @ ensures num == 0 ==> \result == 1;
+      @ ensures num > 0 ==> \result == 
+      @     (num < 10 ? 1 : 1 + digitCount(num / 10));
+      @*/
+    /*@ pure @*/
+    /*@ spec_public @*/
+    private static int digitCount(int num) {
+        // Count digits in a number
+    }
+    
+    /*@ public normal_behavior
+      @ requires num >= 0 && pos >= 0 && pos < digitCount(num);
+      @ ensures \result >= 0 && \result <= 9;
+      @ ensures pos == 0 ==> \result == num % 10;
+      @ ensures pos > 0 ==> \result == getDigit(num / 10, pos - 1);
+      @*/
+    /*@ pure @*/
+    /*@ spec_public @*/
+    private static int getDigit(int num, int pos) {
+        // Get digit at position (0 is rightmost)
+    }
+}
+```
+
+The key aspects of this JML specification:
+
+1. **Precondition**: `0 <= n && n <= 8` as specified in the constraints
+2. **Postconditions**: 
+   - The result equals the count of numbers with unique digits
+   - Specific values for n=0, n=1, and n=2 as given in examples
+   - A mathematical formula for the general case
+   - The result is always positive
+
+3. **Helper methods** are specified to:
+   - Check if a number has unique digits
+   - Count digits in a number
+   - Get individual digits
+   - Calculate powers
+
+4. The specification uses JML's `\num_of` quantifier to express the count of numbers satisfying the unique digits property.
+
+5. All methods are marked as `pure` since they don't have side effects.

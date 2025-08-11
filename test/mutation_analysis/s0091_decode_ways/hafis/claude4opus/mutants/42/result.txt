@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:14:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:42:
+//@ ensures((\result <= 2147483647) && (\result >= 0));
+    ^
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:15:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:42:
+//@ ensures((s.equals("226")) ==> (\result == 3));
+    ^
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:17:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:42:
+//@ ensures(("00" != null && s != null && "00".length() <= s.length() && (\exists int i; 0 <= i && i <= s.length() - "00".length(); (\forall int j; 0 <= j && j < "00".length(); s.charAt(i + j) == "00".charAt(j)))) ==> (\result == 0));
+    ^
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:16:) in method numDecodings
+        return f[n];
+        ^
+./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/claude4opus/mutants/42/Solution.java:42:
+//@ ensures((s.equals("12")) ==> (\result == 2));
+    ^
+8 verification failures

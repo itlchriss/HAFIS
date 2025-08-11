@@ -1,0 +1,1 @@
+ensures(((x == null && y == null) ||(x == y) || (x.length == y.length && (\forall int i; 0 <= i < x.length; x[i] == y[i]))) ==> (\result == true));

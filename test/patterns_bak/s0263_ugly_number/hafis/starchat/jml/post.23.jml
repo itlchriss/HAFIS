@@ -1,1 +1,0 @@
-ensures((n == 276) ==> (\result == false));

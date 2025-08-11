@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/purellm/o3/mutants/14/Solution.java:19: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method countNumbersWithUniqueDigits
+ans = ans + 9 / mul;
+              ^
+1 verification failure

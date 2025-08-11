@@ -1,0 +1,4 @@
+ensures:
+- ensures result of type int equals the minimum count of single character insertions deletions or replacements needed to convert the value of param_w1_ to the value of param_w2_.
+- ensures result of type int is 0 if the value of param_w1_ equals the value of param_w2_.
+requires: []

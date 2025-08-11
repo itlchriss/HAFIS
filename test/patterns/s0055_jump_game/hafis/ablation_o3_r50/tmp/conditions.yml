@@ -1,0 +1,7 @@
+ensures:
+- If the type_boolean_ result is equal to the true literal , there exists at least 1 finite sequence of indices that starts with 0 , ends with the index that is equal to the type_integer_array_ param_nums_'s length - 1 , and for every 2 consecutive indices in the sequence the difference between the second index and the first index is greater_than to 0 and is less_than_or_equal to the value located at the first index in the type_integer_array_ param_nums_.
+- If the type_boolean_ result is equal to the false literal , no sequence of indices satisfying the conditions described in the previous specification exists.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_boolean_ result is equal to the true literal.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_boolean_ result is equal to the false literal.
+requires:
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to 0 and are less_than_or_equal to 100000.

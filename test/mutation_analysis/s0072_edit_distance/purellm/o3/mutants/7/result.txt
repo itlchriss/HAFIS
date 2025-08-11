@@ -1,0 +1,16 @@
+error: An error while executing a proof script for isLowerCaseString: (error "line 2335 column 163: unknown constant i")
+  >>>(define-fun BL_533_afterIf_236__A1 () Bool (= (|java.lang.String.charAt| |s_412_412___12| |i_447_447___106|) (|java_lang_String_charAt$_H2_13453| |s_412_412___12| |i|)))
+./test/mutation_analysis/s0072_edit_distance/purellm/o3/mutants/7/Solution.java:29: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+dp[j] = j;
+  ^
+./test/mutation_analysis/s0072_edit_distance/purellm/o3/mutants/7/Solution.java:45: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+return dp[n2];
+         ^
+./test/mutation_analysis/s0072_edit_distance/purellm/o3/mutants/7/Solution.java:33: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+            int pre = dp[0];
+                        ^
+./test/mutation_analysis/s0072_edit_distance/purellm/o3/mutants/7/Solution.java:37: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method minDistance
+                int tmp = dp[j];
+                            ^
+1 error
+4 verification failures

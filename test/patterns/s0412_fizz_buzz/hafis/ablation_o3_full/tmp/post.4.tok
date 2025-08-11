@@ -1,0 +1,1 @@
+For every index position in result List < String > that is not divisible by 3 or 5 result element equals the string_representation of that index . 

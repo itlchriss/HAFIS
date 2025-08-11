@@ -1,0 +1,9 @@
+- Every value in parameter int[] `aliceSizes` must be at least 1 and at most 10^5
+- Parameter int[] `bobSizes` must contain no fewer than 1 element and no more than 10^4 elements
+- Every value in parameter int[] `bobSizes` must be at least 1 and at most 10^5
+- The sum of all values in parameter int[] `aliceSizes` must differ from the sum of all values in parameter int[] `bobSizes`
+- result int[] must contain exactly two elements
+- The first element of result int[] must be a value that occurs in parameter int[] `aliceSizes`
+- The second element of result int[] must be a value that occurs in parameter int[] `bobSizes`
+- After execution the sum of all values in parameter int[] `aliceSizes` minus the first element of result int[] plus the second element of result int[] equals the sum of all values in parameter int[] `bobSizes` minus the second element of result int[] plus the first element of result int[]
+- For every input that meets the prerequisites at least one result int[] meeting these behavioural specifications is guaranteed to exist

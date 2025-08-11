@@ -1,1 +1,0 @@
-ensures(((aliceSizes[0] == 2 && aliceSizes.length == 1) && (bobSizes[0] == 1 && bobSizes[1] == 3 && bobSizes.length == 2)) ==> (\result[0] == 2 && \result[1] == 3 && \result.length == 2));

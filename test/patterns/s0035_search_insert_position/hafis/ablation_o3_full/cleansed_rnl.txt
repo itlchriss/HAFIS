@@ -1,0 +1,7 @@
+- int[] `nums` must contain distinct int values
+- int[] `nums` must have length between 1 and 10000 inclusive
+- every element of int[] `nums` must be within the closed interval -10000 to 10000
+- int `target` must be within the closed interval -10000 to 10000
+- if int `target` occurs in int[] `nums` then int result equals the index at which int `target` is found in int[] `nums`
+- if int `target` does not occur in int[] `nums` then int result equals the index at which int `target` can be inserted into int[] `nums` such that the ascending order is preserved
+- int result is guaranteed to be within the inclusive range 0 to the length of int[] `nums`

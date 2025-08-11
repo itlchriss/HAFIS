@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0561_array_partition_i/hafis/claude4opus/mutants/6/Solution.java:21: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method arrayPairSum
+            sum += Math.min(nums[i], nums[i + 1]);
+                                         ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/claude4opus/mutants/6/Solution.java:21: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method arrayPairSum
+            sum += Math.min(nums[i], nums[i + 1]);
+                                ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/claude4opus/mutants/6/Solution.java:23: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0561_array_partition_i/hafis/claude4opus/mutants/6/Solution.java:14:) in method arrayPairSum
+        return sum;
+        ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/claude4opus/mutants/6/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0561_array_partition_i/hafis/claude4opus/mutants/6/Solution.java:23:
+//@ ensures((\result >= -10000) && (\result <= 100000));
+    ^
+4 verification failures

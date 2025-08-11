@@ -1,0 +1,52 @@
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:23: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method containsNearbyDuplicate
+            Integer index = map.put(nums[i], i);
+                                        ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsNearbyDuplicate
+//@ ensures(((nums[0] == 1 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums.length == 4) && (k == 1)) ==> (\result == true));
+                                  ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:25: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsNearbyDuplicate
+//@ ensures(((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 1 && nums.length == 4) && (k == 3)) ==> (\result == true));
+                                                  ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:25: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsNearbyDuplicate
+//@ ensures(((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 1 && nums.length == 4) && (k == 3)) ==> (\result == true));
+                                                                  ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:25: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:17:) in method containsNearbyDuplicate
+                return true;
+                ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:25:
+//@ ensures(((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 1 && nums[4] == 2 && nums[5] == 3 && nums.length == 6) && (k == 2)) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsNearbyDuplicate
+//@ ensures(((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 1 && nums[4] == 2 && nums[5] == 3 && nums.length == 6) && (k == 2)) ==> (\result == false));
+                                                                                                  ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:25: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsNearbyDuplicate
+//@ ensures(((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 1 && nums[4] == 2 && nums[5] == 3 && nums.length == 6) && (k == 2)) ==> (\result == false));
+                                                                                  ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:25: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsNearbyDuplicate
+//@ ensures(((nums[0] == 1 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums.length == 4) && (k == 1)) ==> (\result == true));
+                                                  ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:25: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:15: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsNearbyDuplicate
+//@ ensures(((nums[0] == 1 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums.length == 4) && (k == 1)) ==> (\result == true));
+                                                                  ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/hafis/o3/mutants/1/Solution.java:25: verify: Associated method exit
+                return true;
+                ^
+17 verification failures

@@ -1,0 +1,186 @@
+Looking at this specification, I need to convert the requirements for a valid number checker into JML (Java Modeling Language). Let me break down the specification and create appropriate JML contracts.
+
+```java
+public class ValidNumber {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 1 <= s.length() && s.length() <= 20;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @     isValidChar(s.charAt(i)));
+      @ ensures \result == isValidNumber(s);
+      @ pure
+      @*/
+    public boolean isNumber(String s) {
+        // Implementation would go here
+        return false;
+    }
+    
+    /*@ public normal_behavior
+      @ ensures \result == (('0' <= c && c <= '9') || 
+      @                    ('a' <= c && c <= 'z') || 
+      @                    ('A' <= c && c <= 'Z') ||
+      @                    c == '+' || c == '-' || c == '.' ||
+      @                    c == 'e' || c == 'E');
+      @ pure
+      @*/
+    public static boolean isValidChar(char c) {
+        return (c >= '0' && c <= '9') || 
+               (c >= 'a' && c <= 'z') || 
+               (c >= 'A' && c <= 'Z') ||
+               c == '+' || c == '-' || c == '.' ||
+               c == 'e' || c == 'E';
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ ensures \result == (hasValidDecimalOrInteger(s, 0, s.length()) ||
+      @                    hasValidScientificNotation(s));
+      @ pure
+      @*/
+    public static boolean isValidNumber(String s) {
+        // Check if it's a valid decimal/integer or scientific notation
+        return false;
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 0 <= start && start <= end && end <= s.length();
+      @ ensures \result == (hasValidDecimal(s, start, end) || 
+      @                    hasValidInteger(s, start, end));
+      @ pure
+      @*/
+    public static boolean hasValidDecimalOrInteger(String s, int start, int end) {
+        return false;
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ ensures \result == (\exists int i; 0 <= i && i < s.length();
+      @     (s.charAt(i) == 'e' || s.charAt(i) == 'E') &&
+      @     hasValidDecimalOrInteger(s, 0, i) &&
+      @     hasValidInteger(s, i + 1, s.length()));
+      @ pure
+      @*/
+    public static boolean hasValidScientificNotation(String s) {
+        return false;
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 0 <= start && start <= end && end <= s.length();
+      @ ensures \result == (
+      @     // Case 1: Optional sign + digits + dot
+      @     (hasOptionalSign(s, start) && 
+      @      hasDigits(s, signEnd(s, start), dotPosition(s, start, end)) &&
+      @      hasDot(s, dotPosition(s, start, end), end)) ||
+      @     // Case 2: Optional sign + digits + dot + digits
+      @     (hasOptionalSign(s, start) && 
+      @      hasDigits(s, signEnd(s, start), dotPosition(s, start, end)) &&
+      @      hasDot(s, dotPosition(s, start, end), dotPosition(s, start, end) + 1) &&
+      @      hasDigits(s, dotPosition(s, start, end) + 1, end)) ||
+      @     // Case 3: Optional sign + dot + digits
+      @     (hasOptionalSign(s, start) && 
+      @      hasDot(s, signEnd(s, start), signEnd(s, start) + 1) &&
+      @      hasDigits(s, signEnd(s, start) + 1, end))
+      @ );
+      @ pure
+      @*/
+    public static boolean hasValidDecimal(String s, int start, int end) {
+        return false;
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 0 <= start && start <= end && end <= s.length();
+      @ ensures \result == (hasOptionalSign(s, start) && 
+      @                    hasDigits(s, signEnd(s, start), end));
+      @ pure
+      @*/
+    public static boolean hasValidInteger(String s, int start, int end) {
+        return false;
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 0 <= start && start < s.length();
+      @ ensures \result == (start < s.length() && 
+      @                    (s.charAt(start) == '+' || s.charAt(start) == '-'));
+      @ pure
+      @*/
+    public static boolean hasOptionalSign(String s, int start) {
+        return start < s.length() && (s.charAt(start) == '+' || s.charAt(start) == '-');
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 0 <= start && start <= s.length();
+      @ ensures \result == ((start < s.length() && 
+      @                     (s.charAt(start) == '+' || s.charAt(start) == '-')) 
+      @                    ? start + 1 : start);
+      @ ensures start <= \result && \result <= s.length();
+      @ pure
+      @*/
+    public static int signEnd(String s, int start) {
+        return (start < s.length() && (s.charAt(start) == '+' || s.charAt(start) == '-')) 
+               ? start + 1 : start;
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 0 <= start && start <= end && end <= s.length();
+      @ ensures \result == (start < end && 
+      @     (\forall int i; start <= i && i < end; 
+      @         '0' <= s.charAt(i) && s.charAt(i) <= '9'));
+      @ pure
+      @*/
+    public static boolean hasDigits(String s, int start, int end) {
+        return false;
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 0 <= start && start <= end && end <= s.length();
+      @ ensures \result == (start < end && end - start == 1 && 
+      @                    s.charAt(start) == '.');
+      @ pure
+      @*/
+    public static boolean hasDot(String s, int start, int end) {
+        return start < end && end - start == 1 && s.charAt(start) == '.';
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 0 <= start && start <= end && end <= s.length();
+      @ ensures \result == ((\exists int i; start <= i && i < end; 
+      @                      s.charAt(i) == '.') ? 
+      @                     (\min int i; start <= i && i < end && s.charAt(i) == '.'; i) :
+      @                     end);
+      @ ensures start <= \result && \result <= end;
+      @ pure
+      @*/
+    public static int dotPosition(String s, int start, int end) {
+        return end;
+    }
+}
+```
+
+This JML specification captures the key requirements:
+
+1. **Main method contract** (`isNumber`):
+   - Requires non-null string with length between 1 and 20
+   - Requires all characters to be valid (letters, digits, +, -, ., e, E)
+   - Ensures the result matches the valid number specification
+
+2. **Helper specifications**:
+   - `isValidChar`: Validates individual characters
+   - `isValidNumber`: Top-level validation logic
+   - `hasValidDecimalOrInteger`: Checks for valid decimal or integer
+   - `hasValidScientificNotation`: Checks for e/E notation
+   - `hasValidDecimal`: Implements the three decimal number formats
+   - `hasValidInteger`: Validates integer format
+   - `hasOptionalSign`: Checks for optional +/- sign
+   - `hasDigits`: Validates digit sequences
+   - `hasDot`: Checks for decimal point
+
+The specifications use JML's `\forall`, `\exists`, and other quantifiers to precisely express the validation rules. All methods are marked as `pure` since they don't modify state.

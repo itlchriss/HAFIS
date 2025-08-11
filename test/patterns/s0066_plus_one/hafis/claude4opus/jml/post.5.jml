@@ -1,0 +1,1 @@
+ensures((\forall int i; 0 <= i < digits.length; digits[i] == 9) ==> (\result.length == digits.length + 1));

@@ -1,0 +1,1 @@
+boolean result is equal to the true literal if int [ ] the type_string_ strs_a contains at least 3 elements and there exists an index strictly between the first and last positions that the values strictly increase up to that index and strictly decrease afterwards . 

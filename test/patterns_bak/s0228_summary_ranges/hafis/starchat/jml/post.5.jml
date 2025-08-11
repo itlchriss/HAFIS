@@ -1,1 +1,0 @@
-ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));

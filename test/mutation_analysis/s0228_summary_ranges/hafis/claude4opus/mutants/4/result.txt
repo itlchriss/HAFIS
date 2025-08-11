@@ -1,0 +1,106 @@
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Iterable.jml:10:) in method summaryRanges: g0201_0300.s0228_summary_ranges.Solution.summaryRanges(int[]) (for result type)
+        return ranges;
+        ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69:
+    //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
+                   ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:26: verify: Associated method exit
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:17:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:26:
+//@ ensures((nums.length == 0) ==> (\result.size() == 0));
+    ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:187:) in method summaryRanges
+//@ ensures((nums[0] == -1 && nums.length == 1) ==> (\result.get(0) == "-1"));
+                                                                ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:187: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:19:
+    /*@ pure @*/ E get(int index);
+                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:178: verify: Precondition conjunct is false: index < size()
+    //@   requires 0 <= index && index < size();
+                                       ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:187:) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                                                                                                                                               ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:187: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:18:
+    /*@ pure @*/ E get(int index);
+                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:178: verify: Precondition conjunct is false: index < size()
+    //@   requires 0 <= index && index < size();
+                                       ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:187:) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                                                                                                                               ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:187: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:20:
+    /*@ pure @*/ E get(int index);
+                   ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/util/List.jml:178: verify: Precondition conjunct is false: index < size()
+    //@   requires 0 <= index && index < size();
+                                       ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                                                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:20: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums[4] == 6 && nums[5] == 8 && nums[6] == 9 && nums.length == 7) ==> (\result.get(0) == "0"  && \result.get(1) ==  "2->4"  && \result.get(2) ==  "6"  && \result.get(3) ==  "8->9"));
+                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: Associated method exit
+        return ranges;
+        ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                                                                                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/4/Solution.java:69: verify: Associated method exit
+        return ranges;
+        ^
+35 verification failures

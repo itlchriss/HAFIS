@@ -1,0 +1,6 @@
+- int[] `'nums'` requires length is at most 100
+- each element of int[] `'nums'` requires value is at least 0
+- each element of int[] `'nums'` requires value is at most 400
+- int result ensures value is at least 0
+- int result ensures value is at most the sum of all elements in int[] `'nums'`
+- int result ensures value equals the maximum possible sum of elements selected from int[] `'nums'` where no two selected elements are located at consecutive indices

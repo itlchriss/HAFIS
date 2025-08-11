@@ -1,0 +1,10 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0 and is less_than_or_equal to the type_integer_array_ param_nums_'s length.
+- All values at indices ranging from 0 up to the type_integer_ result - 1 in the type_integer_array_ param_nums_ are unique.
+- For every index i such that i is greater_than to 0 and is less_than to the type_integer_ result , the value at index i in the type_integer_array_ param_nums_ is greater_than to the value at index i - 1 in the type_integer_array_ param_nums_.
+- If the type_integer_array_ param_nums_'s length is equal to 0 , the type_integer_ result is equal to 0.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 2 and the type_integer_array_ param_nums_'s first_element is equal to 1 and the type_integer_array_ param_nums_'s second_element is equal to 2.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 5 and the values at indices 123 and 4 in the type_integer_array_ param_nums_ are equal to 123 and 4 .
+requires:
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to negative 100 and are less_than_or_equal to 100.
+- The type_integer_array_ param_nums_ is sorted to the ascending_order.

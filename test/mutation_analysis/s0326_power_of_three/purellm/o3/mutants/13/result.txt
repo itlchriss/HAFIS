@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0326_power_of_three/purellm/o3/mutants/13/Solution.java:23: error: unreachable statement
+        return true;
+        ^
+1 error

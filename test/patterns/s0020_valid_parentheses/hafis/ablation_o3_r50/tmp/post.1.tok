@@ -1,0 +1,1 @@
+If type_boolean_ result is equal to the false literal , at least 1 opening bracket in the type_string_ param_s_ is not closed by the same type of bracket or the closures do not are contained by the correct order . 

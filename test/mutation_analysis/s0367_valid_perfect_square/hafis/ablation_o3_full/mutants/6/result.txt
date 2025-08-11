@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0367_valid_perfect_square/hafis/ablation_o3_full/mutants/6/Solution.java:36: error: unreachable statement
+        return false;
+        ^
+1 error

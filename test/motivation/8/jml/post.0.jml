@@ -1,0 +1,1 @@
+ensures((arr.length > 1) ==> (\forall int i; 0 <= i < arr.length-1; arr[i] >= arr[i+1]));

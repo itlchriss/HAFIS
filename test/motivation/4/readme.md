@@ -1,0 +1,1 @@
+If the input n is a prime number, the result is true.

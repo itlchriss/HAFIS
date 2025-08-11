@@ -1,0 +1,2 @@
+- For every valid index i of int array `nums1` the element at i in result int array equals the first int value located to the right of the matching value in int array `nums2` that is strictly greater than the value at i in int array `nums1` when such a value exists
+- For every valid index i of int array `nums1` if no int value strictly greater than the value at i in int array `nums1` appears to the right of its matching position in int array `nums2` then the element at i in result int array equals -1

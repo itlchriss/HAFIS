@@ -1,0 +1,52 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Below is a compact JML contract that captures precisely what the LeetCode 396 “Rotate Function” statement requires.  
+It is written for a classical LeetCode‐like signature
+
+    public static int maxRotateFunction(int[] nums)
+
+and uses only standard JML operators (quantifiers, modulo, etc.).  
+You can paste it verbatim above the method body.
+
+```java
+public class Solution {
+
+    /*@  //  ───────────────────────────  PRECONDITIONS  ───────────────────────────
+      @ 1. A (non-null) array is supplied whose length fits the problem limits.
+      @ 2. Every element obeys the value range [-100, 100].
+      @
+      @ requires nums != null;
+      @ requires 1 <= nums.length && nums.length <= 100_000;
+      @ requires (\forall int i; 0 <= i && i < nums.length;
+      @                        -100 <= nums[i] && nums[i] <= 100);
+      @
+      @  //  ───────────────────────────  POSTCONDITIONS  ──────────────────────────
+      @ 1.  result equals some rotation value
+      @     F(k) = Σ_{i=0..n-1} ( i * nums[(i + k) mod n] ).
+      @ 2.  result is the maximum of all such rotation values.
+      @
+      @ ensures (\exists int k; 0 <= k && k < nums.length;
+      @            \result ==
+      @              (\sum int i; 0 <= i && i < nums.length;
+      @                    i * nums[(i + k) % nums.length]));
+      @
+      @ ensures (\forall int k; 0 <= k && k < nums.length;
+      @            \result >=
+      @              (\sum int i; 0 <= i && i < nums.length;
+      @                    i * nums[(i + k) % nums.length]));
+      @
+      @  //  ───────────────────────────  FRAME CONDITION  ─────────────────────────
+      @  The method is pure with respect to visible state.
+      @
+      @ assignable \nothing;
+      @*/
+    public static int maxRotateFunction(int[] nums) {
+        /* implementation goes here */
+    }
+}
+```
+
+Explanation of the essential JML clauses:
+
+• `requires` lines encode the input constraints given in the original problem.  
+• The first `ensures` line states that the returned value equals one of the rotation-function values F(k).  
+• The second `ensures` line states that this value is greater than or equal to every possible F(k), i.e. it is the maximum.  
+• `assignable \nothing` marks the method as side-effect-free with respect to the program state visible to callers (only local/stack variables may change).

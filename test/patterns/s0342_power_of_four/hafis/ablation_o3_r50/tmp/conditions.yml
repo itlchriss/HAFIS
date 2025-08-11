@@ -1,0 +1,7 @@
+ensures:
+- If type_boolean_ result is equal to the true literal , there exists an integer x is greater_than_or_equal to 0 such that 4 raised to x is equal to the type_integer_ param_n_.
+- If type_boolean_ result is equal to the false literal , for all integers x is greater_than_or_equal to 0 the value 4 raised to x is not_equal to the type_integer_ param_n_.
+- If the type_integer_ param_n_ is equal to 16 , type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 5 , type_boolean_ result is equal to the false literal.
+- If the type_integer_ param_n_ is equal to 1 , type_boolean_ result is equal to the true literal.
+requires: []

@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:13:) in method firstUniqChar
+        return ans;
+        ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:28:
+//@ ensures((\result >= -1) && (\result <= s.length() - 1));
+    ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:14:) in method firstUniqChar
+        return ans;
+        ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:28:
+//@ ensures((s.equals("aabb")) ==> (\result == -1));
+    ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:16:) in method firstUniqChar
+        return ans;
+        ^
+./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0387_first_unique_character_in_a_string/hafis/claude4opus/mutants/3/Solution.java:28:
+//@ ensures((s.equals("leetcode")) ==> (\result == 0));
+    ^
+6 verification failures

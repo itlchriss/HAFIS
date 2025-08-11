@@ -1,0 +1,1 @@
+The type_boolean_ result is equal to the true literal if there exist 2 unique indices i and j in the param_stry_a_ of type int [ ] such that the values at those indices are equal and the absolute difference between i and j is less_than_or_equal to the param_stry_b_ of type int . 

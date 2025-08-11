@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/18/Solution.java:37: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/18/Solution.java:14:) in method isHappy
+        return happy;
+        ^
+./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/18/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0202_happy_number/hafis/claude4opus/mutants/18/Solution.java:37:
+//@ ensures((n == 19) ==> (\result == true));
+    ^
+2 verification failures

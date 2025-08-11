@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/o3/mutants/7/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/o3/mutants/7/Solution.java:18:) in method containsNearbyDuplicate
+        return false;
+        ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/o3/mutants/7/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/o3/mutants/7/Solution.java:38:
+  @ ensures \result <==>
+    ^
+./test/mutation_analysis/s0219_contains_duplicate_ii/purellm/o3/mutants/7/Solution.java:34: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method containsNearbyDuplicate
+            if (index != null && Math.abs(index / i) <= k) {
+                                                ^
+3 verification failures

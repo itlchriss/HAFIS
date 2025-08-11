@@ -1,0 +1,5 @@
+- String 's' length is at least 1 and at most 300000
+- String 's' contains only decimal digit characters whitespace characters and the operator characters plus minus asterisk slash
+- String 's' represents a syntactically valid arithmetic expression whose integer operands lie within the range [02147483647]
+- After execution int result equals the evaluated value of the expression represented by String 's' where integer division truncates toward zero
+- After execution int result lies within the range [-21474836482147483647]

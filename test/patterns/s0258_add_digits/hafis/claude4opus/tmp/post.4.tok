@@ -1,0 +1,1 @@
+If the type_integer_ result is greater_than to 0 , the type_integer_ result is equal to 1 + the remainder of the type_integer_ param_num_ - 1 divided by 9 . 

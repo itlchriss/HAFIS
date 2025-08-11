@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0065_valid_number/hafis/ablation_o3_r50/mutants/11/Solution.java:18: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

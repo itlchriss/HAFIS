@@ -1,0 +1,9 @@
+ensures:
+- The type_integer_ result is less_than_or_equal to the product between the type_integer_array_ param_nums_'s length and 10000 and is greater_than_or_equal to negative 10000.
+- For every contiguous subarray of the type_integer_array_ param_nums_ , the sum of that contiguous subarray is less_than_or_equal to the integer result.
+- There exists at least 1 contiguous subarray of the type_integer_array_ param_nums_ whose sum is equal to the integer result.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 6.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 1.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 23.
+requires:
+- The type_integer_array_ param_nums_'s values are less_than_or_equal to 10000 and are greater_than_or_equal to negative 10000.

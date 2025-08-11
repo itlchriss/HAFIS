@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/claude4opus/mutants/0/Solution.java:23: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method maxProfit
+            buy = Math.max(prevSell % price, prevBuy);
+                                    ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/claude4opus/mutants/0/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/claude4opus/mutants/0/Solution.java:12:) in method maxProfit
+        return sell;
+        ^
+./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/claude4opus/mutants/0/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0309_best_time_to_buy_and_sell_stock_with_cooldown/purellm/claude4opus/mutants/0/Solution.java:27:
+      @ ensures \result >= 0;
+        ^
+3 verification failures

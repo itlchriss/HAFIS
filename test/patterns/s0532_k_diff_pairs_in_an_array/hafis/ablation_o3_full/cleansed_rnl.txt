@@ -1,0 +1,3 @@
+- int 'k' must be greater than or equal to zero
+- int result equals the count of unique pairs of values in int[] 'nums' whose absolute difference is exactly int 'k'
+- int result equals zero when no pair in int[] 'nums' satisfies the absolute difference requirement with int 'k'

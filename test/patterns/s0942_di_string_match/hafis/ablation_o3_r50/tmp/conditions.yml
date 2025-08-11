@@ -1,0 +1,10 @@
+ensures:
+- The type_integer_array_ result's length is equal to the type_string_ param_s_'s length_plus1.
+- The type_integer_array_ result contains every integer in the range 0 to the type_string_ param_s_'s length once.
+- For every index i that is less_than to the type_string_ param_s_'s length , if the character at position i in the type_string_ param_s_ is the chry_a literal , the value at position i in the type_integer_array_ result is less_than to the value at position i + 1 in the type_integer_array_ result .
+- For every index i that is less_than to the type_string_ param_s_'s length , if the character at position i in the type_string_ param_s_ is the chry_a literal , the value at position i in the type_integer_array_ result is greater_than to the value at position i + 1 in the type_integer_array_ result .
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_array_ result is equal to arr_a.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_array_ result is equal to arr_a.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_array_ result is equal to arr_a.
+requires:
+- The type_string_ param_s_'s values are either the chry_a literal or the chry_b literal.

@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/22/Solution.java:24: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/22/Solution.java:7:) in method diStringMatch
+            if (s.charAt(i) == 'D') {
+                        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/22/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/22/Solution.java:24:
+    /*@ public normal_behavior
+               ^
+error: An internal JML error occurred, possibly recoverable.  Please report the bug with as much information as you can.
+  Reason: Unexpected result when querying SMT solver for reason for an unknown result: (error "Error writing to solver: (get-info :reason-unknown) java.io.IOException: Broken pipe")
+1 error
+2 verification failures

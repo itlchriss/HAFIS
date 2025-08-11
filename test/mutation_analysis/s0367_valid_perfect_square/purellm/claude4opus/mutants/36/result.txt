@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0367_valid_perfect_square/purellm/claude4opus/mutants/36/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0367_valid_perfect_square/purellm/claude4opus/mutants/36/Solution.java:9:) in method isPerfectSquare
+                return true;
+                ^
+./test/mutation_analysis/s0367_valid_perfect_square/purellm/claude4opus/mutants/36/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s0367_valid_perfect_square/purellm/claude4opus/mutants/36/Solution.java:27:
+      @ ensures \result == (\exists int i; 1 <= i && i <= 46340; i * i == num);
+        ^
+2 verification failures

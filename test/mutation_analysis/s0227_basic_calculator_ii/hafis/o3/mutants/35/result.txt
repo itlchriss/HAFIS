@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/o3/mutants/35/Solution.java:54: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/o3/mutants/35/Solution.java:11:) in method calculate
+        return sum;
+        ^
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/o3/mutants/35/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/o3/mutants/35/Solution.java:54:
+//@ ensures((\result >= -2147483648) && (\result <= 2147483647));
+    ^
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/o3/mutants/35/Solution.java:54: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/o3/mutants/35/Solution.java:12:) in method calculate
+        return sum;
+        ^
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/o3/mutants/35/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/o3/mutants/35/Solution.java:54:
+//@ ensures((s.equals(" 3/2 ")) ==> (\result == 1));
+    ^
+4 verification failures

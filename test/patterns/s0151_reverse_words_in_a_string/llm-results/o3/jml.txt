@@ -1,0 +1,88 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Below is a self–contained Java/JML “skeleton’’ that captures the whole informal statement in a precise, formal way.  
+The Java code is only a stub – the interesting part is the JML specification
+(the clauses that start with `/*@ … @*/).  You can copy-and-paste this into a file
+and run either OpenJML or another JML checker to verify an implementation of
+`reverseWords`.
+
+```java
+public final class ReverseWords {
+
+    /*------------------------------------------------------------------
+     *  A model-level helper that turns a string into the sequence of
+     *  its words.  The method is declared “model’’ and “pure’’ so it is
+     *  used for specification purposes only; an implementation body is
+     *  not required by JML tools.
+     *-----------------------------------------------------------------*/
+
+    /*@
+      public pure model String[] words(String str);
+
+      //  Post-conditions for the helper (documentation only):
+      //    – never returns null;
+      //    – each returned element is a non-empty string that contains
+      //      no space characters.
+      ensures \result != null;
+      ensures (\forall int i; 0 <= i < \result.length;
+                  \result[i] != null && \result[i].length() > 0);
+      ensures (\forall int i,j; 0 <= i < \result.length &&
+                                0 <= j < \result[i].length();
+                  \result[i].charAt(j) != ' ');
+    @*/
+
+
+    /*------------------------------------------------------------------
+     *  The routine to be implemented.
+     *-----------------------------------------------------------------*/
+    /*@
+      public normal_behavior
+        // PRE-CONDITIONS
+        requires s != null;
+        requires 1 <= s.length() && s.length() <= 10000;
+        // there is at least one non-blank character  ==>  at least one word
+        requires (\exists int k; 0 <= k < s.length();  s.charAt(k) != ' ');
+
+        // POST-CONDITIONS
+        // 1)  The word order is exactly the reverse of the original.
+        ensures words(\result).length == words(s).length;
+        ensures (\forall int i; 0 <= i < words(\result).length;
+                    words(\result)[i].equals(
+                        words(s)[words(s).length - 1 - i] ));
+
+        // 2)  Formatting requirements:
+        //     a) no leading or trailing blanks
+        ensures \result.charAt(0)                  != ' ';
+        ensures \result.charAt(\result.length()-1) != ' ';
+
+        //     b) a single blank separates consecutive words (no “  ”)
+        ensures (\forall int i; 0 <= i < \result.length()-1;
+                    !(\result.charAt(i) == ' ' &&
+                      \result.charAt(i+1) == ' '));
+
+        // 3)  The result is never null
+        ensures \result != null;
+    @*/
+    public static /*@ pure @*/ String reverseWords(final String s) {
+        // --- implementation goes here ---
+        return null;  // stub
+    }
+}
+```
+
+Explanation of the most important clauses
+-----------------------------------------
+1. `words(String str)` is a *model* method:  
+   – It can be used freely in pre- and post-conditions.  
+   – It denotes “the sequence of words obtained from `str`, where a word is a maximal, non-empty sequence of non-space characters”.
+
+2. Functional behaviour (`ensures words(\result)…`)  
+   guarantees the result is precisely the reverse sequence of the input words.
+
+3. Formatting clauses ensure the returned string:
+   • has no leading/trailing spaces;  
+   • has no occurrences of two consecutive spaces.
+
+4. The pre-conditions encode all constraints from the original exercise:
+   length bounds, non-null input, and the existence of at least one word.
+
+Implement any algorithm you like under this contract; the JML tool will
+check that the implementation fulfils the formal specification.

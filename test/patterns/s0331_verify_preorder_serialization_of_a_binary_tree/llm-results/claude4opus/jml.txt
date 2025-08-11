@@ -1,0 +1,122 @@
+Looking at this problem, I need to create JML specifications for a method that verifies if a string represents a valid preorder serialization of a binary tree.
+
+Let me analyze the key aspects:
+1. The input is a comma-separated string
+2. Each value is either an integer (0-100) or '#' (representing null)
+3. The string must represent a valid binary tree in preorder traversal
+4. The string length is between 1 and 10,000
+
+Here's the JML specification:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires preorder != null;
+      @ requires 1 <= preorder.length() && preorder.length() <= 10000;
+      @ requires isValidFormat(preorder);
+      @ ensures \result == isValidPreorderSerialization(preorder);
+      @ pure
+      @*/
+    public boolean isValidSerialization(String preorder);
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ ensures \result == (\forall int i; 0 <= i && i < s.length(); 
+      @     s.charAt(i) == ',' || s.charAt(i) == '#' || 
+      @     ('0' <= s.charAt(i) && s.charAt(i) <= '9'));
+      @ ensures \result ==> !s.contains(",,");
+      @ ensures \result ==> (s.length() == 0 || s.charAt(0) != ',');
+      @ ensures \result ==> (s.length() == 0 || s.charAt(s.length()-1) != ',');
+      @ ensures \result ==> validNumbersInRange(s);
+      @ pure
+      @ helper
+      @*/
+    private boolean isValidFormat(String s);
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ ensures \result == (\forall int i; 0 <= i && i < getTokenCount(s);
+      @     !getToken(s, i).equals("#") ==> 
+      @     (0 <= Integer.parseInt(getToken(s, i)) && 
+      @      Integer.parseInt(getToken(s, i)) <= 100));
+      @ pure
+      @ helper
+      @*/
+    private boolean validNumbersInRange(String s);
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ ensures \result >= 0;
+      @ ensures s.length() == 0 ==> \result == 0;
+      @ ensures s.length() > 0 ==> \result == countCommas(s) + 1;
+      @ pure
+      @ helper
+      @*/
+    private int getTokenCount(String s);
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ ensures \result == (\num_of int i; 0 <= i && i < s.length(); 
+      @                     s.charAt(i) == ',');
+      @ pure
+      @ helper
+      @*/
+    private int countCommas(String s);
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ requires 0 <= index && index < getTokenCount(s);
+      @ ensures \result != null;
+      @ ensures \result.equals("#") || isValidInteger(\result);
+      @ pure
+      @ helper
+      @*/
+    private String getToken(String s, int index);
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ ensures \result == (s.matches("[0-9]+") && 
+      @                    0 <= Integer.parseInt(s) && 
+      @                    Integer.parseInt(s) <= 100);
+      @ pure
+      @ helper
+      @*/
+    private boolean isValidInteger(String s);
+    
+    /*@ private normal_behavior
+      @ requires preorder != null;
+      @ requires isValidFormat(preorder);
+      @ ensures \result == checkValidTree(preorder);
+      @ pure
+      @ helper
+      @*/
+    private boolean isValidPreorderSerialization(String preorder);
+    
+    /*@ private normal_behavior
+      @ requires preorder != null;
+      @ requires isValidFormat(preorder);
+      @ ensures \result == (calculateSlots(preorder) == 0);
+      @ pure
+      @ helper
+      @*/
+    private boolean checkValidTree(String preorder);
+    
+    /*@ private normal_behavior
+      @ requires preorder != null;
+      @ requires isValidFormat(preorder);
+      @ ensures true;
+      @ pure
+      @ helper
+      @*/
+    private int calculateSlots(String preorder);
+}
+```
+
+The key insight for validation is that in a valid preorder serialization:
+- We start with 1 slot (for the root)
+- Each non-null node consumes 1 slot and creates 2 new slots (for its children)
+- Each null node ('#') consumes 1 slot
+- At the end, we should have exactly 0 slots remaining
+
+This specification captures all the constraints while maintaining the pure nature of the validation method.

@@ -1,0 +1,113 @@
+Here's the JML specification for the Bulls and Cows problem:
+
+```java
+public class BullsAndCows {
+    
+    /*@ public normal_behavior
+      @ requires secret != null && guess != null;
+      @ requires secret.length() == guess.length();
+      @ requires 1 <= secret.length() && secret.length() <= 1000;
+      @ requires (\forall int i; 0 <= i && i < secret.length(); 
+      @           Character.isDigit(secret.charAt(i)));
+      @ requires (\forall int i; 0 <= i && i < guess.length(); 
+      @           Character.isDigit(guess.charAt(i)));
+      @ ensures \result != null;
+      @ ensures \result.matches("\\d+A\\d+B");
+      @ ensures getBulls(\result) == countBulls(secret, guess);
+      @ ensures getCows(\result) == countCows(secret, guess);
+      @*/
+    public String getHint(String secret, String guess) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires secret != null && guess != null;
+      @ requires secret.length() == guess.length();
+      @ ensures \result >= 0 && \result <= secret.length();
+      @ ensures \result == (\num_of int i; 0 <= i && i < secret.length(); 
+      @                     secret.charAt(i) == guess.charAt(i));
+      @*/
+    private /*@ pure @*/ int countBulls(String secret, String guess) {
+        // Count digits in correct positions
+    }
+    
+    /*@ private normal_behavior
+      @ requires secret != null && guess != null;
+      @ requires secret.length() == guess.length();
+      @ ensures \result >= 0 && \result <= secret.length() - countBulls(secret, guess);
+      @*/
+    private /*@ pure @*/ int countCows(String secret, String guess) {
+        // Count digits in wrong positions
+        // This is more complex - need to count matching digits excluding bulls
+        // and handle duplicates correctly
+    }
+    
+    /*@ private normal_behavior
+      @ requires hint != null && hint.matches("\\d+A\\d+B");
+      @ ensures \result >= 0;
+      @ ensures \result == Integer.parseInt(hint.substring(0, hint.indexOf('A')));
+      @*/
+    private /*@ pure @*/ int getBulls(String hint) {
+        // Extract bull count from hint string
+    }
+    
+    /*@ private normal_behavior
+      @ requires hint != null && hint.matches("\\d+A\\d+B");
+      @ ensures \result >= 0;
+      @ ensures \result == Integer.parseInt(
+      @           hint.substring(hint.indexOf('A') + 1, hint.indexOf('B')));
+      @*/
+    private /*@ pure @*/ int getCows(String hint) {
+        // Extract cow count from hint string
+    }
+    
+    // Additional helper specification for counting cows more precisely
+    /*@ private normal_behavior
+      @ requires secret != null && guess != null;
+      @ requires secret.length() == guess.length();
+      @ ensures \result == 
+      @   (\sum int d; 0 <= d && d <= 9;
+      @     Math.min(
+      @       (\num_of int i; 0 <= i && i < secret.length() && 
+      @         secret.charAt(i) != guess.charAt(i); 
+      @         secret.charAt(i) == (char)('0' + d)),
+      @       (\num_of int i; 0 <= i && i < guess.length() && 
+      @         secret.charAt(i) != guess.charAt(i); 
+      @         guess.charAt(i) == (char)('0' + d))
+      @     )
+      @   );
+      @*/
+    private /*@ pure @*/ int countCowsPrecise(String secret, String guess) {
+        // More precise specification for counting cows
+        // For each digit 0-9, count min occurrences in non-bull positions
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - Both strings must be non-null
+   - Both strings must have equal length
+   - Length must be between 1 and 1000
+   - Both strings must contain only digits
+
+2. **Postconditions (`ensures`):**
+   - Result is non-null
+   - Result matches the format "xAyB" where x and y are numbers
+   - The bull count in the result equals the actual bull count
+   - The cow count in the result equals the actual cow count
+
+3. **Helper methods:**
+   - `countBulls`: Counts digits in correct positions
+   - `countCows`: Counts digits in wrong positions (considering duplicates)
+   - `getBulls`/`getCows`: Extract counts from the result string
+   - `countCowsPrecise`: More detailed specification for cow counting logic
+
+4. **Key invariants:**
+   - Bulls are digits that match in both value and position
+   - Cows are digits that match in value but not position
+   - The sum of bulls and cows cannot exceed the total length
+   - Duplicate handling: each digit can only be matched once
+
+The specification captures the essence of the Bulls and Cows game rules while ensuring the implementation will handle edge cases like duplicates correctly.

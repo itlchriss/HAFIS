@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0476_number_complement/purellm/o3/mutants/0/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0476_number_complement/purellm/o3/mutants/0/Solution.java:18:) in method findComplement
+        return +num & ((Integer.highestOneBit(num) << 1) - 1);
+        ^
+./test/mutation_analysis/s0476_number_complement/purellm/o3/mutants/0/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0476_number_complement/purellm/o3/mutants/0/Solution.java:27:
+      @ ensures (\exists int k;
+        ^
+2 verification failures

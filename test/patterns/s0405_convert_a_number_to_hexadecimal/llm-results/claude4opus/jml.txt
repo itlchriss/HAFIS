@@ -1,0 +1,56 @@
+Looking at this specification, I need to convert it into JML (Java Modeling Language) format. Here's the JML specification:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires Integer.MIN_VALUE <= num && num <= Integer.MAX_VALUE;
+      @ ensures \result != null;
+      @ ensures \result.length() >= 1;
+      @ ensures num == 0 ==> \result.equals("0");
+      @ ensures num != 0 ==> !\result.startsWith("0");
+      @ ensures (\forall int i; 0 <= i && i < \result.length(); 
+      @          isValidHexChar(\result.charAt(i)));
+      @ ensures num >= 0 ==> \result.length() <= 8;
+      @ ensures num < 0 ==> \result.length() == 8;
+      @ ensures num == 26 ==> \result.equals("1a");
+      @ ensures num == -1 ==> \result.equals("ffffffff");
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ String toHex(int num) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ ensures \result <==> (('0' <= c && c <= '9') || 
+      @                       ('a' <= c && c <= 'f'));
+      @*/
+    private /*@ pure @*/ static boolean isValidHexChar(char c) {
+        return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f');
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Precondition (`requires`)**: The input must be within the valid integer range (though this is implicit for int type in Java).
+
+2. **Postconditions (`ensures`)**:
+   - Result is never null
+   - Result has at least one character
+   - Special case for zero: returns "0"
+   - No leading zeros for non-zero values
+   - All characters are valid lowercase hexadecimal digits (0-9, a-f)
+   - Positive numbers have at most 8 hex digits
+   - Negative numbers (two's complement) always have exactly 8 hex digits
+   - Specific examples from the problem are encoded as postconditions
+
+3. **Frame condition (`assignable`)**: The method is pure and doesn't modify any state.
+
+4. **Helper method**: I've included a helper method specification to validate hexadecimal characters.
+
+The specification captures the essential requirements:
+- Hexadecimal representation with lowercase letters
+- Two's complement for negative numbers
+- No leading zeros (except for the number 0 itself)
+- No use of built-in conversion methods (this is an implementation constraint, not a specification constraint)

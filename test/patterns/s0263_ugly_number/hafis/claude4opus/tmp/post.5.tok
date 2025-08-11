@@ -1,0 +1,1 @@
+If the type_boolean_ result is equal to the true literal and the type_integer_ param_n_ is greater_than to 1 , all prime_factors of the type_integer_ param_n_ are in the set { 2 , 3 , 5 } . 

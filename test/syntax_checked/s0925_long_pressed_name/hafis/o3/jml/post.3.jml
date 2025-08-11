@@ -1,0 +1,1 @@
+ensures((typed.equals(name)) ==> (\result == true));

@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0191_number_of_1_bits/purellm/claude4opus/mutants/12/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0191_number_of_1_bits/purellm/claude4opus/mutants/12/Solution.java:10:) in method hammingWeight
+        return flag ? sum + 1 : sum;
+        ^
+./test/mutation_analysis/s0191_number_of_1_bits/purellm/claude4opus/mutants/12/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0191_number_of_1_bits/purellm/claude4opus/mutants/12/Solution.java:25:
+      @ ensures \result >= 0 && \result <= 32;
+        ^
+2 verification failures

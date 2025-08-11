@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0396_rotate_function/purellm/claude4opus/mutants/23/Solution.java:25: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method maxRotateFunction
+            f = f + allSum - len / nums[i];
+                                 ^
+1 verification failure

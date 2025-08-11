@@ -1,0 +1,12 @@
+ensures:
+- The type_string_ result's length is equal to the type_string_ param_s_'s length.
+- The type_string_ result contains the same characters as the type_string_ param_s_ with the same frequencies.
+- If appears more frequently in the type_string_ param_s_ than another character , that character appears before the other character in the string result.
+- If 2 characters have the same frequency in the type_string_ param_s_ , their relative order in the type_string_ result is arbitrary.
+- All occurrences of the same character in the type_string_ result are consecutive.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b or is equal to stry_c.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b or is equal to stry_c.
+- If the type_string_ param_s_ is equal to stry_a , the type_string_ result is equal to stry_b or is equal to stry_c.
+requires:
+- The type_string_ param_s_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 500000.
+- The type_string_ param_s_ contains alphabets and digits.

@@ -1,0 +1,72 @@
+package g0501_0600.s0532_k_diff_pairs_in_an_array;
+
+// #Medium #Array #Hash_Table #Sorting #Binary_Search #Two_Pointers #Udemy_Arrays
+// #2022_07_28_Time_13_ms_(58.23%)_Space_48.7_MB_(27.94%)
+
+import java.util.HashSet;
+
+public class Solution {
+    /*@
+      @   public normal_behavior
+      @
+      @   // ---------- PRE-CONDITIONS ----------
+      @   requires nums != null;                                    // array exists
+      @   requires 1 <= nums.length && nums.length <= 10000;        // |nums| restriction
+      @   requires 0 <= k && k <= 10000000;                         // k restriction
+      @   requires (\forall int i; 0 <= i && i < nums.length;
+      @                       -10000000 <= nums[i] && nums[i] <= 10000000);
+      @
+      @   // The implementation must not change the client-visible state
+      @   assignable \nothing;
+      @
+      @   // ---------- POST-CONDITION ----------
+      @   /*  How many distinct unordered VALUE pairs (a,b) with |a–b| = k
+      @       occur in the array?
+      @
+      @       –  We do NOT differentiate between indices, only between values.
+      @       –  For k  > 0 a pair is (a, a+k) with both values present.
+      @       –  For k == 0 a pair is (a, a) where value a occurs at least twice.
+      @
+      @       The result of the method is exactly that amount.                           */
+      @   ensures
+      @     \result ==
+      @       (k == 0                                     // ----- k == 0 --------------
+      @          ? (\num_of int a;
+      @                (\num_of int i;
+      @                     0 <= i && i < nums.length &&
+      @                     nums[i] == a)                                   /* freq(a) */
+      @                >= 2 )                                               /* ≥ 2 ?   */
+      @          : (\num_of int a;                       // ----- k  > 0 --------------
+      @                (\exists int i;
+      @                     0 <= i && i < nums.length &&
+      @                     nums[i] == a)                         /* a present      */
+      @             && (\exists int j;
+      @                     0 <= j && j < nums.length &&
+      @                     nums[j] == a + k) )               /* a+k present → one pair */
+      @     );
+      @*/
+    public int findPairs(int[] nums, int k) {
+        int res = 0;
+        HashSet<Integer> set = new HashSet<>();
+        HashSet<Integer> twice = new HashSet<>();
+        for (int n : nums) {
+            if (set.contains(n)) {
+                if (k == 0 && !twice.contains(n)) {
+                    res++;
+                    twice.add(n);
+                } else {
+                    continue;
+                }
+            } else {
+                if (set.contains(n - k)) {
+                    res++;
+                }
+                if (set.contains(n + k)) {
+                    res++;
+                }
+            }
+            set.add(n);
+        }
+        return res;
+    }
+}

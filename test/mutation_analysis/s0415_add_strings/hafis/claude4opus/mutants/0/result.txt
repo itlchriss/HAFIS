@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:15:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:35:
+//@ ensures(\forall int i; 0 <= i < \result.length(); Character.isDigit(\result.charAt(i)));
+    ^
+./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:16:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:35:
+//@ ensures(((num1.equals("11")) && (num2.equals("123"))) ==> (\result.equals("134")));
+    ^
+./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:18:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:35:
+//@ ensures(((num1.equals("456")) && (num2.equals("77"))) ==> (\result.equals("533")));
+    ^
+./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:17:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/claude4opus/mutants/0/Solution.java:35:
+//@ ensures(((num1.equals("0")) && (num2.equals("0"))) ==> (\result.equals("0")));
+    ^
+8 verification failures

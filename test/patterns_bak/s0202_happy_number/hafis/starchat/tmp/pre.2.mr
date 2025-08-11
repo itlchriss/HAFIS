@@ -1,1 +1,0 @@
--exists x01.(_algorithm{NN}(x01) & all x02.(exists e03.(_additional{JJ}(e03) & (Subj(e03) = x02) & _structure{NNS}(x02) & _datum{NNS}(x02)) -> exists e04.(_use{VB}(e04) & (Subj(e04) = x01) & (Acc(e04) = x02) & _apart{RB}(e04) & exists x05.(_param_n_{NN}(x05) & _input{NN}(x05) & _from{IN}(e04,x05)))))

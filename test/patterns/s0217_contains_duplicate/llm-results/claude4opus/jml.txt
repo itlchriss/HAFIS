@@ -1,0 +1,59 @@
+Here's the JML specification for the "Contains Duplicate" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           nums[i] >= -1000000000 && nums[i] <= 1000000000);
+      @ ensures \result == (\exists int i, j; 0 <= i && i < nums.length && 
+      @                     0 <= j && j < nums.length && i != j; 
+      @                     nums[i] == nums[j]);
+      @ pure
+      @*/
+    public boolean containsDuplicate(int[] nums) {
+        // Implementation here
+    }
+}
+```
+
+Let me break down the JML specification:
+
+1. **`requires nums != null`**: The input array must not be null.
+
+2. **`requires nums.length >= 1 && nums.length <= 100000`**: The array length constraint (1 ≤ nums.length ≤ 10⁵).
+
+3. **`requires (\forall int i; 0 <= i && i < nums.length; nums[i] >= -1000000000 && nums[i] <= 1000000000)`**: Each element must be within the range [-10⁹, 10⁹].
+
+4. **`ensures \result == (\exists int i, j; 0 <= i && i < nums.length && 0 <= j && j < nums.length && i != j; nums[i] == nums[j])`**: The method returns true if and only if there exist two different indices i and j such that nums[i] equals nums[j].
+
+5. **`pure`**: This annotation indicates that the method has no side effects and only depends on its parameters.
+
+Alternative, more readable version using helper predicates:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 100000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           nums[i] >= -1000000000 && nums[i] <= 1000000000);
+      @ ensures \result <==> hasDuplicate(nums);
+      @ pure
+      @*/
+    public boolean containsDuplicate(int[] nums) {
+        // Implementation here
+    }
+    
+    /*@ pure
+      @ public model boolean hasDuplicate(int[] arr) {
+      @     return (\exists int i, j; 0 <= i && i < arr.length && 
+      @             0 <= j && j < arr.length && i != j; 
+      @             arr[i] == arr[j]);
+      @ }
+      @*/
+}
+```

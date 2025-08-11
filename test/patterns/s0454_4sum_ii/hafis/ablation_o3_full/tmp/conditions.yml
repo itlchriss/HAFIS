@@ -1,0 +1,3 @@
+ensures:
+- The int result equals the number of index quadruples i j k l that i j k l are integers that are not is less_than to 0 and are less_than to the common length of the arrays and that nums1 at index i + nums2 at index j + nums3 at index k + nums4 at index l equals 0.
+requires: []

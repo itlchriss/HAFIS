@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/1/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/1/Solution.java:22:) in method isSubsequence
+            return true;
+            ^
+./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/1/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/purellm/o3/mutants/1/Solution.java:39:
+      @   ensures (\result == true) <==>
+          ^
+2 verification failures

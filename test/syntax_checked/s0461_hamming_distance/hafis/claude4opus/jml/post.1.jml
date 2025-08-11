@@ -1,0 +1,1 @@
+ensures((x == y) ==> (\result == 0));

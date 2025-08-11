@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/ablation_o3_full/mutants/18/Solution.java:26: error: unreachable statement
+                for (int j = 0; false; j++) {
+                                            ^
+1 error

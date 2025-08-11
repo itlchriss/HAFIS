@@ -1,0 +1,1 @@
+exists x01.(exists e02.(_second{JJ}(e02) & (Subj(e02) = x01) & _value{NN}(x01)) & exists x03.(_result{NN}(x03) & _type_integer_array_{NN}(x03) & exists e04.(_of{IN}(e04,x03) & (Subj(e04) = x01))) & exists e05.(_contain{VBN}(e05) & (Acc(e05) = x01) & exists x06.(_param_bobSizes_{NN}(x06) & _type_integer_array_{NN}(x06) & _in{IN}(e05,x06))))

@@ -1,0 +1,3 @@
+ensures:
+- int result is the single remaining integer after successively removing every other integer from the ordered sequence 1 through int the type_character_ chrs_a starting from the left direction and alternating direction each pass.
+requires: []

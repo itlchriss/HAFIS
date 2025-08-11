@@ -1,0 +1,31 @@
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:15:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:41:
+//@ ensures((\forall int i; 0 <= i < \result.length; \result[i] >= 0) && (\forall int i; 0 <= i < \result.length; \result[i] <= 9));
+    ^
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:14:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:41:
+//@ ensures((\forall int i; 0 <= i < digits.length; digits[i] == 9) ==> (\result[0] == 1));
+    ^
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method plusOne
+//@ ensures((digits[0] == 4 && digits[1] == 3 && digits[2] == 2 && digits[3] == 1 && digits.length == 4) ==> (\result[0] == 4 && \result[1] == 3 && \result[2] == 2 && \result[3] == 2 && \result.length == 4));
+                                                                         ^
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:41: verify: Associated method exit
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:18:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:41:
+//@ ensures((digits[0] == 4 && digits[1] == 3 && digits[2] == 2 && digits[3] == 1 && digits.length == 4) ==> (\result[0] == 4 && \result[1] == 3 && \result[2] == 2 && \result[3] == 2 && \result.length == 4));
+    ^
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:41: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:19:) in method plusOne
+        return digits;
+        ^
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/20/Solution.java:41:
+//@ ensures((digits[0] == 1 && digits[1] == 2 && digits[2] == 3 && digits.length == 3) ==> (\result[0] == 1 && \result[1] == 2 && \result[2] == 4 && \result.length == 3));
+    ^
+10 verification failures

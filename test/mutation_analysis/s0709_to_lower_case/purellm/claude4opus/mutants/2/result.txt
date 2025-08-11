@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/2/Solution.java:28: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

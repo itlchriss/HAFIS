@@ -1,0 +1,7 @@
+public class Sum {
+
+    public static int Sum(int num1, int num2) {
+        int r = num1 + num2;
+        return r;
+    }
+}

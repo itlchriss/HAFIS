@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0152_maximum_product_subarray/purellm/o3/mutants/17/Solution.java:58: error: unreachable statement
+        return ans;
+        ^
+1 error

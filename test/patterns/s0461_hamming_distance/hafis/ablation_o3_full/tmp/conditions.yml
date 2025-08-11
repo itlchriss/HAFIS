@@ -1,0 +1,5 @@
+ensures:
+- If int parameters the chry_a and the chry_b are equal the int result equals 0.
+- For any int parameters the chry_a and the chry_b the int result equals the count of bit positions at which the binary representations of the chry_c and the chry_d differ.
+- The int result is at least 0 and at most 31.
+requires: []

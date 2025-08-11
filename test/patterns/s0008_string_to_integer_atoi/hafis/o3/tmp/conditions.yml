@@ -1,0 +1,12 @@
+ensures:
+- The type_integer_ result is less_than_or_equal to 2147483647 and is greater_than_or_equal to negative 2147483648.
+- If the numeric value obtained from the first contiguous digit sequence after ignoring leading spaces and optional sign is greater_than to 2147483647 , the type_integer_ result is equal to 2147483647.
+- If the numeric value obtained from the first contiguous digit sequence after ignoring leading spaces and optional sign is less_than to negative 2147483648 , the type_integer_ result is equal to negative 2147483648.
+- If the type_string_ param_str_ contains no digits after ignoring leading spaces and an optional sign , the type_integer_ result is equal to 0.
+- If the type_string_ param_str_ is equal to stry_a , the type_integer_ result is equal to 42.
+- If the type_string_ param_str_ is equal to strl_a , the type_integer_ result is equal to negative 42.
+- If the type_string_ param_str_ is equal to strl_a , the type_integer_ result is equal to 4193.
+- If the type_string_ param_str_ is equal to strl_a , the type_integer_ result is equal to 0.
+- If the type_string_ param_str_ is equal to stry_a , the type_integer_ result is equal to negative 2147483648.
+requires:
+- The type_string_ param_str_'s values are either alphabets or digits or the space character or the + sign or the - sign or the dot character.

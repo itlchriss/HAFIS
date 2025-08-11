@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/ablation_o3_r50/mutants/55/Solution.java:51: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/ablation_o3_r50/mutants/55/Solution.java:11:) in method convert
+        return buf.toString();
+        ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/ablation_o3_r50/mutants/55/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0006_zigzag_conversion/hafis/ablation_o3_r50/mutants/55/Solution.java:51:
+//@ ensures(\result.length() == s.length());
+    ^
+./test/mutation_analysis/s0006_zigzag_conversion/hafis/ablation_o3_r50/mutants/55/Solution.java:16: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String convert(String s, int numRows) {
+                  ^
+3 verification failures

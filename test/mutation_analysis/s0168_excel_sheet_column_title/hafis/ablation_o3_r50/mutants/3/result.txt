@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0168_excel_sheet_column_title/hafis/ablation_o3_r50/mutants/3/Solution.java:25: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method convertToTitle
+                sb.append((char) (remainder + 64));
+                          ^
+1 verification failure

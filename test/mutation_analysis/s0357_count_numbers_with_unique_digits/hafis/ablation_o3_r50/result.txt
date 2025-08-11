@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/ablation_o3_r50/Solution.java:22: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/ablation_o3_r50/Solution.java:12:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/ablation_o3_r50/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/ablation_o3_r50/Solution.java:22:
+//@ ensures((\result == 91) && (n == 2));
+    ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/ablation_o3_r50/Solution.java:22: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/ablation_o3_r50/Solution.java:11:) in method countNumbersWithUniqueDigits
+        return ans;
+        ^
+./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/ablation_o3_r50/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0357_count_numbers_with_unique_digits/hafis/ablation_o3_r50/Solution.java:22:
+//@ ensures((\result == 1) && (n == 0));
+    ^
+4 verification failures

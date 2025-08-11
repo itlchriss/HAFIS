@@ -1,0 +1,105 @@
+Here's the JML specification for the "Is Subsequence" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires s != null && t != null;
+      @ requires 0 <= s.length() && s.length() <= 100;
+      @ requires 0 <= t.length() && t.length() <= 10000;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           'a' <= s.charAt(i) && s.charAt(i) <= 'z');
+      @ requires (\forall int i; 0 <= i && i < t.length(); 
+      @           'a' <= t.charAt(i) && t.charAt(i) <= 'z');
+      @ ensures \result == isSubsequence(s, t);
+      @ pure
+      @*/
+    public boolean isSubsequence(String s, String t) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null && t != null;
+      @ ensures \result <==> 
+      @   (\exists int[] indices; 
+      @     indices != null && indices.length == s.length() &&
+      @     isValidSubsequenceMapping(s, t, indices));
+      @ pure
+      @ model
+      @*/
+    public static /*@ pure @*/ boolean isSubsequence(String s, String t) {
+        // Model method - conceptual definition
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null && t != null && indices != null;
+      @ requires indices.length == s.length();
+      @ ensures \result <==> 
+      @   (s.length() == 0 || 
+      @    ((\forall int i; 0 <= i && i < indices.length; 
+      @       0 <= indices[i] && indices[i] < t.length()) &&
+      @     (\forall int i; 0 <= i && i < indices.length - 1; 
+      @       indices[i] < indices[i + 1]) &&
+      @     (\forall int i; 0 <= i && i < indices.length; 
+      @       s.charAt(i) == t.charAt(indices[i]))));
+      @ pure
+      @ model
+      @*/
+    private static /*@ pure @*/ boolean isValidSubsequenceMapping(
+        String s, String t, int[] indices) {
+        // Model method - defines valid index mapping
+    }
+    
+    // Alternative iterative specification using ghost variables
+    /*@ public normal_behavior
+      @ requires s != null && t != null;
+      @ requires 0 <= s.length() && s.length() <= 100;
+      @ requires 0 <= t.length() && t.length() <= 10000;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           'a' <= s.charAt(i) && s.charAt(i) <= 'z');
+      @ requires (\forall int i; 0 <= i && i < t.length(); 
+      @           'a' <= t.charAt(i) && t.charAt(i) <= 'z');
+      @ {|
+      @   ghost int sIndex = 0;
+      @   ghost int tIndex = 0;
+      @   
+      @   maintaining 0 <= sIndex && sIndex <= s.length();
+      @   maintaining 0 <= tIndex && tIndex <= t.length();
+      @   maintaining (\forall int i; 0 <= i && i < sIndex;
+      @     (\exists int j; 0 <= j && j < tIndex; 
+      @       s.charAt(i) == t.charAt(j) &&
+      @       (\forall int k; 0 <= k && k < i;
+      @         (\exists int m; 0 <= m && m < j; 
+      @           s.charAt(k) == t.charAt(m)))));
+      @   decreasing t.length() - tIndex;
+      @ |}
+      @ ensures \result == (sIndex == s.length());
+      @ pure
+      @*/
+    public boolean isSubsequenceIterative(String s, String t) {
+        // Implementation here
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions**: 
+   - Non-null strings
+   - Length constraints (0-100 for s, 0-10000 for t)
+   - Only lowercase English letters
+
+2. **Main postcondition**: The result is true if and only if there exists a valid mapping of indices from s to t that preserves order
+
+3. **Model methods**: 
+   - `isSubsequence`: Provides the conceptual definition
+   - `isValidSubsequenceMapping`: Defines what makes a valid index mapping
+
+4. **Index mapping properties**:
+   - Each character in s maps to a character in t at a specific index
+   - The indices are strictly increasing (preserving order)
+   - The characters at mapped positions match
+
+5. **Alternative iterative specification**: Shows how the algorithm might work with ghost variables tracking progress through both strings
+
+This specification captures the essence of the subsequence relationship while being verifiable by JML tools.

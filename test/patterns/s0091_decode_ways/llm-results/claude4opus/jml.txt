@@ -1,0 +1,107 @@
+Here's the JML specification for the decode ways problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires s.length() >= 1 && s.length() <= 100;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           '0' <= s.charAt(i) && s.charAt(i) <= '9');
+      @ ensures \result >= 0;
+      @ ensures \result <= Integer.MAX_VALUE;
+      @ ensures s.equals("0") ==> \result == 0;
+      @ ensures s.startsWith("0") && s.length() > 1 ==> \result == 0;
+      @ ensures validEncoding(s) ==> \result > 0;
+      @ ensures !validEncoding(s) ==> \result == 0;
+      @*/
+    public /*@ pure @*/ int numDecodings(String s) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ requires s.length() >= 1;
+      @ ensures \result == true <==> 
+      @   !s.startsWith("0") &&
+      @   (\forall int i; 0 <= i && i < s.length(); 
+      @     s.charAt(i) != '0' || (i > 0 && canFormValidTwoDigit(s.charAt(i-1), s.charAt(i))));
+      @*/
+    private /*@ pure @*/ boolean validEncoding(String s) {
+        // Helper method to check if string can be validly decoded
+    }
+    
+    /*@ private normal_behavior
+      @ requires '0' <= first && first <= '9';
+      @ requires '0' <= second && second <= '9';
+      @ ensures \result == true <==> 
+      @   (first == '1' && '0' <= second && second <= '9') ||
+      @   (first == '2' && '0' <= second && second <= '6');
+      @*/
+    private /*@ pure @*/ boolean canFormValidTwoDigit(char first, char second) {
+        // Helper method to check if two characters form valid mapping (10-26)
+    }
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ requires s.length() == 1;
+      @ requires '0' <= s.charAt(0) && s.charAt(0) <= '9';
+      @ ensures s.charAt(0) == '0' ==> \result == 0;
+      @ ensures s.charAt(0) != '0' ==> \result == 1;
+      @*/
+    private /*@ pure @*/ int decodeSingleDigit(String s) {
+        // Base case for single digit
+    }
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ requires s.length() == 2;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           '0' <= s.charAt(i) && s.charAt(i) <= '9');
+      @ ensures s.startsWith("0") ==> \result == 0;
+      @ ensures s.equals("10") || s.equals("20") ==> \result == 1;
+      @ ensures !s.startsWith("0") && canFormValidTwoDigit(s.charAt(0), s.charAt(1)) && 
+      @         s.charAt(1) != '0' ==> \result == 2;
+      @ ensures !s.startsWith("0") && canFormValidTwoDigit(s.charAt(0), s.charAt(1)) && 
+      @         s.charAt(1) == '0' ==> \result == 1;
+      @ ensures !s.startsWith("0") && !canFormValidTwoDigit(s.charAt(0), s.charAt(1)) && 
+      @         s.charAt(1) != '0' ==> \result == 1;
+      @ ensures !s.startsWith("0") && !canFormValidTwoDigit(s.charAt(0), s.charAt(1)) && 
+      @         s.charAt(1) == '0' ==> \result == 0;
+      @*/
+    private /*@ pure @*/ int decodeTwoDigits(String s) {
+        // Base case for two digits
+    }
+    
+    /*@ public invariant
+      @ (\forall String str; str != null && str.length() >= 1;
+      @   numDecodings(str) == 0 <==> 
+      @     (str.startsWith("0") || 
+      @      (\exists int i; 0 <= i && i < str.length(); 
+      @        str.charAt(i) == '0' && 
+      @        (i == 0 || !canFormValidTwoDigit(str.charAt(i-1), str.charAt(i))))));
+      @*/
+}
+```
+
+This JML specification captures:
+
+1. **Preconditions**: 
+   - Non-null string
+   - Length between 1 and 100
+   - Contains only digits
+
+2. **Postconditions**:
+   - Result is non-negative and fits in 32-bit integer
+   - Returns 0 for strings starting with "0"
+   - Returns 0 for invalid encodings
+   - Returns positive number for valid encodings
+
+3. **Helper methods** with specifications for:
+   - Checking if entire string is validly decodable
+   - Checking if two digits form valid mapping (10-26)
+   - Base cases for single and two digit strings
+
+4. **Class invariant** that captures when decoding count is 0
+
+The specification ensures that the implementation correctly handles all edge cases including leading zeros, invalid mappings, and the constraint that valid two-digit mappings are only 10-26.

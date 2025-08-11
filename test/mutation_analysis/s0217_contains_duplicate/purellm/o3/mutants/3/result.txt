@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0217_contains_duplicate/purellm/o3/mutants/3/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0217_contains_duplicate/purellm/o3/mutants/3/Solution.java:23:) in method containsDuplicate
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/purellm/o3/mutants/3/Solution.java:23: verify: Associated declaration: ./test/mutation_analysis/s0217_contains_duplicate/purellm/o3/mutants/3/Solution.java:39:
+      @ ensures \result <==>                                     // result is true  …
+        ^
+2 verification failures

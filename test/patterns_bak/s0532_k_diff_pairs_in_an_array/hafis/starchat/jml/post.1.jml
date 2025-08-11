@@ -1,1 +1,0 @@
-ensures(((nums[0] == 3 && nums[1] == 1 && nums[2] == 4 && nums[3] == 1 && nums[4] == 5 && nums.length == 5) && (k == 2)) ==> (\result == 2));

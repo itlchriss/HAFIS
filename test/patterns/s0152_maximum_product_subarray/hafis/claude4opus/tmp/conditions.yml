@@ -1,0 +1,11 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to negative 2147483648 and is less_than_or_equal to 2147483647.
+- The type_integer_ result is greater_than_or_equal to the minimum value in the type_integer_array_ param_arr_.
+- The type_integer_ result is less_than_or_equal to the product of all positive values in the type_integer_array_ param_arr_.
+- If the type_integer_array_ param_arr_ is equal to arr_a , the type_integer_ result is equal to 6.
+- If the type_integer_array_ param_arr_ is equal to arr_a , the type_integer_ result is equal to 0.
+- If the type_integer_array_ param_arr_'s values are positive , the type_integer_ result is equal to the product of the type_integer_array_ param_arr_'s values.
+- If the type_integer_array_ param_arr_ only contains 1 element , the type_integer_ result is equal to that element.
+requires:
+- The type_integer_array_ param_arr_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 20000.
+- The type_integer_array_ param_arr_'s values are greater_than_or_equal to negative 10 and are less_than_or_equal to 10.

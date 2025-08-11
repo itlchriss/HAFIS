@@ -1,0 +1,37 @@
+package g0401_0500.s0405_convert_a_number_to_hexadecimal;
+
+// #Easy #Math #Bit_Manipulation #2022_07_16_Time_1_ms_(71.02%)_Space_42.2_MB_(15.68%)
+
+public class Solution {
+    /*@ public normal_behavior
+      @ requires Integer.MIN_VALUE <= num && num <= Integer.MAX_VALUE;
+      @ ensures \result != null;
+      @ ensures \result.length() >= 1;
+      @ ensures num == 0 ==> \result.equals("0");
+      @ ensures num != 0 ==> !\result.startsWith("0");
+      @ // // ensures (\forall int i; 0 <= i && i < \result.length();
+      @ //          isValidHexChar(\result.charAt(i)));
+      @ // // ensures num >= 0 ==> \result.length() <= 8;
+      @ // // ensures num < 0 ==> \result.length() == 8;
+      @ // // ensures num == 26 ==> \result.equals("1a");
+      @ // // ensures num == -1 ==> \result.equals("ffffffff");
+      @ // // assignable \nothing;
+      @ // //*/
+    public String toHex(int num) {
+        if (num == 0) {
+            return "0";
+        }
+        StringBuilder sb = new StringBuilder();
+        int x;
+        while (num != 0) {
+            x = num & 0xf;
+            if (x < 10) {
+                sb.append(x);
+            } else {
+                sb.append((char) (x + 87));
+            }
+            num = num << 4;
+        }
+        return sb.reverse().toString();
+    }
+}

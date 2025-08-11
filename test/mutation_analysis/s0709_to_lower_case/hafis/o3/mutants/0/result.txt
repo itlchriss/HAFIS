@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:18: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method toLowerCase
+            if (c[i] <= 'Z' && c[i] >= 'A') {
+                 ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:18: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method toLowerCase
+            if (c[i] <= 'Z' && c[i] >= 'A') {
+                 ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:22: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:13:) in method toLowerCase
+        return new String(c);
+        ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:22:
+//@ ensures((s.equals("here")) ==> (\result.equals("here")));
+    ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:22: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:12:) in method toLowerCase
+        return new String(c);
+        ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:22:
+//@ ensures((s.equals("LOVELY")) ==> (\result.equals("lovely")));
+    ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:22: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:14:) in method toLowerCase
+        return new String(c);
+        ^
+./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0709_to_lower_case/hafis/o3/mutants/0/Solution.java:22:
+//@ ensures((s.equals("Hello")) ==> (\result.equals("hello")));
+    ^
+8 verification failures

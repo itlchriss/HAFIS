@@ -1,0 +1,2 @@
+- ensures result of type int equals the minimum count of single character insertions deletions or replacements needed to convert the value of parameter `w1` to the value of parameter `w2`
+- ensures result of type int is zero if and only if the value of parameter `w1` equals the value of parameter `w2`

@@ -1,0 +1,65 @@
+Looking at this specification, I need to convert it into JML (Java Modeling Language) format. The specification asks to count the total number of digit '1' appearing in all non-negative integers from 0 to n (inclusive).
+
+Here's the JML specification:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires 0 <= n && n <= 1000000000;
+      @ ensures \result == countOfOnes(n);
+      @ ensures \result >= 0;
+      @*/
+    public /*@ pure @*/ int countDigitOne(int n);
+    
+    /*@ public normal_behavior
+      @ requires 0 <= n && n <= 1000000000;
+      @ ensures \result == (\sum int i; 0 <= i && i <= n; countOnesInNumber(i));
+      @*/
+    /*@ spec_public @*/ private /*@ pure @*/ int countOfOnes(int n);
+    
+    /*@ public normal_behavior
+      @ requires num >= 0;
+      @ ensures \result == countOnesInNumberRec(num, 0);
+      @ ensures \result >= 0;
+      @*/
+    /*@ spec_public @*/ private /*@ pure @*/ int countOnesInNumber(int num);
+    
+    /*@ public normal_behavior
+      @ requires num >= 0 && count >= 0;
+      @ ensures num == 0 ==> \result == count;
+      @ ensures num > 0 && num % 10 == 1 ==> 
+      @         \result == countOnesInNumberRec(num / 10, count + 1);
+      @ ensures num > 0 && num % 10 != 1 ==> 
+      @         \result == countOnesInNumberRec(num / 10, count);
+      @ ensures \result >= count;
+      @ measured_by num;
+      @*/
+    /*@ spec_public @*/ private /*@ pure @*/ int countOnesInNumberRec(int num, int count);
+}
+```
+
+Key elements of this JML specification:
+
+1. **Preconditions (`requires`)**: 
+   - The input `n` must be between 0 and 10^9 (inclusive)
+
+2. **Postconditions (`ensures`)**:
+   - The result equals the count of all '1' digits in numbers from 0 to n
+   - The result is non-negative
+
+3. **Helper specifications**:
+   - `countOfOnes`: Uses JML's `\sum` quantifier to express the sum of '1's in all numbers from 0 to n
+   - `countOnesInNumber`: Counts the number of '1' digits in a single number
+   - `countOnesInNumberRec`: Recursive helper that actually counts '1's in a number
+
+4. **Method modifiers**:
+   - `pure`: Methods have no side effects
+   - `spec_public`: Private methods made public for specification purposes
+   - `measured_by`: Termination measure for recursive method
+
+5. **Behavioral specification**:
+   - Uses `normal_behavior` to indicate the method should not throw exceptions
+   - The recursive helper uses pattern matching on the last digit to count '1's
+
+This specification captures the essence of counting all occurrences of the digit '1' in the range [0, n] while maintaining formal correctness for verification tools.

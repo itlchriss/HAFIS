@@ -1,0 +1,4 @@
+- The String parameter `s` may include upper case English letters lower case English letters digits and space characters with no other character types permitted.
+- The String result shall present the words that appear in `s` in precisely reverse order joined by exactly one space character.
+- The String result shall exclude any leading or trailing space characters so that its first and last characters are never spaces.
+- The String result shall collapse every series of two or more consecutive space characters that occur in `s` into a single space character used as the separator between adjacent words.

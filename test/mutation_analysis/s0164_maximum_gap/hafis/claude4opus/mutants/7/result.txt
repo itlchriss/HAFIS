@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0164_maximum_gap/hafis/claude4opus/mutants/7/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method maximumGap
+//@ ensures((nums[0] == 3 && nums[1] == 6 && nums[2] == 9 && nums[3] == 1 && nums.length == 4) ==> (\result == 3));
+                                 ^
+./test/mutation_analysis/s0164_maximum_gap/hafis/claude4opus/mutants/7/Solution.java:19: verify: Associated method exit
+            return 0;
+            ^
+./test/mutation_analysis/s0164_maximum_gap/hafis/claude4opus/mutants/7/Solution.java:25: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method maximumGap
+            if ((nums[i + 1] - nums[i]) > ret) {
+                     ^
+3 verification failures

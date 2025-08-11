@@ -1,0 +1,9 @@
+- The integer parameter `n` is greater than or equal to -2147483648 and is less than or equal to 2147483647.
+- If the boolean result is equal to the true literal, the integer parameter `n` is a power of 2.
+- If the boolean result is equal to the false literal, the integer parameter `n` is not a power of 2.
+- If the integer parameter `n` is less than or equal to 0, the boolean result is equal to the false literal.
+- If the integer parameter `n` is equal to 1, the boolean result is equal to the true literal.
+- If the integer parameter `n` is equal to 16, the boolean result is equal to the true literal.
+- If the integer parameter `n` is equal to 3, the boolean result is equal to the false literal.
+- If the integer parameter `n` is equal to 4, the boolean result is equal to the true literal.
+- If the integer parameter `n` is equal to 5, the boolean result is equal to the false literal.

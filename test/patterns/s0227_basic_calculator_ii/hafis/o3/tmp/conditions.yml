@@ -1,0 +1,10 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to negative 2147483648 and is less_than_or_equal to 2147483647.
+- The type_integer_ result is equal to the value obtained by evaluating the expression represented by the type_string_ param_s_ that multiplication and division are applied before addition and subtraction and that operators with the same precedence are processed from left to right.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_ result is equal to 7.
+- If the type_string_ param_s_ is equal to strl_a , the type_integer_ result is equal to 1.
+- If the type_string_ param_s_ is equal to strl_a , the type_integer_ result is equal to 5.
+requires:
+- The type_string_ param_s_ only contains numeric digits space characters the + sign the - sign the asterisk sign and the forward slash sign.
+- All integer tokens inside the type_string_ param_s_ are greater_than_or_equal to 0 and are less_than_or_equal to 2147483647.
+- The type_string_ param_s_ is equal to syntactically valid arithmetic expression formed with the operators + - asterisk and forward slash.

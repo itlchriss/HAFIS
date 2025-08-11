@@ -1,1 +1,0 @@
-ensures(((w1.equals("horse")) && (w2.equals("ros"))) ==> (\result == 3));

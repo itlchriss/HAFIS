@@ -1,0 +1,34 @@
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.<init>:
+    Created MajorPluginTaskListener with options: [mml:../major/mml/all.mml.bin]
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.initOperatorSymbols:
+    Initializing operator symbols for opcode mapping
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.mutateTree:
+    Mutating tree: Env[AttrContext[Scope[super, this]],outer=Env[AttrContext[Scope[java.util.Set, java.util.HashSet, g0901_1000.s0961_n_repeated_element_in_size_2n_array.Solution]]]]
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitClassDef:
+    CLASS: g0901_1000.s0961_n_repeated_element_in_size_2n_array.Solution
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: <init>([])null
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.visitMethodDef:
+    METHOD: repeatedNTimes([int[] nums])int
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 1
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 2
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 1: Solution.repeatedNTimes(line 40, col 25)
+            mutation operator group:   COR
+            mutation operator:         <METHOD_INVOCATION(boolean)> |==> TRUE
+            original:                  set.add(num) 
+            mutant:                    false
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutant:
+    Logging mutant 2: Solution.repeatedNTimes(line 40, col 25)
+            mutation operator group:   COR
+            mutation operator:         <METHOD_INVOCATION(boolean)> |==> FALSE
+            original:                  set.add(num) 
+            mutant:                    true
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.nextMutant:
+    Creating mutant 3
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.mutation.Mutator.logMutantSTD:
+    Logging mutantSTD 3: (STD) return num; -> <NO-OP>
+[07/25 23:40:24] [INFO   ] org.mutationtesting.major.plugin.MajorPluginTaskListener.mutate:
+    Generated 3 mutants (38 ms)

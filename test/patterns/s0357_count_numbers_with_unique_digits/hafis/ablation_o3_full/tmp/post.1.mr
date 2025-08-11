@@ -1,0 +1,1 @@
+exists x01.(exists e02.(_int{JJ}(e02) & (Subj(e02) = x01) & _result{NN}(x01)) & exists x03.(_1{CD}(x03) & exists e04.(_equal{VBZ}(e04) & (Subj(e04) = x01) & (Acc(e04) = x03))) & exists x05.(exists e06.(_int{JJ}(e06) & (Subj(e06) = x05) & _stry_a{NN}(x05)) & exists x07.(_0{CD}(x07) & exists e08.(_equal{VBZ}(e08) & (Subj(e08) = x05) & (Acc(e08) = x07)))))

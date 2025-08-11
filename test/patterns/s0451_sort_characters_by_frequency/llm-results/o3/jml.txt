@@ -1,0 +1,80 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Below is a self–contained JML-annotated Java “stub’’ that captures exactly the semantics stated in the English problem description.  
+The body of `frequencySort` has been elided on purpose – only the specification is requested.
+
+```java
+public class FrequencySorter {
+
+    /*@ public static model int countChar(String s, char c);
+      @   ensures \result ==
+      @           (\num_of int i; 0 <= i && i < s.length();
+      @                         s.charAt(i) == c);
+      @*/
+
+    /*@
+      @ public normal_behavior
+      @
+      @   // ----------  PRE-CONDITIONS  ----------
+      @   requires s != null;
+      @   requires 1 <= s.length() && s.length() <= 500000;
+      @   // only upper-case letters, lower-case letters, or digits
+      @   requires (\forall int i; 0 <= i && i < s.length();
+      @                 ('a' <= s.charAt(i) && s.charAt(i) <= 'z') ||
+      @                 ('A' <= s.charAt(i) && s.charAt(i) <= 'Z') ||
+      @                 ('0' <= s.charAt(i) && s.charAt(i) <= '9'));
+      @
+      @   // ----------  POST-CONDITIONS  ----------
+      @   ensures \result != null;
+      @
+      @   // Same length as the input
+      @   ensures \result.length() == s.length();
+      @
+      @   // 1.  Multiset preservation: each character occurs
+      @   //     exactly as many times in the result as in the input.
+      @   ensures (\forall char c;
+      @               countChar(s,       c) ==
+      @               countChar(\result, c));
+      @
+      @   // 2.  Characters appear in a single contiguous block
+      @   //     (i.e. identical characters are not interleaved
+      @   //      with different ones).
+      @   ensures (\forall int i, j, k;
+      @               0 <= i && i <= j && j <= k && k < \result.length();
+      @               \result.charAt(i) == \result.charAt(k)
+      @            ==> \result.charAt(j) == \result.charAt(i));
+      @
+      @   // 3.  Blocks are ordered by non-increasing frequency.
+      @   //     Whenever two different characters occur in positions
+      @   //     i < j, the frequency of the one at i is >= the frequency
+      @   //     of the one at j (ties may appear in any order).
+      @   ensures (\forall int i, j;
+      @               0 <= i && i < j && j < \result.length();
+      @               \result.charAt(i) != \result.charAt(j)
+      @            ==> countChar(s, \result.charAt(i))
+      @              >= countChar(s, \result.charAt(j)));
+      @
+      @   // Function is pure ⇒ no visible side effects
+      @   assignable \nothing;
+      @*/
+    public /*@ pure @*/ static String frequencySort(String s) {
+        // implementation goes here
+        return null;
+    }
+}
+```
+
+How to read the specification
+
+1. Preconditions (`requires`) match the stated constraints:
+   • `1 <= s.length() <= 5·10⁵`  
+   • `s` contains only upper-case letters, lower-case letters or digits.
+
+2. The auxiliary model function `countChar` gives the number of occurrences of a particular character in a string.  
+   It is used to describe the post-conditions concisely.
+
+3. Post-conditions (`ensures`) capture the three essential obligations:
+   • permutation of the original multiset of characters,  
+   • each character’s occurrences form one contiguous block,  
+   • those blocks are arranged by non-increasing frequency.
+
+Any implementation that satisfies this specification is a correct solution to
+“451. Sort Characters By Frequency’’.

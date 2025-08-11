@@ -1,0 +1,10 @@
+ensures:
+- result int[] must contain 2 elements.
+- The first_element of result int[] is equal to value that occurs in param_int_[] the type_string_ strs_a.
+- The second_element of result int[] is equal to value that occurs in param_int_[] the type_string_ strs_a.
+- After execution the summation in param_int_[] the type_string_ strs_a - the first_element of result int[] + the second_element of result int[] equals the summation in param_int_[] the type_string_ strs_b - the second_element of result int[] + the first_element of result int[].
+- For every input that meets the prerequisites at least 1 result int[] meeting these behavioural specifications is guaranteed to exist.
+requires:
+- Every value in param_int_[] the type_string_ strs_a is at least 1 and at most 100000.
+- Every value in param_int_[] the type_string_ strs_a is at least 1 and at most 100000.
+- The summation in param_int_[] the type_string_ strs_a must differ from the summation in param_int_[] the type_string_ strs_b.

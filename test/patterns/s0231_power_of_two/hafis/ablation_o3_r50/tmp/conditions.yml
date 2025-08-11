@@ -1,0 +1,9 @@
+ensures:
+- The type_boolean_ result is equal to the true literal if the type_integer_ param_n_ is greater_than to 0 and the type_integer_ param_n_ is equal to 2 raised to an integer exponent.
+- If the type_integer_ param_n_ is equal to 1 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 16 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 3 , the type_boolean_ result is equal to the false literal.
+- If the type_integer_ param_n_ is equal to 4 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 5 , the type_boolean_ result is equal to the false literal.
+- If the type_integer_ param_n_ is less_than_or_equal to 0 , the type_boolean_ result is equal to the false literal.
+requires: []

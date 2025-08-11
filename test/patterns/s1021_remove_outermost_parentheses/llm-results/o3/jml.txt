@@ -1,0 +1,126 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Below is a compact but complete JML contract for a Java method
+    String removeOuterParentheses(String s)
+whose behaviour is exactly what the informal specification of LeetCode 1021
+(“Remove Outermost Parentheses”) requires.
+
+The contract is written so that it can be understood and checked by any
+standard JML run-time checker or static verifier.  Everything that is not
+needed for the *behavioural* description (e.g., the actual implementation of
+the algorithm) has purposely been left out or declared as a *model* element.
+Those model elements give the specification the vocabulary it needs without
+forcing you to implement them.
+
+```java
+import java.util.*;
+
+/** 1021. Remove Outermost Parentheses */
+public class Solution {
+
+    /*@  // ────────────────────────────────────────────────────────────
+        //  AUXILIARY ― vocabulary required by the post–conditions
+        // ─────────────────────────────────────────────────────────── */
+
+        // (1) prefixBalance(str,i)  ==  #‘(’ − #‘)’  in   str[0 .. i-1]
+        public model pure static /*@ nullable @*/ int prefixBalance(String str, int i);
+
+        // (2)  A valid parentheses string is one whose
+        //      a) every prefix has non–negative balance and
+        //      b) complete balance is zero.
+        public model pure static boolean isValid(String str);
+
+        // (3)  A primitive VPS is a non–empty valid VPS that cannot be
+        //      split into two non-empty valid VPSs.
+        public model pure static boolean isPrimitive(String str);
+
+        // (4)  Splits str into its consecutive primitive factors.
+        //      For every k : 0 ≤ k < primitiveCount(str) the substring
+        //          primitiveAt(str,k)
+        //      is the k-th primitive, and their concatenation is str itself.
+        public model pure static int    primitiveCount(String str);
+        public model pure static String primitiveAt  (String str, int k);
+
+        // (5)  Removes ONE level of parenthesis from a primitive string.
+        public model pure static String stripOuter(String primitive);
+
+        // (6)  The mathematical result the method has to return.
+        public model pure static String removeOuterSpec(String s);
+        /*@ public normal_behavior
+              requires s != null;
+              requires 1 <= s.length() && s.length() <= 100000;
+
+              // only '(' or ')' may occur
+              requires (\forall int i; 0 <= i && i < s.length();
+                           s.charAt(i) == '(' || s.charAt(i) == ')');
+
+              // the input has to be a valid parenthesis string
+              requires isValid(s);
+
+              // Definition of the required result (informal helper):
+              // removeOuterSpec concatenates stripOuter over all primitives.
+              defines removeOuterSpec;
+
+              // ───────────────────────────────────────────────────
+              //  MAIN POST-CONDITIONS
+              // ───────────────────────────────────────────────────
+              ensures \result.equals(removeOuterSpec(s));
+
+              // size bookkeeping:
+              ensures \result.length() ==
+                      s.length() - 2 * primitiveCount(s);
+
+              // the result itself is a valid VPS (possibly the empty string)
+              ensures \result.length() == 0 || isValid(\result);
+
+              // No frame condition: the method is pure.
+              assignable \nothing;
+          @*/
+    public static String removeOuterParentheses(String s) {
+        /*  Any correct implementation may be placed here.
+            One typical solution is to maintain a depth counter and
+            copy all characters whose depth is strictly greater than 1
+            (‘(’) or strictly greater than 0 (‘)’), respectively.          */
+        StringBuilder out = new StringBuilder(s.length());
+        int depth = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(') {
+                if (depth > 0) out.append(c);  // not an outer ‘(’
+                depth++;
+            } else {              // c == ')'
+                depth--;
+                if (depth > 0) out.append(c);  // not an outer ‘)’
+            }
+        }
+        return out.toString();
+    }
+}
+```
+
+Explanation of the contract (summary)
+
+1. **Pre-conditions**
+   • `s` must be non-null, have the prescribed length, consist only of
+   parentheses characters, and itself be a *valid parentheses string*.
+
+2. **Model vocabulary**
+   Six *model* functions (`prefixBalance`, `isValid`, …) are declared.
+   They are *pure*, i.e. have no side effects, and are left
+   uninterpreted.  Any JML tool may treat them axiomatically, and no
+   concrete Java code is required for them.
+
+3. **Post-conditions**
+   • The result must *exactly* equal `removeOuterSpec(s)`, i.e. the
+   concatenation of every primitive factor of `s`
+   after deleting its first and last character.  
+   • Its length must therefore be
+     `s.length() − 2 × primitiveCount(s)`.  
+   • The string that is returned is itself again a valid VPS (possibly
+     the empty string).  
+
+4. **Frame condition**
+   The method is *pure* (`assignable \nothing;`): it may not change any
+   visible state outside itself.
+
+With this contract a verifier can prove that any implementation of
+`removeOuterParentheses` which satisfies the method body indeed conforms
+to the informal specification given for LeetCode 1021.

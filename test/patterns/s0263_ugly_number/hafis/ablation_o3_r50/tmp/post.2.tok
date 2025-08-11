@@ -1,0 +1,1 @@
+If the type_integer_ param_n_ is greater_than to 0 and at least 1 prime factor of the type_integer_ param_n_ is not 2 and is not 3 and is not 5 , the type_boolean_ result is equal to the false literal . 

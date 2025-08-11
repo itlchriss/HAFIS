@@ -1,0 +1,100 @@
+Here's the JML specification for the Excel Sheet Column Title problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires 1 <= columnNumber && columnNumber <= Integer.MAX_VALUE;
+      @ ensures \result != null;
+      @ ensures \result.length() >= 1;
+      @ ensures (\forall int i; 0 <= i && i < \result.length(); 
+      @          'A' <= \result.charAt(i) && \result.charAt(i) <= 'Z');
+      @ ensures columnNumber == columnToNumber(\result);
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ String convertToTitle(int columnNumber) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ requires s.length() >= 1;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @          'A' <= s.charAt(i) && s.charAt(i) <= 'Z');
+      @ ensures \result >= 1;
+      @ ensures \result == 
+      @   (\sum int i; 0 <= i && i < s.length();
+      @     (s.charAt(i) - 'A' + 1) * 
+      @     (\product int j; i < j && j < s.length(); 26));
+      @ assignable \nothing;
+      @ also
+      @ private exceptional_behavior
+      @ requires s == null || s.length() == 0;
+      @ signals_only NullPointerException, IllegalArgumentException;
+      @*/
+    private /*@ pure @*/ int columnToNumber(String s) {
+        // Helper method to verify the inverse relationship
+    }
+    
+    // Alternative specification with more explicit postconditions
+    /*@ public normal_behavior
+      @ requires 1 <= columnNumber && columnNumber <= Integer.MAX_VALUE;
+      @ ensures \result != null;
+      @ ensures \result.length() >= 1;
+      @ ensures (\forall int i; 0 <= i && i < \result.length(); 
+      @          'A' <= \result.charAt(i) && \result.charAt(i) <= 'Z');
+      @ ensures columnNumber == 1 ==> \result.equals("A");
+      @ ensures columnNumber == 26 ==> \result.equals("Z");
+      @ ensures columnNumber == 27 ==> \result.equals("AA");
+      @ ensures columnNumber == 28 ==> \result.equals("AB");
+      @ ensures columnNumber == 701 ==> \result.equals("ZY");
+      @ ensures columnNumber == 2147483647 ==> \result.equals("FXSHRXW");
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ String convertToTitleAlternative(int columnNumber) {
+        // Implementation here
+    }
+    
+    // Additional invariants and specifications
+    /*@ public invariant 
+      @ (\forall int n; 1 <= n && n <= 26; 
+      @   convertToTitle(n).length() == 1 &&
+      @   convertToTitle(n).charAt(0) == (char)('A' + n - 1));
+      @*/
+    
+    /*@ public invariant
+      @ (\forall int n; 27 <= n && n <= 702;
+      @   convertToTitle(n).length() == 2);
+      @*/
+    
+    /*@ public invariant
+      @ (\forall int n; 703 <= n && n <= 18278;
+      @   convertToTitle(n).length() == 3);
+      @*/
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions**: 
+   - `columnNumber` must be between 1 and Integer.MAX_VALUE (2^31 - 1)
+
+2. **Postconditions**:
+   - Result is never null
+   - Result has at least one character
+   - All characters in the result are uppercase letters (A-Z)
+   - The result correctly maps back to the original column number
+
+3. **Purity**: 
+   - The method is marked as `pure` since it has no side effects
+
+4. **Helper Method**: 
+   - Included a specification for `columnToNumber` to verify the inverse relationship
+
+5. **Specific Examples**: 
+   - The alternative specification includes explicit postconditions for the given examples
+
+6. **Class Invariants**: 
+   - Specify properties about the length of results for different ranges of column numbers
+
+The specification captures the bijective base-26 numeral system used in Excel column naming, where A=1, B=2, ..., Z=26, AA=27, etc.

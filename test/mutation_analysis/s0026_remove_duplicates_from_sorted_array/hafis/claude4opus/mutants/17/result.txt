@@ -1,0 +1,91 @@
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 2 && nums.length == 3) ==> (\result == 2));
+                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:24: verify: Associated method exit
+            return n;
+            ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:16:) in method removeDuplicates
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35:
+//@ ensures((\forall int i; 0 <= i < nums.length; (\forall int j; 0 <= j < nums.length && j != i; nums[j] != nums[i])) ==> (\result == nums.length));
+    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+                                                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+                                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:24: verify: Associated method exit
+            return n;
+            ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:24: verify: Associated method exit
+            return n;
+            ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+                                                                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+                                                                                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 2 && nums.length == 3) ==> (\result == 2));
+                                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+                                                                                                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+                                                                                                                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:18:) in method removeDuplicates
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35:
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 2 && nums.length == 3) ==> (\result == 2));
+    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+                                                                                                                                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: Associated method exit
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17:) in method removeDuplicates
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35:
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+    ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method removeDuplicates
+//@ ensures((nums[0] == 0 && nums[1] == 0 && nums[2] == 1 && nums[3] == 1 && nums[4] == 1 && nums[5] == 2 && nums[6] == 2 && nums[7] == 3 && nums[8] == 3 && nums[9] == 4 && nums.length == 10) ==> (\result == 5));
+                                                                                                                                                                 ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/claude4opus/mutants/17/Solution.java:35: verify: Associated method exit
+        return i + 1;
+        ^
+30 verification failures

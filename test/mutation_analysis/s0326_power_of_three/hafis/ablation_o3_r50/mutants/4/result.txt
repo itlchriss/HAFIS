@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:21: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:13:) in method isPowerOfThree
+                return false;
+                ^
+./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:21:
+//@ ensures((n == 27) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:21: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:14:) in method isPowerOfThree
+                return false;
+                ^
+./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:21:
+//@ ensures((n == 9) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:25: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:12:) in method isPowerOfThree
+        return true;
+        ^
+./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0326_power_of_three/hafis/ablation_o3_r50/mutants/4/Solution.java:25:
+//@ ensures((n == 0) ==> (\result == false));
+    ^
+6 verification failures

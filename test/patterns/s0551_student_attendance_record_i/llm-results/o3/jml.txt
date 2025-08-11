@@ -1,0 +1,57 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Below is a self-contained JML contract for a method that implements LeetCode 551 “Student Attendance Record I”.  
+Only the contract (i.e. the formal specification) is given; the Java code of the
+method body is irrelevant for the specification and can be added later.
+
+```java
+public class Solution {
+
+    /**
+     * Return true iff the student qualifies for the attendance award.
+     */
+    /*@ public normal_behavior
+      @
+      @   // ------------- PRECONDITIONS ------------------------------------
+      @   // 1. The argument exists and obeys the given length bounds.
+      @   requires s != null;
+      @   requires 1 <= s.length() && s.length() <= 1000;
+      @
+      @   // 2. Each character is one of ‘A’, ‘L’, or ‘P’.
+      @   requires (\forall int i; 0 <= i && i < s.length();
+      @                       s.charAt(i) == 'A' ||
+      @                       s.charAt(i) == 'L' ||
+      @                       s.charAt(i) == 'P');
+      @
+      @   // ------------- POSTCONDITION ------------------------------------
+      @   //  result  ==  (fewer than two ‘A’)  AND  (no “LLL” substring)
+      @   ensures \result <==>
+      @           (
+      @              // (a) strictly fewer than 2 ‘A’
+      @              (\sum int i; 0 <= i && i < s.length();
+      @                         (s.charAt(i) == 'A' ? 1 : 0)) < 2
+      @           )
+      @           &&
+      @           (
+      @              // (b) never three consecutive ‘L’
+      @              (\forall int i; 0 <= i && i <= s.length() - 3;
+      @                  !(s.charAt(i)     == 'L' &&
+      @                    s.charAt(i + 1) == 'L' &&
+      @                    s.charAt(i + 2) == 'L'))
+      @           );
+      @
+      @   // ------------- FRAME CONDITION ----------------------------------
+      @   assignable \nothing;          // The method is observationally pure.
+      @*/
+    public /*@ pure @*/ boolean checkRecord(String s) {
+        // implementation goes here
+    }
+}
+```
+
+Explanation of the most important JML constructs used:
+
+• `requires` …   Preconditions that must hold when the method is called.  
+• `ensures` …    Postcondition that relates the returned value (`\result`) to the input.  
+• Quantifiers:  
+  – `(\forall int i; P(i); Q(i))`    Universal quantification (every index i that satisfies P must also satisfy Q).  
+  – `(\sum int i; P(i); E(i))`       Summation over all indices i that satisfy P, adding the value of E(i).  
+• `assignable \nothing` and `/*@ pure @*/` mark the method as side-effect-free.

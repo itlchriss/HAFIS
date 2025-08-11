@@ -1,0 +1,22 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/ablation_o3_r50/mutants/36/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method addToArrayForm
+            int temp = num[i] + k % 10 + carry;
+                          ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/ablation_o3_r50/mutants/36/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ ensures(((num[0] == 2 && num[1] == 1 && num[2] == 5 && num.length == 3) && (k == 806)) ==> (\result.get(0) == 1 && \result.get(1) == 0 && \result.get(2) == 2 && \result.get(3) == 1));
+                 ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/ablation_o3_r50/mutants/36/Solution.java:39: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/ablation_o3_r50/mutants/36/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ ensures(((num[0] == 2 && num[1] == 1 && num[2] == 5 && num.length == 3) && (k == 806)) ==> (\result.get(0) == 1 && \result.get(1) == 0 && \result.get(2) == 2 && \result.get(3) == 1));
+                                ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/ablation_o3_r50/mutants/36/Solution.java:39: verify: Associated method exit
+        return result;
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/ablation_o3_r50/mutants/36/Solution.java:19: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method addToArrayForm
+//@ ensures(((num[0] == 1 && num[1] == 2 && num[2] == 0 && num[3] == 0 && num.length == 4) && (k == 34)) ==> (\result.get(0) == 1 && \result.get(1) == 2 && \result.get(2) == 3 && \result.get(3) == 4));
+                                ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/hafis/ablation_o3_r50/mutants/36/Solution.java:39: verify: Associated method exit
+        return result;
+        ^
+7 verification failures

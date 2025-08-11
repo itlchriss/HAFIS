@@ -1,0 +1,59 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Below is a self-contained Java signature together with a JML contract that captures, and only captures, the informal requirement that
+
+ • the incoming argument n must be between 0 and 8 (inclusive), and  
+ • the returned value is the exact number of integers x such that  
+   0 ≤ x < 10ⁿ  and x contains no repeated decimal digit.
+
+The auxiliary JML “model” functions that appear in the post-condition are purely
+specification-time abstractions; they do not have to be implemented (although
+you may do so if you want run-time checking).
+
+```java
+public class UniqueDigits357 {
+
+    /*@ public normal_behavior
+      @   requires 0 <= n && n <= 8;
+      @
+      @   ensures \result ==
+      @           (\num_of int x ;                          // number of …
+      @                0 <= x && x < pow10(n)              //   … values x in range
+      @                && uniqueDigits(x)                  //   … whose digits are unique
+      @           );
+      @
+      @   // obvious frame condition: the method is pure
+      @   assignable \nothing;
+      @*/
+    public /*@ pure @*/ static int countNumbersWithUniqueDigits(int n) {
+        // … implementation goes here …
+    }
+    
+    
+    /*------------------------------------------------------------------------
+     *  Pure model helpers used only in the specification
+     *------------------------------------------------------------------------*/
+
+    /*@ public pure model static int pow10(int k); @*/
+    /*@ public pure model static boolean uniqueDigits(int x); @*/
+}
+```
+
+Explanations of the model helpers (informal, because they live only in the
+specification space):
+
+1. `pow10(k)` evaluates to 10ᵏ.  
+   (A concrete implementation could simply return
+   `(int) java.lang.Math.pow(10,k)`; since k ≤ 8 the result always fits
+   into a 32-bit int.)
+
+2. `uniqueDigits(x)` is true iff every decimal digit occurs at most once in the
+   standard base-10 representation of `x`.  Formally it could be defined by
+
+```java
+/*@ public pure model static boolean uniqueDigits(int x) =
+      (\forall int d ; 0 <= d && d <= 9
+         ==> (\num_of int pos ; digitAt(x,pos) == d) <= 1); @*/
+```
+
+but the JML specification above keeps it abstract to stay technology-agnostic.
+
+That is the entire JML formalisation of the original problem statement.

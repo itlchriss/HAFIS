@@ -1,0 +1,7 @@
+- The length of the integer array parameter `bills` is greater than or equal to 1 and is less than or equal to 100000.
+- All values in the integer array parameter `bills` are equal to 5,10, or 20.
+- If the boolean result is equal to the true literal, every customer receives correct change.
+- If the boolean result is equal to the false literal, at least one customer does not receive correct change.
+- If the integer array parameter `bills` is equal to [5,5,5,10,20], the boolean result is equal to the true literal.
+- If the integer array parameter `bills` is equal to [5,5,10,10,20], the boolean result is equal to the false literal.
+- If the first value in the integer array parameter `bills` is not equal to 5, the boolean result is equal to the false literal.

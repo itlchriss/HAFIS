@@ -1,7 +1,0 @@
-./test/s0521_longest_uncommon_subsequence_i/hafis/starchat/build/Solution.java:21: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
-//@ ensures((\result == -1) ==> ((b.contains(a)) && (a.contains(b))));
-                                            ^
-./test/s0521_longest_uncommon_subsequence_i/hafis/starchat/build/Solution.java:21: warning: A non-pure method is being called where it is not permitted: java.lang.String.contains(java.lang.CharSequence)
-//@ ensures((\result == -1) ==> ((b.contains(a)) && (a.contains(b))));
-                                                               ^
-2 warnings

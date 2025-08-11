@@ -1,0 +1,2 @@
+- String parameter `s` may contain one or more trailing space characters and such trailing space characters do not contribute to int result
+- if String parameter `s` contains exactly one word without any space characters, int result equals the total length of String parameter `s`

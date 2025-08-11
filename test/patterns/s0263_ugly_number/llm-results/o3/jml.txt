@@ -1,0 +1,79 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Below is one straightforward way to express the “ ugly number ” specification in JML.  
+Only the JML annotations are meant to be normative; the Java bodies may be changed or
+left un-implemented.
+
+```java
+public class Ugly {
+
+/*====================================================================
+ *  Public predicate to be specified:  isUgly(int n)
+ *===================================================================*/
+
+/*@ public normal_behavior
+  @   requires Integer.MIN_VALUE <= n && n <= Integer.MAX_VALUE;
+  @
+  @   ensures \result <==>
+  @           ( n == 1 )                                    /* 1 is ugly            */
+  @        || ( n >  1                                      /* positive …           */
+  @             && (\forall int p;                          /* for every            */
+  @                    p > 1 && isPrime(p) && n % p == 0;   /*  prime factor p      */
+  @                    ( p == 2 || p == 3 || p == 5 )       /*  … must be 2/3/5     */
+  @                )
+  @           );
+  @
+  @   assignable \nothing;          // specification only (pure)
+  @
+  @   note
+  @     - Values ≤ 0 are ruled out by the boolean condition above.
+  @     - The universal quantification expresses “all prime factors
+  @       of n are contained in {2,3,5}”.
+  @*/
+public /*@ pure @*/ static boolean isUgly(int n) {
+    /*  A legal implementation could be, for example, the usual loop
+        that keeps dividing by 2, 3 and 5.  The body is irrelevant to
+        the specification, so it is omitted here.                       */
+    throw new RuntimeException("not implemented");
+}
+
+/*====================================================================
+ *  Helper:  primality test used only in the specification
+ *===================================================================*/
+
+/*@ public pure helper
+  @   requires p >= 2;
+  @   ensures \result <==>
+  @           (\forall int d; 2 <= d && d * d <= p; p % d != 0);
+  @   assignable \nothing;
+  @*/
+private static boolean isPrime(int p) {
+    // Simple (inefficient) reference implementation, any other is fine.
+    if (p < 2) return false;
+    for (int d = 2; d * d <= p; d++) {
+        if (p % d == 0) return false;
+    }
+    return true;
+}
+}
+```
+
+Explanation of the JML clauses:
+
+1. `requires`  
+   – We accept any `int` (the explicit bounds are just the language range).
+
+2. `ensures`  
+   – The returned value is `true` iff  
+     a) `n` is exactly `1`; or  
+     b) `n` is strictly positive and every prime factor `p` of `n`
+        satisfies `p == 2 ∨ p == 3 ∨ p == 5`.
+
+3. `assignable \nothing`  
+   – Declares the methods to be pure/specification-only: they produce no
+     side effects and read no mutable state.
+
+4. Helper predicate `isPrime`  
+   – Defined declaratively so that it can be used inside the
+     quantifier of the post-condition.
+
+With this annotation, any Java implementation that satisfies the usual
+“Ugly Number” problem statement will formally fulfil the JML contract.

@@ -1,0 +1,17 @@
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/claude4opus/mutants/13/Solution.java:17: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @          (\sum int i; 0 <= i && i < nums.length;
+                  ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/claude4opus/mutants/13/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/claude4opus/mutants/13/Solution.java:16:) in method minMoves2
+        return ops;
+        ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/claude4opus/mutants/13/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/claude4opus/mutants/13/Solution.java:29:
+      @ ensures (\forall int target; true;
+        ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/claude4opus/mutants/13/Solution.java:29: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/claude4opus/mutants/13/Solution.java:14:) in method minMoves2
+        return ops;
+        ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/claude4opus/mutants/13/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/claude4opus/mutants/13/Solution.java:29:
+      @ ensures \result >= 0;
+        ^
+1 warning
+4 verification failures

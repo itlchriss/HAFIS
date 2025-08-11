@@ -1,0 +1,17 @@
+./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/6/Solution.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @              (\sum int i; 0 <= i && i < nums.length;
+                      ^
+./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/6/Solution.java:21: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @               (\sum int i; 0 <= i && i < nums.length;
+                       ^
+./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/6/Solution.java:33: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method maxRotateFunction
+            f += i / nums[i];
+                   ^
+./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/6/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/6/Solution.java:14:) in method maxRotateFunction
+        return max;
+        ^
+./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/6/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/6/Solution.java:42:
+      @ ensures (\exists int k; 0 <= k && k < nums.length;
+        ^
+2 warnings
+3 verification failures

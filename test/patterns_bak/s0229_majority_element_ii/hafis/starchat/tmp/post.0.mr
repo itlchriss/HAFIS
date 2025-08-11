@@ -1,1 +1,0 @@
--exists x01.(_result{NN}(x01) & _type_list_{NN}(x01) & exists e02.(_empty{JJ}(e02) & (Subj(e02) = x01))) & exists x03.(exists x04.(_result{NN}(x04) & _type_list_{NN}(x04) & Rel(x03,x04)) & _length{NN}(x03) & exists e05.(_less_than_or_equal{JJ}(e05) & (Subj(e05) = x03) & exists x06.(_2{CD}(x06) & (Dat(e05) = x06))))

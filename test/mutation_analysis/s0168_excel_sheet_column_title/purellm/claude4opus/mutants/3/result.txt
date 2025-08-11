@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/claude4opus/mutants/3/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/claude4opus/mutants/3/Solution.java:10:) in method convertToTitle
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/claude4opus/mutants/3/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/claude4opus/mutants/3/Solution.java:28:
+      @ ensures (\forall int i; 0 <= i && i < \result.length();
+        ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/claude4opus/mutants/3/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/claude4opus/mutants/3/Solution.java:9:) in method convertToTitle
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/claude4opus/mutants/3/Solution.java:9: verify: Associated declaration: ./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/claude4opus/mutants/3/Solution.java:28:
+      @ ensures \result.length() >= 1;
+        ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/claude4opus/mutants/3/Solution.java:24: verify: The prover cannot establish an assertion (ArithmeticCastRange) in method convertToTitle
+                sb.append((char) (remainder + 64));
+                          ^
+5 verification failures

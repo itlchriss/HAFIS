@@ -1,0 +1,2 @@
+- result for int: result equals the number of bits with value one in the 32 bit binary representation of `n`
+- result for int: result is greater than or equal to zero and less than or equal to thirty two

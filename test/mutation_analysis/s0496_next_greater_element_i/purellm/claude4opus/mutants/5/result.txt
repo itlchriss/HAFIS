@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/5/Solution.java:35: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method nextGreaterElement
+            int num = nums1[i];
+                           ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/5/Solution.java:42: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method nextGreaterElement
+                    if (nums2[index] > num) {
+                             ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/5/Solution.java:38: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/5/Solution.java:25:) in method nextGreaterElement: nums1[i]
+                nums1[i] = -1;
+                         ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/5/Solution.java:25: verify: Associated declaration: ./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/5/Solution.java:38:
+      @ assignable \nothing;
+        ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/5/Solution.java:50: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/5/Solution.java:25:) in method nextGreaterElement: nums1[i]
+                    nums1[i] = -1;
+                             ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/5/Solution.java:25: verify: Associated declaration: ./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/5/Solution.java:50:
+      @ assignable \nothing;
+        ^
+6 verification failures

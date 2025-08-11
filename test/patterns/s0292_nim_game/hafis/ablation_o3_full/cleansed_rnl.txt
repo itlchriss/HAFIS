@@ -1,0 +1,2 @@
+- if int `n` modulo 4 equals 0 then boolean result is false
+- if int `n` modulo 4 does not equal 0 then boolean result is true

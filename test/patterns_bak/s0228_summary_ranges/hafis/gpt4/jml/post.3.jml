@@ -1,1 +1,0 @@
-ensures((nums.length == 0) ==> (\result.size() == 0));

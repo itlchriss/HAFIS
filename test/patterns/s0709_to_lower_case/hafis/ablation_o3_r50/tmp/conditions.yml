@@ -1,0 +1,8 @@
+ensures:
+- The String result has the same length as the String param_s_.
+- Each character in the String result is equal to the corresponding character in the String param_s_ after converting any uppercase English letter to its lowercase form.
+- If the String param_s_ is equal to stry_a , the String result is equal to stry_b.
+- If the String param_s_ is equal to stry_a , the String result is equal to stry_b.
+- If the String param_s_ is equal to stry_a , the String result is equal to stry_b.
+requires:
+- The String param_s_ contains printable_ASCII_characters.

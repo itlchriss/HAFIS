@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0006_zigzag_conversion/purellm/o3/mutants/34/Solution.java:54: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String convert(String s, int numRows) {
+                  ^
+./test/mutation_analysis/s0006_zigzag_conversion/purellm/o3/mutants/34/Solution.java:15: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method rowOf
+      int m = pos % cycle(rows);
+                  ^
+2 verification failures

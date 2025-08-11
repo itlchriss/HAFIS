@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/ablation_o3_r50/mutants/16/Solution.java:32: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method nextGreaterElement
+                    if (nums2[index] > num) {
+                             ^
+1 verification failure

@@ -1,0 +1,106 @@
+Here's the JML specification for the Compare Version Numbers problem:
+
+```java
+public class VersionComparator {
+    
+    /*@ public normal_behavior
+      @ requires version1 != null && version2 != null;
+      @ requires 1 <= version1.length() && version1.length() <= 500;
+      @ requires 1 <= version2.length() && version2.length() <= 500;
+      @ requires isValidVersion(version1) && isValidVersion(version2);
+      @ ensures \result == -1 || \result == 0 || \result == 1;
+      @ ensures \result == -1 <==> isLessThan(version1, version2);
+      @ ensures \result == 1 <==> isGreaterThan(version1, version2);
+      @ ensures \result == 0 <==> isEqual(version1, version2);
+      @*/
+    public /*@ pure @*/ int compareVersion(String version1, String version2);
+    
+    /*@ public normal_behavior
+      @ requires version != null;
+      @ ensures \result == (\forall int i; 0 <= i && i < version.length(); 
+      @                     (version.charAt(i) >= '0' && version.charAt(i) <= '9') || 
+      @                     version.charAt(i) == '.');
+      @ ensures \result ==> version.length() > 0;
+      @ ensures \result ==> version.charAt(0) != '.' && version.charAt(version.length()-1) != '.';
+      @ ensures \result ==> !version.contains("..");
+      @*/
+    public /*@ pure @*/ boolean isValidVersion(String version);
+    
+    /*@ public normal_behavior
+      @ requires version != null && isValidVersion(version);
+      @ ensures \result != null;
+      @ ensures \result.length >= 1;
+      @ ensures (\forall int i; 0 <= i && i < \result.length; 
+      @          \result[i] >= 0 && \result[i] <= Integer.MAX_VALUE);
+      @*/
+    public /*@ pure @*/ int[] parseVersion(String version);
+    
+    /*@ public normal_behavior
+      @ requires v1 != null && v2 != null;
+      @ requires isValidVersion(v1) && isValidVersion(v2);
+      @ ensures \result <==> compareVersionArrays(parseVersion(v1), parseVersion(v2)) < 0;
+      @*/
+    public /*@ pure @*/ boolean isLessThan(String v1, String v2);
+    
+    /*@ public normal_behavior
+      @ requires v1 != null && v2 != null;
+      @ requires isValidVersion(v1) && isValidVersion(v2);
+      @ ensures \result <==> compareVersionArrays(parseVersion(v1), parseVersion(v2)) > 0;
+      @*/
+    public /*@ pure @*/ boolean isGreaterThan(String v1, String v2);
+    
+    /*@ public normal_behavior
+      @ requires v1 != null && v2 != null;
+      @ requires isValidVersion(v1) && isValidVersion(v2);
+      @ ensures \result <==> compareVersionArrays(parseVersion(v1), parseVersion(v2)) == 0;
+      @*/
+    public /*@ pure @*/ boolean isEqual(String v1, String v2);
+    
+    /*@ public normal_behavior
+      @ requires arr1 != null && arr2 != null;
+      @ ensures \result == -1 || \result == 0 || \result == 1;
+      @ ensures \result == -1 <==> 
+      @   (\exists int i; 0 <= i && i < maxLength(arr1.length, arr2.length);
+      @    getRevision(arr1, i) < getRevision(arr2, i) &&
+      @    (\forall int j; 0 <= j && j < i; getRevision(arr1, j) == getRevision(arr2, j)));
+      @ ensures \result == 1 <==> 
+      @   (\exists int i; 0 <= i && i < maxLength(arr1.length, arr2.length);
+      @    getRevision(arr1, i) > getRevision(arr2, i) &&
+      @    (\forall int j; 0 <= j && j < i; getRevision(arr1, j) == getRevision(arr2, j)));
+      @ ensures \result == 0 <==> 
+      @   (\forall int i; 0 <= i && i < maxLength(arr1.length, arr2.length);
+      @    getRevision(arr1, i) == getRevision(arr2, i));
+      @*/
+    public /*@ pure @*/ int compareVersionArrays(int[] arr1, int[] arr2);
+    
+    /*@ public normal_behavior
+      @ requires arr != null && index >= 0;
+      @ ensures index < arr.length ==> \result == arr[index];
+      @ ensures index >= arr.length ==> \result == 0;
+      @*/
+    public /*@ pure @*/ int getRevision(int[] arr, int index);
+    
+    /*@ public normal_behavior
+      @ ensures \result == (a >= b ? a : b);
+      @*/
+    public /*@ pure @*/ int maxLength(int a, int b);
+}
+```
+
+This JML specification captures the following key aspects:
+
+1. **Input constraints**: Version strings must be non-null, between 1-500 characters, and valid.
+
+2. **Output constraints**: The comparison result must be -1, 0, or 1.
+
+3. **Validity checking**: The `isValidVersion` method ensures strings contain only digits and dots, with proper formatting.
+
+4. **Version parsing**: The `parseVersion` method converts version strings to integer arrays.
+
+5. **Comparison logic**: The specification defines the comparison semantics through helper methods that check less than, greater than, and equality relationships.
+
+6. **Revision handling**: The `getRevision` method implements the rule that missing revisions are treated as 0.
+
+7. **Array comparison**: The `compareVersionArrays` method specifies the left-to-right comparison logic with proper handling of different array lengths.
+
+The specification uses quantifiers to express the comparison rules precisely and ensures all edge cases mentioned in the problem are covered.

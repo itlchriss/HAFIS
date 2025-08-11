@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/claude4opus/mutants/24/Solution.java:28: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method addToArrayForm
+            int temp = num[i] + k % 10 + carry;
+                          ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/claude4opus/mutants/24/Solution.java:42: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/claude4opus/mutants/24/Solution.java:22:) in method addToArrayForm: \everything
+        Collections.reverse(result);
+                           ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/claude4opus/mutants/24/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/claude4opus/mutants/24/Solution.java:42:
+      @ pure
+        ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/claude4opus/mutants/24/Solution.java:24: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public List<Integer> addToArrayForm(int[] num, int k) {
+                         ^
+4 verification failures

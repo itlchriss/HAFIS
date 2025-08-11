@@ -1,0 +1,11 @@
+ensures:
+- The type_integer_array_ result's length is equal to the type_integer_array_ param_nums_'s length.
+- Each value at index i in the type_integer_array_ result is equal to the product of the type_integer_array_ param_nums_'s values except the value at index i.
+- The type_integer_array_ result's values are greater_than_or_equal to negative 2147483648 and are less_than_or_equal to 2147483647.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_array_ result is equal to arr_b.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_array_ result is equal to arr_b.
+- If the type_integer_array_ param_nums_ contains 1 0 , all values in the type_integer_array_ result are equal to 0 except at the index that the 0 is located in the type_integer_array_ param_nums_.
+- If the type_integer_array_ param_nums_ contains more than 1 0 , all values in the type_integer_array_ result are equal to 0.
+requires:
+- The type_integer_array_ param_nums_'s length is greater_than_or_equal to 2 and is less_than_or_equal to 100000.
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to negative 30 and are less_than_or_equal to 30.

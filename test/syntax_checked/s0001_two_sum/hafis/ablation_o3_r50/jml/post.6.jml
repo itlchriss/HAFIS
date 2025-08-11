@@ -1,0 +1,1 @@
+ensures(((numbers[0] == 3 && numbers[1] == 2 && numbers[2] == 4 && numbers.length == 3) && (target == 6)) ==> (\result[0] == 1 && \result[1] == 2 && \result.length == 2));

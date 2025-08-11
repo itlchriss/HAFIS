@@ -1,0 +1,64 @@
+Here's the JML specification for the "Sort Characters By Frequency" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 1 <= s.length() && s.length() <= 500000;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           Character.isLetterOrDigit(s.charAt(i)));
+      @ ensures \result != null;
+      @ ensures \result.length() == s.length();
+      @ ensures (\forall char c; ; 
+      @           countChar(s, c) == countChar(\result, c));
+      @ ensures (\forall int i, j; 0 <= i && i < j && j < \result.length() &&
+      @           \result.charAt(i) != \result.charAt(j);
+      @           countChar(\result, \result.charAt(i)) >= countChar(\result, \result.charAt(j)));
+      @ ensures (\forall int i, j; 0 <= i && i < j && j < \result.length() &&
+      @           \result.charAt(i) == \result.charAt(j);
+      @           j == i + 1 || \result.charAt(i) == \result.charAt(j-1));
+      @*/
+    public String frequencySort(String s) {
+        // Implementation here
+    }
+    
+    /*@ public pure helper
+      @ requires s != null;
+      @ ensures \result == (\num_of int i; 0 <= i && i < s.length(); 
+      @                     s.charAt(i) == c);
+      @*/
+    public static int countChar(String s, char c) {
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == c) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - The input string `s` is not null
+   - The length is between 1 and 500,000 (inclusive)
+   - All characters are uppercase/lowercase English letters or digits
+
+2. **Postconditions (`ensures`):**
+   - The result is not null
+   - The result has the same length as the input
+   - Character frequencies are preserved (same count of each character)
+   - Characters are sorted by frequency in decreasing order (when comparing different characters)
+   - Same characters appear consecutively (no interleaving)
+
+3. **Helper method:**
+   - `countChar` is a pure helper method to count occurrences of a character in a string
+   - Used in the postconditions to express frequency constraints
+
+The specification captures that:
+- Characters with higher frequency appear before characters with lower frequency
+- Characters with the same frequency can appear in any order relative to each other
+- All occurrences of the same character must be grouped together

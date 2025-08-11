@@ -1,0 +1,88 @@
+Here's the JML specification for the "Add Strings" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires num1 != null && num2 != null;
+      @ requires 1 <= num1.length() && num1.length() <= 10000;
+      @ requires 1 <= num2.length() && num2.length() <= 10000;
+      @ requires (\forall int i; 0 <= i && i < num1.length(); 
+      @           '0' <= num1.charAt(i) && num1.charAt(i) <= '9');
+      @ requires (\forall int i; 0 <= i && i < num2.length(); 
+      @           '0' <= num2.charAt(i) && num2.charAt(i) <= '9');
+      @ requires num1.length() == 1 && num1.charAt(0) == '0' || 
+      @          num1.charAt(0) != '0';
+      @ requires num2.length() == 1 && num2.charAt(0) == '0' || 
+      @          num2.charAt(0) != '0';
+      @ ensures \result != null;
+      @ ensures \result.length() >= 1;
+      @ ensures (\forall int i; 0 <= i && i < \result.length(); 
+      @          '0' <= \result.charAt(i) && \result.charAt(i) <= '9');
+      @ ensures \result.length() == 1 && \result.charAt(0) == '0' || 
+      @         \result.charAt(0) != '0';
+      @ ensures stringToInt(\result) == stringToInt(num1) + stringToInt(num2);
+      @ pure
+      @*/
+    public String addStrings(String num1, String num2) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires s != null;
+      @ requires s.length() >= 1;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           '0' <= s.charAt(i) && s.charAt(i) <= '9');
+      @ ensures \result >= 0;
+      @ ensures \result == (\sum int i; 0 <= i && i < s.length(); 
+      @         (s.charAt(i) - '0') * pow10(s.length() - 1 - i));
+      @ pure helper
+      @*/
+    private /*@ spec_public @*/ static long stringToInt(String s) {
+        // This is a specification-only helper method
+        long result = 0;
+        for (int i = 0; i < s.length(); i++) {
+            result = result * 10 + (s.charAt(i) - '0');
+        }
+        return result;
+    }
+    
+    /*@ private normal_behavior
+      @ requires n >= 0;
+      @ ensures \result == (\product int i; 0 <= i && i < n; 10);
+      @ ensures n == 0 ==> \result == 1;
+      @ pure helper
+      @*/
+    private /*@ spec_public @*/ static long pow10(int n) {
+        // This is a specification-only helper method
+        long result = 1;
+        for (int i = 0; i < n; i++) {
+            result *= 10;
+        }
+        return result;
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - Both input strings are non-null
+   - Length constraints (1 to 10,000 characters)
+   - All characters must be digits ('0' to '9')
+   - No leading zeros (except for the string "0" itself)
+
+2. **Postconditions (`ensures`):**
+   - Result is non-null
+   - Result has at least one character
+   - All characters in result are digits
+   - No leading zeros in result (except for "0")
+   - The numeric value of the result equals the sum of the numeric values of the inputs
+
+3. **Helper methods:**
+   - `stringToInt`: Converts a string representation to its numeric value (for specification purposes only)
+   - `pow10`: Computes 10^n (used in the mathematical specification of stringToInt)
+
+4. **Pure methods:** All methods are marked as `pure` since they don't modify any state
+
+The specification captures the mathematical relationship between the inputs and output while respecting the constraint that we cannot directly convert strings to integers in the implementation.

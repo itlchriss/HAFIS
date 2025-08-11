@@ -1,0 +1,6 @@
+ensures:
+- result List<Integer> is produced for any valid the chry_a int[] input.
+- result List<Integer> contains every integer that appears in the chry_a int[] more than the integer part of the length of the chry_b int[] divided by 3.
+- result List<Integer> contains no integer that appears in the chry_a int[] at most the integer part of the length of the chry_b int[] divided by 3.
+- result List<Integer> contains no duplicate integers.
+requires: []

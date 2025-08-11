@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0392_is_subsequence/hafis/ablation_o3_r50/mutants/8/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/hafis/ablation_o3_r50/mutants/8/Solution.java:14:) in method isSubsequence
+                    return true;
+                    ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/ablation_o3_r50/mutants/8/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/hafis/ablation_o3_r50/mutants/8/Solution.java:28:
+//@ ensures(((s.equals("axc")) && (t.equals("ahbgdc"))) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/ablation_o3_r50/mutants/8/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0392_is_subsequence/hafis/ablation_o3_r50/mutants/8/Solution.java:15:) in method isSubsequence
+        return false;
+        ^
+./test/mutation_analysis/s0392_is_subsequence/hafis/ablation_o3_r50/mutants/8/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0392_is_subsequence/hafis/ablation_o3_r50/mutants/8/Solution.java:33:
+//@ ensures(((s.equals("abc")) && (t.equals("ahbgdc"))) ==> (\result == true));
+    ^
+4 verification failures

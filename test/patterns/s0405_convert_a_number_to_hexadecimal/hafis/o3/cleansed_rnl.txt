@@ -1,0 +1,7 @@
+- All characters in the string result are lowercase and are one of the literals 0123456789 a b c d e f.
+- The string result does not start with the literal 0 unless the string result is equal to the literal 0.
+- If the integer parameter `num` is equal to 0, the string result is equal to the literal 0.
+- If the integer parameter `num` is equal to 26, the string result is equal to the literal 1a.
+- If the integer parameter `num` is equal to -1, the string result is equal to the literal ffffffff.
+- If the integer parameter `num` is less than 0, the length of the string result is equal to 8.
+- The integer value represented by the string result when interpreted as a signed 32 bit integer using two complement is equal to the integer parameter `num`.

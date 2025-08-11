@@ -1,0 +1,6 @@
+ensures:
+- The type_integer_ result is less_than_or_equal to 2000 and is greater_than_or_equal to the sum of negative 2147483648 and the type_integer_ param_num1_.
+- The type_integer_ result is equal to the sum between the type_integer_ param_num1_ and the type_integer_ param_num2_.
+requires:
+- The type_integer_ param_num1_ is less_than_or_equal to 1000 and is greater_than_or_equal to negative 2147483648.
+- The type_integer_ param_num2_ is less_than_or_equal to 1000 and is greater_than_or_equal to negative 2147483648.

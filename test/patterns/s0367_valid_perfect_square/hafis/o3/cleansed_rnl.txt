@@ -1,0 +1,4 @@
+- If the boolean result is equal to the true literal, the integer parameter `num` is equal to the product between an integer value and the same integer value.
+- If the boolean result is equal to the false literal, the integer parameter `num` is not equal to the product between any integer value and the same integer value.
+- If the integer parameter `num` is equal to 16, the boolean result is equal to the true literal.
+- If the integer parameter `num` is equal to 14, the boolean result is equal to the false literal.

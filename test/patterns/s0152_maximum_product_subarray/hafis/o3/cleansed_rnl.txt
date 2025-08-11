@@ -1,0 +1,6 @@
+- All values in the integer array parameter `arr` are less than or equal to 10 and are greater than or equal to -10.
+- The integer result is less than or equal to the maximum value of java integer and is greater than or equal to the minimum value of java integer.
+- There exists a contiguous non empty subsequence of the integer array parameter `arr` such that the integer result is equal to the product of all values in that subsequence.
+- For every contiguous non empty subsequence of the integer array parameter `arr`, the integer result is greater than or equal to the product of all values in that subsequence.
+- If the integer array parameter `arr` is equal to [2,3,-2,4], the integer result is equal to 6.
+- If the integer array parameter `arr` is equal to [-2,0,-1], the integer result is equal to 0.

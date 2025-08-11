@@ -1,0 +1,115 @@
+Here's the JML specification for the Valid Parentheses problem:
+
+```java
+public class ValidParentheses {
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires 1 <= s.length() && s.length() <= 10000;
+      @ requires (\forall int i; 0 <= i && i < s.length(); 
+      @           s.charAt(i) == '(' || s.charAt(i) == ')' || 
+      @           s.charAt(i) == '{' || s.charAt(i) == '}' || 
+      @           s.charAt(i) == '[' || s.charAt(i) == ']');
+      @ ensures \result == isValidParentheses(s);
+      @ pure
+      @*/
+    public boolean isValid(String s) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ ensures \result <==> 
+      @   (\exists int[] matching; matching.length == s.length() &&
+      @     isValidMatching(s, matching));
+      @ pure
+      @ model
+      @*/
+    public static boolean isValidParentheses(String s) {
+        // This is a model method - not implemented
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null && matching != null;
+      @ requires s.length() == matching.length;
+      @ ensures \result <==> 
+      @   ((\forall int i; 0 <= i && i < s.length(); 
+      @      matching[i] >= -1 && matching[i] < s.length()) &&
+      @    (\forall int i; 0 <= i && i < s.length(); 
+      @      isOpenBracket(s.charAt(i)) ==> 
+      @        (matching[i] > i && matching[i] < s.length() &&
+      @         isMatchingPair(s.charAt(i), s.charAt(matching[i])) &&
+      @         matching[matching[i]] == i)) &&
+      @    (\forall int i; 0 <= i && i < s.length(); 
+      @      isCloseBracket(s.charAt(i)) ==> 
+      @        (matching[i] >= 0 && matching[i] < i &&
+      @         isMatchingPair(s.charAt(matching[i]), s.charAt(i)) &&
+      @         matching[matching[i]] == i)) &&
+      @    (\forall int i; 0 <= i && i < s.length(); 
+      @      isOpenBracket(s.charAt(i)) ==> 
+      @        (\forall int j; i < j && j < matching[i]; 
+      @          matching[j] == -1 || 
+      @          (matching[j] > i && matching[j] < matching[i]))));
+      @ pure
+      @ model
+      @*/
+    public static boolean isValidMatching(String s, int[] matching) {
+        // This is a model method - not implemented
+    }
+    
+    /*@ public normal_behavior
+      @ ensures \result <==> (c == '(' || c == '{' || c == '[');
+      @ pure
+      @ model
+      @*/
+    public static boolean isOpenBracket(char c) {
+        return c == '(' || c == '{' || c == '[';
+    }
+    
+    /*@ public normal_behavior
+      @ ensures \result <==> (c == ')' || c == '}' || c == ']');
+      @ pure
+      @ model
+      @*/
+    public static boolean isCloseBracket(char c) {
+        return c == ')' || c == '}' || c == ']';
+    }
+    
+    /*@ public normal_behavior
+      @ ensures \result <==> 
+      @   ((open == '(' && close == ')') ||
+      @    (open == '{' && close == '}') ||
+      @    (open == '[' && close == ']'));
+      @ pure
+      @ model
+      @*/
+    public static boolean isMatchingPair(char open, char close) {
+        return (open == '(' && close == ')') ||
+               (open == '{' && close == '}') ||
+               (open == '[' && close == ']');
+    }
+}
+```
+
+This JML specification captures the following key aspects:
+
+1. **Preconditions**: 
+   - The string is not null
+   - Length is between 1 and 10,000
+   - Contains only valid bracket characters
+
+2. **Postcondition**: 
+   - Returns true if and only if the parentheses are valid according to the problem rules
+
+3. **Model methods**:
+   - `isValidParentheses`: The main specification that defines validity
+   - `isValidMatching`: Defines what constitutes a valid matching of brackets using an array that maps each bracket to its matching partner
+   - Helper methods for checking bracket types and matching pairs
+
+4. **Key invariants in `isValidMatching`**:
+   - Each open bracket must have a matching close bracket at a later position
+   - Each close bracket must have a matching open bracket at an earlier position
+   - The matching must be properly nested (no crossing brackets)
+   - All brackets must be matched (no unmatched brackets)
+
+The specification uses a matching array approach where `matching[i]` contains the index of the bracket that matches the bracket at position `i`, or -1 if there's no valid matching.

@@ -1,0 +1,10 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to negative 1 and is less_than to the type_string_ param_s_'s length.
+- If the type_integer_ result is greater_than_or_equal to 0 , the character at the type_integer_ result index of the type_string_ param_s_ occurs 1 time in the type_string_ param_s_.
+- If the type_integer_ result is greater_than_or_equal to 0 , every character at an index smaller than the type_integer_ result in the type_string_ param_s_ occurs more than 1 time in the type_string_ param_s_.
+- If the type_integer_ result is equal to negative 1 , every character in the type_string_ param_s_ occurs more than 1 time in the type_string_ param_s_.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_ result is equal to 0.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_ result is equal to 2.
+- If the type_string_ param_s_ is equal to stry_a , the type_integer_ result is equal to negative 1.
+requires:
+- The type_string_ param_s_ only contains lowercase_alphabets.

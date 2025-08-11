@@ -1,0 +1,9 @@
+ensures:
+- If type_boolean_ result is equal to the true literal , there exists at least 1 binary tree whose preorder traversal serialization that uses the character the chry_a for null nodes is equal to the type_string_ param_preorder_.
+- If type_boolean_ result is equal to the false literal , there does not exist any binary tree whose preorder traversal serialization that uses the character the chry_a for null nodes is equal to the type_string_ param_preorder_.
+- If the type_string_ param_preorder_ is equal to the string strkk_a , the type_boolean_ result is equal to the true literal.
+- If the type_string_ param_preorder_ is equal to the string strkk_a , the type_boolean_ result is equal to the false literal.
+- If the type_string_ param_preorder_ is equal to the string strkk_a , the type_boolean_ result is equal to the false literal.
+requires:
+- The type_string_ param_preorder_ only contains digits commas and the character the chry_a.
+- Each comma separated value in the type_string_ param_preorder_ is the character the chry_a or string_contains_only_digit that is greater_than_or_equal to 0 and is less_than to or the type_string_ param_preorder_ is equal to 100.

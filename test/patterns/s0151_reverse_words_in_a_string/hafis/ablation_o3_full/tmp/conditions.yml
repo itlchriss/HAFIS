@@ -1,0 +1,6 @@
+ensures:
+- The String result shall present the words that are contained by the type_character_ chrs_a in precisely reverse order joined by 1 space character.
+- The String result shall exclude any leading or trailing space characters so that its first and last characters are never spaces.
+- The String result shall collapse every series of 2 or more consecutive space characters that occur in the type_character_ chrs_a into a single space character used as the separator between adjacent words.
+requires:
+- The String param_s_ may include upper case alphabets lower case alphabets digits and space characters with no other character types permitted.

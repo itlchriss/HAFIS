@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0551_student_attendance_record_i/purellm/claude4opus/mutants/2/Solution.java:16: error: unreachable statement
+        while (false) {
+                      ^
+1 error

@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/1/Solution.java:61: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method twoSum
+            Integer requiredNum = target - numbers[i];
+                                                  ^
+./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/1/Solution.java:62: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/1/Solution.java:11:) in method twoSum
+            if (indexMap.containsKey(requiredNum)) {
+                                    ^
+./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/1/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0001_two_sum/purellm/o3/mutants/1/Solution.java:62:
+    /*@ public normal_behavior
+               ^
+3 verification failures

@@ -1,0 +1,7 @@
+ensures:
+- If type_boolean_ result is equal to the true literal , the count of character the chry_a in the type_string_ param_s_ is less_than to 2 and the type_string_ param_s_ does not contain the substring the chry_b.
+- If type_boolean_ result is equal to the false literal , the count of character the chry_a in the type_string_ param_s_ is greater_than_or_equal to 2 or the type_string_ param_s_ contains the substring the chry_b.
+- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to stry_a , the type_boolean_ result is equal to the false literal.
+requires:
+- The type_string_ param_s_'s values are either the character the chry_a or the character the chry_b or the character the chry_c.

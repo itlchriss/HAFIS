@@ -1,0 +1,1 @@
+If the type_integer_ result is equal to 0 , all corresponding revisions in the type_string_ param_version1_ and the type_string_ param_version2_ have equal integer values after treating unspecified revisions as 0 . 

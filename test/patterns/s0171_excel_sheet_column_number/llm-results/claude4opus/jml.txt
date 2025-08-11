@@ -1,0 +1,76 @@
+Here's the JML specification for the Excel Sheet Column Number problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires columnTitle != null;
+      @ requires 1 <= columnTitle.length() && columnTitle.length() <= 7;
+      @ requires (\forall int i; 0 <= i && i < columnTitle.length(); 
+      @           'A' <= columnTitle.charAt(i) && columnTitle.charAt(i) <= 'Z');
+      @ requires isValidColumnTitle(columnTitle);
+      @ ensures \result >= 1;
+      @ ensures \result <= 2147483647;
+      @ ensures \result == columnTitleToNumber(columnTitle);
+      @*/
+    public /*@ pure @*/ int titleToColumnNumber(String columnTitle) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ requires s != null;
+      @ requires s.length() >= 1;
+      @ ensures \result == (s.length() == 1 && s.charAt(0) == 'A' ? true :
+      @                    s.length() == 7 && s.equals("FXSHRXW") ? true :
+      @                    s.compareTo("A") >= 0 && s.compareTo("FXSHRXW") <= 0);
+      @*/
+    private /*@ pure @*/ boolean isValidColumnTitle(String s) {
+        // Helper method to check if column title is in valid range
+    }
+    
+    /*@ public normal_behavior
+      @ requires columnTitle != null;
+      @ requires columnTitle.length() >= 1;
+      @ requires (\forall int i; 0 <= i && i < columnTitle.length(); 
+      @           'A' <= columnTitle.charAt(i) && columnTitle.charAt(i) <= 'Z');
+      @ ensures \result == (\sum int i; 0 <= i && i < columnTitle.length();
+      @                     (columnTitle.charAt(i) - 'A' + 1) * 
+      @                     pow26(columnTitle.length() - 1 - i));
+      @*/
+    private /*@ pure @*/ int columnTitleToNumber(String columnTitle) {
+        // Mathematical definition of the conversion
+    }
+    
+    /*@ public normal_behavior
+      @ requires n >= 0;
+      @ ensures n == 0 ==> \result == 1;
+      @ ensures n > 0 ==> \result == 26 * pow26(n - 1);
+      @*/
+    private /*@ pure @*/ int pow26(int n) {
+        // Helper method for 26^n
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`)**:
+   - The input string is not null
+   - Length is between 1 and 7 (inclusive)
+   - All characters are uppercase English letters (A-Z)
+   - The column title is within the valid range ["A", "FXSHRXW"]
+
+2. **Postconditions (`ensures`)**:
+   - The result is at least 1
+   - The result is at most 2,147,483,647
+   - The result matches the mathematical formula for converting base-26 to decimal
+
+3. **Helper Methods**:
+   - `isValidColumnTitle`: Checks if the string is within the valid range
+   - `columnTitleToNumber`: Provides the mathematical definition of the conversion
+   - `pow26`: Helper for calculating powers of 26
+
+4. **Mathematical Formula**:
+   The conversion follows the pattern where each character contributes `(char - 'A' + 1) * 26^position` to the total, where position is counted from the right starting at 0.
+
+This specification captures all the constraints and examples provided in the problem statement while maintaining formal correctness for JML verification.

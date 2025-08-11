@@ -1,4 +1,0 @@
-test/s0164_maximum_gap/gpt35/build/Solution.java:14: error: array required, but int found
-//@ ensures((\forall int i; 0 <= i < nums.length; nums[i] == 10[i]) ==> (\result == 0));
-                                                             ^
-1 error

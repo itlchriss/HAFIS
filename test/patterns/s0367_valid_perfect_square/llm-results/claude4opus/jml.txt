@@ -1,0 +1,55 @@
+Here's the JML specification for the Valid Perfect Square problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires 1 <= num && num <= Integer.MAX_VALUE;
+      @ ensures \result == (\exists int i; 1 <= i && i <= 46340; i * i == num);
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ boolean isPerfectSquare(int num) {
+        // Implementation goes here
+    }
+}
+```
+
+Let me explain the key components of this JML specification:
+
+1. **Precondition (`requires`)**: 
+   - `1 <= num && num <= Integer.MAX_VALUE` - This ensures the input is a positive integer within the valid range as specified in the constraints.
+
+2. **Postcondition (`ensures`)**: 
+   - `\result == (\exists int i; 1 <= i && i <= 46340; i * i == num)` - This states that the method returns true if and only if there exists an integer `i` whose square equals `num`.
+   - The upper bound 46340 is used because 46340² = 2,147,395,600 < 2³¹ - 1, and 46341² = 2,147,488,281 > 2³¹ - 1 (Integer.MAX_VALUE).
+
+3. **Frame condition (`assignable`)**: 
+   - `\nothing` - This indicates the method doesn't modify any state (it's a pure function).
+
+4. **Method modifiers**:
+   - `pure` - This indicates the method has no side effects and can be used in specifications.
+
+Alternative, more detailed specification with additional assertions:
+
+```java
+public class Solution {
+    
+    //@ public invariant true;
+    
+    /*@ public normal_behavior
+      @ requires 1 <= num && num <= Integer.MAX_VALUE;
+      @ ensures \result <==> isPerfectSquareProperty(num);
+      @ assignable \nothing;
+      @*/
+    public /*@ pure @*/ boolean isPerfectSquare(int num) {
+        // Implementation goes here
+    }
+    
+    /*@ public static model pure boolean isPerfectSquareProperty(int n) {
+      @     return (\exists int i; 1 <= i && i <= 46340 && i * i == n);
+      @ }
+      @*/
+}
+```
+
+This alternative version uses a model method to make the specification more readable and reusable.

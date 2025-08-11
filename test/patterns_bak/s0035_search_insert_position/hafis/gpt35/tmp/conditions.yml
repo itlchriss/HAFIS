@@ -1,8 +1,0 @@
-ensures:
-- The type_integer_ result is the index that the type_string_ strs_a value is found in the type_string_ strs_b array.
-- If the type_string_ strs_a value is not found in the type_string_ strs_b array , the type_integer_ result is the index that the type_string_ strs_c value would be inserted in order to maintain the sorted order.
-requires:
-- The type_integer_array_ param_nums_'s length is less_than_or_equal to 10000 and is greater_than_or_equal to 1.
-- The type_integer_array_ param_nums_'s values are less_than_or_equal to 10000 and are greater_than_or_equal to negative 10000.
-- The type_integer_array_ param_nums_ is unique and is sorted to the ascending_order.
-- The type_integer_ param_target_ is less_than_or_equal to 10000 and is greater_than_or_equal to negative 10000.

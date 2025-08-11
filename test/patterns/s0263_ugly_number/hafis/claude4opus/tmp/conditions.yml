@@ -1,0 +1,10 @@
+ensures:
+- If the type_integer_ param_n_ is less_than_or_equal to 0 , the type_boolean_ result is equal to the false literal.
+- If the type_integer_ param_n_ is equal to 1 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 6 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 8 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 14 , the type_boolean_ result is equal to the false literal.
+- If the type_boolean_ result is equal to the true literal and the type_integer_ param_n_ is greater_than to 1 , all prime_factors of the type_integer_ param_n_ are in the set {2 , 3 , 5}.
+- If the type_boolean_ result is equal to the false literal and the type_integer_ param_n_ is greater_than to 1 , at least 1 prime factor of the type_integer_ param_n_ is not in the set {2 , 3 , 5}.
+requires:
+- The type_integer_ param_n_ is greater_than_or_equal to negative 2147483648 and is less_than_or_equal to 2147483647.

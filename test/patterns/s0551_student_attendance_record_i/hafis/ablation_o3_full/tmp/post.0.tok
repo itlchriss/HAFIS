@@ -1,0 +1,1 @@
+Behaviour : If the chry_a contains fewer than 2 characters A and never contains 3 consecutive characters L then type_boolean_ result is equal to the true literal . 

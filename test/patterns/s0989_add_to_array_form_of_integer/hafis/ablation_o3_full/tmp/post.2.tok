@@ -1,0 +1,1 @@
+List < Integer > result contains no leading zeros except when the computed sum equals 0 in which case List < Integer > result contains 1 element with value 0 . 

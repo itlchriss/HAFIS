@@ -1,1 +1,0 @@
-requires((\forall int i; 0 <= i < num.length; num[i] <= 9) && (\forall int i; 0 <= i < num.length; num[i] >= 0));

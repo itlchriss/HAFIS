@@ -1,0 +1,1 @@
+int result ensures value equals the maximum possible sum of elements selected from int [ ] the type_string_ strs_a that no 2 selected elements are located at consecutive indices . 

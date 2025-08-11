@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0390_elimination_game/purellm/claude4opus/mutants/13/Solution.java:11: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0390_elimination_game/purellm/claude4opus/mutants/13/Solution.java:8:) in method lastRemaining
+        return n == 1 ? 1 : 2 * (n / 2 + lastRemaining(n / 2) + 1);
+        ^
+./test/mutation_analysis/s0390_elimination_game/purellm/claude4opus/mutants/13/Solution.java:8: verify: Associated declaration: ./test/mutation_analysis/s0390_elimination_game/purellm/claude4opus/mutants/13/Solution.java:11:
+      @ ensures \result >= 1 && \result <= n;
+        ^
+2 verification failures

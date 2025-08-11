@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0941_valid_mountain_array/purellm/o3/mutants/32/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method validMountainArray
+if (arr[i] == arr[i + 1]) {
+       ^
+./test/mutation_analysis/s0941_valid_mountain_array/purellm/o3/mutants/32/Solution.java:34: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0941_valid_mountain_array/purellm/o3/mutants/32/Solution.java:12:) in method validMountainArray
+return false;
+^
+./test/mutation_analysis/s0941_valid_mountain_array/purellm/o3/mutants/32/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0941_valid_mountain_array/purellm/o3/mutants/32/Solution.java:34:
+    @            ensures  \result <==>
+                 ^
+3 verification failures

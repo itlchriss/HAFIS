@@ -1,0 +1,4 @@
+- The integer array parameter `x` is not null.
+- The integer array parameter `y` is not null.
+- The boolean result is equal to the true literal if the integer array parameter `x` deeply equals the integer array parameter `y`.
+- The boolean result is equal to the false literal if the integer array parameter `x` does not deeply equal the integer array parameter `y`.

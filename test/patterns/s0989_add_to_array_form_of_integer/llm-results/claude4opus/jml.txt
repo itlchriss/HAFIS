@@ -1,0 +1,83 @@
+Here's the JML specification for the given problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires num != null;
+      @ requires num.length >= 1 && num.length <= 10000;
+      @ requires (\forall int i; 0 <= i && i < num.length; 0 <= num[i] && num[i] <= 9);
+      @ requires num.length == 1 && num[0] == 0 || num[0] > 0; // no leading zeros except for zero itself
+      @ requires k >= 1 && k <= 10000;
+      @ ensures \result != null;
+      @ ensures \result.length >= 1;
+      @ ensures (\forall int i; 0 <= i && i < \result.length; 0 <= \result[i] && \result[i] <= 9);
+      @ ensures \result.length == 1 && \result[0] == 0 || \result[0] > 0; // no leading zeros in result
+      @ ensures arrayToInt(\result) == arrayToInt(num) + k;
+      @ pure
+      @*/
+    public int[] addToArrayForm(int[] num, int k) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires arr != null;
+      @ requires arr.length >= 1;
+      @ requires (\forall int i; 0 <= i && i < arr.length; 0 <= arr[i] && arr[i] <= 9);
+      @ ensures \result == (\sum int i; 0 <= i && i < arr.length; arr[i] * pow10(arr.length - 1 - i));
+      @ pure
+      @ helper
+      @*/
+    private /*@ spec_public @*/ long arrayToInt(int[] arr) {
+        long result = 0;
+        for (int i = 0; i < arr.length; i++) {
+            result = result * 10 + arr[i];
+        }
+        return result;
+    }
+    
+    /*@ private normal_behavior
+      @ requires n >= 0;
+      @ ensures \result == (\product int i; 0 <= i && i < n; 10);
+      @ ensures n == 0 ==> \result == 1;
+      @ pure
+      @ helper
+      @*/
+    private /*@ spec_public @*/ long pow10(int n) {
+        long result = 1;
+        for (int i = 0; i < n; i++) {
+            result *= 10;
+        }
+        return result;
+    }
+}
+```
+
+Key points in this JML specification:
+
+1. **Preconditions (`requires`)**:
+   - `num` is not null
+   - `num` length is between 1 and 10,000
+   - Each digit in `num` is between 0 and 9
+   - No leading zeros (except when the number is 0 itself)
+   - `k` is between 1 and 10,000
+
+2. **Postconditions (`ensures`)**:
+   - Result is not null
+   - Result has at least one element
+   - Each digit in result is between 0 and 9
+   - Result has no leading zeros
+   - The integer value of the result equals the sum of the integer value of `num` and `k`
+
+3. **Helper methods**:
+   - `arrayToInt`: Converts array-form to integer value (marked as `spec_public` for use in specifications)
+   - `pow10`: Computes 10^n for position calculations
+
+4. **Additional JML features used**:
+   - `\forall` for universal quantification over array elements
+   - `\sum` for summation in the mathematical specification
+   - `\product` for product calculation
+   - `pure` to indicate methods have no side effects
+   - `helper` to mark specification-only helper methods
+
+This specification captures the essential behavior of adding an integer `k` to a number represented in array form, ensuring the result maintains the same array-form representation constraints.

@@ -1,4 +1,0 @@
-test/s0053_maximum_subarray/gpt4/build/Solution.java:17: error: array required, but int found
-//@ ensures((\forall int i; 0 <= i < nums.length; nums[i] == 1[i]) ==> (\result == 1));
-                                                             ^
-1 error

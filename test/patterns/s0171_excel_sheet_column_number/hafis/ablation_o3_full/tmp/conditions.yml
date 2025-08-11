@@ -1,0 +1,7 @@
+ensures:
+- When String the type_character_ chrs_a satisfies its prerequisites int result equals the Excel column number associated with String the type_character_ chrs_b.
+- If String the type_character_ chrs_a equals stry_a int result equals 1.
+- If String the type_character_ chrs_a equals stry_a int result equals 28.
+- If String the type_character_ chrs_a equals stry_a int result equals 701.
+- If String the type_character_ chrs_a equals stry_a int result equals 2147483647.
+requires: []

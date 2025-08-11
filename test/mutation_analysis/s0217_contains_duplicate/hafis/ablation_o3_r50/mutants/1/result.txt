@@ -1,0 +1,91 @@
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:18:) in method containsDuplicate
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:27:
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums[3] == 3 && nums[4] == 3 && nums[5] == 4 && nums[6] == 3 && nums[7] == 2 && nums[8] == 4 && nums[9] == 2 && nums.length == 10) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums[3] == 3 && nums[4] == 3 && nums[5] == 4 && nums[6] == 3 && nums[7] == 2 && nums[8] == 4 && nums[9] == 2 && nums.length == 10) ==> (\result == true));
+                                                                                                                                                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:27: verify: Associated method exit
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums[3] == 3 && nums[4] == 3 && nums[5] == 4 && nums[6] == 3 && nums[7] == 2 && nums[8] == 4 && nums[9] == 2 && nums.length == 10) ==> (\result == true));
+                                                                                                                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:27: verify: Associated method exit
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums[3] == 3 && nums[4] == 3 && nums[5] == 4 && nums[6] == 3 && nums[7] == 2 && nums[8] == 4 && nums[9] == 2 && nums.length == 10) ==> (\result == true));
+                                                                                                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:27: verify: Associated method exit
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums[3] == 3 && nums[4] == 3 && nums[5] == 4 && nums[6] == 3 && nums[7] == 2 && nums[8] == 4 && nums[9] == 2 && nums.length == 10) ==> (\result == true));
+                                                                                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:27: verify: Associated method exit
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums[3] == 3 && nums[4] == 3 && nums[5] == 4 && nums[6] == 3 && nums[7] == 2 && nums[8] == 4 && nums[9] == 2 && nums.length == 10) ==> (\result == true));
+                                                                                                                                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:23: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums[3] == 3 && nums[4] == 3 && nums[5] == 4 && nums[6] == 3 && nums[7] == 2 && nums[8] == 4 && nums[9] == 2 && nums.length == 10) ==> (\result == true));
+                                                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:23: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums[3] == 3 && nums[4] == 3 && nums[5] == 4 && nums[6] == 3 && nums[7] == 2 && nums[8] == 4 && nums[9] == 2 && nums.length == 10) ==> (\result == true));
+                                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:23: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result == false));
+                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:23: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result == false));
+                                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:23: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result == false));
+                                                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:27: verify: Associated method exit
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result == false));
+                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:27: verify: Associated method exit
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:23: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:16:) in method containsDuplicate
+                return true;
+                ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:23:
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 4 && nums.length == 4) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method containsDuplicate
+//@ ensures((nums[0] == 1 && nums[1] == 1 && nums[2] == 1 && nums[3] == 3 && nums[4] == 3 && nums[5] == 4 && nums[6] == 3 && nums[7] == 2 && nums[8] == 4 && nums[9] == 2 && nums.length == 10) ==> (\result == true));
+                                                                                 ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:23: verify: Associated method exit
+                return true;
+                ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:17:) in method containsDuplicate
+        return false;
+        ^
+./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0217_contains_duplicate/hafis/ablation_o3_r50/mutants/1/Solution.java:27:
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 1 && nums.length == 4) ==> (\result == true));
+    ^
+30 verification failures

@@ -1,0 +1,59 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Below is a complete JML specification for a (pure) Java method  
+
+    boolean canThreePartsEqualSum(int[] arr)
+
+that must satisfy the problem statement “Partition Array Into Three Parts With
+Equal Sum”.
+
+```
+/*@ public normal_behavior
+  @   requires arr != null;                 // array must exist
+  @   requires arr.length >= 3;             // three *non-empty* parts required
+  @   // (optional) every element is inside the range stated in the problem
+  @   // requires (\forall int k; 0 <= k && k < arr.length;
+  @   //                  -10000 <= arr[k] && arr[k] <= 10000);
+  @
+  @   //  Result is true  IFF  there exist two cut indices i and j
+  @   //  (with i+1 < j) that split the array into three non-empty
+  @   //  segments having equal sums.
+  @   ensures \result <==>
+  @           (\exists int i, j;
+  @                 0      <= i &&
+  @                 i + 1  <  j &&        // guarantees three *non-empty* parts
+  @                 j      <  arr.length &&
+  @
+  @                 // first part  : 0 … i
+  @                 // second part : i+1 … j-1
+  @                 // third part  : j … arr.length-1
+  @
+  @                 (\sum int k; 0      <= k && k <= i;         arr[k])
+  @              == (\sum int k; i + 1  <= k && k <= j - 1;    arr[k])
+  @              && (\sum int k; j      <= k && k <  arr.length; arr[k])
+  @              == (\sum int k; 0      <= k && k <= i;         arr[k]) );
+  @
+  @   assignable \nothing;                // the method is observationally pure
+  @   pure;                               // no visible side-effects
+  @*/
+public /*@ pure @*/ boolean canThreePartsEqualSum(int[] arr);
+```
+
+Explanation of the major JML clauses
+
+1. `requires`  
+   • `arr != null` and `arr.length >= 3` come directly from the problem constraints  
+   • The range check on the elements is commented-out because it is not
+     strictly necessary for correctness, but can be kept if you want to reflect
+     the original problem statement completely.
+
+2. `ensures`  
+   A bi-implication (`<==>`) is used so that the logical property and the
+   returned value agree in both directions:  
+   ­– If the method returns `true`, the existential condition must hold.  
+   ­– If such indices exist, the method must return `true`; otherwise `false`.
+
+3. `(\sum int k; P(k); E(k))`  
+   This JML quantifier is used to express the sum of a segment succinctly.
+
+4. `assignable \nothing` and `pure`  
+   State that the method has no visible side effects; it only computes and
+   returns a value.

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0496_next_greater_element_i/hafis/o3/mutants/17/Solution.java:36: error: unreachable statement
+                while (false) {
+                              ^
+1 error

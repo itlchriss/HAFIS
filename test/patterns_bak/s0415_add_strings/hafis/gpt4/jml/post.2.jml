@@ -1,1 +1,0 @@
-ensures(((num1.equals("11")) && (num2.equals("123"))) ==> (\result.equals("134")));

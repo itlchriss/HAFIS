@@ -1,0 +1,55 @@
+Here's the JML specification for the Two Sum problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 2 && nums.length <= 10000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           -1000000000 <= nums[i] && nums[i] <= 1000000000);
+      @ requires -1000000000 <= target && target <= 1000000000;
+      @ requires (\exists int i, j; 0 <= i && i < nums.length && 
+      @           0 <= j && j < nums.length && i != j;
+      @           nums[i] + nums[j] == target);
+      @ ensures \result != null;
+      @ ensures \result.length == 2;
+      @ ensures 0 <= \result[0] && \result[0] < nums.length;
+      @ ensures 0 <= \result[1] && \result[1] < nums.length;
+      @ ensures \result[0] != \result[1];
+      @ ensures nums[\result[0]] + nums[\result[1]] == target;
+      @ ensures (\forall int i, j; 0 <= i && i < nums.length && 
+      @          0 <= j && j < nums.length && i != j &&
+      @          nums[i] + nums[j] == target;
+      @          (i == \result[0] && j == \result[1]) ||
+      @          (i == \result[1] && j == \result[0]) ||
+      @          (i > \result[0] || (i == \result[0] && j > \result[1])));
+      @ pure
+      @*/
+    public int[] twoSum(int[] nums, int target) {
+        // Implementation here
+        return null;
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - `nums` is not null
+   - Array length is between 2 and 10^4
+   - Each element is between -10^9 and 10^9
+   - Target is between -10^9 and 10^9
+   - There exists exactly one pair of distinct indices whose values sum to target
+
+2. **Postconditions (`ensures`):**
+   - Result is not null
+   - Result is an array of length 2
+   - Both indices are valid (within bounds)
+   - The indices are different
+   - The values at those indices sum to the target
+   - The last ensures clause guarantees that if multiple solutions exist (though the problem states only one exists), we return the lexicographically smallest one
+
+3. **Method is marked as `pure`** since it doesn't modify any state.
+
+Note: The last ensures clause about uniqueness could be simplified or removed since the problem guarantees exactly one solution exists. I included it for completeness, but you could simplify it to just ensure the solution is correct without worrying about ordering.

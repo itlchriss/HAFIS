@@ -1,0 +1,6 @@
+ensures:
+- If int the type_string_ strs_a is greater_than to 0 then String result is the lowercase base 16 representation of int the type_string_ strs_b and String result contains no leading character stry_a.
+- If int the type_string_ strs_a is less_than to 0 then String result is the lowercase base 16 representation of the 30 2 bit two’s complement value of int the type_string_ strs_b and String result contains no leading character stry_a.
+- For every int the type_string_ strs_a the length of String result is at least 1 and at most 8 characters.
+- For every int the type_string_ strs_a every character in String result belongs to the set stry_a.
+requires: []

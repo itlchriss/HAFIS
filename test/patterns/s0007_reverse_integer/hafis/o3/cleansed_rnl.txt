@@ -1,0 +1,6 @@
+- The integer result is greater than or equal to the minimum value of java integer and is less than or equal to the maximum value of java integer.
+- If the integer parameter `x` is equal to 123, the integer result is equal to 321.
+- If the integer parameter `x` is equal to -123, the integer result is equal to -321.
+- If the integer parameter `x` is equal to 120, the integer result is equal to 21.
+- If the integer parameter `x` is equal to 0, the integer result is equal to 0.
+- If the integer result is equal to 0 and the integer parameter `x` is not equal to 0, reversing the digits of the integer parameter `x` produces a value greater than the maximum value of java integer or produces a value less than the minimum value of java integer.

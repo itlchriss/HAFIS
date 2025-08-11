@@ -1,0 +1,59 @@
+Here's the JML specification for the "Add Digits" problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires 0 <= num && num <= Integer.MAX_VALUE;
+      @ ensures 0 <= \result && \result <= 9;
+      @ ensures num == 0 ==> \result == 0;
+      @ ensures num > 0 ==> \result == ((num - 1) % 9) + 1;
+      @ pure
+      @*/
+    public int addDigits(int num) {
+        // Implementation
+    }
+    
+    /*@ // Helper specification for the iterative approach
+      @ public normal_behavior
+      @ requires 0 <= num && num <= Integer.MAX_VALUE;
+      @ ensures 0 <= \result && \result <= 9;
+      @ ensures \result == digitalRoot(num);
+      @ pure
+      @ 
+      @ // Recursive definition of digital root
+      @ public static pure model int digitalRoot(int n) {
+      @     return (n < 10) ? n : digitalRoot(sumOfDigits(n));
+      @ }
+      @ 
+      @ // Sum of digits helper
+      @ public static pure model int sumOfDigits(int n) {
+      @     return (n == 0) ? 0 : (n % 10) + sumOfDigits(n / 10);
+      @ }
+      @*/
+    public int addDigitsIterative(int num) {
+        // Iterative implementation
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`)**: 
+   - The input `num` must be between 0 and 2³¹-1 (Integer.MAX_VALUE)
+
+2. **Postconditions (`ensures`)**:
+   - The result is always a single digit (0-9)
+   - Special case: if input is 0, output is 0
+   - For positive numbers, the result follows the digital root formula: `((num - 1) % 9) + 1`
+
+3. **Mathematical insight**: The digital root of a positive number follows a pattern based on modulo 9:
+   - If `num % 9 == 0` and `num != 0`, then digital root is 9
+   - Otherwise, digital root is `num % 9`
+   - This can be expressed as `((num - 1) % 9) + 1` for all positive numbers
+
+4. **Alternative specification**: I've also included a more explicit recursive specification using model methods that directly captures the iterative digit-summing process described in the problem.
+
+5. **`pure` modifier**: Indicates the method has no side effects and depends only on its parameters.
+
+The O(1) solution leverages the mathematical property of digital roots, while the iterative specification provides a more direct translation of the problem description.

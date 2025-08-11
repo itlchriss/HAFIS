@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:14:) in method isLongPressedName
+        return true;
+        ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:46:
+//@ ensures((\result == true) ==> (typed.length() >= name.length()));
+    ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:15:) in method isLongPressedName
+            return false;
+            ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:39:
+//@ ensures(((name.equals("alex")) && (typed.equals("aaleex"))) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:46: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:16:) in method isLongPressedName
+        return true;
+        ^
+./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/hafis/claude4opus/mutants/2/Solution.java:46:
+//@ ensures(((name.equals("saeed")) && (typed.equals("ssaaedd"))) ==> (\result == false));
+    ^
+6 verification failures

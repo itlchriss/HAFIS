@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0942_di_string_match/hafis/o3/mutants/53/Solution.java:32: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

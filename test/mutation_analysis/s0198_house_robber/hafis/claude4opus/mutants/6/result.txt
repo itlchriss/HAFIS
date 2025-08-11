@@ -1,0 +1,62 @@
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures(\result <= (\sum int i; 0 <= i < nums.length; nums[i]));
+                        ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:16:) in method rob
+            return Math.max(nums[0], nums[1]);
+            ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:28:
+//@ ensures(\result <= (\sum int i; 0 <= i < nums.length; nums[i]));
+    ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:32: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method rob
+        profit[1] = Math.max(nums[1], nums[0]);
+              ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method rob
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 1 && nums.length == 4) ==> (\result == 4));
+                                                 ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:28: verify: Associated method exit
+            return Math.max(nums[0], nums[1]);
+            ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method rob
+//@ ensures((nums[0] == 2 && nums[1] == 7 && nums[2] == 9 && nums[3] == 3 && nums[4] == 1 && nums.length == 5) ==> (\result == 12));
+                                                 ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:28: verify: Associated method exit
+            return Math.max(nums[0], nums[1]);
+            ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method rob
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 1 && nums.length == 4) ==> (\result == 4));
+                                                                 ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:38: verify: Associated method exit
+        return profit[nums.length - 1];
+        ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:18:) in method rob
+        return profit[nums.length - 1];
+        ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:38:
+//@ ensures((nums[0] == 1 && nums[1] == 2 && nums[2] == 3 && nums[3] == 1 && nums.length == 4) ==> (\result == 4));
+    ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:15:) in method rob
+        return profit[nums.length - 1];
+        ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:38:
+//@ ensures(\result >= 0);
+    ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:17:) in method rob
+        return profit[nums.length - 1];
+        ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:38:
+//@ ensures((nums[0] == 2 && nums[1] == 7 && nums[2] == 9 && nums[3] == 3 && nums[4] == 1 && nums.length == 5) ==> (\result == 12));
+    ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method rob
+//@ ensures((nums[0] == 2 && nums[1] == 7 && nums[2] == 9 && nums[3] == 3 && nums[4] == 1 && nums.length == 5) ==> (\result == 12));
+                                                                 ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:38: verify: Associated method exit
+        return profit[nums.length - 1];
+        ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:17: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method rob
+//@ ensures((nums[0] == 2 && nums[1] == 7 && nums[2] == 9 && nums[3] == 3 && nums[4] == 1 && nums.length == 5) ==> (\result == 12));
+                                                                                 ^
+./test/mutation_analysis/s0198_house_robber/hafis/claude4opus/mutants/6/Solution.java:38: verify: Associated method exit
+        return profit[nums.length - 1];
+        ^
+1 warning
+19 verification failures

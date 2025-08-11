@@ -1,0 +1,28 @@
+./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:57: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:31:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:31: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:57:
+        ensures 0 <= \result && \result <= nums.length;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:57: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:37:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:37: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:57:
+        ensures (\forall int k; 0 <= k && k < nums.length ==> nums[k] != target)
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:35: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method searchInsert
+                   ==> nums[\result] == target;
+                           ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:57: verify: Associated method exit
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:46: verify: The prover cannot establish an assertion (LoopInvariant) in method searchInsert
+        //@ maintaining 0 <= lo <= hi < nums.length || lo == hi + 1;
+            ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:57: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:34:) in method searchInsert
+        return lo;
+        ^
+./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:34: verify: Associated declaration: ./test/mutation_analysis/s0035_search_insert_position/purellm/o3/mutants/36/Solution.java:57:
+        ensures (\exists int k; 0 <= k && k < nums.length && nums[k] == target)
+        ^
+9 verification failures

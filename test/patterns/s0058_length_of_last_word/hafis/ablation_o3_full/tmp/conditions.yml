@@ -1,0 +1,4 @@
+ensures:
+- String param_s_ contains 1 or more trailing space characters and such trailing space characters do not contribute to int result.
+- if String param_s_ contains 1 word without any space characters , int result equals the total length of String param_s_.
+requires: []

@@ -1,0 +1,68 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Below is a compact Java‐file skeleton that contains a JML contract expressing exactly the natural–language requirements of the “Longest Consecutive Sequence’’ problem.  
+(Only the specification part is important; the Java body can be filled with any `O(n)` algorithm.)
+
+```java
+/*  Longest Consecutive Sequence
+ *  – JML specification –
+ */
+public class Solution {
+
+    /*@ public normal_behavior
+      @   // ----------  PRE–CONDITIONS  ----------------------------------
+      @   requires nums != null;                       // array must exist
+      @   requires nums.length <= 100_000;             // 0 … 10^5
+      @   requires (\forall int i; 0 <= i && i < nums.length;
+      @                       -1_000_000_000 <= nums[i] &&
+      @                        nums[i]       <= 1_000_000_000);
+      @
+      @   // ----------  POST–CONDITIONS  ---------------------------------
+      @   // The returned value is the maximal length of a set of
+      @   // consecutive integers that are all present in the array:
+      @
+      @   // 1.  Existence of a longest block whose length == \result
+      @   ensures (\exists int start;
+      @              (\forall int k; 0 <= k && k < \result;
+      @                    contains(nums, start + k))  // every element of block is present
+      @           && !contains(nums, start - 1)        // block cannot be extended on the left
+      @           && !contains(nums, start + \result)  // block cannot be extended on the right
+      @           );
+      @
+      @   // 2.  Optimality: no other block is longer
+      @   ensures (\forall int start2, len2;
+      @              (\forall int k; 0 <= k && k < len2;
+      @                    contains(nums, start2 + k))
+      @           && !contains(nums, start2 - 1)
+      @           && !contains(nums, start2 + len2)
+      @           ==> len2 <= \result);
+      @
+      @   // 3.  Basic sanity
+      @   ensures 0 <= \result && \result <= nums.length;
+      @
+      @   // ----------  FRAME CONDITION  ---------------------------------
+      @   assignable \nothing;                         // method is observationally pure
+      @
+      @   // ----------  COMPLEXITY ---------------------------------------
+      @   //  (The required O(n) time cannot be expressed in standard JML;
+      @   //   it is stated here as an informal comment.)
+      @*/
+    public /*@ pure @*/ int longestConsecutive(int[] nums) {
+        // …place any O(n) implementation here…
+        return 0;  // stub
+    }
+
+    /*@ public pure model boolean contains(int[] a, int v) {
+      @     // True iff value v occurs in array a
+      @     return (\exists int i; 0 <= i && i < a.length; a[i] == v);
+      @ } @*/
+}
+```
+
+Explanation of the main clauses
+
+1. Preconditions (`requires`) translate the two constraint bullets from the original statement.
+2. The first `ensures` clause states that there really exists a maximal “block’’ of consecutive integers whose size equals the method’s return value.
+3. The second `ensures` clause guarantees optimality: every other block that satisfies the same “consecutive & maximal on both ends’’ condition has length not larger than the returned one.
+4. A small sanity clause (`0 ≤ result ≤ nums.length`) is added for convenience.
+5. The method is specified as pure (`assignable \nothing`) because it must only read its argument and produce a value.
+
+This JML contract is therefore a formal rendition of the complete informal specification given in the problem statement.

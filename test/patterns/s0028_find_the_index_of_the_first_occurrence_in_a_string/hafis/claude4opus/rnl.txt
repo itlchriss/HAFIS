@@ -1,0 +1,12 @@
+Based on the given software specification and following the established pattern from the examples, here are the method behavioural specifications:
+
+- The length of the string parameter `haystack` is greater than or equal to 0 and is less than or equal to 50000.
+- The length of the string parameter `needle` is greater than or equal to 0 and is less than or equal to 50000.
+- The string parameter `haystack` consists of only lowercase English letters.
+- The string parameter `needle` consists of only lowercase English letters.
+- If the string parameter `needle` is empty, the integer result is equal to 0.
+- If the string parameter `needle` is not a substring of the string parameter `haystack`, the integer result is equal to -1.
+- If the string parameter `needle` is a substring of the string parameter `haystack`, the integer result is greater than or equal to 0 and is less than the length of the string parameter `haystack`.
+- If the string parameter `haystack` is equal to "hello" and the string parameter `needle` is equal to "ll", the integer result is equal to 2.
+- If the string parameter `haystack` is equal to "aaaaa" and the string parameter `needle` is equal to "bba", the integer result is equal to -1.
+- If the string parameter `haystack` is empty and the string parameter `needle` is empty, the integer result is equal to 0.

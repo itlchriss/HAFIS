@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0202_happy_number/purellm/o3/mutants/12/Solution.java:29: verify: The prover cannot establish an assertion (Precondition: ./test/mutation_analysis/s0202_happy_number/purellm/o3/mutants/12/Solution.java:13:) in method isHappy
+                happy = isHappy(sum);
+                               ^
+./test/mutation_analysis/s0202_happy_number/purellm/o3/mutants/12/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0202_happy_number/purellm/o3/mutants/12/Solution.java:29:
+    public boolean isHappy(int n) {
+                   ^
+./test/mutation_analysis/s0202_happy_number/purellm/o3/mutants/12/Solution.java:9: verify: Precondition conjunct is false: 1 <= n
+      @   requires 1 <= n && n <= Integer.MAX_VALUE;   // 1 ≤ n ≤ 2³¹−1
+                     ^
+3 verification failures

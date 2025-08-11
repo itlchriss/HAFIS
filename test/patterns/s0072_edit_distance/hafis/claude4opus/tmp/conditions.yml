@@ -1,0 +1,12 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0 and is less_than_or_equal to the maximum value between the type_string_ param_w1_'s length and the type_string_ param_w2_'s length.
+- If the type_string_ param_w1_ is equal to the type_string_ param_w2_ , the type_integer_ result is equal to 0.
+- If the type_string_ param_w1_ is empty , the type_integer_ result is equal to the type_string_ param_w2_'s length.
+- If the type_string_ param_w2_ is empty , the type_integer_ result is equal to the type_string_ param_w1_'s length.
+- If the type_string_ param_w1_ is equal to stry_a and the type_string_ param_w2_ is equal to stry_b , the type_integer_ result is equal to 3.
+- If the type_string_ param_w1_ is equal to stry_a and the type_string_ param_w2_ is equal to stry_b , the type_integer_ result is equal to 5.
+requires:
+- The type_string_ param_w1_'s length is greater_than_or_equal to 0 and is less_than_or_equal to 500.
+- The type_string_ param_w2_'s length is greater_than_or_equal to 0 and is less_than_or_equal to 500.
+- The type_string_ param_w1_ only contains lowercase_alphabets.
+- The type_string_ param_w2_ only contains lowercase_alphabets.

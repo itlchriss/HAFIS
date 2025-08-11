@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/1/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/1/Solution.java:14:) in method numDecodings
+            return 0;
+            ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/1/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/1/Solution.java:20:
+//@ ensures((s.equals("226")) ==> (\result == 3));
+    ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/1/Solution.java:20: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/1/Solution.java:15:) in method numDecodings
+            return 0;
+            ^
+./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/1/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0091_decode_ways/hafis/o3/mutants/1/Solution.java:20:
+//@ ensures((s.equals("12")) ==> (\result == 2));
+    ^
+4 verification failures

@@ -1,0 +1,48 @@
+Here's the JML specification for the given problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 2 && nums.length % 2 == 0;
+      @ requires nums.length == 2 * (nums.length / 2);
+      @ requires 2 <= nums.length / 2 && nums.length / 2 <= 5000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           0 <= nums[i] && nums[i] <= 10000);
+      @ requires (\exists int repeated; 0 <= repeated && repeated <= 10000;
+      @           (\num_of int i; 0 <= i && i < nums.length; nums[i] == repeated) 
+      @           == nums.length / 2);
+      @ requires (\num_of int v; 0 <= v && v <= 10000;
+      @           (\exists int i; 0 <= i && i < nums.length; nums[i] == v))
+      @           == (nums.length / 2) + 1;
+      @ ensures (\num_of int i; 0 <= i && i < nums.length; nums[i] == \result) 
+      @         == nums.length / 2;
+      @ ensures 0 <= \result && \result <= 10000;
+      @ pure
+      @*/
+    public int repeatedNTimes(int[] nums) {
+        // Implementation here
+    }
+}
+```
+
+Key points in this JML specification:
+
+1. **Preconditions (`requires`):**
+   - `nums` is not null
+   - Array length is even and at least 2
+   - Array length equals 2*n where n is between 2 and 5000
+   - All elements are in range [0, 10^4]
+   - There exists exactly one element that appears n times (where n = nums.length/2)
+   - There are exactly n+1 unique elements in the array
+
+2. **Postconditions (`ensures`):**
+   - The returned value appears exactly n times in the array
+   - The returned value is within the valid range [0, 10^4]
+
+3. **Method properties:**
+   - Marked as `pure` since it doesn't modify any state
+   - Uses `normal_behavior` since the method should not throw exceptions given valid input
+
+The `\num_of` quantifier counts the number of elements satisfying a condition, which is perfect for expressing the constraint about element frequencies in this problem.

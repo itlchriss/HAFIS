@@ -1,0 +1,6 @@
+- The String parameter `s` consists of printable ASCII characters.
+- The String result has the same length as the String parameter `s`.
+- Each character in the String result is equal to the corresponding character in the String parameter `s` after converting any uppercase English letter to its lowercase form.
+- If the String parameter `s` is equal to "Hello", the String result is equal to "hello".
+- If the String parameter `s` is equal to "here", the String result is equal to "here".
+- If the String parameter `s` is equal to "LOVELY", the String result is equal to "lovely".

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_full/mutants/2/Solution.java:17: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

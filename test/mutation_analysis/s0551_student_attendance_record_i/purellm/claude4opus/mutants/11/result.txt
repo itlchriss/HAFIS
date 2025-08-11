@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0551_student_attendance_record_i/purellm/claude4opus/mutants/11/Solution.java:17: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0551_student_attendance_record_i/purellm/claude4opus/mutants/11/Solution.java:6:) in method checkRecord
+            if (s.charAt(i) == 'A') {
+                        ^
+./test/mutation_analysis/s0551_student_attendance_record_i/purellm/claude4opus/mutants/11/Solution.java:6: verify: Associated declaration: ./test/mutation_analysis/s0551_student_attendance_record_i/purellm/claude4opus/mutants/11/Solution.java:17:
+    /*@ public normal_behavior
+               ^
+2 verification failures

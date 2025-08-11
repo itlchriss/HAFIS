@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0925_long_pressed_name/purellm/claude4opus/mutants/47/Solution.java:23: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0925_long_pressed_name/purellm/claude4opus/mutants/47/Solution.java:6:) in method isLongPressedName
+            while (j < typed.length() && typed.charAt(j) != name.charAt(i)) {
+                                                                       ^
+./test/mutation_analysis/s0925_long_pressed_name/purellm/claude4opus/mutants/47/Solution.java:6: verify: Associated declaration: ./test/mutation_analysis/s0925_long_pressed_name/purellm/claude4opus/mutants/47/Solution.java:23:
+    /*@ public normal_behavior
+               ^
+2 verification failures

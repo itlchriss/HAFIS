@@ -1,0 +1,148 @@
+Looking at this UTF-8 validation problem, I need to convert the specification into JML (Java Modeling Language). Here's the JML specification:
+
+```java
+public class UTF8Validation {
+    
+    /*@ public normal_behavior
+      @ requires data != null;
+      @ requires data.length >= 1 && data.length <= 20000;
+      @ requires (\forall int i; 0 <= i && i < data.length; 
+      @          0 <= data[i] && data[i] <= 255);
+      @ ensures \result == isValidUTF8(data);
+      @*/
+    public /*@ pure @*/ boolean validUtf8(int[] data);
+    
+    /*@ public normal_behavior
+      @ requires data != null;
+      @ requires data.length >= 1;
+      @ requires (\forall int i; 0 <= i && i < data.length; 
+      @          0 <= data[i] && data[i] <= 255);
+      @ {|
+      @   requires data.length == 0;
+      @   ensures \result == true;
+      @ also
+      @   requires data.length > 0;
+      @   ensures \result <==> validUTF8Sequence(data, 0);
+      @ |}
+      @*/
+    private /*@ pure @*/ boolean isValidUTF8(int[] data);
+    
+    /*@ private normal_behavior
+      @ requires data != null && 0 <= start && start < data.length;
+      @ requires (\forall int i; 0 <= i && i < data.length; 
+      @          0 <= data[i] && data[i] <= 255);
+      @ measured_by data.length - start;
+      @ {|
+      @   requires start == data.length;
+      @   ensures \result == true;
+      @ also
+      @   requires start < data.length && (data[start] & 0x80) == 0;
+      @   ensures \result == (start + 1 >= data.length || 
+      @                       validUTF8Sequence(data, start + 1));
+      @ also
+      @   requires start < data.length && (data[start] & 0xE0) == 0xC0;
+      @   ensures \result == (start + 1 < data.length && 
+      @                       isContinuationByte(data[start + 1]) &&
+      @                       (start + 2 >= data.length || 
+      @                        validUTF8Sequence(data, start + 2)));
+      @ also
+      @   requires start < data.length && (data[start] & 0xF0) == 0xE0;
+      @   ensures \result == (start + 2 < data.length && 
+      @                       isContinuationByte(data[start + 1]) &&
+      @                       isContinuationByte(data[start + 2]) &&
+      @                       (start + 3 >= data.length || 
+      @                        validUTF8Sequence(data, start + 3)));
+      @ also
+      @   requires start < data.length && (data[start] & 0xF8) == 0xF0;
+      @   ensures \result == (start + 3 < data.length && 
+      @                       isContinuationByte(data[start + 1]) &&
+      @                       isContinuationByte(data[start + 2]) &&
+      @                       isContinuationByte(data[start + 3]) &&
+      @                       (start + 4 >= data.length || 
+      @                        validUTF8Sequence(data, start + 4)));
+      @ also
+      @   requires start < data.length && 
+      @            !((data[start] & 0x80) == 0) &&
+      @            !((data[start] & 0xE0) == 0xC0) &&
+      @            !((data[start] & 0xF0) == 0xE0) &&
+      @            !((data[start] & 0xF8) == 0xF0);
+      @   ensures \result == false;
+      @ |}
+      @*/
+    private /*@ pure @*/ boolean validUTF8Sequence(int[] data, int start);
+    
+    /*@ private normal_behavior
+      @ requires 0 <= b && b <= 255;
+      @ ensures \result == ((b & 0xC0) == 0x80);
+      @*/
+    private /*@ pure @*/ boolean isContinuationByte(int b);
+    
+    // Model methods for clarity
+    
+    /*@ public model pure boolean isOneByte(int b) {
+      @   return (b & 0x80) == 0;
+      @ }
+      @*/
+    
+    /*@ public model pure boolean isTwoByteStart(int b) {
+      @   return (b & 0xE0) == 0xC0;
+      @ }
+      @*/
+    
+    /*@ public model pure boolean isThreeByteStart(int b) {
+      @   return (b & 0xF0) == 0xE0;
+      @ }
+      @*/
+    
+    /*@ public model pure boolean isFourByteStart(int b) {
+      @   return (b & 0xF8) == 0xF0;
+      @ }
+      @*/
+    
+    // Invariants
+    
+    /*@ public invariant 
+      @ (\forall int b; 0 <= b && b <= 255;
+      @   isOneByte(b) ==> !isTwoByteStart(b) && !isThreeByteStart(b) && 
+      @                    !isFourByteStart(b) && !isContinuationByte(b));
+      @*/
+    
+    /*@ public invariant
+      @ (\forall int b; 0 <= b && b <= 255;
+      @   isTwoByteStart(b) ==> !isOneByte(b) && !isThreeByteStart(b) && 
+      @                         !isFourByteStart(b) && !isContinuationByte(b));
+      @*/
+    
+    /*@ public invariant
+      @ (\forall int b; 0 <= b && b <= 255;
+      @   isThreeByteStart(b) ==> !isOneByte(b) && !isTwoByteStart(b) && 
+      @                           !isFourByteStart(b) && !isContinuationByte(b));
+      @*/
+    
+    /*@ public invariant
+      @ (\forall int b; 0 <= b && b <= 255;
+      @   isFourByteStart(b) ==> !isOneByte(b) && !isTwoByteStart(b) && 
+      @                          !isThreeByteStart(b) && !isContinuationByte(b));
+      @*/
+}
+```
+
+This JML specification captures:
+
+1. **Preconditions**: 
+   - Array must be non-null
+   - Length between 1 and 20,000
+   - Each element between 0 and 255
+
+2. **UTF-8 Encoding Rules**:
+   - 1-byte: `0xxxxxxx` (bit pattern check: `(b & 0x80) == 0`)
+   - 2-byte: `110xxxxx 10xxxxxx` (start: `(b & 0xE0) == 0xC0`)
+   - 3-byte: `1110xxxx 10xxxxxx 10xxxxxx` (start: `(b & 0xF0) == 0xE0`)
+   - 4-byte: `11110xxx 10xxxxxx 10xxxxxx 10xxxxxx` (start: `(b & 0xF8) == 0xF0`)
+   - Continuation bytes: `10xxxxxx` (check: `(b & 0xC0) == 0x80`)
+
+3. **Recursive validation** through `validUTF8Sequence` that processes the array character by character
+
+4. **Model methods** for clarity and readability
+
+5. **Invariants** ensuring mutual exclusivity of byte types

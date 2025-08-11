@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0860_lemonade_change/purellm/o3/mutants/9/Solution.java:67: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0860_lemonade_change/purellm/o3/mutants/9/Solution.java:17:) in method lemonadeChange
+        return true;
+        ^
+./test/mutation_analysis/s0860_lemonade_change/purellm/o3/mutants/9/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0860_lemonade_change/purellm/o3/mutants/9/Solution.java:67:
+      @  ensures \result <==>                                          
+         ^
+2 verification failures

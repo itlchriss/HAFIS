@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/hafis/ablation_o3_full/mutants/10/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method productExceptSelf
+                ans[i] = product / nums[i];
+                                 ^
+1 verification failure

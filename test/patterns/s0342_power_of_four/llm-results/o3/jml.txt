@@ -1,0 +1,32 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Below is a compact JML contract for a (pure) Java method  
+boolean isPowerOfFour(int n) that realises the informal requirement
+
+ “return true iff ∃ x ≥ 0 : n = 4ˣ”.
+
+The contract uses the well-known bit-trick that a positive power-of-four
+• has exactly one bit set ( n & (n-1) == 0 ) and  
+• that bit is in an even position ( n & 0xAAAAAAAA == 0 ).
+
+```java
+public class Solution {
+
+    /*@ public normal_behavior
+      @   assignable \nothing;                       // the method is pure
+      @   ensures  \result <==>                      // “iff” specification
+      @            ( n > 0                           // …positive…
+      @              && (n & (n - 1)) == 0           // …power of two…
+      @              && (n & 0xAAAAAAAA) == 0 );     // …and the 1–bit is at an even index
+      @*/
+    public /*@ pure @*/ static boolean isPowerOfFour(int n) {
+        return n > 0 && (n & (n - 1)) == 0 && (n & 0xAAAAAAAA) == 0;
+    }
+}
+```
+
+Explanation of the JML clauses:
+
+• assignable \nothing – guarantees that the method has no side-effects.  
+• ensures – formalises the return value.  
+  The Boolean expression on the right is exactly the loop-/recursion-free
+  test for “n is a power of four”; the ⇔ ( <==> ) connects it with the result,
+  capturing both directions of the informal requirement.

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0925_long_pressed_name/purellm/o3/mutants/46/Solution.java:70: error: unreachable statement
+        for (; false; j++) {
+                           ^
+1 error

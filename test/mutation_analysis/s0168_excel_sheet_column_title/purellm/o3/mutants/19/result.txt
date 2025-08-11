@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/o3/mutants/19/Solution.java:27: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/o3/mutants/19/Solution.java:10:) in method convertToTitle
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/o3/mutants/19/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0168_excel_sheet_column_title/purellm/o3/mutants/19/Solution.java:27:
+  @   ensures (\forall int i; 0 <= i && i < \result.length();
+      ^
+2 verification failures

@@ -1,0 +1,2 @@
+- each value in int[] `nums` must be within the inclusive range -10000 to 10000
+- result of type int equals the maximum obtainable total of the smaller member from every pair when all elements of int[] `nums` are grouped into n non-overlapping pairs

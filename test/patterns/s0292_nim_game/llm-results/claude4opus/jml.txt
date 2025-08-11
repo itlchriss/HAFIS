@@ -1,0 +1,70 @@
+Looking at this Nim game problem, I need to analyze the winning pattern first.
+
+Let me trace through small values:
+- n=1: I take 1, I win → true
+- n=2: I take 2, I win → true  
+- n=3: I take 3, I win → true
+- n=4: No matter what I take (1,2,or 3), opponent is left with 1,2,or 3 and wins → false
+- n=5: I take 1, leaving 4 for opponent, opponent loses → true
+- n=6: I take 2, leaving 4 for opponent, opponent loses → true
+- n=7: I take 3, leaving 4 for opponent, opponent loses → true
+- n=8: No matter what I take, opponent gets 5,6,or 7 and wins → false
+
+The pattern is clear: I lose if and only if n is divisible by 4.
+
+Here's the JML specification:
+
+```java
+public class Solution {
+    /*@
+      @ requires n >= 1 && n <= Integer.MAX_VALUE;
+      @ ensures \result == (n % 4 != 0);
+      @ ensures \result ==> canWinFromPosition(n, true);
+      @ ensures !\result ==> !canWinFromPosition(n, true);
+      @*/
+    public /*@ pure @*/ boolean canWinNim(int n) {
+        return n % 4 != 0;
+    }
+    
+    /*@
+      @ // Helper specification to formally define winning positions
+      @ model pure boolean canWinFromPosition(int stones, boolean myTurn) {
+      @     if (stones == 0) {
+      @         return !myTurn; // If no stones left, the previous player won
+      @     }
+      @     if (myTurn) {
+      @         // I can win if there exists a move that puts opponent in losing position
+      @         return (stones >= 1 && !canWinFromPosition(stones - 1, false)) ||
+      @                (stones >= 2 && !canWinFromPosition(stones - 2, false)) ||
+      @                (stones >= 3 && !canWinFromPosition(stones - 3, false));
+      @     } else {
+      @         // Opponent can win if there exists a move that puts me in losing position
+      @         return (stones >= 1 && !canWinFromPosition(stones - 1, true)) ||
+      @                (stones >= 2 && !canWinFromPosition(stones - 2, true)) ||
+      @                (stones >= 3 && !canWinFromPosition(stones - 3, true));
+      @     }
+      @ }
+      @*/
+    
+    /*@
+      @ // Lemma: The game result depends only on n mod 4
+      @ axiom (\forall int k; k >= 0; 
+      @     canWinFromPosition(4*k + 1, true) &&
+      @     canWinFromPosition(4*k + 2, true) &&
+      @     canWinFromPosition(4*k + 3, true) &&
+      @     !canWinFromPosition(4*k, true));
+      @*/
+}
+```
+
+The key insights in this specification:
+
+1. **Precondition**: `n` must be between 1 and Integer.MAX_VALUE (2³¹-1)
+
+2. **Postcondition**: The result is true if and only if n is not divisible by 4
+
+3. **Model method**: `canWinFromPosition` recursively defines what it means to have a winning position in the game
+
+4. **Axiom**: States the mathematical property that positions divisible by 4 are losing positions, while all others are winning positions
+
+This specification captures both the simple implementation (n % 4 != 0) and the game-theoretic reasoning behind why this solution works.

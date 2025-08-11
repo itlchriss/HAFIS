@@ -1,0 +1,1 @@
+If any substring of 2 consecutive digits in the type_string_ param_s_ starts with the chry_a and is not equal to stry_a or stry_b , the type_integer_ result is equal to 0 . 

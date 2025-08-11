@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/claude4opus/mutants/25/Solution.java:17: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/claude4opus/mutants/25/Solution.java:6:) in method isValidSerialization
+            if (i == length || preorder.charAt(i) == ',') {
+                                              ^
+./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/claude4opus/mutants/25/Solution.java:6: verify: Associated declaration: ./test/mutation_analysis/s0331_verify_preorder_serialization_of_a_binary_tree/purellm/claude4opus/mutants/25/Solution.java:17:
+    /*@ public normal_behavior
+               ^
+2 verification failures

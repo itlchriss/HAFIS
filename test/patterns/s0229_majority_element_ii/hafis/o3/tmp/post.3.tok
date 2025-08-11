@@ -1,0 +1,1 @@
+If an integer value is not contained in the type_list_ result , the number of its occurrences in the type_integer_array_ param_nums_ is less_than_or_equal to the quotient between the type_integer_array_ param_nums_ 's length and 3 . 

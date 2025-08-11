@@ -1,0 +1,8 @@
+ensures:
+- If the type_integer_ param_n_ is less_than_or_equal to 0 , the type_boolean_ result is equal to the false literal.
+- If type_boolean_ result is equal to the true literal , there exists an integer x such that the type_integer_ param_n_ is equal to 3 raised to the power of x and the type_integer_ param_n_ is greater_than to 0.
+- If type_boolean_ result is equal to the false literal , the type_integer_ param_n_ is not equal to any integer power of 3.
+- If the type_integer_ param_n_ is equal to 27 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 9 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 0 , the type_boolean_ result is equal to the false literal.
+requires: []

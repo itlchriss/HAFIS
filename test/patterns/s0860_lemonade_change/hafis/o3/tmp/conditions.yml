@@ -1,0 +1,7 @@
+ensures:
+- If the type_boolean_ result is equal to the true literal , there exists an order-preserving sequence of payments and change returns whereby every customer in the type_integer_array_ param_bills_ receives the correct change for a 5 dollar purchase.
+- If the type_boolean_ result is equal to the false literal , no order-preserving sequence of payments and change returns ensure that every customer in the type_integer_array_ param_bills_ receives the correct change for a 5 dollar purchase.
+- If the type_integer_array_ param_bills_ is equal to arr_a , the type_boolean_ result is equal to the true literal.
+- If the type_integer_array_ param_bills_ is equal to arr_a , the type_boolean_ result is equal to the false literal.
+requires:
+- The type_integer_array_ param_bills_'s values are equal to 5 or are equal to 10 or are equal to 20.

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0091_decode_ways/hafis/ablation_o3_full/mutants/26/Solution.java:32: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method numDecodings
+                f[i] += f[i - 2];
+                         ^
+1 verification failure

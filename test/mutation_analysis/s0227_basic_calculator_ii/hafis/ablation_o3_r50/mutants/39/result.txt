@@ -1,0 +1,25 @@
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:54: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:11:) in method calculate
+        return sum;
+        ^
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:54:
+//@ ensures((\result >= -2147483648) && (\result <= 2147483647));
+    ^
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:54: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:12:) in method calculate
+        return sum;
+        ^
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:54:
+//@ ensures((s.equals("3+2*2")) ==> (\result == 7));
+    ^
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:54: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:13:) in method calculate
+        return sum;
+        ^
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:54:
+//@ ensures((s.equals(" 3+5 / 2 ")) ==> (\result == 5));
+    ^
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:54: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:14:) in method calculate
+        return sum;
+        ^
+./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0227_basic_calculator_ii/hafis/ablation_o3_r50/mutants/39/Solution.java:54:
+//@ ensures((s.equals(" 3/2 ")) ==> (\result == 1));
+    ^
+8 verification failures

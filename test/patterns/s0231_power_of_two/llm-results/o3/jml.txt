@@ -1,0 +1,56 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Below is a complete Java‐method header annotated with JML that captures exactly the natural-language specification of “231. Power of Two”.
+
+```
+public class MathUtils {
+
+    /**
+     * Returns true iff the given integer n is a power of two.
+     */
+    /*@
+      @ public normal_behavior
+      @
+      @   // No pre-condition: every 32-bit signed integer is admissible
+      @   requires true;
+      @
+      @   // The method is pure: it does not modify any program state
+      @   assignable \nothing;
+      @
+      @   // Post-condition — two equivalent characterisations:
+      @   //  1.  Arithmetic:  n is a positive power of two
+      @   //  2.  Bit-wise  :  exactly one bit is set in n
+      @   //
+      @   //  Either of the two "ensures" clauses alone is sufficient; both
+      @   //  are given for clarity and tool robustness.
+      @
+      @   // Arithmetic characterisation
+      @   ensures \result <==>
+      @           (\exists int x; 0 <= x && x < 31;            // 0 … 30 are the
+      @                           n == (1 << x));              // only possible
+      @
+      @   // Bitwise characterisation (loop/recursion-free)
+      @   ensures \result == (n > 0 && ((n & (n - 1)) == 0));
+      @
+      @*/
+    public /*@ pure @*/ static boolean isPowerOfTwo(int n) {
+        /* implementation intentionally omitted; the JML contract above
+           fully specifies the required behaviour */
+        return n > 0 && ( (n & (n - 1)) == 0 );
+    }
+}
+```
+
+Explanation of the JML clauses:
+
+1. `requires true;`  
+   No special pre-condition—every `int` is allowed.
+
+2. `assignable \nothing;`  
+   Declares the method pure; it must not modify any visible state.
+
+3. `ensures …` (first form)  
+   Uses an existential quantifier to state that there is an integer `x` (0 ≤ x < 31) with `n == 1 << x`, i.e. `n = 2ˣ`.
+
+4. `ensures …` (second form)  
+   Provides an equivalent, loop-free bitwise characterisation: a positive integer whose binary representation contains exactly one `1` bit is a power of two.
+
+Either post-condition alone is enough; including both is common practice when one form is better for human readability and the other for automated verification.

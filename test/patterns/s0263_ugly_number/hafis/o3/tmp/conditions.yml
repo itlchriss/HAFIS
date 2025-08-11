@@ -1,0 +1,8 @@
+ensures:
+- If type_boolean_ result is equal to the true literal , the type_integer_ param_n_ is greater_than to 0 and all prime_factors of the type_integer_ param_n_ belong to the set 235.
+- If type_boolean_ result is equal to the false literal , the type_integer_ param_n_ is less_than_or_equal to 0 or at least 1 prime factor of the type_integer_ param_n_ does not belong to the set 235.
+- If the type_integer_ param_n_ is equal to 6 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 8 , the type_boolean_ result is equal to the true literal.
+- If the type_integer_ param_n_ is equal to 14 , the type_boolean_ result is equal to the false literal.
+- If the type_integer_ param_n_ is equal to 1 , the type_boolean_ result is equal to the true literal.
+requires: []

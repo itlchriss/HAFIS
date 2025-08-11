@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0065_valid_number/purellm/o3/mutants/100/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0065_valid_number/purellm/o3/mutants/100/Solution.java:24:) in method isNumber
+        return numberSeen;
+        ^
+./test/mutation_analysis/s0065_valid_number/purellm/o3/mutants/100/Solution.java:24: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/purellm/o3/mutants/100/Solution.java:56:
+        ensures \result <==> s.matches("^[+-]?(?:\\d+\\.\\d*|\\d*\\.\\d+|\\d+)(?:[eE][+-]?\\d+)?$");
+        ^
+./test/mutation_analysis/s0065_valid_number/purellm/o3/mutants/100/Solution.java:34: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0065_valid_number/purellm/o3/mutants/100/Solution.java:7:) in method isNumber
+            char c = s.charAt(i);
+                             ^
+./test/mutation_analysis/s0065_valid_number/purellm/o3/mutants/100/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0065_valid_number/purellm/o3/mutants/100/Solution.java:34:
+      public normal_behavior
+             ^
+4 verification failures

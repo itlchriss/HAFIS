@@ -1,0 +1,16 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to 0.
+- If the type_integer_array_ param_nums1_ is equal to arr_a and the type_integer_array_ param_nums2_ is equal to arr_b and the type_integer_array_ param_nums3_ is equal to arr_c and the type_integer_array_ param_nums4_ is equal to arr_d , the type_integer_ result is equal to 2.
+- If the type_integer_array_ param_nums1_ is equal to arr_a and the type_integer_array_ param_nums2_ is equal to arr_b and the type_integer_array_ param_nums3_ is equal to arr_c and the type_integer_array_ param_nums4_ is equal to arr_d , the type_integer_ result is equal to 1.
+requires:
+- The type_integer_array_ param_nums1_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 200.
+- The type_integer_array_ param_nums2_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 200.
+- The type_integer_array_ param_nums3_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 200.
+- The type_integer_array_ param_nums4_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 200.
+- The type_integer_array_ param_nums1_'s length is equal to the type_integer_array_ param_nums2_'s length.
+- The type_integer_array_ param_nums2_'s length is equal to the type_integer_array_ param_nums3_'s length.
+- The type_integer_array_ param_nums3_'s length is equal to the type_integer_array_ param_nums4_'s length.
+- The type_integer_array_ param_nums1_'s values are greater_than_or_equal to negative 268435456 and are less_than_or_equal to 268435456.
+- The type_integer_array_ param_nums2_'s values are greater_than_or_equal to negative 268435456 and are less_than_or_equal to 268435456.
+- The type_integer_array_ param_nums3_'s values are greater_than_or_equal to negative 268435456 and are less_than_or_equal to 268435456.
+- The type_integer_array_ param_nums4_'s values are greater_than_or_equal to negative 268435456 and are less_than_or_equal to 268435456.

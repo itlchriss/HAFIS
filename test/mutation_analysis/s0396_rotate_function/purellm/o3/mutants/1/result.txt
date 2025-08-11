@@ -1,0 +1,11 @@
+./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/1/Solution.java:16: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @              (\sum int i; 0 <= i && i < nums.length;
+                      ^
+./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/1/Solution.java:21: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @               (\sum int i; 0 <= i && i < nums.length;
+                       ^
+./test/mutation_analysis/s0396_rotate_function/purellm/o3/mutants/1/Solution.java:33: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method maxRotateFunction
+            f += i * nums[i];
+                         ^
+2 warnings
+1 verification failure

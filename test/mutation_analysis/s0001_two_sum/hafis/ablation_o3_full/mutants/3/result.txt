@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0001_two_sum/hafis/ablation_o3_full/mutants/3/Solution.java:21: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method twoSum
+            Integer requiredNum = target % numbers[i];
+                                         ^
+1 verification failure

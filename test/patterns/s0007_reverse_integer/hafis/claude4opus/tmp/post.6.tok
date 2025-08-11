@@ -1,0 +1,1 @@
+If reversing the digits of the type_integer_ param_x_ would cause the value to be is less_than to negative 2147483648 or is greater_than to 2147483647 , the type_integer_ result is equal to 0 . 

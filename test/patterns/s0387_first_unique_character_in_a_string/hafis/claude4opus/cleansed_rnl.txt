@@ -1,0 +1,9 @@
+- The length of the string parameter `s` is greater than or equal to 1 and is less than or equal to 100000.
+- The string parameter `s` consists of only lowercase English letters.
+- The integer result is greater than or equal to -1 and is less than or equal to the length of the string parameter `s` minus 1.
+- If the integer result is equal to -1, all characters in the string parameter `s` appear more than once.
+- If the integer result is greater than or equal to 0, the character at index integer result in the string parameter `s` appears exactly once in the string parameter `s`.
+- If the integer result is greater than or equal to 0, all characters before index integer result in the string parameter `s` appear more than once in the string parameter `s`.
+- If the string parameter `s` is equal to "leetcode", the integer result is equal to 0.
+- If the string parameter `s` is equal to "loveleetcode", the integer result is equal to 2.
+- If the string parameter `s` is equal to "aabb", the integer result is equal to -1.

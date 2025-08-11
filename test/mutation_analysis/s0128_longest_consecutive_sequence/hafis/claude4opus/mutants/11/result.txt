@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0128_longest_consecutive_sequence/hafis/claude4opus/mutants/11/Solution.java:28: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

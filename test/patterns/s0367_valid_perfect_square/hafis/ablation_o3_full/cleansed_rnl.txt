@@ -1,0 +1,2 @@
+- boolean result is true if and only if int `num` equals the square of some positive integer
+- boolean result is false if int `num` does not equal the square of any positive integer

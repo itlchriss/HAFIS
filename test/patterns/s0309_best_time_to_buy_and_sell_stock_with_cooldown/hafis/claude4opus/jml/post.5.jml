@@ -1,0 +1,1 @@
+ensures((\forall int i; 0 <= i < prices.length-1; prices[i] >= prices[i+1]) ==> (\result == 0));

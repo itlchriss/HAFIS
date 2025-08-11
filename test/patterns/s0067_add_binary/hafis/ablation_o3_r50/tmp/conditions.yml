@@ -1,0 +1,11 @@
+ensures:
+- The type_string_ result only contains the checking_character_sequence_ .
+- The type_string_ result interpreted as a binary integer is equal to the sum of the binary integers represented by the type_string_ parameters the type_character_ chrs_aand the type_character_ chrs_b.
+- If the type_string_ param_a_ is equal to stry_a and the type_string_ param_b_ is equal to stry_b , the type_string_ result is equal to stry_c.
+- If the type_string_ param_a_ is equal to stry_a and the type_string_ param_b_ is equal to stry_b , the type_string_ result is equal to stry_c.
+requires:
+- The type_string_ param_b_'s length is less_than_or_equal to 10000 and is greater_than_or_equal to 1.
+- The type_string_ param_a_ only contains the checking_character_sequence_ .
+- The type_string_ param_b_ only contains the checking_character_sequence_ .
+- The type_string_ param_a_ does not contain leading zeros except when the type_string_ param_a_ is equal to stry_a.
+- The type_string_ param_b_ does not contain leading zeros except when the type_string_ param_b_ is equal to stry_a.

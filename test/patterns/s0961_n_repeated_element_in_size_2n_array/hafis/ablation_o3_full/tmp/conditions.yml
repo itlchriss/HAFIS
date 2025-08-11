@@ -1,0 +1,6 @@
+ensures:
+- The int result equals the element that is repeated n times in param_nums_.
+- The int result is contained in param_nums_.
+requires:
+- Every value in int type_array_ param_nums_ lies between 0 and 10000 inclusive.
+- The int type_array_ param_nums_ contains n + 1 unique elements and 1 element that is repeated n times.

@@ -1,0 +1,1 @@
+If the type_boolean_ result is equal to the true literal , there exists at least 1 value in the type_integer_array_ param_arr_ that is greater_than to both its adjacent values . 

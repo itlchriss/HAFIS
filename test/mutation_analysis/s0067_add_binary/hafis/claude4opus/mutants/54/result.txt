@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:15:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:40:
+//@ ensures(\forall int i; 0 <= i < \result.length(); \result.charAt(i) == '0' || \result.charAt(i) == '1');
+    ^
+./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:17:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:40:
+//@ ensures(((a.equals("1010")) && (b.equals("1011"))) ==> (\result.equals("10101")));
+    ^
+./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:40: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:16:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/hafis/claude4opus/mutants/54/Solution.java:40:
+//@ ensures(((a.equals("11")) && (b.equals("1"))) ==> (\result.equals("100")));
+    ^
+6 verification failures

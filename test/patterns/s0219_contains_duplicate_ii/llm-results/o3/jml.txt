@@ -1,0 +1,41 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Below is a JML contract that captures exactly the English–language specification of
+“219. Contains Duplicate II”.
+
+We assume the Java method has the following signature:
+
+```java
+public /*@ pure @*/ boolean containsNearbyDuplicate(int[] nums, int k);
+```
+
+JML specification:
+
+```java
+/*@
+  @ // ----------  Preconditions  ----------
+  @ requires nums != null;
+  @ requires 1 <= nums.length && nums.length <= 100000;
+  @ requires (\forall int i; 0 <= i && i < nums.length;
+  @                     -1000000000 <= nums[i] && nums[i] <= 1000000000);
+  @ requires 0 <= k && k <= 100000;
+  @
+  @ // ----------  Postcondition  ----------
+  @ ensures \result <==>
+  @         (\exists int i, j;
+  @             0 <= i && i < nums.length &&
+  @             0 <= j && j < nums.length &&
+  @             i != j &&
+  @             nums[i] == nums[j] &&
+  @             java.lang.Math.abs(i - j) <= k);
+  @
+  @ // The method is pure (no side–effects, already declared in the signature)
+  @*/
+public /*@ pure @*/ boolean containsNearbyDuplicate(int[] nums, int k);
+```
+
+Explanation of the clauses:
+
+• `requires` lines express the problem’s constraints on the input array, its length, the value range of the elements, and the range of `k`.
+
+• The `ensures` clause says the returned boolean (`\result`) is `true` **iff** there exists a pair of distinct indices `i`, `j` satisfying both equality of the elements and the distance condition `|i − j| ≤ k` (captured by `java.lang.Math.abs`).
+
+• Declaring the method `pure` indicates that it does not modify any memory, consistent with the problem statement being a pure query.

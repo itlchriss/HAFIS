@@ -1,0 +1,120 @@
+Here's the JML specification for the Long Pressed Name problem:
+
+```java
+public class LongPressedName {
+    
+    /*@ public normal_behavior
+      @ requires name != null && typed != null;
+      @ requires 1 <= name.length() && name.length() <= 1000;
+      @ requires 1 <= typed.length() && typed.length() <= 1000;
+      @ requires (\forall int i; 0 <= i && i < name.length(); 
+      @           'a' <= name.charAt(i) && name.charAt(i) <= 'z');
+      @ requires (\forall int i; 0 <= i && i < typed.length(); 
+      @           'a' <= typed.charAt(i) && typed.charAt(i) <= 'z');
+      @ ensures \result <==> isLongPressedName(name, typed);
+      @*/
+    public /*@ pure @*/ boolean isLongPressed(String name, String typed) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ requires name != null && typed != null;
+      @ ensures \result <==> 
+      @   (\exists int[] nameIndices; nameIndices.length == typed.length() &&
+      @    isValidMapping(name, typed, nameIndices));
+      @*/
+    private /*@ pure @*/ boolean isLongPressedName(String name, String typed) {
+        // Helper specification
+    }
+    
+    /*@ private normal_behavior
+      @ requires name != null && typed != null && nameIndices != null;
+      @ requires nameIndices.length == typed.length();
+      @ ensures \result <==> 
+      @   ((\forall int i; 0 <= i && i < nameIndices.length; 
+      @     0 <= nameIndices[i] && nameIndices[i] < name.length()) &&
+      @    (\forall int i; 0 <= i && i < typed.length(); 
+      @     typed.charAt(i) == name.charAt(nameIndices[i])) &&
+      @    (\forall int i; 0 <= i && i < nameIndices.length - 1; 
+      @     nameIndices[i] <= nameIndices[i + 1]) &&
+      @    (\forall int i; 0 <= i && i < nameIndices.length - 1; 
+      @     nameIndices[i] < nameIndices[i + 1] || 
+      @     typed.charAt(i) == typed.charAt(i + 1)) &&
+      @    (\forall int j; 0 <= j && j < name.length(); 
+      @     (\exists int i; 0 <= i && i < nameIndices.length; 
+      @      nameIndices[i] == j)) &&
+      @    nameIndices[0] == 0 &&
+      @    nameIndices[nameIndices.length - 1] == name.length() - 1);
+      @*/
+    private /*@ pure @*/ boolean isValidMapping(String name, String typed, int[] nameIndices) {
+        // Helper specification
+    }
+}
+```
+
+Alternative, more implementation-oriented JML specification:
+
+```java
+public class LongPressedName {
+    
+    /*@ public normal_behavior
+      @ requires name != null && typed != null;
+      @ requires 1 <= name.length() && name.length() <= 1000;
+      @ requires 1 <= typed.length() && typed.length() <= 1000;
+      @ requires (\forall int i; 0 <= i && i < name.length(); 
+      @           'a' <= name.charAt(i) && name.charAt(i) <= 'z');
+      @ requires (\forall int i; 0 <= i && i < typed.length(); 
+      @           'a' <= typed.charAt(i) && typed.charAt(i) <= 'z');
+      @ ensures \result == canMatch(name, 0, typed, 0);
+      @*/
+    public /*@ pure @*/ boolean isLongPressed(String name, String typed) {
+        // Implementation here
+    }
+    
+    /*@ private normal_behavior
+      @ requires name != null && typed != null;
+      @ requires 0 <= nameIdx && nameIdx <= name.length();
+      @ requires 0 <= typedIdx && typedIdx <= typed.length();
+      @ measured_by name.length() - nameIdx + typed.length() - typedIdx;
+      @ ensures \result <==> 
+      @   ((nameIdx == name.length() && typedIdx == typed.length()) ||
+      @    (nameIdx == name.length() && typedIdx < typed.length() && 
+      @     allSameAsLast(typed, typedIdx, name.charAt(name.length() - 1))) ||
+      @    (nameIdx < name.length() && typedIdx < typed.length() &&
+      @     name.charAt(nameIdx) == typed.charAt(typedIdx) &&
+      @     canMatch(name, nameIdx + 1, typed, typedIdx + 1)) ||
+      @    (nameIdx > 0 && typedIdx < typed.length() &&
+      @     name.charAt(nameIdx - 1) == typed.charAt(typedIdx) &&
+      @     canMatch(name, nameIdx, typed, typedIdx + 1)));
+      @*/
+    private /*@ pure @*/ boolean canMatch(String name, int nameIdx, String typed, int typedIdx) {
+        // Recursive helper specification
+    }
+    
+    /*@ private normal_behavior
+      @ requires s != null && 0 <= start && start <= s.length();
+      @ ensures \result <==> 
+      @   (\forall int i; start <= i && i < s.length(); s.charAt(i) == c);
+      @*/
+    private /*@ pure @*/ boolean allSameAsLast(String s, int start, char c) {
+        // Helper specification
+    }
+}
+```
+
+The key aspects of this JML specification:
+
+1. **Preconditions**: 
+   - Both strings are non-null
+   - Length constraints (1-1000)
+   - Only lowercase English letters
+
+2. **Main postcondition**: The result is true if and only if `typed` could have been produced by typing `name` with some characters possibly long-pressed.
+
+3. **The specification captures**:
+   - Every character in `name` must appear in `typed` in the same order
+   - Characters in `typed` can be repeated (long-pressed)
+   - A character can only be long-pressed if it matches the current or previous character from `name`
+   - All characters from `name` must be used
+
+The first version uses a mapping approach, while the second uses a recursive matching approach that's closer to a typical implementation strategy.

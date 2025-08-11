@@ -1,0 +1,1 @@
+int [ ] result ensures it contains each integer from 0 to length of String the type_character_ chrs_a once . 

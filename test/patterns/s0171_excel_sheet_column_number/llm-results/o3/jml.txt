@@ -1,0 +1,58 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Below is a complete Java-Modeling-Language (JML) contract for a (pure) Java method  
+
+    public static int titleToNumber(String columnTitle)
+
+that implements the “Excel Sheet Column Number” function described in the
+problem statement.
+
+```java
+public class ExcelColumn {
+
+    /*@
+      @   // ---------------- PRECONDITIONS ----------------
+      @   requires columnTitle != null;
+      @   requires 1 <= columnTitle.length() && columnTitle.length() <= 7;
+      @   requires (\forall int i; 0 <= i && i < columnTitle.length();
+      @                   'A' <= columnTitle.charAt(i) &&
+      @                   columnTitle.charAt(i) <= 'Z');
+      @
+      @   // --------------- EXPECTED RESULT RANGE --------------
+      @   ensures 1 <= \result && \result <= 2147483647;   // Integer.MAX_VALUE
+      @
+      @   // --------------- FUNCTIONAL SPECIFICATION --------------
+      @   // Let n == columnTitle.length().
+      @   // The value is interpreted as a base-26 number with
+      @   // ‘A’ … ‘Z’ mapped to 1 … 26.
+      @   ensures
+      @      \result ==
+      @        (\sum int k; 0 <= k && k < columnTitle.length();
+      @              (columnTitle.charAt(k) - 'A' + 1)
+      @                  * ((int)java.lang.Math.pow(26, columnTitle.length() - k - 1)));
+      @
+      @   // --------------- MISCELLANEOUS --------------
+      @   // The method does not have side effects.
+      @   pure
+      @*/
+    public static int titleToNumber(final String columnTitle);
+}
+```
+
+Explanation of the clauses:
+
+1.  `requires columnTitle != null;`  
+    The argument must be a non-null reference.
+
+2.  `requires 1 <= columnTitle.length() && columnTitle.length() <= 7;`  
+    Mirrors the length constraint in the original description.
+
+3.  Character range requirement guarantees every character is an uppercase
+   English letter.
+
+4.  The range post-condition (`1 … 2,147,483,647`) captures the largest
+   possible value for a 7-letter title (`"FXSHRXW"`).
+
+5.  The functional `ensures` clause defines the numeric conversion formally
+   as a base-26 positional value, using JML’s summation operator `\sum`.
+
+6.  The method is declared `pure`, asserting that it has no side-effects and
+   its result depends only on its arguments.

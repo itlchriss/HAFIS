@@ -1,0 +1,32 @@
+./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:12: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+//@ ensures(\result <= (\sum int i; 0 <= i < nums.length; nums[i]));
+                        ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:19: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method arrayPairSum
+            sum += Math.min(nums[i], nums[i + 1]);
+                                ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:21: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:12:) in method arrayPairSum
+        return sum;
+        ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:21:
+//@ ensures(\result <= (\sum int i; 0 <= i < nums.length; nums[i]));
+    ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method arrayPairSum
+//@ ensures((nums[0] == 6 && nums[1] == 2 && nums[2] == 6 && nums[3] == 5 && nums[4] == 1 && nums[5] == 2 && nums.length == 6) ==> (\result == 9));
+                 ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:21: verify: Associated method exit
+        return sum;
+        ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method arrayPairSum
+//@ ensures((nums[0] == 1 && nums[1] == 4 && nums[2] == 3 && nums[3] == 2 && nums.length == 4) ==> (\result == 4));
+                                 ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:21: verify: Associated method exit
+        return sum;
+        ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method arrayPairSum
+//@ ensures((nums[0] == 6 && nums[1] == 2 && nums[2] == 6 && nums[3] == 5 && nums[4] == 1 && nums[5] == 2 && nums.length == 6) ==> (\result == 9));
+                                 ^
+./test/mutation_analysis/s0561_array_partition_i/hafis/o3/mutants/8/Solution.java:21: verify: Associated method exit
+        return sum;
+        ^
+1 warning
+9 verification failures

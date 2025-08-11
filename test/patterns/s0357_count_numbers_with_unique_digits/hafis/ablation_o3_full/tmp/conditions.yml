@@ -1,0 +1,4 @@
+ensures:
+- int result is the count of integers x that 0 is less_than_or_equal to x and x is less_than to 10 raised to the power of int stry_a and every decimal digit of x appears at most once.
+- int result equals 1 when int stry_a equals 0.
+requires: []

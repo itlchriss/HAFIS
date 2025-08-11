@@ -1,0 +1,10 @@
+- The length of the string parameter `w1` is greater than or equal to 0 and is less than or equal to 500.
+- The length of the string parameter `w2` is greater than or equal to 0 and is less than or equal to 500.
+- The string parameter `w1` consists of only lowercase English letters.
+- The string parameter `w2` consists of only lowercase English letters.
+- The integer result is greater than or equal to 0 and is less than or equal to the maximum value between the length of the string parameter `w1` and the length of the string parameter `w2`.
+- If the string parameter `w1` is equal to the string parameter `w2`, the integer result is equal to 0.
+- If the string parameter `w1` is empty, the integer result is equal to the length of the string parameter `w2`.
+- If the string parameter `w2` is empty, the integer result is equal to the length of the string parameter `w1`.
+- If the string parameter `w1` is equal to "horse" and the string parameter `w2` is equal to "ros", the integer result is equal to 3.
+- If the string parameter `w1` is equal to "intention" and the string parameter `w2` is equal to "execution", the integer result is equal to 5.

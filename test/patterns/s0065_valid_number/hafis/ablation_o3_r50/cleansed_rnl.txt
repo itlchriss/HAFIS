@@ -1,0 +1,7 @@
+- All the characters in the string parameter `s` are English letters or digits or the character '+' or the character '-' or the character '.'.
+- If the boolean result is true the string parameter `s` represents a valid number.
+- If the boolean result is false the string parameter `s` does not represent a valid number.
+- If the string parameter `s` is equal to "0" the boolean result is true.
+- If the string parameter `s` is equal to "e" the boolean result is false.
+- If the string parameter `s` is equal to "." the boolean result is false.
+- If the string parameter `s` is equal to ".1" the boolean result is true.

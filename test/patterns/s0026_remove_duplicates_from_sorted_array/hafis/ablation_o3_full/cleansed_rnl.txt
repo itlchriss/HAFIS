@@ -1,0 +1,6 @@
+- the length of int[] `nums` is expected to be between 0 and 30000 inclusive before the method is invoked
+- each element of int[] `nums` is expected to be within the range –100 to 100 inclusive before the method is invoked
+- if int[] `nums` has length 0 before invocation then result int equals 0 and int[] `nums` remains unchanged after execution
+- int result equals the number of distinct elements remaining in int[] `nums` after duplicates have been removed in place
+- after execution the first result int elements of int[] `nums` each appear exactly once and their original relative order is preserved
+- after execution any element of int[] `nums` located at an index greater than or equal to result int is left unspecified

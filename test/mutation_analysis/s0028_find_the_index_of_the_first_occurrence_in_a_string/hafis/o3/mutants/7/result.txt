@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/o3/mutants/7/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/o3/mutants/7/Solution.java:15:) in method strStr
+        return -1;
+        ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/o3/mutants/7/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/o3/mutants/7/Solution.java:31:
+//@ ensures((\result == -1) ==> (!(needle != null && haystack != null && needle.length() <= haystack.length() && (\exists int i; 0 <= i && i <= haystack.length() - needle.length(); (\forall int j; 0 <= j && j < needle.length(); haystack.charAt(i + j) == needle.charAt(j))))));
+    ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/o3/mutants/7/Solution.java:25: verify: The prover cannot establish an assertion (LoopDecreasesNonNegative) in method strStr
+        //@ decreases (m - n + 1) - start;
+            ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/o3/mutants/7/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/o3/mutants/7/Solution.java:18:) in method strStr
+        return -1;
+        ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/o3/mutants/7/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/hafis/o3/mutants/7/Solution.java:31:
+//@ ensures(((haystack.equals("hello")) && (needle.equals("ll"))) ==> (\result == 2));
+    ^
+5 verification failures

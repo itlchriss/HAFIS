@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/o3/mutants/36/Solution.java:30: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method addToArrayForm
+            int temp = num[i] + k % 10 + carry;
+                          ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/o3/mutants/36/Solution.java:44: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/o3/mutants/36/Solution.java:24:) in method addToArrayForm: \everything
+        Collections.reverse(result);
+                           ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/o3/mutants/36/Solution.java:24: verify: Associated declaration: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/o3/mutants/36/Solution.java:44:
+      @      assignable \nothing;               
+             ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/o3/mutants/36/Solution.java:44: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/o3/mutants/36/Solution.java:12:) in method addToArrayForm
+        Collections.reverse(result);
+                           ^
+./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/o3/mutants/36/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0989_add_to_array_form_of_integer/purellm/o3/mutants/36/Solution.java:44:
+/*@  public normal_behavior
+            ^
+5 verification failures

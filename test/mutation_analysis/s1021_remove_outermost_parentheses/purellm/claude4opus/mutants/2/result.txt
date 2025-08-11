@@ -1,0 +1,4 @@
+./test/mutation_analysis/s1021_remove_outermost_parentheses/purellm/claude4opus/mutants/2/Solution.java:23: error: unreachable statement
+        while (false) {
+                      ^
+1 error

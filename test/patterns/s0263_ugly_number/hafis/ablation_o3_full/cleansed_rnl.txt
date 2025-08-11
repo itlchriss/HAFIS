@@ -1,0 +1,3 @@
+- If int `n` equals 1 then boolean result is true
+- If int `n` is greater than 1 and every prime factor of int `n` belongs to the set 235 then boolean result is true
+- If int `n` is greater than 1 and int `n` contains any prime factor that does not belong to the set 235 then boolean result is false

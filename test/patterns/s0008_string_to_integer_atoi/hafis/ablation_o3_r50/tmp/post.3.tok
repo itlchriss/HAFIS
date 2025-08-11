@@ -1,0 +1,1 @@
+If the first non space character of the type_string_ param_str_ is the - sign , the type_integer_ result is negative . 

@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/claude4opus/mutants/5/Solution.java:25: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int maximumProduct(int[] nums) {
+               ^
+1 verification failure

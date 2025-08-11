@@ -1,0 +1,136 @@
+Here's the JML specification for the Jump Game problem:
+
+```java
+public class JumpGame {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1;
+      @ requires (\forall int i; 0 <= i && i < nums.length; nums[i] >= 0);
+      @ ensures \result == canReachLastIndex(nums);
+      @ pure
+      @*/
+    public boolean canJump(int[] nums) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ requires nums != null && nums.length >= 1;
+      @ requires (\forall int i; 0 <= i && i < nums.length; nums[i] >= 0);
+      @ ensures \result <==> 
+      @   (\exists int[] path; 
+      @     path != null && path.length >= 1 && 
+      @     path[0] == 0 && path[path.length-1] == nums.length-1 &&
+      @     (\forall int i; 0 <= i && i < path.length-1; 
+      @       0 <= path[i] && path[i] < nums.length &&
+      @       0 <= path[i+1] && path[i+1] < nums.length &&
+      @       path[i] < path[i+1] && 
+      @       path[i+1] <= path[i] + nums[path[i]]));
+      @ pure
+      @ model
+      @*/
+    public static boolean canReachLastIndex(int[] nums) {
+        // This is a model method - not implemented
+        // It represents whether there exists a valid path from index 0 to the last index
+    }
+    
+    /*@ public invariant nums != null ==> nums.length >= 1 && nums.length <= 10000;
+      @ public invariant nums != null ==> 
+      @   (\forall int i; 0 <= i && i < nums.length; 0 <= nums[i] && nums[i] <= 100000);
+      @*/
+}
+```
+
+Alternative, more implementation-oriented specification:
+
+```java
+public class JumpGame {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 10000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           0 <= nums[i] && nums[i] <= 100000);
+      @ ensures \result <==> reachable(nums, nums.length - 1);
+      @ pure
+      @*/
+    public boolean canJump(int[] nums) {
+        // Implementation here
+    }
+    
+    /*@ // Helper predicate: can we reach position 'target' starting from position 0?
+      @ public normal_behavior
+      @ requires nums != null && nums.length >= 1;
+      @ requires 0 <= target && target < nums.length;
+      @ requires (\forall int i; 0 <= i && i < nums.length; nums[i] >= 0);
+      @ {|
+      @   measured_by target + 1;
+      @   ensures \result <==> (target == 0) || 
+      @     (\exists int j; 0 <= j && j < target && 
+      @       j + nums[j] >= target && reachable(nums, j));
+      @ |}
+      @ pure
+      @ model
+      @*/
+    public static boolean reachable(int[] nums, int target) {
+        // This is a model method defining reachability recursively
+    }
+}
+```
+
+And here's a version with loop invariants for a typical greedy implementation:
+
+```java
+public class JumpGame {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 10000;
+      @ requires (\forall int i; 0 <= i && i < nums.length; 
+      @           0 <= nums[i] && nums[i] <= 100000);
+      @ ensures \result <==> canReachEnd(nums);
+      @*/
+    public boolean canJump(int[] nums) {
+        int maxReach = 0;
+        
+        /*@ loop_invariant 0 <= i && i <= nums.length;
+          @ loop_invariant 0 <= maxReach && maxReach < nums.length;
+          @ loop_invariant maxReach >= i - 1;
+          @ loop_invariant (\forall int j; 0 <= j && j < i && j <= maxReach; 
+          @                   maxReach >= j + nums[j]);
+          @ loop_invariant i > 0 ==> canReachPosition(nums, i - 1);
+          @ decreases nums.length - i;
+          @*/
+        for (int i = 0; i < nums.length; i++) {
+            if (i > maxReach) {
+                return false;
+            }
+            maxReach = Math.max(maxReach, i + nums[i]);
+            if (maxReach >= nums.length - 1) {
+                return true;
+            }
+        }
+        return maxReach >= nums.length - 1;
+    }
+    
+    /*@ // Predicate: can we reach position pos from position 0?
+      @ model pure boolean canReachPosition(int[] nums, int pos) {
+      @   return pos == 0 || 
+      @     (\exists int j; 0 <= j && j < pos && 
+      @       canReachPosition(nums, j) && j + nums[j] >= pos);
+      @ }
+      @*/
+    
+    /*@ // Predicate: can we reach the last index?
+      @ model pure boolean canReachEnd(int[] nums) {
+      @   return canReachPosition(nums, nums.length - 1);
+      @ }
+      @*/
+}
+```
+
+The key aspects of these specifications:
+1. **Preconditions**: Array is non-null, has valid length (1 to 10^4), and contains non-negative values up to 10^5
+2. **Postcondition**: Returns true if and only if we can reach the last index from index 0
+3. **Model methods**: Define what it means to have a valid path or to reach a position
+4. **Loop invariants**: For the implementation version, maintain that `maxReach` represents the furthest position we can reach so far

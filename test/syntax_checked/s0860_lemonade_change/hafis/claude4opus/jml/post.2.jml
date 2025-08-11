@@ -1,0 +1,1 @@
+ensures((bills[0] == 5 && bills[1] == 5 && bills[2] == 5 && bills[3] == 10 && bills[4] == 20 && bills.length == 5) ==> (\result == true));

@@ -1,0 +1,22 @@
+./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/40/Solution.java:61: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/40/Solution.java:24:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/40/Solution.java:24: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/40/Solution.java:61:
+      @   ensures (\forall int i; 0 <= i && i < \result.length();
+          ^
+./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/40/Solution.java:27: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333:) in method addBinary
+      @   ensures \result.length() == 1 || \result.charAt(0) == '1';
+                                                         ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/40/Solution.java:27:
+    public /*@ spec_pure @*/ char charAt(int index)
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:79: verify: Precondition conjunct is false: 0 <= index < charArray.length
+      @      requires 0 <= index < charArray.length;
+                                 ^
+./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/40/Solution.java:61: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/40/Solution.java:27:) in method addBinary
+        return sb.reverse().toString();
+        ^
+./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/40/Solution.java:27: verify: Associated declaration: ./test/mutation_analysis/s0067_add_binary/purellm/o3/mutants/40/Solution.java:61:
+      @   ensures \result.length() == 1 || \result.charAt(0) == '1';
+          ^
+7 verification failures

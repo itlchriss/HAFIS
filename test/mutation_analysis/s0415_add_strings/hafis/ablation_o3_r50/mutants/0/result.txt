@@ -1,0 +1,10 @@
+./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/0/Solution.java:31: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/0/Solution.java:12:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/0/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/0/Solution.java:31:
+//@ ensures(((num1.equals("11")) && (num2.equals("123"))) ==> (\result.equals("134")));
+    ^
+./test/mutation_analysis/s0415_add_strings/hafis/ablation_o3_r50/mutants/0/Solution.java:15: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public String addStrings(String num1, String num2) {
+                  ^
+3 verification failures

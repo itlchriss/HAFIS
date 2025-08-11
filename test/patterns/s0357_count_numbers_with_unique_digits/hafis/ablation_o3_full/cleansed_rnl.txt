@@ -1,0 +1,2 @@
+- int result represents the count of integers x where 0 is less than or equal to x and x is less than 10 raised to the power of int "n" and every decimal digit of x appears at most once
+- int result equals 1 when int "n" equals 0

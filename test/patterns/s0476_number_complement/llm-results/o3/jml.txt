@@ -1,0 +1,53 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (31s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (32s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (33s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (34s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (35s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (36s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (37s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (38s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (39s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (40s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (41s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (42s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (43s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (44s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (45s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (46s elapsed)Thinking... (47s elapsed)Below is one possible JML specification that captures the informal requirements of
+LeetCode #476 “Number Complement”.
+
+```java
+public class NumberComplement {
+
+    /**
+     * Returns the complement of {@code num}, i.e. the value obtained
+     * by flipping every bit of {@code num} up to (and including)
+     * its most-significant 1-bit.
+     */
+    /*@
+      @ // --- Pre-condition ---------------------------------------------------
+      @ // input range taken from the exercise statement
+      @ requires 1 <= num && num < 2147483648L;   // 1 ≤ num < 2³¹
+      @
+      @ // --- Frame condition -------------------------------------------------
+      @ assignable \nothing;                      // function is pure
+      @
+      @ // --- Post-condition --------------------------------------------------
+      @ // Let k be the number of significant bits of num
+      @ // (i.e. 2^(k-1) ≤ num < 2^k).  The value returned is the
+      @ // bitwise complement of num restricted to those k bits.
+      @ ensures (\exists int k;
+      @            0 < k &&
+      @            (1 << (k-1)) <= num && num < (1 << k) &&
+      @            \result == (((1 << k) - 1) ^ num));
+      @
+      @ // The result is always a non-negative 31-bit value
+      @ ensures 0 <= \result && \result < (1 << 31);
+      @*/
+    public /*@ pure @*/ static int findComplement(final int num) {
+        // implementation goes here
+    }
+}
+```
+
+Explanation of the clauses
+
+• `requires` encodes the constraint `1 ≤ num < 2³¹`.
+
+• `assignable \nothing` states that the method is pure (does not alter visible
+state).
+
+• In the main `ensures` clause we existentially quantify an integer `k`
+representing the length of the significant bit-prefix of `num`
+(the smallest power of two strictly larger than `num`).
+The mask `(1 << k) – 1` therefore consists of `k` one-bits,
+and `num ^ mask` is exactly the desired complement.
+
+• The last `ensures` clause records two simple facts that follow from the
+definition (non-negativity and 31-bit bound) and are often useful to
+verification tools.

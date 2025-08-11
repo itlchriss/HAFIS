@@ -1,0 +1,70 @@
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == true));
+                                                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == true));
+                                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == true));
+                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:14: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == true));
+                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:13:) in method canJump
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48:
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+    ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+                                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:13: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method canJump
+//@ ensures((nums[0] == 3 && nums[1] == 2 && nums[2] == 1 && nums[3] == 0 && nums[4] == 4 && nums.length == 5) ==> (\result == false));
+                                                                                 ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:48: verify: Associated method exit
+        return true;
+        ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:14:) in method canJump
+                return false;
+                ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:26:
+//@ ensures((nums[0] == 2 && nums[1] == 3 && nums[2] == 1 && nums[3] == 1 && nums[4] == 4 && nums.length == 5) ==> (\result == true));
+    ^
+./test/mutation_analysis/s0055_jump_game/hafis/ablation_o3_r50/mutants/9/Solution.java:40: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method canJump
+            if (i % tmp >= sz - 1) {
+                  ^
+23 verification failures

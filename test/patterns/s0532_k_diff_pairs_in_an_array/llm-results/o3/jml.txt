@@ -1,0 +1,92 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Below is one possible JML–specification for a Java routine that is supposed to
+solve LeetCode #532, “K-diff Pairs in an Array”.
+
+The specification is written for a method called
+
+    public int findPairs(int[] nums, int k);
+
+but you can of course rename the method.  
+Only the contract matters: you may implement the body any way you like as long
+as it fulfils the contract.
+
+```java
+import org.jmlspecs.annotation.*;     //  JML annotations
+
+public class KDiffer {
+
+    /*@
+      @   public normal_behavior
+      @
+      @   // ---------- PRE-CONDITIONS ----------
+      @   requires nums != null;                                    // array exists
+      @   requires 1 <= nums.length && nums.length <= 10000;        // |nums| restriction
+      @   requires 0 <= k && k <= 10000000;                         // k restriction
+      @   requires (\forall int i; 0 <= i && i < nums.length;
+      @                       -10000000 <= nums[i] && nums[i] <= 10000000);
+      @
+      @   // The implementation must not change the client-visible state
+      @   assignable \nothing;
+      @
+      @   // ---------- POST-CONDITION ----------
+      @   /*  How many distinct unordered VALUE pairs (a,b) with |a–b| = k
+      @       occur in the array?
+      @
+      @       –  We do NOT differentiate between indices, only between values.
+      @       –  For k  > 0 a pair is (a, a+k) with both values present.
+      @       –  For k == 0 a pair is (a, a) where value a occurs at least twice.
+      @
+      @       The result of the method is exactly that amount.                           */
+      @   ensures
+      @     \result ==
+      @       (k == 0                                     // ----- k == 0 --------------
+      @          ? (\num_of int a;
+      @                (\num_of int i;
+      @                     0 <= i && i < nums.length &&
+      @                     nums[i] == a)                                   /* freq(a) */
+      @                >= 2 )                                               /* ≥ 2 ?   */
+      @          : (\num_of int a;                       // ----- k  > 0 --------------
+      @                (\exists int i;
+      @                     0 <= i && i < nums.length &&
+      @                     nums[i] == a)                         /* a present      */
+      @             && (\exists int j;
+      @                     0 <= j && j < nums.length &&
+      @                     nums[j] == a + k) )               /* a+k present → one pair */
+      @     );
+      @*/
+    /*@ pure @*/                    //   ← the method neither mutates nor allocates
+    public int findPairs(int[] nums, int k) {
+        // **** IMPLEMENTATION GOES HERE ****
+        return 0;  // dummy to make the file compilable – replace by real code
+    }
+}
+```
+
+Explanation of the specification
+
+1. Preconditions  
+   • `nums` must exist and satisfy the size bound 1 … 10 000.  
+   • Every element is inside the allowed value range.  
+   • `k` itself obeys its given bound.
+
+2. Frame condition  
+   `assignable \nothing` guarantees functional behaviour: the routine is not
+   allowed to modify any heap-visible state (including the array).
+
+3. Postcondition  
+   The post-condition computes the contractual result with two separate
+   formulae because the definition of a *k-diff* pair is slightly different
+   for `k == 0`.
+
+   • For `k == 0` a value `a` contributes exactly one pair `(a,a)` **iff**
+     it occurs at least twice in the array.  
+     The JML quantifier `\num_of int a; <predicate>` counts how many distinct
+     integers `a` satisfy the predicate; that number is the required answer.
+
+   • For `k  > 0` every integer `a` that is present **and** whose companion
+     `a+k` is present contributes exactly one pair `(a,a+k)` to the count;
+     again `\num_of` gives the final total.
+
+Because the contract is phrased only in terms of mathematical properties
+(`\num_of`, `\exists`, `\forall`, …) it is independent of, and therefore
+allows, any efficient implementation (hash-tables, sorting, two-pointers, …)
+as long as the code meets the contract.

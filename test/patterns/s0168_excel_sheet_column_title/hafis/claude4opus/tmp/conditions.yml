@@ -1,0 +1,11 @@
+ensures:
+- The type_string_ result only contains uppercase_alphabets.
+- The type_string_ result's length is greater_than_or_equal to 1.
+- If the type_integer_ param_n_ is equal to 1 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_n_ is equal to 28 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_n_ is equal to 701 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_n_ is equal to 2147483647 , the type_string_ result is equal to stry_a.
+- If the type_integer_ param_n_ is less_than_or_equal to 26 , the type_string_ result's length is equal to 1.
+- If the type_integer_ param_n_ is greater_than to 26 and is less_than_or_equal to 702 , the type_string_ result's length is equal to 2.
+requires:
+- The type_integer_ param_n_ is greater_than_or_equal to 1 and is less_than_or_equal to 2147483647.

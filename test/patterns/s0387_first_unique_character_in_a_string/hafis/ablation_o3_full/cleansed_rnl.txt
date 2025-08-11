@@ -1,0 +1,3 @@
+- all characters in data type String parameter `s` are lowercase English letters
+- if data type String parameter `s` contains a character that occurs exactly once then data type int result equals the lowest index of such character
+- if no character in data type String parameter `s` occurs exactly once then data type int result equals negative one

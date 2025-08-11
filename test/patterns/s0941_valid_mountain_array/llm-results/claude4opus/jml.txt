@@ -1,0 +1,91 @@
+Here's the JML specification for the Valid Mountain Array problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires arr != null;
+      @ requires arr.length >= 1 && arr.length <= 10000;
+      @ requires (\forall int j; 0 <= j && j < arr.length; 0 <= arr[j] && arr[j] <= 10000);
+      @ ensures \result == (arr.length >= 3 && 
+      @     (\exists int i; 0 < i && i < arr.length - 1;
+      @         // Strictly increasing before peak
+      @         (\forall int k; 0 <= k && k < i; arr[k] < arr[k + 1]) &&
+      @         // Strictly decreasing after peak
+      @         (\forall int k; i <= k && k < arr.length - 1; arr[k] > arr[k + 1])));
+      @ assignable \nothing;
+      @*/
+    public boolean validMountainArray(int[] arr) {
+        // Implementation here
+    }
+}
+```
+
+Alternative, more detailed specification with additional clarity:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires arr != null;
+      @ requires arr.length >= 1 && arr.length <= 10000;
+      @ requires (\forall int j; 0 <= j && j < arr.length; 0 <= arr[j] && arr[j] <= 10000);
+      @ ensures \result <==> isMountainArray(arr);
+      @ assignable \nothing;
+      @*/
+    public boolean validMountainArray(int[] arr) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ requires arr != null;
+      @ ensures \result == (arr.length >= 3 && 
+      @     (\exists int peak; 0 < peak && peak < arr.length - 1;
+      @         isStrictlyIncreasing(arr, 0, peak) &&
+      @         isStrictlyDecreasing(arr, peak, arr.length - 1)));
+      @*/
+    /*@ pure @*/ 
+    private boolean isMountainArray(int[] arr) {
+        // This is a specification-only method
+    }
+    
+    /*@ public normal_behavior
+      @ requires arr != null;
+      @ requires 0 <= start && start < end && end < arr.length;
+      @ ensures \result == (\forall int i; start <= i && i < end; arr[i] < arr[i + 1]);
+      @*/
+    /*@ pure @*/
+    private boolean isStrictlyIncreasing(int[] arr, int start, int end) {
+        // This is a specification-only method
+    }
+    
+    /*@ public normal_behavior
+      @ requires arr != null;
+      @ requires 0 <= start && start < end && end < arr.length;
+      @ ensures \result == (\forall int i; start <= i && i < end; arr[i] > arr[i + 1]);
+      @*/
+    /*@ pure @*/
+    private boolean isStrictlyDecreasing(int[] arr, int start, int end) {
+        // This is a specification-only method
+    }
+}
+```
+
+Key points in the JML specification:
+
+1. **Preconditions (`requires`):**
+   - Array must not be null
+   - Array length between 1 and 10,000
+   - All elements between 0 and 10,000
+
+2. **Postcondition (`ensures`):**
+   - Returns true if and only if the array is a valid mountain array
+   - A valid mountain array must have length >= 3
+   - There must exist a peak index `i` where 0 < i < arr.length - 1
+   - Elements before the peak are strictly increasing
+   - Elements after the peak (including the peak) are strictly decreasing
+
+3. **Frame condition (`assignable`):**
+   - The method doesn't modify anything (`\nothing`)
+
+The second version with helper methods makes the specification more readable and modular, though both versions are equivalent in terms of what they specify.

@@ -1,0 +1,26 @@
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:19: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \sum
+      @                     (\sum int m; i <= m && m <= j; nums[m]) == k);
+                             ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:18: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \num_of
+      @ ensures \result == (\num_of int i, j; 0 <= i && i <= j && j < nums.length;
+                            ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:29: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:11:) in method subarraySum
+            if (sumCount.containsKey(tempSum - k)) {
+                                    ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:11: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:29:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:18:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:38:
+      @ ensures \result == (\num_of int i, j; 0 <= i && i <= j && j < nums.length;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:38: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:17:) in method subarraySum
+        return ret;
+        ^
+./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0560_subarray_sum_equals_k/purellm/claude4opus/mutants/14/Solution.java:38:
+      @ ensures \result >= 0;
+        ^
+2 warnings
+6 verification failures

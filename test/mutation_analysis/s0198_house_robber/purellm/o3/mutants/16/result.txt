@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0198_house_robber/purellm/o3/mutants/16/Solution.java:52: error: unreachable statement
+        for (int i = 2; false; i++) {
+                                    ^
+1 error

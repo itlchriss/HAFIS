@@ -1,0 +1,99 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)```java
+/*---------------------------------------------------------------------------*/
+/*  “PLUS ONE”  - LeetCode #66                                               */
+/*---------------------------------------------------------------------------*/
+/*  The routine receives the decimal representation of a non–negative        */
+/*  integer as an array of digits without leading zeros and has to return    */
+/*  the representation of the successor of that integer.                     */
+/*---------------------------------------------------------------------------*/
+
+public class PlusOne {
+
+    /***********************************************************************
+     *  J M L   c o n t r a c t                                             *
+     ***********************************************************************
+     *
+     *  plusOne                                                    (spec only)
+     *  -----------------------------------------------------------
+     *  PRE  (1)  digits is a non‐null array whose length is in [1,100]
+     *       (2)  every component is a digit 0 … 9
+     *       (3)  the array contains no leading zero unless the number is 0
+     *
+     *  POST (1)  result is a fresh (non-null) digit array
+     *       (2)  every component of result is again a digit 0 … 9
+     *       (3)  |result| is either |digits|            (no carry at the MSB)
+     *                               or |digits| + 1     (carry at the MSB)
+     *       (4)  value(result)  ==  value(digits)  +  1
+     *
+     *  SIDE EFFECTS  – the routine is pure w.r.t. the visible state
+     ***********************************************************************/
+
+    /*@
+      public normal_behavior
+
+        // --------  P R E  --------
+        requires  digits != null;
+        requires  1 <= digits.length && digits.length <= 100;
+        requires  (\forall int i; 0 <= i && i < digits.length;
+                                      0 <= digits[i] && digits[i] <= 9);
+        requires  (digits.length == 1) || (digits[0] != 0);
+
+        // --------  P O S T  -------
+        ensures   \result != null;
+        ensures   (\forall int i; 0 <= i && i < \result.length;
+                                   0 <= \result[i] && \result[i] <= 9);
+
+        // size of the result: either equal or exactly one digit longer
+        ensures   (\result.length == digits.length) ||
+                  (\result.length == digits.length + 1);
+
+        // arithmetic meaning:  successor property
+        ensures   value(\result) == value(digits) + 1;
+
+        //  no visible state gets modified
+        assignable \nothing;
+    @*/
+    public static /*@ pure @*/ int[] plusOne(/*@ non_null @*/ int[] digits) {
+        /* implementation goes here */
+        return null;                      // dummy so that file compiles
+    }
+
+    /*-------------------------------------------------------------------*/
+    /*  Helper specification functions                                   */
+    /*-------------------------------------------------------------------*/
+
+    /*@
+      //  value(a) interprets the array a as a decimal (mathematical) int
+      public model pure static \bigint value(int[] a);
+
+      //  axiomatization of value(··) – keeps the function mathematical
+      //  and avoids having to write executable Java code inside the model
+      //  ( ^  is exponentiation on mathematical integers)
+      ensures (\result ==
+               (\sum int i; 0 <= i && i < a.length;
+                     ((\bigint)a[i]) *
+                     (\bigint)Math.pow(10, a.length - 1 - i)));
+    @*/
+}
+```
+
+Explanation of the relevant clauses
+
+• requires – the three constraint lines encode
+  1. the allowed array length,
+  2. the fact that every component really is a digit,
+  3. the “no leading zeros” rule (except when the number itself is 0).
+
+• ensures – the first two clauses re-establish the digit property for the
+  resulting array; the third describes the only two possible length
+  changes; the fourth is the core of the specification: the abstract
+  integer represented by the result equals the predecessor’s value plus 1.
+
+• assignable \nothing – expresses that calling plusOne has no side effects
+  that are visible outside the method (it may allocate new objects, but no
+  public fields are modified).
+
+• model pure static \bigint value(int[] a) – a mathematical helper
+  function used solely in the specification to map an array of digits to
+  the integer it denotes.  An axiomatization is given so that automated
+  JML tools have a definition to reason about without having to run code.

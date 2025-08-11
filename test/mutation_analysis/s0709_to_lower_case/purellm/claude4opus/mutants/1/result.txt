@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/1/Solution.java:29: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method toLowerCase
+            if (c[i] <= 'Z' && c[i] >= 'A') {
+                 ^
+./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/1/Solution.java:29: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method toLowerCase
+            if (c[i] <= 'Z' && c[i] >= 'A') {
+                 ^
+./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/1/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/1/Solution.java:14:) in method toLowerCase
+        return new String(c);
+        ^
+./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/1/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/1/Solution.java:33:
+      @ ensures (\forall int i; 0 <= i && i < s.length();
+        ^
+./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/1/Solution.java:33: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/1/Solution.java:17:) in method toLowerCase
+        return new String(c);
+        ^
+./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/1/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0709_to_lower_case/purellm/claude4opus/mutants/1/Solution.java:33:
+      @ ensures (\forall int i; 0 <= i && i < s.length();
+        ^
+6 verification failures

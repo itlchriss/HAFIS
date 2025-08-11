@@ -1,0 +1,11 @@
+ensures:
+- The type_integer_ result is greater_than_or_equal to the minimum value in the type_integer_array_ param_nums_.
+- The type_integer_ result is less_than_or_equal to the type_integer_array_ param_nums_'s summation.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 6.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 1.
+- If the type_integer_array_ param_nums_ is equal to arr_a , the type_integer_ result is equal to 23.
+- If the type_integer_array_ param_nums_'s values are negative , the type_integer_ result is equal to the maximum value in the type_integer_array_ param_nums_.
+- If the type_integer_array_ param_nums_'s values are positive , the type_integer_ result is equal to the type_integer_array_ param_nums_'s summation.
+requires:
+- The type_integer_array_ param_nums_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 100000.
+- The type_integer_array_ param_nums_'s values are greater_than_or_equal to negative 10000 and are less_than_or_equal to 10000.

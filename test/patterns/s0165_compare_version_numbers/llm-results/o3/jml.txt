@@ -1,0 +1,110 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Below is a self-contained JML contract for a classical LeetCode–style
+implementation
+
+    public static int compareVersion(String version1, String version2)
+
+The contract is written so that it can be pasted “as is’’ in front of the
+method body (or into a “.jml’’ file) and verified with any recent JML tool
+(e.g. OpenJML).  Only the specification of the behaviour is given – the Java
+code that actually computes the result can be placed after the closing
+brace of the annotation block.
+
+/*@ *******************************************************
+  *  Contract for:  public static int compareVersion(...)
+  **********************************************************
+  *
+  *  Informal semantics
+  *  ------------------
+  *  – A version number is a sequence of one or more non-empty
+  *    “revisions’’ separated by dots ('.').  
+  *  – Each revision consists of one or more decimal digits and
+  *    may contain leading zeros.
+  *  – Revisions are numbered from the left, starting at 0.
+  *
+  *  – To compare two versions, compare the corresponding revisions
+  *    from left to right, using their integer values
+  *    (leading zeros are ignored).
+  *  – A missing revision is treated as the integer 0.
+  *
+  *  – The method returns: −1 if version1 < version2,
+  *                        +1 if version1 > version2,
+  *                         0 otherwise.
+  **********************************************************/
+
+  /*@ public normal_behavior
+    @   // ----------  Basic well-formedness of the inputs  ----------
+    @   requires version1 != null && version2 != null;
+    @
+    @   // length constraints from the exercise
+    @   requires 1 <= version1.length() && version1.length() <= 500;
+    @   requires 1 <= version2.length() && version2.length() <= 500;
+    @
+    @   // Only digits or dots are allowed
+    @   requires (\forall int i; 0 <= i && i < version1.length();
+    @                Character.isDigit(version1.charAt(i))
+    @             || version1.charAt(i) == '.');
+    @   requires (\forall int i; 0 <= i && i < version2.length();
+    @                Character.isDigit(version2.charAt(i))
+    @             || version2.charAt(i) == '.');
+    @
+    @   // Both arguments are *valid* version numbers:
+    @   //   * first and last character are digits
+    @   //   * no two successive dots
+    @   //   * at least one digit between any two dots
+    @   requires isValidVersionNumber(version1);
+    @   requires isValidVersionNumber(version2);
+    @
+    @   // ----------  Functional specification  ---------------------
+    @   //  compareVersion returns exactly −1, 0 or +1 …
+    @   ensures \result == -1 || \result == 0 || \result == 1;
+    @
+    @   // … and the sign of the result is consistent with the
+    @   //    mathematical comparison of the two versions.
+    @   ensures (\result == -1) <==> lessVersion(version1, version2);
+    @   ensures (\result ==  1) <==> lessVersion(version2, version1);
+    @   ensures (\result ==  0) <==>
+    @           (!lessVersion(version1, version2)
+    @         && !lessVersion(version2, version1));
+    @
+    @   // ----------  Termination  ----------------------------------
+    @   assignable \nothing;     // pure function, no heap changes
+    @   ensures    true;         // (redundant – only here for clarity)
+    @
+    @*/  /*———————————————————————————————————————————————
+          End of behaviour clause – helper *model* members follow
+          ———————————————————————————————————————————————*/
+  public static /*@ pure @*/ int compareVersion(String version1,
+                                                String version2)
+  { /* … ordinary Java implementation goes here … */ }
+
+
+  /************************************************************
+   *                Helper model definitions                  *
+   ************************************************************/
+
+  /*@ public pure model boolean isValidVersionNumber(String v);
+    @   //  true  <==>  v fulfils the syntactic rules stated above
+    @   //  (Body not needed – the prover only needs the signature)
+    @*/
+
+/*@ public pure model int numRevisions(String v);
+  @   // number of revisions, i.e. dots + 1
+  @*/
+
+/*@ public pure model int revision(String v, int idx);
+  @   // integer value of revision idx (leading zeros ignored);
+  @   // if idx ≥ numRevisions(v) the result is 0
+  @*/
+
+/*@ public pure model boolean lessVersion(String v1, String v2);
+  @   //  v1 < v2 according to the comparison rules
+  @   //  Formal definition:
+  @   //    let n = (numRevisions(v1) >= numRevisions(v2)
+  @   //              ? numRevisions(v1) : numRevisions(v2));
+  @   //    v1 < v2  ⇔
+  @   //      ∃ k in [0,n) :  (∀ j<k : revision(v1,j)=revision(v2,j))
+  @   //                       ∧ revision(v1,k) < revision(v2,k)
+  @*/
+
+/*============================================================*/
+

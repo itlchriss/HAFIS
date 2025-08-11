@@ -1,1 +1,0 @@
-ensures((\result.length >= digits.length) && (\result.length <= digits.length + 1));

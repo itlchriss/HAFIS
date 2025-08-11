@@ -1,0 +1,10 @@
+ensures:
+- If type_boolean_ result is equal to the true literal , the type_integer_array_ param_arr_'s length is greater_than_or_equal to 3.
+- If type_boolean_ result is equal to the true literal , the position of the largest value in the type_integer_array_ param_arr_ is greater_than to 0 and is less_than to the type_integer_array_ param_arr_'s length - 1.
+- If type_boolean_ result is equal to the true literal , the largest value in the type_integer_array_ param_arr_ occurs 1 time.
+- If type_boolean_ result is equal to the true literal , for every index that is smaller than the position of the largest value , the value at that index in the type_integer_array_ param_arr_ is strictly is less_than to the value at the next index , and for every index that is greater_than_or_equal to the position of the largest value and is less_than to the type_integer_array_ param_arr_'s length - 1 , the value at that index in the type_integer_array_ param_arr_ is strictly is greater_than to the value at the next index.
+- If the type_integer_array_ param_arr_ is equal to arr_a , the type_boolean_ result is equal to the false literal.
+- If the type_integer_array_ param_arr_ is equal to arr_a , the type_boolean_ result is equal to the false literal.
+- If the type_integer_array_ param_arr_ is equal to arr_a , the type_boolean_ result is equal to the true literal.
+requires:
+- The type_integer_array_ param_arr_'s values are less_than_or_equal to 10000 and are greater_than_or_equal to 0.

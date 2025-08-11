@@ -1,0 +1,1 @@
+If the difference between the maximum value in the type_integer_array_ param_nums_ and the minimum value in the type_integer_array_ param_nums_ is less_than_or_equal to 2 times the type_integer_ param_k_ , the type_integer_ result is equal to 0 . 

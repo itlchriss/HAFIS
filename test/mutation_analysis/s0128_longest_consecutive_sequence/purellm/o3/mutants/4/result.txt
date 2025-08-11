@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:74: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:44:) in method longestConsecutive
+        return Math.max(max, thsMax);
+        ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:44: verify: Associated declaration: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:74:
+      @   ensures 0 <= \result && \result <= nums.length;
+          ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:74: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:36:) in method longestConsecutive
+        return Math.max(max, thsMax);
+        ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:36: verify: Associated declaration: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:74:
+      @   ensures (\forall int start2, len2;
+          ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:74: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:28:) in method longestConsecutive
+        return Math.max(max, thsMax);
+        ^
+./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:28: verify: Associated declaration: ./test/mutation_analysis/s0128_longest_consecutive_sequence/purellm/o3/mutants/4/Solution.java:74:
+      @   ensures (\exists int start;
+          ^
+6 verification failures

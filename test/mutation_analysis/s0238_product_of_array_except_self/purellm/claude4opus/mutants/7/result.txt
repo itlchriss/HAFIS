@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/claude4opus/mutants/7/Solution.java:31: error: unreachable statement
+        for (int i = 0; false; i++) {
+                                    ^
+1 error

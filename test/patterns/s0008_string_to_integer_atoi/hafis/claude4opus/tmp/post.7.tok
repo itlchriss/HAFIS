@@ -1,0 +1,1 @@
+If the type_string_ param_str_ starts with a non-digit character after ignoring leading whitespace and optional sign , the type_integer_ result is equal to 0 . 

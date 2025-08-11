@@ -1,1 +1,0 @@
--exists x01.(_index{NNS}(x01) & _2{CD}(x01) & exists x02.(_result{NN}(x02) & _type_integer_array_{NN}(x02) & exists e03.(_in{IN}(e03,x02) & (Subj(e03) = x01))) & exists x04.(_same{JJ}(x04) & (x01 = x04)))

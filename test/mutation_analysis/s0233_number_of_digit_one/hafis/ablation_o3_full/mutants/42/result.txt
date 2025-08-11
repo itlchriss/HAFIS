@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_full/mutants/42/Solution.java:24: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method countDigitOne
+                ans += (q + 1) / curr10;
+                               ^
+1 verification failure

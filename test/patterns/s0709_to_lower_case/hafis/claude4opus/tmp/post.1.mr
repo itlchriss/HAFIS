@@ -1,0 +1,1 @@
+all x01.(exists e02.(_non_dash_uppercase{JJ}(e02) & (Subj(e02) = x01) & _letter{NNS}(x01)) -> (exists x03.(_result{NN}(x03) & _type_string_{NN}(x03) & exists e04.(_in{IN}(e04,x03) & (Subj(e04) = x01))) -> exists x05.(_param_s_{NN}(x05) & _type_string_{NN}(x05) & exists e06.(_unchanged{JJ}(e06) & (Subj(e06) = x01)) & _from{IN}(x01,x05))))

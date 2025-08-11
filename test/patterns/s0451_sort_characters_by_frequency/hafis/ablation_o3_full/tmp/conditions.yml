@@ -1,0 +1,6 @@
+ensures:
+- result String must include every occurrence of each character that appears in String the type_character_ chrs_a and must not include any additional characters.
+- result String must arrange characters in contiguous groups that each group is composed of identical characters.
+- result String must order these contiguous groups so that groups with higher frequency in String the type_character_ chrs_a are contained by before groups with lower frequency in String the type_character_ chrs_b.
+- When 2 or more characters share the same frequency their relative ordering in result String is unconstrained while still respecting all other behavioural specifications.
+requires: []

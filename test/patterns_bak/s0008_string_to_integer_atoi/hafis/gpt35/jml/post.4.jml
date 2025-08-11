@@ -1,1 +1,0 @@
-ensures(((\result == 42) && (s.equals("42"))) ==> (\result == 42));

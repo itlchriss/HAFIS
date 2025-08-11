@@ -1,0 +1,6 @@
+ensures:
+- If the first_element of String the type_character_ chrs_a is the digit 0 then the int result is 0.
+- If no possible grouping of 1 or 2 substrings of String the type_character_ chrs_a yields only numeric values from 1 to 26 with no leading zeros then the int result is 0.
+- If at least 1 grouping of 1 or 2 substrings of String the type_character_ chrs_a yields only numeric values from 1 to 26 with no leading zeros then the int result is greater_than to 0.
+- The int result is always in the range of a signed 32-bit integer.
+requires: []

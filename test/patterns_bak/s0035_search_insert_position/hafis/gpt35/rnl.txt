@@ -1,7 +1,0 @@
-- The length of the integer array parameter `nums` is less than or equal to 10000 and is greater than or equal to 1.
-- All values in the integer array parameter `nums` are less than or equal to 10000 and are greater than or equal to -10000.
-- The integer array parameter `nums` contains distinct values sorted in ascending order.
-- The integer parameter `target` is less than or equal to 10000 and is greater than or equal to -10000.
-- The integer result is the index where the `target` value is found in the `nums` array.
-- If the `target` value is not found in the `nums` array, the integer result is the index where the `target` value would be inserted in order to maintain the sorted order.
-- The algorithm must have a runtime complexity of O(log n).

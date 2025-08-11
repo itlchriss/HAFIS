@@ -1,0 +1,17 @@
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/o3/mutants/24/Solution.java:22: warning: NOT IMPLEMENTED: Not yet supported feature in converting BasicPrograms to SMTLIB: JML Quantified expression using \product
+      @              \result[i] == (\product int j;
+                                    ^
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/o3/mutants/24/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0238_product_of_array_except_self/purellm/o3/mutants/24/Solution.java:21:) in method productExceptSelf
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/o3/mutants/24/Solution.java:21: verify: Associated declaration: ./test/mutation_analysis/s0238_product_of_array_except_self/purellm/o3/mutants/24/Solution.java:56:
+      @   ensures (\forall int i; 0 <= i && i < nums.length;
+          ^
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/o3/mutants/24/Solution.java:56: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0238_product_of_array_except_self/purellm/o3/mutants/24/Solution.java:27:) in method productExceptSelf
+        return ans;
+        ^
+./test/mutation_analysis/s0238_product_of_array_except_self/purellm/o3/mutants/24/Solution.java:27: verify: Associated declaration: ./test/mutation_analysis/s0238_product_of_array_except_self/purellm/o3/mutants/24/Solution.java:56:
+      @   ensures (\forall int i; 0 <= i && i < \result.length;
+          ^
+1 warning
+4 verification failures

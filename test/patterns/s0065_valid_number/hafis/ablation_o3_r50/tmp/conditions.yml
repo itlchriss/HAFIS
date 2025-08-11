@@ -1,0 +1,9 @@
+ensures:
+- If the type_boolean_ result is equal to the true literal the type_string_ param_s_ is equal to valid number.
+- If the type_boolean_ result is equal to the false literal the type_string_ param_s_ does not represent a valid number.
+- If the type_string_ param_s_ is equal to stry_a the type_boolean_ result is equal to the true literal.
+- If the type_string_ param_s_ is equal to stry_a the type_boolean_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to stry_a the type_boolean_ result is equal to the false literal.
+- If the type_string_ param_s_ is equal to stry_a the type_boolean_ result is equal to the true literal.
+requires:
+- All in the type_string_ param_s_ are alphabets or digits or the character the chry_a or the character the chry_b or the character period .

@@ -1,0 +1,22 @@
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:30: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method diStringMatch
+            if (s.charAt(i) == 'I' && arr[i + 1] == 0) {
+                                         ^
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:30: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:7:) in method diStringMatch
+            if (s.charAt(i) == 'I' && arr[i + 1] == 0) {
+                        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:30:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:25: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method diStringMatch
+                arr[i] = max;
+                   ^
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:36: verify: The prover cannot establish an assertion (PossiblyNegativeIndex) in method diStringMatch
+            if (arr[i] == 0) {
+                   ^
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:42: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:13:) in method diStringMatch
+        return arr;
+        ^
+./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0942_di_string_match/purellm/claude4opus/mutants/0/Solution.java:42:
+      @ ensures \result.length == s.length() + 1;
+        ^
+7 verification failures

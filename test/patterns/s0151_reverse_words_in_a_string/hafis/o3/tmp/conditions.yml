@@ -1,0 +1,12 @@
+ensures:
+- The type_string_ result contains no leading space characters and contains no trailing space characters.
+- Any 2 consecutive sequences of non space characters in the type_string_ result are separated by 1 space character.
+- The number of sequences of non space characters in the type_string_ result is equal to the number of sequences of non space characters in the type_string_ param_s_.
+- The order of the sequences of non space characters in the type_string_ result is the reverse order of the sequences of non space characters in the type_string_ param_s_.
+- If the type_string_ param_s_ is equal to strz_a , the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a , the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a , the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a , the type_string_ result is equal to strz_b.
+- If the type_string_ param_s_ is equal to strz_a , the type_string_ result is equal to strz_b.
+requires:
+- The type_string_ param_s_ only contains alphabets digits and space characters.

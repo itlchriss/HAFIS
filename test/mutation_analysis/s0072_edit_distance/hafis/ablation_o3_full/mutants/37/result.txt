@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0072_edit_distance/hafis/ablation_o3_full/mutants/37/Solution.java:35: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method minDistance
+                                ? 1 / Math.min(pre, Math.min(dp[j], dp[j - 1]))
+                                    ^
+1 verification failure

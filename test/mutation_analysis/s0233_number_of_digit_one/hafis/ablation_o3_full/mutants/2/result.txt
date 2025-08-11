@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0233_number_of_digit_one/hafis/ablation_o3_full/mutants/2/Solution.java:16: error: unreachable statement
+        for (int k = n, cum = 0, curr10 = 1; false; curr10 *= 10) {
+                                                                  ^
+1 error

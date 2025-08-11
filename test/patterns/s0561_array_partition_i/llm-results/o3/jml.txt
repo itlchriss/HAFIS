@@ -1,0 +1,80 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Below is a compact but fully-formal JML contract for a Java method that solves “561. Array Partition I”.  
+The contract captures exactly the requirement that the returned value is the
+maximal possible Σ min(ai , bi) obtainable by pairing the elements of the
+input array.
+
+```java
+public class ArrayPartition {
+/*@  // ========= auxiliary logic  ======================================== */
+
+/*@ public pure model boolean perm(int[] a,int[] b) ;
+    public axiom (\forall int[] a,b; perm(a,b) <==>
+                    ((a==null && b==null) ? true
+                     : a!=null && b!=null &&
+                       a.length==b.length &&
+                       (\forall int v;
+                              (\num_of int i;0<=i<a.length; a[i]==v) ==
+                              (\num_of int j;0<=j<b.length; b[j]==v)))); @*/
+
+/*@ public pure model strictly_increasing int[] sort(int[] a) ;
+    public axiom (\forall int[] a;
+                    sort(a).length==((a==null)?0:a.length) &&
+                    perm(sort(a),a)                             &&
+                    (\forall int i,j; 0<=i<j<sort(a).length ==> sort(a)[i] <= sort(a)[j])); @*/
+
+
+/*@  // ========= method specification  =================================== */
+
+/*@ public normal_behavior
+      requires nums != null;
+      requires nums.length % 2 == 0;           // length is 2·n
+      requires 1 <= nums.length/2 && nums.length/2 <= 10000;
+      requires (\forall int i; 0<=i<nums.length;
+                     -10000 <= nums[i] && nums[i] <= 10000);
+
+      ensures (\exists int[] s;                 // any sorted permutation
+                   s == sort(\old(nums)) &&     // (perm + non-decreasing)
+                   \result ==
+                     (\sum int k; 0<=k<s.length/2;  s[2*k]));  // Σ even items
+
+      // maximality: no other permutation gives a larger Σ min(...)
+      ensures (\forall int[] p;
+                   p.length == nums.length && perm(p,\old(nums)) == true ==>
+                     \result >=
+                       (\sum int k; 0<=k<p.length/2;
+                                        (p[2*k] < p[2*k+1] ? p[2*k] : p[2*k+1])));
+    assignable \nothing;
+*/
+  public static int arrayPairSum(int[] nums) {
+      /* implementation not shown */
+  }
+}
+```
+
+Explanation of the contract
+
+1. Preconditions  
+   • `nums` is non-null;  
+   • its length is even (2 · n, with 1 ≤ n ≤ 10⁴);  
+   • each element is in [−10⁴, 10⁴].
+
+2. Auxiliary model functions  
+   • `perm(a,b)` is true iff the two arrays contain exactly the same multiset
+     of values (defined with a counting quantifier).  
+   • `sort(a)` is any fixed, stable model function that returns a
+     non-decreasing permutation of `a`.  Only its algebraic properties
+     (length preservation, permutation, ordering) are axiomatized; its
+     algorithmic details are irrelevant.
+
+3. Postcondition – adequacy  
+   If `s` denotes the sorted permutation of the original array, the returned
+   value is the sum of the elements at the even indices of `s`
+   (0, 2, 4, …), which is exactly the greedy optimum for the problem.
+
+4. Postcondition – optimality  
+   For every other permutation `p` of the original numbers, the returned value
+   is at least the sum of the smaller element in each consecutive pair of `p`
+   (i.e. Σ min(p₂k , p₂k+1)), hence the result is maximal.
+
+5. `assignable \nothing` states that the method has no observable side-effects
+   (it does not modify any location visible to the caller).

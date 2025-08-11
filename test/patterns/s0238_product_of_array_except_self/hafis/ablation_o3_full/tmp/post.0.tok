@@ -1,0 +1,1 @@
+For any int [ ] the type_string_ strs_a each element at index i in the int [ ] result equals the product of all elements in the type_string_ strs_b except the element at index i . 

@@ -1,0 +1,6 @@
+ensures:
+- if int[] the type_string_ strs_a has length 0 before invocation then result int equals 0 and int[] the type_string_ strs_b remains unchanged after execution.
+- int result equals the number_of_unique_elements remaining in int[] the type_string_ strs_a after duplicates have been removed in place.
+- after execution the first result int elements of int[] the type_string_ strs_a each are contained by once and their original relative order is preserved.
+- after execution any element of int[] the type_string_ strs_a located at an index is greater_than_or_equal to result int is left unspecified.
+requires: []

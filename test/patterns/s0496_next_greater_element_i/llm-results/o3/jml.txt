@@ -1,0 +1,68 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Below is a self-contained JML (Java Modeling Language) contract for a
+method that solves “496. Next Greater Element I”.
+
+```java
+/**
+ * Returns for every element nums1[i] the first element situated to its right
+ * in nums2 that is strictly greater; –1 if such an element does not exist.
+ */
+/*@ public normal_behavior
+  @   // ----------  Preconditions ----------
+  @   requires nums1  != null && nums2  != null;
+  @   requires 1 <= nums1.length && nums1.length <= nums2.length
+  @                     && nums2.length <= 1000;
+  @   // range restrictions
+  @   requires (\forall int i; 0 <= i < nums1.length;
+  @                 0 <= nums1[i] && nums1[i] <= 10000);
+  @   requires (\forall int i; 0 <= i < nums2.length;
+  @                 0 <= nums2[i] && nums2[i] <= 10000);
+  @   // all values in each array are unique
+  @   requires (\forall int i,j; 0 <= i < nums1.length && 0 <= j < nums1.length && i != j
+  @                     ==> nums1[i] != nums1[j]);
+  @   requires (\forall int i,j; 0 <= i < nums2.length && 0 <= j < nums2.length && i != j
+  @                     ==> nums2[i] != nums2[j]);
+  @   // nums1 is a subset of nums2
+  @   requires (\forall int i; 0 <= i < nums1.length;
+  @                 (\exists int j; 0 <= j < nums2.length; nums1[i] == nums2[j]));
+  @
+  @   // ----------  Postconditions ----------
+  @   ensures \result != null && \result.length == nums1.length;
+  @
+  @   // For every position i in nums1 …
+  @   ensures (\forall int i; 0 <= i < nums1.length;
+  @              ( /* locate the position j of nums1[i] in nums2 */ 
+  @                (\exists int j; 0 <= j < nums2.length && nums2[j] == nums1[i])
+  @                && ( /* does a greater element appear to the right ? */
+  @                     (\exists int k; j < k && k < nums2.length; nums2[k] > nums1[i])
+  @                   ? /* YES:  take the first such index k  */
+  @                     ( \let int fst =
+  @                            (\min int k; j < k && k < nums2.length
+  @                                            && nums2[k] > nums1[i]; k);
+  @                       \result[i] == nums2[fst] )
+  @                   : /* NO:  answer is −1 */
+  @                     \result[i] == -1
+  @                 )
+  @              );
+  @*/
+public /*@ pure @*/ static int[] nextGreaterElement(int[] nums1, int[] nums2);
+```
+
+Explanation of the main clauses
+
+1. Preconditions (`requires`)
+   • Non-null arrays, size limits (`1 ≤ |nums1| ≤ |nums2| ≤ 1000`).  
+   • All elements lie in the given numeric range.  
+   • Uniqueness of every element inside each array.  
+   • `nums1` is a subset of `nums2`.
+
+2. Postconditions (`ensures`)
+   • The returned array is non-null and has exactly the same length as `nums1`.  
+   • For every index `i` in `nums1`  
+     – find the unique position `j` of `nums1[i]` in `nums2`;  
+     – if there exists an index `k > j` with `nums2[k] > nums1[i]`, take the
+       minimal such `k` (expressed with the `\min` quantifier) and require
+       `\result[i] == nums2[k]`;  
+     – otherwise require `\result[i] == -1`.
+
+The contract is executable-independent: any Java implementation that
+satisfies it correctly solves the “Next Greater Element I” task.

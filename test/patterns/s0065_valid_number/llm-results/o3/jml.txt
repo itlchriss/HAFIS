@@ -1,0 +1,74 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Below is a compact, fully-annotated JML contract for a (pure) Java method  
+boolean isValidNumber(String s) that has to realise exactly the semantics
+described in the exercise.  
+The regular expression that appears in the post-condition is a literal and
+therefore evaluated by java.lang.String.matches, which is pure and thus legal
+inside a JML annotation.
+
+```java
+public class NumberUtil {
+
+    /*@
+      public normal_behavior
+        // -------------  PRE-CONDITIONS  ---------------------------------
+        requires s != null;
+        requires 1 <= s.length() && s.length() <= 20;
+
+        // every character is guaranteed to be one of the symbols mentioned
+        // in the statement (“English letters”, digits, ‘+’, ‘-’, or ‘.’)
+        requires (\forall int i; 0 <= i && i < s.length();
+                     Character.isLetter(s.charAt(i)) ||
+                     Character.isDigit(s.charAt(i))  ||
+                     s.charAt(i) == '+' ||
+                     s.charAt(i) == '-' ||
+                     s.charAt(i) == '.');
+
+        assignable \nothing;                    // the method is side-effect free
+
+        // -------------  POST-CONDITION  ---------------------------------
+        ensures \result <==>
+                /*  Grammar given in the problem statement expressed as a
+                    single regular expression.
+
+                    Explanation of the expression:
+
+                    ^[+-]?                       optional sign
+                    (?:                          start main number group
+                         \\d+\\.\\d*             "digits '.' [digits]"        (2)
+                       | \\d*\\.\\d+             "'.' digits"                 (3)
+                       | \\d+                    "digits"                     (integer)
+                    )                            end main number group
+                    (?:[eE][+-]?\\d+)?           optional exponent part       (2.)
+                    $                            end of string
+                */
+                s.matches("^[+-]?(?:\\d+\\.\\d*|\\d*\\.\\d+|\\d+)(?:[eE][+-]?\\d+)?$");
+     @*/
+    public /*@ pure @*/ static boolean isValidNumber(String s) {
+        // Any correct implementation is allowed.
+        // One simple implementation is the body used in the post-condition:
+        return s.matches("^[+-]?(?:\\d+\\.\\d*|\\d*\\.\\d+|\\d+)(?:[eE][+-]?\\d+)?$");
+    }
+}
+```
+
+Explanation of the contract:
+
+1. Pre-conditions  
+   • Non-null string with the length constraint from the exercise.  
+   • The loop quantifier states that every character is one that the
+     statement allows the caller to pass (letters, digits or one of the three
+     punctuation symbols).  
+   (The exercise already guarantees this, but writing it explicitly keeps the
+   contract self-contained.)
+
+2. assignable \nothing states that the method has no side effects and is thus
+   observationally pure.
+
+3. Post-condition  
+   The bidirectional implication (`<==>`) expresses total functional
+   correctness: the result must be true exactly for those strings that satisfy
+   the regular expression, i.e. those that are *valid numbers* by the given
+   grammar.
+
+This JML annotation therefore captures the entire natural-language
+specification in a precise, machine-checkable form.

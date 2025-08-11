@@ -1,0 +1,1 @@
+If the type_integer_array_ param_nums_ contains the type_integer_ param_target_ , the type_integer_ result is equal to the index that the type_integer_ param_target_ appears in the type_integer_array_ param_nums_ . 

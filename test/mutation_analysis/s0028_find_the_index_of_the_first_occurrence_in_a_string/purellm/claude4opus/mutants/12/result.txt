@@ -1,0 +1,19 @@
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:50: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:16:) in method strStr
+        return -1;
+        ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:50:
+      @   ensures needle.length() > 0 &&
+          ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:46: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:7:) in method strStr
+            if (haystack.substring(start, start + n).equals(needle)) {
+                                  ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:7: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:46:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:47: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:27:) in method strStr
+                return start;
+                ^
+./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:27: verify: Associated declaration: ./test/mutation_analysis/s0028_find_the_index_of_the_first_occurrence_in_a_string/purellm/claude4opus/mutants/12/Solution.java:47:
+      @   ensures needle.length() > 0 &&
+          ^
+6 verification failures

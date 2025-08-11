@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/ablation_o3_full/mutants/3/Solution.java:19: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method removeDuplicates
+        //@ maintaining 0 <= j <= nums.length;
+            ^
+1 verification failure

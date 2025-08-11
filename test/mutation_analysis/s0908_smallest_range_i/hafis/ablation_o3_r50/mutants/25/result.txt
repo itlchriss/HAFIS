@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0908_smallest_range_i/hafis/ablation_o3_r50/mutants/25/Solution.java:27: verify: The prover cannot establish an assertion (PossiblyDivideByZero) in method smallestRangeI
+        return (max - k) / (min + k);
+                         ^
+./test/mutation_analysis/s0908_smallest_range_i/hafis/ablation_o3_r50/mutants/25/Solution.java:17: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int smallestRangeI(int[] nums, int k) {
+               ^
+2 verification failures

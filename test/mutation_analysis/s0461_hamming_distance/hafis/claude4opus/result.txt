@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0461_hamming_distance/hafis/claude4opus/Solution.java:18: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0461_hamming_distance/hafis/claude4opus/Solution.java:13:) in method hammingDistance
+        return Integer.bitCount(x ^ y);
+        ^
+./test/mutation_analysis/s0461_hamming_distance/hafis/claude4opus/Solution.java:13: verify: Associated declaration: ./test/mutation_analysis/s0461_hamming_distance/hafis/claude4opus/Solution.java:18:
+//@ ensures((\result >= 0) && (\result <= 32));
+    ^
+./test/mutation_analysis/s0461_hamming_distance/hafis/claude4opus/Solution.java:18: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0461_hamming_distance/hafis/claude4opus/Solution.java:16:) in method hammingDistance
+        return Integer.bitCount(x ^ y);
+        ^
+./test/mutation_analysis/s0461_hamming_distance/hafis/claude4opus/Solution.java:16: verify: Associated declaration: ./test/mutation_analysis/s0461_hamming_distance/hafis/claude4opus/Solution.java:18:
+//@ ensures(((x == 1) && (y == 4)) ==> (\result == 2));
+    ^
+4 verification failures

@@ -1,0 +1,1 @@
+For each integer value in the type_list_ result , the occurrence count of that integer value in the type_integer_array_ param_nums_ is greater_than to the type_integer_array_ param_nums_ 's length divided by 3 . 

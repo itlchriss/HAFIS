@@ -1,0 +1,40 @@
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:69: verify: The prover cannot establish an assertion (ExceptionalPostcondition: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:20:) in method addStrings
+                sum += Character.digit(num2.charAt(j), 10);
+                                                  ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:20: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:69:
+    /*@ public normal_behavior
+               ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:74: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:41:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:41: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:74:
+      @   ensures valueOf(\result) == valueOf(num1) + valueOf(num2);
+          ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:48: verify: The prover cannot establish an assertion (UndefinedCalledMethodPrecondition: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333:) in method addStrings
+      @   ensures \result.length() == 1 || \result.charAt(0) != '0';
+                                                         ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/String.jml:333: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:48:
+    public /*@ spec_pure @*/ char charAt(int index)
+                                  ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/CharSequence.jml:79: verify: Precondition conjunct is false: 0 <= index < charArray.length
+      @      requires 0 <= index < charArray.length;
+                                 ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:74: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:44:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:44: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:74:
+      @   ensures (\forall int i; 0 <= i && i < \result.length();
+          ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:74: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:48:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:48: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:74:
+      @   ensures \result.length() == 1 || \result.charAt(0) != '0';
+          ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:74: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:51:) in method addStrings
+        return result.reverse().toString();
+        ^
+./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:51: verify: Associated declaration: ./test/mutation_analysis/s0415_add_strings/purellm/o3/mutants/25/Solution.java:74:
+      @   ensures \result.length()
+          ^
+13 verification failures

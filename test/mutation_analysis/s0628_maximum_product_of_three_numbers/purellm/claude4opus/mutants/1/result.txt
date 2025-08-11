@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/claude4opus/mutants/1/Solution.java:49: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/claude4opus/mutants/1/Solution.java:18:) in method maximumProduct
+        return Math.max(min1 * min2 * max1, max1 * max2 * max3);
+        ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/claude4opus/mutants/1/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/claude4opus/mutants/1/Solution.java:49:
+      @ ensures (\forall int i, j, k;
+        ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/claude4opus/mutants/1/Solution.java:49: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/claude4opus/mutants/1/Solution.java:12:) in method maximumProduct
+        return Math.max(min1 * min2 * max1, max1 * max2 * max3);
+        ^
+./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/claude4opus/mutants/1/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0628_maximum_product_of_three_numbers/purellm/claude4opus/mutants/1/Solution.java:49:
+      @ ensures (\exists int i, j, k;
+        ^
+4 verification failures

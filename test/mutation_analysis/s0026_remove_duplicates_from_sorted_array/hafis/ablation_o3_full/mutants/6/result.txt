@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/hafis/ablation_o3_full/mutants/6/Solution.java:22: verify: The prover cannot establish an assertion (PossiblyTooLargeIndex) in method removeDuplicates
+            if (nums[i] != nums[j]) {
+                               ^
+1 verification failure

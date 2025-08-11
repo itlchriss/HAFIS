@@ -1,0 +1,21 @@
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/0/Solution.java:26: verify: The prover cannot establish an assertion (InvariantExit: /Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Iterable.jml:10:) in method summaryRanges: g0201_0300.s0228_summary_ranges.Solution.summaryRanges(int[]) (for result type)
+            return ranges;
+            ^
+/Users/chrissleong/Documents/Phd_Studies/openjml/specs/java/lang/Iterable.jml:10: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/0/Solution.java:26:
+    //-RAC@ public invariant values.length >= 0;  // FIXME - should be implicit? (cf. gitbug686)
+                   ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/0/Solution.java:18: verify: The prover cannot establish an assertion (UndefinedTooLargeIndex) in method summaryRanges
+//@ ensures((nums[0] == 0 && nums[1] == 1 && nums[2] == 2 && nums[3] == 4 && nums[4] == 5 && nums[5] == 7 && nums.length == 6) ==> (\result.get(0) == "0->2"  && \result.get(1) ==  "4->5"  && \result.get(2) ==  "7"));
+                 ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/0/Solution.java:26: verify: Associated method exit
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/0/Solution.java:26: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/0/Solution.java:17:) in method summaryRanges
+            return ranges;
+            ^
+./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/0/Solution.java:17: verify: Associated declaration: ./test/mutation_analysis/s0228_summary_ranges/hafis/claude4opus/mutants/0/Solution.java:26:
+//@ ensures((nums.length == 0) ==> (\result.size() == 0));
+    ^
+error: An error while executing a proof script for summaryRanges: (error "Solver has unexpectedly terminated")
+1 error
+6 verification failures

@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/0/Solution.java:43: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/0/Solution.java:25:) in method nextGreaterElement: nums1[i]
+                        nums1[i] = nums2[index];
+                                 ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/0/Solution.java:25: verify: Associated declaration: ./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/0/Solution.java:43:
+      @ assignable \nothing;
+        ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/0/Solution.java:38: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/0/Solution.java:25:) in method nextGreaterElement: nums1[i]
+                nums1[i] = -1;
+                         ^
+./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/0/Solution.java:25: verify: Associated declaration: ./test/mutation_analysis/s0496_next_greater_element_i/purellm/claude4opus/mutants/0/Solution.java:38:
+      @ assignable \nothing;
+        ^
+4 verification failures

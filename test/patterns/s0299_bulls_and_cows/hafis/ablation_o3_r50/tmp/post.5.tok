@@ -1,0 +1,1 @@
+The integer value represented by the digits that are contained by between the uppercase_alphabets A and B in the String result is equal to the count of digits that are present in both the String param_secret_ and the String param_guess_ excluding the positions counted as bulls . 

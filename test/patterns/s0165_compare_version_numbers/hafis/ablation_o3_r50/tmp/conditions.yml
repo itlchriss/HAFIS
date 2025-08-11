@@ -1,0 +1,16 @@
+ensures:
+- The type_integer_ result is equal to negative 1 or is equal to 0 or is equal to 1.
+- If the type_integer_ result is equal to 0 , all corresponding revisions in the type_string_ param_version1_ and the type_string_ param_version2_ have equal integer values after treating unspecified revisions as 0.
+- If the type_integer_ result is equal to 1 , the first differing revision between the type_string_ param_version1_ and the type_string_ param_version2_ has an integer value in the type_string_ param_version1_ that is greater_than to the integer value in the type_string_ param_version2_.
+- If the type_integer_ result is equal to negative 1 , the first differing revision between the type_string_ param_version1_ and the type_string_ param_version2_ has an integer value in the type_string_ param_version1_ that is less_than to the integer value in the type_string_ param_version2_.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to 0.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to 0.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to negative 1.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to 1.
+- If the type_string_ param_version1_ is equal to stry_a and the type_string_ param_version2_ is equal to stry_b , the type_integer_ result is equal to negative 1.
+requires:
+- The type_string_ param_version2_'s length is greater_than_or_equal to 1 and is less_than_or_equal to 500.
+- The type_string_ param_version1_ only contains digits and the character period .
+- The type_string_ param_version2_ only contains digits and the character period .
+- The type_string_ param_version1_ is equal to valid version number.
+- The type_string_ param_version2_ is equal to valid version number.

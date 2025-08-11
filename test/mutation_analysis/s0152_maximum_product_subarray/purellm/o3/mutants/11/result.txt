@@ -1,0 +1,4 @@
+./test/mutation_analysis/s0152_maximum_product_subarray/purellm/o3/mutants/11/Solution.java:50: verify: The prover cannot establish an assertion (LoopInvariantBeforeLoop) in method maxProduct
+        //@ maintaining 0 <= i <= arr.length - 1 || i == -1;
+            ^
+1 verification failure

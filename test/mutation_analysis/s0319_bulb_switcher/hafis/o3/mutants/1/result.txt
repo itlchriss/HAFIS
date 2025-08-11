@@ -1,0 +1,13 @@
+./test/mutation_analysis/s0319_bulb_switcher/hafis/o3/mutants/1/Solution.java:16: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/o3/mutants/1/Solution.java:10:) in method bulbSwitch
+            return n;
+            ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/o3/mutants/1/Solution.java:10: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/o3/mutants/1/Solution.java:16:
+//@ ensures((\result >= 0) && (\result <= n));
+    ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/o3/mutants/1/Solution.java:18: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0319_bulb_switcher/hafis/o3/mutants/1/Solution.java:12:) in method bulbSwitch
+        return (int) Math.sqrt(n);
+        ^
+./test/mutation_analysis/s0319_bulb_switcher/hafis/o3/mutants/1/Solution.java:12: verify: Associated declaration: ./test/mutation_analysis/s0319_bulb_switcher/hafis/o3/mutants/1/Solution.java:18:
+//@ ensures((n == 3) ==> (\result == 1));
+    ^
+4 verification failures

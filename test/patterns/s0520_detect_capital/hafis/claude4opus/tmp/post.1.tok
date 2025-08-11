@@ -1,0 +1,1 @@
+If the type_boolean_ result is equal to the false literal , the type_string_ param_word_ contains both uppercase and lowercase characters and either the first_element is lowercase or at least 1 character after the first_element is uppercase while at least 1 other character after the first_element is lowercase . 

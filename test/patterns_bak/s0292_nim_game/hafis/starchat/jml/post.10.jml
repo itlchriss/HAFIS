@@ -1,1 +1,0 @@
-ensures((n == 11) ==> (\result == false));

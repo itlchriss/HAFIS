@@ -1,0 +1,16 @@
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/claude4opus/mutants/11/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/claude4opus/mutants/11/Solution.java:19:) in method removeDuplicates
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/claude4opus/mutants/11/Solution.java:19: verify: Associated declaration: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/claude4opus/mutants/11/Solution.java:53:
+      @ ensures (\forall int i; 0 <= i && i < \result - 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/claude4opus/mutants/11/Solution.java:53: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/claude4opus/mutants/11/Solution.java:22:) in method removeDuplicates
+        return i + 1;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/claude4opus/mutants/11/Solution.java:22: verify: Associated declaration: ./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/claude4opus/mutants/11/Solution.java:53:
+      @ ensures (\forall int i; 0 <= i && i < \result;
+        ^
+./test/mutation_analysis/s0026_remove_duplicates_from_sorted_array/purellm/claude4opus/mutants/11/Solution.java:37: verify: Validity is unknown - time or memory limit reached: : Aborted proof: timeout
+    public int removeDuplicates(int[] nums) {
+               ^
+5 verification failures

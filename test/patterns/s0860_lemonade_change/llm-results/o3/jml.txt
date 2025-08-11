@@ -1,0 +1,85 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (8s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (9s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (10s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (11s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (12s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (13s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (14s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (15s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (16s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (17s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (18s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (19s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (20s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (21s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (22s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (23s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (24s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (25s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (26s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (27s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (28s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (29s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Thinking... (30s elapsed)Below is a compact, self–contained Java skeleton that captures the whole “Lemonade Change” statement in JML (Java Modeling Language).  
+The body of the method may be filled with any implementation; the specification alone is already sufficient to describe the required behaviour.
+
+```java
+public final class LemonadeStand {
+
+    /*@ 
+      @ // ----------  PRECONDITIONS  ----------
+      @
+      @ requires bills != null;                            // array exists
+      @ requires 1 <= bills.length && bills.length <= 100_000;
+      @ requires (\forall int i; 0 <= i < bills.length;    // only 5, 10 or 20 dollar notes
+      @                         bills[i] == 5  ||
+      @                         bills[i] == 10 ||
+      @                         bills[i] == 20);
+      @
+      @ // ----------  POSTCONDITION  ----------
+      @
+      @ /*  The method returns true  IFF  there exists a feasible way
+      @     to give change to every customer, starting with no money
+      @     in the cash-box and following the usual rules for making
+      @     change with $5 and $10 bills.                                     * /
+      @
+      @ ensures \result <==>                                         // logical equivalence
+      @         (\exists int[] fives, tens;                          // history of cash-box
+      @            fives.length == bills.length + 1 &&
+      @            tens.length  == bills.length + 1 &&
+      @
+      @            // start with an empty cash-box
+      @            fives[0] == 0 && tens[0] == 0 &&
+      @
+      @            // handle every customer i (0 … n-1)
+      @            (\forall int i; 0 <= i < bills.length;
+      @
+      @                // case 1 : customer pays with a $5
+      @                (bills[i] == 5  &&
+      @                 fives[i]   >= 0               && tens[i]   >= 0 &&
+      @                 fives[i+1] == fives[i] + 1    && tens[i+1] == tens[i]) ||
+      @
+      @                // case 2 : customer pays with a $10
+      @                (bills[i] == 10 &&
+      @                 fives[i]   >= 1               && tens[i]   >= 0 &&
+      @                 fives[i+1] == fives[i] - 1    && tens[i+1] == tens[i] + 1) ||
+      @
+      @                // case 3 : customer pays with a $20
+      @                (bills[i] == 20 &&
+      @                   (  // use one $10 and one $5
+      @                      (tens[i]  >= 1 && fives[i] >= 1 &&
+      @                       fives[i+1] == fives[i] - 1 &&
+      @                       tens[i+1]  == tens[i]  - 1)
+      @                   || // OR three $5 bills
+      @                      (tens[i]  == 0 && fives[i] >= 3 &&
+      @                       fives[i+1] == fives[i] - 3 &&
+      @                       tens[i+1]  == tens[i])
+      @                   )
+      @                )
+      @            ) &&
+      @
+      @            // never go negative at any time
+      @            (\forall int k; 0 <= k <= bills.length;
+      @                fives[k] >= 0 && tens[k] >= 0)
+      @         );
+      @*/
+    public /*@ pure @*/ static boolean lemonadeChange(int[] bills) {
+        /* any implementation whose behaviour satisfies the
+           contract above is correct; an efficient O(n) body
+           may be inserted here.                                         */
+        throw new RuntimeException("method body omitted");
+    }
+}
+```
+
+How the specification works:
+
+1. Pre-conditions  
+   • The input array must exist, have length 1 … 100 000, and contain only 5, 10 or 20.  
+2. Post-condition  
+   • We introduce two logical (model) arrays `fives` and `tens`.  
+     `fives[k]` (resp. `tens[k]`) represents how many \$5 (resp. \$10) bills the stand contains after serving the first `k` customers.  
+   • They start at 0 (`k == 0`).  
+   • For every customer `i` exactly one of the three rule-blocks must hold, describing how the contents evolve when the customer pays 5, 10 or 20.  
+   • After each step the counts must stay non-negative.  
+   • If such histories exist, the result must be `true`; if none exist, the result must be `false`.
+
+Because the whole behaviour is captured in the JML annotation, any Java implementation that passes static or run-time checking with this contract automatically fulfils the original “860. Lemonade Change” specification.

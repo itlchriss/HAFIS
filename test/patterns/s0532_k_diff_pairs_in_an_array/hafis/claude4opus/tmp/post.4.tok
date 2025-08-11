@@ -1,0 +1,1 @@
+If the type_integer_ param_k_ is equal to 0 and the type_integer_ result is greater_than to 0 , there exists at least 1 duplicate value in the type_integer_array_ param_nums_ . 

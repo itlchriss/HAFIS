@@ -1,0 +1,5 @@
+ensures:
+- If the length of stry_a of type int[] is 1 the result of type int equals 0.
+- The result of type int is never negative for any valid stry_a of type int[].
+- The result of type int equals the maximum profit that is obtained from performing any number of buy and sell transactions on the daily values in stry_a of type int[] subject to the rule that a buy action cannot occur on the day after a sell action and only 1 share may be held at any given time.
+requires: []

@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/38/Solution.java:39: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/38/Solution.java:15:) in method plusOne
+            return ans;
+            ^
+./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/38/Solution.java:15: verify: Associated declaration: ./test/mutation_analysis/s0066_plus_one/hafis/ablation_o3_r50/mutants/38/Solution.java:39:
+//@ ensures((\forall int i; 0 <= i < \result.length; \result[i] >= 0) && (\forall int i; 0 <= i < \result.length; \result[i] <= 9));
+    ^
+2 verification failures

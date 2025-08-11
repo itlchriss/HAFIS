@@ -1,0 +1,42 @@
+Thinking...Thinking...Thinking...Thinking...Thinking...Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (1s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (2s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (3s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (4s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (5s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (6s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Thinking... (7s elapsed)Below is a self-contained Java signature together with a complete JML contract that captures the informal specification of “Add Digits”.
+
+```java
+public class AddDigits {
+
+    /*@
+      @ public normal_behavior
+      @   requires 0 <= num && num <= Integer.MAX_VALUE;
+      @
+      @   /*  The result is a single decimal digit. * /
+      @   ensures 0 <= \result && \result <= 9;
+      @
+      @   /*  Functional definition (digital root). * /
+      @   ensures (num == 0) ==> (\result == 0);
+      @   ensures (num != 0) ==> (\result == 1 + (num - 1) % 9);
+      @
+      @   /*  No visible state is modified. * /
+      @   assignable \nothing;
+      @
+      @   /*  Intended for use as a mathematical (side-effect-free) function. * /
+      @*/
+    public /*@ pure @*/ static int addDigits(int num);
+}
+```
+
+Explanation of the clauses
+
+1. `requires`  
+   Constrains the admissible inputs to the range given in the original problem statement.
+
+2. `ensures` (first)  
+   States that the returned value is a single decimal digit.
+
+3. `ensures` (second & third)  
+   Provide an explicit mathematical description of the result—  
+   the well-known closed-form digital-root formula that runs in O(1) time and uses no loops or recursion.
+
+4. `assignable \\nothing`  
+   Guarantees that the method does not modify any memory location that is visible to callers.
+
+5. `/*@ pure @*/`  
+   Declares the method side-effect-free so it can be used in other JML annotations as a mathematical function.

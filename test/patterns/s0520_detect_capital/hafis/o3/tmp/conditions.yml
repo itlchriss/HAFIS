@@ -1,0 +1,7 @@
+ensures:
+- If type_boolean_ result is equal to the true literal , either The type_string_ param_word_'s values are uppercase or The type_string_ param_word_'s values are lowercase or the type_string_ param_word_'s first_element is uppercase and all other characters in the type_string_ param_word_ are lowercase.
+- If type_boolean_ result is equal to the false literal , the type_string_ param_word_ does not satisfy any of the valid capital usage conditions.
+- If the type_string_ param_word_ is equal to stry_a , the type_boolean_ result is equal to the true literal.
+- If the type_string_ param_word_ is equal to stry_a , the type_boolean_ result is equal to the false literal.
+requires:
+- The type_string_ param_word_ only contains alphabets.

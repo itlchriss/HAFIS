@@ -1,0 +1,73 @@
+Here's the JML specification for the Search in Rotated Sorted Array problem:
+
+```java
+public class Solution {
+    
+    /*@ public normal_behavior
+      @ requires nums != null;
+      @ requires nums.length >= 1 && nums.length <= 5000;
+      @ requires (\forall int i; 0 <= i < nums.length; 
+      @           -10000 <= nums[i] && nums[i] <= 10000);
+      @ requires (\forall int i, j; 0 <= i < j < nums.length; 
+      @           nums[i] != nums[j]); // all values are distinct
+      @ requires isRotatedSortedArray(nums);
+      @ requires -10000 <= target && target <= 10000;
+      @ ensures \result == -1 || (0 <= \result < nums.length);
+      @ ensures \result >= 0 ==> nums[\result] == target;
+      @ ensures \result == -1 ==> 
+      @         (\forall int i; 0 <= i < nums.length; nums[i] != target);
+      @ assignable \nothing;
+      @*/
+    public int search(int[] nums, int target) {
+        // Implementation here
+    }
+    
+    /*@ public normal_behavior
+      @ requires nums != null && nums.length >= 1;
+      @ ensures \result <==> 
+      @   (\exists int k; 0 <= k < nums.length;
+      @     (\forall int i; 0 <= i < nums.length - 1;
+      @       (i + k) % nums.length < (i + k + 1) % nums.length - 1 ==>
+      @         nums[(i + k) % nums.length] < nums[(i + k + 1) % nums.length]));
+      @*/
+    /*@ pure @*/ 
+    private static boolean isRotatedSortedArray(int[] nums) {
+        // Helper method to check if array is a rotated sorted array
+        if (nums.length == 1) return true;
+        
+        int rotationPoint = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] > nums[i + 1]) {
+                rotationPoint++;
+            }
+        }
+        
+        // Valid rotated sorted array has at most one rotation point
+        return rotationPoint <= 1;
+    }
+}
+```
+
+Key aspects of this JML specification:
+
+1. **Preconditions (`requires`):**
+   - `nums` is not null
+   - Array length is between 1 and 5000
+   - All elements are in the range [-10⁴, 10⁴]
+   - All values are distinct (no duplicates)
+   - The array is a valid rotated sorted array
+   - Target is in the valid range
+
+2. **Postconditions (`ensures`):**
+   - Result is either -1 or a valid index in the array
+   - If result is non-negative, then `nums[result]` equals target
+   - If result is -1, then target doesn't exist in the array
+
+3. **Frame condition (`assignable`):**
+   - `\nothing` - the method doesn't modify any state
+
+4. **Helper specification:**
+   - `isRotatedSortedArray` is a pure helper method that validates whether an array is a properly rotated sorted array
+   - The specification captures that there exists a rotation point k such that the array is sorted when viewed cyclically from that point
+
+Note: The O(log n) runtime complexity requirement is not captured in JML as it's a performance constraint rather than a functional specification. JML focuses on correctness properties rather than complexity bounds.

@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0058_length_of_last_word/hafis/claude4opus/mutants/18/Solution.java:28: verify: The prover cannot establish an assertion (Postcondition: ./test/mutation_analysis/s0058_length_of_last_word/hafis/claude4opus/mutants/18/Solution.java:14:) in method lengthOfLastWord
+        return len;
+        ^
+./test/mutation_analysis/s0058_length_of_last_word/hafis/claude4opus/mutants/18/Solution.java:14: verify: Associated declaration: ./test/mutation_analysis/s0058_length_of_last_word/hafis/claude4opus/mutants/18/Solution.java:28:
+//@ ensures(\result <= s.length());
+    ^
+2 verification failures

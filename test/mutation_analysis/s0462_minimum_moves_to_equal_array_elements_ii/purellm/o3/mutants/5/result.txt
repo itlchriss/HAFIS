@@ -1,0 +1,7 @@
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/o3/mutants/5/Solution.java:21: verify: The prover cannot establish an assertion (Assignable: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/o3/mutants/5/Solution.java:18:) in method minMoves2: a[*]
+        Arrays.sort(nums);
+                   ^
+./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/o3/mutants/5/Solution.java:18: verify: Associated declaration: ./test/mutation_analysis/s0462_minimum_moves_to_equal_array_elements_ii/purellm/o3/mutants/5/Solution.java:21:
+      @  assignable \nothing;
+         ^
+2 verification failures
