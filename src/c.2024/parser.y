@@ -3,6 +3,7 @@
     #include "util.h"
     #include "cst.h"
     #include "si.h"
+    #include "si_runtime.h"
     #include "event.h"
     #include "regex.h"
     #include "error.h"

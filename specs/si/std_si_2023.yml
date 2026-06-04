@@ -492,3 +492,341 @@
   specific_arg_types:
   - '5'
   interpretation: \result
+
+# =============================================================================
+# Extended Penn Treebank Category Support
+# The following entries add support for additional PTB categories
+# =============================================================================
+
+# DT - Determiners
+- term: every
+  syntax:
+  - DT
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: \forall int i; 0 <= i < (x).length; (x)[i]
+
+- term: all
+  syntax:
+  - DT
+  - PDT
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: \forall int i; 0 <= i < (x).length; (x)[i]
+
+- term: some
+  syntax:
+  - DT
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: \exists int i; 0 <= i < (x).length; (x)[i]
+
+- term: no
+  syntax:
+  - DT
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: !(\exists int i; 0 <= i < (x).length; (x)[i])
+
+# CD - Cardinal Numbers
+- term: zero
+  syntax:
+  - CD
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: '0'
+
+- term: one
+  syntax:
+  - CD
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: '1'
+
+- term: two
+  syntax:
+  - CD
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: '2'
+
+# MD - Modal Verbs
+- term: must
+  syntax:
+  - MD
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: should
+  syntax:
+  - MD
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: may
+  syntax:
+  - MD
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: can
+  syntax:
+  - MD
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+# PRP - Personal Pronouns
+- term: it
+  syntax:
+  - PRP
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: they
+  syntax:
+  - PRP
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: this
+  syntax:
+  - DT
+  - PRP
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: that
+  syntax:
+  - DT
+  - WDT
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+# WDT - Wh-determiners
+- term: which
+  syntax:
+  - WDT
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: what
+  syntax:
+  - WP
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+# WRB - Wh-adverbs
+- term: where
+  syntax:
+  - WRB
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: when
+  syntax:
+  - WRB
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+# CC - Coordinating Conjunctions (handled by connective rules, but added for completeness)
+- term: and
+  syntax:
+  - CC
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) && (y)
+
+- term: or
+  syntax:
+  - CC
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) || (y)
+
+# Additional verb forms
+- term: be
+  syntax:
+  - VB
+  - VBP
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) == (y)
+
+- term: have
+  syntax:
+  - VB
+  - VBP
+  - VBD
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) == (y)
+
+- term: do
+  syntax:
+  - VB
+  - VBP
+  - VBD
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+# Additional adjective forms
+- term: positive
+  syntax:
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x) > 0
+
+- term: negative_value
+  syntax:
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x) < 0
+
+# Prepositions/IN - Additional
+- term: from
+  syntax:
+  - IN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) - (y)
+
+- term: to
+  syntax:
+  - TO
+  - IN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) + (y)
+
+- term: by
+  syntax:
+  - IN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) * (y)
+
+- term: of
+  syntax:
+  - IN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) / (y)
+
+# RP - Particles
+- term: up
+  syntax:
+  - RP
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: down
+  syntax:
+  - RP
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+# Additional noun types
+- term: value
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: number
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: index
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: position
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+- term: first
+  syntax:
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)[0]
+
+- term: last
+  syntax:
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)[(x).length - 1]

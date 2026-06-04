@@ -1,3 +1,37 @@
+#!/bin/bash
+#
+# MEARC - Meaning Extraction and Annotation for Refinement Contracts
+# 
+# Usage: mearc [OPTIONS] <input_file>
+#
+# Options:
+#   -b, --backend <jml|dafny|auto>   Select output backend (default: auto)
+#                                     auto: detect from file extension
+#                                           .java -> jml, .dfy -> dafny
+#   -m, --mode <mode>           Operation mode:
+#                                 full     - Run all stages (default)
+#                                 preproc  - Text preprocessing/extraction only
+#                                 mrderive - MR derivation with preprocessing
+#                                 compile  - Compilation only
+#   -o, --output <file>         Output file (default: auto-generated)
+#   -h, --help                  Show this help message
+#
+# Supported Input Files:
+#   .java - Extracts JML conditions, translates to JML specifications
+#   .dfy  - Extracts NL annotations from Dafny code, translates and instruments
+#   .mr   - Compiles MR directly to specifications
+#
+# Dafny NL Annotation Syntax (in .dfy files):
+#   // requires(*natural language*);   -> requires clause
+#   // ensures(*natural language*);    -> ensures clause  
+#   // assert(*natural language*);     -> assert statement
+#
+
+set -e  # Exit on error
+
+# ============================================================================
+# Configuration
+# ============================================================================
 ROOT=./
 NLP=../NLP/ccg2lambda
 STD_SI=./specs/si/typed_si.yml,./specs/si/java_datatypes.yml
@@ -5,136 +39,709 @@ PYCMD=python
 TMP=./tmp
 OPENJML=../openjml-0.17-a15
 
-filename=`echo $1 | sed 's/.*\///'`
-index=`echo $filename | sed 's/\..*//'`
-folder=`echo $1 | sed "s/\/$filename//"`
+# ============================================================================
+# Default Settings
+# ============================================================================
+BACKEND="auto"
+MODE="full"
+OUTPUT_FILE=""
 
-# 9: full
-# 1: text-preprocessing
-# 2: mr derivation with text-preprocessing
-# 3: compile only
-full=9
-compile=3
-preproc=1
-mrderive=2
-flag=$full
+# ============================================================================
+# Helper Functions
+# ============================================================================
+usage() {
+    cat << EOF
+MEARC - Meaning Extraction and Annotation for Refinement Contracts
 
+Usage: $(basename "$0") [OPTIONS] <input_file>
 
+Options:
+    -b, --backend <jml|dafny|auto>   Select output backend (default: auto)
+                                     auto: detect from file extension
+                                           .java -> jml, .dfy -> dafny
+    -m, --mode <mode>           Operation mode:
+                                  full     - Run all stages (default)
+                                  preproc  - Text preprocessing/extraction only
+                                  mrderive - MR derivation with preprocessing
+                                  compile  - Compilation only
+    -o, --output <file>         Output file (default: auto-generated)
+    -h, --help                  Show this help message
 
-if [ "$#" -eq 2 ]
-then
-    if [ "$2" == "compile" ]
-    then
-        flag=$compile
-    elif [ "$2" == "preproc" ]
-    then
-        flag=$preproc
-    elif [ "$2" == "mrderive" ]
-    then
-        rm $folder/tmp/*
-        flag=$mrderive
+Supported Inputs:
+    .java    Extract JML conditions -> translate to JML specs
+    .dfy     Extract NL annotations -> translate and instrument into Dafny code
+    .mr      Compile MR directly to specs
+
+Dafny NL Annotation Syntax (in .dfy files):
+    // requires(*natural language*);   Translated to: requires <dafny_expr>
+    // ensures(*natural language*);    Translated to: ensures <dafny_expr>
+    // assert(*natural language*);     Translated to: assert <dafny_expr>;
+
+Examples:
+    $(basename "$0") test/example.java           # auto -> jml
+    $(basename "$0") test/example.dfy            # auto -> dafny, instruments code
+    $(basename "$0") -b dafny test/example.java  # force dafny backend
+    $(basename "$0") -m compile test/example.dfy # compile only
+EOF
+    exit 0
+}
+
+log_info() {
+    echo "[INFO] $1"
+}
+
+log_error() {
+    echo "[ERROR] $1" >&2
+}
+
+# Format output based on backend
+format_output() {
+    local keyword="$1"
+    local body="$2"
+    local backend="$3"
+    
+    if [ "$backend" = "dafny" ]; then
+        # Dafny format: ensures condition or requires condition
+        echo "$keyword $body"
     else
-        rm $folder/tmp/*
-        flag=$full
+        # JML format: ensures(condition); or requires(condition);
+        echo "$keyword($body);"
     fi
-else
-    rm $folder/tmp/*
-    rm $folder/jml/*
-fi
+}
 
-# Preprocessing
-# - Extracting the conditions from the input java file
-# - Preprocessing the text
-# - Writing the results into a conditions.yml
-if [ "$flag" -eq "$preproc" ] || [ "$flag" -eq "$mrderive" ] || [ "$flag" -eq "$full" ] 
-then
-    $PYCMD ./src/python/textpreprocessing.py $1
-fi
+# Get output directory based on backend
+get_output_dir() {
+    local folder="$1"
+    local backend="$2"
+    echo "$folder/$backend"
+}
 
+# Get output file extension based on backend
+get_output_extension() {
+    local backend="$1"
+    if [ "$backend" = "dafny" ]; then
+        echo "dfy"
+    else
+        echo "jml"
+    fi
+}
 
-# Meaning representation derivation
-if [ "$flag" -eq "$mrderive" ] || [ "$flag" -eq "$full" ]
-then
-    IFS=$'\n'
-    i=0
-    for condition in `niet ".ensures" $folder/tmp/conditions.yml`;
-    do
-        if [ -z "$condition" ] || [ "$condition" = "Element not found: ensures" ]; then
-            break
-        fi
-        printf '%s\n' "$condition" | sed -f $NLP/en/tokenizer.sed > $folder/tmp/post.$i.tok
-        $NLP/candc-1.00/bin/candc --models $NLP/candc-1.00/models --candc-printer xml --input $folder/tmp/post.$i.tok > $folder/tmp/post.$i.candc.xml
-        $PYCMD $NLP/en/candc2transccg_wsc.py $folder/tmp/post.$i.candc.xml > $folder/tmp/post.$i.ccg.xml
-        $PYCMD $NLP/scripts/semparse_wsc.py $folder/tmp/post.$i.ccg.xml $NLP/en/semantic_templates_en_event_flat_mearc.yaml > $folder/tmp/post.$i.mr
-        $PYCMD ./src/python/depccg/nltk2normal.py $folder/tmp/post.$i.mr
-        i=$((i + 1))
-    done
-    i=0
-    for condition in `niet ".requires" $folder/tmp/conditions.yml`;
-    do
-        if [ -z "$condition" ] || [ "$condition" = "Element not found: requires" ]; then
-            break
-        fi
-        printf '%s\n' "$condition" | sed -f $NLP/en/tokenizer.sed > $folder/tmp/pre.$i.tok
-        $NLP/candc-1.00/bin/candc --models $NLP/candc-1.00/models --candc-printer xml --candc-maxwords 2048 --input $folder/tmp/pre.$i.tok > $folder/tmp/pre.$i.candc.xml
-        $PYCMD $NLP/en/candc2transccg_wsc.py $folder/tmp/pre.$i.candc.xml > $folder/tmp/pre.$i.ccg.xml
-        $PYCMD $NLP/scripts/semparse_wsc.py $folder/tmp/pre.$i.ccg.xml $NLP/en/semantic_templates_en_event_flat_mearc.yaml > $folder/tmp/pre.$i.mr
-        $PYCMD ./src/python/depccg/nltk2normal.py $folder/tmp/pre.$i.mr
-        i=$((i + 1))
-    done
-    IFS=$' \t\n'
-fi
+# Detect backend from file extension
+detect_backend() {
+    local file="$1"
+    case "$file" in
+        *.java) echo "jml" ;;
+        *.dfy)  echo "dafny" ;;
+        *)      echo "jml" ;;
+    esac
+}
 
-# MEARC compilation
-if [ "$flag" -eq "$compile" ] || [ "$flag" -eq "$full" ]
-then
-    for mr in `grep -lEr 'exists|all' $folder/tmp/*.mr`;
-    do
-        filename=$(basename $mr)
-        filename_without_extension="${filename%.*}"
-        index="${filename_without_extension##*.}"
-        cmd=''
-        if test -f $folder/tmp/dynamic_si.$filename_without_extension.yml; then
-            cmd="./bin/main -f $mr -s $STD_SI,$folder/tmp/dynamic_si.$filename_without_extension.yml"
-        else
-            cmd="./bin/main -f $mr -s $STD_SI"
-        fi
-        printf '%s\n' "$cmd"
-        ans=`$cmd`
+# Detect input file type
+detect_input_type() {
+    local file="$1"
+    case "$file" in
+        *.java) echo "java" ;;
+        *.dfy)  echo "dfy" ;;
+        *.mr)   echo "mr" ;;
+        *)      echo "unknown" ;;
+    esac
+}
 
-        # [[ -z "$ans"] && [ "$ans" == *"error"* ]] printf '%s\n' "$ans" || printf 'ensures(%s);\n' "$ans"
-        if [ "$ans" == *"error"* ] || [ "$ans" == *"Lexer:"* ] || [ "$ans" == *"Parser:"* ]; then
-            printf "%s\n" "$ans"
-        elif [[ ! -z "$ans" ]]; then
-            mkdir -p $folder/jml            
-            filename=$filename_without_extension
-            keyword="ensures"
-            if [[ $filename == *"pre"* ]]; then
-                keyword="requires"
-            fi
-            filename+=".jml"
-            IFS=$'\n' read -rd '' -a lines <<< "$ans"
-            line1="${lines[0]}"            
-            if [[ "$line1[0]" =~ pcount:([0-9]+) ]]; then
-                pcount="${BASH_REMATCH[1]}"
-                for i in $(seq 1 $pcount); do
-                    body="${lines[$i]}"
-                    # printf "%s" $body
+# Extract NL text from a Dafny annotation comment
+# Pattern: // keyword(*NL text*);
+extract_annotation_text() {
+    local line="$1"
+    local keyword="$2"
+    # Match: // keyword(*...*);
+    if [[ "$line" =~ //[[:space:]]*${keyword}\(\*([^*]+)\*\)[[:space:]]*\; ]]; then
+        echo "${BASH_REMATCH[1]}"
+        return 0
+    fi
+    return 1
+}
+
+# Run the NLP pipeline on a text to produce an MR file
+# Arguments: text, output_basename
+run_nlp_pipeline() {
+    local text="$1"
+    local basename="$2"
+    
+    # Step 1: Tokenize
+    printf '%s\n' "$text" | sed -f "$NLP/en/tokenizer.sed" > "${basename}.tok"
+    
+    # Step 2: C&C parsing
+    $NLP/candc-1.00/bin/candc --models "$NLP/candc-1.00/models" \
+        --candc-printer xml \
+        --candc-maxwords 2048 \
+        --input "${basename}.tok" > "${basename}.candc.xml" 2>/dev/null
+    
+    # Step 3: Convert to CCG
+    $PYCMD "$NLP/en/candc2transccg_wsc.py" "${basename}.candc.xml" > "${basename}.ccg.xml"
+    
+    # Step 4: Semantic parsing to MR
+    $PYCMD "$NLP/scripts/semparse_wsc.py" "${basename}.ccg.xml" \
+        "$NLP/en/semantic_templates_en_event_flat_mearc.yaml" > "${basename}.mr"
+    
+    # Step 5: Normalize MR
+    $PYCMD ./src/python/depccg/nltk2normal.py "${basename}.mr" 2>/dev/null || true
+    
+    # Return the MR file path
+    echo "${basename}.mr"
+}
+
+# Compile an MR file and extract the Dafny/JML body
+# Arguments: mr_file, backend
+# Returns: compiled expression body(s), one per line
+compile_mr() {
+    local mr_file="$1"
+    local backend="$2"
+    
+    # Build command
+    local cmd="./bin/main -f $mr_file -s $STD_SI -b $backend"
+    
+    # Add dynamic SI if available
+    local mr_dir=$(dirname "$mr_file")
+    local mr_name=$(basename "$mr_file" .mr)
+    if [[ -f "$mr_dir/dynamic_si.$mr_name.yml" ]]; then
+        cmd="$cmd,$mr_dir/dynamic_si.$mr_name.yml"
+    fi
+    
+    local ans
+    ans=$(eval "$cmd" 2>&1)
+    
+    # Check for errors
+    if [[ "$ans" == *"error"* || "$ans" == *"Lexer:"* || "$ans" == *"Parser:"* ]]; then
+        log_error "Compilation failed for $(basename "$mr_file"):"
+        echo "$ans"
+        return 1
+    fi
+    
+    # Parse output
+    if [[ -n "$ans" ]]; then
+        IFS=$'\n' read -rd '' -a lines <<< "$ans" || true
+        local line1="${lines[0]}"
+        
+        if [[ "$line1" =~ pcount:([0-9]+) ]]; then
+            local pcount="${BASH_REMATCH[1]}"
+            for i in $(seq 1 "$pcount"); do
+                local body="${lines[$i]}"
+                # Escape backslashes for JML
+                if [[ "$backend" == "jml" ]]; then
                     body="${body/\\ /\\}"
-                    if [[ ! -z "$body" ]] && [[ "$body" == *"result"* ]]; then
-                        keyword="ensures"
-                    fi                                 
-                    if [[ ! -z "$body" ]] && [[ "$body" != "()" ]]; then
-                        printf "$keyword(%s);\n" "$body"
-                        printf "$keyword(%s);\n" "$body" > $folder/jml/$filename
-                    fi
-                done
-            else
-                printf "Failed"
-            fi
-            # printf "ensures(%s);\n" "$ans"
-            # printf "ensures(%s);\n" "$ans" > $folder/jml/$filename
+                fi
+                if [[ -n "$body" && "$body" != "()" ]]; then
+                    echo "$body"
+                fi
+            done
+            return 0
         fi
-        printf '\n'
-    done
+    fi
+    
+    return 1
+}
+
+# ============================================================================
+# Argument Parsing
+# ============================================================================
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -b|--backend)
+            if [[ -z "$2" || "$2" == -* ]]; then
+                log_error "Backend option requires an argument (jml, dafny, or auto)"
+                exit 1
+            fi
+            BACKEND="$2"
+            if [[ "$BACKEND" != "jml" && "$BACKEND" != "dafny" && "$BACKEND" != "auto" ]]; then
+                log_error "Invalid backend: $BACKEND. Must be 'jml', 'dafny', or 'auto'"
+                exit 1
+            fi
+            shift 2
+            ;;
+        -m|--mode)
+            if [[ -z "$2" || "$2" == -* ]]; then
+                log_error "Mode option requires an argument"
+                exit 1
+            fi
+            MODE="$2"
+            if [[ "$MODE" != "full" && "$MODE" != "preproc" && "$MODE" != "mrderive" && "$MODE" != "compile" ]]; then
+                log_error "Invalid mode: $MODE. Must be 'full', 'preproc', 'mrderive', or 'compile'"
+                exit 1
+            fi
+            shift 2
+            ;;
+        -o|--output)
+            if [[ -z "$2" || "$2" == -* ]]; then
+                log_error "Output option requires a file argument"
+                exit 1
+            fi
+            OUTPUT_FILE="$2"
+            shift 2
+            ;;
+        -h|--help)
+            usage
+            ;;
+        -*)
+            log_error "Unknown option: $1"
+            usage
+            ;;
+        *)
+            INPUT_FILE="$1"
+            shift
+            ;;
+    esac
+done
+
+# Validate input file
+if [[ -z "$INPUT_FILE" ]]; then
+    log_error "No input file specified"
+    usage
 fi
+
+if [[ ! -f "$INPUT_FILE" ]]; then
+    log_error "Input file not found: $INPUT_FILE"
+    exit 1
+fi
+
+# ============================================================================
+# Resolve Backend and Input Type
+# ============================================================================
+if [[ "$BACKEND" == "auto" ]]; then
+    BACKEND=$(detect_backend "$INPUT_FILE")
+    log_info "Auto-detected backend: $BACKEND (from $(basename "$INPUT_FILE"))"
+fi
+
+INPUT_TYPE=$(detect_input_type "$INPUT_FILE")
+
+# ============================================================================
+# Setup Paths
+# ============================================================================
+filename=$(basename "$INPUT_FILE")
+index="${filename%.*}"
+folder=$(dirname "$INPUT_FILE")
+
+case "$INPUT_TYPE" in
+    mr)
+        MR_DIR="$folder"
+        PROJECT_FOLDER=$(dirname "$folder")
+        if [[ "$(basename "$folder")" == "tmp" ]]; then
+            output_dir=$(get_output_dir "$PROJECT_FOLDER" "$BACKEND")
+        else
+            output_dir=$(get_output_dir "$folder" "$BACKEND")
+        fi
+        ;;
+    dfy)
+        MR_DIR="$folder/tmp"
+        output_dir="$folder"  # For dfy, output goes back to same folder
+        ;;
+    *)
+        MR_DIR="$folder/tmp"
+        output_dir=$(get_output_dir "$folder" "$BACKEND")
+        ;;
+esac
+
+output_ext=$(get_output_extension "$BACKEND")
+
+# Set default output file for dfy
+if [[ "$INPUT_TYPE" == "dfy" && -z "$OUTPUT_FILE" ]]; then
+    OUTPUT_FILE="${folder}/${index}.translated.dfy"
+fi
+
+log_info "Input: $INPUT_FILE (type: $INPUT_TYPE)"
+log_info "Backend: $BACKEND"
+log_info "Mode: $MODE"
+
+# ============================================================================
+# Clean up based on mode
+# ============================================================================
+if [[ "$MODE" == "full" ]]; then
+    rm -f "$MR_DIR/"* 2>/dev/null || true
+    if [[ "$INPUT_TYPE" != "dfy" ]]; then
+        rm -f "$output_dir/"* 2>/dev/null || true
+    fi
+elif [[ "$MODE" == "mrderive" ]]; then
+    rm -f "$MR_DIR/"* 2>/dev/null || true
+fi
+
+# ============================================================================
+# DAFNY WORKFLOW: Process .dfy files with NL annotations
+# ============================================================================
+if [[ "$INPUT_TYPE" == "dfy" ]]; then
+    
+    # ========================================================================
+    # Annotation Table
+    # A table to track all NL annotations and their translations.
+    # Each entry contains:
+    #   - index: unique annotation ID
+    #   - line_num: source line number
+    #   - type: annotation type (requires, ensures, assert)
+    #   - nl_text: natural language text
+    #   - indent: leading whitespace
+    #   - method: enclosing method name (for context)
+    #   - mr_file: path to generated MR file
+    #   - translation: compiled Dafny syntax (filled after Stage 3)
+    #   - status: pending/translated/failed
+    # ========================================================================
+    
+    # Table columns (parallel arrays)
+    declare -a TBL_INDEX       # Annotation ID
+    declare -a TBL_LINE        # Source line number
+    declare -a TBL_TYPE        # requires/ensures/assert
+    declare -a TBL_TEXT        # NL text
+    declare -a TBL_INDENT      # Leading whitespace
+    declare -a TBL_METHOD      # Enclosing method name
+    declare -a TBL_MR          # MR file path
+    declare -a TBL_TRANS       # Translated Dafny syntax
+    declare -a TBL_STATUS      # pending/translated/failed
+    
+    TBL_COUNT=0
+    
+    # Add an entry to the annotation table
+    tbl_add() {
+        local line_num="$1"
+        local type="$2"
+        local text="$3"
+        local indent="$4"
+        local method="$5"
+        
+        TBL_INDEX[$TBL_COUNT]=$TBL_COUNT
+        TBL_LINE[$TBL_COUNT]="$line_num"
+        TBL_TYPE[$TBL_COUNT]="$type"
+        TBL_TEXT[$TBL_COUNT]="$text"
+        TBL_INDENT[$TBL_COUNT]="$indent"
+        TBL_METHOD[$TBL_COUNT]="$method"
+        TBL_MR[$TBL_COUNT]="$MR_DIR/ann.${TBL_COUNT}.${type}.mr"
+        TBL_TRANS[$TBL_COUNT]=""
+        TBL_STATUS[$TBL_COUNT]="pending"
+        
+        TBL_COUNT=$((TBL_COUNT + 1))
+    }
+    
+    # Print the annotation table (for debugging)
+    tbl_print() {
+        log_info "Annotation Table ($TBL_COUNT entries):"
+        log_info "  ID  Line  Type      Method           Status      NL Text"
+        log_info "  --- ----  --------  ---------------  ----------  -------"
+        for i in $(seq 0 $((TBL_COUNT - 1))); do
+            printf "  %-3s %-5s %-9s %-16s %-11s %s\n" \
+                "${TBL_INDEX[$i]}" "${TBL_LINE[$i]}" "${TBL_TYPE[$i]}" \
+                "${TBL_METHOD[$i]}" "${TBL_STATUS[$i]}" "${TBL_TEXT[$i]}"
+        done
+    }
+    
+    # ========================================================================
+    # Stage 1 (Dafny): Extract NL annotations from source file
+    # ========================================================================
+    extract_annotations() {
+        log_info "Stage 1: Extracting NL annotations from Dafny file..."
+        
+        mkdir -p "$MR_DIR"
+        
+        local line_num=0
+        local current_method="__global__"
+        
+        while IFS= read -r line; do
+            line_num=$((line_num + 1))
+            
+            # Track current method (for context)
+            if [[ "$line" =~ ^[[:space:]]*method[[:space:]]+([a-zA-Z_][a-zA-Z0-9_]*) ]]; then
+                current_method="${BASH_REMATCH[1]}"
+            fi
+            
+            # Check for each annotation type
+            for keyword in requires ensures assert; do
+                if nl_text=$(extract_annotation_text "$line" "$keyword"); then
+                    # Extract indentation
+                    local indent=""
+                    if [[ "$line" =~ ^([[:space:]]*) ]]; then
+                        indent="${BASH_REMATCH[1]}"
+                    fi
+                    
+                    tbl_add "$line_num" "$keyword" "$nl_text" "$indent" "$current_method"
+                    log_info "  [${TBL_COUNT}] Line $line_num ($current_method): $keyword(*$nl_text*)"
+                fi
+            done
+        done < "$INPUT_FILE"
+        
+        log_info "Found $TBL_COUNT annotation(s)"
+        
+        if [[ $TBL_COUNT -eq 0 ]]; then
+            log_info "No NL annotations found in $INPUT_FILE"
+            return 1
+        fi
+        
+        return 0
+    }
+    
+    # ========================================================================
+    # Stage 2 (Dafny): MR derivation for each annotation
+    # ========================================================================
+    derive_mrs() {
+        log_info "Stage 2: MR derivation for $TBL_COUNT annotations..."
+        
+        for i in $(seq 0 $((TBL_COUNT - 1))); do
+            local type="${TBL_TYPE[$i]}"
+            local text="${TBL_TEXT[$i]}"
+            local line="${TBL_LINE[$i]}"
+            local method="${TBL_METHOD[$i]}"
+            local mr_base="${TBL_MR[$i]%.mr}"  # Remove .mr extension
+            
+            log_info "  [$i] $type in $method (line $line): \"$text\""
+            
+            if run_nlp_pipeline "$text" "$mr_base" > /dev/null 2>&1; then
+                if [[ -f "${mr_base}.mr" ]]; then
+                    local mr_content=$(cat "${mr_base}.mr")
+                    log_info "      MR: $mr_content"
+                    TBL_STATUS[$i]="mr_ready"
+                else
+                    log_error "      MR file not generated"
+                    TBL_STATUS[$i]="failed"
+                fi
+            else
+                log_error "      NLP pipeline failed"
+                TBL_STATUS[$i]="failed"
+            fi
+        done
+    }
+    
+    # ========================================================================
+    # Stage 3 (Dafny): Compile MRs and populate translation column
+    # ========================================================================
+    compile_annotations() {
+        log_info "Stage 3: Compiling $TBL_COUNT annotations..."
+        
+        for i in $(seq 0 $((TBL_COUNT - 1))); do
+            local type="${TBL_TYPE[$i]}"
+            local line="${TBL_LINE[$i]}"
+            local method="${TBL_METHOD[$i]}"
+            local indent="${TBL_INDENT[$i]}"
+            local mr_file="${TBL_MR[$i]}"
+            
+            # Skip if MR wasn't generated
+            if [[ "${TBL_STATUS[$i]}" == "failed" ]]; then
+                log_info "  [$i] Skipping (MR generation failed)"
+                continue
+            fi
+            
+            # Check MR file exists
+            if [[ ! -f "$mr_file" ]]; then
+                log_error "  [$i] MR file not found: $mr_file"
+                TBL_STATUS[$i]="failed"
+                continue
+            fi
+            
+            log_info "  [$i] $type in $method (line $line)..."
+            
+            # Compile the MR
+            local bodies
+            if bodies=$(compile_mr "$mr_file" "$BACKEND"); then
+                local translated=""
+                while IFS= read -r body; do
+                    if [[ -n "$body" ]]; then
+                        if [[ "$type" == "assert" ]]; then
+                            translated+="${indent}assert ${body};"$'\n'
+                        else
+                            translated+="${indent}${type} ${body}"$'\n'
+                        fi
+                    fi
+                done <<< "$bodies"
+                
+                if [[ -n "$translated" ]]; then
+                    # Remove trailing newline
+                    translated="${translated%$'\n'}"
+                    TBL_TRANS[$i]="$translated"
+                    TBL_STATUS[$i]="translated"
+                    log_info "      -> $(echo "$translated" | head -1)"
+                else
+                    log_error "      No output from compilation"
+                    TBL_STATUS[$i]="failed"
+                fi
+            else
+                log_error "      Compilation failed"
+                TBL_STATUS[$i]="failed"
+            fi
+        done
+    }
+    
+    # ========================================================================
+    # Stage 4 (Dafny): Instrument the source file with translations
+    # ========================================================================
+    instrument_file() {
+        log_info "Stage 4: Instrumenting Dafny file..."
+        
+        # Build a lookup: line_num -> translation
+        declare -A LINE_MAP
+        for i in $(seq 0 $((TBL_COUNT - 1))); do
+            local line="${TBL_LINE[$i]}"
+            local status="${TBL_STATUS[$i]}"
+            local trans="${TBL_TRANS[$i]}"
+            
+            if [[ "$status" == "translated" ]]; then
+                LINE_MAP["$line"]="$trans"
+            fi
+            # Failed translations keep original line (not added to map)
+        done
+        
+        log_info "  Replacing ${#LINE_MAP[@]} annotation(s) with Dafny syntax"
+        
+        # Generate output file
+        local line_num=0
+        {
+            while IFS= read -r line || [[ -n "$line" ]]; do
+                line_num=$((line_num + 1))
+                
+                if [[ -n "${LINE_MAP[$line_num]+x}" ]]; then
+                    echo "${LINE_MAP[$line_num]}"
+                else
+                    echo "$line"
+                fi
+            done < "$INPUT_FILE"
+        } > "${OUTPUT_FILE}.tmp"
+        
+        mv "${OUTPUT_FILE}.tmp" "$OUTPUT_FILE"
+        log_info "  Output written to: $OUTPUT_FILE"
+    }
+    
+    # ========================================================================
+    # Execute Dafny workflow based on mode
+    # ========================================================================
+    
+    # Stage 1: Extract annotations (always needed)
+    if [[ "$MODE" == "preproc" || "$MODE" == "mrderive" || "$MODE" == "full" || "$MODE" == "compile" ]]; then
+        if ! extract_annotations; then
+            if [[ "$MODE" == "preproc" ]]; then
+                exit 0
+            fi
+        fi
+    fi
+    
+    # Stage 2: MR derivation
+    if [[ "$MODE" == "mrderive" || "$MODE" == "full" ]]; then
+        if [[ $TBL_COUNT -gt 0 ]]; then
+            derive_mrs
+        fi
+    fi
+    
+    # Stage 3: Compile MRs
+    if [[ "$MODE" == "compile" || "$MODE" == "full" ]]; then
+        if [[ $TBL_COUNT -gt 0 ]]; then
+            compile_annotations
+        fi
+    fi
+    
+    # Stage 4: Instrument file
+    if [[ "$MODE" == "compile" || "$MODE" == "full" ]]; then
+        if [[ $TBL_COUNT -gt 0 ]]; then
+            instrument_file
+        else
+            # No annotations - just copy input to output
+            cp "$INPUT_FILE" "$OUTPUT_FILE"
+            log_info "No annotations to instrument, copied original file"
+        fi
+    fi
+    
+    # Print final table status
+    if [[ $TBL_COUNT -gt 0 ]]; then
+        tbl_print
+    fi
+
+# ============================================================================
+# JAVA/MR WORKFLOW: Original processing for .java and .mr files
+# ============================================================================
+else
+    
+    # ========================================================================
+    # Stage 1: Preprocessing (Java only)
+    # ========================================================================
+    if [[ "$INPUT_TYPE" == "java" ]]; then
+        if [[ "$MODE" == "preproc" || "$MODE" == "mrderive" || "$MODE" == "full" ]]; then
+            log_info "Stage 1: Text preprocessing..."
+            $PYCMD ./src/python/textpreprocessing.py "$INPUT_FILE"
+        fi
+    fi
+    
+    # ========================================================================
+    # Stage 2: Meaning Representation Derivation
+    # ========================================================================
+    if [[ "$MODE" == "mrderive" || "$MODE" == "full" ]]; then
+        if [[ "$INPUT_TYPE" == "java" ]]; then
+            log_info "Stage 2: MR derivation..."
+            
+            IFS=$'\n'
+            
+            # Process ensures conditions
+            i=0
+            for condition in $(niet ".ensures" "$MR_DIR/conditions.yml" 2>/dev/null || echo ""); do
+                if [[ -z "$condition" || "$condition" == "Element not found: ensures" ]]; then
+                    break
+                fi
+                log_info "  Processing ensures condition $i..."
+                run_nlp_pipeline "$condition" "$MR_DIR/post.$i" > /dev/null 2>&1
+                i=$((i + 1))
+            done
+            
+            # Process requires conditions
+            i=0
+            for condition in $(niet ".requires" "$MR_DIR/conditions.yml" 2>/dev/null || echo ""); do
+                if [[ -z "$condition" || "$condition" == "Element not found: requires" ]]; then
+                    break
+                fi
+                log_info "  Processing requires condition $i..."
+                run_nlp_pipeline "$condition" "$MR_DIR/pre.$i" > /dev/null 2>&1
+                i=$((i + 1))
+            done
+            
+            IFS=$' \t\n'
+        fi
+    fi
+    
+    # ========================================================================
+    # Stage 3: MEARC Compilation
+    # ========================================================================
+    if [[ "$MODE" == "compile" || "$MODE" == "full" ]]; then
+        log_info "Stage 3: Compilation (backend: $BACKEND)..."
+        
+        mkdir -p "$output_dir"
+        
+        for mr in $(grep -lEr 'exists|all' "$MR_DIR/"*.mr 2>/dev/null || echo ""); do
+            if [[ -z "$mr" ]]; then
+                continue
+            fi
+            
+            mr_filename=$(basename "$mr")
+            mr_name="${mr_filename%.*}"
+            
+            log_info "  Compiling: $mr_filename"
+            
+            # Compile the MR
+            if bodies=$(compile_mr "$mr" "$BACKEND"); then
+                # Determine keyword based on filename
+                keyword="ensures"
+                if [[ "$mr_name" == *"pre"* ]]; then
+                    keyword="requires"
+                fi
+                
+                output_file="$output_dir/$mr_name.$output_ext"
+                > "$output_file"
+                
+                while IFS= read -r body; do
+                    if [[ -n "$body" ]]; then
+                        # Check if result keyword should be used
+                        if [[ "$body" == *"result"* ]]; then
+                            keyword="ensures"
+                        fi
+                        
+                        formatted=$(format_output "$keyword" "$body" "$BACKEND")
+                        echo "$formatted"
+                        echo "$formatted" >> "$output_file"
+                    fi
+                done <<< "$bodies"
+                
+                log_info "    Output written to: $output_file"
+            else
+                log_error "  Compilation failed for $mr_filename"
+            fi
+        done
+    fi
+fi
+
+log_info "Done."

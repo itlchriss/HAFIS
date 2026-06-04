@@ -1,0 +1,671 @@
+# Dafny Semantic Interpretation Templates
+# This file contains Dafny-specific semantic interpretations
+# These templates generate Dafny specifications instead of JML
+
+# =============================================================================
+# Core Dafny Specifications
+# =============================================================================
+
+# Sorted specifications - Dafny uses ==> for implication in quantifiers
+- term: sorted in ascending order
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall k:int :: 0 <= k < |(x)| - 1 ==> (x)[k] <= (x)[k + 1]
+
+- term: sorted in ascending numerical order
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall k:int :: 0 <= k < |(x)| - 1 ==> (x)[k] <= (x)[k + 1]
+
+- term: sorted in descending order
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall k:int :: 0 <= k < |(x)| - 1 ==> (x)[k] >= (x)[k + 1]
+
+# Comparison operators
+- term: gtoet
+  syntax:
+  - JJ
+  arity: 2
+  arguments:
+  - Subj
+  - Acc
+  interpretation: (Subj) >= (Acc)
+
+- term: gt
+  syntax:
+  - JJ
+  arity: 2
+  arguments:
+  - Subj
+  - Acc
+  interpretation: (Subj) > (Acc)
+
+- term: lt
+  syntax:
+  - JJ
+  arity: 2
+  arguments:
+  - Subj
+  - Acc
+  interpretation: (Subj) < (Acc)
+
+- term: ltoet
+  syntax:
+  - JJ
+  arity: 2
+  arguments:
+  - Subj
+  - Acc
+  interpretation: (Subj) <= (Acc)
+
+# Equality - Dafny uses structural equality
+- term: equal to
+  syntax:
+  - JJ
+  - JJR
+  - VBG
+  - VBZ
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) == (y)
+
+- term: correspondingly equal to
+  syntax:
+  - VBG
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) != null && (y) != null && |(x)| == |(y)| && (forall i:int :: 0 <= i < |(x)| ==> ((x)[i] == null && (y)[i] == null) || ((x)[i] == (y)[i]))
+
+- term: deeply equals to
+  syntax:
+  - VBZ
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: ((x) == null && (y) == null) || ((x) != null && (y) != null && |(x)| == |(y)| && (forall i:int :: 0 <= i < |(x)| ==> (x)[i] == (y)[i]))
+
+# Boolean values
+- term: true_value
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: 'true'
+
+- term: false_value
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: 'false'
+
+- term: null_value
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: 'null'
+
+- term: null
+  syntax:
+  - JJ
+  arity: 1
+  arguments:
+  - Subj
+  interpretation: '(Subj) == null'
+
+# Be verb
+- term: be
+  syntax:
+  - VBZ
+  - VB
+  - VBP
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) == (y)
+
+# Result - Dafny uses named return variables
+- term: return value
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: r
+
+- term: result
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: r
+
+- term: return
+  syntax:
+  - VBN
+  arity: 1
+  arguments:
+  - Acc
+  interpretation: r
+
+# Contain - Dafny sequence membership
+- term: contain
+  syntax:
+  - VBZ
+  - VB
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (y) in (x)
+
+- term: contain
+  syntax:
+  - VBD
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (y) in old((x))
+
+- term: removed from
+  syntax:
+  - VBG
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) !in (y)
+
+# Prime number
+- term: prime
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x) == 2 || ((x) > 2 && (forall k:int :: 2 <= k <= (x)/2 ==> (x) % k != 0))
+
+- term: prime number
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x) == 2 || ((x) > 2 && (forall k:int :: 2 <= k <= (x)/2 ==> (x) % k != 0))
+
+# Parameter and input
+- term: parameter
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: p
+
+- term: input
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: p
+
+# Even/Odd
+- term: even
+  syntax:
+  - RB
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x) % 2 == 0
+
+- term: odd
+  syntax:
+  - RB
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x) % 2 != 0
+
+# Length and size - Dafny uses |seq| for sequence length
+- term: length
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: __REL__length
+
+- term: size
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: __REL__size
+
+# Sort
+- term: sort
+  syntax:
+  - VBN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall k:int :: 0 <= k < |(x)| - 1 ==> (x)[k] <= (x)[k+1]
+
+# Conditional
+- term: if
+  syntax:
+  - IN
+  arity: 2
+  arguments:
+  - (*)
+  - (*)
+  interpretation: ==>
+
+# Element access
+- term: element
+  syntax:
+  - NNS
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)[i]
+
+- term: every element
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall i:int :: 0 <= i < |(x)| ==> (x)[i]
+
+# Reference
+- term: reference
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x)
+
+# Change - Dafny old() syntax
+- term: change
+  syntax:
+  - VBN
+  - VBD
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: old((x)) != (x)
+
+# Empty
+- term: empty
+  syntax:
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: |(x)| == 0
+
+# Number of elements
+- term: number of elements
+  syntax:
+  - NNS
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: |(x)|
+
+# Arithmetic operations
+- term: minus
+  syntax:
+  - IN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) - (y)
+
+- term: plus
+  syntax:
+  - IN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) + (y)
+
+- term: times
+  syntax:
+  - IN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) * (y)
+
+- term: divided by
+  syntax:
+  - VBN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) / (y)
+
+# Negative
+- term: negative
+  syntax:
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: -(x)
+
+# Provide/Not null
+- term: provide
+  syntax:
+  - VBN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: (x) != null
+
+# Relative length/size for Dafny
+- term: __REL__length
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: |(x)|
+
+- term: __REL__size
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: |(x)|
+
+# Element with index
+- term: element
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: '[i]'
+
+# Preposition 'in' for Dafny
+- term: in
+  syntax:
+  - IN
+  arity: 2
+  arguments:
+  - (Subj)
+  - (y)
+  interpretation: (Subj) in (y)
+
+# Rel
+- term: Rel
+  syntax:
+  - Rel
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: REL(x,y)
+
+# Type arrays for Dafny
+- term: type_array
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  synthesised_datatype:
+  - '5'
+  interpretation: ''
+
+- term: type_arrays
+  syntax:
+  - NN
+  - NNS
+  - NNP
+  - NNPS
+  arity: 1
+  arguments:
+  - (*)
+  synthesised_datatype:
+  - '5'
+  interpretation: ''
+
+- term: type_integer
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  synthesised_datatype:
+  - '0'
+  interpretation: ''
+
+# Result keyword for Dafny
+- term: keyword_result
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (*)
+  interpretation: r
+
+# Additional Dafny-specific constructs
+
+# Sequence operations
+- term: append
+  syntax:
+  - VBN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) + [(y)]
+
+- term: concat
+  syntax:
+  - VBN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) + (y)
+
+- term: reverse
+  syntax:
+  - VBN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: reverse((x))
+
+# Set operations (for Dafny sets)
+- term: subset
+  syntax:
+  - NN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) <= (y)
+
+- term: union
+  syntax:
+  - NN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) + (y)
+
+- term: intersection
+  syntax:
+  - NN
+  arity: 2
+  arguments:
+  - (x)
+  - (y)
+  interpretation: (x) * (y)
+
+# Map operations (for Dafny maps)
+- term: domain
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: domain((x))
+
+- term: values
+  syntax:
+  - NNS
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: values((x))
+
+# Additional comparison for Dafny
+- term: equal
+  syntax:
+  - JJ
+  arity: 2
+  arguments:
+  - Subj
+  - Dat
+  interpretation: (Subj) == (Dat)
+
+# Distinct/unique elements
+- term: distinct
+  syntax:
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall i:int, j:int :: 0 <= i < j < |(x)| ==> (x)[i] != (x)[j]
+
+- term: unique
+  syntax:
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall i:int, j:int :: 0 <= i < j < |(x)| ==> (x)[i] != (x)[j]
+
+# Non-empty
+- term: non-empty
+  syntax:
+  - JJ
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: |(x)| > 0
+
+# Range/bounds
+- term: bounded
+  syntax:
+  - VBN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: exists lo:int, hi:int :: forall i:int :: 0 <= i < |(x)| ==> lo <= (x)[i] <= hi
+
+- term: increasing
+  syntax:
+  - VBG
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall i:int :: 0 <= i < |(x)| - 1 ==> (x)[i] <= (x)[i + 1]
+
+- term: decreasing
+  syntax:
+  - VBG
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall i:int :: 0 <= i < |(x)| - 1 ==> (x)[i] >= (x)[i + 1]
+
+- term: strictly increasing
+  syntax:
+  - VBG
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall i:int :: 0 <= i < |(x)| - 1 ==> (x)[i] < (x)[i + 1]
+
+- term: strictly decreasing
+  syntax:
+  - VBG
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: forall i:int :: 0 <= i < |(x)| - 1 ==> (x)[i] > (x)[i + 1]
+
+# Sum and product
+- term: sum
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: sum((x))
+
+- term: product
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: product((x))
+
+# Min and max
+- term: minimum
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: min((x))
+
+- term: maximum
+  syntax:
+  - NN
+  arity: 1
+  arguments:
+  - (x)
+  interpretation: max((x))

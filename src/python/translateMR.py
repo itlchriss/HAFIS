@@ -5,7 +5,7 @@ import os
 from typing import Dict
 from yaml.loader import SafeLoader
 
-_configs = { 'ROOT': 'ROOT', 'NLP': 'NLP', 'STD_SI': 'STD_SI', 'PYCMD': 'PYCMD', 'TMP': 'TMP'}
+_configs = { 'ROOT': 'ROOT', 'NLP': 'NLP', 'STD_SI': 'STD_SI', 'PYCMD': 'PYCMD', 'TMP': 'TMP', 'BACKEND': 'jml'}
 
 
 class dot_access_dict(dict):
@@ -47,7 +47,7 @@ def run_cmd_show_output(cmd: str) -> None:
 debug = True
 info = False
 
-def main(config_path: str, prog_file: str) -> None:
+def main(config_path: str, prog_file: str, backend: str = 'jml') -> None:
     with open('../../mearc.config') as fp:
         _config = yaml.load(fp, Loader=SafeLoader)
     for key in _configs:
@@ -56,6 +56,17 @@ def main(config_path: str, prog_file: str) -> None:
         else:
             _configs[key] = _config[key]
     configs = dot_access_dict(_configs)
+    # Set backend
+    _configs['BACKEND'] = backend if backend else 'jml'
+    
+    # Determine SI files based on backend
+    if _configs['BACKEND'] == 'dafny':
+        std_si_file = configs.STD_SI.replace('.yml', '_dafny.yml')
+        if not os.path.exists(std_si_file):
+            std_si_file = configs.STD_SI  # Fallback to standard SI
+    else:
+        std_si_file = configs.STD_SI
+    
     # prog_name = prog_file.replace('.conditions.yml', '').split('/')[-1]
     prog_name = prog_file.replace('.java', '').split('/')[-1]
     si_file_path = ("%s/%s.si.yml" % (configs.TMP, prog_name))
@@ -127,7 +138,7 @@ def main(config_path: str, prog_file: str) -> None:
             debug and print('DEBUG: ', mr)
             pass
 
-        cmd = "./bin/main -f%s -s%s,%s" % (mr_file_path, si_file_path, configs.STD_SI)
+        cmd = "./bin/main -f%s -s%s,%s -b%s" % (mr_file_path, si_file_path, std_si_file, _configs['BACKEND'])
         process = subprocess.run(
             cmd.split(' '),
             stdout=subprocess.PIPE,
@@ -146,7 +157,11 @@ def main(config_path: str, prog_file: str) -> None:
                 keyword = 'invariant'
 
             if keyword:
-                print('%s(%s);' % (keyword, cond))
+                if _configs['BACKEND'] == 'dafny':
+                    # Dafny uses 'requires' and 'ensures' similarly
+                    print('%s %s' % (keyword, cond))
+                else:
+                    print('%s(%s);' % (keyword, cond))
             else:
                 print('Compiler output: %s ' % cond)
                 print('Unknown condition type: %s.' % t)
@@ -156,11 +171,24 @@ def main(config_path: str, prog_file: str) -> None:
 
 if __name__ == "__main__":
     # main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    backend = 'jml'  # Default backend
+    
     if len(sys.argv) == 3:
         debug = False
-        main(sys.argv[1], sys.argv[2])
+        main(sys.argv[1], sys.argv[2], backend)
     elif len(sys.argv) == 4:
+        # Check if 3rd argument is backend selection
+        if sys.argv[3] in ['jml', 'dafny']:
+            debug = False
+            backend = sys.argv[3]
+            main(sys.argv[1], sys.argv[2], backend)
+        else:
+            debug = True
+            main(sys.argv[1], sys.argv[2], backend)
+    elif len(sys.argv) == 5:
         debug = True
-        main(sys.argv[1], sys.argv[2])
+        backend = sys.argv[4] if sys.argv[4] in ['jml', 'dafny'] else 'jml'
+        main(sys.argv[1], sys.argv[2], backend)
     else:
-        print('unknown number of arguments provided')
+        print('Usage: python translateMR.py <config_path> <prog_file> [backend]')
+        print('  backend: jml (default) or dafny')

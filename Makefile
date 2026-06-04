@@ -8,13 +8,23 @@ BUILD	=	./build
 BIN		=   ./bin
 INCL	=	$(SRC)/include
 CFLAGS	= 	-g -Wall -ansi -pedantic -I$(INCL) -std=gnu11 -D_POSIX_C_SOURCE=200809L $(LOCINCL)
-OBJS	=	parser.o lex.o ast.o si.o cst.o util.o cg.o jml.o main.o alias.o error.o event_struct.o event_synthesis.o sshare.o command.o preposition_synthesis.o relative_synthesis.o adjective_synthesis.o cardinalnumber_synthesis.o noun_synthesis.o adverb_synthesis.o to.o
+OBJS	=	parser.o lex.o ast.o si.o si_matcher.o si_runtime.o si_analysis.o cst.o util.o cg_unified.o backend_jml.o backend_dafny.o jml.o main.o alias.o error.o event_struct.o event_synthesis.o sshare.o command.o preposition_synthesis.o relative_synthesis.o adjective_synthesis.o cardinalnumber_synthesis.o noun_synthesis.o adverb_synthesis.o to.o
 DEBUG   ?=      0
 LEXDEBUG ?=     0
 DSTDEBUG ?=		0
 LDFLAGS = 
 LOCINCL =   -I/usr/local/include 
 LOCLINK =   -L/usr/local/lib
+
+# Backend selection: BACKEND=jml (default) or BACKEND=dafny
+BACKEND ?= jml
+
+ifeq ($(BACKEND),dafny)
+	CFLAGS += -DBACKEND_DAFNY
+	OBJS += dafny.o
+else
+	CFLAGS += -DBACKEND_JML
+endif
 ifeq ($(UNAME_S),Darwin)
 	LOCINCL = -I/opt/homebrew/Cellar/libyaml/0.2.5/include
 	LOCLINK = -L/opt/homebrew/Cellar/libyaml/0.2.5/lib
@@ -26,7 +36,7 @@ ifeq ($(ANALYSIS), 1)
 endif
 
 #ifeq ($(DEBUG), 0)
-   CFLAGS = -g -Wall -ansi -pedantic -I$(INCL) -std=c99 -D_POSIX_C_SOURCE=200809L $(LOCINCL)
+#  CFLAGS = -g -Wall -ansi -pedantic -I$(INCL) -std=c99 -D_POSIX_C_SOURCE=200809L $(LOCINCL)
 #else
 # ifeq ($(DEBUG), 1)
 #   CFLAGS += -DDEBUG -fsanitize=address
@@ -153,8 +163,14 @@ alias.o  : $(SRC)/alias.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/alias.o $<
 
 
-cg.o  : $(SRC)/cg.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/cg.o $<		
+cg_unified.o  : $(SRC)/cg_unified.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/cg_unified.o $<
+
+backend_jml.o  : $(SRC)/backend_jml.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/backend_jml.o $<
+
+backend_dafny.o  : $(SRC)/backend_dafny.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/backend_dafny.o $<
 
 error.o  : $(SRC)/error.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/error.o $<		
@@ -163,7 +179,16 @@ dst.o  : $(SRC)/dst.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/dst.o $<		
 
 si.o	: $(SRC)/si.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/si.o $<		
+		$(CC) $(CFLAGS) -c -o $(BUILD)/si.o $<
+
+si_matcher.o	: $(SRC)/si_matcher.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/si_matcher.o $<
+
+si_runtime.o	: $(SRC)/si_runtime.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/si_runtime.o $<
+
+si_analysis.o	: $(SRC)/si_analysis.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/si_analysis.o $<
 
 error.o	: $(SRC)/error.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/error.o $<		
@@ -174,6 +199,9 @@ event_synthesis.o: $(SRC)/synthesis/event.c
 jml.o: $(SRC)/jml.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/jml.o $<
 
+dafny.o: $(SRC)/dafny.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/dafny.o $<
+
 lex.o parser.o sym_table.o		:	$(INCL)/core.h
 parser.only						:	$(INCL)/ast.h
 parser.o						:       $(BUILD)/tok.h 
@@ -182,12 +210,15 @@ ast.o							:   $(INCL)/ast.h $(INCL)/cst.h
 main.o							:   $(INCL)/si.h $(INCL)/alias.h
 util.o							:   $(INCL)/util.h
 cst.o							:   $(INCL)/util.h
-cg.o							:   $(INCL)/util.h $(INCL)/cg.h
+cg_unified.o					:	$(INCL)/util.h $(INCL)/cg.h $(INCL)/backend.h
+backend_jml.o					:	$(INCL)/backend.h
+backend_dafny.o					:	$(INCL)/backend.h
 alias.o							:	$(INCL)/alias.h
 si.o							:   $(INCL)/si.h 
 event-struct.o							: 	$(INCL)/event.h
 error.o							:   $(INCL)/error.h
-jml.o							:   $(INCL)/jml.h
+jml.o							:	$(INCL)/jml.h
+dafny.o							:	$(INCL)/dafny.h $(INCL)/backend.h
 clean:
 	rm -rf $(BUILD)/*
 	rm ./parser.output

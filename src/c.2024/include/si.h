@@ -88,6 +88,5 @@ void sisynthesis();
 void opresolution();
 void showsi(void *_si);
 void deallocatesi(void *);
-void generate_param_si(char *);
-int search_syntax(struct si* si, enum ptbsyntax ptb);
+
 #endif

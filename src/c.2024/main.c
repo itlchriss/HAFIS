@@ -7,6 +7,11 @@
 #include "event.h"
 #include "alias.h"
 #include "error.h"
+#include "backend.h"
+
+#ifdef BACKEND_DAFNY
+#include "dafny.h"
+#endif
 
 extern FILE *yyin;
 
@@ -64,16 +69,27 @@ int get_datatype(char *s) {
     }
 }
 
+/* Global backend type - default is JML */
+static enum backend_type active_backend = BACKEND_TYPE_JML;
+
+void set_backend(enum backend_type type) {
+    active_backend = type;
+}
+
+enum backend_type get_backend(void) {
+    return active_backend;
+}
+
 
 //TODO: we have to store every queue per root node.
 //      because, if we use the same queue and multiple sentences, predicates will be stores in the same
 //      structure, and everything messes up.
 int main(int argc, char** argv) { 
     int opt;
-    char *specfile, *pslfile, *dstfiles, *cpslfile, *mname;
-    specfile = pslfile = dstfiles = cpslfile = mname = NULL;
+    char *specfile, *pslfile, *dstfiles, *cpslfile, *mname, *backend_str;
+    specfile = pslfile = dstfiles = cpslfile = mname = backend_str = NULL;
 
-    while ((opt = getopt(argc, argv, ":f:p:s:c:m:")) != -1) {
+    while ((opt = getopt(argc, argv, ":f:p:s:c:m:b:")) != -1) {
         switch(opt) {
             case 'f':
             #if INFO
@@ -87,6 +103,12 @@ int main(int argc, char** argv) {
             #endif
             dstfiles = optarg;
             break;
+            case 'b':
+            backend_str = optarg;
+            #if INFO
+            printf("Backend: %s\n", optarg);
+            #endif
+            break;
             case '?':
             fprintf (stderr,
                    "Unknown option character `\\x%x'.\n",
@@ -95,8 +117,25 @@ int main(int argc, char** argv) {
             default:
             printf("-f filename    specifying the filename of the spec file\n");
             printf("-s filename    specifying the filenames of the semantic interpretation library files\n");
+            printf("-b backend     specifying the backend (jml or dafny)\n");
         }
     }
+    
+    /* Set backend based on command line argument */
+    if (backend_str != NULL) {
+        if (strcmp(backend_str, "dafny") == 0) {
+            set_backend(BACKEND_TYPE_DAFNY);
+#ifdef BACKEND_DAFNY
+            dafny_init_ops();
+#endif
+        } else if (strcmp(backend_str, "jml") == 0) {
+            set_backend(BACKEND_TYPE_JML);
+        } else {
+            fprintf(stderr, "Unknown backend: %s. Using JML as default.\n", backend_str);
+            set_backend(BACKEND_TYPE_JML);
+        }
+    }
+    
     if (specfile == NULL) {
         printf("Please specify the spec file by -f\n");
         return 1;
@@ -161,7 +200,17 @@ int main(int argc, char** argv) {
     showast(ast, 0);
     #endif 
     deallocatequeue(silist, deallocatesi);
+    
+    /* Call the appropriate backend's output function */
+    #ifdef BACKEND_DAFNY
+    if (get_backend() == BACKEND_TYPE_DAFNY) {
+        dafny_output(ast);
+    } else {
+        output(ast);
+    }
+    #else
     output(ast);
+    #endif
 
     /* free resources */
     if (ast) {

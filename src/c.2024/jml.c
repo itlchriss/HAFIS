@@ -3,6 +3,7 @@
 #include "stdlib.h"
 #include "string.h"
 #include "si.h"
+#include "si_matcher.h"
 #include "sshare.h"
 #include "error.h"
 #include <stdio.h>
