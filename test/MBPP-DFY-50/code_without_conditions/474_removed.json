@@ -1,0 +1,6 @@
+{
+  "removed_clauses": [
+    "ensures |v| == |s|",
+    "ensures forall i :: 0 <= i < |s| ==> (s[i] == oldChar ==> v[i] == newChar) && (s[i] != oldChar ==> v[i] == s[i])"
+  ]
+}

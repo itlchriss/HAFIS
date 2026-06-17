@@ -1,0 +1,87 @@
+# Repair patterns for clause-level processing
+# Organized by clause type. Each section contains a list of regex patterns
+# with associated metadata for template substitution and SI generation.
+
+partial_equal:
+  - pattern: 'the\s+first\s+(\d+)\s+elements\s+of\s+the\s+(\w+)\s+(\w+)\s+are\s+\d+( , \d+)*( , and \d+| and \d+)?'
+    sp: integer
+    sr: array
+  - pattern: 'the\s+first\s+(\d+)\s+elements\s+of\s+the\s+(\w+)\s+(\w+)\s+are\s+\d+( , \d+)*( , and \d+| and \d+)?'
+    sp: integer
+    sr: array
+  - pattern: 'the\s+first\s+(\d+)\s+elements\s+of\s+the\s+(\w+)\s+(\w+)\s+are\s+equal\s+to\s+\d+( , \d+)*( , and \d+| and \d+)?'
+    sp: integer
+    sr: array
+  - pattern: 'the\s+first\s+(\w+)\s+elements\s+of\s+the\s+(\w+\s+array\s+parameter)\s+(`\w+`)\s+are\s+equal\s+to\s+\d+( , \d+)*( , and \d+| and \d+)?'
+    sp: integer
+    sr: array
+
+semantic_correction:
+  - pattern: '^All\s+values\s+in\s+the\s+(type_\w+)\s+(\w+)\s+are\s+equal\s+to\s+checking_character_sequence_(\s+)?$'
+    template: 'The %s %s are equal to checking_character_sequence_'
+    index: 1
+    constraint: string
+
+limited_equal:
+  - pattern: 'are\s+limited\s+to\s+\d+( , \d+)*( , and \d+| and \d+)?'
+    sp: integer
+    sr: array
+
+complex_clause:
+  - pattern: '(only\s+contains\s+)((([\w_]+)(\s+,\s+the\s+(\w+)(\s+character)?)*(\s+,\s+or\s+the\s+(\w+(\s+character)?)|\s+or\s+the\s+(\w+(\s+character)?))?))'
+  - pattern: '(only\s+contains)\s+(([\w_]+)(\s+,\s+(\w+))*(\s+,\s+or\s+\w+\s+characters))'
+  - pattern: "(consist\\s+only\\s+of)\\s+('\\w+'\\s+or\\s+'\\w+'\\s+characters)"
+  - pattern: '(only\s+contains)\s+(\w+\s+and\s+\w+)\s+characters(\s+)?$'
+    connective: or
+  - pattern: '(consists\s+of\s+only)\s+(\w+\s+and\s+the\s+\w+)\s+character'
+    connective: or
+  - pattern: '(only\s+contains)\s+((\w+)(\s+,\s+[\w\W]+)+\s,\sor\s+\w+\s+)characters'
+    connective: or
+  - pattern: '(only\s+contains)\s+(([\w_]+)(\s+,\s+(the\s+)?(\w+))*(\s+,\s+or\s+(the\s+)?\w+))(\s+)?'
+  - pattern: '(contains)\s+(([\w_]+)(\s+,\s+(the\s+)?(\w+))*(\s+,\s+and\s+(the\s+)?\w+))'
+    connective: or
+  - pattern: '(only\s+contains)\s+(([\w_]+)(\s+,\s+(\w+))*((\s+,)?\s+and\s+\w+))(\s+)?$'
+    connective: or
+  - pattern: "are\\s+either\\s+(('\\w')\\s+or\\s+('\\w'))(\\s+)?$"
+    require: 'All values'
+    template: are equal to
+  - pattern: '(only\s+contains)\s+((\w+)(\s+,\s+(\w+))+\s+or\s+\w+)(\s+)?$'
+    connective: or
+  - pattern: '(only\s+contains)\s+(chr\w+\s+or\s+chr\w+)(\s+)?$'
+    connective: or
+
+complex_clause2:
+  - pattern: 'are\s+either\s+(\w+)\s+((\w+)((\s+,\s+\w+)*\s+,\s+or\s+(\w+)))'
+    connective: or
+    template: 'are equal to %s'
+    symbol: checking_string_sequence_
+  - pattern: '(only\s+contains)\s+((the\s+)?([\w_]+)(\s+,\s+(the\s+)?([\w_]+))*(\s+,\s+or\s+(the\s+)?[\w_]+))'
+    connective: or
+    template: 'only contains %s'
+    symbol: checking_character_sequence_
+
+except_clause:
+  - pattern: 'The\s+(type_\w+)\s+(param_\w+)\s+does\s+not\s+(contain|have)\s+(any\s+)?leading\s+zeros\s+except\s+for\s+the\s+0\s+itself(\s+)?$'
+    template: "The %s %s's first_element is not_equal to %s unless the %s %s only contains single_zero"
+    repeat: 1
+  - pattern: 'The\s+(type_\w+)\s+(result)\s+does\s+not\s+(contain|have)\s+(any\s+)?leading\s+zeros\s+except\s+for\s+the\s+0\s+itself(\s+)?$'
+    template: "The %s %s's first_element is not_equal to %s unless the %s %s only contains single_zero"
+    repeat: 1
+  - pattern: 'The\s+(type_\w+)\s+(result)\s+does\s+not\s+(contain|have)\s+leading\s+zeros\s+unless'
+    template: "The %s %s's first_element is not_equal to %s unless"
+    repeat: 0
+  - pattern: '^The\s+(type_\w+)\s+(param\w+)\s+does\s+not\s+(contain|have)\s+any\s+leading\s+zeros(\s+)?$'
+    template: "The %s %s's first_element is not_equal to %s."
+    repeat: 0
+  - pattern: '^The\s+(type_\w+)\s+(param\w+)\s+(.*)\s+and\s+does\s+not\s+(contain|have)\s+any\s+leading\s+zeros\s+except\s+for\s+0\s+itself(\s+)?$'
+    handler: process_to_later_clause
+  - pattern: '^The\s+(type_\w+)\s+(param\w+)\s+(.*)\s+and\s+contains\s+leading\s+zeros(\s+)?$'
+    handler: process_to_later_clause
+
+power_clause:
+  - pattern: '\s+(\d+)\s+raised\s+to\s+the\s+power\s+of\s+the\s+(\w+)\s+param_(\w+)'
+    template: ' the %s int_expr'
+    symbol: int_expr
+
+comma_separated_clause:
+  - pattern: 'comma-separated\s+values\s+that\s+are\s+either\s+(\w+)\s+in\s+the\s+range\s+(\w+)\s+or\s+the\s+(\w+)(\s+)?$'

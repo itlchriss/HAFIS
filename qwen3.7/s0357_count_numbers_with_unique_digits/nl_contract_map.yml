@@ -1,0 +1,29 @@
+problem: s0357_count_numbers_with_unique_digits
+method: countNumbersWithUniqueDigits
+total_annotations: 5
+requires_count: 1
+ensures_count: 4
+original_contract_count: 4
+annotations:
+- id: 0
+  type: requires
+  nl: The integer parameter `n` is greater than or equal to 0 and is less than or
+    equal to 8.
+  original_contract: 0 <= n <= 8
+- id: 1
+  type: ensures
+  nl: The integer result is greater than or equal to 1.
+  original_contract: result >= 1
+- id: 2
+  type: ensures
+  nl: The integer result is equal to the count of all numbers with unique digits `x`
+    where 0 is less than or equal to `x` and `x` is less than 10 raised to the power
+    of the integer parameter `n`.
+  original_contract: n == 0 ==> result == 1
+- id: 3
+  type: ensures
+  nl: If the integer parameter `n` is equal to 2, the integer result is equal to 91.
+  original_contract: n == 1 ==> result == 10
+- id: 4
+  type: ensures
+  nl: If the integer parameter `n` is equal to 0, the integer result is equal to 1.

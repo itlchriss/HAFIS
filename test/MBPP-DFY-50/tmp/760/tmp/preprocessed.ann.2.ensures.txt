@@ -1,0 +1,1 @@
+If The result is equal to the false literal , There exist at least 2 unique elements in the array.

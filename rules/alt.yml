@@ -1,0 +1,597 @@
+# Alternative text rules file (YAML format)
+# Each entry has a canonical form and a list of alternatives that should be replaced with the canonical form
+# The system automatically handles conflicts by matching longer patterns first
+
+- is equal to the true literal:
+    - is true
+    - "is `true`"
+
+- is equal to the false literal:
+    - is false
+    - is not true
+    - "is `false`"
+
+- are equal to the true literal:
+    - are true
+
+- to the true literal:
+    - to true
+
+- to the false literal:
+    - to false
+
+- is greater_than_or_equal to:
+    - greater than or equal
+
+- is less_than_or_equal to:
+    - less than or equal
+
+- greater_than_or_equal to:
+    - greater than or equal
+
+- less_than_or_equal to:
+    - less than or equal
+
+- is greater_than to 0:
+    - is a positive integer
+    - is equal to positive integer
+
+- is less_than to 0:
+    - is not a positive integer
+    - is not equal to positive integer
+
+- are greater_than to 0:
+    - are non-negative
+
+- is greater_than to:
+    - greater than
+    - strictly greater than
+
+- is less_than to:
+    - less than
+    - strictly less than
+
+- greater_than to:
+    - greater than
+    - strictly greater than
+
+- less_than to:
+    - less than
+    - strictly less than
+
+- stronger than to:
+    - stronger than
+
+- in the range of negative 2147483648 to 2147483647:
+    - guaranteed to fit in a 32-bit integer
+    - "in the range of `[-2^31, 2^31 - 1]`"
+    - represented by a signedint
+
+- is in the range of a signedint:
+    - is a 32-bit integer
+
+- signals the arithmetic exception:
+    - causes the value to go outside the signed 32-bit integer range
+
+- only contains single_zero:
+    - contains a single 0
+
+- character_sharp_comma_separated:
+    - "character '#' separated by commas"
+
+- checking_character_sequence_:
+    - checking_character_sequence_ characters
+
+- only contains the uppercase_alphabets:
+    - is in uppercase
+
+- only contains the lowercase_alphabets:
+    - contains lowercase characters only
+
+- only contain the uppercase_alphabets:
+    - are uppercase_alphabets
+
+- only contain the lowercase_alphabets:
+    - are lowercase_alphabets
+
+- _is the uppercase_alphabet:
+    - is capital
+
+- the ascending_order:
+    - ascending order
+    - non-decreasing order
+    - increasing order
+
+- the descending_order:
+    - descending order
+
+- string_contains_only_digit:
+    - the string representation of an integer
+
+- binary_string_length_32:
+    - binary string of length 32
+
+- leading_or_trailing_spaces:
+    - leading or trailing spaces
+
+- number_of_unique_elements:
+    - number of unique elements
+
+- all_types_parentheses:
+    - "parentheses `'()[]{}'`"
+
+- non_negative_integers:
+    - non-negative integers
+
+- prime_factors:
+    - prime factors
+
+- On_time:
+    - O(n) time complexity
+
+- printable_ASCII_characters:
+    - printable ASCII characters
+
+- lowercase_hexadecimal_digits:
+    - lowercase hexadecimal digits
+
+- only contains:
+    - contains only
+    - consists of only
+
+- only contain:
+    - contain only
+    - consist of only
+    - must only contain
+    - consist only of
+
+- appears exactly:
+    - occurs exactly
+
+- appears more than:
+    - occurs more than
+
+- appears at least:
+    - occurs at least
+
+- are contained by:
+    - appear in
+    - appear
+
+- is contained by:
+    - is 1 of the elements in
+    - is a subsequence of
+    - is equal to subsequence of
+
+- is not contained by:
+    - is not present in
+    - is not equal to subsequence of
+
+- is not contained:
+    - is not part of
+
+- is contained:
+    - is part of
+
+- there exists:
+    - there is
+
+- there exist:
+    - there are
+
+- at least 1 time:
+    - at least once
+
+- first_element:
+    - first element
+    - first character
+    - first value
+    - value at index 0
+    - character at index 0
+    - only the first letter
+
+- second_element:
+    - second element
+    - second value
+    - second character
+    - value at index 1
+    - character at index 1
+
+- length_plus1:
+    - length + 1
+
+- minimum_value:
+    - smallest value
+
+- maximum_value:
+    - largest value
+    - biggest value
+
+- the perfect_square:
+    - perfect square
+
+- ones_complement:
+    - complement of the binary representation
+
+- string result:
+    - returned string
+
+- string_representation:
+    - string representation
+
+- hexadecimal_representation:
+    - hexadecimal representation
+
+- is prime:
+    - has no divisors other than 1 and itself
+    - is equal to prime
+    - is a prime number
+
+- is not prime:
+    - has at least 1 divisor other than 1 and itself
+    - is not a prime number
+
+- is even:
+    - mod 2 is equal to 0
+
+- is not even:
+    - mod 2 is not equal to 0
+
+- is unique:
+    - contains unique values
+    - does not contain duplicate elements
+
+- is dequal to:
+    - deeply equals
+
+- is not dequal to:
+    - does not deeply equal
+
+- negative 2147483648:
+    - the minimum value of java integer
+    - the minimum value of a 32-bit integer
+    - the minimum value of a java integer
+
+- "2147483647":
+    - the maximum value of java integer
+    - the maximum value of a 32-bit integer
+    - the maximum value of a java integer
+
+- empty_str:
+    - "\"\""
+
+- All values:
+    - The values
+    - All characters
+    - All the values
+    - all characters
+
+- length of:
+    - length of each
+
+- does not:
+    - should not
+
+- or it is not:
+    - or not
+
+- the type_string_:
+    - the string the type_string_
+
+- matches:
+    - matches the pattern
+
+- represented by:
+    - represented as
+
+- sorted to:
+    - sorted in
+
+- not_equal to the:
+    - not equal to the
+
+- leading zeros:
+    - leading zero(s)
+
+- single_digit:
+    - single digit
+
+- summation:
+    - sum of all values
+    - sum of the values
+    - sum of the elements
+
+- results:
+    - intermediate results
+
+- if:
+    - if and only if
+
+- have:
+    - should have
+
+- signedint:
+    - "32-bit signed integer [-2147483648, 2147483648 - 1]"
+    - "32-bit signed integer [-2^31, 2^31 - 1]"
+    - 32-bit signed integer
+
+- lowercase_alphabets:
+    - lower-case English letters
+    - lowercase English letters
+    - lowercase alphabets
+    - lower-case English characters
+    - lowercase letters
+    - not capitals
+
+- uppercase_alphabets:
+    - uppercase letters
+    - uppercase English letters
+    - uppercase alphabets
+    - uppercase-case English characters
+    - capitals
+
+- alphabets:
+    - English letters (lower-case and upper-case)
+    - English letters
+    - alphabets (both uppercase and lowercase)
+    - lowercase and uppercase_alphabets
+    - uppercase and lowercase_alphabets
+    - alphabets (upper-case and lower-case)
+
+- containing:
+    - consisting of
+
+- contains:
+    - must consist of
+    - consists of
+    - may contain
+
+- acccontains:
+    - contains all characters of
+
+- acccontain:
+    - contain all characters of
+
+- spaces:
+    - "spaces ' '"
+    - "spaces `' '`"
+
+- digits:
+    - digits (0-9)
+    - "digits (`0-9`)"
+    - any digits
+
+- the plus_sign:
+    - "plus '+'"
+    - plus signs
+    - "plus `'+'`"
+
+- the minus_sign:
+    - "minus '-'"
+    - minus signs
+    - "minus `'-'`"
+
+- the dot_sign:
+    - "dot '.'"
+    - dot signs
+    - "dot `'.'`"
+    - "dot ` period `"
+    - dot period
+
+- period:
+    - "dot '.'"
+
+- empty:
+    - an empty string
+
+- result:
+    - indices in the result
+
+- unique:
+    - distinct
+
+- in:
+    - within
+
+- that:
+    - where
+
+- or:
+    - or only
+
+- the:
+    - the input
+
+- The result is:
+    - The method returns
+    - The method generates
+    - The method yields
+    - The method produces
+
+- are contained by the type_integer_array_:
+    - "'s values are contained by the type_integer_array_"
+
+- "'s length is equal to":
+    - has a length equal to
+
+- is:
+    - represents
+    - must be
+    - can be
+    - remains
+    - should be
+
+- is not:
+    - must not be
+    - should not be
+
+- "-":
+    - minus
+
+- "+":
+    - plus
+
+- is equal to:
+    - "is an "
+    - "is a "
+
+- is not equal to:
+    - "is not an "
+    - "is not a "
+
+# =============================================================================
+# Dafny Extension: Type synonyms
+# =============================================================================
+
+- non-negative integer:
+    - natural number
+    - whole number
+
+- non-negative integer set:
+    - set of non-negative integers
+
+- integer set:
+    - set of integers
+
+- character set:
+    - set of characters
+
+- integer sequence:
+    - sequence of integers
+
+- character multiset:
+    - multiset of characters
+
+# =============================================================================
+# Dafny Extension: Logical connective synonyms
+# =============================================================================
+
+- if and only if:
+    - iff
+    - exactly when
+    - precisely when
+
+- for every:
+    - for each
+    - for all
+
+- there exists:
+    - there is at least one
+
+- such that:
+    - satisfying
+
+- it is not the case that:
+    - it is false that
+
+# =============================================================================
+# Dafny Extension: Set operation synonyms
+# =============================================================================
+
+- is contained in the set:
+    - is a member of the set
+    - is an element of the set
+    - belongs to the set
+    - is in the set
+
+- is not contained in the set:
+    - is not a member of the set
+    - is not an element of the set
+    - does not belong to the set
+    - is not in the set
+
+- the cardinality of the set:
+    - the size of the set
+    - the number of elements in the set
+
+# =============================================================================
+# Dafny Extension: Arithmetic synonyms
+# =============================================================================
+
+- the sum of:
+    - the total of
+
+- the difference between:
+    - the result of subtracting
+
+- the product of:
+    - the result of multiplying
+
+- the quotient of:
+    - the result of dividing
+
+- raised to the power of:
+    - raised to
+    - to the power of
+
+# =============================================================================
+# Dafny Extension: Comparison synonyms
+# =============================================================================
+
+- is greater than or equal to:
+    - is at least
+    - is no less than
+
+- is less than or equal to:
+    - is at most
+    - is no more than
+
+# =============================================================================
+# Dafny Extension: Ghost/proof construct synonyms
+# =============================================================================
+
+- the loop invariant is:
+    - the invariant is
+
+- it holds that:
+    - we assert that
+    - we can show that
+
+- the termination metric is:
+    - the decreases clause is
+
+# =============================================================================
+# Dafny Extension: Structural property synonyms
+# =============================================================================
+
+- sorted in ascending order:
+    - sorted in non-decreasing order
+
+- sorted in descending order:
+    - sorted in non-increasing order
+
+- all values are unique:
+    - all elements are distinct
+    - all elements are different
+
+# =============================================================================
+# Dafny Extension: Counting/optimization synonyms
+# =============================================================================
+
+- the total number of:
+    - the count of
+    - the number of
+
+- the maximum:
+    - the largest possible
+    - the greatest
+
+- the minimum:
+    - the smallest possible
+    - the least
+
+# =============================================================================
+# Dafny Extension: Array/sequence access synonyms
+# =============================================================================
+
+- the value at index:
+    - the element at position
+    - the item at index
+    - the entry at index
+
+- the character at index:
+    - the character at position
+
+- the subsequence from index:
+    - the substring from index
+    - the portion of the string from

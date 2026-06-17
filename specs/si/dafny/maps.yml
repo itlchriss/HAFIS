@@ -1,0 +1,136 @@
+# =============================================================================
+# Dafny SI Module: Map Operations
+# =============================================================================
+# SI terms for Dafny map operations
+# =============================================================================
+
+# --- Map Lookup ---
+- term: the value mapped to by
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[]'
+  note: 'Map lookup: m[k]'
+
+- term: the value associated with
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[]'
+
+- term: maps to
+  syntax:
+  - VBZ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '=='
+  note: 'Map key-value association'
+
+# --- Map Domain ---
+- term: the domain of the map
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '.Keys'
+  note: 'Map domain: m.Keys'
+
+- term: the set of keys of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '.Keys'
+
+# --- Map Range ---
+- term: the range of the map
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '.Values'
+  note: 'Map range: m.Values'
+
+- term: the set of values of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '.Values'
+
+# --- Map Update ---
+- term: updated with
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'map'
+  interpretation: '['
+  note: 'Map update: m[k := v]'
+
+- term: the map with key
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'map'
+  interpretation: '['
+
+- term: mapped to
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: ':='
+
+# --- Empty Map ---
+- term: the empty map
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'map'
+  interpretation: 'map[]'
+
+# --- Map Cardinality ---
+- term: the number of entries in the map
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '|'

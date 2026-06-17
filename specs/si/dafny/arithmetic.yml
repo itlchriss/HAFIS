@@ -1,0 +1,243 @@
+# =============================================================================
+# Dafny SI Module: Arithmetic Operations
+# =============================================================================
+# SI terms for arithmetic operations in Dafny specifications
+# =============================================================================
+
+# --- Addition ---
+- term: the sum of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '+'
+  note: 'Addition: a + b'
+
+- term: plus
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '+'
+
+- term: added to
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '+'
+
+# --- Subtraction ---
+- term: the difference between
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '-'
+  note: 'Subtraction: a - b'
+
+- term: minus
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '-'
+
+- term: subtracted from
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '-'
+
+# --- Multiplication ---
+- term: the product of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '*'
+  note: 'Multiplication: a * b'
+
+- term: multiplied by
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '*'
+
+- term: times
+  syntax:
+  - NNS
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '*'
+
+# --- Division ---
+- term: the quotient of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '/'
+  note: 'Integer division: a / b'
+
+- term: divided by
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '/'
+
+# --- Modulo ---
+- term: the remainder of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '%'
+  note: 'Modulo: a % b'
+
+- term: modulo
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '%'
+
+# --- Exponentiation ---
+- term: raised to the power of
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'pow'
+  note: 'Exponentiation: pow(base, exp)'
+
+- term: the power of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'pow'
+
+# --- Absolute Value ---
+- term: the absolute value of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'abs'
+  note: 'Absolute value: abs(x)'
+
+# --- Summation over Set ---
+- term: the sum of all values in
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'sum_set'
+  note: 'Sum over a set of indices'
+
+- term: the sum over all
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'sum_set'
+
+# --- Minimum/Maximum ---
+- term: the minimum of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'min'
+
+- term: the maximum of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'max'
+
+# --- Increment/Decrement ---
+- term: incremented by
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '+ 1'
+
+- term: decremented by
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '- 1'

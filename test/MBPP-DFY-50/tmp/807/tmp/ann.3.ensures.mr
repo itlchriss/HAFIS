@@ -1,0 +1,1 @@
+exists e01.(_exist{VBP}(e01) & (Subj(e01) = _there{EX})) -> exists x02.(_index{NN}(x02) & exists x03.(exists e04.(_smallest{JJS}(e04) & (Subj(e04) = x03) & _index{NN}(x03)) & exists x05.(exists e06.(_odd{JJ}(e06) & (Subj(e06) = x05) & _number{NN}(x05)) & exists e07.(_with{IN}(e07,x05) & (Subj(e07) = x03))) & (x02 = x03)))

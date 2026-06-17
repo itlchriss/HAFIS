@@ -1,0 +1,234 @@
+# =============================================================================
+# Dafny SI Module: Set Operations
+# =============================================================================
+# SI terms for Dafny set operations
+# =============================================================================
+
+# --- Set Membership ---
+- term: is contained in the set
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'in'
+  note: 'Set membership: x in S'
+
+- term: is contained in
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'in'
+
+- term: is not contained in the set
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '!in'
+  note: 'Set non-membership: x !in S'
+
+- term: is not contained in
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '!in'
+
+- term: is an element of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'in'
+
+- term: is a member of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'in'
+
+# --- Set Cardinality ---
+- term: the cardinality of the set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '|'
+  note: 'Set size: |S|'
+
+- term: the cardinality of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '|'
+
+- term: the size of the set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '|'
+
+# --- Empty Set ---
+- term: the empty set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '{}'
+  note: 'Empty set literal'
+
+- term: is equal to the empty set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '== {}'
+
+# --- Set Difference ---
+- term: minus the singleton set containing
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '- {}'
+  note: 'Set minus singleton: S - {x}'
+
+- term: minus
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '-'
+
+# --- Set Union ---
+- term: the union of the set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '+'
+  note: 'Set union: S + T'
+
+- term: the union of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '+'
+
+# --- Set Intersection ---
+- term: the intersection of the set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '*'
+  note: 'Set intersection: S * T'
+
+- term: the intersection of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '*'
+
+# --- Subset ---
+- term: is a subset of the set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '<='
+  note: 'Subset relation: S <= T'
+
+- term: is a subset of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '<='
+
+# --- Singleton Set ---
+- term: the singleton set containing
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '{ }'
+  note: 'Singleton set: {x}'
+
+# --- Set Comprehension ---
+- term: the set of all
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: 'set'
+  note: 'Set comprehension: set x :: P(x)'

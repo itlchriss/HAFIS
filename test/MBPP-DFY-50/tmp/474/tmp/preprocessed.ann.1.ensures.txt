@@ -1,0 +1,1 @@
+All occurrences of oldChar in the string are replaced with newChar in the output string.

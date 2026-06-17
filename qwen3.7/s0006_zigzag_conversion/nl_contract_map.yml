@@ -1,0 +1,45 @@
+problem: s0006_zigzag_conversion
+method: convert
+total_annotations: 9
+requires_count: 4
+ensures_count: 5
+original_contract_count: 4
+annotations:
+- id: 0
+  type: requires
+  nl: The length of the string parameter `s` is greater than or equal to 1 and is
+    less than or equal to 1000.
+  original_contract: 1 <= |s| <= 1000
+- id: 1
+  type: requires
+  nl: The string parameter `s` consists of only English letters and the characters
+    ',' and '.'.
+  original_contract: 1 <= numRows <= 1000
+- id: 2
+  type: requires
+  nl: The integer parameter `numRows` is greater than or equal to 1 and is less than
+    or equal to 1000.
+  original_contract: '|result| == |s|'
+- id: 3
+  type: requires
+  nl: The string parameter `s` is not equal to the null literal.
+  original_contract: numRows == 1 ==> result == s
+- id: 4
+  type: ensures
+  nl: The string result is not equal to the null literal.
+- id: 5
+  type: ensures
+  nl: The string result is the zigzag conversion of the string parameter `s` with
+    the integer parameter `numRows` rows.
+- id: 6
+  type: ensures
+  nl: If the string parameter `s` is equal to "PAYPALISHIRING" and the integer parameter
+    `numRows` is equal to 3, the string result is equal to "PAHNAPLSIIGYIR".
+- id: 7
+  type: ensures
+  nl: If the string parameter `s` is equal to "PAYPALISHIRING" and the integer parameter
+    `numRows` is equal to 4, the string result is equal to "PINALSIGYAHRPI".
+- id: 8
+  type: ensures
+  nl: If the string parameter `s` is equal to "A" and the integer parameter `numRows`
+    is equal to 1, the string result is equal to "A".

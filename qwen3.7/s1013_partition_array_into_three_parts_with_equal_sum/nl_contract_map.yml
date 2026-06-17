@@ -1,0 +1,52 @@
+problem: s1013_partition_array_into_three_parts_with_equal_sum
+method: canThreePartsEqualSum
+total_annotations: 8
+requires_count: 3
+ensures_count: 5
+original_contract_count: 2
+annotations:
+- id: 0
+  type: requires
+  nl: The length of the integer array parameter `arr` is greater than or equal to
+    3 and is less than or equal to 50000.
+  original_contract: 3 <= arr.Length <= 100000
+- id: 1
+  type: requires
+  nl: All values in the integer array parameter `arr` are greater than or equal to
+    -10000 and are less than or equal to 10000.
+  original_contract: 'forall i: nat :: i < arr.Length ==> -10000 <= arr[i] <= 10000'
+- id: 2
+  type: requires
+  nl: The integer array parameter `arr` is not equal to the null literal.
+- id: 3
+  type: ensures
+  nl: If the boolean result is equal to the true literal, there exist non-negative
+    integers `i` and `j` such that `i` plus 1 is less than `j` and `j` is less than
+    the length of the integer array parameter `arr` and the sum of all values from
+    index 0 to index `i` of the integer array parameter `arr` is equal to the sum
+    of all values from index `i` plus 1 to index `j` minus 1 of the integer array
+    parameter `arr` and the sum of all values from index `j` to the last index of
+    the integer array parameter `arr` is equal to the sum of all values from index
+    0 to index `i` of the integer array parameter `arr`.
+- id: 4
+  type: ensures
+  nl: If the boolean result is equal to the false literal, there do not exist non-negative
+    integers `i` and `j` such that `i` plus 1 is less than `j` and `j` is less than
+    the length of the integer array parameter `arr` and the sum of all values from
+    index 0 to index `i` of the integer array parameter `arr` is equal to the sum
+    of all values from index `i` plus 1 to index `j` minus 1 of the integer array
+    parameter `arr` and the sum of all values from index `j` to the last index of
+    the integer array parameter `arr` is equal to the sum of all values from index
+    0 to index `i` of the integer array parameter `arr`.
+- id: 5
+  type: ensures
+  nl: If the integer array parameter `arr` is equal to [0,2,1,-6,6,-7,9,1,2,0,1],
+    the boolean result is equal to the true literal.
+- id: 6
+  type: ensures
+  nl: If the integer array parameter `arr` is equal to [0,2,1,-6,6,7,9,-1,2,0,1],
+    the boolean result is equal to the false literal.
+- id: 7
+  type: ensures
+  nl: If the integer array parameter `arr` is equal to [3,3,6,5,-2,2,5,1,-9,4], the
+    boolean result is equal to the true literal.

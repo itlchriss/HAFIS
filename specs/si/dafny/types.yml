@@ -1,0 +1,179 @@
+# =============================================================================
+# Dafny SI Module: Types
+# =============================================================================
+# SI terms for Dafny type system extensions beyond the Java types in typed_si.yml
+# =============================================================================
+
+# --- nat (non-negative integer) ---
+- term: nat
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: ''
+  note: 'Type marker for non-negative integers; maps to nat in Dafny'
+
+- term: non-negative integer
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: ''
+  note: 'NL synonym for nat'
+
+# --- set<T> ---
+- term: set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: ''
+  note: 'Type marker for Dafny set type'
+
+- term: integer set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'set'
+  interpretation: ''
+
+- term: non-negative integer set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'set'
+  interpretation: ''
+  note: 'set<nat> in Dafny'
+
+- term: character set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'set'
+  interpretation: ''
+
+# --- seq<T> ---
+- term: sequence
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'seq'
+  interpretation: ''
+  note: 'Type marker for Dafny seq type'
+
+- term: integer sequence
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'seq'
+  interpretation: ''
+
+- term: character sequence
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'seq'
+  interpretation: ''
+
+# --- multiset<T> ---
+- term: multiset
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'multiset'
+  interpretation: ''
+  note: 'Type marker for Dafny multiset type'
+
+- term: integer multiset
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'multiset'
+  interpretation: ''
+
+- term: character multiset
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'multiset'
+  interpretation: ''
+
+# --- map<K,V> ---
+- term: map
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'map'
+  interpretation: ''
+  note: 'Type marker for Dafny map type'
+
+- term: integer-to-integer map
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'map'
+  interpretation: ''
+
+# --- imap<K,V> (implicit map) ---
+- term: imap
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'imap'
+  interpretation: ''
+
+# --- function type ---
+- term: function type
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'function_type'
+  interpretation: ''

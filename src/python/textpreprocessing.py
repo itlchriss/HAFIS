@@ -8,6 +8,24 @@ from preprocess.engine import runengine
 
 modelspecspath = './specs/models'
 sispecspath = './specs/si/typed_si.yml'
+CONDITION_PATTERNS_PATH = os.path.join('.', 'rules', 'condition_patterns.yml')
+
+
+def load_condition_patterns(filepath=None):
+    """Load condition splitting patterns from a YAML file.
+    
+    Returns a dict keyed by processor name, each containing a list of
+    pattern dicts. Falls back to empty dict if file not found.
+    """
+    path = filepath or CONDITION_PATTERNS_PATH
+    if not os.path.exists(path):
+        return {}
+    with open(path, 'r') as fp:
+        data = yaml.safe_load(fp)
+    return data or {}
+
+
+_condition_patterns = load_condition_patterns()
 
     
 
@@ -25,7 +43,6 @@ def _get_specs():
 
 def _get_conditions(text: str) -> Dict[str, str]:
     conditions = { 'requires': [], 'ensures': [] }
-    import re
     if r := re.findall(r'\s+\/\/@\s+(requires|ensures)\(\*(.*)\*\);', text, re.ASCII):
         for t, c in r:
             conditions[t].append(c)    
@@ -34,21 +51,12 @@ def _get_conditions(text: str) -> Dict[str, str]:
 
 def __process_parameter_type_distrition(conditions):
     results = {'ensures': [], 'requires': []}
-    patterns = [
-        {
-            'p': '(.*)\s+of\s+each\s+(integer\s+array\s+parameter)\s+(`[^`]+`(, `[^`]+`)*(, and `[^`]+`| and `[^`]+`))\s+(.*)',
-            # 'forbidden': 'are'
-        },
-        {
-            'p': '(.*)\s+in\s+each\s+(integer\s+array\s+parameter)\s+(`[^`]+`(, `[^`]+`)*(, and `[^`]+`| and `[^`]+`))\s+(.*)',
-            # 'forbidden': 'is'
-        }
-    ]    
+    patterns = _condition_patterns.get('parameter_type_distrition', [])
     for t in conditions:
         for sent in conditions[t]:                   
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):
+                if r := re.search(pattern['pattern'], sent):
                     # if pattern['forbidden'] in sent:
                     #     results[t].append(sent)
                     # else:
@@ -136,40 +144,25 @@ def __object_distributed_general__(r, sent, template) -> List[str]:
     return results
 
 
+_OBJECT_HANDLERS = {
+    'object_distributed': __object_distributed__,
+    'object_distributed_general': __object_distributed_general__,
+}
+
 def __process_object_clause__(conditions):
     results = {'ensures': [], 'requires': []}
-    patterns = [
-        {
-            'p': 'The\s+(\w+)\s+parameter\s+(`\w+`)\s+and\s+(`\w+`)\s+have\s+the\s+same\s+length',
-            'func': __object_distributed__,
-            'template': "The %s parameter %s's length is equal to the %s parameter %s's length"
-        },
-        {
-            'p': 'The\s+(integer\s+array)\s+(result)\s+should\s+have\s+the\s+same\s+length\s+as\s+the\s+input\s+array\s+parameter\s+(`\w+`)',
-            'func': __object_distributed__,
-            'template': "The %s %s's length is equal to the %s parameter %s's length"
-        },
-        {
-            'p': 'The\s+(\w+)\s+parameter\s+(`\w+`)\s+and\s+(`\w+`)\s+consist\s+of\s+digits\s+only',
-            'func': __object_distributed__,
-            'template': "The %s parameter %s consists of digits only and the %s parameter %s consists of digits only"
-        },
-        {
-            'p': 'The\s+(\w+)\s+parameter\s+(`\w+`)\s+and\s+(`\w+`)\s+consist\s+of\s+only\s+(.*).',
-            'func': __object_distributed_general__,
-            'template': "The %s parameter %s consists of only %s and the %s parameter %s consists of only %s."
-        }
-    ]    
+    patterns = _condition_patterns.get('object_clause', [])
     for t in conditions:
         for sent in conditions[t]:                   
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):
-                    results[t] += pattern['func'](r, sent, pattern['template'])                    
+                if r := re.search(pattern['pattern'], sent):
+                    handler = _OBJECT_HANDLERS.get(pattern['handler'], __object_distributed__)
+                    results[t] += handler(r, sent, pattern['template'])                    
                     processed = True
                     break
             if not processed:
-                results[t].append(sent)                   
+                results[t].append(sent)
                                 
     # [print(r) for r in results['ensures']]
     return results
@@ -188,41 +181,23 @@ def __equal_correspondingly__(r, sent) -> List[str]:
     results.append(template % (parameter_type, subjectA, resultA, parameter_type, subjectB, resultB, predicate))
     return results
 
+_SUBJECT_HANDLERS = {
+    'equal_respectively': __equal_respectively__,
+    'equal_distributedly': __equal_distributedly__,
+    'consist_of_distributed': __consist_of_distributed__,
+    'equal_correspondingly': __equal_correspondingly__,
+}
+
 def __process_compound_subject(conditions):
-    # The string parameter `s` and `t` consist only of lowercase English letters.
     results = {'ensures': [], 'requires': []}
-    patterns = [
-        {
-            'p': 'If\s+the\s+(\w+)\s+parameters\s+(`\w+`)\s+and\s+(`\w+`)\s+are\s+equal\s+to\s+("\w+")\s+and\s+("\w+")(.*)',
-            'func': __equal_respectively__
-        },
-        {
-            'p': 'If\s+the\s+(\w+)\s+parameters\s+(`\w+`)\s+and\s+(`\w+`)\s+are\s+equal\s+to\s+(\w+)\s+and\s+(\w+)(.*)',
-            'func': __equal_respectively__
-        },
-        {
-            'p': 'If\s+the\s+(\w+)\s+parameters\s+(`\w+`)\s+and\s+(`\w+`)\s+are\s+equal\s+to\s+("\w+")(.*)',
-            'func': __equal_distributedly__
-        },
-        {
-            'p': 'The\s+(\w+)\s+parameter\s+(`\w+`)\s+and\s+(`\w+`)\s+(consist\s+only\s+of)(.*)',
-            'func': __consist_of_distributed__
-        },
-        {
-            'p': 'The\s+(\w+)\s+parameters\s+(`\w+`)\s+and\s+(`\w+`)\s+(consist\s+of\s+only)(.*)',
-            'func': __consist_of_distributed__
-        },
-        {
-            'p': '^If\s+the\s+(integer\s+array)s\s+(`\w+`)\s+and\s+(`\w+`)\s+are\s+equal\s+to\s+(\[[,0-9]+\])\s+and\s+(\[[,0-9]+\])(.*)$',
-            'func': __equal_correspondingly__
-        }
-    ]    
+    patterns = _condition_patterns.get('compound_subject', [])
     for t in conditions:
         for sent in conditions[t]:                   
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):
-                    results[t] += pattern['func'](r, sent)                    
+                if r := re.search(pattern['pattern'], sent):
+                    handler = _SUBJECT_HANDLERS.get(pattern['handler'], __equal_respectively__)
+                    results[t] += handler(r, sent)                    
                     processed = True
                     break
             if not processed:
@@ -233,16 +208,12 @@ def __process_compound_subject(conditions):
 
 def __process_either_or__(conditions):
     results = {'ensures': [], 'requires': []}
-    patterns = [
-        {
-            'p': 'the\s+(\w+)\s+parameter\s+(`\w+`)\s+is\s+either\s+(.*)\s+or\s+(.*)',
-        }
-    ] 
+    patterns = _condition_patterns.get('either_or', [])
     for t in conditions:
         for sent in conditions[t]:                   
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):                    
+                if r := re.search(pattern['pattern'], sent):                    
                     # print(r.group(0))
                     parameter_type = r.group(1)
                     param = r.group(2)
@@ -257,16 +228,12 @@ def __process_either_or__(conditions):
 # Experimental: inferring the noun of a posessive pronoun
 def __process_pronoun__(conditions):
     results = {'ensures': [], 'requires': []}
-    patterns = [
-        {
-            'p': 'the\s+(\w+)\s+parameter\s+(`\w+`)\s+is\s+(.*)\s+and\s+all\s+its\s+(.*)\s+are\s+(.*)',
-        }
-    ] 
+    patterns = _condition_patterns.get('pronoun', [])
     for t in conditions:
         for sent in conditions[t]:                   
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):                    
+                if r := re.search(pattern['pattern'], sent):                    
                     # print(r.group(0))
                     parameter_type = r.group(1)
                     param = 'the %s parameter %s' % (parameter_type, r.group(2))
@@ -281,17 +248,12 @@ def __process_pronoun__(conditions):
 
 def __process_conditional_sentence_distribution(conditions):
     results = {'ensures': [], 'requires': []}
-    patterns = [
-        {
-            'p': 'If\s+the\s+(\w+)\s+parameter\s+(`\w+`)\s+is\s+equal\s+to\s+(("[-+\.\w+]+",\s+)+"[-+\.0-9eE]+")',
-            'type': 'string'
-        }
-    ] 
+    patterns = _condition_patterns.get('conditional_sentence_distribution', [])
     for t in conditions:
         for sent in conditions[t]:                   
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):                    
+                if r := re.search(pattern['pattern'], sent):
                     # print(r.group(0))
                     _type = ""
                     if pattern['type'] == 'string':
@@ -315,22 +277,12 @@ def __process_conditional_sentence_distribution(conditions):
 
 def __process_false_otherwise(conditions):
     results = {'ensures': [], 'requires': []}
-    patterns = [
-        {
-            'p': ',\s+or\s+false\s+otherwise\.',
-        },
-        {
-            'p': ',\s+and\s+false\s+otherwise\.',
-        },
-        {
-            'p': ',\s+otherwise\s+false\.',
-        }
-    ] 
+    patterns = _condition_patterns.get('false_otherwise', [])
     for t in conditions:
         for sent in conditions[t]:                   
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):                    
+                if r := re.search(pattern['pattern'], sent):                    
                     # print(r.group(0))
                     _sent = sent.replace(r.group(0), '')
                     results[t].append(_sent)
@@ -346,16 +298,12 @@ def __process_false_otherwise(conditions):
 
 def __process_and_false_clause(conditions):
     results = {'ensures': [], 'requires': []}
-    patterns = [
-        {
-            'p': ',\s+and\s+false\s+(.*)\.',
-        }
-    ] 
+    patterns = _condition_patterns.get('and_false_clause', [])
     for t in conditions:
         for sent in conditions[t]:                   
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):   
+                if r := re.search(pattern['pattern'], sent):   
                     target = 'The boolean result is false %s' % r.group(1)                
                     _sent = sent.replace(r.group(0), '.')
                     results[t].append(_sent)
@@ -367,19 +315,12 @@ def __process_and_false_clause(conditions):
 
 def __process_specified_type_checking_sent__(conditions):
     results = {'ensures': [], 'requires': []}
-    # print(conditions)
-    # The integer array parameter `nums` consists of integers.
-    patterns = [
-        {
-            'p': '^The\s+(\w+\s+array)\s+parameter\s+(`\w+`)\s+consists\s+of\s+(\w+)\.$',
-            'template': 'The %s parameter %s only contains %s.'
-        }
-    ] 
+    patterns = _condition_patterns.get('specified_type_checking', [])
     for t in conditions:
         for sent in conditions[t]:                   
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):   
+                if r := re.search(pattern['pattern'], sent):   
                     # print(r.group(0))
                     template = pattern['template']
                     checking_symbol = None
@@ -392,17 +333,13 @@ def __process_specified_type_checking_sent__(conditions):
     return results
 
 def __process_redundant_type_clause(conditions):
-    patterns = [
-        {
-            'p': "the\s+('[\w\W\*\?]')\s+character",
-        }
-    ] 
+    patterns = _condition_patterns.get('redundant_type_clause', [])
     results = {'ensures': [], 'requires': []}
     for t in conditions:
         for sent in conditions[t]:                   
             processed = False
             for pattern in patterns:
-                if r := re.findall(pattern['p'], sent):   
+                if r := re.findall(pattern['pattern'], sent):   
                     _sent = sent
                     for _r in r:
                         target = 'the type_character_ %s' % _r              
@@ -415,17 +352,12 @@ def __process_redundant_type_clause(conditions):
 
 def __process_at_most_elements(conditions):
     results = {'ensures': [], 'requires': []}
-    patterns = [
-        {
-            'p': '^The\s+(\w+)\s+result\s+(.*)\s+and\s+contains\s+at\s+most\s+(\d+)\s+elements\.$',
-            'template': "The %s result %s and the %s result's length is less than or equal to %s."
-        }
-    ] 
+    patterns = _condition_patterns.get('at_most_elements', [])
     for t in conditions:
         for sent in conditions[t]:          
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):   
+                if r := re.search(pattern['pattern'], sent):   
                     type_str = r.group(1)
                     results[t].append(pattern['template'] % (type_str, r.group(2), type_str, str(r.group(3)))
                     )
@@ -436,22 +368,12 @@ def __process_at_most_elements(conditions):
 
 def __process_compound_subject_ultimate__(conditions):
     results = {'ensures': [], 'requires': []}
-    patterns = [
-        {
-            'p': '^The\s+(\w+)\s+parameters\s+(`\w+`)\s+and\s+(`\w+`)\s+(.*)(\s+)?$',
-            'template': 'The %s parameter %s %s and the %s parameter %s %s'
-        },
-        {
-            'p': '^The\s+length\s+of\s+the\s+(\w+)\s+parameter\s+(`\w+`)\s+and\s+(`\w+`)\s+(.*)(\s+)?$',
-            'template': "The %s parameter %s's length %s and the %s parameter %s's length %s.",
-            'constraint': 'same'
-        }
-    ] 
+    patterns = _condition_patterns.get('compound_subject_ultimate', [])
     for t in conditions:
         for sent in conditions[t]:          
             processed = False
             for pattern in patterns:
-                if r := re.search(pattern['p'], sent):  
+                if r := re.search(pattern['pattern'], sent):  
                     if 'constraint' in pattern and pattern['constraint'] in sent:
                         continue 
                     type_str = r.group(1)

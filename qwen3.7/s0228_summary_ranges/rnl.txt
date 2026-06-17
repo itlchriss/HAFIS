@@ -1,0 +1,12 @@
+- The length of the integer array parameter `nums` is greater than or equal to 0 and is less than or equal to 20.
+- All values in the integer array parameter `nums` are greater than or equal to -2147483648 and are less than or equal to 2147483647.
+- All values in the integer array parameter `nums` are unique.
+- The integer array parameter `nums` is sorted in ascending order.
+- The integer array parameter `nums` is not equal to the null literal.
+- The list result is not equal to the null literal.
+- The list result is the smallest sorted list of ranges that cover all the numbers in the integer array parameter `nums` exactly.
+- If the integer array parameter `nums` is equal to [0,1,2,4,5,7], the list result is equal to ["0->2","4->5","7"].
+- If the integer array parameter `nums` is equal to [0,2,3,4,6,8,9], the list result is equal to ["0","2->4","6","8->9"].
+- If the integer array parameter `nums` is empty, the list result is empty.
+- If the integer array parameter `nums` is equal to [-1], the list result is equal to ["-1"].
+- If the integer array parameter `nums` is equal to [0], the list result is equal to ["0"].

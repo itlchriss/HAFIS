@@ -1,0 +1,40 @@
+problem: s0032_longest_valid_parentheses
+method: longestValidParentheses
+total_annotations: 8
+requires_count: 3
+ensures_count: 5
+original_contract_count: 4
+annotations:
+- id: 0
+  type: requires
+  nl: The length of the string parameter `s` is greater than or equal to 0 and is
+    less than or equal to 30000.
+  original_contract: 0 <= |s| <= 30000
+- id: 1
+  type: requires
+  nl: The string parameter `s` consists of only the characters '(' or ')'.
+  original_contract: result >= 0
+- id: 2
+  type: requires
+  nl: The string parameter `s` is not equal to the null literal.
+  original_contract: result <= |s|
+- id: 3
+  type: ensures
+  nl: The integer result is greater than or equal to 0 and is less than or equal to
+    the length of the string parameter `s`.
+  original_contract: result % 2 == 0
+- id: 4
+  type: ensures
+  nl: The integer result is equal to the length of the longest contiguous substring
+    of the string parameter `s` that is a valid parentheses string.
+- id: 5
+  type: ensures
+  nl: If the string parameter `s` is equal to "(()", the integer result is equal to
+    2.
+- id: 6
+  type: ensures
+  nl: If the string parameter `s` is equal to ")()())", the integer result is equal
+    to 4.
+- id: 7
+  type: ensures
+  nl: If the string parameter `s` is equal to "", the integer result is equal to 0.

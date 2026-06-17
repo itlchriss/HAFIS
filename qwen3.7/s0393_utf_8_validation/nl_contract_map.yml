@@ -1,0 +1,36 @@
+problem: s0393_utf_8_validation
+method: validUtf8
+total_annotations: 7
+requires_count: 3
+ensures_count: 4
+original_contract_count: 2
+annotations:
+- id: 0
+  type: requires
+  nl: The length of the integer array parameter `data` is greater than or equal to
+    1 and is less than or equal to 20000.
+  original_contract: 1 <= data.Length <= 200
+- id: 1
+  type: requires
+  nl: All values in the integer array parameter `data` are greater than or equal to
+    0 and are less than or equal to 255.
+  original_contract: 'forall i: nat :: i < data.Length ==> 0 <= data[i] <= 255'
+- id: 2
+  type: requires
+  nl: The integer array parameter `data` is not equal to the null literal.
+- id: 3
+  type: ensures
+  nl: If the boolean result is equal to the true literal, the integer array parameter
+    `data` is a valid UTF-8 encoding.
+- id: 4
+  type: ensures
+  nl: If the boolean result is equal to the false literal, the integer array parameter
+    `data` is not a valid UTF-8 encoding.
+- id: 5
+  type: ensures
+  nl: If the integer array parameter `data` is equal to [197,130,1], the boolean result
+    is equal to the true literal.
+- id: 6
+  type: ensures
+  nl: If the integer array parameter `data` is equal to [235,140,4], the boolean result
+    is equal to the false literal.

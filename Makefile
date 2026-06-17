@@ -8,7 +8,7 @@ BUILD	=	./build
 BIN		=   ./bin
 INCL	=	$(SRC)/include
 CFLAGS	= 	-g -Wall -ansi -pedantic -I$(INCL) -std=gnu11 -D_POSIX_C_SOURCE=200809L $(LOCINCL)
-OBJS	=	parser.o lex.o ast.o si.o si_matcher.o si_runtime.o si_analysis.o cst.o util.o cg_unified.o backend_jml.o backend_dafny.o jml.o main.o alias.o error.o event_struct.o event_synthesis.o sshare.o command.o preposition_synthesis.o relative_synthesis.o adjective_synthesis.o cardinalnumber_synthesis.o noun_synthesis.o adverb_synthesis.o to.o
+OBJS	=	parser.o lex.o ast.o si.o si_matcher.o si_runtime.o si_analysis.o cst.o util.o cg_unified.o backends/jml_backend.o backends/dafny_backend.o backends/jml_synth.o main.o alias.o error.o event_struct.o event_synthesis.o sshare.o command.o preposition_synthesis.o relative_synthesis.o adjective_synthesis.o cardinalnumber_synthesis.o noun_synthesis.o adverb_synthesis.o to.o
 DEBUG   ?=      0
 LEXDEBUG ?=     0
 DSTDEBUG ?=		0
@@ -21,7 +21,7 @@ BACKEND ?= jml
 
 ifeq ($(BACKEND),dafny)
 	CFLAGS += -DBACKEND_DAFNY
-	OBJS += dafny.o
+	OBJS += backends/dafny_synth.o
 else
 	CFLAGS += -DBACKEND_JML
 endif
@@ -86,6 +86,7 @@ endif
 all: directories main
 
 directories: ${BUILD} ${BIN}
+	mkdir -p $(BUILD)/backends
 
 ${BUILD}:
 	mkdir -p $(BUILD)
@@ -166,11 +167,11 @@ alias.o  : $(SRC)/alias.c
 cg_unified.o  : $(SRC)/cg_unified.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/cg_unified.o $<
 
-backend_jml.o  : $(SRC)/backend_jml.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/backend_jml.o $<
+backends/jml_backend.o  : $(SRC)/backends/jml_backend.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/jml_backend.o $<
 
-backend_dafny.o  : $(SRC)/backend_dafny.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/backend_dafny.o $<
+backends/dafny_backend.o  : $(SRC)/backends/dafny_backend.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/dafny_backend.o $<
 
 error.o  : $(SRC)/error.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/error.o $<		
@@ -196,11 +197,11 @@ error.o	: $(SRC)/error.c
 event_synthesis.o: $(SRC)/synthesis/event.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/event_synthesis.o $<		
 
-jml.o: $(SRC)/jml.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/jml.o $<
+backends/jml_synth.o: $(SRC)/backends/jml_synth.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/jml_synth.o $<
 
-dafny.o: $(SRC)/dafny.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/dafny.o $<
+backends/dafny_synth.o: $(SRC)/backends/dafny_synth.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/dafny_synth.o $<
 
 lex.o parser.o sym_table.o		:	$(INCL)/core.h
 parser.only						:	$(INCL)/ast.h
@@ -211,14 +212,14 @@ main.o							:   $(INCL)/si.h $(INCL)/alias.h
 util.o							:   $(INCL)/util.h
 cst.o							:   $(INCL)/util.h
 cg_unified.o					:	$(INCL)/util.h $(INCL)/cg.h $(INCL)/backend.h
-backend_jml.o					:	$(INCL)/backend.h
-backend_dafny.o					:	$(INCL)/backend.h
+backends/jml_backend.o				:	$(INCL)/backend.h
+backends/dafny_backend.o				:	$(INCL)/backend.h
 alias.o							:	$(INCL)/alias.h
 si.o							:   $(INCL)/si.h 
 event-struct.o							: 	$(INCL)/event.h
 error.o							:   $(INCL)/error.h
-jml.o							:	$(INCL)/jml.h
-dafny.o							:	$(INCL)/dafny.h $(INCL)/backend.h
+backends/jml_synth.o					:	$(INCL)/jml.h
+backends/dafny_synth.o					:	$(INCL)/dafny.h $(INCL)/backend.h
 clean:
 	rm -rf $(BUILD)/*
 	rm ./parser.output

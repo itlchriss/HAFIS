@@ -1,0 +1,55 @@
+problem: s0412_fizz_buzz
+method: fizzBuzz
+total_annotations: 10
+requires_count: 1
+ensures_count: 9
+original_contract_count: 3
+annotations:
+- id: 0
+  type: requires
+  nl: The integer parameter `n` is greater than or equal to 1 and is less than or
+    equal to 10000.
+  original_contract: 1 <= n <= 10000
+- id: 1
+  type: ensures
+  nl: The string array result is not equal to the null literal.
+  original_contract: '|result| == n'
+- id: 2
+  type: ensures
+  nl: The length of the string array result is equal to the integer parameter `n`.
+  original_contract: 'forall i: nat :: i < n ==>'
+- id: 3
+  type: ensures
+  nl: For every non-negative integer `i` that is less than the integer parameter `n`,
+    if the integer `i` plus 1 is divisible by 3 and the integer `i` plus 1 is divisible
+    by 5, the value at index `i` of the string array result is equal to "FizzBuzz".
+- id: 4
+  type: ensures
+  nl: For every non-negative integer `i` that is less than the integer parameter `n`,
+    if the integer `i` plus 1 is divisible by 3 and the integer `i` plus 1 is not
+    divisible by 5, the value at index `i` of the string array result is equal to
+    "Fizz".
+- id: 5
+  type: ensures
+  nl: For every non-negative integer `i` that is less than the integer parameter `n`,
+    if the integer `i` plus 1 is not divisible by 3 and the integer `i` plus 1 is
+    divisible by 5, the value at index `i` of the string array result is equal to
+    "Buzz".
+- id: 6
+  type: ensures
+  nl: For every non-negative integer `i` that is less than the integer parameter `n`,
+    if the integer `i` plus 1 is not divisible by 3 and the integer `i` plus 1 is
+    not divisible by 5, the value at index `i` of the string array result is equal
+    to the string representation of the integer `i` plus 1.
+- id: 7
+  type: ensures
+  nl: If the integer parameter `n` is equal to 3, the string array result is equal
+    to ["1","2","Fizz"].
+- id: 8
+  type: ensures
+  nl: If the integer parameter `n` is equal to 5, the string array result is equal
+    to ["1","2","Fizz","4","Buzz"].
+- id: 9
+  type: ensures
+  nl: If the integer parameter `n` is equal to 15, the string array result is equal
+    to ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"].

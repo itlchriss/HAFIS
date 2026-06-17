@@ -1,0 +1,1 @@
+exists x01.(_param_s_{NN}(x01) & _type_string_{NN}(x01) & exists e02.(_equal{JJ}(e02) & (Subj(e02) = x01) & exists x03.(_checking_character_sequence_{NN}(x03) & (Dat(e02) = x03))))

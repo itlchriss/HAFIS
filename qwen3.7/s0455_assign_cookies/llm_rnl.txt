@@ -1,0 +1,11 @@
+- The length of the integer array parameter `g` is greater than or equal to 1 and is less than or equal to 30000.
+- The length of the integer array parameter `s` is greater than or equal to 0 and is less than or equal to 30000.
+- All values in the integer array parameter `g` are greater than or equal to 1 and are less than or equal to 2147483647.
+- All values in the integer array parameter `s` are greater than or equal to 1 and are less than or equal to 2147483647.
+- The integer array parameter `g` is not equal to the null literal.
+- The integer array parameter `s` is not equal to the null literal.
+- The integer result is greater than or equal to 0.
+- The integer result is less than or equal to the minimum value between the length of the integer array parameter `g` and the length of the integer array parameter `s`.
+- There exists a subset of indices of the integer array parameter `s` such that the size of the subset is equal to the integer result and each index in the subset maps to a distinct index of the integer array parameter `g` such that the value at the index of the integer array parameter `s` is greater than or equal to the value at the corresponding index of the integer array parameter `g`.
+- If the integer array parameter `g` is equal to [1,2,3] and the integer array parameter `s` is equal to [1,1], the integer result is equal to 1.
+- If the integer array parameter `g` is equal to [1,2] and the integer array parameter `s` is equal to [1,2,3], the integer result is equal to 2.

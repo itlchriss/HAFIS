@@ -1,0 +1,339 @@
+# =============================================================================
+# Narrowing Rules: LLM-RNL → Strict RNL
+# =============================================================================
+# These rules transform LLM-generated RNL (which may have variations)
+# into strict RNL that matches the SI terms and syntax rules.
+#
+# Format:
+#   - pattern: regex or word sequence to match
+#     replacement: canonical form
+#     description: what this rule does
+#
+# Rules are applied in order. Longer patterns should come first.
+# =============================================================================
+
+# --- Normalize quantifier phrasings ---
+- pattern: 'For each'
+  replacement: 'For every'
+  description: 'Normalize "For each" to "For every"'
+
+- pattern: 'For all'
+  replacement: 'For every'
+  description: 'Normalize "For all" to "For every"'
+
+- pattern: 'There is a'
+  replacement: 'There exists a'
+  description: 'Normalize "There is a" to "There exists a"'
+
+- pattern: 'There are'
+  replacement: 'There exist'
+  description: 'Normalize "There are" to "There exist"'
+
+- pattern: 'There is at least one'
+  replacement: 'There exists a'
+  description: 'Normalize "There is at least one" to "There exists a"'
+
+# --- Normalize logical connectives ---
+- pattern: 'iff'
+  replacement: 'if and only if'
+  description: 'Normalize "iff" to "if and only if"'
+
+- pattern: 'if and only when'
+  replacement: 'if and only if'
+  description: 'Normalize variant biconditional'
+
+- pattern: 'precisely when'
+  replacement: 'if and only if'
+  description: 'Normalize "precisely when" to "if and only if"'
+
+- pattern: 'exactly when'
+  replacement: 'if and only if'
+  description: 'Normalize "exactly when" to "if and only if"'
+
+# --- Normalize type names ---
+- pattern: 'non-negative integer `i`'
+  replacement: 'non-negative integer `i`'
+  description: 'Ensure consistent nat type naming'
+
+- pattern: 'natural number'
+  replacement: 'non-negative integer'
+  description: 'Normalize "natural number" to "non-negative integer"'
+
+- pattern: 'natural numbers'
+  replacement: 'non-negative integers'
+  description: 'Normalize plural "natural numbers"'
+
+- pattern: 'whole number'
+  replacement: 'non-negative integer'
+  description: 'Normalize "whole number" to "non-negative integer"'
+
+# --- Normalize set operations ---
+- pattern: 'is a member of the set'
+  replacement: 'is contained in the set'
+  description: 'Normalize set membership phrasing'
+
+- pattern: 'is an element of the set'
+  replacement: 'is contained in the set'
+  description: 'Normalize set membership phrasing'
+
+- pattern: 'belongs to the set'
+  replacement: 'is contained in the set'
+  description: 'Normalize set membership phrasing'
+
+- pattern: 'is in the set'
+  replacement: 'is contained in the set'
+  description: 'Normalize set membership phrasing'
+
+- pattern: 'is not in the set'
+  replacement: 'is not contained in the set'
+  description: 'Normalize set non-membership phrasing'
+
+- pattern: 'is not a member of the set'
+  replacement: 'is not contained in the set'
+  description: 'Normalize set non-membership phrasing'
+
+- pattern: 'does not belong to the set'
+  replacement: 'is not contained in the set'
+  description: 'Normalize set non-membership phrasing'
+
+- pattern: 'the size of the set'
+  replacement: 'the cardinality of the set'
+  description: 'Normalize set size phrasing'
+
+- pattern: 'the number of elements in the set'
+  replacement: 'the cardinality of the set'
+  description: 'Normalize set cardinality phrasing'
+
+# --- Normalize arithmetic phrasings ---
+- pattern: 'the total of'
+  replacement: 'the sum of'
+  description: 'Normalize addition phrasing'
+
+- pattern: 'the result of subtracting'
+  replacement: 'the difference between'
+  description: 'Normalize subtraction phrasing'
+
+- pattern: 'the result of multiplying'
+  replacement: 'the product of'
+  description: 'Normalize multiplication phrasing'
+
+- pattern: 'the result of dividing'
+  replacement: 'the quotient of'
+  description: 'Normalize division phrasing'
+
+- pattern: 'mod'
+  replacement: 'the remainder of'
+  description: 'Normalize modulo phrasing'
+
+- pattern: 'raised to'
+  replacement: 'raised to the power of'
+  description: 'Normalize exponentiation phrasing'
+
+- pattern: 'to the power'
+  replacement: 'raised to the power of'
+  description: 'Normalize exponentiation phrasing'
+
+# --- Normalize comparison phrasings ---
+- pattern: 'is at least'
+  replacement: 'is greater than or equal to'
+  description: 'Normalize "at least" to comparison'
+
+- pattern: 'is at most'
+  replacement: 'is less than or equal to'
+  description: 'Normalize "at most" to comparison'
+
+- pattern: 'is no more than'
+  replacement: 'is less than or equal to'
+  description: 'Normalize "no more than" to comparison'
+
+- pattern: 'is no less than'
+  replacement: 'is greater than or equal to'
+  description: 'Normalize "no less than" to comparison'
+
+- pattern: 'exceeds'
+  replacement: 'is greater than'
+  description: 'Normalize "exceeds" to comparison'
+
+- pattern: 'is below'
+  replacement: 'is less than'
+  description: 'Normalize "is below" to comparison'
+
+- pattern: 'is above'
+  replacement: 'is greater than'
+  description: 'Normalize "is above" to comparison'
+
+# --- Normalize structural properties ---
+- pattern: 'sorted in non-decreasing'
+  replacement: 'sorted in ascending'
+  description: 'Normalize sorting phrasing'
+
+- pattern: 'sorted in non-increasing'
+  replacement: 'sorted in descending'
+  description: 'Normalize sorting phrasing'
+
+- pattern: 'is strictly increasing'
+  replacement: 'is sorted in ascending order and is unique'
+  description: 'Expand strictly increasing'
+
+- pattern: 'all elements are distinct'
+  replacement: 'all values are unique'
+  description: 'Normalize uniqueness phrasing'
+
+- pattern: 'all elements are different'
+  replacement: 'all values are unique'
+  description: 'Normalize uniqueness phrasing'
+
+# --- Normalize ghost/proof phrasings ---
+- pattern: 'The invariant is'
+  replacement: 'The loop invariant is'
+  description: 'Normalize invariant phrasing'
+
+- pattern: 'We assert that'
+  replacement: 'It holds that'
+  description: 'Normalize assertion phrasing'
+
+- pattern: 'We can show that'
+  replacement: 'It holds that'
+  description: 'Normalize assertion phrasing'
+
+- pattern: 'It can be shown that'
+  replacement: 'It holds that'
+  description: 'Normalize assertion phrasing'
+
+# --- Normalize method specification phrasings ---
+- pattern: 'The precondition is'
+  replacement: 'The integer parameter'
+  description: 'Normalize precondition to parameter constraint'
+
+- pattern: 'The postcondition is'
+  replacement: 'The integer result'
+  description: 'Normalize postcondition to result constraint'
+
+- pattern: 'The method requires'
+  replacement: 'The'
+  description: 'Normalize requires clause'
+
+- pattern: 'The method ensures'
+  replacement: 'The'
+  description: 'Normalize ensures clause'
+
+# --- Normalize counting patterns ---
+- pattern: 'the total number of'
+  replacement: 'the total number of'
+  description: 'Keep counting pattern canonical'
+
+- pattern: 'the count of'
+  replacement: 'the total number of'
+  description: 'Normalize count phrasing'
+
+- pattern: 'the number of'
+  replacement: 'the total number of'
+  description: 'Normalize number-of phrasing for counting'
+
+# --- Normalize optimization patterns ---
+- pattern: 'the largest possible'
+  replacement: 'the maximum'
+  description: 'Normalize maximum phrasing'
+
+- pattern: 'the smallest possible'
+  replacement: 'the minimum'
+  description: 'Normalize minimum phrasing'
+
+- pattern: 'the greatest'
+  replacement: 'the maximum'
+  description: 'Normalize maximum phrasing'
+
+- pattern: 'the least'
+  replacement: 'the minimum'
+  description: 'Normalize minimum phrasing'
+
+# --- Normalize sequence operations ---
+- pattern: 'the substring from index'
+  replacement: 'the subsequence from index'
+  description: 'Normalize substring to subsequence'
+
+- pattern: 'the portion of the string from'
+  replacement: 'the subsequence from index'
+  description: 'Normalize substring phrasing'
+
+- pattern: 'appended to'
+  replacement: 'concatenated with'
+  description: 'Normalize concatenation phrasing'
+
+- pattern: 'joined with'
+  replacement: 'concatenated with'
+  description: 'Normalize concatenation phrasing'
+
+# --- Normalize map operations ---
+- pattern: 'the value at key'
+  replacement: 'the value mapped to by'
+  description: 'Normalize map lookup phrasing'
+
+- pattern: 'the value for key'
+  replacement: 'the value mapped to by'
+  description: 'Normalize map lookup phrasing'
+
+- pattern: 'the keys of'
+  replacement: 'the domain of the map'
+  description: 'Normalize map domain phrasing'
+
+- pattern: 'the values of'
+  replacement: 'the range of the map'
+  description: 'Normalize map range phrasing'
+
+# --- Normalize multiset operations ---
+- pattern: 'the frequency of'
+  replacement: 'the count of'
+  description: 'Normalize multiset count phrasing'
+
+- pattern: 'the number of occurrences of'
+  replacement: 'the count of'
+  description: 'Normalize multiset count phrasing'
+
+# --- Normalize array access patterns ---
+- pattern: 'the element at position'
+  replacement: 'the value at index'
+  description: 'Normalize array access phrasing'
+
+- pattern: 'the item at index'
+  replacement: 'the value at index'
+  description: 'Normalize array access phrasing'
+
+- pattern: 'the entry at index'
+  replacement: 'the value at index'
+  description: 'Normalize array access phrasing'
+
+# --- Normalize termination/decreases ---
+- pattern: 'The termination metric is'
+  replacement: 'The termination metric is'
+  description: 'Keep termination metric canonical'
+
+- pattern: 'The decreases clause is'
+  replacement: 'The termination metric is'
+  description: 'Normalize decreases phrasing'
+
+# --- Normalize frame conditions ---
+- pattern: 'The method modifies'
+  replacement: 'The method may modify'
+  description: 'Normalize modifies clause phrasing'
+
+- pattern: 'The function reads'
+  replacement: 'The function reads'
+  description: 'Keep reads clause canonical'
+
+# --- Remove redundant words ---
+- pattern: 'it is the case that'
+  replacement: ''
+  description: 'Remove redundant "it is the case that"'
+
+- pattern: 'we have that'
+  replacement: ''
+  description: 'Remove redundant "we have that"'
+
+- pattern: 'note that'
+  replacement: ''
+  description: 'Remove redundant "note that"'
+
+- pattern: 'observe that'
+  replacement: ''
+  description: 'Remove redundant "observe that"'

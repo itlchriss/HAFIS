@@ -1,0 +1,1 @@
+Each element in the result array is the remainder ofulo of the corresponding elements in the arrays.

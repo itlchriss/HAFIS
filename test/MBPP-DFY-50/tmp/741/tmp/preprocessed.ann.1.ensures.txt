@@ -1,0 +1,1 @@
+If the result is equal to the false literal , There exists a character in the string that is dif and only iferent from the others.

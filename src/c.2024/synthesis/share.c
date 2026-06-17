@@ -13,18 +13,24 @@ extern struct queue *cst;
 
 
 int __is_abtract_arg_done__(struct cstsymbol *ptr) {
+    if (ptr == NULL || ptr->si_q == NULL || ptr->datalist == NULL) return FALSE;
     struct si *si = (struct si *)gqueue(ptr->si_q, 0);
+    if (si == NULL || si->args == NULL) return FALSE;
     struct queue *args = si->args;
     char *data = (char *)gqueue(ptr->datalist, 0);
+    if (data == NULL) return FALSE;
     for (int i = 0; i < args->count; ++i) {
         struct si_arg *arg = (struct si_arg *)gqueue(args, i);
+        if (arg == NULL || arg->symbol == NULL) continue;
         if (ssearch(data, __combine_3_strings__("(", arg->symbol, ")"))) return FALSE;
     }    
     return TRUE;
 }
 
 int __has_abstract_ex_arg__(struct cstsymbol *ptr) {
+    if (ptr == NULL || ptr->si_q == NULL) return FALSE;
     struct si *si = (struct si *)gqueue(ptr->si_q, 0);
+    if (si == NULL) return FALSE;
     if (si->exarg != NULL) return TRUE;
     else return FALSE;
 }
@@ -35,6 +41,7 @@ int __has_abstract_ex_arg__(struct cstsymbol *ptr) {
     Besides, the one with '__Rel__' SI should have only one SI and this SI starts with '__Rel__', otherwise, a semantic declaration error is thrown
 */
 int __is_Rel_dependent__(struct cstsymbol *c) {
+    if (c == NULL || c->datalist == NULL) return FALSE;
     if (c->datalist->count > 1) return FALSE;
     char *data = (char *)gqueue(c->datalist, 0);
     int len = 0;
@@ -47,8 +54,10 @@ int __is_Rel_dependent__(struct cstsymbol *c) {
 }
 
 int __is_Abstract_noun__(struct cstsymbol *c) {
+    if (c == NULL || c->datalist == NULL) return FALSE;
     if (c->datalist->count > 1) return FALSE;
     char *data = (char *)gqueue(c->datalist, 0);
+    if (data == NULL) return FALSE;
     if (ssearch(data, "__ABSTRACT_NOUN__") == TRUE) return TRUE;
     else return FALSE;
 }
@@ -138,6 +147,7 @@ struct queue* __get_java_method_interpretations_from_chain__(char *interpretatio
 int __match_si_with_symbol_only__(void *_si, void *_symbol) {
     struct si *si = (struct si *)_si;
     char *symbol = (char *)_symbol;
+    if (si == NULL || si->symbol == NULL || symbol == NULL) return FALSE;
     if (strcmp(si->symbol, symbol) == 0) return TRUE;
     else return FALSE;
 }
@@ -149,9 +159,11 @@ int __match_si_with_symbol_only__(void *_si, void *_symbol) {
 int __match_si_with_input_arg_datatype__(void *_si, void *_datatype) {
     struct datatype *datatype = (struct datatype *)_datatype;
     struct si *si = (struct si *)_si;
+    if (si == NULL || si->args == NULL || datatype == NULL) return FALSE;
     /* a predicate accepts more than 1 argument can be filtered out */
     if (si->args->count != 1) return FALSE;
     struct si_arg *arg = (struct si_arg *)gqueue(si->args, 0);
+    if (arg == NULL || arg->datatype == NULL) return FALSE;
     return __compare_datatype__(arg->datatype, datatype);
 }
 
@@ -258,21 +270,28 @@ struct queue *__obtain_si_from_subtree_without_precise_datatypes__(struct astnod
 }
 
 int check_need_assigned_entity(struct astnode *node) {
+    if (node == NULL || node->si_q == NULL || node->si_q->count == 0) return FALSE;
     struct si *si = (struct si *)gqueue(node->si_q, 0);
+    if (si == NULL || si->args == NULL || si->args->count == 0) return FALSE;
     struct si_arg *arg = (struct si_arg *)gqueue(si->args, 0);
+    if (arg == NULL || arg->datatype == NULL) return FALSE;
     if (arg->datatype != NULL && (arg->datatype->p != AnyPrimitiveType || arg->datatype->r != AnyRefType)) return TRUE;
     else return FALSE;
 }
 
 int has_Rel_SI(struct queue *siq) {
+    if (siq == NULL || siq->count == 0) return FALSE;
     struct si *si = (struct si *)gqueue(siq, 0);
+    if (si == NULL || si->interpretation == NULL) return FALSE;
     int occur[strlen(si->interpretation)/7 + 1];
     if (strsearch(si->interpretation, "__REL__", occur) != 0) return TRUE;        
     else return FALSE;
 }
 
 int has_Abstract_SI(struct queue *siq) {
+    if (siq == NULL || siq->count == 0) return FALSE;
     struct si *si = (struct si *)gqueue(siq, 0);
+    if (si == NULL || si->interpretation == NULL) return FALSE;
     if (ssearch(si->interpretation, "__ABSTRACT__") == TRUE) return TRUE;
     else return FALSE;
 }

@@ -1,0 +1,1 @@
+If There exist multiple odd numbers , the index is the smallest index with an odd number.

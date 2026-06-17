@@ -1,0 +1,105 @@
+# =============================================================================
+# Dafny SI Module: Multiset Operations
+# =============================================================================
+# SI terms for Dafny multiset operations
+# =============================================================================
+
+# --- Multiset from Sequence ---
+- term: the multiset formed from
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'multiset'
+  interpretation: 'multiset()'
+  note: 'Convert sequence to multiset: multiset(s)'
+
+- term: the multiset of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'multiset'
+  interpretation: 'multiset()'
+
+# --- Multiset Count ---
+- term: the count of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '[]'
+  note: 'Multiset count: m(x) returns multiplicity of x'
+
+- term: the multiplicity of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '[]'
+
+- term: in the multiset
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'multiset'
+  interpretation: ''
+  note: 'Multiset membership: x in m'
+
+# --- Multiset Union ---
+- term: the multiset union of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'multiset'
+  interpretation: '+'
+  note: 'Multiset union: m1 + m2'
+
+# --- Multiset Intersection ---
+- term: the multiset intersection of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'multiset'
+  interpretation: '*'
+
+# --- Multiset Difference ---
+- term: the multiset difference of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'multiset'
+  interpretation: '-'
+
+# --- Empty Multiset ---
+- term: the empty multiset
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'multiset'
+  interpretation: 'multiset{}'

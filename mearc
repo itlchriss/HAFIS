@@ -33,9 +33,9 @@ set -e  # Exit on error
 # Configuration
 # ============================================================================
 ROOT=./
-NLP=../NLP/ccg2lambda
+NLP=../ccg2lambda
 STD_SI=./specs/si/typed_si.yml,./specs/si/java_datatypes.yml
-PYCMD=python
+PYCMD=../venv/mearc/bin/python3
 TMP=./tmp
 OPENJML=../openjml-0.17-a15
 
@@ -170,7 +170,7 @@ run_nlp_pipeline() {
     printf '%s\n' "$text" | sed -f "$NLP/en/tokenizer.sed" > "${basename}.tok"
     
     # Step 2: C&C parsing
-    $NLP/candc-1.00/bin/candc --models "$NLP/candc-1.00/models" \
+    $NLP/en/candc-1.00/bin/candc --models "$NLP/en/candc-1.00/models" \
         --candc-printer xml \
         --candc-maxwords 2048 \
         --input "${basename}.tok" > "${basename}.candc.xml" 2>/dev/null
@@ -180,7 +180,7 @@ run_nlp_pipeline() {
     
     # Step 4: Semantic parsing to MR
     $PYCMD "$NLP/scripts/semparse_wsc.py" "${basename}.ccg.xml" \
-        "$NLP/en/semantic_templates_en_event_flat_mearc.yaml" > "${basename}.mr"
+        "$NLP/en/semantic_templates_en_event_flat_mearc.yaml" --ncores 1 > "${basename}.mr"
     
     # Step 5: Normalize MR
     $PYCMD ./src/python/depccg/nltk2normal.py "${basename}.mr" 2>/dev/null || true
@@ -487,7 +487,21 @@ if [[ "$INPUT_TYPE" == "dfy" ]]; then
             
             log_info "  [$i] $type in $method (line $line): \"$text\""
             
-            if run_nlp_pipeline "$text" "$mr_base" > /dev/null 2>&1; then
+            # Step 1: Preprocess the NL text (narrowing, repair, normalization, SI building)
+            local preprocessed_text
+            local ann_id="$(basename "${mr_base}")"  # e.g., ann.0.requires
+            preprocessed_text=$($PYCMD ./preprocess_annotation.py "$text" "$type" "$MR_DIR" "$ann_id" 2>/dev/null)
+            
+            if [[ -z "$preprocessed_text" ]]; then
+                log_error "      Preprocessing failed"
+                TBL_STATUS[$i]="failed"
+                continue
+            fi
+            
+            log_info "      Preprocessed: \"$preprocessed_text\""
+            
+            # Step 2: Run NLP pipeline on preprocessed text
+            if run_nlp_pipeline "$preprocessed_text" "$mr_base" > /dev/null 2>&1; then
                 if [[ -f "${mr_base}.mr" ]]; then
                     local mr_content=$(cat "${mr_base}.mr")
                     log_info "      MR: $mr_content"
@@ -568,29 +582,72 @@ if [[ "$INPUT_TYPE" == "dfy" ]]; then
     instrument_file() {
         log_info "Stage 4: Instrumenting Dafny file..."
         
-        # Build a lookup: line_num -> translation
-        declare -A LINE_MAP
+        # Collect translated annotations grouped by method using arrays
+        declare -A METHOD_REQUIRES
+        declare -A METHOD_ENSURES
+        declare -A METHOD_ASSERTS
+        declare -A ANNOTATION_LINES  # line_num -> 1 for lines to skip
+        
         for i in $(seq 0 $((TBL_COUNT - 1))); do
             local line="${TBL_LINE[$i]}"
+            local type="${TBL_TYPE[$i]}"
+            local method="${TBL_METHOD[$i]}"
             local status="${TBL_STATUS[$i]}"
             local trans="${TBL_TRANS[$i]}"
             
             if [[ "$status" == "translated" ]]; then
-                LINE_MAP["$line"]="$trans"
+                ANNOTATION_LINES["$line"]=1
+                case "$type" in
+                    requires)
+                        METHOD_REQUIRES["$method"]+="$trans"
+                        METHOD_REQUIRES["$method"]+=$'\n'
+                        ;;
+                    ensures)
+                        METHOD_ENSURES["$method"]+="$trans"
+                        METHOD_ENSURES["$method"]+=$'\n'
+                        ;;
+                    assert)
+                        METHOD_ASSERTS["$method"]+="$trans"
+                        METHOD_ASSERTS["$method"]+=$'\n'
+                        ;;
+                esac
             fi
-            # Failed translations keep original line (not added to map)
         done
         
-        log_info "  Replacing ${#LINE_MAP[@]} annotation(s) with Dafny syntax"
+        log_info "  Replacing annotations with Dafny syntax"
         
         # Generate output file
         local line_num=0
+        local in_method_header=0
+        local current_method=""
         {
             while IFS= read -r line || [[ -n "$line" ]]; do
                 line_num=$((line_num + 1))
                 
-                if [[ -n "${LINE_MAP[$line_num]+x}" ]]; then
-                    echo "${LINE_MAP[$line_num]}"
+                # Skip lines that were translated annotations
+                if [[ -n "${ANNOTATION_LINES[$line_num]+x}" ]]; then
+                    continue
+                fi
+                
+                # Check if this is a method declaration line
+                if [[ "$line" =~ ^[[:space:]]*method[[:space:]]+([a-zA-Z_][a-zA-Z0-9_]*) ]]; then
+                    current_method="${BASH_REMATCH[1]}"
+                    echo "$line"
+                    
+                    # Insert requires/ensures after method signature
+                    # Check both the actual method name and __global__
+                    for m in "$current_method" "__global__"; do
+                        if [[ -n "${METHOD_REQUIRES[$m]}" ]]; then
+                            while IFS= read -r req; do
+                                [[ -n "$req" ]] && echo "    $req"
+                            done <<< "${METHOD_REQUIRES[$m]}"
+                        fi
+                        if [[ -n "${METHOD_ENSURES[$m]}" ]]; then
+                            while IFS= read -r ens; do
+                                [[ -n "$ens" ]] && echo "    $ens"
+                            done <<< "${METHOD_ENSURES[$m]}"
+                        fi
+                    done
                 else
                     echo "$line"
                 fi

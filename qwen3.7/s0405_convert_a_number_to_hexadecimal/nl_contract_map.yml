@@ -1,0 +1,40 @@
+problem: s0405_convert_a_number_to_hexadecimal
+method: toHex
+total_annotations: 8
+requires_count: 2
+ensures_count: 6
+original_contract_count: 5
+annotations:
+- id: 0
+  type: requires
+  nl: The integer parameter `num` is greater than or equal to -2147483648 and is less
+    than or equal to 2147483647.
+  original_contract: -2147483648 <= num <= 2147483647
+- id: 1
+  type: ensures
+  nl: The string result is not equal to the null literal.
+  original_contract: '|result| >= 1'
+- id: 2
+  type: ensures
+  nl: The string result is the hexadecimal representation of the integer parameter
+    `num`.
+  original_contract: 'forall i: nat :: i < |result| ==>'
+- id: 3
+  type: requires
+  nl: For negative integers, the two's complement method is used.
+  original_contract: num == 0 ==> result == "0"
+- id: 4
+  type: ensures
+  nl: The string result does not contain leading zeros except for the zero itself.
+  original_contract: num > 0 ==> result[0] != '0' || |result| == 1
+- id: 5
+  type: ensures
+  nl: All letters in the string result are lowercase.
+- id: 6
+  type: ensures
+  nl: If the integer parameter `num` is equal to 26, the string result is equal to
+    "1a".
+- id: 7
+  type: ensures
+  nl: If the integer parameter `num` is equal to -1, the string result is equal to
+    "ffffffff".

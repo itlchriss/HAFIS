@@ -43,6 +43,10 @@ int __search_visited_variables__(void *_child_cstptr, void *_input_cstptr) {
     Throws sinotfound_error if the node has no matching SIs.
 */
 void check_validity(struct astnode *node) {
+    if (node == NULL || node->token == NULL || node->si_q == NULL) {
+        fprintf(stderr, "SI not found error: Node or SI queue is NULL\n");
+        exit(-1);
+    }
     if (node->si_q->count == 0) {
         sinotfound_error(node->token->symbol);
     }
@@ -59,10 +63,19 @@ int satisfy(struct astnode *node, struct queue *visited_variables) {
     #if SIANALYSIS
     printf("checking satify %s...\n", node->token->symbol);
     #endif
-    if (countastchildren(node) == 1) {
-        struct event *e = __searchevent(getastchild(node, 0)->cstptr);
+    if (node == NULL || node->token == NULL) return 0;
+    
+    int child_count = countastchildren(node);
+    if (child_count == 1) {
+        struct astnode *child = getastchild(node, 0);
+        if (child == NULL || child->cstptr == NULL) return 0;
+        
+        struct event *e = __searchevent(child->cstptr);
+        if (e == NULL || e->entities == NULL) return 0;
+        
         if (e->entities->count == 1) {
             struct entity *en = (struct entity *)gqueue(e->entities, 0);
+            if (en == NULL || en->cstptr == NULL) return 0;
             #if SIANALYSIS
             printf("checking entity %s\n", en->cstptr->symbol);
             #endif
@@ -83,6 +96,7 @@ int satisfy(struct astnode *node, struct queue *visited_variables) {
         } else {
             for (int i = 0; i < e->entities->count; ++i) {
                 struct entity *en = (struct entity *)gqueue(e->entities, i);
+                if (en == NULL || en->cstptr == NULL) continue;
                 if (en->cstptr->ref_count == 1 || !en->cstptr->is_argument_to_predicate) {
                     /*
                     * !en->cstptr->is_argument_to_predicate: this indicates that the variable should always use its alias, because it is not an argument, then it will never have a synthesis to form an intermediate SI. therefore, we should point it to its alias
@@ -98,9 +112,12 @@ int satisfy(struct astnode *node, struct queue *visited_variables) {
         } 
     } else {
         int hasevent = FALSE;
-        for (int i = 0; i < countastchildren(node); ++i) {
-            if (getastchild(node, i)->cstptr->symbol[0] == 'e') { hasevent = TRUE; continue; }
-            if (!searchqueue(visited_variables, getastchild(node, i)->cstptr, __search_visited_variables__)) return 0;
+        int node_child_count = countastchildren(node);
+        for (int i = 0; i < node_child_count; ++i) {
+            struct astnode *child = getastchild(node, i);
+            if (child == NULL || child->cstptr == NULL) continue;
+            if (child->cstptr->symbol != NULL && child->cstptr->symbol[0] == 'e') { hasevent = TRUE; continue; }
+            if (!searchqueue(visited_variables, child->cstptr, __search_visited_variables__)) return 0;
         }
         if (hasevent) 
             return 1;

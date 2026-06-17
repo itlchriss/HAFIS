@@ -1,0 +1,40 @@
+# Text normalization rules
+# Simple regex substitutions applied in order to clean up text before parsing.
+# Each rule has a 'pattern' (regex) and a 'replacement' string.
+
+- pattern: '(to\s+)+'
+  replacement: 'to '
+  description: Collapse repeated 'to'
+
+- pattern: '(is\s+)+'
+  replacement: 'is '
+  description: Collapse repeated 'is'
+
+- pattern: 'is\s+is'
+  replacement: 'is '
+  description: Remove duplicate 'is'
+
+- pattern: 'are\s+is'
+  replacement: 'are '
+  description: Fix 'are is' to 'are'
+
+- pattern: 'to\s+to'
+  replacement: 'to '
+  description: Remove duplicate 'to'
+
+- pattern: '\s+or\s+or\s+'
+  replacement: ' or '
+  description: Remove duplicate 'or'
+
+- pattern: 'is\snot\sis'
+  replacement: 'is not'
+  description: Fix 'is not is' to 'is not'
+
+# Post-processing normalizations (applied after expression extraction)
+- pattern: 'param_param'
+  replacement: 'param'
+  description: Fix double-treated parameter prefix
+
+- pattern: '__'
+  replacement: '_'
+  description: Collapse double underscores

@@ -1,0 +1,258 @@
+# =============================================================================
+# Dafny SI Module: Logical Connectives
+# =============================================================================
+# SI terms for logical operators in Dafny specifications
+# =============================================================================
+
+# --- Conjunction ---
+- term: and
+  syntax:
+  - CC
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '&&'
+  note: 'Logical conjunction'
+
+- term: both
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '&&'
+  note: 'Correlative conjunction marker'
+
+- term: and also
+  syntax:
+  - CC
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '&&'
+
+# --- Disjunction ---
+- term: or
+  syntax:
+  - CC
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '||'
+  note: 'Logical disjunction'
+
+- term: either
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '||'
+  note: 'Correlative disjunction marker'
+
+# --- Implication ---
+- term: if
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '==>'
+  note: 'Logical implication (antecedent marker)'
+
+- term: implies
+  syntax:
+  - VBZ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '==>'
+
+- term: then
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '==>'
+  note: 'Implication consequent marker'
+
+- term: otherwise
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'else'
+  note: 'Conditional else marker'
+
+# --- Biconditional ---
+- term: if and only if
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '<==>'
+  note: 'Logical biconditional'
+
+- term: if and only
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '<==>'
+
+- term: exactly when
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '<==>'
+
+# --- Negation ---
+- term: it is not the case that
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '!'
+  note: 'Propositional negation'
+
+- term: not
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '!'
+
+# --- Universal ---
+- term: for every
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'forall'
+  note: 'Universal quantifier'
+
+- term: for all
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'forall'
+
+- term: for each
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'forall'
+
+# --- Existential ---
+- term: there exists
+  syntax:
+  - EX
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'exists'
+  note: 'Existential quantifier'
+
+- term: there exist
+  syntax:
+  - EX
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'exists'
+
+- term: there is at least one
+  syntax:
+  - EX
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'exists'
+
+# --- Unique Existential ---
+- term: exactly one
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'exists!'
+  note: 'Unique existential quantifier'
+
+# --- Guard/Restriction ---
+- term: such that
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '::'
+  note: 'Quantifier guard/restriction marker'
+
+- term: satisfying
+  syntax:
+  - VBG
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '::'
+  note: 'Synonym for such that'

@@ -1,0 +1,68 @@
+problem: s0001_two_sum
+method: twoSum
+total_annotations: 14
+requires_count: 5
+ensures_count: 9
+original_contract_count: 6
+annotations:
+- id: 0
+  type: requires
+  nl: The length of the integer array parameter `numbers` is greater than or equal
+    to 2 and is less than or equal to 10000.
+  original_contract: 2 <= numbers.Length <= 10000
+- id: 1
+  type: requires
+  nl: All values in the integer array parameter `numbers` are greater than or equal
+    to -1000000000 and are less than or equal to 1000000000.
+  original_contract: 'forall i: nat :: i < numbers.Length ==> -1000000000 <= numbers[i]
+    <= 1000000000'
+- id: 2
+  type: requires
+  nl: The integer parameter `target` is greater than or equal to -1000000000 and is
+    less than or equal to 1000000000.
+  original_contract: -1000000000 <= target <= 1000000000
+- id: 3
+  type: requires
+  nl: The integer array parameter `numbers` is not equal to the null literal.
+  original_contract: result.Length == 2
+- id: 4
+  type: requires
+  nl: Exactly one pair of distinct indices exists in the integer array parameter `numbers`
+    whose corresponding values sum to the integer parameter `target`.
+  original_contract: 0 <= result[0] < result[1] < numbers.Length
+- id: 5
+  type: ensures
+  nl: The integer array result is not equal to the null literal.
+  original_contract: numbers[result[0]] + numbers[result[1]] == target
+- id: 6
+  type: ensures
+  nl: The length of the integer array result is equal to 2.
+- id: 7
+  type: ensures
+  nl: The first value of the integer array result is not equal to the second value
+    of the integer array result.
+- id: 8
+  type: ensures
+  nl: Both values in the integer array result are greater than or equal to 0 and are
+    less than the length of the integer array parameter `numbers`.
+- id: 9
+  type: ensures
+  nl: All values in the integer array result are unique.
+- id: 10
+  type: ensures
+  nl: The sum between the value at the index equal to the first value of the integer
+    array result of the integer array parameter `numbers` and the value at the index
+    equal to the second value of the integer array result of the integer array parameter
+    `numbers` is equal to the integer parameter `target`.
+- id: 11
+  type: ensures
+  nl: If the integer array parameter `numbers` is equal to [2,7,11,15] and the integer
+    parameter `target` is equal to 9, the integer array result is equal to [0,1].
+- id: 12
+  type: ensures
+  nl: If the integer array parameter `numbers` is equal to [3,2,4] and the integer
+    parameter `target` is equal to 6, the integer array result is equal to [1,2].
+- id: 13
+  type: ensures
+  nl: If the integer array parameter `numbers` is equal to [3,3] and the integer parameter
+    `target` is equal to 6, the integer array result is equal to [0,1].

@@ -1,0 +1,5 @@
+- The integer parameter `n` is greater than or equal to 0 and is less than or equal to 1000000000.
+- The integer result is greater than or equal to 0.
+- The integer result is equal to the total number of digit 1 appearing in all non-negative integers less than or equal to the integer parameter `n`.
+- If the integer parameter `n` is equal to 13, the integer result is equal to 6.
+- If the integer parameter `n` is equal to 0, the integer result is equal to 0.

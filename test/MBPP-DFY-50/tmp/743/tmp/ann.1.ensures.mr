@@ -1,0 +1,1 @@
+exists x01.(exists x02.(_return{VBG}(x02) & Rel(x01,x02)) & _sequence{NN}(x01) & _length{NN}(x01) & exists x03.(_same{JJ}(x03) & (x01 = x03)))

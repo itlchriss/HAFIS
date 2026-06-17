@@ -1,0 +1,1 @@
+The returning's length string is the same as the string's length.

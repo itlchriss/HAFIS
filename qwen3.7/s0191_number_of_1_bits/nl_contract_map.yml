@@ -1,0 +1,33 @@
+problem: s0191_number_of_1_bits
+method: hammingWeight
+total_annotations: 6
+requires_count: 1
+ensures_count: 5
+original_contract_count: 3
+annotations:
+- id: 0
+  type: requires
+  nl: The integer parameter `n` is a 32-bit binary string.
+  original_contract: -2147483648 <= n <= 2147483647
+- id: 1
+  type: ensures
+  nl: The integer result is greater than or equal to 0 and is less than or equal to
+    32.
+  original_contract: result >= 0
+- id: 2
+  type: ensures
+  nl: The integer result is equal to the number of '1' bits in the binary representation
+    of the integer parameter `n`.
+  original_contract: n >= 0 ==> result == countSetBits(n, 32)
+- id: 3
+  type: ensures
+  nl: If the integer parameter `n` is equal to 11, the integer result is equal to
+    3.
+- id: 4
+  type: ensures
+  nl: If the integer parameter `n` is equal to 128, the integer result is equal to
+    1.
+- id: 5
+  type: ensures
+  nl: If the integer parameter `n` is equal to 4294967293, the integer result is equal
+    to 31.

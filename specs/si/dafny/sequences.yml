@@ -1,0 +1,145 @@
+# =============================================================================
+# Dafny SI Module: Sequence Operations
+# =============================================================================
+# SI terms for Dafny sequence (seq) operations
+# =============================================================================
+
+# --- Sequence Length ---
+- term: the length of the string
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '|'
+  note: 'String length: |s|'
+
+- term: the length of the sequence
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '|'
+
+# --- Subsequence ---
+- term: the subsequence from index
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'seq'
+  interpretation: '[..]'
+  note: 'Subsequence extraction: s[i..j]'
+
+- term: to index
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '..'
+
+# --- Sequence Concatenation ---
+- term: the concatenation of the string
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'string'
+    reference_type: 'undefined'
+  interpretation: '+'
+  note: 'String concatenation: s + t'
+
+- term: the concatenation of the sequence
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'seq'
+  interpretation: '+'
+
+- term: concatenated with
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'seq'
+  interpretation: '+'
+
+# --- Empty Sequence ---
+- term: the empty string
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'string'
+    reference_type: 'undefined'
+  interpretation: '""'
+  note: 'Empty string literal'
+
+- term: the empty integer sequence
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'seq'
+  interpretation: '[]'
+
+- term: the empty character sequence
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'seq'
+  interpretation: '[]'
+
+# --- Contains (substring) ---
+- term: contains the substring
+  syntax:
+  - VBZ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'contains'
+
+# --- Sequence prefix/suffix ---
+- term: is a prefix of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'prefix'
+
+- term: is a suffix of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'suffix'

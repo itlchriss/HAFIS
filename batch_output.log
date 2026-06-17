@@ -1,0 +1,159 @@
+==========================================
+Processing: s0001_two_sum
+==========================================
+  Total: 7, Translated: 5, Failed: 8
+  Status: output_generated
+
+==========================================
+Processing: s0007_reverse_integer
+==========================================
+  Total: 6, Translated: 4, Failed: 9
+  Status: output_generated
+
+==========================================
+Processing: s0008_string_to_integer_atoi
+==========================================
+  Total: 8, Translated: 1, Failed: 24
+  Status: output_generated
+
+==========================================
+Processing: s0020_valid_parentheses
+==========================================
+  Total: 8, Translated: 1, Failed: 23
+  Status: output_generated
+
+==========================================
+Processing: s0026_remove_duplicates_from_sorted_array
+==========================================
+  Total: 6, Translated: 3, Failed: 11
+  Status: output_generated
+
+==========================================
+Processing: s0028_find_the_index_of_the_first_occurrence_in_a_string
+==========================================
+  Total: 6, Translated: 3, Failed: 9
+  Status: output_generated
+
+==========================================
+Processing: s0032_longest_valid_parentheses
+==========================================
+  Total: 6, Translated: 2, Failed: 13
+  Status: output_generated
+
+==========================================
+Processing: s0033_search_in_rotated_sorted_array
+==========================================
+  Total: 7, Translated: 4, Failed: 11
+  Status: output_generated
+
+==========================================
+Processing: s0035_search_insert_position
+==========================================
+  Total: 10, Translated: 3, Failed: 22
+  Status: output_generated
+
+==========================================
+Processing: s0044_wildcard_matching
+==========================================
+  Total: 5, Translated: 1, Failed: 14
+  Status: output_generated
+
+==========================================
+Processing: s0045_jump_game_ii
+==========================================
+  Total: 5, Translated: 3, Failed: 8
+  Status: output_generated
+
+==========================================
+Processing: s0053_maximum_subarray
+==========================================
+  Total: 6, Translated: 3, Failed: 11
+  Status: output_generated
+
+==========================================
+Processing: s0055_jump_game
+==========================================
+  Total: 4, Translated: 2, Failed: 8
+  Status: output_generated
+
+==========================================
+Processing: s0058_length_of_last_word
+==========================================
+  Total: 7, Translated: 1, Failed: 20
+  Status: output_generated
+
+==========================================
+Processing: s0065_valid_number
+==========================================
+  Total: 7, Translated: 1, Failed: 21
+  Status: output_generated
+
+==========================================
+Processing: s0066_plus_one
+==========================================
+  Total: 6, Translated: 2, Failed: 14
+  Status: output_generated
+
+==========================================
+Processing: s0067_add_binary
+==========================================
+  Total: 7, Translated: 1, Failed: 19
+  Status: output_generated
+
+==========================================
+Processing: s0072_edit_distance
+==========================================
+  Total: 6, Translated: 1, Failed: 16
+  Status: output_generated
+
+==========================================
+Processing: s0091_decode_ways
+==========================================
+  Total: 7, Translated: 2, Failed: 17
+  Status: output_generated
+
+==========================================
+Processing: s0128_longest_consecutive_sequence
+==========================================
+  Total: 5, Translated: 2, Failed: 10
+  Status: output_generated
+
+==========================================
+Processing: s0134_gas_station
+==========================================
+  Total: 5, Translated: 1, Failed: 15
+  Status: output_generated
+
+==========================================
+Processing: s0152_maximum_product_subarray
+==========================================
+  Total: 5, Translated: 3, Failed: 8
+  Status: output_generated
+
+==========================================
+Processing: s0164_maximum_gap
+==========================================
+  Total: 5, Translated: 2, Failed: 11
+  Status: output_generated
+
+==========================================
+Processing: s0168_excel_sheet_column_title
+==========================================
+  Total: 6, Translated: 3, Failed: 12
+  Status: output_generated
+
+==========================================
+Processing: s0171_excel_sheet_column_number
+==========================================
+  Total: 6, Translated: 2, Failed: 14
+  Status: output_generated
+
+==========================================
+Processing: s0191_number_of_1_bits
+==========================================
+  Total: 5, Translated: 4, Failed: 6
+  Status: output_generated
+
+==========================================
+Processing: s0198_house_robber
+==========================================

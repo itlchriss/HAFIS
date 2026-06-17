@@ -1,0 +1,9 @@
+- The length of the string parameter `s` is greater than or equal to 1 and is less than or equal to 300000.
+- The string parameter `s` consists of integers and operators '+' and '-' and '*' and '/' separated by spaces.
+- The string parameter `s` is a valid expression.
+- The string parameter `s` is not equal to the null literal.
+- The integer result is greater than or equal to -2147483648 and is less than or equal to 2147483647.
+- The integer result is the value of the expression represented by the string parameter `s`.
+- If the string parameter `s` is equal to "3+2*2", the integer result is equal to 7.
+- If the string parameter `s` is equal to " 3/2 ", the integer result is equal to 1.
+- If the string parameter `s` is equal to " 3+5 / 2 ", the integer result is equal to 5.

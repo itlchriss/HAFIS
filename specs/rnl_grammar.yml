@@ -1,0 +1,638 @@
+# =============================================================================
+# RNL (Restricted Natural Language) Grammar Specification v1.0
+# =============================================================================
+# Formal grammar defining all valid RNL sentence patterns.
+# Each pattern maps to a Dafny construct and specifies:
+#   - The NL template (with typed placeholders)
+#   - The corresponding Dafny expression
+#   - Category (precondition, postcondition, invariant, etc.)
+#   - Example sentences
+#
+# Placeholder conventions:
+#   {type}       - Java/Dafny type: integer, boolean, string, character,
+#                  integer array, string, nat, set, seq, multiset, map
+#   {name}       - Parameter or variable name in backticks
+#   {var}        - Bound variable name in backticks
+#   {expr}       - An RNL expression (nested pattern)
+#   {constraint} - A boolean-valued RNL expression
+#   {int}        - An integer literal
+#   {string}     - A string literal in quotes
+# =============================================================================
+
+# =============================================================================
+# CATEGORY A: Method Specification Constructors
+# =============================================================================
+
+- id: RNL-A01
+  category: precondition
+  dafny: 'requires P'
+  pattern: 'The {type} parameter `{name}` {constraint}.'
+  example: 'The integer array parameter `nums` is not equal to the null literal.'
+
+- id: RNL-A02
+  category: precondition
+  dafny: 'requires P'
+  pattern: 'The {type} result {constraint}.'
+  example: 'The integer result is greater than or equal to 0.'
+
+- id: RNL-A03
+  category: postcondition
+  dafny: 'ensures P'
+  pattern: 'The {type} result {constraint}.'
+  example: 'The integer array result is not equal to the null literal.'
+
+- id: RNL-A04
+  category: postcondition
+  dafny: 'ensures P'
+  pattern: 'The length of the {type} result {constraint}.'
+  example: 'The length of the integer array result is equal to 2.'
+
+- id: RNL-A05
+  category: modifies_clause
+  dafny: 'modifies x'
+  pattern: 'The method may modify the {type} parameter `{name}`.'
+  example: 'The method may modify the integer array parameter `nums`.'
+
+- id: RNL-A06
+  category: reads_clause
+  dafny: 'reads x'
+  pattern: 'The function reads the {type} parameter `{name}`.'
+  example: 'The function reads the integer array parameter `nums`.'
+
+- id: RNL-A07
+  category: decreases_clause
+  dafny: 'decreases x'
+  pattern: 'The termination metric is the {constraint}.'
+  example: 'The termination metric is the difference between the length of the integer array parameter `nums` and the integer parameter `i`.'
+
+# =============================================================================
+# CATEGORY B: Logical Connectives
+# =============================================================================
+
+- id: RNL-B01
+  category: conjunction
+  dafny: 'P && Q'
+  pattern: '{expr1} and {expr2}.'
+  example: 'The integer parameter `n` is greater than 0 and the boolean result is equal to the true literal.'
+
+- id: RNL-B02
+  category: disjunction
+  dafny: 'P || Q'
+  pattern: '{expr1} or {expr2}.'
+  example: 'The integer result is equal to -1 or the integer result is greater than or equal to 0.'
+
+- id: RNL-B03
+  category: implication
+  dafny: 'P ==> Q'
+  pattern: 'If {condition}, {consequence}.'
+  example: 'If the integer parameter `n` is less than or equal to 0, the boolean result is equal to the false literal.'
+
+- id: RNL-B04
+  category: biconditional
+  dafny: 'P <==> Q'
+  pattern: '{expr1} if and only if {expr2}.'
+  example: 'The boolean result is equal to the true literal if and only if there exists a non-negative integer `x` such that the integer parameter `n` is equal to 2 raised to the power of the non-negative integer `x`.'
+
+- id: RNL-B05
+  category: negation
+  dafny: '!P'
+  pattern: 'It is not the case that {expr}.'
+  example: 'It is not the case that there exists a non-negative integer `x` such that the integer parameter `n` is equal to 2 raised to the power of the non-negative integer `x`.'
+
+- id: RNL-B06
+  category: negation_universal
+  dafny: '!exists x :: P(x)'
+  pattern: 'No {type} {var} satisfies {constraint}.'
+  example: 'No non-negative integer `x` satisfies the integer parameter `n` is equal to 2 raised to the power of the non-negative integer `x`.'
+
+# =============================================================================
+# CATEGORY C: Quantifiers
+# =============================================================================
+
+- id: RNL-C01
+  category: universal
+  dafny: 'forall x :: P(x)'
+  pattern: 'For every {type} `{var}`, {constraint}.'
+  example: 'For every non-negative integer `i`, the value at index `i` of the integer array parameter `nums` is greater than or equal to 0.'
+
+- id: RNL-C02
+  category: universal_restricted
+  dafny: 'forall x :: P(x) ==> Q(x)'
+  pattern: 'For every {type} `{var}` such that {guard}, {constraint}.'
+  example: 'For every non-negative integer `i` such that `i` is less than the length of the integer array parameter `nums`, the value at index `i` of the integer array parameter `nums` is greater than or equal to -1000000000.'
+
+- id: RNL-C03
+  category: universal_range
+  dafny: 'forall x :: 0 <= x < N ==> P(x)'
+  pattern: 'For every non-negative integer `{var}` that is less than {bound}, {constraint}.'
+  example: 'For every non-negative integer `k` that is less than the integer result, the value at index `k` of the integer array parameter `nums` is strictly less than the integer parameter `target`.'
+
+- id: RNL-C04
+  category: existential
+  dafny: 'exists x :: P(x)'
+  pattern: 'There exists a {type} `{var}` such that {constraint}.'
+  example: 'There exists a non-negative integer `x` such that the integer parameter `n` is equal to 2 raised to the power of the non-negative integer `x`.'
+
+- id: RNL-C05
+  category: existential_multi
+  dafny: 'exists x, y :: P(x,y)'
+  pattern: 'There exist a {type1} `{var1}` and a {type2} `{var2}` such that {constraint}.'
+  example: 'There exist a non-negative integer `i` and a non-negative integer `j` such that `i` is less than `j` and the value at index `i` of the integer array parameter `nums` is equal to the value at index `j` of the integer array parameter `nums`.'
+
+- id: RNL-C06
+  category: unique_existential
+  dafny: 'exists! x :: P(x)'
+  pattern: 'Exactly one {type} `{var}` exists such that {constraint}.'
+  example: 'Exactly one pair of distinct indices exists in the integer array parameter `numbers` whose corresponding values sum to the integer parameter `target`.'
+
+- id: RNL-C07
+  category: universal_pair
+  dafny: 'forall i, j :: P(i,j)'
+  pattern: 'For every {type} `{var1}` and every {type} `{var2}`, {constraint}.'
+  example: 'For every non-negative integer `i` and every non-negative integer `j`, if `i` is less than `j` then the value at index `i` of the integer array parameter `nums` is less than or equal to the value at index `j` of the integer array parameter `nums`.'
+
+- id: RNL-C08
+  category: universal_all_values
+  dafny: 'forall i :: 0 <= i < a.Length ==> P(a[i])'
+  pattern: 'All values in the {type} {name} {constraint}.'
+  example: 'All values in the integer array parameter `nums` are greater than or equal to 0.'
+
+- id: RNL-C09
+  category: set_universal
+  dafny: 'forall x :: x in S ==> P(x)'
+  pattern: 'For every element `{var}` contained in the set `{name}`, {constraint}.'
+  example: 'For every element `i` contained in the set `chosen`, `i` is less than the length of the integer array parameter `nums`.'
+
+# =============================================================================
+# CATEGORY D: Type Declarations
+# =============================================================================
+
+- id: RNL-D01
+  category: type_int
+  dafny: 'int'
+  pattern: 'integer'
+  example: 'the integer parameter `n`'
+
+- id: RNL-D02
+  category: type_nat
+  dafny: 'nat'
+  pattern: 'non-negative integer'
+  example: 'the non-negative integer `i`'
+
+- id: RNL-D03
+  category: type_bool
+  dafny: 'bool'
+  pattern: 'boolean'
+  example: 'the boolean result'
+
+- id: RNL-D04
+  category: type_set
+  dafny: 'set<T>'
+  pattern: '{type} set'
+  example: 'the non-negative integer set `chosen`'
+
+- id: RNL-D05
+  category: type_seq
+  dafny: 'seq<T>'
+  pattern: '{type} sequence'
+  example: 'the integer sequence `s`'
+
+- id: RNL-D06
+  category: type_multiset
+  dafny: 'multiset<T>'
+  pattern: '{type} multiset'
+  example: 'the character multiset `m`'
+
+- id: RNL-D07
+  category: type_map
+  dafny: 'map<K,V>'
+  pattern: 'map from {key_type} to {value_type}'
+  example: 'the map from integer to integer `counts`'
+
+- id: RNL-D08
+  category: type_array
+  dafny: 'array<T>'
+  pattern: '{type} array'
+  example: 'the integer array parameter `nums`'
+
+# =============================================================================
+# CATEGORY E: Set/Multiset Operations
+# =============================================================================
+
+- id: RNL-E01
+  category: set_membership
+  dafny: 'x in S'
+  pattern: '{expr} is contained in the set `{name}`.'
+  example: 'the non-negative integer `i` is contained in the set `chosen`.'
+
+- id: RNL-E02
+  category: set_non_membership
+  dafny: 'x !in S'
+  pattern: '{expr} is not contained in the set `{name}`.'
+  example: 'the non-negative integer `j` is not contained in the set `chosen`.'
+
+- id: RNL-E03
+  category: set_cardinality
+  dafny: '|S|'
+  pattern: 'the cardinality of the set `{name}`'
+  example: 'the cardinality of the set `chosen` is greater than or equal to 1.'
+
+- id: RNL-E04
+  category: empty_set
+  dafny: '{}'
+  pattern: 'the empty set'
+  example: 'If the set `s` is equal to the empty set, the integer result is equal to 0.'
+
+- id: RNL-E05
+  category: set_difference
+  dafny: 'S - {x}'
+  pattern: 'the set `{name}` minus the singleton set containing {expr}'
+  example: 'the set `chosen` minus the singleton set containing the non-negative integer `i`.'
+
+- id: RNL-E06
+  category: set_comprehension
+  dafny: 'set x :: P(x)'
+  pattern: 'the set of all {type} `{var}` such that {constraint}'
+  example: 'the set of all non-negative integers `i` such that `i` is less than the length of the integer array parameter `nums` and the value at index `i` of the integer array parameter `nums` is greater than 0.'
+
+- id: RNL-E07
+  category: subset
+  dafny: 'S <= T'
+  pattern: 'the set `{name1}` is a subset of the set `{name2}`.'
+  example: 'the set `chosen` is a subset of the set `valid`.'
+
+- id: RNL-E08
+  category: set_union
+  dafny: 'S + T'
+  pattern: 'the union of the set `{name1}` and the set `{name2}`'
+  example: 'the union of the set `s1` and the set `s2`.'
+
+- id: RNL-E09
+  category: set_intersection
+  dafny: 'S * T'
+  pattern: 'the intersection of the set `{name1}` and the set `{name2}`'
+  example: 'the intersection of the set `s1` and the set `s2`.'
+
+- id: RNL-E10
+  category: singleton_set
+  dafny: '{x}'
+  pattern: 'the singleton set containing {expr}'
+  example: 'the singleton set containing the non-negative integer `i`.'
+
+- id: RNL-E11
+  category: multiset_from_seq
+  dafny: 'multiset(s)'
+  pattern: 'the multiset formed from the {type} `{name}`'
+  example: 'the multiset formed from the integer sequence `nums`.'
+
+- id: RNL-E12
+  category: multiset_count
+  dafny: 'm(x)'
+  pattern: 'the count of {expr} in the multiset `{name}`'
+  example: 'the count of the character `a` in the character multiset `m`.'
+
+# =============================================================================
+# CATEGORY F: Sequence Operations
+# =============================================================================
+
+- id: RNL-F01
+  category: sequence_length
+  dafny: '|s|'
+  pattern: 'the length of the {type} `{name}`'
+  example: 'the length of the string parameter `s`.'
+
+- id: RNL-F02
+  category: sequence_index
+  dafny: 's[i]'
+  pattern: 'the element at index {expr} of the {type} `{name}`'
+  example: 'the element at index `i` of the integer sequence `nums`.'
+
+- id: RNL-F03
+  category: subsequence
+  dafny: 's[i..j]'
+  pattern: 'the subsequence from index {expr1} to index {expr2} of the {type} `{name}`'
+  example: 'the subsequence from index 0 to index `k` of the string parameter `s`.'
+
+- id: RNL-F04
+  category: sequence_concatenation
+  dafny: 's + t'
+  pattern: 'the concatenation of the {type} `{name1}` and the {type} `{name2}`'
+  example: 'the concatenation of the string parameter `a` and the string parameter `b`.'
+
+- id: RNL-F05
+  category: empty_sequence
+  dafny: '[]'
+  pattern: 'the empty {type} sequence'
+  example: 'the empty integer sequence.'
+
+# =============================================================================
+# CATEGORY G: Arithmetic Operations
+# =============================================================================
+
+- id: RNL-G01
+  category: addition
+  dafny: 'a + b'
+  pattern: 'the sum of {expr1} and {expr2}'
+  example: 'the sum of the value at index `i` of the integer array parameter `nums` and the value at index `j` of the integer array parameter `nums`.'
+
+- id: RNL-G02
+  category: subtraction
+  dafny: 'a - b'
+  pattern: 'the difference between {expr1} and {expr2}'
+  example: 'the difference between the length of the integer array parameter `nums` and the integer parameter `i`.'
+
+- id: RNL-G03
+  category: multiplication
+  dafny: 'a * b'
+  pattern: 'the product of {expr1} and {expr2}'
+  example: 'the product of the integer parameter `x` and the integer parameter `y`.'
+
+- id: RNL-G04
+  category: division
+  dafny: 'a / b'
+  pattern: 'the quotient of {expr1} divided by {expr2}'
+  example: 'the quotient of the integer parameter `n` divided by 2.'
+
+- id: RNL-G05
+  category: modulo
+  dafny: 'a % b'
+  pattern: 'the remainder of {expr1} divided by {expr2}'
+  example: 'the remainder of the integer parameter `n` divided by 4.'
+
+- id: RNL-G06
+  category: exponentiation
+  dafny: 'pow(base, exp)'
+  pattern: '{base} raised to the power of {expr}'
+  example: '2 raised to the power of the non-negative integer `x`.'
+
+- id: RNL-G07
+  category: absolute_value
+  dafny: 'abs(x)'
+  pattern: 'the absolute value of {expr}'
+  example: 'the absolute value of the integer parameter `n`.'
+
+- id: RNL-G08
+  category: summation
+  dafny: 'sum set'
+  pattern: 'the sum of {expr} over all elements in the set `{name}`'
+  example: 'the sum of the value at index `i` of the integer array parameter `nums` over all elements `i` in the set `chosen`.'
+
+# =============================================================================
+# CATEGORY H: Ghost/Proof Constructs
+# =============================================================================
+
+- id: RNL-H01
+  category: ghost_variable
+  dafny: 'ghost var x: T := E'
+  pattern: 'Let the ghost {type} variable `{name}` be defined as {expr}.'
+  example: 'Let the ghost integer variable `acc` be defined as 0.'
+
+- id: RNL-H02
+  category: ghost_function
+  dafny: 'ghost function f(x: T): U'
+  pattern: 'Define the ghost function `{name}` mapping {type1} to {type2} such that {spec}.'
+  example: 'Define the ghost function `sumSet` mapping integer array and non-negative integer set to integer such that if the set is equal to the empty set the result is 0 otherwise the result is the sum of the value at index `i` of the integer array over all elements `i` in the set.'
+
+- id: RNL-H03
+  category: function_def
+  dafny: 'function f(x: T): U'
+  pattern: 'Define the function `{name}` mapping {type1} to {type2} such that {spec}.'
+  example: 'Define the function `sumRange` mapping integer array and non-negative integer and non-negative integer to integer such that the result is the sum of the values at indices from `lo` to `hi` of the integer array.'
+
+- id: RNL-H04
+  category: loop_invariant
+  dafny: 'invariant P'
+  pattern: 'The loop invariant is {constraint}.'
+  example: 'The loop invariant is the integer variable `lo` is greater than or equal to 0 and the integer variable `hi` is less than the length of the integer array parameter `nums`.'
+
+- id: RNL-H05
+  category: assertion
+  dafny: 'assert P'
+  pattern: 'It holds that {constraint}.'
+  example: 'It holds that the integer variable `m` is equal to 1.'
+
+- id: RNL-H06
+  category: lemma
+  dafny: 'lemma L(x: T)'
+  pattern: 'Lemma `{name}`: For every {type} `{var}`, {property}.'
+  example: 'Lemma `pow2_positive`: For every non-negative integer `x`, 2 raised to the power of `x` is greater than 0.'
+
+- id: RNL-H07
+  category: decreases
+  dafny: 'decreases x'
+  pattern: 'The termination metric for the function `{name}` is {expr}.'
+  example: 'The termination metric for the function `sumAllHelper` is the difference between the length of the integer array parameter `nums` and the integer parameter `i`.'
+
+# =============================================================================
+# CATEGORY I: Expression Constructs
+# =============================================================================
+
+- id: RNL-I01
+  category: conditional_expr
+  dafny: 'if P then E1 else E2'
+  pattern: 'If {condition} then {expr1} otherwise {expr2}.'
+  example: 'If the integer parameter `i` is greater than or equal to the length of the integer array parameter `nums` then 0 otherwise the value at index `i` of the integer array parameter `nums`.'
+
+- id: RNL-I02
+  category: let_binding
+  dafny: 'var x := E; ...'
+  pattern: 'Let `{name}` be {expr}. Then {rest}.'
+  example: 'Let `mid` be the quotient of the sum of the integer variable `lo` and the integer variable `hi` divided by 2. Then the value at index `mid` of the integer array parameter `nums` is equal to the integer parameter `target`.'
+
+- id: RNL-I03
+  category: pre_state_value
+  dafny: '\old(E)'
+  pattern: 'the pre-state value of {expr}'
+  example: 'the pre-state value of the integer array parameter `nums` is equal to the integer array parameter `nums`.'
+
+- id: RNL-I04
+  category: array_length
+  dafny: 'a.Length'
+  pattern: 'the length of the {type} `{name}`'
+  example: 'the length of the integer array parameter `nums`.'
+
+- id: RNL-I05
+  category: array_index
+  dafny: 'a[i]'
+  pattern: 'the value at index {expr} of the {type} `{name}`'
+  example: 'the value at index `i` of the integer array parameter `nums`.'
+
+- id: RNL-I06
+  category: string_length
+  dafny: '|s|'
+  pattern: 'the length of the string `{name}`'
+  example: 'the length of the string parameter `s`.'
+
+- id: RNL-I07
+  category: char_at
+  dafny: 's[i]'
+  pattern: 'the character at index {expr} of the string `{name}`'
+  example: 'the character at index `i` of the string parameter `s`.'
+
+# =============================================================================
+# CATEGORY J: Comparison and Equality
+# =============================================================================
+
+- id: RNL-J01
+  category: equality
+  dafny: 'a == b'
+  pattern: '{expr1} is equal to {expr2}.'
+  example: 'The integer result is equal to 0.'
+
+- id: RNL-J02
+  category: inequality
+  dafny: 'a != b'
+  pattern: '{expr1} is not equal to {expr2}.'
+  example: 'The integer result is not equal to -1.'
+
+- id: RNL-J03
+  category: greater_equal
+  dafny: 'a >= b'
+  pattern: '{expr1} is greater than or equal to {expr2}.'
+  example: 'The integer result is greater than or equal to 0.'
+
+- id: RNL-J04
+  category: less_equal
+  dafny: 'a <= b'
+  pattern: '{expr1} is less than or equal to {expr2}.'
+  example: 'The integer result is less than or equal to the length of the integer array parameter `nums`.'
+
+- id: RNL-J05
+  category: greater
+  dafny: 'a > b'
+  pattern: '{expr1} is greater than {expr2}.'
+  example: 'The integer parameter `n` is greater than 0.'
+
+- id: RNL-J06
+  category: less
+  dafny: 'a < b'
+  pattern: '{expr1} is less than {expr2}.'
+  example: 'The non-negative integer `i` is less than the length of the integer array parameter `nums`.'
+
+- id: RNL-J07
+  category: null_literal
+  dafny: 'null'
+  pattern: 'the null literal'
+  example: 'The integer array parameter `nums` is not equal to the null literal.'
+
+- id: RNL-J08
+  category: true_literal
+  dafny: 'true'
+  pattern: 'the true literal'
+  example: 'The boolean result is equal to the true literal.'
+
+- id: RNL-J09
+  category: false_literal
+  dafny: 'false'
+  pattern: 'the false literal'
+  example: 'The boolean result is equal to the false literal.'
+
+# =============================================================================
+# CATEGORY K: Structural Properties
+# =============================================================================
+
+- id: RNL-K01
+  category: sorted_ascending
+  dafny: 'forall i,j :: i < j ==> a[i] <= a[j]'
+  pattern: 'The {type} `{name}` is sorted in ascending order.'
+  example: 'The integer array parameter `nums` is sorted in ascending order.'
+
+- id: RNL-K02
+  category: sorted_descending
+  dafny: 'forall i,j :: i < j ==> a[i] >= a[j]'
+  pattern: 'The {type} `{name}` is sorted in descending order.'
+  example: 'The integer array parameter `nums` is sorted in descending order.'
+
+- id: RNL-K03
+  category: unique_values
+  dafny: 'forall i,j :: i != j ==> a[i] != a[j]'
+  pattern: 'All values in the {type} `{name}` are unique.'
+  example: 'All values in the integer array parameter `nums` are unique.'
+
+- id: RNL-K04
+  category: empty_array
+  dafny: 'a.Length == 0'
+  pattern: 'The {type} `{name}` is empty.'
+  example: 'The integer array parameter `nums` is empty.'
+
+- id: RNL-K05
+  category: non_null
+  dafny: 'x != null'
+  pattern: 'The {type} `{name}` is not equal to the null literal.'
+  example: 'The integer array parameter `nums` is not equal to the null literal.'
+
+# =============================================================================
+# CATEGORY L: Optimization Patterns
+# =============================================================================
+
+- id: RNL-L01
+  category: maximum
+  dafny: 'result == max(...)'
+  pattern: 'The integer result is the maximum {property}.'
+  example: 'The integer result is the maximum sum of a subset of non-adjacent elements in the integer array parameter `nums`.'
+
+- id: RNL-L02
+  category: minimum
+  dafny: 'result == min(...)'
+  pattern: 'The integer result is the minimum {property}.'
+  example: 'The integer result is the minimum number of jumps to reach the last index.'
+
+- id: RNL-L03
+  category: maximum_set
+  dafny: 'exists S :: result == f(S) && forall T :: f(T) <= result'
+  pattern: 'The integer result is equal to the maximum value of {expr} over all {type} `{var}` such that {constraint}.'
+  example: 'The integer result is equal to the maximum value of the sum of the values at indices in the set `chosen` of the integer array parameter `nums` over all non-negative integer sets `chosen` such that no two elements in `chosen` are adjacent.'
+
+# =============================================================================
+# CATEGORY M: Counting Patterns
+# =============================================================================
+
+- id: RNL-M01
+  category: counting
+  dafny: 'result == count(...)'
+  pattern: 'The integer result is equal to the total number of {structure} such that {constraint}.'
+  example: 'The integer result is equal to the total number of contiguous subarrays of the integer array parameter `nums` whose sum is equal to the integer parameter `k`.'
+
+- id: RNL-M02
+  category: cardinality_count
+  dafny: 'result == |S|'
+  pattern: 'The integer result is equal to the cardinality of the set of {structure} such that {constraint}.'
+  example: 'The integer result is equal to the cardinality of the set of all non-negative integers `i` such that `i` is less than the length of the string parameter `s` and the character at index `i` of the string parameter `s` appears exactly 1 time in the string parameter `s`.'
+
+# =============================================================================
+# CATEGORY N: Test Case / Example Patterns
+# =============================================================================
+
+- id: RNL-N01
+  category: test_case
+  dafny: 'N/A (examples)'
+  pattern: 'If the {type} parameter `{name}` is equal to {value}, {result_expr}.'
+  example: 'If the integer array parameter `nums` is equal to [1,2,3,4], the integer array result is equal to [24,12,8,6].'
+
+- id: RNL-N02
+  category: test_case_multi
+  dafny: 'N/A (examples)'
+  pattern: 'If the {type1} parameter `{name1}` is equal to {value1} and the {type2} parameter `{name2}` is equal to {value2}, {result_expr}.'
+  example: 'If the integer array parameter `numbers` is equal to [2,7,11,15] and the integer parameter `target` is equal to 9, the integer array result is equal to [0,1].'
+
+# =============================================================================
+# CATEGORY O: Range and Boundary Patterns
+# =============================================================================
+
+- id: RNL-O01
+  category: value_range
+  dafny: 'lo <= x <= hi'
+  pattern: '{expr} is greater than or equal to {lo} and is less than or equal to {hi}.'
+  example: 'The integer parameter `n` is greater than or equal to -2147483648 and is less than or equal to 2147483647.'
+
+- id: RNL-O02
+  category: all_values_range
+  dafny: 'forall i :: 0 <= i < a.Length ==> lo <= a[i] <= hi'
+  pattern: 'All values in the {type} `{name}` are greater than or equal to {lo} and are less than or equal to {hi}.'
+  example: 'All values in the integer array parameter `nums` are greater than or equal to -1000000000 and are less than or equal to 1000000000.'
+
+- id: RNL-O03
+  category: length_bound
+  dafny: 'lo <= a.Length <= hi'
+  pattern: 'The length of the {type} `{name}` is greater than or equal to {lo} and is less than or equal to {hi}.'
+  example: 'The length of the integer array parameter `nums` is greater than or equal to 1 and is less than or equal to 100.'

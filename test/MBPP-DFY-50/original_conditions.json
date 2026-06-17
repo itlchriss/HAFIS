@@ -1,0 +1,94 @@
+{
+  "807": {
+    "preconditions": [
+      "The input array should not be null"
+    ],
+    "postconditions": [
+      "If found is true, then the value at index is odd",
+      "If found is false, then there are no odd numbers in the array",
+      "If there are multiple odd numbers, the index should be the smallest index with an odd number"
+    ]
+  },
+  "760": {
+    "preconditions": [
+      "The input array should not be null"
+    ],
+    "postconditions": [
+      "If the method returns true, all elements in the array are equal",
+      "If the method returns false, there are at least two distinct elements in the array"
+    ]
+  },
+  "755": {
+    "preconditions": [
+      "The input array should not be null",
+      "The input array should have at least two elements"
+    ],
+    "postconditions": [
+      "The returned value should be the second-smallest number in the input array",
+      "The input array remains unchanged"
+    ]
+  },
+  "743": {
+    "preconditions": [
+      "n should be non-negative"
+    ],
+    "postconditions": [
+      "The length of the returning sequence must be the same as the length of the input sequence",
+      "The elements of the input sequence are rotated by n positions to the right in the output sequence"
+    ]
+  },
+  "732": {
+    "preconditions": [],
+    "postconditions": [
+      "The length of the returning string must be the same as the length of the input string",
+      "All occurrences of spaces, commas, or dots in the input string are replaced with colons in the output string",
+      "All other characters are unchanged"
+    ]
+  },
+  "616": {
+    "preconditions": [
+      "Both arrays should be non-null",
+      "Both arrays should have the same length",
+      "All elements in the second array (b) should be non-zero"
+    ],
+    "postconditions": [
+      "The length of the result array should be the same as the length of the input arrays",
+      "Each element in the result array should be the modulo of the corresponding elements in the input arrays"
+    ]
+  },
+  "741": {
+    "preconditions": [],
+    "postconditions": [
+      "If the result is true, all characters in the input string are the same",
+      "If the result is false, there is at least one character in the input string that is different from the others"
+    ]
+  },
+  "474": {
+    "preconditions": [],
+    "postconditions": [
+      "The length of the returning string must be the same as the length of the input string",
+      "All occurrences of oldChar in the input string are replaced with newChar in the output string",
+      "All other characters are unchanged"
+    ]
+  },
+  "733": {
+    "preconditions": [
+      "The input array is sorted in non-decreasing order"
+    ],
+    "postconditions": [
+      "If the target is found, the returned index should be the first occurrence of the target in the array",
+      "If the target is not found, the returned index should be -1",
+      "The input array remains unchanged"
+    ]
+  },
+  "644": {
+    "preconditions": [
+      "k should be between 0 and the length of the array"
+    ],
+    "postconditions": [
+      "The input array is modified",
+      "The values of the array up to k are reversed",
+      "The values of the array after k remain unchanged"
+    ]
+  }
+}

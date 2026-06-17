@@ -1,0 +1,239 @@
+# =============================================================================
+# Dafny SI Module: Ghost and Proof Constructs
+# =============================================================================
+# SI terms for ghost variables, ghost functions, lemmas,
+# loop invariants, assertions, and termination metrics
+# =============================================================================
+
+# --- Ghost Variable ---
+- term: ghost variable
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'ghost'
+  note: 'Ghost variable declaration'
+
+- term: let the ghost
+  syntax:
+  - VB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'ghost var'
+
+# --- Ghost Function ---
+- term: ghost function
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'ghost function'
+  note: 'Ghost function declaration'
+
+- term: define the ghost function
+  syntax:
+  - VB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'ghost function'
+
+# --- Function Definition ---
+- term: define the function
+  syntax:
+  - VB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'function'
+
+- term: the function
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'function'
+
+# --- Loop Invariant ---
+- term: the loop invariant is
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'invariant'
+  note: 'Loop invariant specification'
+
+- term: the invariant
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'invariant'
+
+# --- Assertion ---
+- term: it holds that
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'assert'
+  note: 'Assertion: assert P'
+
+- term: we can conclude that
+  syntax:
+  - VB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'assert'
+
+# --- Lemma ---
+- term: lemma
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'lemma'
+  note: 'Lemma specification'
+
+# --- Termination Metric ---
+- term: the termination metric is
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'decreases'
+  note: 'Termination metric / decreases clause'
+
+- term: the termination metric for the function
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'decreases'
+
+- term: decreases
+  syntax:
+  - VBZ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'decreases'
+
+# --- Reads Clause ---
+- term: the function reads
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'reads'
+  note: 'Function reads clause'
+
+# --- Modifies Clause ---
+- term: the method may modify
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'modifies'
+  note: 'Method modifies clause'
+
+# --- Pre-state Value ---
+- term: the pre-state value of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'old()'
+  note: 'Pre-state value: old(E)'
+
+# --- Conditional Expression ---
+- term: if
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'if'
+  note: 'Conditional expression: if P then E1 else E2'
+
+- term: then
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'then'
+
+# --- Let Binding ---
+- term: let
+  syntax:
+  - VB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'var'
+  note: 'Local variable binding'
+
+- term: be defined as
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: ':='

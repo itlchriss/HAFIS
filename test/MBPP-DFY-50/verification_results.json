@@ -1,0 +1,141 @@
+{
+  "807": {
+    "task_id": "807",
+    "status": "verified",
+    "verified": true,
+    "translated_requires": [],
+    "translated_ensures": [],
+    "removed_clauses": [
+      "requires a != null",
+      "ensures !found ==> forall i :: 0 <= i < a.Length ==> !IsOdd(a[i])",
+      "ensures found ==> 0 <= index < a.Length && IsOdd(a[index]) && forall i :: 0 <= i < index ==> !IsOdd(a[i])"
+    ],
+    "dafny_output": "\nDafny program verifier finished with 2 verified, 0 errors\n"
+  },
+  "760": {
+    "task_id": "760",
+    "status": "verified",
+    "verified": true,
+    "translated_requires": [],
+    "translated_ensures": [],
+    "removed_clauses": [
+      "requires a != null",
+      "ensures result ==> forall i, j :: 0 <= i < a.Length && 0 <= j < a.Length ==> a[i] == a[j]",
+      "ensures !result ==> exists i, j :: 0 <= i < a.Length && 0 <= j < a.Length && a[i] != a[j]"
+    ],
+    "dafny_output": "\nDafny program verifier finished with 1 verified, 0 errors\n"
+  },
+  "755": {
+    "task_id": "755",
+    "status": "verification_failed",
+    "verified": false,
+    "translated_requires": [],
+    "translated_ensures": [],
+    "removed_clauses": [
+      "requires |s| == 2",
+      "ensures s[0] <= s[1] <==> r == s[0]",
+      "ensures s[0] > s[1] ==> r == s[1]",
+      "requires |s| >= 2",
+      "ensures forall i :: 0 <= i < |s| ==> r <= s[i]",
+      "requires s.Length >= 2",
+      "requires exists i, j :: 0 <= i < s.Length && 0 <= j < s.Length && i != j && s[i] == min(s[..]) && s[j] != s[i]",
+      "ensures exists i, j :: 0 <= i < s.Length && 0 <= j < s.Length && i != j && s[i] == min(s[..]) && s[j] == secondSmallest",
+      "ensures forall k ::  0 <= k < s.Length && s[k] != min(s[..])  ==>  s[k] >= secondSmallest"
+    ],
+    "dafny_output": "test/MBPP-DFY-50/code_without_conditions/755_combined.dfy(3,8): Error: index out of range\n  |\n3 |     if s[0] <= s[1] then s[0] else s[1]\n  |         ^\n\ntest/MBPP-DFY-50/code_without_conditions/755_combined.dfy(3,16): Error: index out of range\n  |\n3 |     if s[0] <= s[1] then s[0] else s[1]\n  |                 ^\n\ntest/MBPP-DFY-50/code_without_conditions/755_combined.dfy(10,19): Error: index out of range\n   |\n10 |     else MinPair([s[0], min(s[1..])])\n   |                    ^\n\ntest/MBPP-DFY-50/code_without_conditions/755_combined.dfy(19,8): Error: index out of range\n   |\n19 |     if s[1] < s[0] {\n   |         ^\n\n\nDafny program verifier finished with 0 verified, 4 errors\n"
+  },
+  "743": {
+    "task_id": "743",
+    "status": "verified",
+    "verified": true,
+    "translated_requires": [],
+    "translated_ensures": [],
+    "removed_clauses": [
+      "requires n >= 0",
+      "ensures |r| == |l|",
+      "ensures forall i :: 0 <= i < |l| ==> r[i] == l[(i - n + |l|) % |l|]"
+    ],
+    "dafny_output": "\nDafny program verifier finished with 1 verified, 0 errors\n"
+  },
+  "732": {
+    "task_id": "732",
+    "status": "verified",
+    "verified": true,
+    "translated_requires": [],
+    "translated_ensures": [],
+    "removed_clauses": [
+      "ensures |v| == |s|",
+      "ensures forall i :: 0 <= i < |s| ==> (IsSpaceCommaDot(s[i]) ==> v[i] == ':') && (!IsSpaceCommaDot(s[i]) ==> v[i] == s[i])"
+    ],
+    "dafny_output": "\nDafny program verifier finished with 1 verified, 0 errors\n"
+  },
+  "616": {
+    "task_id": "616",
+    "status": "verification_failed",
+    "verified": false,
+    "translated_requires": [],
+    "translated_ensures": [],
+    "removed_clauses": [
+      "requires a != null && b != null",
+      "requires a.Length == b.Length",
+      "requires forall i :: 0 <= i < b.Length ==> b[i] != 0",
+      "ensures result != null",
+      "ensures result.Length == a.Length",
+      "ensures forall i :: 0 <= i < result.Length ==> result[i] == a[i] % b[i]"
+    ],
+    "dafny_output": "test/MBPP-DFY-50/code_without_conditions/616_combined.dfy(8,63): Error: possible division by zero\n  |\n8 |         invariant forall k :: 0 <= k < i ==> result[k] == a[k] % b[k]\n  |                                                                ^\n\ntest/MBPP-DFY-50/code_without_conditions/616_combined.dfy(8,66): Error: index out of range\n  |\n8 |         invariant forall k :: 0 <= k < i ==> result[k] == a[k] % b[k]\n  |                                                                   ^\n\ntest/MBPP-DFY-50/code_without_conditions/616_combined.dfy(10,26): Error: possible division by zero\n   |\n10 |         result[i] := a[i] % b[i];\n   |                           ^\n\ntest/MBPP-DFY-50/code_without_conditions/616_combined.dfy(10,29): Error: index out of range\n   |\n10 |         result[i] := a[i] % b[i];\n   |                              ^\n\n\nDafny program verifier finished with 0 verified, 4 errors\n"
+  },
+  "741": {
+    "task_id": "741",
+    "status": "verified",
+    "verified": true,
+    "translated_requires": [],
+    "translated_ensures": [],
+    "removed_clauses": [
+      "ensures result ==> forall i, j :: 0 <= i < |s| && 0 <= j < |s| ==> s[i] == s[j]",
+      "ensures !result ==> (|s| > 1) && (exists i, j :: 0 <= i < |s| && 0 <= j < |s| && i != j && s[i] != s[j])"
+    ],
+    "dafny_output": "\nDafny program verifier finished with 1 verified, 0 errors\n"
+  },
+  "474": {
+    "task_id": "474",
+    "status": "verified",
+    "verified": true,
+    "translated_requires": [],
+    "translated_ensures": [],
+    "removed_clauses": [
+      "ensures |v| == |s|",
+      "ensures forall i :: 0 <= i < |s| ==> (s[i] == oldChar ==> v[i] == newChar) && (s[i] != oldChar ==> v[i] == s[i])"
+    ],
+    "dafny_output": "\nDafny program verifier finished with 1 verified, 0 errors\n"
+  },
+  "733": {
+    "task_id": "733",
+    "status": "verified",
+    "verified": true,
+    "translated_requires": [],
+    "translated_ensures": [],
+    "removed_clauses": [
+      "requires arr != null",
+      "requires forall i, j :: 0 <= i < j < arr.Length ==> arr[i] <= arr[j]",
+      "ensures 0 <= index < arr.Length ==> arr[index] == target",
+      "ensures index == -1 ==> forall i :: 0 <= i < arr.Length ==> arr[i] != target",
+      "ensures forall i :: 0 <= i < arr.Length ==> arr[i] == old(arr[i])"
+    ],
+    "dafny_output": "\nDafny program verifier finished with 1 verified, 0 errors\n"
+  },
+  "644": {
+    "task_id": "644",
+    "status": "verification_failed",
+    "verified": false,
+    "translated_requires": [],
+    "translated_ensures": [],
+    "removed_clauses": [
+      "ensures forall k :: 0 <= k < a.Length ==> a[k] == old(a[(a.Length-1) - k]);",
+      "requires 2 <= k <= s.Length",
+      "ensures forall i :: 0 <= i < k ==> s[i] == old(s[k - 1 - i])",
+      "ensures forall i :: k <= i < s.Length ==> s[i] == old(s[i])"
+    ],
+    "dafny_output": "test/MBPP-DFY-50/code_without_conditions/644_combined.dfy(2,11): Warning: deprecated style: a semi-colon is not needed here\n  |\n2 | \tmodifies a;\n  |            ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(7,29): Warning: deprecated style: a semi-colon is not needed here\n  |\n7 | \t\tinvariant 0 <= i <= (l+1)/2;\n  |                              ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(8,74): Warning: deprecated style: a semi-colon is not needed here\n  |\n8 | \t\tinvariant forall k :: 0 <= k < i || l-i < k <= l ==> a[k] == old(a[l-k]);\n  |                                                                           ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(9,59): Warning: deprecated style: a semi-colon is not needed here\n  |\n9 | \t\tinvariant forall k :: i <= k <= l-i ==> a[k] == old(a[k]);\n  |                                                            ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(22,29): Warning: deprecated style: a semi-colon is not needed here\n   |\n22 | \t\tinvariant 0 <= i <= (l+1)/2;\n   |                              ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(23,74): Warning: deprecated style: a semi-colon is not needed here\n   |\n23 | \t\tinvariant forall p :: 0 <= p < i || l-i < p <= l ==> s[p] == old(s[l-p]);\n   |                                                                           ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(24,59): Warning: deprecated style: a semi-colon is not needed here\n   |\n24 | \t\tinvariant forall p :: i <= p <= l-i ==> s[p] == old(s[p]);\n   |                                                            ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(23,56): Error: index out of range\n   |\n23 | \t\tinvariant forall p :: 0 <= p < i || l-i < p <= l ==> s[p] == old(s[l-p]);\n   |                                                         ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(23,68): Error: index out of range\n   |\n23 | \t\tinvariant forall p :: 0 <= p < i || l-i < p <= l ==> s[p] == old(s[l-p]);\n   |                                                                     ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(24,43): Error: index out of range\n   |\n24 | \t\tinvariant forall p :: i <= p <= l-i ==> s[p] == old(s[p]);\n   |                                            ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(24,55): Error: index out of range\n   |\n24 | \t\tinvariant forall p :: i <= p <= l-i ==> s[p] == old(s[p]);\n   |                                                        ^\n\ntest/MBPP-DFY-50/code_without_conditions/644_combined.dfy(27,3): Error: index out of range\n   |\n27 | \t\ts[i], s[l-i] := s[l-i], s[i];\n   |    ^\n\n\nDafny program verifier finished with 1 verified, 5 errors\n"
+  }
+}

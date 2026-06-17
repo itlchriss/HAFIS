@@ -1,0 +1,33 @@
+problem: s0396_rotate_function
+method: maxRotateFunction
+total_annotations: 6
+requires_count: 3
+ensures_count: 3
+original_contract_count: 2
+annotations:
+- id: 0
+  type: requires
+  nl: The length of the integer array parameter `nums` is greater than or equal to
+    1 and is less than or equal to 100000.
+  original_contract: 1 <= nums.Length <= 100000
+- id: 1
+  type: requires
+  nl: All values in the integer array parameter `nums` are greater than or equal to
+    -100 and are less than or equal to 100.
+  original_contract: 'forall i: nat :: i < nums.Length ==> -1000 <= nums[i] <= 1000'
+- id: 2
+  type: requires
+  nl: The integer array parameter `nums` is not equal to the null literal.
+- id: 3
+  type: ensures
+  nl: The integer result is equal to the maximum value of the rotation function F(k)
+    for all non-negative integers `k` from 0 to the length of the integer array parameter
+    `nums` minus 1.
+- id: 4
+  type: ensures
+  nl: If the integer array parameter `nums` is equal to [4,3,2,6], the integer result
+    is equal to 26.
+- id: 5
+  type: ensures
+  nl: If the integer array parameter `nums` is equal to [100], the integer result
+    is equal to 0.

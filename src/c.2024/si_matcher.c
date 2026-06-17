@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "si_matcher.h"
+#include "si.h"
 #include "event.h"
 #include "util.h"
 
@@ -25,6 +26,7 @@ extern struct queue *silist, *events;
     Returns TRUE if found, FALSE otherwise.
 */
 int search_syntax(struct si* si, enum ptbsyntax ptb) {
+    if (si->syntax == NULL) return FALSE;
     for (int i = 0; i < si->syntax->count; ++i) {
         if ((enum ptbsyntax)gqueue(si->syntax, i) == ptb) {
             return TRUE;
@@ -94,12 +96,26 @@ int __simatcher(void *_si, void *_astnode) {
     struct si* si = (struct si*)_si;
     struct astnode *node = (struct astnode*)_astnode;
     
+    /* Null checks to prevent segfaults */
+    if (si == NULL || node == NULL || node->token == NULL || si->symbol == NULL || node->token->symbol == NULL) {
+        return FALSE;
+    }
+    if (si->args == NULL) {
+        return FALSE;
+    }
+    
     int child_count = countastchildren(node);
     if (strcmp(node->token->symbol, si->symbol) == 0 &&
                 search_syntax(si, node->syntax) == TRUE && 
                 (si->args->count == child_count || 
                     (
+                        child_count > 0 &&
+                        getastchild(node, 0) != NULL &&
+                        getastchild(node, 0)->cstptr != NULL &&
+                        getastchild(node, 0)->cstptr->symbol != NULL &&
                         getastchild(node, 0)->cstptr->symbol[0] == 'e' && 
+                        __searchevent(getastchild(node, 0)->cstptr) != NULL &&
+                        __searchevent(getastchild(node, 0)->cstptr)->entities != NULL &&
                         si->args->count == __searchevent(getastchild(node, 0)->cstptr)->entities->count
                     )
                 )
@@ -119,8 +135,26 @@ int __simatcher(void *_si, void *_astnode) {
 */
 int __eventsimatcher(void *_si, void *_astnode) {
     struct si* si = (struct si*)_si;
-    struct astnode *node = (struct astnode*)_astnode, *child = getastchild(node, 0);
-    struct event *event = __searchevent(child->cstptr);    
+    struct astnode *node = (struct astnode*)_astnode;
+    
+    /* Null checks to prevent segfaults */
+    if (si == NULL || node == NULL || node->token == NULL || si->symbol == NULL || node->token->symbol == NULL) {
+        return FALSE;
+    }
+    if (si->args == NULL) {
+        return FALSE;
+    }
+    
+    struct astnode *child = getastchild(node, 0);
+    if (child == NULL || child->cstptr == NULL) {
+        return FALSE;
+    }
+    
+    struct event *event = __searchevent(child->cstptr);
+    if (event == NULL || event->entities == NULL) {
+        return FALSE;
+    }
+    
     if (strcmp(si->symbol, node->token->symbol) == 0 &&
         search_syntax(si, node->syntax) == TRUE &&
         si->args->count == event->entities->count

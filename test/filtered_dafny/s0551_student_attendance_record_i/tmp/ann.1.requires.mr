@@ -1,0 +1,1 @@
+exists x01._chry_b{NN}(x01) | (\F02.(TrueP(F02) | exists x03.(_chry_c{NN}(x03) & F02(x03))) & exists x04.(_param_s_{NN}(x04) & _type_string_{NN}(x04) & _the{DT}(x04) & exists x05.(_character{NNS}(x05) & exists e06.(_contain{VBZ}(e06) & (Subj(e06) = x04) & (Acc(e06) = x05) & _only{RB}(e06))) & _chry_a{NN}(x04)))

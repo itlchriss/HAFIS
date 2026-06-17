@@ -132,7 +132,22 @@ int WRB_code_synthesis(struct astnode *node) { return 0; }
     If x does not have a datatype (aka, there are many SIs), then the number of synthesised SIs is equal to the number of SIs that x has multiplied by the number of SIs that d has
 */
 int Gram_Rel_synthesis(struct astnode *node) {
-    struct astnode *child1 = getastchild(node, 0), *child2 = getastchild(node, 1), *x, *d;
+    if (node == NULL) return -1;
+    
+    struct astnode *child1 = getastchild(node, 0);
+    struct astnode *child2 = getastchild(node, 1);
+    
+    if (child1 == NULL || child2 == NULL) {
+        semantic_error("Gram_Rel_synthesis: Rel predicate must have exactly 2 arguments.", node->token ? node->token->symbol : "unknown");
+        return -1;
+    }
+    
+    if (child1->cstptr == NULL || child2->cstptr == NULL) {
+        semantic_error("Gram_Rel_synthesis: Rel arguments must have cstptr.", node->token ? node->token->symbol : "unknown");
+        return -1;
+    }
+    
+    struct astnode *x, *d;
     if (__is_Rel_dependent__(child1->cstptr)) {
         d = child1;
         x = child2;
@@ -145,9 +160,25 @@ int Gram_Rel_synthesis(struct astnode *node) {
         Although it looks like the normal relationship synthesis, but it is in fact different 
         the SI is not searched from the parent node, instead, it is searched from d's si_q
     */
+    if (d->cstptr->datalist == NULL || d->cstptr->datalist->count == 0) {
+        semantic_error("Gram_Rel_synthesis: Rel dependent value has no data.", d->token ? d->token->symbol : "unknown");
+        return -1;
+    }
+    
     char *rel_symbol = (char *)gqueue(d->cstptr->datalist, 0);
+    if (rel_symbol == NULL) {
+        semantic_error("Gram_Rel_synthesis: Rel symbol is NULL.", "unknown");
+        return -1;
+    }
+    
     d->si_q = q_searchqueue(silist, (void *)rel_symbol, __match_si_with_symbol_only__);
     if (d->si_q->count == 0) sinotfound_error(rel_symbol);
+    
+    if (x->cstptr->datatype == NULL) {
+        semantic_error("Gram_Rel_synthesis: Rel argument has no datatype.", x->token ? x->token->symbol : "unknown");
+        return -1;
+    }
+    
     struct queue *siq = q_searchqueue(d->si_q, x->cstptr->datatype, __match_si_with_input_arg_datatype__);
     if (siq->count == 0) sinotfound_error(rel_symbol);
     __Rel_synthesis__(x->cstptr, d->cstptr, siq);

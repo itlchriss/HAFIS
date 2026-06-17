@@ -1,4 +1,4 @@
-# from .contextprocess import datatypes
+import os
 from typing import List
 from enum import Enum
 import math
@@ -11,7 +11,7 @@ from word2number import w2n
 sispecspath = './specs/si/typed_si.yml'
 def _get_specs():
     si = {}
-    with open(sispecspath) as fp:
+    with open(sispecspath, encoding='utf-8') as fp:
         si = yaml.full_load(fp)
     return si
 
@@ -102,13 +102,6 @@ def __convert_to_vocontain__(sent: list) -> str:
     p = sent[0].replace("'s", '')
     return "%s vocontains" % p
 
-def __array_value_access__(sent: list) -> str:
-    print(sent)
-    exit(1)
-
-def __html2pow__(sent: list) -> str:
-    pass
-
 def __check_is_string__(word: str) -> bool:
     return word.startswith('"') and word.endswith('"')
 
@@ -193,7 +186,6 @@ func_map = {
     '__si_term__': __check_is_si_term__,
     '__num_word__': __check_is_num_word__,
     '__filter_num__': __get_number__,
-    '__array_value_access__': __array_value_access__,
     '__word__': __match_any_word__,
     '__expr_string__': __check_is_SI_string__,
     '__pos_prep__': __check_is_posessive_preposition__,
@@ -203,771 +195,68 @@ func_map = {
     '__array__': __check_is_array__,
 }
 
-# general_syntax_rules = [
-#     { 
-#         'pattern': ['an', 'array', 'of', 'length', '__num__'], 
-#         'format': 'a __num__-length array', 
-#         'symbol': '__num__-length', 
-#         'interpretation': '(Subj).length == __num__',
-#         'syntax': 'JJ',
-#         'arguments': ['Subj'],
-#         'specific_arg_types': '5',
-#         'synthesised_datatype': '9'
-#     }
-# ]
-
 label_primitive_type = 'primitive_type'
 label_reference_type = 'reference_type'
 label_interpretation_type = 'interpretation_type'
 label_symbol = 'symbol'
 
-general_syntax_rules = [
-    { 
-        'pattern': ['an', 'array', 'of', 'length', '__num__'], 
-        'format': 'a __num__-length array', 
-        'symbol': '__num__-length', 
-        'interpretation': '(Subj).length == __num__',
-        'syntax': 'JJ',
-        'arguments': [
-            {
-                label_symbol: 'Subj',
-                label_primitive_type: ANY,
-                label_reference_type: str(Reference_datatype.Array)
-            }
-            ],
-        'synthesised_datatype': { label_primitive_type: str(Primitive_datatype.Boolean), label_reference_type: str(UNDEFINED) }
-    },
-    { 
-        'pattern': ['is', 'a', 'multiple', 'of', '__num__'], 
-        'format': 'is evenly_divided by __num__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['less', 'than', 'or', 'equal', 'to', '__param__'], 
-        'format': 'less than or equal to the __param__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['less', 'than', '__param__'], 
-        'format': 'less than to the __param__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['greater', 'than', 'equal', 'to', '__param__'], 
-        'format': 'greater than or equal to the __param__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['greater', 'than', '__param__'], 
-        'format': 'greater than to the __param__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-        
-    { 
-        'pattern': ['__num__', '+', '__num__'], 
-        'format': '__sum__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['__num__', '-', '__num__'], 
-        'format': '__diff__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['__num__', '*', '__num__'], 
-        'format': '__product__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['is', 'in', 'the', 'range', 'of', '__num__', 'to', '__num__'], 
-        'format': 'is greater than or equal to __num__ and is less than or equal to __num__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['are', 'in', 'the', 'range', 'of', '__num__', 'to', '__num__'], 
-        'format': 'are greater than or equal to __num__ and are less than or equal to __num__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['is', 'within', 'the', 'range', 'of', '__num__', 'to', '__num__'], 
-        'format': 'is greater than or equal to __num__ and is less than or equal to __num__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['is', 'in', 'the', 'range', 'of', 'negative', '__num__', 'to', '__num__'], 
-        'format': 'is greater than or equal to negative __num__ and is less than or equal to __num__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['is', 'in', 'the', 'range', 'of', '__num__', 'to', 'negative', '__num__'], 
-        'format': 'is greater than or equal to __num__ and is less than or equal to negative __num__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['is', 'within', 'the', 'range', 'of', '__num__', 'to', 'negative', '__num__'], 
-        'format': 'is greater than or equal to __num__ and is less than or equal to negative __num__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['is', 'within', 'the', 'range', 'of', 'negative', '__num__', 'to', '__num__'], 
-        'format': 'is greater_than_or_equal to negative __num__ and is less_than_or_equal to __num__', 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['has', 'a', 'length', 'of', '__num__'], 
-        'format': "'s length is equal to __num__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['has', 'a', 'length', 'of', '__expr__'], 
-        'format': "'s length is equal to __expr__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['is', 'of', 'length', '__num__'], 
-        'format': "'s length is equal to __num__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['length', 'of', 'the', 'string_representation', 'of', 'the', '__type__', '__param_or_result__'], 
-        'format': "__type__ __param_or_result__'s string_representation's length", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['__be__', 'either', '__num__', 'or', '__num__'], 
-        'format': "__be__ equal to __num__ or __be__ equal to __num__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['__be__', 'either', '__char__', 'or', '__char__'], 
-        'format': "__be__ equal to __char__ or __be__ equal to __char__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['__be__', 'either', '__char__', ',', '__char__', ',', 'or', '__char__'], 
-        'format': "__be__ equal to __char__ or __be__ equal to __char__ or __be__ equal to __char__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['__be__', 'either', '__num__', ',', '__num__', ',', 'or', '__num__'], 
-        'format': "__be__ equal to __num__ or __be__ equal to __num__ or __be__ equal to __num__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['__be__', 'either', '__bool__', 'or', '__bool__'], 
-        'format': "__be__ equal to the __bool__ literal or __be__ equal to the __bool__ literal", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['must', 'have', 'a', 'length', 'of', '__num__'], 
-        'format': "'s length is equal to __num__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['must', 'have', 'a', 'length', '__param__'], 
-        'format': "'s length is equal to __param__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    { 
-        'pattern': ['must', 'have', 'a', 'length', '__comparative__'], 
-        'format': "'s length is __comparative__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['consist', 'of', '__chartype__', '__restrictive_adverb__'], 
-        'format': "only contain __chartype__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['must', 'consist', 'of', '__restrictive_adverb__'], 
-        'format': "only contain", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['consists', 'of', '__chartype__'], 
-        'format': "contains __chartype__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['consists', 'of', '__restrictive_adverb__'], 
-        'format': "only contains", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['consists', '__restrictive_adverb__', 'of'], 
-        'format': "only contains", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['consisting', 'of', '__restrictive_adverb__'], 
-        'format': "only contains", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__param__', 'length'], 
-        'format': "__param__'s length", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__param__', 'has', 'a', 'length'], 
-        'format': "__param__'s length", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__num__', 'times', 'the', 'integer', '__quoted__'], 
-        'format': "the type_integer_ `__num__ * __quoted__`", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__param__', 'has', 'an', 'even', 'length'], 
-        'format': "__param__'s length is even", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['length', 'of', 'the', '__type__', '__param__', 'and', 'the', '__type__', '__param__'], 
-        'format': "length of the __type__ __param__ and the length of the __type__ __param__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ["__si_term__", ",", "__si_term__", "or", "__si_term__"], 
-        'format': "__si_term__ or __si_term__ or __si_term__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ["is", "equal", "to", "__string__", "or", "__string__"], 
-        'format': "is equal to __string__ or is equal to __string__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__param__', 'has', 'only', 'one', 'element'], 
-        'format': "__param__'s length is equal to 1", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__param__', 'has', '__num_word__', 'elements'], 
-        'format': "__param__'s length is equal to __num_word__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__param__', 'has', 'more', 'than', '__num_word__', 'elements'], 
-        'format': "__param__'s length is greater than to __num_word__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__param__', 'has', 'more', 'than', '__num__', 'elements'], 
-        'format': "__param__'s length is greater than to __num__", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['is', 'in', 'the', 'range', 'of', 'a', 'signedint'], 
-        'format': "is greater than to negative 2147483648 and is less than to 2147483647", 
-        'symbol': '', 
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['the', 'value', 'of', 'the', '__type__', '__param__', 'at', 'the', 'index', 'of', 'the', 'result'],
-        'format': "the __param__array_access_with_result_",
-        'symbol': '__param__array_access_with_result_',
-        'interpretation': '__param__[\\result]',
-        'syntax': 'NN',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['the', 'length', 'of', 'the', '__type__', '__param__'],
-        'format': "the __type__ __param__'s length",
+SYNTAX_RULES_PATH = os.path.join('.', 'rules', 'syntax_rules.yml')
+REPAIR_PATTERNS_PATH = os.path.join('.', 'rules', 'repair_patterns.yml')
+
+
+def load_repair_patterns(filepath=None):
+    """Load clause-level repair patterns from a YAML file.
+    
+    Returns a dict keyed by clause type (partial_equal, complex_clause, etc.),
+    each containing a list of pattern dicts.
+    Falls back to empty dict if file not found.
+    """
+    path = filepath or REPAIR_PATTERNS_PATH
+    if not os.path.exists(path):
+        return {}
+    with open(path, 'r', encoding='utf-8') as fp:
+        data = yaml.safe_load(fp)
+    return data or {}
+
+
+def _ensure_default_fields(rule):
+    """Ensure a syntax rule has all required fields with defaults."""
+    defaults = {
+        'pattern': [],
+        'format': '',
         'symbol': '',
         'interpretation': '',
         'syntax': '',
         'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['The', 'length', 'of', 'the', '__type__', '__param__'],
-        'format': "The __type__ __param__'s length",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['the', 'length', 'of', 'the', '__type__', 'result'],
-        'format': "the __type__ result's length",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['The', 'length', 'of', 'the', '__type__', 'result'],
-        'format': "The __type__ result's length",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['any', 'value', 'appears', 'at', 'least', 'twice', 'in', 'the', '__word__'],
-        'format': "the __word__ is not unique",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['contain', 'the', 'substring', '__expr_string__'],
-        'format': "contain the __expr_string__",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['All', 'values', '__pos_prep__', 'the', '__type__', '__param__'],
-        'format': "The __type__ __param__'s values",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['all', 'values', '__pos_prep__', 'the', '__type__', '__param__'],
-        'format': "the __type__ __param__'s values",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['If', 'all', 'values', '__pos_prep__', 'the', '__type__', '__param__'],
-        'format': "If the __type__ __param__'s values",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['All', 'the' 'values', '__pos_prep__', 'the', '__type__', '__param__'],
-        'format': "The __type__ __param__'s values",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['All', 'the', 'values', '__pos_prep__', '__type__', '__param__'],
-        'format': "The __type__ __param__'s values",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['All', 'values', '__pos_prep__', '__type__', '__param__'],
-        'format': "The __type__ __param__'s values",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['All', 'values', '__pos_prep__', 'the', '__type__', '__param_or_result__'],
-        'format': "The __type__ __param_or_result__'s values",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['not', 'equal', 'to', 'the', 'summation', 'in', 'the', '__type__', '__param__'],
-        'format': "not_equal to the __type__ __param__'s summation",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['The', 'summation', 'in', 'the', '__type__', '__param_or_result__'],
-        'format': "The __type__ __param_or_result__'s summation",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['the', 'summation', 'in', 'the', '__type__', '__param_or_result__'],
-        'format': "the __type__ __param_or_result__'s summation",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['the', 'minimum_value', 'in', 'the', '__type__', '__param__'],
-        'format': "the __type__ __param__'s minimum_value",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['first_element', '__pos_prep__', 'the', '__type__', '__param_or_result__'],
-        'format': "__type__ __param_or_result__'s first_element",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['second_element', '__pos_prep__', 'the', '__type__', '__param_or_result__'],
-        'format': "__type__ __param_or_result__'s second_element",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['number_of_unique_elements', '__pos_prep__', 'the', '__type__', '__param_or_result__'],
-        'format': "__type__ __param_or_result__'s number_of_unique_elements",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['length', 'plus', '__num__'],
-        'format': "length + __num__",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['at', 'least', '1', 'value', 'in', 'the', '__type__', '__param_or_result__', 'appears', 'more', 'than', 'once'],
-        'format': "the __type__ __param_or_result__ is not unique",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__num__', 'times', '__num__'],
-        'format': "__product__",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['contains', 'less', 'than', '__num__', 'elements'],
-        'format': "'s length is less than __num__",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__be__', 'unique', 'sorted', 'to', 'the', 'ascending_order'],
-        'format': "__be__ unique and __be__ sorted to the ascending_order",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__be__', 'between', '__num__', 'and', '__num__'],
-        'format': "__be__ greater than __num__ and __be__ less than __num__",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__param_or_result_values__', 'values', 'only', '__contain__'],
-        'format': "__vocontain__",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['there', 'exists', 'no', 'non-repeating', 'character', 'in', 'the', '__type__', '__param_or_result__'],
-        'format': "the __type__ __param_or_result__ does not contain a nonrepeating_character",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['there', 'exists', 'a', 'non-repeating', 'character', 'in', 'the', '__type__', '__param_or_result__'],
-        'format': "the __type__ __param_or_result__ contains a nonrepeating_character",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['the', 'sum', 'of', 'the', '__type__', '__param_or_result__', 'and', 'the', '__type__', '__param_or_result__'],
-        'format': "the __type__ __param_or_result__ + the __type__ __param_or_result__",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__contain__', 'integers', 'and', 'arithmetic_operators', 'separated', 'by', 'number', 'of', 'spaces'],
-        'format': "only __contain__ arithexprspace",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['valid', 'expression', 'containing', 'integers', 'and', 'arithmetic_operators', 'separated', 'by', 'spaces'],
-        'format': "the arithexprspace",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['is', 'the', 'hexadecimal_representation', 'of', 'the', '__type__', '__param_or_result__'],
-        'format': "is equal to the __type__ __param_or_result__'s hexadecimal_representation",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['__type__', '__param_or_result__', 'is', '__array__'],
-        'format': "__type__ __param_or_result__ is equal to __array__",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-    {
-        'pattern': ['is', 'the', 'ones_complement', 'of', 'the', '__type__', '__param_or_result__'],
-        'format': "is equal to the __type__ __param_or_result__'s ones_complement",
-        'symbol': '',
-        'interpretation': '',
-        'syntax': '',
-        'arguments': [],
-        'synthesised_datatype': { }
-    },
-]
+        'synthesised_datatype': {}
+    }
+    for key, value in defaults.items():
+        if key not in rule:
+            rule[key] = value
+    return rule
+
+
+def load_syntax_rules(filepath=None):
+    """Load syntax transformation rules from a YAML file.
+    
+    Each rule specifies a word-level pattern to match and a format
+    string to replace it with. Rules can optionally include SI metadata
+    (symbol, interpretation, syntax, arguments, synthesised_datatype).
+    
+    Falls back to empty list if file not found.
+    """
+    path = filepath or SYNTAX_RULES_PATH
+    if not os.path.exists(path):
+        print('Warning: syntax rules file not found at %s' % path)
+        return []
+    with open(path, 'r', encoding='utf-8') as fp:
+        data = yaml.safe_load(fp)
+    if not data:
+        return []
+    return [_ensure_default_fields(rule) for rule in data]
+
+
+general_syntax_rules = load_syntax_rules()
 
 # there exists no non-repeating character in the type_string_ param_s_
 
@@ -995,13 +284,10 @@ def __process_to_later_clause__(sent, r) -> str:
 
 class RepairProcessor:    
     
-    # dynamic_si = {}
-    # _t = None
-    
     def __init__(self):
         self._t = None
         self.dynamic_si = {}
-        pass
+        self._repair_patterns = load_repair_patterns()
     
     def __process_negative__(self, sent):
         words = sent.split(' ')
@@ -1027,7 +313,6 @@ class RepairProcessor:
                 try:
                     targets[w] = str(pd.eval(x))
                 except:
-                    # targets[w] = w.replace("^", "_pow_")
                     pass
             if "<sup>" in w and "</sup>" in w:
                 arr = w.replace("<sup>", ' ').replace("</sup>", '').strip().split(' ')
@@ -1038,8 +323,7 @@ class RepairProcessor:
         return sent
 
     def __process_range_sign__(self, sent):
-        # words = sent.split(' ')
-        range_p = 'range\s+of\s+\[(.*)\]'
+        range_p = r'range\s+of\s+\[(.*)\]'
         if r := re.search(range_p, sent):
             s = [i.strip() for i in r.group(1).split(',')]
             s = [pd.eval(i) for i in s]
@@ -1048,32 +332,11 @@ class RepairProcessor:
         return sent
     
     def __process_partial_equal(self, sent) -> str:
-        patterns = [
-            {
-                'p': r'the\s+first\s+(\d+)\s+elements\s+of\s+the\s+(\w+)\s+(\w+)\s+are\s+\d+( , \d+)*( , and \d+| and \d+)?',
-                'sp': 'integer',
-                'sr': 'array',
-            },
-            {
-                'p': r'the\s+first\s+(\d+)\s+elements\s+of\s+the\s+(\w+)\s+(\w+)\s+are\s+\d+( , \d+)*( , and \d+| and \d+)?',
-                'sp': 'integer',
-                'sr': 'array',
-            },
-            {
-                'p': r'the\s+first\s+(\d+)\s+elements\s+of\s+the\s+(\w+)\s+(\w+)\s+are\s+equal\s+to\s+\d+( , \d+)*( , and \d+| and \d+)?',
-                'sp': 'integer',
-                'sr': 'array',
-            },
-            {
-                'p': r'the\s+first\s+(\w+)\s+elements\s+of\s+the\s+(\w+\s+array\s+parameter)\s+(`\w+`)\s+are\s+equal\s+to\s+\d+( , \d+)*( , and \d+| and \d+)?',
-                'sp': 'integer',
-                'sr': 'array',
-            },
-        ]
+        patterns = self._repair_patterns.get('partial_equal', [])
         result = ''
         target = ''
         for pattern in patterns:
-            if r := re.search(pattern['p'], sent):
+            if r := re.search(pattern['pattern'], sent):
                 target = r.group(0)
                 length = r.group(1)
                 data = re.findall(r'\d+', r.group(0))         
@@ -1087,30 +350,13 @@ class RepairProcessor:
                 result = 'the %s %s is partially_equal to the type_integer_array_ %s' % (type_str, param_str, symbol)
                 sent = sent.replace(target, result)                
                 interpretation = '_'.join([str(0), str(int(length) - 1)]) + '_' + ','.join([str(i) for i in data])
-                # self.dynamic_si[symbol] = { 
-                #                     'term': symbol,
-                #                     'syntax': ['NN'],
-                #                     'arguments': '*',  
-                #                     'synthesised_datatype': {
-                #                         'primitive_type': pattern['sp'],
-                #                         'reference_type': pattern['sr']
-                #                         },                                   
-                #                     'interpretation': interpretation,
-                #                     }     
                 self.dynamic_si[symbol] = interpretation
         return sent
     
     def __process_semantic_correction(self, sent) -> str:
-        patterns = [
-            {
-                'p': r"^All\s+values\s+in\s+the\s+(type_\w+)\s+(\w+)\s+are\s+equal\s+to\s+checking_character_sequence_(\s+)?$",
-                'template': 'The %s %s are equal to checking_character_sequence_',
-                'index': 1,
-                'constraint': 'string'
-            }
-        ]
+        patterns = self._repair_patterns.get('semantic_correction', [])
         for pattern in patterns:
-            if r := re.search(pattern['p'], sent):
+            if r := re.search(pattern['pattern'], sent):
                 if pattern['constraint'] in r.group(pattern['index']):
                     type_str = r.group(1)
                     param_str = r.group(2)
@@ -1118,86 +364,23 @@ class RepairProcessor:
         return sent
     
     def __process_limited_equal(self, sent) -> str:
-        patterns = [
-            {
-                'p': r'are\s+limited\s+to\s+\d+( , \d+)*( , and \d+| and \d+)?',
-                'sp': 'integer',
-                'sr': 'array',
-            }
-        ]
+        patterns = self._repair_patterns.get('limited_equal', [])
         for pattern in patterns:
-            if r := re.search(pattern['p'], sent):
+            if r := re.search(pattern['pattern'], sent):
                 target = r.group(0)
                 data = re.findall(r'\d+', r.group(0))         
                 symbol = '_fixed_integer_sequence_'                
-                # result = 'the %s %s is partially_equal to the type_integer_array_ %s' % (type_str, param_str, symbol)
                 sent = sent.replace(target, 'are equal to the type_integer_array_ '+ symbol)                
-                # interpretation = '_'.join([str(0), str(int(length) - 1)]) + '_' + ','.join([str(i) for i in data])
                 self.dynamic_si[symbol] = ','.join([str(i) for i in data])
         return sent
     
     
     # TODO: to be combined the two functions
     def __process_complex_clause(self, sent) -> str:
-        # print(sent)
-        # consists of only digits and the dot character
-        # only contains alphabets , digits , + , - , or dot characters
-        patterns = [
-            # {
-            #     'p': r"(only\s+contains)\s+(the\s+characters\s+)?(('\w+')(\s+,\s+('\w+'))*(\s+,\s+or\s+'\w+'))(\s+)?",
-            #     'connective': 'or',
-            #     'target': 3
-            # },
-            {
-                'p': r'(only\s+contains\s+)((([\w_]+)(\s+,\s+the\s+(\w+)(\s+character)?)*(\s+,\s+or\s+the\s+(\w+(\s+character)?)|\s+or\s+the\s+(\w+(\s+character)?))?))',
-            },
-            {
-                'p': r'(only\s+contains)\s+(([\w_]+)(\s+,\s+(\w+))*(\s+,\s+or\s+\w+\s+characters))'
-            },
-            {
-                'p': r"(consist\s+only\s+of)\s+('\w+'\s+or\s+'\w+'\s+characters)"
-            },
-            {
-                'p': r"(only\s+contains)\s+(\w+\s+and\s+\w+)\s+characters(\s+)?$",
-                'connective': 'or'
-            },
-            {
-                'p': r"(consists\s+of\s+only)\s+(\w+\s+and\s+the\s+\w+)\s+character",
-                'connective': 'or'
-            },
-            {
-                'p': r"(only\s+contains)\s+((\w+)(\s+,\s+[\w\W]+)+\s,\sor\s+\w+\s+)characters",
-                'connective': 'or'
-            },
-            {
-                'p': r'(only\s+contains)\s+(([\w_]+)(\s+,\s+(the\s+)?(\w+))*(\s+,\s+or\s+(the\s+)?\w+))(\s+)?'
-            },
-            {
-                'p': r'(contains)\s+(([\w_]+)(\s+,\s+(the\s+)?(\w+))*(\s+,\s+and\s+(the\s+)?\w+))',
-                'connective': 'or'
-            },
-            {
-                'p': r'(only\s+contains)\s+(([\w_]+)(\s+,\s+(\w+))*((\s+,)?\s+and\s+\w+))(\s+)?$',
-                'connective': 'or'
-            },
-            {
-                'p': r"are\s+either\s+(('\w')\s+or\s+('\w'))(\s+)?$",
-                'require': 'All values',
-                'template': 'are equal to'
-            },
-            {
-                'p': r"(only\s+contains)\s+((\w+)(\s+,\s+(\w+))+\s+or\s+\w+)(\s+)?$",
-                'connective': 'or'
-            },
-            {
-                'p': r"(only\s+contains)\s+(chr\w+\s+or\s+chr\w+)(\s+)?$",
-                'connective': 'or'
-            }
-        ]
-        # print(sent)
+        patterns = self._repair_patterns.get('complex_clause', [])
         tmp = sent.replace(', - ,', ', minus ,')
         for pattern in patterns:
-            if r := re.search(pattern['p'], tmp):
+            if r := re.search(pattern['pattern'], tmp):
                 if not r.group(0).endswith('and the') and not r.group(0).endswith('and does'):
                     symbol = 'checking_character_sequence_'
                     if 'template' not in pattern.keys():
@@ -1236,30 +419,14 @@ class RepairProcessor:
         return sent
     
     def __process_complex_clause2(self, sent) -> str:
-        patterns = [
-            {
-                'p': r'are\s+either\s+(\w+)\s+((\w+)((\s+,\s+\w+)*\s+,\s+or\s+(\w+)))',
-                'connective': 'or',
-                'template': 'are equal to %s',
-                'symbol': 'checking_string_sequence_'
-            },
-            {
-                'p': r'(only\s+contains)\s+((the\s+)?([\w_]+)(\s+,\s+(the\s+)?([\w_]+))*(\s+,\s+or\s+(the\s+)?[\w_]+))',
-                'connective': 'or',
-                'template': 'only contains %s',
-                'symbol': 'checking_character_sequence_'
-            }
-        ]
+        patterns = self._repair_patterns.get('complex_clause2', [])
         for pattern in patterns:
-            if r := re.search(pattern['p'], sent):
+            if r := re.search(pattern['pattern'], sent):
                 if not r.group(0).endswith('and the') and not r.group(0).endswith('and'):
                     target = r.group(0)
                     type_str = r.group(1)
-                    # if type_str == 'strings':
-                    #     type_str = 'string'                
                     result = r.group(2)
-                    result = re.sub('the\s+', '', result)
-                    # print(result)
+                    result = re.sub(r'the\s+', '', result)
                     result = result.replace(' ', '').replace(pattern['connective'], '')
                     for s in result.split(','):
                         if sr := re.match(r'^str\w+_[a-z]$', s):
@@ -1276,48 +443,16 @@ class RepairProcessor:
     
     
     def __process_except_clause__(self, sent) -> str:
-        patterns = [
-            {
-                'p': r'The\s+(type_\w+)\s+(param_\w+)\s+does\s+not\s+(contain|have)\s+(any\s+)?leading\s+zeros\s+except\s+for\s+the\s+0\s+itself(\s+)?$',
-                'template': "The %s %s's first_element is not_equal to %s unless the %s %s only contains single_zero",
-                'repeat': 1
-            },
-            {
-                'p': r'The\s+(type_\w+)\s+(result)\s+does\s+not\s+(contain|have)\s+(any\s+)?leading\s+zeros\s+except\s+for\s+the\s+0\s+itself(\s+)?$',
-                'template': "The %s %s's first_element is not_equal to %s unless the %s %s only contains single_zero",
-                'repeat': 1
-            },
-            {
-                'p': r'The\s+(type_\w+)\s+(result)\s+does\s+not\s+(contain|have)\s+leading\s+zeros\s+unless',
-                'template': "The %s %s's first_element is not_equal to %s unless",
-                'repeat': 0
-            },
-            {
-                'p': r'^The\s+(type_\w+)\s+(param\w+)\s+does\s+not\s+(contain|have)\s+any\s+leading\s+zeros(\s+)?$',
-                'template': "The %s %s's first_element is not_equal to %s.",
-                'repeat': 0
-            },
-            {
-                'p': r'^The\s+(type_\w+)\s+(param\w+)\s+(.*)\s+and\s+does\s+not\s+(contain|have)\s+any\s+leading\s+zeros\s+except\s+for\s+0\s+itself(\s+)?$',
-                # 'template': "The %s %s %s and the %s %s's first_element is not_equal to %s."
-                'func': __process_to_later_clause__
-            },
-            {
-                'p': r'^The\s+(type_\w+)\s+(param\w+)\s+(.*)\s+and\s+contains\s+leading\s+zeros(\s+)?$',
-                'func': __process_to_later_clause__
-            }
-        ]
+        patterns = self._repair_patterns.get('except_clause', [])
         for pattern in patterns:
-            if r := re.search(pattern['p'], sent):
-                if 'func' in pattern.keys():
-                    sent = pattern['func'](sent, r)
+            if r := re.search(pattern['pattern'], sent):
+                if 'handler' in pattern:
+                    sent = __process_to_later_clause__(sent, r)
                     break
                 else:
                     target = r.group(0)
                     type_str = r.group(1)
                     param_str = r.group(2)
-                    # symbol = pattern['symbol']
-                    # self.dynamic_si[symbol] = 'except the %s %s' % (type_str, param_str)
                     zero = None
                     if type_str == 'type_integer_array_':
                         zero = str(0)
@@ -1330,16 +465,9 @@ class RepairProcessor:
         return sent
     
     def __process_power_clause__(self, sent) -> str:
-        # 10 raised to the power of the type_integer_ param_n_
-        patterns = [
-            {
-                'p': r'\s+(\d+)\s+raised\s+to\s+the\s+power\s+of\s+the\s+(\w+)\s+param_(\w+)',
-                'template': ' the %s int_expr',
-                'symbol': 'int_expr'
-            }
-        ]
+        patterns = self._repair_patterns.get('power_clause', [])
         for pattern in patterns:
-            if r := re.search(pattern['p'], sent):
+            if r := re.search(pattern['pattern'], sent):
                 target = r.group(0)
                 base = r.group(1)
                 type_str = r.group(2)
@@ -1350,14 +478,9 @@ class RepairProcessor:
         return sent
 
     def __process_comma_separated_clause__(self, sent) -> str:
-        # comma-separated values that are either integers in the range arr_a or the chry_a 
-        patterns = [
-            {
-                'p': r'comma-separated\s+values\s+that\s+are\s+either\s+(\w+)\s+in\s+the\s+range\s+(\w+)\s+or\s+the\s+(\w+)(\s+)?$', 
-            }
-        ]
+        patterns = self._repair_patterns.get('comma_separated_clause', [])
         for pattern in patterns:
-            if r := re.search(pattern['p'], sent):
+            if r := re.search(pattern['pattern'], sent):
                 # this is the SI symbol that the construct type SI will find
                 symbol = 'csvdata'
                 target = 'or'
@@ -1472,10 +595,7 @@ class RepairProcessor:
             g = list(r.groups())
             conj = g[-1]
             sent = sent.replace(g[0], g[0].replace(',', conj))
-        # print(sent)
         sent = re.sub(r'\s+\'\s,\s\'\s+', '\',\'', sent)
-        # sent = sent.replace('\' , \'', '\',\'')
-        # print(sent)
 
         # TODO: experimental replacing all text number to integer
         index = []

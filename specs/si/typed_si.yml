@@ -1978,6 +1978,15 @@
     reference_type: 'any'
   interpretation_type: 'template'
   interpretation: '__REL__minimum_value'
+- term: maximum_value
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation_type: 'template'
+  interpretation: '__REL__maximum_value'
 - term: string_representation
   syntax:
   - NN
@@ -1999,6 +2008,18 @@
     reference_type: 'undefined'
   interpretation_type: 'integer'
   interpretation: '(\min int i; 0 <= i < (x).length; (x)[i])'
+- term: __REL__maximum_value
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'integer'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: '(\max int i; 0 <= i < (x).length; (x)[i])'
 - term: greater_than_or_equal
   syntax:
   - JJ
@@ -2322,3 +2343,508 @@
     reference_type: 'string'
   interpretation: 'string'
   interpretation: 'Integer.toHexString((x))'
+# === Extended SI entries for MBPP-DFY-50 ===
+# Common nouns
+- term: string
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: array
+  syntax:
+  - NN
+  - NNS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: character
+  syntax:
+  - NN
+  - NNS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: number
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: number
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: sequence
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: output
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: position
+  syntax:
+  - NNS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: ''
+- term: occurrence
+  syntax:
+  - NN
+  - NNS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: right
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+# Variable names
+- term: b
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: n
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+# Adjectives
+- term: same
+  syntax:
+  - JJ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Dat
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation_type: 'expression'
+  interpretation: '(Subj) == (Dat)'
+- term: odd
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '(x) % 2 != 0'
+- term: first
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: second
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: non_dash_null
+  syntax:
+  - JJ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation_type: 'expression'
+  interpretation: '(Subj) != null'
+- term: non_dash_null
+  syntax:
+  - JJ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'string'
+  interpretation_type: 'expression'
+  interpretation: '(Subj) != null'
+- term: non_dash_negative
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '(x) >= 0'
+- term: second_dash_smallest
+  syntax:
+  - JJS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: smallest
+  syntax:
+  - JJS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: least
+  syntax:
+  - JJS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: other
+  syntax:
+  - NNS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: iferent
+  syntax:
+  - JJ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Dat
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation_type: 'expression'
+  interpretation: '(Subj) != (Dat)'
+# Verbs
+- term: return
+  syntax:
+  - VBG
+  - VBN
+  - VB
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: '\result'
+- term: replace
+  syntax:
+  - VBN
+  - VBP
+  - VB
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: find
+  syntax:
+  - VBN
+  - VBP
+  - VB
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: rotate
+  syntax:
+  - VBN
+  - VBP
+  - VB
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: have
+  syntax:
+  - VBP
+  - VBZ
+  - VB
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: exist
+  syntax:
+  - VBP
+  - VBZ
+  - VB
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: sort
+  syntax:
+  - VBN
+  - VBP
+  - VB
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+# Prepositions
+- term: from
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: at
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+# Determiners
+- term: the
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+# Existential
+- term: there
+  syntax:
+  - EX
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+# Cardinal numbers
+- term: '0'
+  syntax:
+  - CD
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: '0'
+- term: '1'
+  syntax:
+  - CD
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: '1'
+- term: '2'
+  syntax:
+  - CD
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: '2'
+# Cardinal numbers
+- term: oldchar
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: newchar
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: dif
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+# Additional missing predicates
+- term: after
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: up
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: corresponding
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: colon
+  syntax:
+  - NNS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: dot
+  syntax:
+  - NNS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: comma
+  syntax:
+  - NNS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: space
+  syntax:
+  - NNS
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: k
+  syntax:
+  - NN
+  - VB
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: map
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: remainder
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: remain
+  syntax:
+  - VBP
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: reverse
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: ofify
+  syntax:
+  - VBD
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: ofulo
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: n
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''

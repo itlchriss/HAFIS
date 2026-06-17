@@ -1,0 +1,52 @@
+problem: s0925_long_pressed_name
+method: isLongPressedName
+total_annotations: 10
+requires_count: 6
+ensures_count: 4
+original_contract_count: 7
+annotations:
+- id: 0
+  type: requires
+  nl: The length of the string parameter `name` is greater than or equal to 1 and
+    is less than or equal to 1000.
+  original_contract: 1 <= |name| <= 1000
+- id: 1
+  type: requires
+  nl: The length of the string parameter `typed` is greater than or equal to 1 and
+    is less than or equal to 1000.
+  original_contract: 1 <= |typed| <= 1000
+- id: 2
+  type: requires
+  nl: The string parameter `name` consists of only lowercase English letters.
+  original_contract: 'forall i: nat :: i < |name| ==> ''a'' <= name[i] <= ''z'''
+- id: 3
+  type: requires
+  nl: The string parameter `typed` consists of only lowercase English letters.
+  original_contract: 'forall i: nat :: i < |typed| ==> ''a'' <= typed[i] <= ''z'''
+- id: 4
+  type: requires
+  nl: The string parameter `name` is not equal to the null literal.
+  original_contract: '|typed| < |name| ==> !result'
+- id: 5
+  type: requires
+  nl: The string parameter `typed` is not equal to the null literal.
+  original_contract: name == "alex" && typed == "aaleex" ==> result
+- id: 6
+  type: ensures
+  nl: If the boolean result is equal to the true literal, the string parameter `typed`
+    can be formed by inserting zero or more additional consecutive copies of characters
+    into the string parameter `name`.
+  original_contract: name == "saeed" && typed == "ssaaedd" ==> !result
+- id: 7
+  type: ensures
+  nl: If the boolean result is equal to the false literal, the string parameter `typed`
+    cannot be formed by inserting zero or more additional consecutive copies of characters
+    into the string parameter `name`.
+- id: 8
+  type: ensures
+  nl: If the string parameter `name` is equal to "alex" and the string parameter `typed`
+    is equal to "aaleex", the boolean result is equal to the true literal.
+- id: 9
+  type: ensures
+  nl: If the string parameter `name` is equal to "saeed" and the string parameter
+    `typed` is equal to "ssaaedd", the boolean result is equal to the false literal.

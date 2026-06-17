@@ -1,0 +1,71 @@
+# Condition splitting patterns for text preprocessing
+# Each section corresponds to a condition processor function.
+# Patterns specify how to split or transform complex conditions.
+
+parameter_type_distrition:
+  - pattern: '(.*)\s+of\s+each\s+(integer\s+array\s+parameter)\s+(`[^`]+`(, `[^`]+`)*(, and `[^`]+`| and `[^`]+`))\s+(.*)'
+  - pattern: '(.*)\s+in\s+each\s+(integer\s+array\s+parameter)\s+(`[^`]+`(, `[^`]+`)*(, and `[^`]+`| and `[^`]+`))\s+(.*)'
+
+object_clause:
+  - pattern: 'The\s+(\w+)\s+parameter\s+(`\w+`)\s+and\s+(`\w+`)\s+have\s+the\s+same\s+length'
+    handler: object_distributed
+    template: "The %s parameter %s's length is equal to the %s parameter %s's length"
+  - pattern: 'The\s+(integer\s+array)\s+(result)\s+should\s+have\s+the\s+same\s+length\s+as\s+the\s+input\s+array\s+parameter\s+(`\w+`)'
+    handler: object_distributed
+    template: "The %s %s's length is equal to the %s parameter %s's length"
+  - pattern: 'The\s+(\w+)\s+parameter\s+(`\w+`)\s+and\s+(`\w+`)\s+consist\s+of\s+digits\s+only'
+    handler: object_distributed
+    template: 'The %s parameter %s consists of digits only and the %s parameter %s consists of digits only'
+  - pattern: 'The\s+(\w+)\s+parameter\s+(`\w+`)\s+and\s+(`\w+`)\s+consist\s+of\s+only\s+(.*).'
+    handler: object_distributed_general
+    template: 'The %s parameter %s consists of only %s and the %s parameter %s consists of only %s.'
+
+compound_subject:
+  - pattern: 'If\s+the\s+(\w+)\s+parameters\s+(`\w+`)\s+and\s+(`\w+`)\s+are\s+equal\s+to\s+("\w+")\s+and\s+("\w+")(.*)'
+    handler: equal_respectively
+  - pattern: 'If\s+the\s+(\w+)\s+parameters\s+(`\w+`)\s+and\s+(`\w+`)\s+are\s+equal\s+to\s+(\w+)\s+and\s+(\w+)(.*)'
+    handler: equal_respectively
+  - pattern: 'If\s+the\s+(\w+)\s+parameters\s+(`\w+`)\s+and\s+(`\w+`)\s+are\s+equal\s+to\s+("\w+")(.*)'
+    handler: equal_distributedly
+  - pattern: 'The\s+(\w+)\s+parameter\s+(`\w+`)\s+and\s+(`\w+`)\s+(consist\s+only\s+of)(.*)'
+    handler: consist_of_distributed
+  - pattern: 'The\s+(\w+)\s+parameters\s+(`\w+`)\s+and\s+(`\w+`)\s+(consist\s+of\s+only)(.*)'
+    handler: consist_of_distributed
+  - pattern: '^If\s+the\s+(integer\s+array)s\s+(`\w+`)\s+and\s+(`\w+`)\s+are\s+equal\s+to\s+(\[[,0-9]+\])\s+and\s+(\[[,0-9]+\])(.*)$'
+    handler: equal_correspondingly
+
+either_or:
+  - pattern: 'the\s+(\w+)\s+parameter\s+(`\w+`)\s+is\s+either\s+(.*)\s+or\s+(.*)'
+
+pronoun:
+  - pattern: 'the\s+(\w+)\s+parameter\s+(`\w+`)\s+is\s+(.*)\s+and\s+all\s+its\s+(.*)\s+are\s+(.*)'
+
+conditional_sentence_distribution:
+  - pattern: 'If\s+the\s+(\w+)\s+parameter\s+(`\w+`)\s+is\s+equal\s+to\s+(("[-+\.\w+]+",\s+)+"[-+\.0-9eE]+")'
+    type: string
+
+false_otherwise:
+  - pattern: ',\s+or\s+false\s+otherwise\.'
+  - pattern: ',\s+and\s+false\s+otherwise\.'
+  - pattern: ',\s+otherwise\s+false\.'
+
+and_false_clause:
+  - pattern: ',\s+and\s+false\s+(.*)\.'
+
+specified_type_checking:
+  - pattern: '^The\s+(\w+\s+array)\s+parameter\s+(`\w+`)\s+consists\s+of\s+(\w+)\.$'
+    template: 'The %s parameter %s only contains %s.'
+
+redundant_type_clause:
+  - pattern: "the\\s+('[\\w\\W\\*\\?]')\\s+character"
+
+at_most_elements:
+  - pattern: '^The\s+(\w+)\s+result\s+(.*)\s+and\s+contains\s+at\s+most\s+(\d+)\s+elements\.$'
+    template: "The %s result %s and the %s result's length is less than or equal to %s."
+
+compound_subject_ultimate:
+  - pattern: '^The\s+(\w+)\s+parameters\s+(`\w+`)\s+and\s+(`\w+`)\s+(.*)(\s+)?$'
+    template: 'The %s parameter %s %s and the %s parameter %s %s'
+  - pattern: '^The\s+length\s+of\s+the\s+(\w+)\s+parameter\s+(`\w+`)\s+and\s+(`\w+`)\s+(.*)(\s+)?$'
+    template: "The %s parameter %s's length %s and the %s parameter %s's length %s."
+    constraint: same

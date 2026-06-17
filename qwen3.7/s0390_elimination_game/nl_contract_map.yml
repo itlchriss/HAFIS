@@ -1,0 +1,28 @@
+problem: s0390_elimination_game
+method: lastRemaining
+total_annotations: 5
+requires_count: 1
+ensures_count: 4
+original_contract_count: 3
+annotations:
+- id: 0
+  type: requires
+  nl: The integer parameter `n` is greater than or equal to 1 and is less than or
+    equal to 1000000000.
+  original_contract: 1 <= n <= 1000000000
+- id: 1
+  type: ensures
+  nl: The integer result is greater than or equal to 1 and is less than or equal to
+    the integer parameter `n`.
+  original_contract: 1 <= result <= n
+- id: 2
+  type: ensures
+  nl: The integer result is the last number that remains after applying the elimination
+    algorithm on the list of all integers from 1 to the integer parameter `n`.
+  original_contract: n == 1 ==> result == 1
+- id: 3
+  type: ensures
+  nl: If the integer parameter `n` is equal to 9, the integer result is equal to 6.
+- id: 4
+  type: ensures
+  nl: If the integer parameter `n` is equal to 1, the integer result is equal to 1.

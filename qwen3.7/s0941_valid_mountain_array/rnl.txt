@@ -1,0 +1,8 @@
+- The length of the integer array parameter `arr` is greater than or equal to 1 and is less than or equal to 10000.
+- All values in the integer array parameter `arr` are greater than or equal to 0 and are less than or equal to 10000.
+- The integer array parameter `arr` is not equal to the null literal.
+- If the boolean result is equal to the true literal, there exists a non-negative integer `i` that is greater than 0 and is less than the length of the integer array parameter `arr` minus 1 such that all values from index 0 to index `i` of the integer array parameter `arr` are strictly increasing and all values from index `i` to the last index of the integer array parameter `arr` are strictly decreasing.
+- If the boolean result is equal to the false literal, there does not exist a non-negative integer `i` that is greater than 0 and is less than the length of the integer array parameter `arr` minus 1 such that all values from index 0 to index `i` of the integer array parameter `arr` are strictly increasing and all values from index `i` to the last index of the integer array parameter `arr` are strictly decreasing.
+- If the integer array parameter `arr` is equal to [2,1], the boolean result is equal to the false literal.
+- If the integer array parameter `arr` is equal to [3,5,5], the boolean result is equal to the false literal.
+- If the integer array parameter `arr` is equal to [0,3,2,1], the boolean result is equal to the true literal.

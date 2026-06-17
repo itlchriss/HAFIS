@@ -1,0 +1,430 @@
+# Word-level syntax transformation rules
+# Each rule matches a pattern of words/tokens and replaces them with a format string.
+#
+# Fields:
+#   pattern: list of words/tokens to match (can include __type__ markers like __num__, __param__)
+#   format: replacement format string (tokens like __num__ are replaced with matched values)
+#   symbol: SI symbol name (empty if no SI entry needed)
+#   interpretation: SI interpretation (empty if no SI entry needed)
+#   syntax: POS syntax tag (empty if default)
+#   arguments: list of argument dicts with symbol/primitive_type/reference_type
+#   synthesised_datatype: dict with primitive_type/reference_type
+
+- pattern: [an, array, of, length, '__num__']
+  format: 'a __num__-length array'
+  symbol: '__num__-length'
+  interpretation: '(Subj).length == __num__'
+  syntax: JJ
+  arguments:
+    - symbol: Subj
+      primitive_type: '*'
+      reference_type: '0'
+  synthesised_datatype:
+    primitive_type: '0'
+    reference_type: '-1'
+
+- pattern: [is, a, multiple, of, '__num__']
+  format: 'is evenly_divided by __num__'
+
+- pattern: [less, than, or, equal, to, '__param__']
+  format: 'less than or equal to the __param__'
+
+- pattern: [less, than, '__param__']
+  format: 'less than to the __param__'
+
+- pattern: [greater, than, equal, to, '__param__']
+  format: 'greater than or equal to the __param__'
+
+- pattern: [greater, than, '__param__']
+  format: 'greater than to the __param__'
+
+- pattern: ['__num__', +, '__num__']
+  format: '__sum__'
+
+- pattern: ['__num__', -, '__num__']
+  format: '__diff__'
+
+- pattern: ['__num__', '*', '__num__']
+  format: '__product__'
+
+- pattern: [is, in, the, range, of, '__num__', to, '__num__']
+  format: 'is greater than or equal to __num__ and is less than or equal to __num__'
+
+- pattern: [are, in, the, range, of, '__num__', to, '__num__']
+  format: 'are greater than or equal to __num__ and are less than or equal to __num__'
+
+- pattern: [is, within, the, range, of, '__num__', to, '__num__']
+  format: 'is greater than or equal to __num__ and is less than or equal to __num__'
+
+- pattern: [is, in, the, range, of, negative, '__num__', to, '__num__']
+  format: 'is greater than or equal to negative __num__ and is less than or equal to __num__'
+
+- pattern: [is, in, the, range, of, '__num__', to, negative, '__num__']
+  format: 'is greater than or equal to __num__ and is less than or equal to negative __num__'
+
+- pattern: [is, within, the, range, of, '__num__', to, negative, '__num__']
+  format: 'is greater than or equal to __num__ and is less than or equal to negative __num__'
+
+- pattern: [is, within, the, range, of, negative, '__num__', to, '__num__']
+  format: 'is greater_than_or_equal to negative __num__ and is less_than_or_equal to __num__'
+
+- pattern: [has, a, length, of, '__num__']
+  format: "'s length is equal to __num__"
+
+- pattern: [has, a, length, of, '__expr__']
+  format: "'s length is equal to __expr__"
+
+- pattern: [is, of, length, '__num__']
+  format: "'s length is equal to __num__"
+
+- pattern: [length, of, the, string_representation, of, the, '__type__', '__param_or_result__']
+  format: "__type__ __param_or_result__'s string_representation's length"
+
+- pattern: ['__be__', either, '__num__', or, '__num__']
+  format: '__be__ equal to __num__ or __be__ equal to __num__'
+
+- pattern: ['__be__', either, '__char__', or, '__char__']
+  format: '__be__ equal to __char__ or __be__ equal to __char__'
+
+- pattern: ['__be__', either, '__char__', ',', '__char__', ',', or, '__char__']
+  format: '__be__ equal to __char__ or __be__ equal to __char__ or __be__ equal to __char__'
+
+- pattern: ['__be__', either, '__num__', ',', '__num__', ',', or, '__num__']
+  format: '__be__ equal to __num__ or __be__ equal to __num__ or __be__ equal to __num__'
+
+- pattern: ['__be__', either, '__bool__', or, '__bool__']
+  format: '__be__ equal to the __bool__ literal or __be__ equal to the __bool__ literal'
+
+- pattern: [must, have, a, length, of, '__num__']
+  format: "'s length is equal to __num__"
+
+- pattern: [must, have, a, length, '__param__']
+  format: "'s length is equal to __param__"
+
+- pattern: [must, have, a, length, '__comparative__']
+  format: "'s length is __comparative__"
+
+- pattern: [consist, of, '__chartype__', '__restrictive_adverb__']
+  format: 'only contain __chartype__'
+
+- pattern: [must, consist, of, '__restrictive_adverb__']
+  format: 'only contain'
+
+- pattern: [consists, of, '__chartype__']
+  format: 'contains __chartype__'
+
+- pattern: [consists, of, '__restrictive_adverb__']
+  format: 'only contains'
+
+- pattern: [consists, '__restrictive_adverb__', of]
+  format: 'only contains'
+
+- pattern: [consisting, of, '__restrictive_adverb__']
+  format: 'only contains'
+
+- pattern: ['__param__', length]
+  format: "__param__'s length"
+
+- pattern: ['__param__', has, a, length]
+  format: "__param__'s length"
+
+- pattern: ['__num__', times, the, integer, '__quoted__']
+  format: 'the type_integer_ `__num__ * __quoted__`'
+
+- pattern: ['__param__', has, an, even, length]
+  format: "__param__'s length is even"
+
+- pattern: [length, of, the, '__type__', '__param__', and, the, '__type__', '__param__']
+  format: 'length of the __type__ __param__ and the length of the __type__ __param__'
+
+- pattern: ['__si_term__', ',', '__si_term__', or, '__si_term__']
+  format: '__si_term__ or __si_term__ or __si_term__'
+
+- pattern: [is, equal, to, '__string__', or, '__string__']
+  format: 'is equal to __string__ or is equal to __string__'
+
+- pattern: ['__param__', has, only, one, element]
+  format: "__param__'s length is equal to 1"
+
+- pattern: ['__param__', has, '__num_word__', elements]
+  format: "__param__'s length is equal to __num_word__"
+
+- pattern: ['__param__', has, more, than, '__num_word__', elements]
+  format: "__param__'s length is greater than to __num_word__"
+
+- pattern: ['__param__', has, more, than, '__num__', elements]
+  format: "__param__'s length is greater than to __num__"
+
+- pattern: [is, in, the, range, of, a, signedint]
+  format: 'is greater than to negative 2147483648 and is less than to 2147483647'
+
+- pattern: [the, value, of, the, '__type__', '__param__', at, the, index, of, the, result]
+  format: 'the __param__array_access_with_result_'
+  symbol: '__param__array_access_with_result_'
+  interpretation: '__param__[\result]'
+  syntax: NN
+
+- pattern: [the, length, of, the, '__type__', '__param__']
+  format: "the __type__ __param__'s length"
+
+- pattern: [The, length, of, the, '__type__', '__param__']
+  format: "The __type__ __param__'s length"
+
+- pattern: [the, length, of, the, '__type__', result]
+  format: "the __type__ result's length"
+
+- pattern: [The, length, of, the, '__type__', result]
+  format: "The __type__ result's length"
+
+- pattern: [any, value, appears, at, least, twice, in, the, '__word__']
+  format: 'the __word__ is not unique'
+
+- pattern: [contain, the, substring, '__expr_string__']
+  format: 'contain the __expr_string__'
+
+- pattern: [All, values, '__pos_prep__', the, '__type__', '__param__']
+  format: "The __type__ __param__'s values"
+
+- pattern: [all, values, '__pos_prep__', the, '__type__', '__param__']
+  format: "the __type__ __param__'s values"
+
+- pattern: [If, all, values, '__pos_prep__', the, '__type__', '__param__']
+  format: "If the __type__ __param__'s values"
+
+- pattern: [All, 'the values', '__pos_prep__', the, '__type__', '__param__']
+  format: "The __type__ __param__'s values"
+
+- pattern: [All, the, values, '__pos_prep__', '__type__', '__param__']
+  format: "The __type__ __param__'s values"
+
+- pattern: [All, values, '__pos_prep__', '__type__', '__param__']
+  format: "The __type__ __param__'s values"
+
+- pattern: [All, values, '__pos_prep__', the, '__type__', '__param_or_result__']
+  format: "The __type__ __param_or_result__'s values"
+
+- pattern: [not, equal, to, the, summation, in, the, '__type__', '__param__']
+  format: "not_equal to the __type__ __param__'s summation"
+
+- pattern: [The, summation, in, the, '__type__', '__param_or_result__']
+  format: "The __type__ __param_or_result__'s summation"
+
+- pattern: [the, summation, in, the, '__type__', '__param_or_result__']
+  format: "the __type__ __param_or_result__'s summation"
+
+- pattern: [the, minimum_value, in, the, '__type__', '__param__']
+  format: "the __type__ __param__'s minimum_value"
+
+- pattern: [the, minimum_value, of, the, '__type__', '__param__']
+  format: "the __type__ __param__'s minimum_value"
+
+- pattern: [the, maximum_value, in, the, '__type__', '__param__']
+  format: "the __type__ __param__'s maximum_value"
+
+- pattern: [the, maximum_value, of, the, '__type__', '__param__']
+  format: "the __type__ __param__'s maximum_value"
+
+- pattern: [first_element, '__pos_prep__', the, '__type__', '__param_or_result__']
+  format: "__type__ __param_or_result__'s first_element"
+
+- pattern: [second_element, '__pos_prep__', the, '__type__', '__param_or_result__']
+  format: "__type__ __param_or_result__'s second_element"
+
+- pattern: [number_of_unique_elements, '__pos_prep__', the, '__type__', '__param_or_result__']
+  format: "__type__ __param_or_result__'s number_of_unique_elements"
+
+- pattern: [length, plus, '__num__']
+  format: 'length + __num__'
+
+- pattern: [at, least, '1', value, in, the, '__type__', '__param_or_result__', appears, more, than, once]
+  format: 'the __type__ __param_or_result__ is not unique'
+
+- pattern: ['__num__', times, '__num__']
+  format: '__product__'
+
+- pattern: [contains, less, than, '__num__', elements]
+  format: "'s length is less than __num__"
+
+- pattern: ['__be__', unique, sorted, to, the, ascending_order]
+  format: '__be__ unique and __be__ sorted to the ascending_order'
+
+- pattern: ['__be__', between, '__num__', and, '__num__']
+  format: '__be__ greater than __num__ and __be__ less than __num__'
+
+- pattern: ['__param_or_result_values__', values, only, '__contain__']
+  format: '__vocontain__'
+
+- pattern: [there, exists, no, non-repeating, character, in, the, '__type__', '__param_or_result__']
+  format: 'the __type__ __param_or_result__ does not contain a nonrepeating_character'
+
+- pattern: [there, exists, a, non-repeating, character, in, the, '__type__', '__param_or_result__']
+  format: 'the __type__ __param_or_result__ contains a nonrepeating_character'
+
+- pattern: [the, sum, of, the, '__type__', '__param_or_result__', and, the, '__type__', '__param_or_result__']
+  format: 'the __type__ __param_or_result__ + the __type__ __param_or_result__'
+
+- pattern: ['__contain__', integers, and, arithmetic_operators, separated, by, number, of, spaces]
+  format: 'only __contain__ arithexprspace'
+
+- pattern: [valid, expression, containing, integers, and, arithmetic_operators, separated, by, spaces]
+  format: 'the arithexprspace'
+
+- pattern: [is, the, hexadecimal_representation, of, the, '__type__', '__param_or_result__']
+  format: "is equal to the __type__ __param_or_result__'s hexadecimal_representation"
+
+- pattern: ['__type__', '__param_or_result__', is, '__array__']
+  format: '__type__ __param_or_result__ is equal to __array__'
+
+- pattern: [is, the, ones_complement, of, the, '__type__', '__param_or_result__']
+  format: "is equal to the __type__ __param_or_result__'s ones_complement"
+
+# =============================================================================
+# Dafny Extension: Quantifier patterns
+# =============================================================================
+
+- pattern: [for, every, '__type__', '__quoted__', such, that]
+  format: 'for every __type__ __quoted__ such that'
+
+- pattern: [for, every, '__type__', '__quoted__', that, is, less, than]
+  format: 'for every __type__ __quoted__ that is less than'
+
+- pattern: [for, every, '__type__', '__quoted__', that, is, less, than, or, equal, to]
+  format: 'for every __type__ __quoted__ that is less than or equal to'
+
+- pattern: [there, exists, a, '__type__', '__quoted__', such, that]
+  format: 'there exists a __type__ __quoted__ such that'
+
+- pattern: [there, exist, a, '__type__', '__quoted__', and, a, '__type__', '__quoted__', such, that]
+  format: 'there exist a __type__ __quoted__ and a __type__ __quoted__ such that'
+
+# =============================================================================
+# Dafny Extension: Set operation patterns
+# =============================================================================
+
+- pattern: [the, cardinality, of, the, set, '__quoted__']
+  format: "the set __quoted__'s cardinality"
+
+- pattern: [is, contained, in, the, set, '__quoted__']
+  format: 'is contained in the set __quoted__'
+
+- pattern: [is, not, contained, in, the, set, '__quoted__']
+  format: 'is not contained in the set __quoted__'
+
+- pattern: [the, set, of, all, '__type__', '__quoted__', such, that]
+  format: 'the set of all __type__ __quoted__ such that'
+
+- pattern: [the, set, '__quoted__', minus, the, singleton, set, containing]
+  format: "the set __quoted__ minus the singleton set containing"
+
+# =============================================================================
+# Dafny Extension: Arithmetic expression patterns
+# =============================================================================
+
+- pattern: [the, sum, of, the, value, at, index, '__quoted__', of, the, '__type__', '__param__']
+  format: "the __type__ __param__'s value at index __quoted__"
+
+- pattern: [the, difference, between, the, length, of, the, '__type__', '__param__', and]
+  format: "the length of the __type__ __param__ minus"
+
+- pattern: ['__num__', raised, to, the, power, of, '__quoted__']
+  format: '__num__ raised to the power of __quoted__'
+
+# =============================================================================
+# Dafny Extension: Ghost/proof construct patterns
+# =============================================================================
+
+- pattern: [define, the, ghost, function, '__quoted__']
+  format: 'define the ghost function __quoted__'
+
+- pattern: [define, the, function, '__quoted__']
+  format: 'define the function __quoted__'
+
+- pattern: [the, loop, invariant, is]
+  format: 'the loop invariant is'
+
+- pattern: [it, holds, that]
+  format: 'it holds that'
+
+- pattern: [the, termination, metric, is]
+  format: 'the termination metric is'
+
+- pattern: [the, termination, metric, for, the, function, '__quoted__', is]
+  format: "the function __quoted__'s termination metric is"
+
+# =============================================================================
+# Dafny Extension: Method specification patterns
+# =============================================================================
+
+- pattern: [the, method, may, modify, the, '__type__', '__param__']
+  format: 'the method may modify the __type__ __param__'
+
+- pattern: [the, function, reads, the, '__type__', '__param__']
+  format: 'the function reads the __type__ __param__'
+
+# =============================================================================
+# Dafny Extension: Counting/optimization patterns
+# =============================================================================
+
+- pattern: [the, total, number, of, contiguous, subarrays, of, the, '__type__', '__param__']
+  format: "the __type__ __param__'s contiguous subarrays' total number"
+
+- pattern: [the, total, number, of, continuous, subarrays, of, the, '__type__', '__param__']
+  format: "the __type__ __param__'s contiguous subarrays' total number"
+
+- pattern: [whose, sum, is, equal, to]
+  format: "whose sum is equal to"
+
+# =============================================================================
+# Dafny Extension: Length patterns for strings and sequences
+# =============================================================================
+
+- pattern: [the, length, of, the, string, '__param__']
+  format: "the string __param__'s length"
+
+- pattern: [The, length, of, the, string, '__param__']
+  format: "The string __param__'s length"
+
+- pattern: [the, length, of, the, string, result]
+  format: "the string result's length"
+
+- pattern: [The, length, of, the, string, result]
+  format: "The string result's length"
+
+- pattern: [the, length, of, the, sequence, '__param__']
+  format: "the sequence __param__'s length"
+
+# =============================================================================
+# Dafny Extension: Map operation patterns
+# =============================================================================
+
+- pattern: [the, value, mapped, to, by, '__quoted__', in, the, map, '__param__']
+  format: "the map __param__'s value mapped to by __quoted__"
+
+- pattern: [the, domain, of, the, map, '__param__']
+  format: "the map __param__'s domain"
+
+- pattern: [the, range, of, the, map, '__param__']
+  format: "the map __param__'s range"
+
+# =============================================================================
+# Dafny Extension: Multiset patterns
+# =============================================================================
+
+- pattern: [the, count, of, '__quoted__', in, the, multiset, '__param__']
+  format: "the multiset __param__'s count of __quoted__"
+
+- pattern: [the, multiset, formed, from, the, '__type__', '__param__']
+  format: "the __type__ __param__'s multiset"
+
+# =============================================================================
+# Dafny Extension: Adjacency patterns
+# =============================================================================
+
+- pattern: [no, two, elements, in, the, set, '__quoted__', are, adjacent]
+  format: 'no two elements in the set __quoted__ are adjacent'
+
+- pattern: [are, not, adjacent]
+  format: 'are not adjacent'
+
+- pattern: [non-adjacent]
+  format: 'not adjacent'

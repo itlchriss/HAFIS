@@ -1,0 +1,52 @@
+problem: s0066_plus_one
+method: plusOne
+total_annotations: 10
+requires_count: 4
+ensures_count: 6
+original_contract_count: 6
+annotations:
+- id: 0
+  type: requires
+  nl: The length of the integer array parameter `digits` is greater than or equal
+    to 1 and is less than or equal to 100.
+  original_contract: 1 <= digits.Length <= 100
+- id: 1
+  type: requires
+  nl: All values in the integer array parameter `digits` are greater than or equal
+    to 0 and are less than or equal to 9.
+  original_contract: 'forall i: nat :: i < digits.Length ==> 0 <= digits[i] <= 9'
+- id: 2
+  type: requires
+  nl: The integer array parameter `digits` does not contain leading zeros.
+  original_contract: result.Length == digits.Length || result.Length == digits.Length
+    + 1
+- id: 3
+  type: requires
+  nl: The integer array parameter `digits` is not equal to the null literal.
+  original_contract: 'forall i: nat :: i < result.Length ==> 0 <= result[i] <= 9'
+- id: 4
+  type: ensures
+  nl: The integer array result is not equal to the null literal.
+  original_contract: digits[digits.Length - 1] < 9 ==>
+- id: 5
+  type: ensures
+  nl: The integer array result represents the integer formed by adding 1 to the integer
+    represented by the integer array parameter `digits`.
+  original_contract: 'digits[digits.Length - 1] >= 9 && (forall i: nat :: i < digits.Length
+    ==> digits[i] == 9) ==>'
+- id: 6
+  type: ensures
+  nl: If the integer array parameter `digits` is equal to [1,2,3], the integer array
+    result is equal to [1,2,4].
+- id: 7
+  type: ensures
+  nl: If the integer array parameter `digits` is equal to [4,3,2,1], the integer array
+    result is equal to [4,3,2,2].
+- id: 8
+  type: ensures
+  nl: If the integer array parameter `digits` is equal to [0], the integer array result
+    is equal to [1].
+- id: 9
+  type: ensures
+  nl: If the integer array parameter `digits` is equal to [9], the integer array result
+    is equal to [1,0].

@@ -1,0 +1,31 @@
+# Expression extraction rules
+# Patterns that extract quoted/bracketed expressions from text and store them
+# in the expression_store, replacing them with placeholder tokens.
+#
+# Each rule specifies:
+#   name: unique identifier for the rule
+#   pattern: regex pattern with capture group
+#   key_prefix: prefix for the expression_store key (appended with index letter)
+#   replacement_template: how to replace the match in the text ({key} is substituted)
+#   value_transform: how to transform the captured value (strip_brackets, strip_backticks, etc.)
+
+# String arrays: ["..."]
+- name: string_array
+  pattern: '(\["[\w\W]+\"\])'
+  key_prefix: 'str_seq'
+  replacement_template: ' the type_string_array_ {key}'
+  value_transform: strip_brackets
+
+# Integer arrays: [1, 2, 3]
+- name: integer_array
+  pattern: '(\[[,\-0-9 ]+\])'
+  key_prefix: 'arr_'
+  replacement_template: ' {key}'
+  value_transform: strip_brackets
+
+# Tuples: (1, 2, 3)
+- name: integer_tuple
+  pattern: '(\([,\-0-9 ]+\))'
+  key_prefix: 'tuple_'
+  replacement_template: ' {key}'
+  value_transform: strip_parens

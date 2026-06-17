@@ -1,0 +1,231 @@
+# =============================================================================
+# Dafny SI Module: Frame Conditions and Structural Properties
+# =============================================================================
+# SI terms for frame conditions, sorting, uniqueness, and
+# structural properties of arrays/sequences
+# =============================================================================
+
+# --- Frame Conditions ---
+- term: the first
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[0..]'
+  note: 'Prefix of array: first k elements'
+
+- term: the first part of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[0..]'
+
+- term: in-place
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'modifies'
+  note: 'In-place modification'
+
+- term: modifying the input
+  syntax:
+  - VBG
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'modifies'
+
+# --- Sorting ---
+- term: sorted in ascending order
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'sorted_asc'
+  note: 'Sorted ascending: forall i,j :: i < j ==> a[i] <= a[j]'
+
+- term: sorted in non-decreasing order
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'sorted_asc'
+
+- term: sorted in descending order
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'sorted_desc'
+
+- term: sorted in non-increasing order
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'sorted_desc'
+
+# --- Uniqueness ---
+- term: unique
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'unique'
+  note: 'All elements are distinct'
+
+- term: all values are unique
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'forall_unique'
+
+- term: distinct
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'unique'
+
+# --- Containment (element in array) ---
+- term: contains
+  syntax:
+  - VBZ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'contains'
+  note: 'Array/string contains element'
+
+- term: does not contain
+  syntax:
+  - VBZ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '!contains'
+
+# --- Adjacency ---
+- term: adjacent
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'adjacent'
+  note: 'Adjacent elements: i+1 == j'
+
+- term: non-adjacent
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '!adjacent'
+
+# --- Contiguous Subarray ---
+- term: contiguous subarray
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'subarray'
+  note: 'Contiguous subarray: a[i..j]'
+
+- term: continuous subarray
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'subarray'
+
+- term: subarray
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'subarray'
+
+# --- Subset of array ---
+- term: a subset of
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'subset_of'
+
+# --- Pair of indices ---
+- term: a pair of distinct indices
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'pair_distinct'
+
+- term: pair of indices
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'pair'

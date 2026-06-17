@@ -1,0 +1,1 @@
+-exists x01.(_target{NN}(x01) & exists x02.(_the{DT}(x02) & exists e03.(_return{VBN}(e03) & (Acc(e03) = x02))) & exists e04.(_find{VBN}(e04) & (Acc(e04) = x01))) -> exists x05.(_index{NN}(x05) & exists x06.(exists e07.(_negative{JJ}(e07) & (Subj(e07) = x06) & _1{CD}(x06)) & (x05 = x06)))

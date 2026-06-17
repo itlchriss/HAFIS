@@ -1,0 +1,28 @@
+python : CB[0]: 'long rev = 0;'
+位於 線路:1 字元:37
++ ... ftware\HAFIS; python scripts\test_debug.py
+ 2>debug_stderr.txt; Select ...
++                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (CB 
+   [0]: 'long rev = 0;':String) [], RemoteExce  
+  ption
+    + FullyQualifiedErrorId : NativeCommandErro 
+   r
+ 
+CB[1]: '//@ ghost long k;'
+CB[2]: '//@ ghost int m;'
+CB[3]: '//@ set k = rev;'
+CB[4]: '//@ set m = x;'
+CB[5]: 'while (x != 0) {'
+WHILE: i=5, end_i=13, len=14, close='x /= 10;'
+CB[0]: '//@ set k = rev;'
+CB[1]: '//@ set m = x;'
+CB[2]: '// assume (Long.MIN_VALUE)/10 + m <= k <
+= (Long.MAX_VALUE)/1'
+CB[3]: '// assume ((Long.MIN_VALUE) + ( m % 10 )
+)/10 <= k <= ((Long.'
+CB[4]: 'rev = (rev * 10) + (x % 10);'
+CB[5]: '//@ set k = rev;'
+CB[6]: '//@ set m = m/10;'
+CB[7]: 'x /= 10;'

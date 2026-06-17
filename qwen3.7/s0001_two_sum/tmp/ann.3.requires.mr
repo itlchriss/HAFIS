@@ -1,0 +1,1 @@
+-exists x01.(_`numbers`{NN}(x01) & _parameter{NN}(x01) & _array{NN}(x01) & _integer{NN}(x01) & exists x02.(_literal{NN}(x02) & _null{NN}(x02) & exists e03.(_equal{JJ}(e03) & (Subj(e03) = x01)) & _to{TO}(x01,x02)))

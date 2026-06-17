@@ -1,0 +1,1 @@
+All elements in the second array (b) is 0.

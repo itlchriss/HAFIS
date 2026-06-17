@@ -1,0 +1,51 @@
+problem: s0387_first_unique_character_in_a_string
+method: firstUniqChar
+total_annotations: 10
+requires_count: 3
+ensures_count: 7
+original_contract_count: 4
+annotations:
+- id: 0
+  type: requires
+  nl: The length of the string parameter `s` is greater than or equal to 1 and is
+    less than or equal to 100000.
+  original_contract: 1 <= |s| <= 100000
+- id: 1
+  type: requires
+  nl: The string parameter `s` consists of only lowercase English letters.
+  original_contract: 'forall i: nat :: i < |s| ==> s[i] >= ''a'' && s[i] <= ''z'''
+- id: 2
+  type: requires
+  nl: The string parameter `s` is not equal to the null literal.
+  original_contract: -1 <= result < |s|
+- id: 3
+  type: ensures
+  nl: The integer result is greater than or equal to -1 and is less than the length
+    of the string parameter `s`.
+  original_contract: result >= 0 ==>
+- id: 4
+  type: ensures
+  nl: If the integer result is greater than or equal to 0, the character at the integer
+    result index of the string parameter `s` appears exactly 1 time in the string
+    parameter `s`.
+- id: 5
+  type: ensures
+  nl: If the integer result is greater than or equal to 0, every character at an index
+    smaller than the integer result in the string parameter `s` appears more than
+    1 time in the string parameter `s`.
+- id: 6
+  type: ensures
+  nl: If the integer result is equal to -1, every character in the string parameter
+    `s` appears more than 1 time in the string parameter `s`.
+- id: 7
+  type: ensures
+  nl: If the string parameter `s` is equal to "leetcode", the integer result is equal
+    to 0.
+- id: 8
+  type: ensures
+  nl: If the string parameter `s` is equal to "loveleetcode", the integer result is
+    equal to 2.
+- id: 9
+  type: ensures
+  nl: If the string parameter `s` is equal to "aabb", the integer result is equal
+    to -1.

@@ -1,0 +1,29 @@
+problem: s0476_number_complement
+method: findComplement
+total_annotations: 5
+requires_count: 1
+ensures_count: 4
+original_contract_count: 3
+annotations:
+- id: 0
+  type: requires
+  nl: The integer parameter `num` is greater than or equal to 1 and is less than 2147483647.
+  original_contract: 1 <= num <= 2147483647
+- id: 1
+  type: ensures
+  nl: The integer result is greater than or equal to 0.
+  original_contract: 0 <= result
+- id: 2
+  type: ensures
+  nl: The integer result is equal to the complement of the integer parameter `num`
+    when all bits in the binary representation of the integer parameter `num` excluding
+    leading zeros are flipped.
+  original_contract: num + result >= 1  // result + num = mask - 1 for some mask
+- id: 3
+  type: ensures
+  nl: If the integer parameter `num` is equal to 5, the integer result is equal to
+    2.
+- id: 4
+  type: ensures
+  nl: If the integer parameter `num` is equal to 1, the integer result is equal to
+    0.

@@ -1,0 +1,1 @@
+all x01.(_occurrence{NNS}(x01) -> (exists x02.(_oldchar{NN}(x02) & exists x03.(_string{NN}(x03) & exists e04.(_in{IN}(e04,x03) & (Subj(e04) = x02))) & exists e05.(_of{IN}(e05,x02) & (Subj(e05) = x01))) -> exists e06.(_replace{VBN}(e06) & (Acc(e06) = x01) & exists x07.(_newchar{NN}(x07) & _with{IN}(e06,x07) & exists x08.(_string{NN}(x08) & _output{NN}(x08) & _in{IN}(e06,x08))))))

@@ -1,0 +1,1 @@
+-exists x.(_method{NN}(x) & TrueP & all z3.(exists e.(_built_dash_in{JJ}(e) & (Subj(e) = z3) & _function{NN}(z3) & _library{NN}(z3)) -> (_such{JJ}(z3) & exists z1.(_strs_a{NN}(z1) & _type_string_{NN}(z1) & TrueP & exists e.(_as{IN}(e,z1) & (Subj(e) = z3) & TrueP)) & True) -> exists e.(_use{VB}(e) & (Subj(e) = x) & (Acc(e) = z3) & TrueP))))
