@@ -28,7 +28,8 @@ annotations:
 - id: 4
   type: requires
   nl: Exactly one pair of distinct indices exists in the integer array parameter `numbers`
-    whose corresponding values sum to the integer parameter `target`.
+    the int array parameter `numbers` corresponding values sum to the integer parameter
+    `target`.
   original_contract: 0 <= result[0] < result[1] < numbers.Length
 - id: 5
   type: ensures

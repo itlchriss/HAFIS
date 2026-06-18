@@ -44,7 +44,7 @@ function countDiffBits(x: int, y: int, limit: nat): nat
 // requires(*The integer parameter `x` is greater than or equal to 0 and is less than or equal to 2147483647.*);
 // requires(*The integer parameter `y` is greater than or equal to 0 and is less than or equal to 2147483647.*);
 // ensures(*The integer result is greater than or equal to 0 and is less than or equal to 32.*);
-// ensures(*The integer result is equal to the number of bit positions at which the binary representation of the integer parameter `x` and the binary representation of the integer parameter `y` differ.*);
+// ensures(*The integer result is equal to the number of bit positions at The integer result the binary representation of the integer parameter `x` and the binary representation of the integer parameter `y` differ.*);
 // ensures(*If the integer parameter `x` is equal to 1 and the integer parameter `y` is equal to 4, the integer result is equal to 2.*);
 // ensures(*If the integer parameter `x` is equal to 3 and the integer parameter `y` is equal to 1, the integer result is equal to 1.*);
 method hammingDistance(x: int, y: int) returns (result: int)

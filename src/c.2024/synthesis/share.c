@@ -42,15 +42,15 @@ int __has_abstract_ex_arg__(struct cstsymbol *ptr) {
 */
 int __is_Rel_dependent__(struct cstsymbol *c) {
     if (c == NULL || c->datalist == NULL) return FALSE;
-    if (c->datalist->count > 1) return FALSE;
-    char *data = (char *)gqueue(c->datalist, 0);
-    int len = 0;
-    if (data) {
-        len = strlen(data);
+    /* Check if ANY entry in the datalist contains __REL__ */
+    for (int i = 0; i < c->datalist->count; ++i) {
+        char *data = (char *)gqueue(c->datalist, i);
+        if (data == NULL) continue;
+        int len = strlen(data);
+        int occur[len/7 + 1];
+        if (strsearch(data, "__REL__", occur) != 0) return TRUE;
     }
-    int occur[len/7 + 1];
-    if (data && strsearch(data, "__REL__", occur) != 0) return TRUE;        
-    else return FALSE;
+    return FALSE;
 }
 
 int __is_Abstract_noun__(struct cstsymbol *c) {
@@ -327,7 +327,6 @@ int __direct_syntax_synthesis__(struct astnode *node) {
         child->cstptr->datatype->p = targetsi->synthesised_datatype->p;
         child->cstptr->datatype->r = targetsi->synthesised_datatype->r;
         child->cstptr->datatype->i = targetsi->type;
-        // child->cstptr->datatype->i = targetsi->synthesised_datatype->i;
     }
 
     
@@ -337,6 +336,8 @@ int __direct_syntax_synthesis__(struct astnode *node) {
     }
     if (targetsi->interpretation != NULL && strlen(targetsi->interpretation) > 0) {
         enqueue(child->cstptr->datalist, (char *)strdup(targetsi->interpretation));
+        fprintf(stderr, "DEBUG __direct_syntax_synthesis__: predicate=%s interpretation=%s child=%s datalist_count=%d\n",
+            node->token->symbol, targetsi->interpretation, child->cstptr->symbol, child->cstptr->datalist->count);
         /*
         * for multiple SI
         * some statements may have multiple subjects and objects, we deal with the following section

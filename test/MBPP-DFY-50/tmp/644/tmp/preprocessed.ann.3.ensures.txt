@@ -1,1 +1,0 @@
-the range of the map the array after k remain unchanged.

@@ -3,6 +3,7 @@
 #include <yaml.h>
 #include "core.h"
 #include "cg.h"
+#include "ir.h"
 #include "si.h"
 #include "event.h"
 #include "alias.h"
@@ -11,6 +12,10 @@
 
 #ifdef BACKEND_DAFNY
 #include "dafny.h"
+#endif
+
+#ifdef BACKEND_JML
+#include "jml.h"
 #endif
 
 extern FILE *yyin;
@@ -187,9 +192,13 @@ int main(int argc, char** argv) {
         For each abstract syntax tree, we traverse all nodes to find the nodes which are predicates, trying to map the semantic interpretations from si list
     */
     root = ast;
+    fprintf(stderr, "DEBUG: after parse\n");
     opresolution(operators, cst);        
+    fprintf(stderr, "DEBUG: after opresolution\n");
     sianalysis();
+    fprintf(stderr, "DEBUG: after sianalysis\n");
     sisynthesis();
+    fprintf(stderr, "DEBUG: after sisynthesis\n");
     ast = root;
     #if ASTDEBUG
     showast(ast, 0);
@@ -201,16 +210,28 @@ int main(int argc, char** argv) {
     #endif 
     deallocatequeue(silist, deallocatesi);
     
-    /* Call the appropriate backend's output function */
-    #ifdef BACKEND_DAFNY
-    if (get_backend() == BACKEND_TYPE_DAFNY) {
-        dafny_output(ast);
-    } else {
-        output(ast);
-    }
-    #else
-    output(ast);
+    /* Build IR from AST after synthesis */
+    struct ir_node *ir = ir_build_from_ast(ast);
+    
+    #if IRDEBUG
+    printf("IR Dump:\n");
+    ir_dump(ir, 0);
     #endif
+    
+    /* Call the appropriate backend's code generator with IR */
+    if (get_backend() == BACKEND_TYPE_DAFNY) {
+        #ifdef BACKEND_DAFNY
+        dafny_init_ops();
+        #endif
+        cg_output_ir(ir, &dafny_ops);
+    } else {
+        cg_output_ir(ir, &jml_ops);
+    }
+    
+    /* Free IR */
+    if (ir) {
+        ir_free(ir);
+    }
 
     /* free resources */
     if (ast) {

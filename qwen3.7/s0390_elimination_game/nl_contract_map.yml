@@ -17,8 +17,9 @@ annotations:
   original_contract: 1 <= result <= n
 - id: 2
   type: ensures
-  nl: The integer result is the last number that remains after applying the elimination
-    algorithm on the list of all integers from 1 to the integer parameter `n`.
+  nl: The integer result is the last number The integer result remains after applying
+    the elimination algorithm on the list of all integers from 1 to the integer parameter
+    `n`.
   original_contract: n == 1 ==> result == 1
 - id: 3
   type: ensures

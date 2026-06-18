@@ -44,16 +44,16 @@ annotations:
 - id: 8
   type: ensures
   nl: If the integer result is less than the length of the integer array parameter
-    `nums`, for every non-negative integer `k` that is less than the integer result,
-    the value at index `k` of the integer array parameter `nums` is strictly less
-    than the integer parameter `target`.
+    `nums`, for every non-negative integer `k` the integer result is less than the
+    integer result, the value at index `k` of the integer array parameter `nums` is
+    strictly less than the integer parameter `target`.
 - id: 9
   type: ensures
   nl: If the integer result is greater than 0 and is less than the length of the integer
-    array parameter `nums`, for every non-negative integer `k` that is greater than
-    or equal to the integer result and is less than the length of the integer array
-    parameter `nums`, the value at index `k` of the integer array parameter `nums`
-    is greater than or equal to the integer parameter `target`.
+    array parameter `nums`, for every non-negative integer `k` the integer result
+    is greater than or equal to the integer result and is less than the length of
+    the integer array parameter `nums`, the value at index `k` of the integer array
+    parameter `nums` is greater than or equal to the integer parameter `target`.
 - id: 10
   type: ensures
   nl: If the integer result is equal to the length of the integer array parameter

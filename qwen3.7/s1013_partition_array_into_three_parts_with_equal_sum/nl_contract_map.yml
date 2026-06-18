@@ -21,23 +21,27 @@ annotations:
 - id: 3
   type: ensures
   nl: If the boolean result is equal to the true literal, there exist non-negative
-    integers `i` and `j` such that `i` plus 1 is less than `j` and `j` is less than
-    the length of the integer array parameter `arr` and the sum of all values from
-    index 0 to index `i` of the integer array parameter `arr` is equal to the sum
-    of all values from index `i` plus 1 to index `j` minus 1 of the integer array
-    parameter `arr` and the sum of all values from index `j` to the last index of
-    the integer array parameter `arr` is equal to the sum of all values from index
-    0 to index `i` of the integer array parameter `arr`.
+    integers `the int array parameter `arr`` and `j` such the boolean result `the
+    int array parameter `arr`` plus 1 is less than `j` and `j` is less than the length
+    of the integer array parameter `arr` and the sum of all values from index 0 to
+    index `the int array parameter `arr`` of the integer array parameter `arr` is
+    equal to the sum of all values from index `the int array parameter `arr`` plus
+    1 to index `j` minus 1 of the integer array parameter `arr` and the sum of all
+    values from index `j` to the last index of the integer array parameter `arr` is
+    equal to the sum of all values from index 0 to index `the int array parameter
+    `arr`` of the integer array parameter `arr`.
 - id: 4
   type: ensures
   nl: If the boolean result is equal to the false literal, there do not exist non-negative
-    integers `i` and `j` such that `i` plus 1 is less than `j` and `j` is less than
-    the length of the integer array parameter `arr` and the sum of all values from
-    index 0 to index `i` of the integer array parameter `arr` is equal to the sum
-    of all values from index `i` plus 1 to index `j` minus 1 of the integer array
-    parameter `arr` and the sum of all values from index `j` to the last index of
-    the integer array parameter `arr` is equal to the sum of all values from index
-    0 to index `i` of the integer array parameter `arr`.
+    integers `the int array parameter `arr`` and `j` such the boolean result `the
+    int array parameter `arr`` plus 1 is less than `j` and `j` is less than the length
+    of the integer array parameter `arr` and the sum of all values from index 0 to
+    index `the int array parameter `arr`` of the integer array parameter `arr` is
+    equal to the sum of all values from index `the int array parameter `arr`` plus
+    1 to index `j` minus 1 of the integer array parameter `arr` and the sum of all
+    values from index `j` to the last index of the integer array parameter `arr` is
+    equal to the sum of all values from index 0 to index `the int array parameter
+    `arr`` of the integer array parameter `arr`.
 - id: 5
   type: ensures
   nl: If the integer array parameter `arr` is equal to [0,2,1,-6,6,-7,9,1,2,0,1],

@@ -28,20 +28,23 @@ annotations:
 - id: 4
   type: ensures
   nl: If the boolean result is equal to the true literal, there exist distinct non-negative
-    integers `i` and `j` such that `i` is less than the length of the integer array
-    parameter `nums` and `j` is less than the length of the integer array parameter
-    `nums` and the absolute difference between `i` and `j` is less than or equal to
-    the integer parameter `k` and the value at index `i` of the integer array parameter
-    `nums` is equal to the value at index `j` of the integer array parameter `nums`.
+    integers `the int array parameter `nums`` and `j` such the boolean result `the
+    int array parameter `nums`` is less than the length of the integer array parameter
+    `nums` and `j` is less than the length of the integer array parameter `nums` and
+    the absolute difference between `the int array parameter `nums`` and `j` is less
+    than or equal to the integer parameter `k` and the value at index `the int array
+    parameter `nums`` of the integer array parameter `nums` is equal to the value
+    at index `j` of the integer array parameter `nums`.
 - id: 5
   type: ensures
   nl: If the boolean result is equal to the false literal, there do not exist distinct
-    non-negative integers `i` and `j` such that `i` is less than the length of the
-    integer array parameter `nums` and `j` is less than the length of the integer
-    array parameter `nums` and the absolute difference between `i` and `j` is less
-    than or equal to the integer parameter `k` and the value at index `i` of the integer
-    array parameter `nums` is equal to the value at index `j` of the integer array
-    parameter `nums`.
+    non-negative integers `the int array parameter `nums`` and `j` such the boolean
+    result `the int array parameter `nums`` is less than the length of the integer
+    array parameter `nums` and `j` is less than the length of the integer array parameter
+    `nums` and the absolute difference between `the int array parameter `nums`` and
+    `j` is less than or equal to the integer parameter `k` and the value at index
+    `the int array parameter `nums`` of the integer array parameter `nums` is equal
+    to the value at index `j` of the integer array parameter `nums`.
 - id: 6
   type: ensures
   nl: If the integer array parameter `nums` is equal to [1,2,3,1] and the integer

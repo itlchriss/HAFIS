@@ -22,13 +22,13 @@ annotations:
   type: ensures
   nl: If the boolean result is equal to the true literal, for every customer from
     index 0 to the length of the integer array parameter `bills` minus 1, the correct
-    change can be provided using only the bills collected from customers before that
-    customer.
+    change can be provided using only the bills collected from customers before the
+    boolean result customer.
 - id: 4
   type: ensures
   nl: If the boolean result is equal to the false literal, there exists at least one
-    customer for whom the correct change cannot be provided using only the bills collected
-    from customers before that customer.
+    customer for the int array parameter `bills` the correct change cannot be provided
+    using only the bills collected from customers before the boolean result customer.
 - id: 5
   type: ensures
   nl: If the integer array parameter `bills` is equal to [5,5,5,10,20], the boolean

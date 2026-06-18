@@ -29,8 +29,8 @@ annotations:
 - id: 4
   type: ensures
   nl: If the boolean result is equal to the false literal, there exists at least one
-    open bracket in the string parameter `s` that is not closed by the same type of
-    bracket or is not closed in the correct order.
+    open bracket in the string parameter `s` the boolean result is not closed by the
+    same type of bracket or is not closed in the correct order.
   original_contract: s == "()" ==> result
 - id: 5
   type: ensures

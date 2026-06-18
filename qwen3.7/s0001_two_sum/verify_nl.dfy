@@ -5,7 +5,7 @@
 // requires(*All values in the integer array parameter `numbers` are greater than or equal to -1000000000 and are less than or equal to 1000000000.*);
 // requires(*The integer parameter `target` is greater than or equal to -1000000000 and is less than or equal to 1000000000.*);
 // requires(*The integer array parameter `numbers` is not equal to the null literal.*);
-// requires(*Exactly one pair of distinct indices exists in the integer array parameter `numbers` whose corresponding values sum to the integer parameter `target`.*);
+// requires(*Exactly one pair of distinct indices exists in the integer array parameter `numbers` the int array parameter `numbers` corresponding values sum to the integer parameter `target`.*);
 // ensures(*The integer array result is not equal to the null literal.*);
 // ensures(*The length of the integer array result is equal to 2.*);
 // ensures(*The first value of the integer array result is not equal to the second value of the integer array result.*);

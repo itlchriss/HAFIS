@@ -2,7 +2,7 @@
 - All values in the integer array parameter `numbers` are greater than or equal to -1000000000 and are less than or equal to 1000000000.
 - The integer parameter `target` is greater than or equal to -1000000000 and is less than or equal to 1000000000.
 - The integer array parameter `numbers` is not equal to the null literal.
-- Exactly one pair of distinct indices exists in the integer array parameter `numbers` whose corresponding values sum to the integer parameter `target`.
+- Exactly one pair of distinct indices exists in the integer array parameter `numbers` the int array parameter `numbers` corresponding values sum to the integer parameter `target`.
 - The integer array result is not equal to the null literal.
 - The length of the integer array result is equal to 2.
 - The first value of the integer array result is not equal to the second value of the integer array result.

@@ -99,6 +99,11 @@ class SIBuildingStep(ProcessingStep):
         
         words = sent.split(' ')
         
+        # Transfer expression_store entries to dynamic_si if not already present
+        for key, value in context.expression_store.items():
+            if key not in context.dynamic_si:
+                context.dynamic_si[key] = value
+        
         # Process each dynamic_si entry
         for key in list(context.dynamic_si.keys()):
             value = context.dynamic_si[key]

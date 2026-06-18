@@ -51,7 +51,7 @@ def main():
     # Write preprocessed text
     preprocessed_path = os.path.join(output_dir, f'preprocessed.{annotation_id}.txt')
     with open(preprocessed_path, 'w', encoding='utf-8') as fp:
-        fp.write(processed_text)
+        fp.write(processed_text + "\n")
     
     # Write dynamic SI if there are any entries
     if dynamic_si:

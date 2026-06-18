@@ -25,7 +25,8 @@ annotations:
   original_contract: num == 0 ==> result == "0"
 - id: 4
   type: ensures
-  nl: The string result does not contain leading zeros except for the zero itself.
+  nl: The string result does not contain leading zeros except for the zero the int
+    parameter `num`.
   original_contract: num > 0 ==> result[0] != '0' || |result| == 1
 - id: 5
   type: ensures

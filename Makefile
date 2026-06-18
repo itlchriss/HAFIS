@@ -7,8 +7,20 @@ SRC		=   ./src/c.2024
 BUILD	=	./build
 BIN		=   ./bin
 INCL	=	$(SRC)/include
-CFLAGS	= 	-g -Wall -ansi -pedantic -I$(INCL) -std=gnu11 -D_POSIX_C_SOURCE=200809L $(LOCINCL)
-OBJS	=	parser.o lex.o ast.o si.o si_matcher.o si_runtime.o si_analysis.o cst.o util.o cg_unified.o backends/jml_backend.o backends/dafny_backend.o backends/jml_synth.o main.o alias.o error.o event_struct.o event_synthesis.o sshare.o command.o preposition_synthesis.o relative_synthesis.o adjective_synthesis.o cardinalnumber_synthesis.o noun_synthesis.o adverb_synthesis.o to.o
+CFLAGS	= 	-g -Wall -ansi -pedantic -I$(INCL) -I$(SRC)/backends/jml -I$(SRC)/backends/dafny -std=gnu11 -D_POSIX_C_SOURCE=200809L $(LOCINCL)
+
+# Base object files (backend-agnostic)
+BASE_OBJS = parser.o lex.o ast.o si.o si_matcher.o si_runtime.o si_analysis.o cst.o util.o cg_unified.o main.o alias.o error.o event_struct.o event_synthesis.o sshare.o command.o preposition_synthesis.o relative_synthesis.o adjective_synthesis.o cardinalnumber_synthesis.o noun_synthesis.o adverb_synthesis.o to.o
+
+# IR object files
+IR_OBJS = ir/ir.o ir/ir_builder.o
+
+# Backend-specific object files (selected based on BACKEND)
+# Both backends' codegen and synth are included for runtime selection
+BACKEND_OBJS = backends/jml/jml_codegen.o backends/jml/jml_synth.o backends/dafny/dafny_codegen.o backends/dafny/dafny_synth.o
+
+OBJS = $(BASE_OBJS) $(IR_OBJS) $(BACKEND_OBJS)
+
 DEBUG   ?=      0
 LEXDEBUG ?=     0
 DSTDEBUG ?=		0
@@ -17,14 +29,15 @@ LOCINCL =   -I/usr/local/include
 LOCLINK =   -L/usr/local/lib
 
 # Backend selection: BACKEND=jml (default) or BACKEND=dafny
+# This sets the default backend at runtime, but both are compiled
 BACKEND ?= jml
 
 ifeq ($(BACKEND),dafny)
-	CFLAGS += -DBACKEND_DAFNY
-	OBJS += backends/dafny_synth.o
+	CFLAGS += -DBACKEND_DAFNY -DDEFAULT_BACKEND=dafny
 else
-	CFLAGS += -DBACKEND_JML
+	CFLAGS += -DBACKEND_JML -DDEFAULT_BACKEND=jml
 endif
+
 ifeq ($(UNAME_S),Darwin)
 	LOCINCL = -I/opt/homebrew/Cellar/libyaml/0.2.5/include
 	LOCLINK = -L/opt/homebrew/Cellar/libyaml/0.2.5/lib
@@ -63,6 +76,14 @@ endif
 		CFLAGS += -DCSTDEBUG -DDEBUG
 	endif
 
+	ifeq ($(IRDEBUG), 1)
+		CFLAGS += -DIRDEBUG -DDEBUG
+	endif
+
+	ifeq ($(CGDEBUG), 1)
+		CFLAGS += -DCGDEBUG -DDEBUG
+	endif
+
 	ifeq ($(INFO), 1)
 		CFLAGS += -DINFO -DDEBUG
 	endif
@@ -86,7 +107,9 @@ endif
 all: directories main
 
 directories: ${BUILD} ${BIN}
-	mkdir -p $(BUILD)/backends
+	mkdir -p $(BUILD)/backends/jml
+	mkdir -p $(BUILD)/backends/dafny
+	mkdir -p $(BUILD)/ir
 
 ${BUILD}:
 	mkdir -p $(BUILD)
@@ -167,11 +190,26 @@ alias.o  : $(SRC)/alias.c
 cg_unified.o  : $(SRC)/cg_unified.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/cg_unified.o $<
 
-backends/jml_backend.o  : $(SRC)/backends/jml_backend.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/jml_backend.o $<
+# IR object files
+ir/ir.o: $(SRC)/ir/ir.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/ir/ir.o $<
 
-backends/dafny_backend.o  : $(SRC)/backends/dafny_backend.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/dafny_backend.o $<
+ir/ir_builder.o: $(SRC)/ir/ir_builder.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/ir/ir_builder.o $<
+
+# JML backend object files
+backends/jml/jml_codegen.o: $(SRC)/backends/jml/jml_codegen.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/jml/jml_codegen.o $<
+
+backends/jml/jml_synth.o: $(SRC)/backends/jml/jml_synth.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/jml/jml_synth.o $<
+
+# Dafny backend object files
+backends/dafny/dafny_codegen.o: $(SRC)/backends/dafny/dafny_codegen.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/dafny/dafny_codegen.o $<
+
+backends/dafny/dafny_synth.o: $(SRC)/backends/dafny/dafny_synth.c
+		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/dafny/dafny_synth.o $<
 
 error.o  : $(SRC)/error.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/error.o $<		
@@ -191,38 +229,32 @@ si_runtime.o	: $(SRC)/si_runtime.c
 si_analysis.o	: $(SRC)/si_analysis.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/si_analysis.o $<
 
-error.o	: $(SRC)/error.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/error.o $<		
-
 event_synthesis.o: $(SRC)/synthesis/event.c
 		$(CC) $(CFLAGS) -c -o $(BUILD)/event_synthesis.o $<		
 
-backends/jml_synth.o: $(SRC)/backends/jml_synth.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/jml_synth.o $<
-
-backends/dafny_synth.o: $(SRC)/backends/dafny_synth.c
-		$(CC) $(CFLAGS) -c -o $(BUILD)/backends/dafny_synth.o $<
-
+# Header dependencies
 lex.o parser.o sym_table.o		:	$(INCL)/core.h
 parser.only						:	$(INCL)/ast.h
 parser.o						:       $(BUILD)/tok.h 
 lex.o							: 	$(BUILD)/tok.h
 ast.o							:   $(INCL)/ast.h $(INCL)/cst.h
-main.o							:   $(INCL)/si.h $(INCL)/alias.h
+main.o							:   $(INCL)/si.h $(INCL)/alias.h $(INCL)/ir.h
 util.o							:   $(INCL)/util.h
 cst.o							:   $(INCL)/util.h
-cg_unified.o					:	$(INCL)/util.h $(INCL)/cg.h $(INCL)/backend.h
-backends/jml_backend.o				:	$(INCL)/backend.h
-backends/dafny_backend.o				:	$(INCL)/backend.h
+cg_unified.o					:	$(INCL)/util.h $(INCL)/cg.h $(INCL)/backend.h $(INCL)/ir.h
+ir/ir.o							:	$(INCL)/ir.h
+ir/ir_builder.o					:	$(INCL)/ir.h $(INCL)/ast.h
 alias.o							:	$(INCL)/alias.h
 si.o							:   $(INCL)/si.h 
-event-struct.o							: 	$(INCL)/event.h
+event-struct.o					: 	$(INCL)/event.h
 error.o							:   $(INCL)/error.h
-backends/jml_synth.o					:	$(INCL)/jml.h
-backends/dafny_synth.o					:	$(INCL)/dafny.h $(INCL)/backend.h
+backends/jml/jml_codegen.o		:	$(INCL)/backend.h
+backends/dafny/dafny_codegen.o	:	$(INCL)/backend.h
+backends/jml/jml_synth.o		:	$(SRC)/backends/jml/jml.h $(INCL)/backend.h
+backends/dafny/dafny_synth.o	:	$(SRC)/backends/dafny/dafny.h $(INCL)/backend.h
+
 clean:
 	rm -rf $(BUILD)/*
-	rm ./parser.output
-	rm ./bin/*
-	rm ./parser.tab.c
-	
+	rm -f ./parser.output
+	rm -f ./bin/*
+	rm -f ./parser.tab.c

@@ -1,0 +1,259 @@
+============================================================
+Batch LLM-RNL Generation using qwen3.7
+============================================================
+Source: /Users/chrissleong/Documents/Phd_Studies/HAFIS/test/patterns
+
+Found 84 readme.md files to process.
+
+[1/84] Working with s0001_two_sum...
+  Calling LLM text restriction (qwen3.7)...
+Attempt 1...
+Sending prompt to qwen3.7....
+Traceback (most recent call last):
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1101, in <module>
+    main(filename = sys.argv[1], mode = sys.argv[2])
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1075, in main
+    s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 390, in qwen_send_prompt_with_validation
+    s = qwen_send_prompt(prompt)
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 364, in qwen_send_prompt
+    response = openai.ChatCompletion.create(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.PermissionError: Country, region, or territory not supported
+  ERROR: text_restriction.py failed for s0001_two_sum
+[2/84] Working with s0006_zigzag_conversion...
+  Calling LLM text restriction (qwen3.7)...
+Attempt 1...
+Sending prompt to qwen3.7....
+Traceback (most recent call last):
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1101, in <module>
+    main(filename = sys.argv[1], mode = sys.argv[2])
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1075, in main
+    s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 390, in qwen_send_prompt_with_validation
+    s = qwen_send_prompt(prompt)
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 364, in qwen_send_prompt
+    response = openai.ChatCompletion.create(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.PermissionError: Country, region, or territory not supported
+  ERROR: text_restriction.py failed for s0006_zigzag_conversion
+[3/84] Working with s0007_reverse_integer...
+  Calling LLM text restriction (qwen3.7)...
+Attempt 1...
+Sending prompt to qwen3.7....
+Traceback (most recent call last):
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1101, in <module>
+    main(filename = sys.argv[1], mode = sys.argv[2])
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1075, in main
+    s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 390, in qwen_send_prompt_with_validation
+    s = qwen_send_prompt(prompt)
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 364, in qwen_send_prompt
+    response = openai.ChatCompletion.create(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.PermissionError: Country, region, or territory not supported
+  ERROR: text_restriction.py failed for s0007_reverse_integer
+[4/84] Working with s0008_string_to_integer_atoi...
+  Calling LLM text restriction (qwen3.7)...
+Attempt 1...
+Sending prompt to qwen3.7....
+Traceback (most recent call last):
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1101, in <module>
+    main(filename = sys.argv[1], mode = sys.argv[2])
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1075, in main
+    s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 390, in qwen_send_prompt_with_validation
+    s = qwen_send_prompt(prompt)
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 364, in qwen_send_prompt
+    response = openai.ChatCompletion.create(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.PermissionError: Country, region, or territory not supported
+  ERROR: text_restriction.py failed for s0008_string_to_integer_atoi
+[5/84] Working with s0020_valid_parentheses...
+  Calling LLM text restriction (qwen3.7)...
+Attempt 1...
+Sending prompt to qwen3.7....
+Traceback (most recent call last):
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1101, in <module>
+    main(filename = sys.argv[1], mode = sys.argv[2])
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1075, in main
+    s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 390, in qwen_send_prompt_with_validation
+    s = qwen_send_prompt(prompt)
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 364, in qwen_send_prompt
+    response = openai.ChatCompletion.create(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.PermissionError: Country, region, or territory not supported
+  ERROR: text_restriction.py failed for s0020_valid_parentheses
+[6/84] Working with s0026_remove_duplicates_from_sorted_array...
+  Calling LLM text restriction (qwen3.7)...
+Attempt 1...
+Sending prompt to qwen3.7....
+Traceback (most recent call last):
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1101, in <module>
+    main(filename = sys.argv[1], mode = sys.argv[2])
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1075, in main
+    s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 390, in qwen_send_prompt_with_validation
+    s = qwen_send_prompt(prompt)
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 364, in qwen_send_prompt
+    response = openai.ChatCompletion.create(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.PermissionError: Country, region, or territory not supported
+  ERROR: text_restriction.py failed for s0026_remove_duplicates_from_sorted_array
+[7/84] Working with s0028_find_the_index_of_the_first_occurrence_in_a_string...
+  Calling LLM text restriction (qwen3.7)...
+Attempt 1...
+Sending prompt to qwen3.7....
+Traceback (most recent call last):
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1101, in <module>
+    main(filename = sys.argv[1], mode = sys.argv[2])
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1075, in main
+    s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 390, in qwen_send_prompt_with_validation
+    s = qwen_send_prompt(prompt)
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 364, in qwen_send_prompt
+    response = openai.ChatCompletion.create(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.PermissionError: Country, region, or territory not supported
+  ERROR: text_restriction.py failed for s0028_find_the_index_of_the_first_occurrence_in_a_string
+[8/84] Working with s0032_longest_valid_parentheses...
+  Calling LLM text restriction (qwen3.7)...
+Attempt 1...
+Sending prompt to qwen3.7....
+Traceback (most recent call last):
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1101, in <module>
+    main(filename = sys.argv[1], mode = sys.argv[2])
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1075, in main
+    s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 390, in qwen_send_prompt_with_validation
+    s = qwen_send_prompt(prompt)
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 364, in qwen_send_prompt
+    response = openai.ChatCompletion.create(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.PermissionError: Country, region, or territory not supported
+  ERROR: text_restriction.py failed for s0032_longest_valid_parentheses
+[9/84] Working with s0033_search_in_rotated_sorted_array...
+  Calling LLM text restriction (qwen3.7)...
+Attempt 1...
+Sending prompt to qwen3.7....
+Traceback (most recent call last):
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1101, in <module>
+    main(filename = sys.argv[1], mode = sys.argv[2])
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1075, in main
+    s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 390, in qwen_send_prompt_with_validation
+    s = qwen_send_prompt(prompt)
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 364, in qwen_send_prompt
+    response = openai.ChatCompletion.create(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.PermissionError: Country, region, or territory not supported
+  ERROR: text_restriction.py failed for s0033_search_in_rotated_sorted_array
+[10/84] Working with s0035_search_insert_position...
+  Calling LLM text restriction (qwen3.7)...
+Attempt 1...
+Sending prompt to qwen3.7....
+Traceback (most recent call last):
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1101, in <module>
+    main(filename = sys.argv[1], mode = sys.argv[2])
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 1075, in main
+    s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 390, in qwen_send_prompt_with_validation
+    s = qwen_send_prompt(prompt)
+  File "/Users/chrissleong/Documents/Phd_Studies/HAFIS/scripts/llm/text_restriction.py", line 364, in qwen_send_prompt
+    response = openai.ChatCompletion.create(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 153, in create
+    response, _, api_key = requestor.request(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/chrissleong/Documents/Phd_Studies/venv/openai/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.PermissionError: Country, region, or territory not supported
+  ERROR: text_restriction.py failed for s0035_search_insert_position
+[11/84] Working with s0044_wildcard_matching...
+  Calling LLM text restriction (qwen3.7)...

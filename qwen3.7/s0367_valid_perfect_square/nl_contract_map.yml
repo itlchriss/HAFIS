@@ -13,14 +13,14 @@ annotations:
 - id: 1
   type: ensures
   nl: If the boolean result is equal to the true literal, there exists a non-negative
-    integer `x` such that the integer parameter `num` is equal to the non-negative
-    integer `x` raised to the power of 2.
+    integer `x` such the boolean result the integer parameter `num` is equal to the
+    non-negative integer `x` raised to the power of 2.
   original_contract: 'result <==> (exists r: nat :: r * r == num)'
 - id: 2
   type: ensures
   nl: If the boolean result is equal to the false literal, there does not exist a
-    non-negative integer `x` such that the integer parameter `num` is equal to the
-    non-negative integer `x` raised to the power of 2.
+    non-negative integer `x` such the boolean result the integer parameter `num` is
+    equal to the non-negative integer `x` raised to the power of 2.
 - id: 3
   type: ensures
   nl: If the integer parameter `num` is equal to 16, the boolean result is equal to

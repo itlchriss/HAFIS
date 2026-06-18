@@ -117,7 +117,8 @@ int satisfy(struct astnode *node, struct queue *visited_variables) {
             struct astnode *child = getastchild(node, i);
             if (child == NULL || child->cstptr == NULL) continue;
             if (child->cstptr->symbol != NULL && child->cstptr->symbol[0] == 'e') { hasevent = TRUE; continue; }
-            if (!searchqueue(visited_variables, child->cstptr, __search_visited_variables__)) return 0;
+            /* A variable is considered ready if it has been visited OR if it has been assigned a type (via TypePredicate) */
+            if (!searchqueue(visited_variables, child->cstptr, __search_visited_variables__) && !child->cstptr->type_assigned) return 0;
         }
         if (hasevent) 
             return 1;
@@ -237,11 +238,16 @@ void sianalysis() {
                 }
                 break;
             case Gram_Rel:
-                if (satisfy(node, visited_variables)) enqueue(target, (void *)node);
-                else {
-                    struct astnode *tmp = dequeue(predicates);
-                    push(predicates, node);
-                    push(predicates, tmp);
+                if (satisfy(node, visited_variables)) {
+                    enqueue(target, (void *)node);
+                } else {
+                    if (isempty(predicates)) {
+                        enqueue(target, (void *)node);
+                    } else {
+                        struct astnode *tmp = dequeue(predicates);
+                        push(predicates, node);
+                        push(predicates, tmp);
+                    }
                 }
                 break;
             default:

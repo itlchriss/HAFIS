@@ -47,9 +47,10 @@ annotations:
     `target`.
 - id: 8
   type: ensures
-  nl: If the integer result is equal to -1, there does not exist any index `i` such
-    that the value at index `i` of the integer array parameter `nums` is equal to
-    the integer parameter `target`.
+  nl: If the integer result is equal to -1, there does not exist any index `the int
+    array parameter `nums`` such the integer result the value at index `the int array
+    parameter `nums`` of the integer array parameter `nums` is equal to the integer
+    parameter `target`.
 - id: 9
   type: ensures
   nl: If the integer array parameter `nums` is equal to [4,5,6,7,0,1,2] and the integer

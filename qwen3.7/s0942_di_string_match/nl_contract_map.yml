@@ -37,16 +37,18 @@ annotations:
   nl: All values in the integer array result are unique.
 - id: 7
   type: ensures
-  nl: For every non-negative integer `i` that is less than the length of the string
-    parameter `s`, if the character at index `i` of the string parameter `s` is equal
-    to 'I', the value at index `i` of the integer array result is less than the value
-    at index `i` plus 1 of the integer array result.
+  nl: For every non-negative integer `the string parameter `s`` array result is less
+    than the length of the string parameter `s`, if the character at index `the string
+    parameter `s`` of the string parameter `s` is equal to 'I', the value at index
+    `the string parameter `s`` of the integer array result is less than the value
+    at index `the string parameter `s`` plus 1 of the integer array result.
 - id: 8
   type: ensures
-  nl: For every non-negative integer `i` that is less than the length of the string
-    parameter `s`, if the character at index `i` of the string parameter `s` is equal
-    to 'D', the value at index `i` of the integer array result is greater than the
-    value at index `i` plus 1 of the integer array result.
+  nl: For every non-negative integer `the string parameter `s`` array result is less
+    than the length of the string parameter `s`, if the character at index `the string
+    parameter `s`` of the string parameter `s` is equal to 'D', the value at index
+    `the string parameter `s`` of the integer array result is greater than the value
+    at index `the string parameter `s`` plus 1 of the integer array result.
 - id: 9
   type: ensures
   nl: If the string parameter `s` is equal to "IDID", the integer array result is

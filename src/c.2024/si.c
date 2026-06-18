@@ -148,6 +148,9 @@ int Gram_Rel_synthesis(struct astnode *node) {
     }
     
     struct astnode *x, *d;
+    fprintf(stderr, "DEBUG Gram_Rel_synthesis: child1=%s child1_datalist=%s child2=%s child2_datalist=%s\n",
+        child1->cstptr->symbol, child1->cstptr->datalist ? (child1->cstptr->datalist->count > 0 ? "has_data" : "empty") : "NULL",
+        child2->cstptr->symbol, child2->cstptr->datalist ? (child2->cstptr->datalist->count > 0 ? "has_data" : "empty") : "NULL");
     if (__is_Rel_dependent__(child1->cstptr)) {
         d = child1;
         x = child2;
@@ -161,11 +164,31 @@ int Gram_Rel_synthesis(struct astnode *node) {
         the SI is not searched from the parent node, instead, it is searched from d's si_q
     */
     if (d->cstptr->datalist == NULL || d->cstptr->datalist->count == 0) {
+        fprintf(stderr, "DEBUG Gram_Rel: d=%s d->datalist=%s\n", d->cstptr->symbol, d->cstptr->datalist ? "empty" : "NULL");
+        fprintf(stderr, "DEBUG Gram_Rel: x=%s x->datalist=%s count=%d\n", x->cstptr->symbol, x->cstptr->datalist ? "not null" : "NULL", x->cstptr->datalist ? x->cstptr->datalist->count : -1);
         semantic_error("Gram_Rel_synthesis: Rel dependent value has no data.", d->token ? d->token->symbol : "unknown");
         return -1;
     }
     
-    char *rel_symbol = (char *)gqueue(d->cstptr->datalist, 0);
+    /* If x has no datalist (e.g. only typed via TypePredicate), create one with the variable's symbol */
+    if (x->cstptr->datalist == NULL || x->cstptr->datalist->count == 0) {
+        if (x->cstptr->datalist == NULL) x->cstptr->datalist = initqueue();
+        enqueue(x->cstptr->datalist, (char *)strdup(x->cstptr->symbol));
+    }
+    
+    /* Find the __REL__ entry in d's datalist */
+    char *rel_symbol = NULL;
+    for (int i = 0; i < d->cstptr->datalist->count; ++i) {
+        char *data = (char *)gqueue(d->cstptr->datalist, i);
+        if (data && ssearch(data, "__REL__")) {
+            rel_symbol = data;
+            break;
+        }
+    }
+    if (rel_symbol == NULL) {
+        /* Fallback to first entry */
+        rel_symbol = (char *)gqueue(d->cstptr->datalist, 0);
+    }
     if (rel_symbol == NULL) {
         semantic_error("Gram_Rel_synthesis: Rel symbol is NULL.", "unknown");
         return -1;
@@ -213,6 +236,12 @@ int (*code_syntheses[])(struct astnode *) = {CC_code_synthesis, CD_code_synthesi
 void sisynthesis() {
     struct astnode *node;
     struct queue *tmp = initqueue();
+    fprintf(stderr, "DEBUG sisynthesis: %d predicates in queue:\n", predicates->count);
+    for (int i = 0; i < predicates->count; ++i) {
+        node = (struct astnode*)gqueue(predicates, i);
+        fprintf(stderr, "  %d. %s (syntax=%d)\n", i, node->token->symbol, node->syntax);
+    }
+    fflush(stderr);
     #if SIDEBUG
     printf("si synthesis: after sorting, there are %d predicates in the queue.\n", predicates->count);
     for (int i = 0; i < predicates->count; ++i) {

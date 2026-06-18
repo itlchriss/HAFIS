@@ -10,7 +10,310 @@ NLP = '/Users/chrissleong/Documents/Phd_Studies/NLP/ccg2lambda'
 PYCMD = '/Users/chrissleong/Documents/Phd_Studies/venv/py3/bin/python'
 KEY = '/Users/chrissleong/Documents/Phd_Studies/openai.key'
 
-PRPS = ['I', 'she', 'he', 'it', 'you', 'we', 'they', 'them', 'him', 'her']
+# Full pronoun list for prompt instructions (comprehensive)
+PRPS = [
+    # Subject pronouns
+    'I', 'you', 'he', 'she', 'it', 'we', 'they',
+    # Object pronouns
+    'me', 'him', 'her', 'us', 'them',
+    # Possessive pronouns
+    'mine', 'yours', 'his', 'hers', 'its', 'ours', 'theirs',
+    # Possessive determiners
+    'my', 'your', 'our', 'their',
+    # Reflexive pronouns
+    'myself', 'yourself', 'himself', 'herself', 'itself', 'ourselves', 'themselves',
+    # Demonstrative pronouns
+    'this', 'that', 'these', 'those',
+    # Relative pronouns
+    'who', 'whom', 'whose', 'which',
+    # Indefinite pronouns
+    'someone', 'somebody', 'something', 'anyone', 'anybody', 'anything',
+    'everyone', 'everybody', 'everything', 'no one', 'nobody', 'nothing',
+    'each', 'other', 'another', 'none', 'one', 'all', 'both', 'few', 'many', 'several',
+    # Reciprocal pronouns
+    'each other', 'one another',
+]
+
+# Strict pronoun list for validation and post-processing.
+# Excludes indefinite pronouns that commonly appear in legitimate specification output
+# (e.g. "all values", "one of", "both numbers", "each element")
+STRICT_PRPS = [
+    # Subject pronouns
+    'i', 'you', 'he', 'she', 'it', 'we', 'they',
+    # Object pronouns
+    'me', 'him', 'her', 'us', 'them',
+    # Possessive pronouns/determiners
+    'mine', 'yours', 'his', 'hers', 'its', 'ours', 'theirs',
+    'my', 'your', 'our', 'their',
+    # Reflexive pronouns
+    'myself', 'yourself', 'himself', 'herself', 'itself', 'ourselves', 'themselves',
+    # Demonstrative pronouns
+    'this', 'that', 'these', 'those',
+    # Relative/interrogative pronouns
+    'who', 'whom', 'whose', 'which',
+]
+
+
+def _extract_method_params(signature):
+    """Extract parameter info and return type from a method signature.
+    Handles both full signatures (public int foo(int x)) and the prompt text
+    where the signature is embedded (Method signature: public int foo(int x)).
+    Returns (params_list, result_type) where params_list contains (type, name, is_array) tuples."""
+    params = []
+    result_type = 'void'
+    # Find the parenthesized parameter section
+    paren_match = re.search(r'(\w+)\s*\(([^)]*)\)', signature)
+    if not paren_match:
+        return params, result_type
+    method_name = paren_match.group(1)
+    param_str = paren_match.group(2).strip()
+    # Extract return type: look for the word just before the method name
+    before_method = signature[:signature.rfind(method_name)].strip()
+    words_before = before_method.split()
+    if words_before:
+        result_type = words_before[-1].replace('[]', '')
+    # Parse individual parameters
+    if param_str:
+        for p in param_str.split(','):
+            p = p.strip()
+            pm = re.match(r'(\w+(?:<[^>]+>)?(?:\[\])?)\s+(\w+)', p)
+            if pm:
+                ptype = pm.group(1)
+                pname = pm.group(2)
+                is_array = '[]' in ptype or ptype.lower() in ('list', 'array')
+                params.append((ptype.replace('[]', ''), pname, is_array))
+    return params, result_type
+
+
+def _build_pronoun_replace_map(params, result_type):
+    """Build pronoun -> full noun phrase replacement map from method parameters.
+    Returns (ordered_pronoun_list, pronoun_to_replacement_dict)."""
+    pmap = {}
+    if not params:
+        return [], pmap
+    first_param = params[0]
+    ptype, pname, is_array = first_param
+    if is_array:
+        first_full = 'all values in the %s array parameter `%s`' % (ptype, pname)
+        first_singular = 'the %s array parameter `%s`' % (ptype, pname)
+    else:
+        first_full = 'the %s parameter `%s`' % (ptype, pname)
+        first_singular = first_full
+    result_full = 'the %s result' % result_type
+    # Plural pronouns -> all values in first param (or first param itself for non-arrays)
+    for pp in ('they', 'them', 'their', 'theirs'):
+        pmap[pp] = first_full
+    # Singular pronouns -> first parameter
+    for sp in ('it', 'its', 'he', 'she', 'him', 'his', 'her'):
+        pmap[sp] = first_singular
+    # Add per-parameter entries for explicit mentions
+    for ptype_i, pname_i, is_array_i in params:
+        if is_array_i:
+            plural_ref = 'all values in the %s array parameter `%s`' % (ptype_i, pname_i)
+            singular_ref = 'the %s array parameter `%s`' % (ptype_i, pname_i)
+        else:
+            plural_ref = 'the %s parameters `%s`' % (ptype_i, pname_i)
+            singular_ref = 'the %s parameter `%s`' % (ptype_i, pname_i)
+        for pp in ('they', 'them', 'their', 'theirs'):
+            pmap.setdefault(pp, plural_ref)
+        for sp in ('it', 'its', 'he', 'she', 'him', 'his', 'her'):
+            pmap.setdefault(sp, singular_ref)
+    # Result pronouns
+    for rp in ('it', 'its'):
+        pmap[rp] = result_full
+    # Demonstrative/relative/other pronouns -> first parameter
+    for dp in ('this', 'that', 'these', 'those', 'who', 'whom', 'whose', 'which',
+               'myself', 'yourself', 'himself', 'herself', 'itself',
+               'i', 'you', 'we', 'us', 'me', 'my', 'your', 'our',
+               'mine', 'yours', 'hers', 'ours'):
+        pmap[dp] = first_singular
+    # Order: longer pronouns first to avoid partial matches (e.g. 'itself' before 'it')
+    ordered = sorted(pmap.keys(), key=len, reverse=True)
+    return ordered, pmap
+
+
+def eliminate_pronouns_from_output(text, signature):
+    """Automatically replace pronouns in LLM output using method signature context.
+    This is a deterministic post-processing step that ensures no pronouns remain
+    in the output, regardless of what the LLM produces."""
+    params, result_type = _extract_method_params(signature)
+    if not params:
+        return text
+    ordered_pronouns, pmap = _build_pronoun_replace_map(params, result_type)
+    # Build regex pattern matching any pronoun (case-insensitive)
+    escaped = [re.escape(p) for p in ordered_pronouns]
+    pronoun_pattern = re.compile(
+        r'\b(' + '|'.join(escaped) + r")('s)?\b(?!')",
+        re.IGNORECASE
+    )
+    param_pattern = re.compile(
+        r'(?:the\s+)?(?:\w+\s+)?(?:array\s+|list\s+)?parameter\s+`(\w+)`',
+        re.IGNORECASE
+    )
+    result_pattern = re.compile(r'(?:the\s+)?(?:\w+\s+)?result', re.IGNORECASE)
+    # Track the actual noun phrase forms used in the spec text
+    param_form_cache = {}  # param_name -> actual form used in text (e.g. "the integer parameter `n`")
+    result_form = [None]  # mutable container for result form used in text
+    lines = text.split('\n')
+    out_lines = []
+    context = {}  # pronoun -> replacement for current line context
+    last_param_ref = [None]  # last seen parameter reference (any form)
+    last_result_ref = [None]  # last seen result reference (any form)
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith('-'):
+            # Detect actual parameter forms used in this line
+            for pm in param_pattern.finditer(stripped):
+                pname = pm.group(1)
+                full_match = pm.group(0)
+                # Normalize to get the base form (e.g., "the integer parameter `n`")
+                base_form = full_match.lower()
+                if base_form.startswith('the '):
+                    base_form = full_match  # keep original case
+                param_form_cache[pname] = full_match
+                last_param_ref[0] = full_match
+                # Update context for this specific parameter
+                for pt, pn, is_arr in params:
+                    if pn == pname:
+                        if is_arr:
+                            plural_form = 'all values in ' + full_match
+                            context['they'] = plural_form
+                            context['them'] = plural_form
+                            context['their'] = plural_form
+                            context['theirs'] = plural_form
+                            context['it'] = full_match
+                            context['its'] = full_match
+                        else:
+                            for k in ('it', 'its', 'he', 'she', 'him', 'his', 'her',
+                                      'they', 'them', 'their', 'theirs',
+                                      'this', 'that', 'which', 'who'):
+                                context[k] = full_match
+                        break
+            # Detect actual result forms used in this line
+            for rm in result_pattern.finditer(stripped):
+                result_form[0] = rm.group(0)
+                last_result_ref[0] = rm.group(0)
+                for k in ('it', 'its', 'this', 'that', 'which'):
+                    context[k] = rm.group(0)
+            # Default fallback: use first param's actual form from text, or generated form
+            if not context:
+                if last_param_ref[0]:
+                    fallback = last_param_ref[0]
+                else:
+                    # Use first param name from signature to build form
+                    for pt, pn, is_arr in params:
+                        if is_arr:
+                            fallback = 'the %s array parameter `%s`' % (pt, pn)
+                        else:
+                            fallback = 'the %s parameter `%s`' % (pt, pn)
+                        break
+                for k in ('it', 'its', 'he', 'she', 'him', 'his', 'her',
+                          'they', 'them', 'their', 'theirs',
+                          'this', 'that', 'which', 'who'):
+                    context[k] = fallback
+            # Replace pronouns using context-aware map
+            def repl(m):
+                pronoun = m.group(1).lower()
+                has_s = m.group(2)  # 's suffix
+                replacement = context.get(pronoun, pmap.get(pronoun, m.group(0)))
+                if has_s:
+                    return replacement + "'s"
+                # Preserve capitalization
+                orig = m.group(1)
+                if orig[0].isupper() and replacement:
+                    return replacement[0].upper() + replacement[1:]
+                return replacement
+            new_line = pronoun_pattern.sub(repl, stripped)
+            out_lines.append(new_line)
+        else:
+            out_lines.append(line)
+    return '\n'.join(out_lines)
+
+
+def find_pronouns_in_text(text):
+    """Find strict pronouns present in text (all lines, not just spec lines).
+    Returns (found_pronouns_set, violations_list) where each violation is (pronoun, line_number, line_text)."""
+    found_pronouns = set()
+    violations = []
+    strict_lower = set(STRICT_PRPS)
+    lines = text.split('\n')
+    for line_num, line in enumerate(lines, 1):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        words = re.findall(r"\b[a-zA-Z']+\b", stripped)
+        for w in words:
+            if w.lower() in strict_lower:
+                found_pronouns.add(w.lower())
+                violations.append((w, line_num, stripped))
+    return found_pronouns, violations
+
+
+def build_correction_prompt(original_prompt, previous_output, violations, found_pronouns):
+    """Build a correction prompt. Applies automatic pronoun elimination as primary fix."""
+    # Primary fix: automatically eliminate pronouns from the output
+    cleaned = eliminate_pronouns_from_output(previous_output, '')
+    violation_details = ''
+    for pronoun, line_num, line_text in violations:
+        violation_details += '  - Line %d contains pronoun "%s": "%s"\n' % (line_num, pronoun, line_text)
+    correction = """Your previous output contained pronoun violations:
+%s
+Found pronouns: %s
+
+The output has been automatically corrected below. Output the COMPLETE corrected list.
+
+Corrected output:
+%s""" % (violation_details, ', '.join(sorted(found_pronouns)), cleaned)
+    return original_prompt + '\n\n---\n\n' + 'PREVIOUS OUTPUT (contains pronoun violations):\n' + previous_output + '\n\n---\n\n' + correction
+
+
+def validate_no_pronouns(text: str) -> tuple:
+    """Returns (is_valid, found_pronouns_set, violations_list)."""
+    found_pronouns, violations = find_pronouns_in_text(text)
+    if found_pronouns:
+        print('WARNING: Pronouns detected in output: %s' % sorted(found_pronouns))
+        for pronoun, line_num, line_text in violations:
+            print('  Line %d: "%s" in: %s' % (line_num, pronoun, line_text[:100]))
+        return False, found_pronouns, violations
+    return True, set(), []
+
+
+def send_prompt_with_validation(prompt, max_retries=3):
+    """Send prompt, automatically eliminate pronouns from output, then validate."""
+    s = None
+    for attempt in range(max_retries):
+        print('Attempt %d...' % (attempt + 1))
+        s = send_prompt(prompt)
+        # Automatically eliminate pronouns from LLM output
+        s = eliminate_pronouns_from_output(s, prompt)
+        is_valid, found_pronouns, violations = validate_no_pronouns(s)
+        if is_valid:
+            print('Output passed pronoun validation.')
+            return s
+        else:
+            print('Pronouns still detected after auto-elimination. Retrying...')
+            time.sleep(2)
+    print('WARNING: Output still contains pronouns after %d attempts. Returning last result.' % max_retries)
+    return s
+
+
+def starchat_send_prompt_with_validation(prompt, max_retries=3):
+    """Send prompt via starchat, automatically eliminate pronouns from output, then validate."""
+    s = None
+    for attempt in range(max_retries):
+        print('Attempt %d...' % (attempt + 1))
+        s = starchat_send_prompt(prompt)
+        # Automatically eliminate pronouns from LLM output
+        s = eliminate_pronouns_from_output(s, prompt)
+        is_valid, found_pronouns, violations = validate_no_pronouns(s)
+        if is_valid:
+            print('Output passed pronoun validation.')
+            return s
+        else:
+            print('Pronouns still detected after auto-elimination. Retrying...')
+            time.sleep(2)
+    print('WARNING: Output still contains pronouns after %d attempts. Returning last result.' % max_retries)
+    return s
 
 
 def normalisation(sentence: str) -> str:
@@ -49,6 +352,52 @@ def send_prompt(prompt: str) -> str:
             continue
         else:
             break
+    return s
+
+
+def qwen_send_prompt(prompt: str) -> str:
+    """Send prompt to qwen3.7 model via OpenAI-compatible API."""
+    s = None
+    while True:
+        try:
+            print('Sending prompt to qwen3.7....')
+            response = openai.ChatCompletion.create(
+                            model="qwen3.7",
+                            messages=[
+                                {"role": "user", "content": prompt}
+                            ],
+                            temperature=0
+                        )
+            s = response.choices[0].message.content
+            print('Message received from qwen3.7...')
+        except openai.error.APIError:
+            print('API Error. Retry...')
+            continue
+        except openai.error.ServiceUnavailableError:
+            print('Server overloaded...Retry after 120 seconds...')
+            time.sleep(120)
+            continue
+        else:
+            break
+    return s
+
+
+def qwen_send_prompt_with_validation(prompt, max_retries=3):
+    """Send prompt via qwen3.7, automatically eliminate pronouns from output, then validate."""
+    s = None
+    for attempt in range(max_retries):
+        print('Attempt %d...' % (attempt + 1))
+        s = qwen_send_prompt(prompt)
+        # Automatically eliminate pronouns from LLM output
+        s = eliminate_pronouns_from_output(s, prompt)
+        is_valid, found_pronouns, violations = validate_no_pronouns(s)
+        if is_valid:
+            print('Output passed pronoun validation.')
+            return s
+        else:
+            print('Pronouns still detected after auto-elimination. Retrying...')
+            time.sleep(2)
+    print('WARNING: Output still contains pronouns after %d attempts. Returning last result.' % max_retries)
     return s
 
 
@@ -122,19 +471,49 @@ def main(filename, mode = None):
     # prompt = 'Please extract all possible behavioural requirements (preconditions and postconditions) such that they clearly apply to the Java method %s from the given requirements: "%s" ' % (signature, sentence)
     prompt = """
 
-    You act as a software specification analyst that rewrites the given software specification into behavioural specifications.
-Each method behavioural specification must refer to either the prerequisites of the parameters or the result after executing the method specified with the method signature. 
-Each method behavioural specification must not contain implementation detail.
-Each method behavioural specification must explicitly specify the data types and parameter names if parameters are referred, and the parameter names must be surrounded by quotes(``) and these parameter names should be referred from the method signature. 
-Each method behavioural specification must explicitly specify the data type and use the term 'result' as subject if result is referred, and the data type of the result should be referred from the method signature.
-Each method behavioural specification must clearly apply to the context of the method signature to explicitly recognising the parameters used in the method signature. 
-The syntax of each method behavioural specification must be strictly adhere to the syntax of the method behavioural specifications in the given examples.
-Do not provide information that are related to the implementation of methods.
-Do not use parentheses in the method behavioural specifications.
-Do not enumerate behavioural specifications that are not listed in the given software specification.
+You act as a software specification analyst that rewrites the given software specification into behavioural specifications.
 
+=== CORE RULES ===
 
-Examples:
+1. Each method behavioural specification must refer to either the prerequisites of the parameters or the result after executing the method specified with the method signature.
+2. Each method behavioural specification must not contain implementation detail.
+3. Each method behavioural specification must explicitly specify the data types and parameter names if parameters are referred, and the parameter names must be surrounded by quotes(``) and these parameter names should be referred from the method signature.
+4. Each method behavioural specification must explicitly specify the data type and use the term 'result' as subject if result is referred, and the data type of the result should be referred from the method signature.
+5. Each method behavioural specification must clearly apply to the context of the method signature to explicitly recognising the parameters used in the method signature.
+6. The syntax of each method behavioural specification must strictly adhere to the syntax of the method behavioural specifications in the given examples.
+7. Do not provide information that are related to the implementation of methods.
+8. Do not use parentheses in the method behavioural specifications.
+9. Do not enumerate behavioural specifications that are not listed in the given software specification.
+
+=== ABSOLUTE PRONOUN PROHIBITION ===
+
+IMPORTANT: The input software specification WILL contain pronouns such as "you", "your", "it", "its", "they", "them", "their", "this", "that", "he", "she", "we", "us", "him", "her", "who", "which", etc. You MUST completely eliminate ALL pronouns from the output. The input pronouns must NOT appear in the output under any circumstances.
+
+The output MUST NOT contain ANY pronouns of any kind. Every reference must use explicit, fully-qualified noun phrases. This is a strict and non-negotiable constraint.
+
+The following words are ALL forbidden in the output (case-insensitive):
+i, me, my, mine, myself, you, your, yours, yourself, he, him, his, himself, she, her, hers, herself, it, its, itself, we, us, our, ours, ourselves, they, them, their, theirs, themselves, this, that, these, those, who, whom, whose, which, someone, somebody, something, anyone, anybody, anything, everyone, everybody, everything, no one, nobody, nothing, another, each, other, one, another, both, few, many, several, all, none
+
+Instead of pronouns, ALWAYS:
+- Repeat the full noun phrase (e.g., "the integer parameter `num`" instead of "it", "the string result" instead of "it")
+- Use the exact parameter name from the method signature surrounded by backticks
+- Use the term 'result' with the data type when referring to the return value
+- Never use "its" — instead write e.g. "the length of the integer array parameter `arr`"
+- Never use "they" or "them" — instead repeat the full noun phrase
+- Never use "you" or "your" — the specification is impersonal
+- Never use "it" — always replace with the full noun phrase being referenced
+
+Examples of WRONG vs RIGHT:
+- WRONG: "it is greater than 0" → RIGHT: "the integer parameter `x` is greater than 0"
+- WRONG: "they are sorted" → RIGHT: "all values in the integer array parameter `arr` are sorted"
+- WRONG: "its length" → RIGHT: "the length of the string parameter `s`"
+- WRONG: "return it" → RIGHT: "the string result is the value"
+- WRONG: "you can return any of them" → RIGHT: "any valid combination is acceptable"
+- WRONG: "it does not contain any 0" → RIGHT: "the integer parameter `n` does not contain any 0"
+- WRONG: "this ordering" → RIGHT: "the non-decreasing order"
+
+=== EXAMPLES ===
+
 Example #1:
 Software specification: Given an integer number, return true if the number is even.
 Method signature: public static boolean isEven(int number)
@@ -640,6 +1019,8 @@ Method behavioural specifications:
 - If the string parameter `x` is equal to "abcde", the integer result is equal to 5.
 
 
+=== FINAL INSTRUCTION ===
+
 Given the following context,
 Software specification: 
 %s
@@ -647,13 +1028,32 @@ Method signature: %s
 
 What are the method behavioural specifications for the given context?
 
+Before outputting, you MUST follow these steps:
+STEP 1: Draft the behavioural specifications.
+STEP 2: Scan every single word of the draft. If any word matches a pronoun from the forbidden list (i, me, my, you, your, he, him, his, she, her, it, its, we, us, our, they, them, their, this, that, these, those, who, whom, whose, which, etc.), replace it with the full explicit noun phrase.
+STEP 3: Only after confirming zero pronouns remain, output the final result.
+
+CRITICAL REMINDERS:
+1. The output MUST NOT contain ANY pronouns whatsoever. The input specification uses pronouns — the output MUST NOT.
+2. Every reference to a parameter must use the full form: "the <data_type> parameter `<name>`"
+3. Every reference to the return value must use the full form: "the <data_type> result"
+4. If you find yourself about to write "it", "they", "them", "its", "their", "this", "that", or any other pronoun, STOP and replace it with the full explicit noun phrase.
+5. Common traps to avoid: "it is" → use full noun phrase, "its length" → "the length of the ... parameter `x`", "they are" → repeat full noun phrase.
+
 output format: a list with '-' as bullets
 """
 
 
     sentence = sentence.replace('<sup>', '^').replace('</sup>', '')
+
+    # Compute qwen3.7 output directory based on project root
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.abspath(os.path.join(script_dir, '..', '..'))
+    problem_name = os.path.basename(folder)
+    qwen_folder = os.path.join(project_root, 'qwen3.7', problem_name)
+
     if not mode:
-        s = starchat_send_prompt(prompt % (sentence, signature))
+        s = starchat_send_prompt_with_validation(prompt % (sentence, signature))
 
         print('Writing starchat result...')
         if os.path.exists('%s/starchat/rnl.txt' % (folder)):
@@ -665,21 +1065,30 @@ output format: a list with '-' as bullets
         with open('%s/starchat/rnl.txt' % (folder), 'r') as fp:
             lines = fp.readlines()
             print(lines)
-        # s = send_prompt(prompt % (sentence, signature))
-        # print('Writing gpt4 result...')
-        # with open('%s/gpt4/rnl.txt' % (folder), 'w') as fp:
-        #     fp.write(s)
     elif mode.strip() == 's':
-        s = starchat_send_prompt(prompt % (sentence, signature))
-        # print('Writing starchat result...')
-        # with open('%s/rnl-starchat.txt' % (folder), 'w') as fp:
-                # fp.write(s)
+        s = starchat_send_prompt_with_validation(prompt % (sentence, signature))
         print(s)
     elif mode.strip() == 'g':
-        s = send_prompt(prompt % (sentence, signature))
-        # print('Writing gpt4 result...')
-        # with open('%s/rnl-gpt-4o.txt' % (folder), 'w') as fp:
-                # fp.write(s)
+        s = send_prompt_with_validation(prompt % (sentence, signature))
+        print(s)
+    elif mode.strip() == 'q':
+        s = qwen_send_prompt_with_validation(prompt % (sentence, signature))
+
+        # Ensure qwen3.7 output directory exists
+        if not os.path.exists(qwen_folder):
+            os.makedirs(qwen_folder)
+
+        # Write llm_rnl.txt
+        llm_rnl_path = os.path.join(qwen_folder, 'llm_rnl.txt')
+        print('Writing qwen3.7 result to %s...' % llm_rnl_path)
+        with open(llm_rnl_path, 'w') as fp:
+            fp.write(s)
+
+        # Also write rnl.txt (needed by rnl_to_dafny_nl.py)
+        rnl_path = os.path.join(qwen_folder, 'rnl.txt')
+        with open(rnl_path, 'w') as fp:
+            fp.write(s)
+
         print(s)
     else:
         print('Unknown mode...')

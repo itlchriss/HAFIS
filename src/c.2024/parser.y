@@ -419,7 +419,7 @@ predicate_term
         }
         addastchildren($$, $6);
         $$->syntax = string2ptbsyntax($3->symbol);
-        /* predicate node is marked in a queue and si identification is processed later  */            
+        /* predicate node is marked in a queue and si identification is processed later  */
         enqueue(predicates, (void*)$$);
     }
     | PREDICATE '{' TAG '}' '(' '(' terms ')' ')' {

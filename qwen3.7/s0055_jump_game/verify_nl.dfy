@@ -4,8 +4,8 @@
 // requires(*The length of the integer array parameter `nums` is greater than or equal to 1 and is less than or equal to 10000.*);
 // requires(*All values in the integer array parameter `nums` are greater than or equal to 0 and are less than or equal to 100000.*);
 // requires(*The integer array parameter `nums` is not equal to the null literal.*);
-// ensures(*If the boolean result is equal to the true literal, there exists a sequence of jumps starting from index 0 such that each jump from index `i` is at most the value at index `i` of the integer array parameter `nums` and the sequence reaches the last index of the integer array parameter `nums`.*);
-// ensures(*If the boolean result is equal to the false literal, there does not exist a sequence of jumps starting from index 0 such that each jump from index `i` is at most the value at index `i` of the integer array parameter `nums` and the sequence reaches the last index of the integer array parameter `nums`.*);
+// ensures(*If the boolean result is equal to the true literal, there exists a sequence of jumps starting from index 0 such the boolean result each jump from index `the int array parameter `nums`` is at most the value at index `the int array parameter `nums`` of the integer array parameter `nums` and the sequence reaches the last index of the integer array parameter `nums`.*);
+// ensures(*If the boolean result is equal to the false literal, there does not exist a sequence of jumps starting from index 0 such the boolean result each jump from index `the int array parameter `nums`` is at most the value at index `the int array parameter `nums`` of the integer array parameter `nums` and the sequence reaches the last index of the integer array parameter `nums`.*);
 // ensures(*If the integer array parameter `nums` is equal to [2,3,1,1,4], the boolean result is equal to the true literal.*);
 // ensures(*If the integer array parameter `nums` is equal to [3,2,1,0,4], the boolean result is equal to the false literal.*);
 method canJump(nums: array<int>) returns (result: bool)

@@ -46,9 +46,10 @@ annotations:
 - id: 8
   type: ensures
   nl: If the integer result is greater than or equal to 0, for every non-negative
-    integer `j` that is less than the integer result, the substring of the string
-    parameter `haystack` starting at `j` and having the length equal to the length
-    of the string parameter `needle` is not equal to the string parameter `needle`.
+    integer `j` the integer result is less than the integer result, the substring
+    of the string parameter `haystack` starting at `j` and having the length equal
+    to the length of the string parameter `needle` is not equal to the string parameter
+    `needle`.
 - id: 9
   type: ensures
   nl: If the integer result is equal to -1, the string parameter `needle` is not a

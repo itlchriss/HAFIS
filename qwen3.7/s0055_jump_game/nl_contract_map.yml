@@ -22,14 +22,16 @@ annotations:
 - id: 3
   type: ensures
   nl: If the boolean result is equal to the true literal, there exists a sequence
-    of jumps starting from index 0 such that each jump from index `i` is at most the
-    value at index `i` of the integer array parameter `nums` and the sequence reaches
-    the last index of the integer array parameter `nums`.
+    of jumps starting from index 0 such the boolean result each jump from index `the
+    int array parameter `nums`` is at most the value at index `the int array parameter
+    `nums`` of the integer array parameter `nums` and the sequence reaches the last
+    index of the integer array parameter `nums`.
 - id: 4
   type: ensures
   nl: If the boolean result is equal to the false literal, there does not exist a
-    sequence of jumps starting from index 0 such that each jump from index `i` is
-    at most the value at index `i` of the integer array parameter `nums` and the sequence
+    sequence of jumps starting from index 0 such the boolean result each jump from
+    index `the int array parameter `nums`` is at most the value at index `the int
+    array parameter `nums`` of the integer array parameter `nums` and the sequence
     reaches the last index of the integer array parameter `nums`.
 - id: 5
   type: ensures

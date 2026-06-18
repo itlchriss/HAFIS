@@ -1,0 +1,22 @@
+- term: arr_a
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: integer
+    reference_type: array
+  interpretation: 2,7,11,15
+- term: arr_b
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: any
+    reference_type: any
+  synthesised_datatype:
+  - primitive_type: integer
+    reference_type: array
+  interpretation: 0,1

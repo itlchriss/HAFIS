@@ -9,8 +9,8 @@
 // requires(*The string parameter `guess` is not equal to the null literal.*);
 // ensures(*The string result is not equal to the null literal.*);
 // ensures(*The string result is in the format "xAyB" where `x` is the number of bulls and `y` is the number of cows.*);
-// requires(*A bull is a digit in the string parameter `guess` that is in the correct position.*);
-// requires(*A cow is a digit in the string parameter `guess` that is in the string parameter `secret` but is in the wrong position.*);
+// requires(*A bull is a digit in the string parameter `guess` the string parameter `guess` is in the correct position.*);
+// requires(*A cow is a digit in the string parameter `guess` the string parameter `secret` is in the string parameter `secret` but is in the wrong position.*);
 // ensures(*If the string parameter `secret` is equal to "1807" and the string parameter `guess` is equal to "7810", the string result is equal to "1A3B".*);
 // ensures(*If the string parameter `secret` is equal to "1123" and the string parameter `guess` is equal to "0111", the string result is equal to "1A1B".*);
 // ensures(*If the string parameter `secret` is equal to "1" and the string parameter `guess` is equal to "0", the string result is equal to "0A0B".*);

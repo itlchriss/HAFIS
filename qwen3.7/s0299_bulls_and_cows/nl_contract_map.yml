@@ -41,11 +41,12 @@ annotations:
     `y` is the number of cows.
 - id: 9
   type: requires
-  nl: A bull is a digit in the string parameter `guess` that is in the correct position.
+  nl: A bull is a digit in the string parameter `guess` the string parameter `guess`
+    is in the correct position.
 - id: 10
   type: requires
-  nl: A cow is a digit in the string parameter `guess` that is in the string parameter
-    `secret` but is in the wrong position.
+  nl: A cow is a digit in the string parameter `guess` the string parameter `secret`
+    is in the string parameter `secret` but is in the wrong position.
 - id: 11
   type: ensures
   nl: If the string parameter `secret` is equal to "1807" and the string parameter

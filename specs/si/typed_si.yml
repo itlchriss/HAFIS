@@ -258,6 +258,14 @@
   interpretation: '(Subj) == null'
 - term: null
   syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: 'null'
+- term: null
+  syntax:
   - JJ
   arguments:
   - symbol: Subj
@@ -589,6 +597,21 @@
   - symbol: Dat
     primitive_type: 'any'
     reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: (Subj) != (Dat)
+- term: not_equal
+  syntax:
+  - JJ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Dat
+    primitive_type: 'any'
+    reference_type: 'any'
   synthesised_datatype:
     primitive_type: 'boolean'
     reference_type: 'undefined'

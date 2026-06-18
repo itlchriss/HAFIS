@@ -47,8 +47,8 @@ lemma pow2_strictly_increasing(x: nat, y: nat)
 }
 
 // requires(*The integer parameter `n` is greater than or equal to -2147483648 and is less than or equal to 2147483647.*);
-// ensures(*If the integer parameter `n` is greater than 0 and the boolean result is equal to the true literal, there exists a non-negative integer `x` such that the integer parameter `n` is equal to 2 raised to the power of the non-negative integer `x`.*);
-// ensures(*If the integer parameter `n` is greater than 0 and the boolean result is equal to the false literal, there does not exist a non-negative integer `x` such that the integer parameter `n` is equal to 2 raised to the power of the non-negative integer `x`.*);
+// ensures(*If the integer parameter `n` is greater than 0 and the boolean result is equal to the true literal, there exists a non-negative integer `x` such the boolean result the integer parameter `n` is equal to 2 raised to the power of the non-negative integer `x`.*);
+// ensures(*If the integer parameter `n` is greater than 0 and the boolean result is equal to the false literal, there does not exist a non-negative integer `x` such the boolean result the integer parameter `n` is equal to 2 raised to the power of the non-negative integer `x`.*);
 // ensures(*If the integer parameter `n` is less than or equal to 0, the boolean result is equal to the false literal.*);
 // ensures(*If the integer parameter `n` is equal to 1, the boolean result is equal to the true literal.*);
 // ensures(*If the integer parameter `n` is equal to 16, the boolean result is equal to the true literal.*);

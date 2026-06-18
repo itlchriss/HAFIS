@@ -22,20 +22,22 @@ annotations:
 - id: 3
   type: ensures
   nl: If the boolean result is equal to the true literal, there exists a non-negative
-    integer `i` that is greater than 0 and is less than the length of the integer
-    array parameter `arr` minus 1 such that all values from index 0 to index `i` of
-    the integer array parameter `arr` are strictly increasing and all values from
-    index `i` to the last index of the integer array parameter `arr` are strictly
-    decreasing.
+    integer `the int array parameter `arr`` the boolean result is greater than 0 and
+    is less than the length of the integer array parameter `arr` minus 1 such the
+    boolean result all values from index 0 to index `the int array parameter `arr``
+    of the integer array parameter `arr` are strictly increasing and all values from
+    index `the int array parameter `arr`` to the last index of the integer array parameter
+    `arr` are strictly decreasing.
   original_contract: arr.Length >= 3 ==> (result <==>
 - id: 4
   type: ensures
   nl: If the boolean result is equal to the false literal, there does not exist a
-    non-negative integer `i` that is greater than 0 and is less than the length of
-    the integer array parameter `arr` minus 1 such that all values from index 0 to
-    index `i` of the integer array parameter `arr` are strictly increasing and all
-    values from index `i` to the last index of the integer array parameter `arr` are
-    strictly decreasing.
+    non-negative integer `the int array parameter `arr`` the boolean result is greater
+    than 0 and is less than the length of the integer array parameter `arr` minus
+    1 such the boolean result all values from index 0 to index `the int array parameter
+    `arr`` of the integer array parameter `arr` are strictly increasing and all values
+    from index `the int array parameter `arr`` to the last index of the integer array
+    parameter `arr` are strictly decreasing.
 - id: 5
   type: ensures
   nl: If the integer array parameter `arr` is equal to [2,1], the boolean result is

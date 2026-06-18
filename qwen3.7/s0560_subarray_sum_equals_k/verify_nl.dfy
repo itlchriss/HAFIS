@@ -6,7 +6,7 @@
 // requires(*The integer parameter `k` is greater than or equal to -10000000 and is less than or equal to 10000000.*);
 // requires(*The integer array parameter `nums` is not equal to the null literal.*);
 // ensures(*The integer result is greater than or equal to 0.*);
-// ensures(*The integer result is equal to the total number of contiguous subarrays whose sum equals the integer parameter `k`.*);
+// ensures(*The integer result is equal to the total number of contiguous subarrays the int array parameter `nums` sum equals the integer parameter `k`.*);
 // ensures(*If the integer array parameter `nums` is equal to [1,1,1] and the integer parameter `k` is equal to 2, the integer result is equal to 2.*);
 // ensures(*If the integer array parameter `nums` is equal to [1,2,3] and the integer parameter `k` is equal to 3, the integer result is equal to 2.*);
 method subarraySum(nums: array<int>, k: int) returns (result: int)

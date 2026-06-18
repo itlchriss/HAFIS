@@ -43,11 +43,12 @@ annotations:
     `s`.
 - id: 8
   type: ensures
-  nl: There exists a subset of indices of the integer array parameter `s` such that
-    the size of the subset is equal to the integer result and each index in the subset
-    maps to a distinct index of the integer array parameter `g` such that the value
-    at the index of the integer array parameter `s` is greater than or equal to the
-    value at the corresponding index of the integer array parameter `g`.
+  nl: There exists a subset of indices of the integer array parameter `s` such the
+    integer result the size of the subset is equal to the integer result and each
+    index in the subset maps to a distinct index of the integer array parameter `g`
+    such the integer result the value at the index of the integer array parameter
+    `s` is greater than or equal to the value at the corresponding index of the integer
+    array parameter `g`.
 - id: 9
   type: ensures
   nl: If the integer array parameter `g` is equal to [1,2,3] and the integer array

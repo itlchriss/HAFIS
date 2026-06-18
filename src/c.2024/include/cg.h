@@ -2,27 +2,52 @@
 #define CG_H
 
 #include "ast.h"
+#include "ir.h"
 #include "backend.h"
 
 /*
     Unified Code Generator Interface.
     
-    The tree walker (cg_walktree) and output function (cg_output) are
-    backend-agnostic. They accept a backend_ops* for language-specific
-    formatting.
+    The code generator walks the IR (Intermediate Representation) and
+    generates backend-specific output via backend_ops*.
     
-    For backward compatibility:
-    - output() is a wrapper that calls cg_output with jml_ops
-    - dafny_output() is a wrapper that calls cg_output with dafny_ops
+    Pipeline: AST -> IR Builder -> IR -> Code Generator -> Backend Output
+    
+    New API (IR-based):
+    - cg_output_ir(ir, ops) - Generate output from IR
+    
+    Legacy API (AST-based, deprecated):
+    - cg_output(ast, ops) - Generate output from AST
+    - output(ast) - JML output wrapper
+    - dafny_output(ast) - Dafny output wrapper
 */
 
-/* JML output (backward compatible) */
-void output(struct astnode *);
+/* =========================================================================
+   New IR-based Code Generation API
+   ========================================================================= */
 
-/* Dafny output (backward compatible) */
-void dafny_output(struct astnode *);
+/* Generate output from IR tree with specified backend */
+void cg_output_ir(struct ir_node *ir_root, const struct backend_ops *ops);
 
-/* Unified code generation with explicit backend */
+/* Walk IR tree (used internally, exposed for testing) */
+void cg_walk_ir(struct ir_node *node, FILE *s, int *haserror,
+                const struct backend_ops *ops);
+
+/* =========================================================================
+   Legacy AST-based Code Generation API (deprecated)
+   ========================================================================= */
+
+/* Generate output from AST with specified backend (deprecated - use cg_output_ir) */
 void cg_output(struct astnode *root, const struct backend_ops *ops);
 
-#endif
+/* Walk AST tree (deprecated - use cg_walk_ir) */
+void cg_walktree(struct astnode *node, FILE *s, int *haserror,
+                 const struct backend_ops *ops);
+
+/* JML output from AST (backward compatible wrapper) */
+void output(struct astnode *root);
+
+/* Dafny output from AST (backward compatible wrapper) */
+void dafny_output(struct astnode *root);
+
+#endif /* CG_H */

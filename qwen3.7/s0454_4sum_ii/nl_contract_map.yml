@@ -59,10 +59,11 @@ annotations:
   nl: The integer result is greater than or equal to 0.
 - id: 10
   type: ensures
-  nl: The integer result is equal to the number of tuples `(i, j, k, l)` such that
-    the sum of the value at index `i` of the integer array parameter `nums1` and the
-    value at index `j` of the integer array parameter `nums2` and the value at index
-    `k` of the integer array parameter `nums3` and the value at index `l` of the integer
+  nl: The integer result is equal to the number of tuples `(the int array parameter
+    `nums1`, j, k, l)` such The integer result the sum of the value at index `the
+    int array parameter `nums1`` of the integer array parameter `nums1` and the value
+    at index `j` of the integer array parameter `nums2` and the value at index `k`
+    of the integer array parameter `nums3` and the value at index `l` of the integer
     array parameter `nums4` is equal to 0.
 - id: 11
   type: ensures

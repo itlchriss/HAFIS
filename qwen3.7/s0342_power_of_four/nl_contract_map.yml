@@ -13,15 +13,16 @@ annotations:
 - id: 1
   type: ensures
   nl: If the integer parameter `n` is greater than 0 and the boolean result is equal
-    to the true literal, there exists a non-negative integer `x` such that the integer
-    parameter `n` is equal to 4 raised to the power of the non-negative integer `x`.
+    to the true literal, there exists a non-negative integer `x` such the boolean
+    result the integer parameter `n` is equal to 4 raised to the power of the non-negative
+    integer `x`.
   original_contract: n <= 0 ==> !result
 - id: 2
   type: ensures
   nl: If the integer parameter `n` is greater than 0 and the boolean result is equal
-    to the false literal, there does not exist a non-negative integer `x` such that
-    the integer parameter `n` is equal to 4 raised to the power of the non-negative
-    integer `x`.
+    to the false literal, there does not exist a non-negative integer `x` such the
+    boolean result the integer parameter `n` is equal to 4 raised to the power of
+    the non-negative integer `x`.
 - id: 3
   type: ensures
   nl: If the integer parameter `n` is less than or equal to 0, the boolean result

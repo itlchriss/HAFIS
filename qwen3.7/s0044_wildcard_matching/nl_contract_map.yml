@@ -31,15 +31,15 @@ annotations:
 - id: 6
   type: ensures
   nl: If the boolean result is equal to the true literal, the string parameter `p`
-    matches the entire string parameter `s` under the rules that the character '?'
-    matches any single character and the character '*' matches any sequence of characters
-    including the empty sequence.
+    matches the entire string parameter `s` under the rules the boolean result the
+    character '?' matches any single character and the character '*' matches any sequence
+    of characters including the empty sequence.
 - id: 7
   type: ensures
   nl: If the boolean result is equal to the false literal, the string parameter `p`
-    does not match the entire string parameter `s` under the rules that the character
-    '?' matches any single character and the character '*' matches any sequence of
-    characters including the empty sequence.
+    does not match the entire string parameter `s` under the rules the boolean result
+    the character '?' matches any single character and the character '*' matches any
+    sequence of characters including the empty sequence.
 - id: 8
   type: ensures
   nl: If the string parameter `s` is equal to "aa" and the string parameter `p` is

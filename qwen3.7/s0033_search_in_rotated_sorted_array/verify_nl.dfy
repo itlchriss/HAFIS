@@ -9,7 +9,7 @@
 // requires(*The integer array parameter `nums` is not equal to the null literal.*);
 // ensures(*The integer result is greater than or equal to -1 and is less than the length of the integer array parameter `nums`.*);
 // ensures(*If the integer result is greater than or equal to 0, the value at the integer result index of the integer array parameter `nums` is equal to the integer parameter `target`.*);
-// ensures(*If the integer result is equal to -1, there does not exist any index `i` such that the value at index `i` of the integer array parameter `nums` is equal to the integer parameter `target`.*);
+// ensures(*If the integer result is equal to -1, there does not exist any index `the int array parameter `nums`` such the integer result the value at index `the int array parameter `nums`` of the integer array parameter `nums` is equal to the integer parameter `target`.*);
 // ensures(*If the integer array parameter `nums` is equal to [4,5,6,7,0,1,2] and the integer parameter `target` is equal to 0, the integer result is equal to 4.*);
 // ensures(*If the integer array parameter `nums` is equal to [4,5,6,7,0,1,2] and the integer parameter `target` is equal to 3, the integer result is equal to -1.*);
 // ensures(*If the integer array parameter `nums` is equal to [1] and the integer parameter `target` is equal to 0, the integer result is equal to -1.*);

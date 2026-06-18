@@ -1,1 +1,0 @@
-the array is not null.

@@ -9,7 +9,18 @@
 #include "error.h"
 #include "sshare.h"
 #include "synthesis.h"
-#include "jml.h"
+#include "backend.h"
+
+/* Backend-specific function declarations */
+/* These are implemented in backends/jml/jml_synth.c or backends/dafny/dafny_synth.c */
+extern char *contain_construct(char *, char *, struct datatype*, struct datatype*);
+extern char *array_equal(char*, char*);
+extern char *list_2_string_array_equal(char*, char*);
+extern char *list_2_array_equal(char*, char*);
+extern char *array_partially_equal(char*, char*);
+extern char *contain_only_string_chararray(char *, char *);
+extern char *contain_only_template(char*, char*, struct datatype*, struct datatype*);
+extern char *string_charArray_equal(char *, char *);
 
 
 extern struct astnode *root;
@@ -43,6 +54,10 @@ int __compare_siarg_datatype__(struct datatype *argtype, struct datatype *entype
         ) || 
         (
             (argtype->i == entype->i && argtype->i != UNDEFINED && entype->i != UNDEFINED) 
+        ) ||
+        /* if entity has all UNDEFINED types (e.g. null literal), treat as wildcard match */
+        (
+            entype->p == UNDEFINED && entype->r == UNDEFINED && entype->i == UNDEFINED
         )
      ) {
         return TRUE;

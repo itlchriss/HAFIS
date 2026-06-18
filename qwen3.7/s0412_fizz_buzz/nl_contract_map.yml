@@ -20,27 +20,33 @@ annotations:
   original_contract: 'forall i: nat :: i < n ==>'
 - id: 3
   type: ensures
-  nl: For every non-negative integer `i` that is less than the integer parameter `n`,
-    if the integer `i` plus 1 is divisible by 3 and the integer `i` plus 1 is divisible
-    by 5, the value at index `i` of the string array result is equal to "FizzBuzz".
+  nl: For every non-negative integer `the int parameter `n`` array result is less
+    than the integer parameter `n`, if the integer `the int parameter `n`` plus 1
+    is divisible by 3 and the integer `the int parameter `n`` plus 1 is divisible
+    by 5, the value at index `the int parameter `n`` of the string array result is
+    equal to "FizzBuzz".
 - id: 4
   type: ensures
-  nl: For every non-negative integer `i` that is less than the integer parameter `n`,
-    if the integer `i` plus 1 is divisible by 3 and the integer `i` plus 1 is not
-    divisible by 5, the value at index `i` of the string array result is equal to
-    "Fizz".
+  nl: For every non-negative integer `the int parameter `n`` array result is less
+    than the integer parameter `n`, if the integer `the int parameter `n`` plus 1
+    is divisible by 3 and the integer `the int parameter `n`` plus 1 is not divisible
+    by 5, the value at index `the int parameter `n`` of the string array result is
+    equal to "Fizz".
 - id: 5
   type: ensures
-  nl: For every non-negative integer `i` that is less than the integer parameter `n`,
-    if the integer `i` plus 1 is not divisible by 3 and the integer `i` plus 1 is
-    divisible by 5, the value at index `i` of the string array result is equal to
-    "Buzz".
+  nl: For every non-negative integer `the int parameter `n`` array result is less
+    than the integer parameter `n`, if the integer `the int parameter `n`` plus 1
+    is not divisible by 3 and the integer `the int parameter `n`` plus 1 is divisible
+    by 5, the value at index `the int parameter `n`` of the string array result is
+    equal to "Buzz".
 - id: 6
   type: ensures
-  nl: For every non-negative integer `i` that is less than the integer parameter `n`,
-    if the integer `i` plus 1 is not divisible by 3 and the integer `i` plus 1 is
-    not divisible by 5, the value at index `i` of the string array result is equal
-    to the string representation of the integer `i` plus 1.
+  nl: For every non-negative integer `the int parameter `n`` array result is less
+    than the integer parameter `n`, if the integer `the int parameter `n`` plus 1
+    is not divisible by 3 and the integer `the int parameter `n`` plus 1 is not divisible
+    by 5, the value at index `the int parameter `n`` of the string array result is
+    equal to the string representation of the integer `the int parameter `n`` plus
+    1.
 - id: 7
   type: ensures
   nl: If the integer parameter `n` is equal to 3, the string array result is equal

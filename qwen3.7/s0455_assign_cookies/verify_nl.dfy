@@ -13,7 +13,7 @@
 // requires(*The integer array parameter `s` is not equal to the null literal.*);
 // ensures(*The integer result is greater than or equal to 0.*);
 // ensures(*The integer result is less than or equal to the minimum value between the length of the integer array parameter `g` and the length of the integer array parameter `s`.*);
-// ensures(*There exists a subset of indices of the integer array parameter `s` such that the size of the subset is equal to the integer result and each index in the subset maps to a distinct index of the integer array parameter `g` such that the value at the index of the integer array parameter `s` is greater than or equal to the value at the corresponding index of the integer array parameter `g`.*);
+// ensures(*There exists a subset of indices of the integer array parameter `s` such the integer result the size of the subset is equal to the integer result and each index in the subset maps to a distinct index of the integer array parameter `g` such the integer result the value at the index of the integer array parameter `s` is greater than or equal to the value at the corresponding index of the integer array parameter `g`.*);
 // ensures(*If the integer array parameter `g` is equal to [1,2,3] and the integer array parameter `s` is equal to [1,1], the integer result is equal to 1.*);
 // ensures(*If the integer array parameter `g` is equal to [1,2] and the integer array parameter `s` is equal to [1,2,3], the integer result is equal to 2.*);
 method findContentChildren(g: array<int>, s: array<int>) returns (result: int)

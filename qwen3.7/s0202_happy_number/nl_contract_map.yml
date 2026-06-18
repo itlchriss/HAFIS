@@ -13,14 +13,14 @@ annotations:
 - id: 1
   type: ensures
   nl: If the boolean result is equal to the true literal, repeatedly replacing the
-    integer parameter `n` with the sum of the squares of its digits eventually reaches
-    1.
+    integer parameter `n` with the sum of the squares of the boolean result digits
+    eventually reaches 1.
   original_contract: n == 1 ==> result
 - id: 2
   type: ensures
   nl: If the boolean result is equal to the false literal, repeatedly replacing the
-    integer parameter `n` with the sum of the squares of its digits loops endlessly
-    in a cycle that does not include 1.
+    integer parameter `n` with the sum of the squares of the boolean result digits
+    loops endlessly in a cycle the boolean result does not include 1.
   original_contract: n == 19 ==> result
 - id: 3
   type: ensures

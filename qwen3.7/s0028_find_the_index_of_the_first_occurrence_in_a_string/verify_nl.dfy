@@ -9,7 +9,7 @@
 // requires(*The string parameter `needle` is not equal to the null literal.*);
 // ensures(*The integer result is greater than or equal to -1 and is less than or equal to the length of the string parameter `haystack`.*);
 // ensures(*If the integer result is greater than or equal to 0, the substring of the string parameter `haystack` starting at the integer result and having the length equal to the length of the string parameter `needle` is equal to the string parameter `needle`.*);
-// ensures(*If the integer result is greater than or equal to 0, for every non-negative integer `j` that is less than the integer result, the substring of the string parameter `haystack` starting at `j` and having the length equal to the length of the string parameter `needle` is not equal to the string parameter `needle`.*);
+// ensures(*If the integer result is greater than or equal to 0, for every non-negative integer `j` the integer result is less than the integer result, the substring of the string parameter `haystack` starting at `j` and having the length equal to the length of the string parameter `needle` is not equal to the string parameter `needle`.*);
 // ensures(*If the integer result is equal to -1, the string parameter `needle` is not a substring of the string parameter `haystack`.*);
 // ensures(*If the string parameter `haystack` is equal to "hello" and the string parameter `needle` is equal to "ll", the integer result is equal to 2.*);
 // ensures(*If the string parameter `haystack` is equal to "aaaaa" and the string parameter `needle` is equal to "bba", the integer result is equal to -1.*);

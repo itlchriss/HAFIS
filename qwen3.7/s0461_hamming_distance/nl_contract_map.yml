@@ -22,9 +22,9 @@ annotations:
   original_contract: 0 <= result <= 31
 - id: 3
   type: ensures
-  nl: The integer result is equal to the number of bit positions at which the binary
-    representation of the integer parameter `x` and the binary representation of the
-    integer parameter `y` differ.
+  nl: The integer result is equal to the number of bit positions at The integer result
+    the binary representation of the integer parameter `x` and the binary representation
+    of the integer parameter `y` differ.
   original_contract: result == countDiffBits(x, y, 31)
 - id: 4
   type: ensures

@@ -22,10 +22,11 @@ annotations:
 - id: 3
   type: ensures
   nl: If the boolean result is equal to the true literal, there exist a non-negative
-    integer `i` and a non-negative integer `j` such that `i` is less than `j` and
-    `j` is less than the length of the integer array parameter `nums` and the value
-    at index `i` of the integer array parameter `nums` is equal to the value at index
-    `j` of the integer array parameter `nums`.
+    integer `the int array parameter `nums`` and a non-negative integer `j` such the
+    boolean result `the int array parameter `nums`` is less than `j` and `j` is less
+    than the length of the integer array parameter `nums` and the value at index `the
+    int array parameter `nums`` of the integer array parameter `nums` is equal to
+    the value at index `j` of the integer array parameter `nums`.
 - id: 4
   type: ensures
   nl: If the boolean result is equal to the false literal, all values in the integer

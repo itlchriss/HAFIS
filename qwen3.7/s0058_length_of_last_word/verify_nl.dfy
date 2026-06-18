@@ -8,7 +8,7 @@
 // ensures(*The integer result is greater than or equal to 1.*);
 // ensures(*The integer result is equal to the length of the last word in the string parameter `s`.*);
 // ensures(*If the string parameter `s` is equal to "Hello World", the integer result is equal to 5.*);
-// ensures(*If the string parameter `s` is equal to " fly me to the moon ", the integer result is equal to 4.*);
+// ensures(*If the string parameter `s` is equal to " fly the string parameter `s` to the moon ", the integer result is equal to 4.*);
 // ensures(*If the string parameter `s` is equal to "luffy is still joyboy", the integer result is equal to 6.*);
 method lengthOfLastWord(s: string) returns (result: int)
 {

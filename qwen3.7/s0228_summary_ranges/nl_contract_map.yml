@@ -30,8 +30,8 @@ annotations:
   nl: The list result is not equal to the null literal.
 - id: 6
   type: ensures
-  nl: The list result is the smallest sorted list of ranges that cover all the numbers
-    in the integer array parameter `nums` exactly.
+  nl: The list result is the smallest sorted list of ranges The list result cover
+    all the numbers in the integer array parameter `nums` exactly.
 - id: 7
   type: ensures
   nl: If the integer array parameter `nums` is equal to [0,1,2,4,5,7], the list result

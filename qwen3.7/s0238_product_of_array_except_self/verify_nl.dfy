@@ -5,7 +5,7 @@
 // requires(*The integer array parameter `nums` is not equal to the null literal.*);
 // ensures(*The integer array result is not equal to the null literal.*);
 // ensures(*The length of the integer array result is equal to the length of the integer array parameter `nums`.*);
-// ensures(*For each non-negative integer `i` from 0 to the length of the integer array parameter `nums` minus 1 the value at index `i` of the integer array result is equal to the product of all values in the integer array parameter `nums` except the value at index `i` of the integer array parameter `nums`.*);
+// ensures(*For each non-negative integer `the int array parameter `nums`` from 0 to the length of the integer array parameter `nums` minus 1 the value at index `the int array parameter `nums`` of the integer array result is equal to the product of all values in the integer array parameter `nums` except the value at index `the int array parameter `nums`` of the integer array parameter `nums`.*);
 // ensures(*If the integer array parameter `nums` is equal to [1,2,3,4], the integer array result is equal to [24,12,8,6].*);
 // ensures(*If the integer array parameter `nums` is equal to [-1,1,0,-3,3], the integer array result is equal to [0,0,9,0,0].*);
 method productExceptSelf(nums: array<int>) returns (result: array<int>)

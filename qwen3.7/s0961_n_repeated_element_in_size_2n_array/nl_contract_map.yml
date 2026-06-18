@@ -36,8 +36,9 @@ annotations:
     the length of the integer array parameter `nums` times.
 - id: 6
   type: ensures
-  nl: The integer result is equal to the value that appears exactly half the length
-    of the integer array parameter `nums` times in the integer array parameter `nums`.
+  nl: The integer result is equal to the value The integer result appears exactly
+    half the length of the integer array parameter `nums` times in the integer array
+    parameter `nums`.
 - id: 7
   type: ensures
   nl: If the integer array parameter `nums` is equal to [1,2,3,3], the integer result

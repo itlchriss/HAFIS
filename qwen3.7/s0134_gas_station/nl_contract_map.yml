@@ -53,7 +53,7 @@ annotations:
 - id: 9
   type: ensures
   nl: If the integer result is equal to -1, there does not exist any starting index
-    from which the circuit can be completed.
+    from the integer result the circuit can be completed.
 - id: 10
   type: ensures
   nl: If the integer array parameter `gas` is equal to [1,2,3,4,5] and the integer

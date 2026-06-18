@@ -26,16 +26,18 @@ annotations:
     `s`.
 - id: 5
   type: ensures
-  nl: For every non-negative integer `i` that is less than the length of the string
-    parameter `s`, if the character at index `i` of the string parameter `s` is an
-    uppercase letter, the character at index `i` of the string result is the corresponding
-    lowercase letter.
+  nl: For every non-negative integer `the string parameter `s`` the string result
+    is less than the length of the string parameter `s`, if the character at index
+    `the string parameter `s`` of the string parameter `s` is an uppercase letter,
+    the character at index `the string parameter `s`` of the string result is the
+    corresponding lowercase letter.
 - id: 6
   type: ensures
-  nl: For every non-negative integer `i` that is less than the length of the string
-    parameter `s`, if the character at index `i` of the string parameter `s` is not
-    an uppercase letter, the character at index `i` of the string result is equal
-    to the character at index `i` of the string parameter `s`.
+  nl: For every non-negative integer `the string parameter `s`` the string result
+    is less than the length of the string parameter `s`, if the character at index
+    `the string parameter `s`` of the string parameter `s` is not an uppercase letter,
+    the character at index `the string parameter `s`` of the string result is equal
+    to the character at index `the string parameter `s`` of the string parameter `s`.
 - id: 7
   type: ensures
   nl: If the string parameter `s` is equal to "Hello", the string result is equal

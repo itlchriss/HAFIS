@@ -1,1 +1,0 @@
-The returned value is the second-smallest number in the array.

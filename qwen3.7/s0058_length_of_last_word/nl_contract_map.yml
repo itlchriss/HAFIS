@@ -36,8 +36,8 @@ annotations:
     equal to 5.
 - id: 7
   type: ensures
-  nl: If the string parameter `s` is equal to " fly me to the moon ", the integer
-    result is equal to 4.
+  nl: If the string parameter `s` is equal to " fly the string parameter `s` to the
+    moon ", the integer result is equal to 4.
 - id: 8
   type: ensures
   nl: If the string parameter `s` is equal to "luffy is still joyboy", the integer

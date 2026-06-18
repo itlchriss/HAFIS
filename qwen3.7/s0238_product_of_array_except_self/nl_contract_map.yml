@@ -30,10 +30,11 @@ annotations:
   original_contract: 'forall i: nat :: i < result.Length ==>'
 - id: 5
   type: ensures
-  nl: For each non-negative integer `i` from 0 to the length of the integer array
-    parameter `nums` minus 1 the value at index `i` of the integer array result is
-    equal to the product of all values in the integer array parameter `nums` except
-    the value at index `i` of the integer array parameter `nums`.
+  nl: For each non-negative integer `the int array parameter `nums`` from 0 to the
+    length of the integer array parameter `nums` minus 1 the value at index `the int
+    array parameter `nums`` of the integer array result is equal to the product of
+    all values in the integer array parameter `nums` except the value at index `the
+    int array parameter `nums`` of the integer array parameter `nums`.
 - id: 6
   type: ensures
   nl: If the integer array parameter `nums` is equal to [1,2,3,4], the integer array

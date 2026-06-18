@@ -30,8 +30,8 @@ annotations:
   original_contract: result == countSubarraysWithSumK(nums, k)
 - id: 5
   type: ensures
-  nl: The integer result is equal to the total number of contiguous subarrays whose
-    sum equals the integer parameter `k`.
+  nl: The integer result is equal to the total number of contiguous subarrays the
+    int array parameter `nums` sum equals the integer parameter `k`.
 - id: 6
   type: ensures
   nl: If the integer array parameter `nums` is equal to [1,1,1] and the integer parameter
