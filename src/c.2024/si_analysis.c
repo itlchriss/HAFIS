@@ -190,7 +190,7 @@ void sianalysis() {
         free(r->token->symbol);
         r->token->symbol = tmp;
         /* delete the node */
-        root = deleteastnodeandedge(node, root);
+        root = consumeastnodeandedge(node, root);
     }
 
     /* two sortings, at most n^4 */

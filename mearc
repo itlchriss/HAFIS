@@ -34,18 +34,42 @@ set -e  # Exit on error
 # ============================================================================
 ROOT=./
 NLP=../NLP/ccg2lambda
-STD_SI=./specs/si/typed_si.yml,./specs/si/java_datatypes.yml
-PYCMD=../venv/mearc/bin/python3
+SI_DIR=./specs/si
+COMMON_SI=$SI_DIR/common/typed_si.yml
+
+# Activate virtual environment for Python dependencies
+source ../venv/mearc/bin/activate
+PYCMD=python
+
 TMP=./tmp
 OPENJML=../openjml-0.17-a15
 
-# Backend-specific SI configurations (using function for bash 3.2 compatibility)
+# Backend-specific SI auto-discovery
+# Builds a comma-separated list of SI files for the given backend:
+#   - Always includes common/typed_si.yml
+#   - For 'jml':   includes all .yml files under jml/
+#   - For 'dafny': includes all .yml files under dafny/
 get_backend_si() {
+    local si_list="$COMMON_SI"
     case "$BACKEND" in
-        dafny) echo "$STD_SI" ;;
-        jml)   echo "$STD_SI" ;;
-        *)     echo "$STD_SI" ;;
+        jml)
+            for f in "$SI_DIR"/jml/*.yml; do
+                [ -f "$f" ] && si_list="$si_list,$f"
+            done
+            ;;
+        dafny)
+            for f in "$SI_DIR"/dafny/*.yml; do
+                [ -f "$f" ] && si_list="$si_list,$f"
+            done
+            ;;
+        *)
+            # Default: include both JML and Dafny SI files
+            for f in "$SI_DIR"/jml/*.yml "$SI_DIR"/dafny/*.yml; do
+                [ -f "$f" ] && si_list="$si_list,$f"
+            done
+            ;;
     esac
+    echo "$si_list"
 }
 
 # ============================================================================
@@ -54,6 +78,7 @@ get_backend_si() {
 BACKEND="auto"
 MODE="full"
 OUTPUT_FILE=""
+NTH_ANNOTATION=""  # Empty means process all; set to a number to process only that annotation
 
 # ============================================================================
 # Helper Functions
@@ -73,6 +98,8 @@ Options:
                                   preproc  - Text preprocessing/extraction only
                                   mrderive - MR derivation with preprocessing
                                   compile  - Compilation only
+    -n, --nth <N>               Process only the Nth annotation (0-indexed)
+                                  Useful for debugging specific annotations
     -o, --output <file>         Output file (default: auto-generated)
     -h, --help                  Show this help message
 
@@ -91,6 +118,8 @@ Examples:
     $(basename "$0") test/example.dfy            # auto -> dafny, instruments code
     $(basename "$0") -b dafny test/example.java  # force dafny backend
     $(basename "$0") -m compile test/example.dfy # compile only
+    $(basename "$0") -n 0 test/example.dfy       # translate only the 1st annotation
+    $(basename "$0") -n 2 test/example.dfy       # translate only the 3rd annotation
 EOF
     exit 0
 }
@@ -223,6 +252,7 @@ compile_mr() {
     local si_config="$3"
     
     local cmd="./bin/main -f $mr_file -s $si_config -b $backend"
+    # log_info "$cmd"
     
     # Add dynamic SI if available
     local mr_dir=$(dirname "$mr_file")
@@ -314,6 +344,21 @@ tbl_print() {
     done
 }
 
+# Check if annotation at index $1 should be processed
+# Returns 0 (true) if should process, 1 (false) if should skip
+tbl_should_process() {
+    local idx="$1"
+    # If NTH_ANNOTATION is not set, process all
+    if [[ -z "$NTH_ANNOTATION" ]]; then
+        return 0
+    fi
+    # Only process if index matches NTH_ANNOTATION
+    if [[ "$idx" -eq "$NTH_ANNOTATION" ]]; then
+        return 0
+    fi
+    return 1
+}
+
 # ============================================================================
 # Stage 1: Extraction Functions (Input-Type-Specific)
 # ============================================================================
@@ -329,6 +374,10 @@ extract_annotations() {
         mr)   extract_from_mr ;;
         *)    log_error "Unknown input type: $INPUT_TYPE"; return 1 ;;
     esac
+    
+    # Clear NTH_ANNOTATION after extraction: the table now contains only
+    # the requested annotation(s), so downstream stages should process all entries.
+    NTH_ANNOTATION=""
 }
 
 # Extract from Dafny NL annotations
@@ -365,7 +414,10 @@ extract_from_dafny() {
         echo "__global__"
     }
     
-    # Second pass: extract annotations and associate with following method
+    # Second pass: collect all annotations into temporary arrays
+    declare -a ANN_LINES ANN_KEYWORDS ANN_TEXTS ANN_INDENTS ANN_METHODS
+    local total_ann=0
+    
     line_num=0
     while IFS= read -r line; do
         line_num=$((line_num + 1))
@@ -382,64 +434,174 @@ extract_from_dafny() {
                 local associated_method
                 associated_method=$(find_following_method $line_num)
                 
-                tbl_add "$line_num" "$keyword" "$nl_text" "$indent" "$associated_method"
-                log_info "  [${TBL_COUNT}] Line $line_num ($associated_method): $keyword(*$nl_text*)"
+                ANN_LINES[$total_ann]=$line_num
+                ANN_KEYWORDS[$total_ann]="$keyword"
+                ANN_TEXTS[$total_ann]="$nl_text"
+                ANN_INDENTS[$total_ann]="$indent"
+                ANN_METHODS[$total_ann]="$associated_method"
+                total_ann=$((total_ann + 1))
             fi
         done
     done < "$INPUT_FILE"
     
-    log_info "Found $TBL_COUNT annotation(s)"
+    log_info "Found $total_ann annotation(s)"
     
-    if [[ $TBL_COUNT -eq 0 ]]; then
+    if [[ $total_ann -eq 0 ]]; then
         log_error "No NL annotations found in $INPUT_FILE"
         return 1
     fi
+    
+    # Validate NTH_ANNOTATION if specified
+    if [[ -n "$NTH_ANNOTATION" ]]; then
+        if [[ "$NTH_ANNOTATION" -ge "$total_ann" ]]; then
+            log_error "Annotation index $NTH_ANNOTATION is out of range (0-$((total_ann - 1)))"
+            return 1
+        fi
+        log_info "Processing only annotation #$NTH_ANNOTATION"
+    fi
+    
+    # Third pass: add only the requested annotation(s) to the table
+    local start=0
+    local end=$((total_ann - 1))
+    if [[ -n "$NTH_ANNOTATION" ]]; then
+        start=$NTH_ANNOTATION
+        end=$NTH_ANNOTATION
+    fi
+    
+    for i in $(seq $start $end); do
+        tbl_add "${ANN_LINES[$i]}" "${ANN_KEYWORDS[$i]}" "${ANN_TEXTS[$i]}" "${ANN_INDENTS[$i]}" "${ANN_METHODS[$i]}"
+        log_info "  [${TBL_COUNT}] Line ${ANN_LINES[$i]} (${ANN_METHODS[$i]}): ${ANN_KEYWORDS[$i]}(*${ANN_TEXTS[$i]}*)"
+    done
+    
+    # Write conditions.yml for unified Stage 2 preprocessing
+    # Use '[]' for empty sections to avoid None values in YAML
+    {
+        local has_requires=false has_ensures=false has_assert=false
+        for i in $(seq $start $end); do
+            case "${ANN_KEYWORDS[$i]}" in
+                requires) has_requires=true ;;
+                ensures)  has_ensures=true ;;
+                assert)   has_assert=true ;;
+            esac
+        done
+        
+        if $has_requires; then
+            echo "requires:"
+            for i in $(seq $start $end); do
+                [[ "${ANN_KEYWORDS[$i]}" == "requires" ]] && echo "  - '${ANN_TEXTS[$i]}'"
+            done
+        else
+            echo "requires: []"
+        fi
+        
+        if $has_ensures; then
+            echo "ensures:"
+            for i in $(seq $start $end); do
+                [[ "${ANN_KEYWORDS[$i]}" == "ensures" ]] && echo "  - '${ANN_TEXTS[$i]}'"
+            done
+        else
+            echo "ensures: []"
+        fi
+        
+        if $has_assert; then
+            echo "assert:"
+            for i in $(seq $start $end); do
+                [[ "${ANN_KEYWORDS[$i]}" == "assert" ]] && echo "  - '${ANN_TEXTS[$i]}'"
+            done
+        else
+            echo "assert: []"
+        fi
+    } > "$MR_DIR/conditions.yml"
+    
     return 0
 }
 
-# Extract from Java conditions.yml
+# Extract from Java/JML source files
+# Scans for //@ requires(*...*) and //@ ensures(*...*) annotations
 extract_from_java() {
-    # Run preprocessing first to generate conditions.yml
-    log_info "  Running text preprocessing..."
-    $PYCMD ./src/python/textpreprocessing.py "$INPUT_FILE"
+    log_info "  Extracting NL conditions from Java source..."
+    mkdir -p "$MR_DIR"
     
-    if [[ ! -f "$MR_DIR/conditions.yml" ]]; then
-        log_error "conditions.yml not generated in $MR_DIR"
-        return 1
-    fi
+    # Collect all annotations into temporary arrays
+    declare -a ANN_KEYWORDS ANN_TEXTS
+    local total_ann=0
+    local line_num=0
     
-    # Parse ensures conditions
-    local i=0
-    IFS=$'\n'
-    for condition in $(niet ".ensures" "$MR_DIR/conditions.yml" 2>/dev/null || echo ""); do
-        if [[ -z "$condition" || "$condition" == "Element not found: ensures" ]]; then
-            break
+    while IFS= read -r line; do
+        line_num=$((line_num + 1))
+        
+        # Match //@ requires(*...*) or //@ ensures(*...*)
+        if [[ "$line" =~ //[[:space:]]*@(requires|ensures)\(\*([^*]+)\*\)[[:space:]]*\; ]]; then
+            local keyword="${BASH_REMATCH[1]}"
+            local nl_text="${BASH_REMATCH[2]}"
+            
+            ANN_KEYWORDS[$total_ann]="$keyword"
+            ANN_TEXTS[$total_ann]="$nl_text"
+            total_ann=$((total_ann + 1))
         fi
-        tbl_add 0 "ensures" "$condition" "" "__global__"
-        TBL_MR[$((TBL_COUNT-1))]="$MR_DIR/post.$i.mr"
-        log_info "  [ensures.$i] $condition"
-        i=$((i + 1))
-    done
+    done < "$INPUT_FILE"
     
-    # Parse requires conditions
-    i=0
-    for condition in $(niet ".requires" "$MR_DIR/conditions.yml" 2>/dev/null || echo ""); do
-        if [[ -z "$condition" || "$condition" == "Element not found: requires" ]]; then
-            break
-        fi
-        tbl_add 0 "requires" "$condition" "" "__global__"
-        TBL_MR[$((TBL_COUNT-1))]="$MR_DIR/pre.$i.mr"
-        log_info "  [requires.$i] $condition"
-        i=$((i + 1))
-    done
-    IFS=$' \t\n'
+    log_info "Found $total_ann condition(s)"
     
-    log_info "Found $TBL_COUNT condition(s)"
-    
-    if [[ $TBL_COUNT -eq 0 ]]; then
+    if [[ $total_ann -eq 0 ]]; then
         log_error "No conditions found in $INPUT_FILE"
         return 1
     fi
+    
+    # Validate NTH_ANNOTATION if specified
+    if [[ -n "$NTH_ANNOTATION" ]]; then
+        if [[ "$NTH_ANNOTATION" -ge "$total_ann" ]]; then
+            log_error "Condition index $NTH_ANNOTATION is out of range (0-$((total_ann - 1)))"
+            return 1
+        fi
+        log_info "Processing only condition #$NTH_ANNOTATION"
+    fi
+    
+    # Add only the requested condition(s) to the table
+    local start=0
+    local end=$((total_ann - 1))
+    if [[ -n "$NTH_ANNOTATION" ]]; then
+        start=$NTH_ANNOTATION
+        end=$NTH_ANNOTATION
+    fi
+    
+    for i in $(seq $start $end); do
+        tbl_add 0 "${ANN_KEYWORDS[$i]}" "${ANN_TEXTS[$i]}" "" "__global__"
+        TBL_MR[$((TBL_COUNT-1))]="$MR_DIR/ann.$((TBL_COUNT-1)).${ANN_KEYWORDS[$i]}.mr"
+        log_info "  [${ANN_KEYWORDS[$i]}.$i] ${ANN_TEXTS[$i]}"
+    done
+    
+    # Write conditions.yml for unified Stage 2 preprocessing
+    {
+        local has_requires=false has_ensures=false
+        for i in $(seq $start $end); do
+            case "${ANN_KEYWORDS[$i]}" in
+                requires) has_requires=true ;;
+                ensures)  has_ensures=true ;;
+            esac
+        done
+        
+        if $has_requires; then
+            echo "requires:"
+            for i in $(seq $start $end); do
+                [[ "${ANN_KEYWORDS[$i]}" == "requires" ]] && echo "  - '${ANN_TEXTS[$i]}'"
+            done
+        else
+            echo "requires: []"
+        fi
+        
+        if $has_ensures; then
+            echo "ensures:"
+            for i in $(seq $start $end); do
+                [[ "${ANN_KEYWORDS[$i]}" == "ensures" ]] && echo "  - '${ANN_TEXTS[$i]}'"
+            done
+        else
+            echo "ensures: []"
+        fi
+        
+        echo "assert: []"
+    } > "$MR_DIR/conditions.yml"
+    
     return 0
 }
 
@@ -477,43 +639,77 @@ extract_from_mr() {
 }
 
 # ============================================================================
-# Stage 2: Preprocessing Function (Unified)
+# Stage 2: Preprocessing Function (Unified for all backends)
 # ============================================================================
 preprocess_annotations() {
     log_info "Stage 2: Preprocessing $TBL_COUNT annotation(s)..."
     
+    # Run the unified text preprocessing script on all conditions at once.
+    # The script reads conditions.yml and produces per-annotation output files:
+    #   - preprocessed.<key>.txt    (preprocessed text for NLP pipeline)
+    #   - dynamic_si.<key>.yml      (dynamic SI entries, if any)
+    # Pass the full backend SI list so the preprocessor can resolve
+    # backend-specific type predicates (e.g., type_integer_, type_array_).
+    local full_si=$(get_backend_si)
+    $PYCMD ./src/python/textpreprocessing.py "$INPUT_FILE" \
+        --mode preprocess --si "$full_si"
+    
+    # Rename output files to match MR file names.
+    # The preprocessing uses per-type keys (pre.0, post.0) while MR files
+    # use global indices (ann.0.requires, ann.1.ensures).
+    # Compute the mapping in bash by tracking per-type counters.
+    local req_idx=0 ens_idx=0 ast_idx=0
     for i in $(seq 0 $((TBL_COUNT - 1))); do
+        local mr_base="${TBL_MR[$i]%.mr}"
+        local type="${TBL_TYPE[$i]}"
+        local old_key=""
+        
+        case "$type" in
+            requires) old_key="pre.$req_idx"; req_idx=$((req_idx + 1)) ;;
+            ensures)  old_key="post.$ens_idx"; ens_idx=$((ens_idx + 1)) ;;
+            assert)   old_key="assert.$ast_idx"; ast_idx=$((ast_idx + 1)) ;;
+        esac
+        
+        # Rename preprocessed text file to match the expected format:
+        #   preprocessed.<key>.txt -> <mr_base>.preprocessed.txt
+        if [[ -f "$MR_DIR/preprocessed.${old_key}.txt" ]]; then
+            mv "$MR_DIR/preprocessed.${old_key}.txt" "${mr_base}.preprocessed.txt"
+        fi
+        
+        # Rename dynamic SI file to match compiler lookup:
+        #   dynamic_si.<key>.yml -> dynamic_si.<mr_name>.yml
+        if [[ -f "$MR_DIR/dynamic_si.${old_key}.yml" ]]; then
+            local mr_name="$(basename "$mr_base")"
+            mv "$MR_DIR/dynamic_si.${old_key}.yml" "$MR_DIR/dynamic_si.${mr_name}.yml"
+        fi
+    done
+    
+    # Update table statuses based on output files
+    for i in $(seq 0 $((TBL_COUNT - 1))); do
+        # Skip if not the requested annotation
+        if ! tbl_should_process "$i"; then
+            TBL_STATUS[$i]="skipped"
+            continue
+        fi
+        
         # Skip if already preprocessed or MR ready
         if [[ "${TBL_STATUS[$i]}" != "pending" ]]; then
             continue
         fi
         
-        local text="${TBL_TEXT[$i]}"
-        local type="${TBL_TYPE[$i]}"
         local mr_base="${TBL_MR[$i]%.mr}"
+        local ann_id="$(basename "$mr_base")"
+        local preprocessed_file="${mr_base}.preprocessed.txt"
         
-        log_info "  [$i] $type: \"$text\""
-        
-        if [[ "$INPUT_TYPE" == "dfy" ]]; then
-            # Use preprocess_annotation.py for Dafny
-            local ann_id="$(basename "${mr_base}")"
+        if [[ -f "$preprocessed_file" ]]; then
             local preprocessed
-            preprocessed=$($PYCMD ./preprocess_annotation.py "$text" "$type" "$MR_DIR" "$ann_id" 2>/dev/null)
-            
-            if [[ -z "$preprocessed" ]]; then
-                log_error "      Preprocessing failed"
-                TBL_STATUS[$i]="failed"
-                continue
-            fi
-            
+            preprocessed=$(cat "$preprocessed_file")
             TBL_PREPROC[$i]="$preprocessed"
             TBL_STATUS[$i]="preprocessed"
-            log_info "      Preprocessed: \"$preprocessed\""
+            log_info "  [$i] ${TBL_TYPE[$i]}: \"$preprocessed\""
         else
-            # For Java, use text directly (already preprocessed by textpreprocessing.py)
-            TBL_PREPROC[$i]="$text"
-            TBL_STATUS[$i]="preprocessed"
-            log_info "      Using text directly"
+            log_error "  [$i] Preprocessing failed (no output file)"
+            TBL_STATUS[$i]="failed"
         fi
     done
     
@@ -527,10 +723,10 @@ derive_mrs() {
     log_info "Stage 3: MR derivation for $TBL_COUNT annotation(s)..."
     
     for i in $(seq 0 $((TBL_COUNT - 1))); do
-        # # Skip if MR already ready or failed
-        # if [[ "${TBL_STATUS[$i]}" == "mr_ready" || "${TBL_STATUS[$i]}" == "failed" ]]; then
-        #     continue
-        # fi
+        # Skip if not the requested annotation
+        if ! tbl_should_process "$i"; then
+            continue
+        fi
         
         # Skip if not preprocessed
         if [[ "${TBL_STATUS[$i]}" != "preprocessed" ]]; then
@@ -546,6 +742,7 @@ derive_mrs() {
         
         # Run NLP pipeline
         if run_nlp_pipeline "$preprocessed" "$mr_base" > /dev/null 2>&1; then
+        # if run_nlp_pipeline "$preprocessed" "$mr_base"; then
             if [[ -f "${mr_base}.mr" ]] && file_has_content "${mr_base}.mr"; then
                 local mr_content=$(cat "${mr_base}.mr")
                 log_info "      MR: $mr_content"
@@ -593,6 +790,11 @@ compile_annotations() {
     local si_config=$(get_backend_si)
     
     for i in $(seq 0 $((TBL_COUNT - 1))); do
+        # Skip if not the requested annotation
+        if ! tbl_should_process "$i"; then
+            continue
+        fi
+        
         local type="${TBL_TYPE[$i]}"
         local mr_file="${TBL_MR[$i]}"
         local indent="${TBL_INDENT[$i]}"
@@ -614,6 +816,7 @@ compile_annotations() {
         
         # Compile the MR
         local bodies
+        # log_info "compile_mr $mr_file $BACKEND $si_config"
         if bodies=$(compile_mr "$mr_file" "$BACKEND" "$si_config"); then
             local translated=""
             while IFS= read -r body; do
@@ -678,6 +881,10 @@ output_dafny() {
     # Build list of annotation lines to skip
     local skip_lines=""
     for i in $(seq 0 $((TBL_COUNT - 1))); do
+        # Skip if not the requested annotation
+        if ! tbl_should_process "$i"; then
+            continue
+        fi
         if [[ "${TBL_STATUS[$i]}" == "translated" ]]; then
             skip_lines="$skip_lines ${TBL_LINE[$i]}"
         fi
@@ -698,6 +905,10 @@ output_dafny() {
     output_annotations_for_method() {
         local target_method="$1"
         for i in $(seq 0 $((TBL_COUNT - 1))); do
+            # Skip if not the requested annotation
+            if ! tbl_should_process "$i"; then
+                continue
+            fi
             if [[ "${TBL_STATUS[$i]}" == "translated" ]]; then
                 local method="${TBL_METHOD[$i]}"
                 local type="${TBL_TYPE[$i]}"
@@ -746,6 +957,10 @@ output_java() {
     mkdir -p "$output_dir"
     
     for i in $(seq 0 $((TBL_COUNT - 1))); do
+        # Skip if not the requested annotation
+        if ! tbl_should_process "$i"; then
+            continue
+        fi
         if [[ "${TBL_STATUS[$i]}" != "translated" ]]; then
             continue
         fi
@@ -804,6 +1019,18 @@ while [[ $# -gt 0 ]]; do
             MODE="$2"
             if [[ "$MODE" != "full" && "$MODE" != "preproc" && "$MODE" != "mrderive" && "$MODE" != "compile" ]]; then
                 log_error "Invalid mode: $MODE. Must be 'full', 'preproc', 'mrderive', or 'compile'"
+                exit 1
+            fi
+            shift 2
+            ;;
+        -n|--nth)
+            if [[ -z "$2" || "$2" == -* ]]; then
+                log_error "Nth option requires a number argument"
+                exit 1
+            fi
+            NTH_ANNOTATION="$2"
+            if ! [[ "$NTH_ANNOTATION" =~ ^[0-9]+$ ]]; then
+                log_error "Invalid nth value: $NTH_ANNOTATION. Must be a non-negative integer"
                 exit 1
             fi
             shift 2

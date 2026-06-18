@@ -35,6 +35,9 @@ extern struct astnode *root;
 extern struct queue *predicates, *operators, *silist, *events, *alias;
 extern struct queue *cst;
 
+/* Forward declarations */
+void propagate_datatypes_through_aliases(void);
+
 int selfSI[] = { 1, 0, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1, 1, 1};
 
 /* Replace SI at parent node with a new type and symbol */
@@ -148,9 +151,6 @@ int Gram_Rel_synthesis(struct astnode *node) {
     }
     
     struct astnode *x, *d;
-    fprintf(stderr, "DEBUG Gram_Rel_synthesis: child1=%s child1_datalist=%s child2=%s child2_datalist=%s\n",
-        child1->cstptr->symbol, child1->cstptr->datalist ? (child1->cstptr->datalist->count > 0 ? "has_data" : "empty") : "NULL",
-        child2->cstptr->symbol, child2->cstptr->datalist ? (child2->cstptr->datalist->count > 0 ? "has_data" : "empty") : "NULL");
     if (__is_Rel_dependent__(child1->cstptr)) {
         d = child1;
         x = child2;
@@ -164,8 +164,6 @@ int Gram_Rel_synthesis(struct astnode *node) {
         the SI is not searched from the parent node, instead, it is searched from d's si_q
     */
     if (d->cstptr->datalist == NULL || d->cstptr->datalist->count == 0) {
-        fprintf(stderr, "DEBUG Gram_Rel: d=%s d->datalist=%s\n", d->cstptr->symbol, d->cstptr->datalist ? "empty" : "NULL");
-        fprintf(stderr, "DEBUG Gram_Rel: x=%s x->datalist=%s count=%d\n", x->cstptr->symbol, x->cstptr->datalist ? "not null" : "NULL", x->cstptr->datalist ? x->cstptr->datalist->count : -1);
         semantic_error("Gram_Rel_synthesis: Rel dependent value has no data.", d->token ? d->token->symbol : "unknown");
         return -1;
     }
@@ -209,7 +207,7 @@ int Gram_Rel_synthesis(struct astnode *node) {
 
     d->cstptr->status = Assigned;
     d->cstptr->ref_count--;
-    root = deleteastnodeandedge(node, root);
+    root = consumeastnodeandedge(node, root);
     return 0;
 }
 
@@ -236,12 +234,9 @@ int (*code_syntheses[])(struct astnode *) = {CC_code_synthesis, CD_code_synthesi
 void sisynthesis() {
     struct astnode *node;
     struct queue *tmp = initqueue();
-    fprintf(stderr, "DEBUG sisynthesis: %d predicates in queue:\n", predicates->count);
-    for (int i = 0; i < predicates->count; ++i) {
-        node = (struct astnode*)gqueue(predicates, i);
-        fprintf(stderr, "  %d. %s (syntax=%d)\n", i, node->token->symbol, node->syntax);
-    }
-    fflush(stderr);
+    int retry_count = 0;
+    int max_retries = predicates->count * predicates->count + 1;
+
     #if SIDEBUG
     printf("si synthesis: after sorting, there are %d predicates in the queue.\n", predicates->count);
     for (int i = 0; i < predicates->count; ++i) {
@@ -292,27 +287,108 @@ void sisynthesis() {
                 (*code_syntheses[node->syntax])(node);       
             }
         } else {
-            /* checking all children, if one of them is not assigned with semantics, the synthesis cannot be done */            
+            /* checking all children, if one of them is not assigned with semantics, the synthesis cannot be done */
+            /* A child is considered ready if:
+               - its cstptr status is Assigned (processed by a predicate), OR
+               - its type has been assigned by a quantifier (type_assigned = TRUE), OR
+               - the parent is a preposition predicate and the child is not an event variable */
+            int all_ready = 1;
             for (int i = 0; i < child_count; ++i) {
                 struct astnode *tmp = (struct astnode *) getastchild(node, i);
-                if ((tmp->cstptr->status != Assigned && !__is_preposition_predicate__(node)) ||
-                    (__is_preposition_predicate__(node) && tmp->cstptr->status != Assigned && tmp->cstptr->symbol[0] != 'e')) {
+                int child_ready = (tmp->cstptr->status == Assigned) || 
+                                  tmp->cstptr->type_assigned ||
+                                  (__is_preposition_predicate__(node) && tmp->cstptr->symbol[0] != 'e');
+                if (!child_ready) {
                     #if SIDEBUG
                     printf("The child %s is not assigned\n", tmp->cstptr->symbol);
                     #endif
-                    semantic_error("Synthesis is stopped because a predicate(%s) has children that are not Assigned.", node->token->symbol);
+                    all_ready = 0;
+                    break;
                 }
             }
-            /* TODO: 
-                if the return is FALSE, we should push it back to the predicates queue. 
-                there is a case in NN, that the predicate depends on a variable with type.
-                therefore, the variable needs to wait for its aliased variable to be assigned.                
-            */
+            if (!all_ready) {
+                /* Instead of throwing an error, retry by pushing this predicate to the back.
+                   This handles cases where a predicate (e.g., Rel) depends on variables
+                   that haven't been processed yet but will be processed later. */
+                retry_count++;
+                if (retry_count > max_retries || isempty(predicates)) {
+                    /* No more predicates to try - this is a genuine error */
+                    semantic_error("Synthesis is stopped because a predicate(%s) has children that are not Assigned.", node->token->symbol);
+                }
+                struct astnode *retry_tmp = dequeue(predicates);
+                push(predicates, node);
+                push(predicates, retry_tmp);
+                continue;  /* Skip to next predicate in the queue */
+            }
+            /* For predicates that require argument datatypes (e.g., JJ comparators),
+               check if all children have resolved datatypes. If not, defer. */
+            if (node->syntax == JJ || node->syntax == JJR || node->syntax == JJS ||
+                node->syntax == IN || node->syntax == VB || node->syntax == VBZ ||
+                node->syntax == VBD || node->syntax == VBG || node->syntax == VBN || node->syntax == VBP) {
+                int need_defer = 0;
+                for (int i = 0; i < child_count; ++i) {
+                    struct astnode *ch = (struct astnode *) getastchild(node, i);
+                    if (ch->cstptr && !has_datatype(ch->cstptr) && ch->cstptr->datatype->p == UNDEFINED && ch->cstptr->datatype->r == UNDEFINED) {
+                        /* This child has no datatype yet - check if there are pending CD/NN predicates */
+                        /* Look ahead in the predicate queue for type-setting predicates */
+                        for (int k = 0; k < predicates->count; ++k) {
+                            struct astnode *pending = (struct astnode *)gqueue(predicates, k);
+                            if (pending->syntax == CD || pending->syntax == NN || pending->syntax == NNS) {
+                                need_defer = 1;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+                if (need_defer) {
+                    retry_count++;
+                    if (retry_count > max_retries || isempty(predicates)) {
+                        semantic_error("Synthesis is stopped because a predicate(%s) has children without resolved datatypes.", node->token->symbol);
+                    }
+                    struct astnode *retry_tmp2 = dequeue(predicates);
+                    push(predicates, node);
+                    push(predicates, retry_tmp2);
+                    continue;
+                }
+            }
+            /* For Rel predicates, check if the dependent child has __REL__ in its datalist.
+               If neither child has __REL__, defer the Rel predicate until NN predicates are processed. */
+            if (node->syntax == Gram_Rel) {
+                int child_cnt = countastchildren(node);
+                if (child_cnt == 2) {
+                    struct astnode *ch1 = (struct astnode *)getastchild(node, 0);
+                    struct astnode *ch2 = (struct astnode *)getastchild(node, 1);
+                    int ch1_has_rel = (ch1->cstptr && __is_Rel_dependent__(ch1->cstptr));
+                    int ch2_has_rel = (ch2->cstptr && __is_Rel_dependent__(ch2->cstptr));
+                    if (!ch1_has_rel && !ch2_has_rel) {
+                        /* Neither child has __REL__ yet - check if there are pending NN predicates */
+                        int has_pending_nn = 0;
+                        for (int k = 0; k < predicates->count; ++k) {
+                            struct astnode *pending = (struct astnode *)gqueue(predicates, k);
+                            if (pending->syntax == NN || pending->syntax == NNS) {
+                                has_pending_nn = 1;
+                                break;
+                            }
+                        }
+                        if (has_pending_nn) {
+                            retry_count++;
+                            if (retry_count > max_retries || isempty(predicates)) {
+                                semantic_error("Synthesis is stopped because Rel predicate(%s) has no dependent with __REL__.", node->token->symbol);
+                            }
+                            struct astnode *retry_tmp_rel = dequeue(predicates);
+                            push(predicates, node);
+                            push(predicates, retry_tmp_rel);
+                            continue;
+                        }
+                    }
+                }
+            }
             int result = (*code_syntheses[node->syntax])(node);       
             if (result == FALSE && node->syntax == IN) {
-                enqueue(tmp, (void *)dequeue(predicates));
+                struct astnode *tmp_node = (struct astnode *)dequeue(predicates);
                 push(predicates, node);
-                push(predicates, dequeue(tmp));
+                push(predicates, tmp_node);
             }
         }
         /* ================================================================================================ */
@@ -331,10 +407,39 @@ void sisynthesis() {
             if so, then we update e as Assigned
         */
         update_events();
+
+        /* Propagate datatypes through aliases after each predicate synthesis.
+           This ensures that when a predicate (e.g., CD) sets a datatype on one
+           occurrence of a variable, the datatype is propagated to aliased
+           occurrences used by other predicates. */
+        propagate_datatypes_through_aliases();
     }
     #if SIDEBUG
     printf("si synthesis finished\n");
     #endif
+}
+
+/*
+    After each predicate synthesis, propagate datatypes through aliases.
+    This is needed because aliases are created during opresolution (before synthesis),
+    and at that time neither side may have a datatype. When a later predicate (e.g., CD)
+    sets a datatype on one occurrence of a variable, the alias must propagate it to
+    other occurrences.
+*/
+void propagate_datatypes_through_aliases(void) {
+    if (alias == NULL || alias->count == 0) return;
+    for (int i = 0; i < alias->count; ++i) {
+        struct alias *a = (struct alias *)gqueue(alias, i);
+        if (has_datatype(a->a) && !has_datatype(a->b)) {
+            a->b->datatype->p = a->a->datatype->p;
+            a->b->datatype->r = a->a->datatype->r;
+            a->b->datatype->i = a->a->datatype->i;
+        } else if (!has_datatype(a->a) && has_datatype(a->b)) {
+            a->a->datatype->p = a->b->datatype->p;
+            a->a->datatype->r = a->b->datatype->r;
+            a->a->datatype->i = a->b->datatype->i;
+        }
+    }
 }
 
 /* 
@@ -362,7 +467,7 @@ void opresolution() {
         */
         left->cstptr->ref_count--;
         right->cstptr->ref_count--;
-        root = deleteastnodeandedge(node, root);
+        root = consumeastnodeandedge(node, root);
         #ifdef SIDEBUG
         showast(root, 0);
         #endif

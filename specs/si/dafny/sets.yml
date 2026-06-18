@@ -2,21 +2,11 @@
 # Dafny SI Module: Set Operations
 # =============================================================================
 # SI terms for Dafny set operations
+# Based on Dafny Reference Manual Section 10.1
 # =============================================================================
 
-# --- Set Membership ---
-- term: is contained in the set
-  syntax:
-  - VBN
-  arguments:
-  - symbol: '*'
-  synthesised_datatype:
-    primitive_type: 'boolean'
-    reference_type: 'undefined'
-  interpretation: 'in'
-  note: 'Set membership: x in S'
-
-- term: is contained in
+# --- Set Membership (Section 10.1) ---
+- term: is_contained_in_the_set
   syntax:
   - VBN
   arguments:
@@ -26,7 +16,7 @@
     reference_type: 'undefined'
   interpretation: 'in'
 
-- term: is not contained in the set
+- term: is_contained_in
   syntax:
   - VBN
   arguments:
@@ -34,10 +24,9 @@
   synthesised_datatype:
     primitive_type: 'boolean'
     reference_type: 'undefined'
-  interpretation: '!in'
-  note: 'Set non-membership: x !in S'
+  interpretation: 'in'
 
-- term: is not contained in
+- term: is_not_contained_in_the_set
   syntax:
   - VBN
   arguments:
@@ -47,7 +36,17 @@
     reference_type: 'undefined'
   interpretation: '!in'
 
-- term: is an element of
+- term: is_not_contained_in
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '!in'
+
+- term: is_an_element_of
   syntax:
   - NN
   arguments:
@@ -57,7 +56,7 @@
     reference_type: 'undefined'
   interpretation: 'in'
 
-- term: is a member of
+- term: is_a_member_of
   syntax:
   - NN
   arguments:
@@ -67,19 +66,8 @@
     reference_type: 'undefined'
   interpretation: 'in'
 
-# --- Set Cardinality ---
-- term: the cardinality of the set
-  syntax:
-  - NN
-  arguments:
-  - symbol: '*'
-  synthesised_datatype:
-    primitive_type: 'integer'
-    reference_type: 'undefined'
-  interpretation: '|'
-  note: 'Set size: |S|'
-
-- term: the cardinality of
+# --- Set Cardinality (Section 10.1) ---
+- term: cardinality_of_the_set
   syntax:
   - NN
   arguments:
@@ -89,7 +77,7 @@
     reference_type: 'undefined'
   interpretation: '|'
 
-- term: the size of the set
+- term: cardinality_of
   syntax:
   - NN
   arguments:
@@ -99,8 +87,18 @@
     reference_type: 'undefined'
   interpretation: '|'
 
-# --- Empty Set ---
-- term: the empty set
+- term: size_of_the_set
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '|'
+
+# --- Empty Set (Section 10.1) ---
+- term: empty_set
   syntax:
   - NN
   arguments:
@@ -109,9 +107,8 @@
     primitive_type: 'any'
     reference_type: 'set'
   interpretation: '{}'
-  note: 'Empty set literal'
 
-- term: is equal to the empty set
+- term: is_equal_to_the_empty_set
   syntax:
   - NN
   arguments:
@@ -121,8 +118,8 @@
     reference_type: 'undefined'
   interpretation: '== {}'
 
-# --- Set Difference ---
-- term: minus the singleton set containing
+# --- Set Difference (Section 10.1) ---
+- term: minus_the_singleton_set_containing
   syntax:
   - IN
   arguments:
@@ -131,7 +128,6 @@
     primitive_type: 'any'
     reference_type: 'set'
   interpretation: '- {}'
-  note: 'Set minus singleton: S - {x}'
 
 - term: minus
   syntax:
@@ -143,8 +139,18 @@
     reference_type: 'set'
   interpretation: '-'
 
-# --- Set Union ---
-- term: the union of the set
+- term: set_difference
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '-'
+
+# --- Set Union (Section 10.1) ---
+- term: union_of_the_set
   syntax:
   - NN
   arguments:
@@ -153,9 +159,8 @@
     primitive_type: 'any'
     reference_type: 'set'
   interpretation: '+'
-  note: 'Set union: S + T'
 
-- term: the union of
+- term: union_of
   syntax:
   - NN
   arguments:
@@ -165,19 +170,8 @@
     reference_type: 'set'
   interpretation: '+'
 
-# --- Set Intersection ---
-- term: the intersection of the set
-  syntax:
-  - NN
-  arguments:
-  - symbol: '*'
-  synthesised_datatype:
-    primitive_type: 'any'
-    reference_type: 'set'
-  interpretation: '*'
-  note: 'Set intersection: S * T'
-
-- term: the intersection of
+# --- Set Intersection (Section 10.1) ---
+- term: intersection_of_the_set
   syntax:
   - NN
   arguments:
@@ -187,8 +181,18 @@
     reference_type: 'set'
   interpretation: '*'
 
-# --- Subset ---
-- term: is a subset of the set
+- term: intersection_of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '*'
+
+# --- Subset (Section 10.1) ---
+- term: is_a_subset_of_the_set
   syntax:
   - NN
   arguments:
@@ -197,9 +201,8 @@
     primitive_type: 'boolean'
     reference_type: 'undefined'
   interpretation: '<='
-  note: 'Subset relation: S <= T'
 
-- term: is a subset of
+- term: is_a_subset_of
   syntax:
   - NN
   arguments:
@@ -209,8 +212,39 @@
     reference_type: 'undefined'
   interpretation: '<='
 
-# --- Singleton Set ---
-- term: the singleton set containing
+- term: is_a_proper_subset_of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '<'
+
+# --- Superset ---
+- term: is_a_superset_of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '>='
+
+- term: is_a_proper_superset_of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '>'
+
+# --- Singleton Set (Section 10.1) ---
+- term: singleton_set_containing
   syntax:
   - NN
   arguments:
@@ -219,10 +253,9 @@
     primitive_type: 'any'
     reference_type: 'set'
   interpretation: '{ }'
-  note: 'Singleton set: {x}'
 
-# --- Set Comprehension ---
-- term: the set of all
+# --- Set Comprehension (Section 20.35) ---
+- term: set_of_all
   syntax:
   - DT
   arguments:
@@ -231,4 +264,58 @@
     primitive_type: 'any'
     reference_type: 'set'
   interpretation: 'set'
-  note: 'Set comprehension: set x :: P(x)'
+
+- term: the_set_of_all
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: 'set'
+
+# --- Set Display (Section 20.28) ---
+- term: set_display
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation: '{}'
+
+# --- Set Equality ---
+- term: sets_are_equal
+  syntax:
+  - JJ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'set'
+  - symbol: Dat
+    primitive_type: 'any'
+    reference_type: 'set'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(Subj) == (Dat)'
+
+# --- Disjoint Sets ---
+- term: is_disjoint_from
+  syntax:
+  - JJ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'set'
+  - symbol: Dat
+    primitive_type: 'any'
+    reference_type: 'set'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '((Subj) * (Dat)) == {}'

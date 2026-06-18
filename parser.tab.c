@@ -154,7 +154,7 @@
             struct event *event = newevent(_e->_eventnode->cstptr);
             enqueue(event->entities, (void *)newentity(_e->_entitynode->cstptr, __string2gramtype(_e->_subtree_root->token->symbol)));
 
-            deleteastnodeandedge(_e->_subtree_root, ast);
+            consumeastnodeandedge(_e->_subtree_root, ast);
         }
     }
 
@@ -654,8 +654,8 @@ static const yytype_int16 yyrline[] =
 {
        0,   180,   180,   199,   212,   227,   240,   253,   261,   271,
      280,   283,   286,   289,   292,   296,   299,   303,   312,   318,
-     319,   320,   321,   325,   342,   363,   386,   412,   428,   435,
-     440,   447,   451,   458,   471
+     319,   320,   321,   325,   341,   362,   385,   410,   425,   432,
+     437,   444,   448,   455,   468
 };
 #endif
 
@@ -1512,15 +1512,14 @@ yyreduce:
             (yyval.node)->syntax = string2ptbsyntax((yyvsp[-3].t)->symbol);
             addastchildren((yyval.node), (yyvsp[-1].nodelist));
             // we treat the grammar_tag as a predicate
-            fprintf(stderr, "DEBUG parser: enqueue predicate '%s' syntax=%d children=%d\n", (yyvsp[-3].t)->symbol, (yyval.node)->syntax, countastchildren((yyval.node)));
             enqueue(predicates, (void*)(yyval.node));
         }
     }
-#line 1520 "parser.tab.c"
+#line 1519 "parser.tab.c"
     break;
 
   case 24: /* pronoun_term: '(' IDENTIFIER EQUAL PREDICATE '{' TAG '}' ')'  */
-#line 342 "./src/c.2024/parser.y"
+#line 341 "./src/c.2024/parser.y"
                                                      {
         print_debug("pronoun_term: IDENTIFIER EQUAL PREDICATE '{' TAG '}'");
         (yyval.node) = newastnode(Pronoun, (yyvsp[-4].t));
@@ -1532,11 +1531,11 @@ yyreduce:
         addastchild((yyval.node), newastnode(Variable, (yyvsp[-6].t)));
         enqueue(predicates, (void*)(yyval.node));
     }
-#line 1536 "parser.tab.c"
+#line 1535 "parser.tab.c"
     break;
 
   case 25: /* type_term: KEYWORD_TYPE '{' TAG '}' '(' arguments ')'  */
-#line 363 "./src/c.2024/parser.y"
+#line 362 "./src/c.2024/parser.y"
                                                  {
         //print_debug("TYPE(%s), Syntax(%s)\n", $1->symbol, $3->symbol);
         if (getnodelistlength((yyvsp[-1].nodelist)) > 1) {
@@ -1553,11 +1552,11 @@ yyreduce:
         struct si *si = (struct si *)gqueue(siq, 0);
         enqueue(_datarefs, (void *)newtmpdataref((yyval.node), si->synthesised_datatype));                       
     }
-#line 1557 "parser.tab.c"
+#line 1556 "parser.tab.c"
     break;
 
   case 26: /* param_term: KEYWORD_PARAM '{' TAG '}' '(' arguments ')'  */
-#line 386 "./src/c.2024/parser.y"
+#line 385 "./src/c.2024/parser.y"
                                                   {
         // printf("PARAM(%s), Syntax(%s)\n", $1->symbol, $3->symbol); 
         if (getnodelistlength((yyvsp[-1].nodelist)) > 1) {
@@ -1578,14 +1577,13 @@ yyreduce:
             this is added after using LLM. we no longer include the program context here
         */
         generate_param_si((yyval.node)->token->symbol);
-        fprintf(stderr, "DEBUG parser: enqueue predicate '%s' syntax=%d (param_term)\n", (yyval.node)->token->symbol, (yyval.node)->syntax);
-        enqueue(predicates, (void*)(yyval.node));
+        enqueue(predicates, (void*)(yyval.node));        
     }
-#line 1585 "parser.tab.c"
+#line 1583 "parser.tab.c"
     break;
 
   case 27: /* predicate_term: PREDICATE '{' TAG '}' '(' arguments ')'  */
-#line 412 "./src/c.2024/parser.y"
+#line 410 "./src/c.2024/parser.y"
                                               {
         print_debug("term: PREDICATE '{' TAG '}' '(' arguments ')'");
         #if PARDEBUG
@@ -1599,60 +1597,59 @@ yyreduce:
         addastchildren((yyval.node), (yyvsp[-1].nodelist));
         (yyval.node)->syntax = string2ptbsyntax((yyvsp[-4].t)->symbol);
         /* predicate node is marked in a queue and si identification is processed later  */
-        fprintf(stderr, "DEBUG parser: enqueue predicate '%s' syntax=%d (predicate_term)\n", (yyval.node)->token->symbol, (yyval.node)->syntax);
         enqueue(predicates, (void*)(yyval.node));
     }
-#line 1606 "parser.tab.c"
+#line 1603 "parser.tab.c"
     break;
 
   case 28: /* predicate_term: PREDICATE '{' TAG '}' '(' '(' terms ')' ')'  */
-#line 428 "./src/c.2024/parser.y"
+#line 425 "./src/c.2024/parser.y"
                                                   {
         print_debug("term: PREDICATE(Modal)) '{' TAG '}' '(' '(' terms ')' ')'");
         (yyval.node) = (yyvsp[-2].node);
     }
-#line 1615 "parser.tab.c"
+#line 1612 "parser.tab.c"
     break;
 
   case 29: /* arguments: arguments COMMA argument  */
-#line 435 "./src/c.2024/parser.y"
+#line 432 "./src/c.2024/parser.y"
                                {
         print_debug("arguments: arguments IDENTIFIER");
         appendnode((yyvsp[-2].nodelist), (yyvsp[0].node));
         (yyval.nodelist) = (yyvsp[-2].nodelist);
     }
-#line 1625 "parser.tab.c"
+#line 1622 "parser.tab.c"
     break;
 
   case 30: /* arguments: argument  */
-#line 440 "./src/c.2024/parser.y"
+#line 437 "./src/c.2024/parser.y"
                {
         print_debug("arguments: argument");
         (yyval.nodelist) = newastnodelist((yyvsp[0].node));
     }
-#line 1634 "parser.tab.c"
+#line 1631 "parser.tab.c"
     break;
 
   case 31: /* argument: IDENTIFIER  */
-#line 447 "./src/c.2024/parser.y"
+#line 444 "./src/c.2024/parser.y"
                  {
         print_debug("argument: IDENTIFIER");        
         (yyval.node) = newastnode(Variable, (yyvsp[0].t));
     }
-#line 1643 "parser.tab.c"
+#line 1640 "parser.tab.c"
     break;
 
   case 32: /* argument: terms  */
-#line 451 "./src/c.2024/parser.y"
+#line 448 "./src/c.2024/parser.y"
             {
         print_debug("argument: terms");
         (yyval.node) = (yyvsp[0].node);
     }
-#line 1652 "parser.tab.c"
+#line 1649 "parser.tab.c"
     break;
 
   case 33: /* event_term: '(' EVENT '(' IDENTIFIER ')' EQUAL IDENTIFIER ')'  */
-#line 458 "./src/c.2024/parser.y"
+#line 455 "./src/c.2024/parser.y"
                                                         {
         print_debug("event_term: '(' EVENT '(' IDENTIFIER ')' EQUAL IDENTIFIER ')'"); 
         // struct astnode *subtree_root = newastnode(GrammarNotation, $2);
@@ -1663,11 +1660,11 @@ yyreduce:
         addastchild((yyval.node), entitynode);
         enqueue(_events, (void *)newtmpevent((yyval.node), eventnode, entitynode));
     }
-#line 1667 "parser.tab.c"
+#line 1664 "parser.tab.c"
     break;
 
   case 34: /* quantified_term: KEYWORD_QUANTIFIER IDENTIFIER '.' '(' terms ')'  */
-#line 471 "./src/c.2024/parser.y"
+#line 468 "./src/c.2024/parser.y"
                                                       {
         print_debug("quantify_expr: KEYWORD_QUANTIFIER IDENTIFIER");
         #if PARDEBUG
@@ -1737,19 +1734,18 @@ yyreduce:
                 /* the variable is being removed. deduct the reference count */
                 (yyval.node)->cstptr->ref_count--;
                 (yyval.node)->cstptr->type_assigned = TRUE;
-                (yyval.node)->cstptr->status = Assigned;
-                deleteastchild(ref->node->parent, ref->node);
+                consumeastnode(ref->node);
             } else {
                 _node->cstptr = (yyval.node)->cstptr;
             }
         }
         deallocatequeue(in_scope_symbol_nodes, NULL);
     }
-#line 1749 "parser.tab.c"
+#line 1745 "parser.tab.c"
     break;
 
 
-#line 1753 "parser.tab.c"
+#line 1749 "parser.tab.c"
 
       default: break;
     }
@@ -1942,7 +1938,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 549 "./src/c.2024/parser.y"
+#line 545 "./src/c.2024/parser.y"
 
 
 void print_debug(char *s) {

@@ -1,0 +1,119 @@
+# =============================================================================
+# Dafny SI Module: Boolean Operations
+# =============================================================================
+# SI terms for Dafny boolean operations
+# Based on Dafny Reference Manual Section 7.1
+# =============================================================================
+
+# --- Boolean Equivalence (<==>) ---
+- term: is_equivalent_to
+  syntax:
+  - JJ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  - symbol: Dat
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(Subj) <==> (Dat)'
+
+- term: boolean_equivalent
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '<==>'
+
+# --- Boolean Implication (==>) ---
+- term: boolean_implies
+  syntax:
+  - VBZ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  - symbol: Dat
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(Subj) ==> (Dat)'
+
+# --- Boolean Conjunction (&&) ---
+- term: boolean_and
+  syntax:
+  - CC
+  arguments:
+  - symbol: Subj
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  - symbol: Dat
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(Subj) && (Dat)'
+
+# --- Boolean Disjunction (||) ---
+- term: boolean_or
+  syntax:
+  - CC
+  arguments:
+  - symbol: Subj
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  - symbol: Dat
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(Subj) || (Dat)'
+
+# --- Boolean Negation (!) ---
+- term: boolean_not
+  syntax:
+  - RB
+  arguments:
+  - symbol: x
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '!(x)'
+
+# --- Truth Values ---
+- term: is_true
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) == true'
+
+- term: is_false
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) == false'

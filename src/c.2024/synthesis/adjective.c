@@ -19,7 +19,7 @@ extern struct queue *predicates, *operators, *silist, *events, *alias;
 
 void JJ_event_synthesis_post_operation(struct astnode *node, struct queue *siq) {
     if (siq->count == 1 && ((struct si *)gqueue(siq, 0))->type == SI_INT_TYPE_JAVA_TYPE) {
-        root = deleteastnodeandedge(node, root);
+        root = consumeastnodeandedge(node, root);
     } else if (siq->count == 1 && ((struct si *)gqueue(siq, 0))->type == SI_INT_TYPE_MODIFIER) {
         struct entity *en1 = (struct entity *)gqueue(__searchevent(getastchild(node, 0)->cstptr)->entities, 0);
         if (node->si_q) {
@@ -28,7 +28,7 @@ void JJ_event_synthesis_post_operation(struct astnode *node, struct queue *siq) 
                 enqueue(en1->cstptr->datalist, strdup(gqueue(node->si_q, i)));
             }
         }
-        root = deleteastnodeandedge(node, root);  
+        root = consumeastnodeandedge(node, root);  
     } else {
         __post_operation_si_subtree_synthesis__(node);
     }

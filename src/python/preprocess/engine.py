@@ -9,7 +9,7 @@ The pipeline replaces the previous procedural control flow with a modular
 sequence of named, reusable steps.
 """
 
-from typing import Tuple
+from typing import Tuple, Optional
 from .pipeline import Pipeline, ProcessingContext
 from .steps import (
     NormalizationStep,
@@ -19,6 +19,7 @@ from .steps import (
     SIBuildingStep,
     NarrowingStep,
 )
+from . import mrrepairprocess
 
 
 def build_default_pipeline() -> Pipeline:
@@ -53,7 +54,7 @@ def build_default_pipeline() -> Pipeline:
     return p
 
 
-def runengine(sent: str, t: str) -> Tuple[str, dict]:
+def runengine(sent: str, t: str, si_path: Optional[str] = None) -> Tuple[str, dict]:
     """Process a natural language requirement statement.
     
     This is the main entry point for the preprocessing engine. It builds
@@ -63,10 +64,16 @@ def runengine(sent: str, t: str) -> Tuple[str, dict]:
     Args:
         sent: The requirement statement in natural language
         t: The type of requirement ('requires' or 'ensures')
+        si_path: Optional path to the SI specs file. If not provided,
+                 uses the default path from mrrepairprocess.
         
     Returns:
         A tuple of (processed_sentence, dynamic_si_dict)
     """
+    # Set SI path if provided
+    if si_path:
+        mrrepairprocess.set_si_path(si_path)
+    
     pipeline = build_default_pipeline()
     context = ProcessingContext(requirement_type=t)
     sent = pipeline.run(sent, context)

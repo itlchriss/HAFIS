@@ -5,7 +5,7 @@
 # =============================================================================
 
 # --- Multiset from Sequence ---
-- term: the multiset formed from
+- term: multiset_formed_from
   syntax:
   - NN
   arguments:
@@ -14,9 +14,8 @@
     primitive_type: 'any'
     reference_type: 'multiset'
   interpretation: 'multiset()'
-  note: 'Convert sequence to multiset: multiset(s)'
 
-- term: the multiset of
+- term: multiset_of
   syntax:
   - NN
   arguments:
@@ -27,18 +26,7 @@
   interpretation: 'multiset()'
 
 # --- Multiset Count ---
-- term: the count of
-  syntax:
-  - NN
-  arguments:
-  - symbol: '*'
-  synthesised_datatype:
-    primitive_type: 'integer'
-    reference_type: 'undefined'
-  interpretation: '[]'
-  note: 'Multiset count: m(x) returns multiplicity of x'
-
-- term: the multiplicity of
+- term: count_of
   syntax:
   - NN
   arguments:
@@ -48,7 +36,17 @@
     reference_type: 'undefined'
   interpretation: '[]'
 
-- term: in the multiset
+- term: multiplicity_of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '[]'
+
+- term: in_the_multiset
   syntax:
   - IN
   arguments:
@@ -57,10 +55,9 @@
     primitive_type: 'any'
     reference_type: 'multiset'
   interpretation: ''
-  note: 'Multiset membership: x in m'
 
 # --- Multiset Union ---
-- term: the multiset union of
+- term: multiset_union_of
   syntax:
   - NN
   arguments:
@@ -69,10 +66,9 @@
     primitive_type: 'any'
     reference_type: 'multiset'
   interpretation: '+'
-  note: 'Multiset union: m1 + m2'
 
 # --- Multiset Intersection ---
-- term: the multiset intersection of
+- term: multiset_intersection_of
   syntax:
   - NN
   arguments:
@@ -83,7 +79,7 @@
   interpretation: '*'
 
 # --- Multiset Difference ---
-- term: the multiset difference of
+- term: multiset_difference_of
   syntax:
   - NN
   arguments:
@@ -94,7 +90,7 @@
   interpretation: '-'
 
 # --- Empty Multiset ---
-- term: the empty multiset
+- term: empty_multiset
   syntax:
   - NN
   arguments:

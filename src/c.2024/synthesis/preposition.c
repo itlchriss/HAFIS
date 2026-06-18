@@ -158,7 +158,7 @@ int IN_code_synthesis(struct astnode *node) {
                 node->si_q = initqueue();
                 enqueue(node->si_q, (void *)strdup(var));
                 /* EXPERIMENTAL */
-                deleteastchildren(node);
+                consumeastchildren(node);
                 node->type = Synthesised;                
                 return TRUE;
             } else {
@@ -170,6 +170,6 @@ int IN_code_synthesis(struct astnode *node) {
         for (int i = 0; i < node->si_q->count; ++i) enqueue(en->cstptr->datalist, (char *)strdup((char *)gqueue(node->si_q, i)));
     }
 
-    root = deleteastnodeandedge(node, root);
+    root = consumeastnodeandedge(node, root);
     return TRUE;
 }

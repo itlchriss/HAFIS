@@ -5,7 +5,7 @@ import os
 from typing import Dict
 from yaml.loader import SafeLoader
 
-_configs = { 'ROOT': 'ROOT', 'NLP': 'NLP', 'STD_SI': 'STD_SI', 'PYCMD': 'PYCMD', 'TMP': 'TMP', 'BACKEND': 'jml'}
+_configs = { 'ROOT': 'ROOT', 'NLP': 'NLP', 'SI_DIR': 'SI_DIR', 'PYCMD': 'PYCMD', 'TMP': 'TMP', 'BACKEND': 'jml'}
 
 
 class dot_access_dict(dict):
@@ -59,13 +59,26 @@ def main(config_path: str, prog_file: str, backend: str = 'jml') -> None:
     # Set backend
     _configs['BACKEND'] = backend if backend else 'jml'
     
-    # Determine SI files based on backend
+    # Determine SI files based on backend using the new directory structure
+    si_dir = configs.SI_DIR  # e.g., './specs/si'
+    common_si = os.path.join(si_dir, 'common', 'typed_si.yml')
+    
     if _configs['BACKEND'] == 'dafny':
-        std_si_file = configs.STD_SI.replace('.yml', '_dafny.yml')
-        if not os.path.exists(std_si_file):
-            std_si_file = configs.STD_SI  # Fallback to standard SI
+        # For Dafny, use common SI + all Dafny-specific SIs
+        dafny_dir = os.path.join(si_dir, 'dafny')
+        if os.path.exists(dafny_dir):
+            dafny_files = [os.path.join(dafny_dir, f) for f in os.listdir(dafny_dir) if f.endswith('.yml')]
+            std_si_file = common_si + ',' + ','.join(dafny_files)
+        else:
+            std_si_file = common_si
     else:
-        std_si_file = configs.STD_SI
+        # For JML, use common SI + JML-specific SIs
+        jml_dir = os.path.join(si_dir, 'jml')
+        if os.path.exists(jml_dir):
+            jml_files = [os.path.join(jml_dir, f) for f in os.listdir(jml_dir) if f.endswith('.yml')]
+            std_si_file = common_si + ',' + ','.join(jml_files)
+        else:
+            std_si_file = common_si
     
     # prog_name = prog_file.replace('.conditions.yml', '').split('/')[-1]
     prog_name = prog_file.replace('.java', '').split('/')[-1]

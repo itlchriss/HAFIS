@@ -5,7 +5,7 @@
 # =============================================================================
 
 # --- Addition ---
-- term: the sum of
+- term: summation
   syntax:
   - NN
   arguments:
@@ -14,7 +14,6 @@
     primitive_type: 'integer'
     reference_type: 'undefined'
   interpretation: '+'
-  note: 'Addition: a + b'
 
 - term: plus
   syntax:
@@ -26,7 +25,7 @@
     reference_type: 'undefined'
   interpretation: '+'
 
-- term: added to
+- term: added_to
   syntax:
   - VBN
   arguments:
@@ -37,7 +36,7 @@
   interpretation: '+'
 
 # --- Subtraction ---
-- term: the difference between
+- term: difference
   syntax:
   - NN
   arguments:
@@ -46,7 +45,6 @@
     primitive_type: 'integer'
     reference_type: 'undefined'
   interpretation: '-'
-  note: 'Subtraction: a - b'
 
 - term: minus
   syntax:
@@ -58,7 +56,7 @@
     reference_type: 'undefined'
   interpretation: '-'
 
-- term: subtracted from
+- term: subtracted_from
   syntax:
   - VBN
   arguments:
@@ -69,7 +67,7 @@
   interpretation: '-'
 
 # --- Multiplication ---
-- term: the product of
+- term: product
   syntax:
   - NN
   arguments:
@@ -78,9 +76,8 @@
     primitive_type: 'integer'
     reference_type: 'undefined'
   interpretation: '*'
-  note: 'Multiplication: a * b'
 
-- term: multiplied by
+- term: multiplied_by
   syntax:
   - VBN
   arguments:
@@ -101,7 +98,7 @@
   interpretation: '*'
 
 # --- Division ---
-- term: the quotient of
+- term: quotient
   syntax:
   - NN
   arguments:
@@ -110,9 +107,8 @@
     primitive_type: 'integer'
     reference_type: 'undefined'
   interpretation: '/'
-  note: 'Integer division: a / b'
 
-- term: divided by
+- term: divided_by
   syntax:
   - VBN
   arguments:
@@ -123,7 +119,7 @@
   interpretation: '/'
 
 # --- Modulo ---
-- term: the remainder of
+- term: remainder
   syntax:
   - NN
   arguments:
@@ -132,7 +128,6 @@
     primitive_type: 'integer'
     reference_type: 'undefined'
   interpretation: '%'
-  note: 'Modulo: a % b'
 
 - term: modulo
   syntax:
@@ -145,7 +140,7 @@
   interpretation: '%'
 
 # --- Exponentiation ---
-- term: raised to the power of
+- term: raised_to_the_power_of
   syntax:
   - VBN
   arguments:
@@ -154,9 +149,8 @@
     primitive_type: 'integer'
     reference_type: 'undefined'
   interpretation: 'pow'
-  note: 'Exponentiation: pow(base, exp)'
 
-- term: the power of
+- term: power_of
   syntax:
   - NN
   arguments:
@@ -167,7 +161,7 @@
   interpretation: 'pow'
 
 # --- Absolute Value ---
-- term: the absolute value of
+- term: absolute_value
   syntax:
   - NN
   arguments:
@@ -176,10 +170,9 @@
     primitive_type: 'integer'
     reference_type: 'undefined'
   interpretation: 'abs'
-  note: 'Absolute value: abs(x)'
 
 # --- Summation over Set ---
-- term: the sum of all values in
+- term: sum_of_all_values_in
   syntax:
   - NN
   arguments:
@@ -188,9 +181,8 @@
     primitive_type: 'integer'
     reference_type: 'undefined'
   interpretation: 'sum_set'
-  note: 'Sum over a set of indices'
 
-- term: the sum over all
+- term: sum_over_all
   syntax:
   - NN
   arguments:
@@ -201,7 +193,7 @@
   interpretation: 'sum_set'
 
 # --- Minimum/Maximum ---
-- term: the minimum of
+- term: minimum_of
   syntax:
   - NN
   arguments:
@@ -211,7 +203,7 @@
     reference_type: 'undefined'
   interpretation: 'min'
 
-- term: the maximum of
+- term: maximum_of
   syntax:
   - NN
   arguments:
@@ -222,7 +214,7 @@
   interpretation: 'max'
 
 # --- Increment/Decrement ---
-- term: incremented by
+- term: incremented_by
   syntax:
   - VBN
   arguments:
@@ -232,7 +224,7 @@
     reference_type: 'undefined'
   interpretation: '+ 1'
 
-- term: decremented by
+- term: decremented_by
   syntax:
   - VBN
   arguments:
@@ -241,3 +233,304 @@
     primitive_type: 'integer'
     reference_type: 'undefined'
   interpretation: '- 1'
+
+# --- Squaring/Cubing (DafnyRef Section 7.2) ---
+- term: squared
+  syntax:
+  - VBN
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) * (x)'
+
+- term: cubed
+  syntax:
+  - VBN
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) * (x) * (x)'
+
+# --- Integer Division (DafnyRef Section 7.2) ---
+# In Dafny, '/' on integers is Euclidean division (truncates toward negative infinity)
+- term: integer_division
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '/'
+
+- term: integer_divided_by
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '/'
+
+- term: floor_divided_by
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '/'
+
+# --- Euclidean Modulo (DafnyRef Section 7.2) ---
+# Dafny '%' always returns a non-negative result for positive divisor
+- term: euclidean_modulo
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '%'
+
+- term: modulo_by
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '%'
+
+# --- Divisibility ---
+- term: is_divisible_by
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  - symbol: y
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) % (y) == 0'
+
+- term: divides
+  syntax:
+  - VBZ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  - symbol: y
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(y) % (x) == 0'
+
+# --- Arithmetic Properties ---
+- term: is_non_negative
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) >= 0'
+
+- term: is_positive
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) > 0'
+
+- term: is_strictly_positive
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) > 0'
+
+- term: is_negative
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) < 0'
+
+- term: is_strictly_negative
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) < 0'
+
+- term: is_zero
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) == 0'
+
+- term: is_non_zero
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) != 0'
+
+# --- Summation over Arrays (DafnyRef Section 15) ---
+- term: sum_of_all_elements_in_the_array
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'sum_array'
+
+- term: sum_of_all_elements_in
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'sum_array'
+
+# --- Minimum/Maximum of collections ---
+- term: minimum_element_of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'min'
+
+- term: maximum_element_of
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'max'
+
+- term: the_smallest_value_in
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'min'
+
+- term: the_largest_value_in
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: 'max'
+
+# --- Doubling/Halving ---
+- term: doubled
+  syntax:
+  - VBN
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '2 * (x)'
+
+- term: halved
+  syntax:
+  - VBN
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) / 2'
+
+# --- Successor/Predecessor ---
+- term: successor_of
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) + 1'
+
+- term: predecessor_of
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) - 1'

@@ -1,1 +1,0 @@
-Exactly 1 pair of unique indices exists in the type_integer_array_ param_numbers_ the int type_array_ param_numbers_ corresponding values sum to the type_integer_ param_target_.

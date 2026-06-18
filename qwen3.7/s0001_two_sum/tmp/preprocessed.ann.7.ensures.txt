@@ -1,1 +1,0 @@
-The type_integer_array_'s first_element result is not_equal to the type_integer_array_'s second_element result.

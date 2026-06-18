@@ -5,7 +5,21 @@
     after semantic synthesis. The IR is backend-agnostic and serves as
     the input to code generation.
     
-    Pipeline: AST (after synthesis) -> IR Builder -> IR -> Code Generator
+    Key design: Non-destructive AST traversal
+    - The original parse AST is preserved intact (nodes are marked as
+      AST_CONSUMED instead of being deleted)
+    - The IR builder skips consumed nodes and applies simplification
+      logic during IR construction
+    - This preserves the original tree structure for debugging, allowing
+      inspection of which children were assigned during synthesis
+    
+    Simplification rules applied during IR construction:
+    - If a Connective has 0 active children -> skip it (return NULL)
+    - If a Connective has 1 active child -> promote the child (propagate negation)
+    - If an Exists Quantifier has 1 active child -> promote it
+    - If a Synthesised node is the only active child -> promote it
+    
+    Pipeline: AST (after synthesis, with consumed marks) -> IR Builder -> IR -> Code Generator
 */
 
 #include <stdio.h>
@@ -98,6 +112,9 @@ struct ir_node *ir_builder_build_from_ast(struct astnode *ast_node);
 
 /*
     Build IR for a quantifier node.
+    Handles simplification: if the quantifier body results in a single
+    child after skipping consumed nodes, the quantifier is preserved
+    (quantifiers always wrap their body).
 */
 static struct ir_node *ir_builder_build_quantifier(struct astnode *ast_node) {
     if (!ast_node || ast_node->type != Quantifier) {
@@ -125,10 +142,29 @@ static struct ir_node *ir_builder_build_quantifier(struct astnode *ast_node) {
     /* Free type_name as ir_qvar_new makes a copy */
     if (type_name) free(type_name);
     
-    /* Build the body (first child is typically the body) */
+    /* Build the body from active children */
     struct ir_node *body = NULL;
-    if (countastchildren(ast_node) > 0) {
-        struct astnode *child = getastchild(ast_node, 0);
+    int active_count = countastchildren_active(ast_node);
+    
+    if (active_count == 0) {
+        /* Quantifier with no active body - skip it entirely */
+        return NULL;
+    } else if (active_count == 1) {
+        /* Single active child - build IR for it, apply negation propagation */
+        struct astnode *child = getastchild_active(ast_node, 0);
+        body = ir_builder_build_from_ast(child);
+        
+        /* For Exists with single child, promote the child with negation propagation */
+        if (qtype == IR_EXISTS && body) {
+            if (ast_node->isnegative) {
+                body->is_negative ^= 1;
+            }
+            return body;
+        }
+    } else {
+        /* Multiple active children - build IR for first child as body */
+        /* (Typically quantifiers have one body child, which may be a connective) */
+        struct astnode *child = getastchild_active(ast_node, 0);
         body = ir_builder_build_from_ast(child);
     }
     
@@ -141,10 +177,31 @@ static struct ir_node *ir_builder_build_quantifier(struct astnode *ast_node) {
 
 /*
     Build IR for a connective node.
+    Handles simplification:
+    - 0 active children -> skip (return NULL)
+    - 1 active child -> promote it (propagate negation)
+    - 2+ active children -> build normally (left/right for binary)
 */
 static struct ir_node *ir_builder_build_connective(struct astnode *ast_node) {
     if (!ast_node || ast_node->type != Connective) {
         return NULL;
+    }
+    
+    int active_count = countastchildren_active(ast_node);
+    
+    /* Simplification: 0 active children -> skip this connective */
+    if (active_count == 0) {
+        return NULL;
+    }
+    
+    /* Simplification: 1 active child -> promote it with negation propagation */
+    if (active_count == 1) {
+        struct astnode *child = getastchild_active(ast_node, 0);
+        struct ir_node *ir_child = ir_builder_build_from_ast(child);
+        if (ir_child && ast_node->isnegative) {
+            ir_child->is_negative ^= 1;
+        }
+        return ir_child;
     }
     
     /* Map AST connective type to IR connective type */
@@ -167,16 +224,13 @@ static struct ir_node *ir_builder_build_connective(struct astnode *ast_node) {
             break;
     }
     
-    /* Build left and right children */
+    /* Build left and right from active children */
     struct ir_node *left = NULL;
     struct ir_node *right = NULL;
     
-    if (countastchildren(ast_node) >= 2) {
-        left = ir_builder_build_from_ast(getastchild(ast_node, 0));
-        right = ir_builder_build_from_ast(getastchild(ast_node, 1));
-    } else if (countastchildren(ast_node) == 1) {
-        /* Unary connective (shouldn't happen normally) */
-        left = ir_builder_build_from_ast(getastchild(ast_node, 0));
+    if (active_count >= 2) {
+        left = ir_builder_build_from_ast(getastchild_active(ast_node, 0));
+        right = ir_builder_build_from_ast(getastchild_active(ast_node, 1));
     }
     
     /* Create the connective IR node */
@@ -215,9 +269,26 @@ static struct ir_node *ir_builder_build_synthesised(struct astnode *ast_node) {
 /*
     Build IR from AST node.
     This is the main entry point for IR construction.
+    
+    Key behavior:
+    - Skips consumed nodes (AST_CONSUMED) entirely
+    - Applies simplification (promoting single children, removing empty connectives)
+    - Propagates negation when promoting children
+    - The original parse AST remains intact for debugging
 */
 struct ir_node *ir_builder_build_from_ast(struct astnode *ast_node) {
     if (!ast_node) {
+        return NULL;
+    }
+    
+    /* Skip consumed nodes - they are logically removed from the tree */
+    if (ast_node->status == AST_CONSUMED) {
+        /*
+            A consumed node should not appear in the IR.
+            However, if this consumed node was the root, we need to find
+            the first active descendant. This case is handled by the
+            top-level ir_build_from_ast() entry point.
+        */
         return NULL;
     }
     
@@ -255,8 +326,27 @@ struct ir_node *ir_builder_build_from_ast(struct astnode *ast_node) {
 /*
     Build IR from AST (main entry point).
     Resets internal state and builds the complete IR tree.
+    
+    If the root node is consumed, walks down to find the first active
+    descendant that serves as the logical root.
+    
+    The original AST is NOT modified - consumed nodes are simply skipped
+    during traversal, preserving the full tree for debugging.
 */
 struct ir_node *ir_build_from_ast(struct astnode *root) {
     ir_builder_reset();
-    return ir_builder_build_from_ast(root);
+    
+    if (!root) {
+        return NULL;
+    }
+    
+    /* Find the logical root (may be different if original root is consumed) */
+    struct astnode *logical_root = find_logical_root(root);
+    
+    if (!logical_root || logical_root->status == AST_CONSUMED) {
+        /* Entire tree is consumed - no IR to build */
+        return NULL;
+    }
+    
+    return ir_builder_build_from_ast(logical_root);
 }

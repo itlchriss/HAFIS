@@ -6,7 +6,7 @@
 # =============================================================================
 
 # --- Ghost Variable ---
-- term: ghost variable
+- term: ghost_variable
   syntax:
   - NN
   arguments:
@@ -15,9 +15,8 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'ghost'
-  note: 'Ghost variable declaration'
 
-- term: let the ghost
+- term: let_the_ghost
   syntax:
   - VB
   arguments:
@@ -28,7 +27,7 @@
   interpretation: 'ghost var'
 
 # --- Ghost Function ---
-- term: ghost function
+- term: ghost_function
   syntax:
   - NN
   arguments:
@@ -37,9 +36,8 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'ghost function'
-  note: 'Ghost function declaration'
 
-- term: define the ghost function
+- term: define_the_ghost_function
   syntax:
   - VB
   arguments:
@@ -50,7 +48,7 @@
   interpretation: 'ghost function'
 
 # --- Function Definition ---
-- term: define the function
+- term: define_the_function
   syntax:
   - VB
   arguments:
@@ -60,7 +58,7 @@
     reference_type: 'undefined'
   interpretation: 'function'
 
-- term: the function
+- term: the_function
   syntax:
   - NN
   arguments:
@@ -71,7 +69,7 @@
   interpretation: 'function'
 
 # --- Loop Invariant ---
-- term: the loop invariant is
+- term: the_loop_invariant_is
   syntax:
   - NN
   arguments:
@@ -80,9 +78,8 @@
     primitive_type: 'boolean'
     reference_type: 'undefined'
   interpretation: 'invariant'
-  note: 'Loop invariant specification'
 
-- term: the invariant
+- term: the_invariant
   syntax:
   - NN
   arguments:
@@ -93,7 +90,7 @@
   interpretation: 'invariant'
 
 # --- Assertion ---
-- term: it holds that
+- term: it_holds_that
   syntax:
   - NN
   arguments:
@@ -102,9 +99,8 @@
     primitive_type: 'boolean'
     reference_type: 'undefined'
   interpretation: 'assert'
-  note: 'Assertion: assert P'
 
-- term: we can conclude that
+- term: we_can_conclude_that
   syntax:
   - VB
   arguments:
@@ -124,10 +120,9 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'lemma'
-  note: 'Lemma specification'
 
 # --- Termination Metric ---
-- term: the termination metric is
+- term: the_termination_metric_is
   syntax:
   - NN
   arguments:
@@ -136,9 +131,8 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'decreases'
-  note: 'Termination metric / decreases clause'
 
-- term: the termination metric for the function
+- term: the_termination_metric_for_the_function
   syntax:
   - NN
   arguments:
@@ -159,7 +153,7 @@
   interpretation: 'decreases'
 
 # --- Reads Clause ---
-- term: the function reads
+- term: the_function_reads
   syntax:
   - NN
   arguments:
@@ -168,10 +162,9 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'reads'
-  note: 'Function reads clause'
 
 # --- Modifies Clause ---
-- term: the method may modify
+- term: the_method_may_modify
   syntax:
   - NN
   arguments:
@@ -180,10 +173,9 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'modifies'
-  note: 'Method modifies clause'
 
 # --- Pre-state Value ---
-- term: the pre-state value of
+- term: the_pre_state_value_of
   syntax:
   - NN
   arguments:
@@ -192,7 +184,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'old()'
-  note: 'Pre-state value: old(E)'
 
 # --- Conditional Expression ---
 - term: if
@@ -204,7 +195,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'if'
-  note: 'Conditional expression: if P then E1 else E2'
 
 - term: then
   syntax:
@@ -226,9 +216,8 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'var'
-  note: 'Local variable binding'
 
-- term: be defined as
+- term: be_defined_as
   syntax:
   - VBN
   arguments:

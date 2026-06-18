@@ -190,33 +190,153 @@ class ContextProcessor:
         self.dynamic_si = {}
         self._rule_engine = get_rule_engine()
 
+    def _type_processor(self):
+        """Convert data type mentions to type tokens (_type_X_ format).
+        
+        This runs BEFORE _parameter_syntax_processor() so that types are
+        recognised in ALL contexts (before variable names, standalone, etc.),
+        not only when followed by 'parameter' or 'result'.
+        
+        The _type_X_ format (with leading and trailing underscores) matches
+        the lexer pattern KEYWORD_TYPE = _type[_a-z]+_ in lex.l.
+        
+        Processing order:
+        1. Combined types (e.g. 'integer array' -> _type_integer_array_)
+        2. Standalone reference types (e.g. 'the array x' -> _type_array_ x)
+        3. Standalone primitive types (e.g. 'the integer x' -> _type_integer_ x)
+        4. Fix article agreement (e.g. 'an _type_integer_' -> 'a _type_integer_')
+        """
+        sent = self.sent
+        if sent.endswith('.'):
+            sent = sent[:-1]
+
+        # Build set of multi-word primitives for exclusion lookaheads
+        multi_word_prims = {p for p in primitive_datatypes if ' ' in p}
+
+        # --- Pass 1: Combined types (primitive + reference) ---
+        # Process longer primitive names first (e.g. 'non-negative integer' before 'integer')
+        sorted_prims = sorted(primitive_datatypes, key=len, reverse=True)
+
+        # Special case: 'non-negative integer' has a hyphen that breaks the
+        # generic lookbehind logic. Handle it explicitly first.
+        for r in reference_datatypes:
+            sent = re.sub(
+                r'(?<!_type_)\bnon\-negative\s+integer\s+' + r + r'\b',
+                '_type_non_negative_integer_' + r + '_', sent)
+        # Standalone 'non-negative integer' (before a word or at end of sentence)
+        sent = re.sub(
+            r"(?<!_type_)\b(?:the|a|an)\s+(non\-negative\s+integer)\s+(?=[\w'])",
+            lambda m: m.group(0).replace(m.group(1), '_type_non_negative_integer_'), sent)
+        sent = re.sub(
+            r'(?<!_type_)\b(?:the|a|an)\s+(non\-negative\s+integer)\.?\s*$',
+            lambda m: m.group(0).replace(m.group(1), '_type_non_negative_integer_'), sent)
+
+        for p in sorted_prims:
+            p_pat = p.replace('-', r'\-')
+            safe_p = p.replace('-', '_')
+
+            # Build negative lookbehinds to avoid matching sub-terms inside
+            # longer compound types (e.g. 'integer' inside 'non-negative integer')
+            lookbehinds = ''
+            if ' ' in p:
+                words = p.split()
+                lookbehinds += '(?<!' + words[-1].replace('-', r'\-') + r'\s)'
+            if p.startswith('non-'):
+                lookbehinds += '(?<!non\\-)'
+                lookbehinds += '(?<!non\\-\\s)'
+            if 'negative' in p:
+                lookbehinds += '(?<!negative\\s)'
+
+            for r in reference_datatypes:
+                # e.g. 'integer array' -> '_type_integer_array_'
+                sent = re.sub(
+                    r'(?<!_type_)' + lookbehinds + r'\b' + p_pat + r'\s+' + r + r'\b',
+                    '_type_' + safe_p + '_' + r + '_', sent)
+
+        # --- Pass 2: Standalone reference types ---
+        _ref_with_string = ['string array'] + reference_datatypes
+        for c in _ref_with_string:
+            c_pat = c.replace('-', r'\-')
+            c_safe = c.replace(' ', '_')
+            # After article, before a word (variable name)
+            sent = re.sub(
+                r'(?<!_type_)\b(?:the|a|an)\s+(' + c_pat + r")\s+(?=[\w'])",
+                lambda m: m.group(0).replace(m.group(1), '_type_' + c_safe + '_'), sent)
+            # At end of sentence
+            sent = re.sub(
+                r'(?<!_type_)\b(?:the|a|an)\s+(' + c_pat + r')\s*$',
+                lambda m: m.group(0).replace(m.group(1), '_type_' + c_safe + '_'), sent)
+
+        # --- Pass 3: Standalone primitive types ---
+        for p in sorted_prims:
+            p_pat = p.replace('-', r'\-')
+            safe_p = p.replace('-', '_')
+
+            lookbehinds = ''
+            if ' ' in p:
+                words = p.split()
+                lookbehinds += '(?<!' + words[-1].replace('-', r'\-') + r'\s)'
+            if p.startswith('non-'):
+                lookbehinds += '(?<!non\\-)'
+                lookbehinds += '(?<!non\\-\\s)'
+            if 'negative' in p:
+                lookbehinds += '(?<!negative\\s)'
+
+            # Build negative lookahead to prevent matching a prefix of a
+            # longer multi-word primitive (e.g. 'non-negative' should not
+            # match when followed by 'integer')
+            lookahead = ''
+            if p in multi_word_prims:
+                other_words = [mp.split()[-1] for mp in multi_word_prims
+                               if mp != p and mp.startswith(p.split()[0])]
+                if other_words:
+                    lookahead = '(?!\\s+(?:' + '|'.join(other_words) + '))'
+            # Also prevent 'non-negative' from matching when 'integer' follows
+            if p == 'non-negative':
+                lookahead = '(?!\\s+integer)'
+
+            # After article, before a word (variable name)
+            sent = re.sub(
+                r'(?<!_type_)' + lookbehinds + r'\b(?:the|a|an)\s+(' + p_pat + r')' + lookahead + r"\s+(?=[\w'])",
+                lambda m: m.group(0).replace(m.group(1), '_type_' + safe_p + '_'), sent)
+            # At end of sentence (including before period)
+            sent = re.sub(
+                r'(?<!_type_)' + lookbehinds + r'\b(?:the|a|an)\s+(' + p_pat + r')' + lookahead + r'\.?\s*$',
+                lambda m: m.group(0).replace(m.group(1), '_type_' + safe_p + '_'), sent)
+
+        # --- Pass 4: Fix article agreement ---
+        # 'an _type_X_' -> 'a _type_X_' (_type_ starts with consonant sound)
+        sent = re.sub(r'\ban\s+(_type_)', r'a \1', sent)
+
+        self.sent = sent
+
     def _parameter_syntax_processor(self):
         sent = self.sent
         if sent[-1] == '.':
             sent = sent[:-1]
         combined_datatypes = ['%s %s' % (p, r) for p in primitive_datatypes for r in reference_datatypes]
         for c in combined_datatypes:
-            sent = re.sub(r'\s+' + c + r'\s+parameters\s+', ' type_' + c.replace(' ', '_') + '_ parameters ', sent)
-            sent = re.sub(r'\s+' + c + r"\s+parameters's\s+", ' type_' + c.replace(' ', '_') + "_ parameters's ", sent)
+            sent = re.sub(r'\s+' + c + r'\s+parameters\s+', ' _type_' + c.replace(' ', '_') + '_ parameters ', sent)
+            sent = re.sub(r'\s+' + c + r"\s+parameters's\s+", ' _type_' + c.replace(' ', '_') + "_ parameters's ", sent)
             
-            sent = re.sub(r'\s+' + c + r'\s+parameter\s+', ' type_' + c.replace(' ', '_') + '_ parameter ', sent)
-            sent = re.sub(r'\s+' + c + r"\s+parameter's\s+", ' type_' + c.replace(' ', '_') + "_ parameter's ", sent)
-            sent = re.sub(r'\s+' + c + r'\s+result\s+', ' type_' + c.replace(' ', '_') + '_ result ', sent)
-            sent = re.sub(r'\s+' + c + r'\s+result', ' type_' + c.replace(' ', '_') + '_ result ', sent)
-            sent = re.sub(r'\s+' + c + r"\s+result's\s+", ' type_' + c.replace(' ', '_') + "_ result's ", sent) 
+            sent = re.sub(r'\s+' + c + r'\s+parameter\s+', ' _type_' + c.replace(' ', '_') + '_ parameter ', sent)
+            sent = re.sub(r'\s+' + c + r"\s+parameter's\s+", ' _type_' + c.replace(' ', '_') + "_ parameter's ", sent)
+            sent = re.sub(r'\s+' + c + r'\s+result\s+', ' _type_' + c.replace(' ', '_') + '_ result ', sent)
+            sent = re.sub(r'\s+' + c + r'\s+result', ' _type_' + c.replace(' ', '_') + '_ result ', sent)
+            sent = re.sub(r'\s+' + c + r"\s+result's\s+", ' _type_' + c.replace(' ', '_') + "_ result's ", sent) 
         for c in primitive_datatypes:
-            sent = re.sub(r'\s+' + c + r'\s+parameters\s+', ' type_' + c.replace(' ', '_') + '_ parameters ', sent)
-            sent = re.sub(r'\s+' + c + r'\s+parameter\s+', ' type_' + c.replace(' ', '_') + '_ parameter ', sent)
-            sent = re.sub(r'\s+' + c + r'\s+result\s+', ' type_' + c.replace(' ', '_') + '_ result ', sent)
+            sent = re.sub(r'\s+' + c + r'\s+parameters\s+', ' _type_' + c.replace(' ', '_') + '_ parameters ', sent)
+            sent = re.sub(r'\s+' + c + r'\s+parameter\s+', ' _type_' + c.replace(' ', '_') + '_ parameter ', sent)
+            sent = re.sub(r'\s+' + c + r'\s+result\s+', ' _type_' + c.replace(' ', '_') + '_ result ', sent)
 
         _reference_datatypes =  ['string array'] + reference_datatypes
         for c in _reference_datatypes:
-            sent = re.sub(r'\s+' + c + r"\s+parameters\s+", ' type_' + c.replace(' ', '_') + "_ parameters ", sent)
-            sent = re.sub(r'\s+' + c + r"\s+parameters's\s+", ' type_' + c.replace(' ', '_') + "_ parameters's ", sent)
-            sent = re.sub(r'\s+' + c + r"\s+parameter\s+", ' type_' + c.replace(' ', '_') + "_ parameter ", sent)
-            sent = re.sub(r'\s+' + c + r"\s+parameter's\s+", ' type_' + c.replace(' ', '_') + "_ parameter's ", sent)
-            sent = re.sub(r'\s+' + c + r'\s+result\s+', ' type_' + c.replace(' ', '_') + '_ result ', sent)
-            sent = re.sub(r'\s+' + c + r"\s+result's\s+", ' type_' + c.replace(' ', '_') + "_ result's ", sent)        
+            sent = re.sub(r'\s+' + c + r"\s+parameters\s+", ' _type_' + c.replace(' ', '_') + "_ parameters ", sent)
+            sent = re.sub(r'\s+' + c + r"\s+parameters's\s+", ' _type_' + c.replace(' ', '_') + "_ parameters's ", sent)
+            sent = re.sub(r'\s+' + c + r"\s+parameter\s+", ' _type_' + c.replace(' ', '_') + "_ parameter ", sent)
+            sent = re.sub(r'\s+' + c + r"\s+parameter's\s+", ' _type_' + c.replace(' ', '_') + "_ parameter's ", sent)
+            sent = re.sub(r'\s+' + c + r'\s+result\s+', ' _type_' + c.replace(' ', '_') + '_ result ', sent)
+            sent = re.sub(r'\s+' + c + r"\s+result's\s+", ' _type_' + c.replace(' ', '_') + "_ result's ", sent)        
         
         if r := re.findall(r'parameter (`[0-9a-zA-Z_]+`) and (`[0-9a-zA-Z_]+`)', sent, re.ASCII):
             # the case of composite subject/object with two parameters
@@ -390,6 +510,7 @@ class ContextProcessor:
         self._symbol_syntax_preprocessor()
         self._synonym_syntax_preprocessor()
         self._normalize_ordinals()
+        self._type_processor()
         self._parameter_syntax_processor()
         self._of_2_possesive()
         return self.sent

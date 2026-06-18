@@ -17,6 +17,24 @@
 #   {constraint} - A boolean-valued RNL expression
 #   {int}        - An integer literal
 #   {string}     - A string literal in quotes
+#
+# =============================================================================
+# RULE ADDITION REQUIREMENT
+# =============================================================================
+# When adding a new grammar rule, the 'example' sentence MUST be verified
+# to successfully derive a Meaning Representation (MR) via the ccg2lambda
+# NLP pipeline. Use the provided checker script:
+#
+#   bash scripts/rnl/check_grammar_example.sh "<example sentence>"
+#
+# The script runs the full pipeline (from WSL, from the HAFIS project root):
+#   1. Tokenization    (tokenizer.sed)
+#   2. C&C parsing     (candc)
+#   3. CCG conversion  (candc2transccg_wsc.py)
+#   4. Semantic parsing (semparse_wsc.py)  ->  non-empty .mr output
+#
+# A rule whose example sentence produces an empty MR will fail at runtime
+# when mearc processes an annotation that matches that pattern.
 # =============================================================================
 
 # =============================================================================
@@ -137,13 +155,18 @@
   category: existential_multi
   dafny: 'exists x, y :: P(x,y)'
   pattern: 'There exist a {type1} `{var1}` and a {type2} `{var2}` such that {constraint}.'
-  example: 'There exist a non-negative integer `i` and a non-negative integer `j` such that `i` is less than `j` and the value at index `i` of the integer array parameter `nums` is equal to the value at index `j` of the integer array parameter `nums`.'
+  example: 'There exist a non-negative integer `i` and a non-negative integer `j` such that `i` is not equal to `j` and the sum of the value at index `i` of the integer array parameter `numbers` and the value at index `j` of the integer array parameter `numbers` is equal to the integer parameter `target`.'
+  notes: >
+    Use this pattern when expressing a property involving two distinct bound variables.
+    For the two-sum semantics (two distinct indices whose values add up to target), this
+    is the correct pattern. The distinctness guard (`i` is not equal to `j`) is expressed
+    using pattern J02 inside the {constraint}. The sum is expressed using pattern G01.
 
 - id: RNL-C06
   category: unique_existential
   dafny: 'exists! x :: P(x)'
   pattern: 'Exactly one {type} `{var}` exists such that {constraint}.'
-  example: 'Exactly one pair of distinct indices exists in the integer array parameter `numbers` whose corresponding values sum to the integer parameter `target`.'
+  example: 'Exactly one non-negative integer `i` exists such that the value at index `i` of the integer array parameter `nums` is equal to 0.'
 
 - id: RNL-C07
   category: universal_pair

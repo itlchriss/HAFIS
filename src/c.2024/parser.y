@@ -84,7 +84,7 @@
             struct event *event = newevent(_e->_eventnode->cstptr);
             enqueue(event->entities, (void *)newentity(_e->_entitynode->cstptr, __string2gramtype(_e->_subtree_root->token->symbol)));
 
-            deleteastnodeandedge(_e->_subtree_root, ast);
+            consumeastnodeandedge(_e->_subtree_root, ast);
         }
     }
 
@@ -534,7 +534,7 @@ quantified_term
                 /* the variable is being removed. deduct the reference count */
                 $$->cstptr->ref_count--;
                 $$->cstptr->type_assigned = TRUE;
-                deleteastchild(ref->node->parent, ref->node);
+                consumeastnode(ref->node);
             } else {
                 _node->cstptr = $$->cstptr;
             }

@@ -2,21 +2,11 @@
 # Dafny SI Module: Sequence Operations
 # =============================================================================
 # SI terms for Dafny sequence (seq) operations
+# Based on Dafny Reference Manual Section 10.3
 # =============================================================================
 
-# --- Sequence Length ---
-- term: the length of the string
-  syntax:
-  - NN
-  arguments:
-  - symbol: '*'
-  synthesised_datatype:
-    primitive_type: 'integer'
-    reference_type: 'undefined'
-  interpretation: '|'
-  note: 'String length: |s|'
-
-- term: the length of the sequence
+# --- Sequence Length (Section 10.3) ---
+- term: length_of_the_string
   syntax:
   - NN
   arguments:
@@ -26,8 +16,18 @@
     reference_type: 'undefined'
   interpretation: '|'
 
-# --- Subsequence ---
-- term: the subsequence from index
+- term: length_of_the_sequence
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '|'
+
+# --- Subsequence (Section 10.3, 20.42.3) ---
+- term: subsequence_from_index
   syntax:
   - NN
   arguments:
@@ -36,9 +36,8 @@
     primitive_type: 'any'
     reference_type: 'seq'
   interpretation: '[..]'
-  note: 'Subsequence extraction: s[i..j]'
 
-- term: to index
+- term: to_index
   syntax:
   - IN
   arguments:
@@ -48,8 +47,28 @@
     reference_type: 'undefined'
   interpretation: '..'
 
-# --- Sequence Concatenation ---
-- term: the concatenation of the string
+- term: from_index
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[..]'
+
+- term: up_to_index
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[..]'
+
+# --- Sequence Concatenation (Section 10.3.3) ---
+- term: concatenation_of_the_string
   syntax:
   - NN
   arguments:
@@ -58,9 +77,8 @@
     primitive_type: 'string'
     reference_type: 'undefined'
   interpretation: '+'
-  note: 'String concatenation: s + t'
 
-- term: the concatenation of the sequence
+- term: concatenation_of_the_sequence
   syntax:
   - NN
   arguments:
@@ -70,7 +88,7 @@
     reference_type: 'seq'
   interpretation: '+'
 
-- term: concatenated with
+- term: concatenated_with
   syntax:
   - VBN
   arguments:
@@ -80,8 +98,8 @@
     reference_type: 'seq'
   interpretation: '+'
 
-# --- Empty Sequence ---
-- term: the empty string
+# --- Empty Sequence (Section 10.3.1) ---
+- term: empty_string
   syntax:
   - NN
   arguments:
@@ -90,9 +108,8 @@
     primitive_type: 'string'
     reference_type: 'undefined'
   interpretation: '""'
-  note: 'Empty string literal'
 
-- term: the empty integer sequence
+- term: empty_integer_sequence
   syntax:
   - NN
   arguments:
@@ -102,7 +119,7 @@
     reference_type: 'seq'
   interpretation: '[]'
 
-- term: the empty character sequence
+- term: empty_character_sequence
   syntax:
   - NN
   arguments:
@@ -112,8 +129,8 @@
     reference_type: 'seq'
   interpretation: '[]'
 
-# --- Contains (substring) ---
-- term: contains the substring
+# --- Contains (substring) (Section 10.3.2) ---
+- term: contains_the_substring
   syntax:
   - VBZ
   arguments:
@@ -121,10 +138,10 @@
   synthesised_datatype:
     primitive_type: 'boolean'
     reference_type: 'undefined'
-  interpretation: 'contains'
+  interpretation: 'in'
 
-# --- Sequence prefix/suffix ---
-- term: is a prefix of
+# --- Sequence prefix/suffix (Section 10.3.2) ---
+- term: is_a_prefix_of
   syntax:
   - NN
   arguments:
@@ -134,7 +151,7 @@
     reference_type: 'undefined'
   interpretation: 'prefix'
 
-- term: is a suffix of
+- term: is_a_suffix_of
   syntax:
   - NN
   arguments:
@@ -143,3 +160,140 @@
     primitive_type: 'boolean'
     reference_type: 'undefined'
   interpretation: 'suffix'
+
+# --- Sequence Index (Section 10.3) ---
+- term: index_in_the_sequence
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '[]'
+
+- term: the_character_at
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'undefined'
+  interpretation: '[]'
+
+- term: the_element_at
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[]'
+
+# --- Sequence Update (Section 20.42.5) ---
+- term: sequence_updated_at
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'seq'
+  interpretation: '['
+
+- term: with_value
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '] := ['
+
+# --- Sequence Display (Section 10.3.1, 20.27) ---
+- term: sequence_display
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'seq'
+  interpretation: '[]'
+
+# --- Last Element ---
+- term: last_element
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[|(x)|-1]'
+
+- term: the_last_element
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[|(x)|-1]'
+
+# --- Take/Drop ---
+- term: first_n_elements
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'seq'
+  interpretation: '[..]'
+
+- term: drop_first
+  syntax:
+  - VB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'seq'
+  interpretation: '[1..]'
+
+# --- Reverse ---
+- term: reversed_sequence
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'seq'
+  interpretation: 'reverse'
+
+# --- Membership ---
+- term: is_in_the_sequence
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: 'in'
+
+- term: is_not_in_the_sequence
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation: '!in'

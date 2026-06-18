@@ -6,7 +6,7 @@
 # =============================================================================
 
 # --- Bounded Universal ---
-- term: that is less than
+- term: that_is_less_than
   syntax:
   - IN
   arguments:
@@ -15,9 +15,8 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '<'
-  note: 'Upper bound for quantifier variable'
 
-- term: that is less than or equal to
+- term: that_is_less_than_or_equal_to
   syntax:
   - IN
   arguments:
@@ -28,7 +27,7 @@
   interpretation: '<='
 
 # --- Index Variable Patterns ---
-- term: the value at index
+- term: value_at_index
   syntax:
   - NN
   arguments:
@@ -37,9 +36,8 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '[]'
-  note: 'Array element access pattern'
 
-- term: the character at index
+- term: character_at_index
   syntax:
   - NN
   arguments:
@@ -48,9 +46,8 @@
     primitive_type: 'character'
     reference_type: 'undefined'
   interpretation: '[]'
-  note: 'String character access pattern'
 
-- term: the element at index
+- term: element_at_index
   syntax:
   - NN
   arguments:
@@ -59,7 +56,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '[]'
-  note: 'Sequence element access pattern'
 
 # --- No-quantifier patterns ---
 - term: no
@@ -71,7 +67,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '!exists'
-  note: 'Negative existential: "No X satisfies P" = "!exists X :: P"'
 
 - term: none
   syntax:
@@ -84,7 +79,7 @@
   interpretation: '!exists'
 
 # --- All-values shortcut ---
-- term: all values in
+- term: all_values_in
   syntax:
   - DT
   arguments:
@@ -93,7 +88,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'forall_in'
-  note: 'Shortcut for "for every index i, the value at index i of X"'
 
 # --- Satisfies marker ---
 - term: satisfies
@@ -105,7 +99,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '::'
-  note: 'Quantifier body marker, synonym for such that'
 
 - term: satisfy
   syntax:

@@ -1,6 +1,6 @@
-#line 1 "./build/lex.yy.c"
+#line 2 "./build/lex.yy.c"
 
-#line 3 "./build/lex.yy.c"
+#line 4 "./build/lex.yy.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -707,10 +707,10 @@ char *yytext;
         handlecolnum(text);
         return new;
     }
-#line 710 "./build/lex.yy.c"
+#line 711 "./build/lex.yy.c"
 #define YY_NO_INPUT 1
 /* Operators */
-#line 713 "./build/lex.yy.c"
+#line 714 "./build/lex.yy.c"
 
 #define INITIAL 0
 
@@ -927,7 +927,7 @@ YY_DECL
 	{
 #line 139 "./src/c.2024/lex.l"
 
-#line 930 "./build/lex.yy.c"
+#line 931 "./build/lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1327,7 +1327,7 @@ YY_RULE_SETUP
 #line 244 "./src/c.2024/lex.l"
 ECHO;
 	YY_BREAK
-#line 1330 "./build/lex.yy.c"
+#line 1331 "./build/lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 

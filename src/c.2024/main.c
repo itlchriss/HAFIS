@@ -68,6 +68,13 @@ int get_datatype(char *s) {
     else if (strcmp(s, "object") == 0) return Object;
     else if (strcmp(s, "list") == 0) return List;
     else if (strcmp(s, "string_array") == 0) return String_Array;
+    // Dafny-specific reference types
+    else if (strcmp(s, "set") == 0) return Set;
+    else if (strcmp(s, "seq") == 0) return Seq;
+    else if (strcmp(s, "multiset") == 0) return Multiset;
+    else if (strcmp(s, "map") == 0) return Map;
+    else if (strcmp(s, "imap") == 0) return IMap;
+    else if (strcmp(s, "function_type") == 0) return FunctionType;
     else {
         sisyntax_error("Invalid primitive type used in SI file", "type", s);
         return -1;
@@ -192,25 +199,26 @@ int main(int argc, char** argv) {
         For each abstract syntax tree, we traverse all nodes to find the nodes which are predicates, trying to map the semantic interpretations from si list
     */
     root = ast;
-    fprintf(stderr, "DEBUG: after parse\n");
     opresolution(operators, cst);        
-    fprintf(stderr, "DEBUG: after opresolution\n");
     sianalysis();
-    fprintf(stderr, "DEBUG: after sianalysis\n");
     sisynthesis();
-    fprintf(stderr, "DEBUG: after sisynthesis\n");
+    /* Post-synthesis AST simplification: mark empty Quantifier/Connective nodes
+       as consumed, cascading bottom-up. This replaces the old destructive
+       astsimplification() with a non-destructive approach. */
+    ast_simplify_after_synthesis(&root);
     ast = root;
     #if ASTDEBUG
-    showast(ast, 0);
+    printf("AST after synthesis (with consumed markers):\n");
+    showast_with_status(ast, 0);
     #endif
-    ast = astsimplification(ast);
-    ast = astsimplification(ast);
-    #if ASTDEBUG
-    showast(ast, 0);
-    #endif 
+    /*
+        AST simplification is no longer performed destructively on the AST.
+        Instead, the IR builder skips consumed nodes and applies simplification
+        during IR construction. This preserves the original parse AST for debugging.
+    */
     deallocatequeue(silist, deallocatesi);
     
-    /* Build IR from AST after synthesis */
+    /* Build IR from AST after synthesis - IR builder handles consumed nodes and simplification */
     struct ir_node *ir = ir_build_from_ast(ast);
     
     #if IRDEBUG

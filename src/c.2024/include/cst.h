@@ -43,7 +43,14 @@ enum reference_datatype {
     String = 1,
     Object = 2,
     List = 3,
-    String_Array = 4
+    String_Array = 4,
+    // Dafny-specific reference types
+    Set = 5,
+    Seq = 6,
+    Multiset = 7,
+    Map = 8,
+    IMap = 9,
+    FunctionType = 10
 };
 
 // SI_INT_TYPE_EXPR_REQ_PARAM = 100,

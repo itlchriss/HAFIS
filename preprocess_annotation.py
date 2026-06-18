@@ -3,13 +3,14 @@
 Preprocess a single NL annotation before NLP pipeline.
 
 Usage:
-    python preprocess_annotation.py <text> <type> <output_dir> <annotation_id>
+    python preprocess_annotation.py <text> <type> <output_dir> <annotation_id> [si_path]
 
 Arguments:
     text: The NL annotation text
     type: 'requires' or 'ensures'
     output_dir: Directory to write preprocessed output
     annotation_id: Unique ID for the annotation (used in filenames)
+    si_path: Optional path to the SI specs file
 
 Output files:
     <output_dir>/preprocessed.<id>.txt     - Preprocessed text for NLP pipeline
@@ -32,21 +33,22 @@ class NoAliasDumper(yaml.SafeDumper):
 
 
 def main():
-    if len(sys.argv) != 5:
-        print("Usage: python preprocess_annotation.py <text> <type> <output_dir> <annotation_id>")
+    if len(sys.argv) < 5 or len(sys.argv) > 6:
+        print("Usage: python preprocess_annotation.py <text> <type> <output_dir> <annotation_id> [si_path]")
         sys.exit(1)
     
     text = sys.argv[1]
     req_type = sys.argv[2]  # 'requires' or 'ensures'
     output_dir = sys.argv[3]
     annotation_id = sys.argv[4]
+    si_path = sys.argv[5] if len(sys.argv) > 5 else None
     
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)
     
     # Run the preprocessing pipeline
     # This applies: narrowing, repair, context, normalization, expression extraction, SI building
-    processed_text, dynamic_si = runengine(text, req_type)
+    processed_text, dynamic_si = runengine(text, req_type, si_path=si_path)
     
     # Write preprocessed text
     preprocessed_path = os.path.join(output_dir, f'preprocessed.{annotation_id}.txt')

@@ -317,16 +317,21 @@ int __direct_syntax_synthesis__(struct astnode *node) {
     //     child->cstptr->datatype->p = targetsi->synthesised_datatype->p;
     //     child->cstptr->datatype->r = targetsi->synthesised_datatype->r;
     // }
-    if (targetsi->synthesised_datatype != NULL && 
-            (child->cstptr->type_assigned == FALSE || 
-                (child->cstptr->datatype->p == UNDEFINED &&
-                    child->cstptr->datatype->r == UNDEFINED &&
-                    child->cstptr->datatype->i == UNDEFINED)
-            )
-        ) {
-        child->cstptr->datatype->p = targetsi->synthesised_datatype->p;
-        child->cstptr->datatype->r = targetsi->synthesised_datatype->r;
-        child->cstptr->datatype->i = targetsi->type;
+    if (targetsi->synthesised_datatype != NULL) {
+        /* Only apply non-UNDEFINED and non-RELATIVE fields from the SI's synthesised_datatype.
+           RELTYPE is a placeholder indicating "needs further resolution", not a real type.
+           This prevents an SI with UNDEFINED synthesised_datatype from overwriting
+           a datatype already set by the caller (e.g., CD sets Integer before this). */
+        if (targetsi->synthesised_datatype->p != UNDEFINED && 
+            targetsi->synthesised_datatype->p != RELTYPE)
+            child->cstptr->datatype->p = targetsi->synthesised_datatype->p;
+        if (targetsi->synthesised_datatype->r != UNDEFINED && 
+            targetsi->synthesised_datatype->r != RELTYPE)
+            child->cstptr->datatype->r = targetsi->synthesised_datatype->r;
+        /* Only set interpretation_type if the child doesn't already have one assigned.
+           This prevents multiple predicates from setting MULTIPLE_SI incorrectly. */
+        if (targetsi->type != UNDEFINED && child->cstptr->type_assigned == FALSE)
+            child->cstptr->datatype->i = targetsi->type;
     }
 
     
@@ -335,9 +340,9 @@ int __direct_syntax_synthesis__(struct astnode *node) {
         child->cstptr->datatype->i = targetsi->type;
     }
     if (targetsi->interpretation != NULL && strlen(targetsi->interpretation) > 0) {
+        /* Skip empty interpretations (e.g., from java_type SIs) to prevent
+           them from polluting the datalist and causing spurious interpretations. */
         enqueue(child->cstptr->datalist, (char *)strdup(targetsi->interpretation));
-        fprintf(stderr, "DEBUG __direct_syntax_synthesis__: predicate=%s interpretation=%s child=%s datalist_count=%d\n",
-            node->token->symbol, targetsi->interpretation, child->cstptr->symbol, child->cstptr->datalist->count);
         /*
         * for multiple SI
         * some statements may have multiple subjects and objects, we deal with the following section
@@ -362,7 +367,7 @@ int __direct_syntax_synthesis__(struct astnode *node) {
         new->i = targetsi->type;
         if (!child->cstptr->datatype->multiple_datatypes) child->cstptr->datatype->multiple_datatypes = initqueue();
         enqueue(child->cstptr->datatype->multiple_datatypes, (void *)new);
-        if (child->cstptr->datalist->count > 1) {
+        if (child->cstptr->datalist->count > 1 && child->cstptr->type_assigned == FALSE) {
             child->cstptr->datatype->i = INT_SI_TYPE_MULTIPLE_SI;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -374,14 +379,14 @@ int __direct_syntax_synthesis__(struct astnode *node) {
         if the SI is an abstract SI, then the child requires further abstract synthesis
      */
     child->cstptr->abstract_synthesis_required = targetsi->abstract_synthesis_required;
-    root = deleteastnodeandedge(node, root);
+    root = consumeastnodeandedge(node, root);
     return 0;
 }
 
 
 void __post_operation_si_subtree_synthesis__(struct astnode *node) {
     node->type = Synthesised; 
-    deleteastchildren(node);
+    consumeastchildren(node);
 }
 
 // void subtree_si_synthesis(struct astnode *node, struct si *si) {

@@ -36,8 +36,6 @@ struct queue *__obtain_si_with_1_cstptr_(struct cstsymbol *x, struct queue *siq)
 
 
 int Nseries_code_synthesis(struct astnode *node) {
-    fprintf(stderr, "DEBUG Nseries: predicate=%s hasAbstract=%d checkNeed=%d hasRel=%d\n",
-        node->token->symbol, has_Abstract_SI(node->si_q), check_need_assigned_entity(node), has_Rel_SI(node->si_q));
     if (has_Abstract_SI(node->si_q)) {
         /* we use the abstract noun SI only */
         /* pop the current SI then find and enqueue the abstract noun SI */

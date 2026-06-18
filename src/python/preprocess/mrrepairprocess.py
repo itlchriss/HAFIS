@@ -8,11 +8,34 @@ import yaml
 from word2number import w2n
 
 
-sispecspath = './specs/si/typed_si.yml'
+# Default SI path - can be overridden via set_si_path()
+sispecspath = './specs/si/common/typed_si.yml'
+
+def set_si_path(path):
+    """Set the SI specs file path(s).
+    
+    Accepts either a single path (str) or a comma-separated list of paths.
+    Call this before using any functions that need SI data.
+    """
+    global sispecspath, SI_data
+    sispecspath = path
+    SI_data = None  # Reset cached SI data to force reload
+
 def _get_specs():
-    si = {}
-    with open(sispecspath, encoding='utf-8') as fp:
-        si = yaml.full_load(fp)
+    si = []
+    # Support comma-separated list of SI file paths
+    if isinstance(sispecspath, str) and ',' in sispecspath:
+        paths = [p.strip() for p in sispecspath.split(',')]
+    elif isinstance(sispecspath, list):
+        paths = sispecspath
+    else:
+        paths = [sispecspath]
+    for p in paths:
+        if os.path.exists(p):
+            with open(p, encoding='utf-8') as fp:
+                data = yaml.full_load(fp)
+                if data:
+                    si.extend(data)
     return si
 
 # the enumeration and constant UNDEFINED values must be consistent with the declarations in cst.h

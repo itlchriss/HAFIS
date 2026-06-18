@@ -1,0 +1,228 @@
+# =============================================================================
+# Dafny SI Module: Array Operations
+# =============================================================================
+# SI terms for Dafny array operations
+# Based on Dafny Reference Manual Section 15
+# =============================================================================
+
+# --- Array Allocation (Section 15.1) ---
+- term: new_array
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation: 'new'
+
+- term: integer_array_of_size
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'array'
+  interpretation: 'new int[]'
+
+- term: boolean_array_of_size
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'array'
+  interpretation: 'new bool[]'
+
+- term: character_array_of_size
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'array'
+  interpretation: 'new char[]'
+
+# --- Array Length (Section 15.1) ---
+- term: array_length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: (x).Length
+
+# --- Array Element Access (Section 15.1) ---
+- term: array_element_at
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[]'
+
+- term: the_element_at_index
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[]'
+
+# --- Array Update (Section 15.1) ---
+- term: array_updated_at
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation: '['
+
+- term: with_index
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '] := ['
+
+- term: set_to
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '] := '
+
+# --- Multi-dimensional Arrays (Section 15.2) ---
+- term: two_dimensional_array
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'array2'
+  interpretation: '[,]'
+
+- term: three_dimensional_array
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'array3'
+  interpretation: '[,,]'
+
+# --- Array Equality ---
+- term: arrays_are_equal
+  syntax:
+  - JJ
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'array'
+  - symbol: Dat
+    primitive_type: 'any'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(Subj) == (Dat)'
+
+- term: array_element_equality
+  syntax:
+  - NN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'array'
+  - symbol: Dat
+    primitive_type: 'any'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(Subj).Length == (Dat).Length && (forall i :: 0 <= i < (Subj).Length ==> (Subj)[i] == (Dat)[i])'
+
+# --- Array Subsequence ---
+- term: array_slice
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation: '[..]'
+
+- term: subarray_from
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation: '[..]'
+
+# --- Array Contains ---
+- term: array_contains
+  syntax:
+  - VBZ
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  - symbol: e
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(exists i :: 0 <= i < (x).Length && (x)[i] == (e))'
+
+# --- All Elements ---
+- term: all_elements_of
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'forall_in_array'
+
+- term: every_element_in
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'forall_in_array'

@@ -14,7 +14,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '&&'
-  note: 'Logical conjunction'
 
 - term: both
   syntax:
@@ -25,9 +24,8 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '&&'
-  note: 'Correlative conjunction marker'
 
-- term: and also
+- term: and_also
   syntax:
   - CC
   arguments:
@@ -47,7 +45,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '||'
-  note: 'Logical disjunction'
 
 - term: either
   syntax:
@@ -58,7 +55,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '||'
-  note: 'Correlative disjunction marker'
 
 # --- Implication ---
 - term: if
@@ -70,7 +66,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '==>'
-  note: 'Logical implication (antecedent marker)'
 
 - term: implies
   syntax:
@@ -91,7 +86,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '==>'
-  note: 'Implication consequent marker'
 
 - term: otherwise
   syntax:
@@ -102,21 +96,9 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'else'
-  note: 'Conditional else marker'
 
 # --- Biconditional ---
-- term: if and only if
-  syntax:
-  - IN
-  arguments:
-  - symbol: '*'
-  synthesised_datatype:
-    primitive_type: 'any'
-    reference_type: 'undefined'
-  interpretation: '<==>'
-  note: 'Logical biconditional'
-
-- term: if and only
+- term: if_and_only_if
   syntax:
   - IN
   arguments:
@@ -126,7 +108,17 @@
     reference_type: 'undefined'
   interpretation: '<==>'
 
-- term: exactly when
+- term: if_and_only
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '<==>'
+
+- term: exactly_when
   syntax:
   - RB
   arguments:
@@ -137,7 +129,7 @@
   interpretation: '<==>'
 
 # --- Negation ---
-- term: it is not the case that
+- term: it_is_not_the_case_that
   syntax:
   - NN
   arguments:
@@ -146,7 +138,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '!'
-  note: 'Propositional negation'
 
 - term: not
   syntax:
@@ -159,18 +150,7 @@
   interpretation: '!'
 
 # --- Universal ---
-- term: for every
-  syntax:
-  - IN
-  arguments:
-  - symbol: '*'
-  synthesised_datatype:
-    primitive_type: 'any'
-    reference_type: 'undefined'
-  interpretation: 'forall'
-  note: 'Universal quantifier'
-
-- term: for all
+- term: for_every
   syntax:
   - IN
   arguments:
@@ -180,7 +160,17 @@
     reference_type: 'undefined'
   interpretation: 'forall'
 
-- term: for each
+- term: for_all
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'forall'
+
+- term: for_each
   syntax:
   - IN
   arguments:
@@ -191,18 +181,7 @@
   interpretation: 'forall'
 
 # --- Existential ---
-- term: there exists
-  syntax:
-  - EX
-  arguments:
-  - symbol: '*'
-  synthesised_datatype:
-    primitive_type: 'any'
-    reference_type: 'undefined'
-  interpretation: 'exists'
-  note: 'Existential quantifier'
-
-- term: there exist
+- term: there_exists
   syntax:
   - EX
   arguments:
@@ -212,7 +191,17 @@
     reference_type: 'undefined'
   interpretation: 'exists'
 
-- term: there is at least one
+- term: there_exist
+  syntax:
+  - EX
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'exists'
+
+- term: there_is_at_least_one
   syntax:
   - EX
   arguments:
@@ -223,7 +212,7 @@
   interpretation: 'exists'
 
 # --- Unique Existential ---
-- term: exactly one
+- term: exactly_one
   syntax:
   - RB
   arguments:
@@ -232,10 +221,9 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: 'exists!'
-  note: 'Unique existential quantifier'
 
 # --- Guard/Restriction ---
-- term: such that
+- term: such_that
   syntax:
   - IN
   arguments:
@@ -244,7 +232,6 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '::'
-  note: 'Quantifier guard/restriction marker'
 
 - term: satisfying
   syntax:
@@ -255,4 +242,201 @@
     primitive_type: 'any'
     reference_type: 'undefined'
   interpretation: '::'
-  note: 'Synonym for such that'
+
+# --- Reverse Implication (DafnyRef Section 20.2) ---
+- term: is_implied_by
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '<=='
+
+- term: follows_from
+  syntax:
+  - VBZ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '<=='
+
+# --- Unless (equivalent to "or") ---
+- term: unless
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '||'
+
+# --- Necessary and Sufficient ---
+- term: is_necessary_for
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '<=='
+
+- term: is_sufficient_for
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '==>'
+
+# --- Additional Conjunction Patterns ---
+- term: moreover
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '&&'
+
+- term: furthermore
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '&&'
+
+- term: in_addition
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '&&'
+
+# --- Additional Negation Patterns ---
+- term: it_is_not_true_that
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '!'
+
+- term: it_cannot_be_that
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '!'
+
+- term: it_is_impossible_that
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '!'
+
+# --- Additional Universal Patterns ---
+- term: no_matter_which
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'forall'
+
+- term: regardless_of
+  syntax:
+  - IN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'forall'
+
+# --- Additional Existential Patterns ---
+- term: some
+  syntax:
+  - DT
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'exists'
+
+- term: at_least_one
+  syntax:
+  - CD
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: 'exists'
+
+# --- Implication Variants ---
+- term: provided_that
+  syntax:
+  - VBN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '==>'
+
+- term: as_long_as
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '==>'
+
+- term: only_if
+  syntax:
+  - RB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '<=='
+
+- term: whenever
+  syntax:
+  - WRB
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '==>'

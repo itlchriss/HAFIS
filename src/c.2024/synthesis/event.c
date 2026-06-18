@@ -49,7 +49,8 @@ char *__do_lazy_resolve__(char *s, struct entity *en) {
 int __compare_siarg_datatype__(struct datatype *argtype, struct datatype *entype) {
     if (
         (
-            (argtype->p == entype->p || argtype->p == ANY) && (argtype->r == entype->r || argtype->r == ANY)  
+            (argtype->p == entype->p || argtype->p == ANY) && 
+            (argtype->r == entype->r || argtype->r == ANY || argtype->r == UNDEFINED)  
                 && (entype->i < 100)
         ) || 
         (
@@ -193,10 +194,41 @@ struct queue *__2_event_entities_combinatorial_subtree_si_synthesis__(struct eve
                 ///////////////////////////////////////////////////////////////////////////////////////////////////////            
         } else {
             // single SI combinatorial synthesis
-            for (int j = 0; j < en1->cstptr->datalist->count; ++j) {
-                char *d1 = (char *)gqueue(en1->cstptr->datalist, j);
+            /* When an entity's datalist contains __REL__ placeholders (from Rel-dependent
+               NN predicates like _length), use the entity's CST symbol instead.
+               The __REL__ entries are internal placeholders, not actual values. */
+            int j_start = 0, j_end = en1->cstptr->datalist->count;
+            int k_start = 0, k_end = en2->cstptr->datalist->count;
+            char *en1_override = NULL, *en2_override = NULL;
+            /* Check if en1's datalist has any __REL__ entries - if so, use CST symbol */
+            {
+                int has_rel = 0;
+                for (int j = 0; j < en1->cstptr->datalist->count; ++j) {
+                    char *d = (char *)gqueue(en1->cstptr->datalist, j);
+                    if (d && ssearch(d, "__REL__")) { has_rel = 1; break; }
+                }
+                if (has_rel) {
+                    en1_override = en1->cstptr->symbol;
+                    j_end = 1; /* Use just the override */
+                }
+            }
+            /* Check if en2's datalist has any __REL__ entries - if so, use CST symbol */
+            {
+                int has_rel = 0;
                 for (int k = 0; k < en2->cstptr->datalist->count; ++k) {
-                    char *d2 = (char *)gqueue(en2->cstptr->datalist, k), *s = (char *)strdup(si->interpretation);    
+                    char *d = (char *)gqueue(en2->cstptr->datalist, k);
+                    if (d && ssearch(d, "__REL__")) { has_rel = 1; break; }
+                }
+                if (has_rel) {
+                    en2_override = en2->cstptr->symbol;
+                    k_end = 1; /* Use just the override */
+                }
+            }
+            for (int j = j_start; j < j_end; ++j) {
+                char *d1 = en1_override ? en1_override : (char *)gqueue(en1->cstptr->datalist, j);
+                for (int k = k_start; k < k_end; ++k) {
+                    char *d2 = en2_override ? en2_override : (char *)gqueue(en2->cstptr->datalist, k);
+                    char *s = (char *)strdup(si->interpretation);    
                     char *tmp = NULL;
                     if (si->type == SI_INT_TYPE_FUNCTION) {
                         /* 
@@ -461,9 +493,9 @@ int event_synthesis(struct astnode *node) {
                 for (int i = 0; i < node->si_q->count; ++i) {
                     enqueue(en1->cstptr->datalist, strdup(gqueue(node->si_q, i)));
                 }
-                root = deleteastnodeandedge(node, root);        
+                root = consumeastnodeandedge(node, root);        
             } else if (node->si_q == NULL) {
-                root = deleteastnodeandedge(node, root);
+                root = consumeastnodeandedge(node, root);
             } else {
                 struct entity *en1 = (struct entity *)gqueue(e->entities, 0);
                 en1->cstptr->interpretation_type = SI_INT_TYPE_EXPR;

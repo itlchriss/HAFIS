@@ -5,18 +5,7 @@
 # =============================================================================
 
 # --- Map Lookup ---
-- term: the value mapped to by
-  syntax:
-  - NN
-  arguments:
-  - symbol: '*'
-  synthesised_datatype:
-    primitive_type: 'any'
-    reference_type: 'undefined'
-  interpretation: '[]'
-  note: 'Map lookup: m[k]'
-
-- term: the value associated with
+- term: value_mapped_to_by
   syntax:
   - NN
   arguments:
@@ -26,7 +15,17 @@
     reference_type: 'undefined'
   interpretation: '[]'
 
-- term: maps to
+- term: value_associated_with
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: '[]'
+
+- term: maps_to
   syntax:
   - VBZ
   arguments:
@@ -35,10 +34,9 @@
     primitive_type: 'boolean'
     reference_type: 'undefined'
   interpretation: '=='
-  note: 'Map key-value association'
 
 # --- Map Domain ---
-- term: the domain of the map
+- term: domain_of_the_map
   syntax:
   - NN
   arguments:
@@ -47,9 +45,8 @@
     primitive_type: 'any'
     reference_type: 'set'
   interpretation: '.Keys'
-  note: 'Map domain: m.Keys'
 
-- term: the set of keys of
+- term: set_of_keys_of
   syntax:
   - NN
   arguments:
@@ -60,7 +57,7 @@
   interpretation: '.Keys'
 
 # --- Map Range ---
-- term: the range of the map
+- term: range_of_the_map
   syntax:
   - NN
   arguments:
@@ -69,9 +66,8 @@
     primitive_type: 'any'
     reference_type: 'set'
   interpretation: '.Values'
-  note: 'Map range: m.Values'
 
-- term: the set of values of
+- term: set_of_values_of
   syntax:
   - NN
   arguments:
@@ -82,7 +78,7 @@
   interpretation: '.Values'
 
 # --- Map Update ---
-- term: updated with
+- term: updated_with
   syntax:
   - VBN
   arguments:
@@ -91,9 +87,8 @@
     primitive_type: 'any'
     reference_type: 'map'
   interpretation: '['
-  note: 'Map update: m[k := v]'
 
-- term: the map with key
+- term: map_with_key
   syntax:
   - NN
   arguments:
@@ -103,7 +98,7 @@
     reference_type: 'map'
   interpretation: '['
 
-- term: mapped to
+- term: mapped_to
   syntax:
   - VBN
   arguments:
@@ -114,7 +109,7 @@
   interpretation: ':='
 
 # --- Empty Map ---
-- term: the empty map
+- term: empty_map
   syntax:
   - NN
   arguments:
@@ -125,7 +120,7 @@
   interpretation: 'map[]'
 
 # --- Map Cardinality ---
-- term: the number of entries in the map
+- term: number_of_entries_in_the_map
   syntax:
   - NN
   arguments:

@@ -471,7 +471,7 @@ def main(filename, mode = None):
     # prompt = 'Please extract all possible behavioural requirements (preconditions and postconditions) such that they clearly apply to the Java method %s from the given requirements: "%s" ' % (signature, sentence)
     prompt = """
 
-You act as a software specification analyst that rewrites the given software specification into behavioural specifications.
+You act as a software specification analyst that rewrites the given software specification into behavioural specifications expressed in Restricted Natural Language (RNL).
 
 === CORE RULES ===
 
@@ -480,10 +480,129 @@ You act as a software specification analyst that rewrites the given software spe
 3. Each method behavioural specification must explicitly specify the data types and parameter names if parameters are referred, and the parameter names must be surrounded by quotes(``) and these parameter names should be referred from the method signature.
 4. Each method behavioural specification must explicitly specify the data type and use the term 'result' as subject if result is referred, and the data type of the result should be referred from the method signature.
 5. Each method behavioural specification must clearly apply to the context of the method signature to explicitly recognising the parameters used in the method signature.
-6. The syntax of each method behavioural specification must strictly adhere to the syntax of the method behavioural specifications in the given examples.
+6. The syntax of each method behavioural specification must strictly adhere to the RNL grammar patterns defined below AND to the syntax of the method behavioural specifications in the given examples.
 7. Do not provide information that are related to the implementation of methods.
 8. Do not use parentheses in the method behavioural specifications.
 9. Do not enumerate behavioural specifications that are not listed in the given software specification.
+
+=== RNL GRAMMAR (STRICT SYNTAX RULES) ===
+
+Every behavioural specification MUST be composed exclusively from the following patterns. Patterns may be nested where {expr}, {constraint}, or {condition} appears.
+
+-- TYPE NAMES --
+Use exactly these type names:
+  integer            (for int)
+  non-negative integer  (for nat/non-negative int)
+  boolean            (for bool)
+  {type} array       (for array<T>, e.g. "integer array")
+  {type} sequence    (for seq<T>)
+  {type} set         (for set<T>)
+  {type} multiset    (for multiset<T>)
+  map from {key_type} to {value_type}   (for map<K,V>)
+  string             (for String/char sequence)
+  character          (for char)
+
+-- METHOD SPECIFICATION CONSTRUCTORS (top-level sentence patterns) --
+  A01: The {type} parameter `{name}` {constraint}.
+  A02/A03: The {type} result {constraint}.
+  A04: The length of the {type} result {constraint}.
+  A05: The method may modify the {type} parameter `{name}`.
+  A07: The termination metric is the {constraint}.
+
+-- LOGICAL CONNECTIVES --
+  B01: {expr1} and {expr2}.
+  B02: {expr1} or {expr2}.
+  B03: If {condition}, {consequence}.
+  B04: {expr1} if and only if {expr2}.
+  B05: It is not the case that {expr}.
+  B06: No {type} `{var}` satisfies {constraint}.
+
+-- QUANTIFIERS --
+  C01: For every {type} `{var}`, {constraint}.
+  C02: For every {type} `{var}` such that {guard}, {constraint}.
+  C03: For every non-negative integer `{var}` that is less than {bound}, {constraint}.
+  C04: There exists a {type} `{var}` such that {constraint}.
+  C05: There exist a {type1} `{var1}` and a {type2} `{var2}` such that {constraint}.
+  C06: Exactly one {type} `{var}` exists such that {constraint}.
+  C07: For every {type} `{var1}` and every {type} `{var2}`, {constraint}.
+  C08: All values in the {type} {name} {constraint}.
+  C09: For every element `{var}` contained in the set `{name}`, {constraint}.
+
+-- COMPARISONS --
+  J01: {expr1} is equal to {expr2}.
+  J02: {expr1} is not equal to {expr2}.
+  J03: {expr1} is greater than or equal to {expr2}.
+  J04: {expr1} is less than or equal to {expr2}.
+  J05: {expr1} is greater than {expr2}.
+  J06: {expr1} is less than {expr2}.
+  J07: the null literal
+  J08: the true literal
+  J09: the false literal
+
+-- ARITHMETIC EXPRESSIONS --
+  G01: the sum of {expr1} and {expr2}
+  G02: the difference between {expr1} and {expr2}
+  G03: the product of {expr1} and {expr2}
+  G04: the quotient of {expr1} divided by {expr2}
+  G05: the remainder of {expr1} divided by {expr2}
+  G06: {base} raised to the power of {expr}
+  G07: the absolute value of {expr}
+
+-- ARRAY / SEQUENCE ACCESS --
+  I04/F01: the length of the {type} `{name}`
+  I05: the value at index {expr} of the {type} `{name}`
+  I07: the character at index {expr} of the string `{name}`
+  F02: the element at index {expr} of the {type} `{name}`
+  F03: the subsequence from index {expr1} to index {expr2} of the {type} `{name}`
+  F04: the concatenation of the {type} `{name1}` and the {type} `{name2}`
+  F05: the empty {type} sequence
+
+-- SET / MULTISET OPERATIONS --
+  E01: {expr} is contained in the set `{name}`.
+  E02: {expr} is not contained in the set `{name}`.
+  E03: the cardinality of the set `{name}`
+  E04: the empty set
+  E05: the set `{name}` minus the singleton set containing {expr}
+  E06: the set of all {type} `{var}` such that {constraint}
+  E07: the set `{name1}` is a subset of the set `{name2}`.
+  E08: the union of the set `{name1}` and the set `{name2}`
+  E09: the intersection of the set `{name1}` and the set `{name2}`
+  E10: the singleton set containing {expr}
+
+-- STRUCTURAL PROPERTIES --
+  K01: The {type} `{name}` is sorted in ascending order.
+  K02: The {type} `{name}` is sorted in descending order.
+  K03: All values in the {type} `{name}` are unique.
+  K04: The {type} `{name}` is empty.
+  K05: The {type} `{name}` is not equal to the null literal.
+
+-- RANGE / BOUNDARY PATTERNS --
+  O01: {expr} is greater than or equal to {lo} and is less than or equal to {hi}.
+  O02: All values in the {type} `{name}` are greater than or equal to {lo} and are less than or equal to {hi}.
+  O03: The length of the {type} `{name}` is greater than or equal to {lo} and is less than or equal to {hi}.
+
+-- OPTIMIZATION PATTERNS --
+  L01: The integer result is the maximum {property}.
+  L02: The integer result is the minimum {property}.
+
+-- COUNTING PATTERNS --
+  M01: The integer result is equal to the total number of {structure} such that {constraint}.
+
+-- TEST CASE PATTERNS --
+  N01: If the {type} parameter `{name}` is equal to {value}, {result_expr}.
+  N02: If the {type1} parameter `{name1}` is equal to {value1} and the {type2} parameter `{name2}` is equal to {value2}, {result_expr}.
+
+IMPORTANT SYNTAX NOTES:
+- Parameter references MUST follow: the {type} parameter `{name}`   (e.g., "the integer parameter `n`")
+- Array parameter references MUST follow: the {type} array parameter `{name}`   (e.g., "the integer array parameter `nums`")
+- Result references MUST follow: the {type} result   (e.g., "the integer result", "the boolean result")
+- Array result references MUST follow: the {type} array result   (e.g., "the integer array result")
+- Variable names in quantifiers MUST be in backticks: `{var}`   (e.g., `i`, `k`)
+- Integer literals are written as plain numbers: 0, 1, 100, -1
+- Do NOT use words like "mod" — use "the remainder of {expr1} divided by {expr2}"
+- Do NOT use words like "sum between" — use "the sum of {expr1} and {expr2}"
+- Do NOT use mathematical symbols (+, -, *, /, %, ^, <=, >=, ==, !=)
+- Do NOT use the word "minus" standalone — use "the difference between {expr1} and {expr2}"
 
 === ABSOLUTE PRONOUN PROHIBITION ===
 
@@ -1031,7 +1150,8 @@ What are the method behavioural specifications for the given context?
 Before outputting, you MUST follow these steps:
 STEP 1: Draft the behavioural specifications.
 STEP 2: Scan every single word of the draft. If any word matches a pronoun from the forbidden list (i, me, my, you, your, he, him, his, she, her, it, its, we, us, our, they, them, their, this, that, these, those, who, whom, whose, which, etc.), replace it with the full explicit noun phrase.
-STEP 3: Only after confirming zero pronouns remain, output the final result.
+STEP 3: Check every sentence against the RNL grammar patterns listed in the "RNL GRAMMAR" section above. Each sentence must match one of the listed top-level patterns (A01–A07, B01–B06, C01–C09, K01–K05, O01–O03, L01–L02, M01, N01–N02). Fix any sentence that does not conform.
+STEP 4: Only after confirming zero pronouns remain AND all sentences conform to RNL grammar, output the final result.
 
 CRITICAL REMINDERS:
 1. The output MUST NOT contain ANY pronouns whatsoever. The input specification uses pronouns — the output MUST NOT.
@@ -1039,6 +1159,11 @@ CRITICAL REMINDERS:
 3. Every reference to the return value must use the full form: "the <data_type> result"
 4. If you find yourself about to write "it", "they", "them", "its", "their", "this", "that", or any other pronoun, STOP and replace it with the full explicit noun phrase.
 5. Common traps to avoid: "it is" → use full noun phrase, "its length" → "the length of the ... parameter `x`", "they are" → repeat full noun phrase.
+6. Every sentence MUST end with a period.
+7. Do NOT use arithmetic symbols or shorthand. Use RNL grammar patterns G01–G07 for all arithmetic.
+8. For range constraints, prefer pattern O01: "{expr} is greater than or equal to {lo} and is less than or equal to {hi}."
+9. For array/string length bounds, prefer pattern O03: "The length of the {type} `{name}` is greater than or equal to {lo} and is less than or equal to {hi}."
+10. For value-range constraints on all elements, prefer pattern O02: "All values in the {type} `{name}` are greater than or equal to {lo} and are less than or equal to {hi}."
 
 output format: a list with '-' as bullets
 """

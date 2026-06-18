@@ -55,6 +55,6 @@ int TO_code_synthesis(struct astnode *node) {
          if (__is_abtract_arg_done__(en->cstptr)) en->cstptr->abstract_synthesis_required = FALSE;
     }
 
-    root = deleteastnodeandedge(node, root);
+    root = consumeastnodeandedge(node, root);
     return TRUE;
 }

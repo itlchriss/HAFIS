@@ -1,0 +1,606 @@
+# =============================================================================
+# Dafny SI Module: Type Predicates and Dafny-specific interpretations
+# =============================================================================
+# SI terms for Dafny backend including type predicates and
+# Dafny-specific collection/string operations
+# Based on Dafny Reference Manual sections 6-12
+# =============================================================================
+
+# === Type predicates (used by NLP pipeline for MR generation) ===
+# Dafny basic types (Section 5, 7 of DafnyRef)
+- term: type_boolean_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_character_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'undefined'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_integer_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_non_negative_integer_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_nat_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_real_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'real'
+    reference_type: 'undefined'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_string_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'undefined'
+    reference_type: 'string'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+
+# Dafny array types (Section 15 of DafnyRef)
+- term: type_integer_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'array'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_non_negative_integer_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'array'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_boolean_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'array'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_character_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'array'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_string_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'undefined'
+    reference_type: 'string_array'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_array_
+  syntax:
+  - NN
+  - NNS
+  - NNP
+  - NNPS
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation: ''
+- term: type_arrays_
+  syntax:
+  - NN
+  - NNS
+  - NNP
+  - NNPS
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation: ''
+
+# Dafny collection types (Section 10 of DafnyRef)
+- term: type_integer_set_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'set'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_set_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'set'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_integer_sequence_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'seq'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_sequence_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'seq'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_integer_multiset_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'multiset'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_multiset_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'multiset'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_map_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'map'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_imap_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'imap'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+
+# Dafny bitvector types (Section 7.3 of DafnyRef)
+- term: type_bv8_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'bv8'
+    reference_type: 'undefined'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_bv16_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'bv16'
+    reference_type: 'undefined'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_bv32_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'bv32'
+    reference_type: 'undefined'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+- term: type_bv64_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'bv64'
+    reference_type: 'undefined'
+  interpretation_type: 'dafny_type'
+  interpretation: ''
+
+# === Dafny-specific length/cardinality interpretations ===
+# Array length in Dafny: array.Length (capital L) - Section 15.1
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: (x).Length
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'string_array'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: (x).Length
+
+# Sequence length in Dafny: |seq| - Section 10.3
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'seq'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: '|(x)|'
+
+# String length in Dafny: |string| - Section 10.3.5
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'undefined'
+    reference_type: 'string'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: '|(x)|'
+
+# Set cardinality in Dafny: |set| - Section 10.1
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'set'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: '|(x)|'
+
+# Multiset cardinality in Dafny: |multiset| - Section 10.2
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'multiset'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: '|(x)|'
+
+# Map cardinality in Dafny: |map| - Section 10.4
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'map'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: '|(x)|'
+
+# Imap cardinality in Dafny: |imap| - Section 10.4
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'imap'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: '|(x)|'
+
+# List length in Dafny: |list| (using sequence notation)
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'list'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: '|(x)|'
+
+# === Dafny-specific element access ===
+# Array element: array[i] - Section 15.1
+- term: __REL__element
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: (x)[i]
+
+# Sequence element: seq[i] - Section 10.3
+- term: __REL__element
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'seq'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: (x)[i]
+
+# String character: string[i] - Section 10.3.5
+- term: __REL__element
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'undefined'
+    reference_type: 'string'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'any'
+  interpretation: (x)[i]
+
+# === Dafny-specific quantifier patterns ===
+# forall i :: 0 <= i < |x| ==> x[i] - Section 20.34
+- term: __REL__value
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation_type: 'modifier'
+  interpretation: 'forall i :: 0 <= i < (x).Length ==> (x)[i]'
+
+- term: __REL__value
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'seq'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation_type: 'modifier'
+  interpretation: 'forall i :: 0 <= i < |(x)| ==> (x)[i]'
+
+- term: __REL__value
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'undefined'
+    reference_type: 'string'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'undefined'
+  interpretation_type: 'modifier'
+  interpretation: 'forall i :: 0 <= i < |(x)| ==> (x)[i]'
+
+# === Dafny-specific prime/even/unique predicates ===
+# Using Dafny quantifier syntax: forall k :: ... - Section 20.34
+- term: prime
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression_requires_param'
+  interpretation: '(x) == 2 || ((x) > 2 && (forall k :: 2 <= k && k <= (x)/2 ==> (x)%k != 0))'
+- term: prime_number
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'function'
+  interpretation: '(x) == 2 || ((x) > 2 && (forall k :: 2 <= k && k <= (x)/2 ==> (x)%k != 0))'
+- term: even
+  syntax:
+  - RB
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression_requires_param'
+  interpretation: (x) % 2 == 0
+- term: unique
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation_type: 'expression_requires_param'
+  interpretation: 'forall i :: 0 <= i < (x).Length ==> (forall j :: 0 <= j < (x).Length && j != i ==> (x)[j] != (x)[i])'
+
+# === Dafny-specific old/unchanged ===
+# old(expr) - Section 20.24
+- term: unchanged
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'array'
+  interpretation_type: 'expression_requires_param'
+  interpretation: old((x)) == (x)
+
+# === Dafny-specific result ===
+# In Dafny, result is just the return variable name, not \result
+- term: result
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: result
+- term: keyword_result
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  interpretation_type: 'value'
+  interpretation: result

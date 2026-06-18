@@ -1,0 +1,502 @@
+# =============================================================================
+# JML SI Module: Type Predicates and Java-specific interpretations
+# =============================================================================
+# SI terms for JML/Java backend including type predicates and
+# Java-specific collection/string operations
+# =============================================================================
+
+# === Type predicates (used by NLP pipeline for MR generation) ===
+- term: type_boolean_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_byte_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'byte'
+    reference_type: 'undefined'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_character_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'undefined'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_short_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'short'
+    reference_type: 'undefined'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_integer_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_non_negative_integer_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_nat_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_long_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'long'
+    reference_type: 'undefined'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_float_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'float'
+    reference_type: 'undefined'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_double_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'double'
+    reference_type: 'undefined'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_string_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'undefined'
+    reference_type: 'string'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_string_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'undefined'
+    reference_type: 'string_array'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_boolean_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'array'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_byte_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'byte'
+    reference_type: 'array'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_character_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'array'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_short_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'short'
+    reference_type: 'array'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_integer_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'array'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_non_negative_integer_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'array'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_long_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'long'
+    reference_type: 'array'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_float_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'float'
+    reference_type: 'array'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_double_array_
+  syntax:
+  - NN
+  arguments:
+  - symbol: 'x'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'double'
+    reference_type: 'array'
+  interpretation_type: 'java_type'
+  interpretation: ''
+- term: type_list_
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'list'
+  interpretation: ''
+- term: type_arrays_
+  syntax:
+  - NN
+  - NNS
+  - NNP
+  - NNPS
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation: ''
+- term: type_array_
+  syntax:
+  - NN
+  - NNS
+  - NNP
+  - NNPS
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation: ''
+
+# === Java-specific length/size interpretations ===
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: (x).length
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'string_array'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: (x).length
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'object'
+    type_names:
+    - 'list'
+    - 'collection'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: (x).size()
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'undefined'
+    reference_type: 'string'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: (x).length()
+- term: __REL__length
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'list'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'integer'
+  interpretation: (x).size()
+
+# === Java-specific element access ===
+- term: __REL__element
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: (x)[i]
+- term: __REL__element
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'string'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'any'
+  interpretation: (x).charAt(i)
+- term: __REL__element
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'list'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation: (x).get(i)
+
+# === Java-specific quantifier patterns ===
+- term: __REL__value
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation_type: 'modifier'
+  interpretation: \forall int i; 0 <= i < (x).length; (x)[i]
+- term: __REL__value
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'list'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'undefined'
+  interpretation_type: 'modifier'
+  interpretation: \forall int i; 0 <= i < (x).size(); (x).get(i)
+- term: __REL__value
+  syntax:
+  - NNS
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'string'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'undefined'
+  interpretation_type: 'modifier'
+  interpretation: \forall int i; 0 <= i < (x).length(); (x).charAt(i)
+
+# === Java-specific prime/even/unique predicates ===
+- term: prime
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression_requires_param'
+  interpretation: (x) == 2 || ((x) > 2 && (\forall int k; (x) > 2 && 2 <= k && k <=
+    (x)/2; (x)%k != 0))
+- term: prime_number
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'function'
+  interpretation: (x) == 2 || ((x) > 2 && (\forall int k; (x) > 2 && 2 <= k && k <=
+    (x)/2; (x)%k != 0))
+- term: even
+  syntax:
+  - RB
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation_type: 'expression_requires_param'
+  interpretation: (x) % 2 == 0
+- term: unique
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'any'
+    reference_type: 'array'
+  interpretation_type: 'expression_requires_param'
+  interpretation: \forall int i; 0 <= i < (x).length; (\forall int j; 0 <= j < (x).length && j != i; (x)[j] != (x)[i])
+
+# === Java-specific old/unchanged ===
+- term: unchanged
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'array'
+  interpretation_type: 'expression_requires_param'
+  interpretation: \old((x)) == (x)
+
+# === Java-specific result ===
+- term: result
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+    primitive_type: 'any'
+    reference_type: 'any'
+  synthesised_datatype:
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: \result
+- term: keyword_result
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  interpretation_type: 'value'
+  interpretation: \result

@@ -2,6 +2,16 @@
 # Each section corresponds to a condition processor function.
 # Patterns specify how to split or transform complex conditions.
 
+# Extraction patterns define how to extract raw NL conditions from source files.
+# The backend is determined by the input SI library paths:
+#   - jml SI libraries  -> extract from JML-style //@ requires(*) / //@ ensures(*) comments
+#   - dafny SI libraries -> extract from Dafny-style // requires(*) / // ensures(*) / // assert(*) comments
+extraction_patterns:
+  jml:
+    pattern: '\s*\/\/@\s+(requires|ensures)\(\*(.*)\*\);'
+  dafny:
+    pattern: '//\s*(requires|ensures|assert)\(\*([^*]+)\*\)\s*;'
+
 parameter_type_distrition:
   - pattern: '(.*)\s+of\s+each\s+(integer\s+array\s+parameter)\s+(`[^`]+`(, `[^`]+`)*(, and `[^`]+`| and `[^`]+`))\s+(.*)'
   - pattern: '(.*)\s+in\s+each\s+(integer\s+array\s+parameter)\s+(`[^`]+`(, `[^`]+`)*(, and `[^`]+`| and `[^`]+`))\s+(.*)'
