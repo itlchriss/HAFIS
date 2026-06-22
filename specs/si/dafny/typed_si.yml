@@ -11,6 +11,7 @@
 - term: type_boolean_
   syntax:
   - NN
+  - JJ  # Fallback for ccg2lambda tagger errors (noun adjunct mis-tagged as adjective)
   arguments:
   - symbol: 'x'
     primitive_type: 'any'
@@ -97,6 +98,7 @@
 - term: type_integer_array_
   syntax:
   - NN
+  - JJ  # Fallback for ccg2lambda tagger errors (noun adjunct mis-tagged as adjective)
   arguments:
   - symbol: 'x'
     primitive_type: 'any'
@@ -121,6 +123,7 @@
 - term: type_boolean_array_
   syntax:
   - NN
+  - JJ  # Fallback for ccg2lambda tagger errors
   arguments:
   - symbol: 'x'
     primitive_type: 'any'

@@ -14,7 +14,13 @@ char *primitive_datatype_names[] = {
     "Integer",
     "Long",
     "Float",
-    "Double"
+    "Double",
+    "Real",
+    "BV8",
+    "BV16",
+    "BV32",
+    "BV64",
+    "Ordinal"
 };
 
 char *reference_datatype_names[] = {
@@ -22,7 +28,20 @@ char *reference_datatype_names[] = {
     "String",
     "Object",
     "List",
-    "String_Array"
+    "String_Array",
+    "Set",
+    "Seq",
+    "Multiset",
+    "Map",
+    "IMap",
+    "FunctionType",
+    "Array2",
+    "Array3",
+    "ISet",
+    "Subset",
+    "Newtype",
+    "TypeSynonym",
+    "OpaqueType"
 };
 
 void showcstsymbol(void *_symbol) {
@@ -77,6 +96,12 @@ void showcstsymbol(void *_symbol) {
     if (c->abstract_synthesis_required == TRUE) {
         printf("\nAbstract synthesis required");
     }
+    if (c->coref_values && c->coref_values->count > 0) {
+        printf("\nCo-ref values:");
+        for (int i = 0; i < c->coref_values->count; ++i) {
+            printf("%s  ", (char *)gqueue(c->coref_values, i));
+        }
+    }
     printf("\n===================================================================================\n");
 }
 
@@ -104,6 +129,8 @@ struct cstsymbol *newcstsymbol(char *symbol) {
     new->abstract_synthesis_required = FALSE;
     new->type_assigned = FALSE;
     new->datatype->relative_var = NULL;
+    new->coref_values = initqueue();
+    new->alias_of = NULL;  // Initialize alias relationship
     enqueue(cst, (void*)new);
     return new;
 }
@@ -182,6 +209,9 @@ void deallocatecstsymbol(void *_cstsymbol) {
     }
     if (c->conjunction_operators && c->conjunction_operators->count > 0) {
         deallocatequeue(c->conjunction_operators, deallocatedata);
+    }
+    if (c->coref_values && c->coref_values->count > 0) {
+        deallocatequeue(c->coref_values, deallocatedata);
     }
     /* we never allocate the type_names in the relative datatype */
 }

@@ -24,12 +24,13 @@ lemma digitSum_mod9(n: nat)
     }
 }
 
-// requires(*The integer parameter `num` is greater than or equal to 0 and is less than or equal to 2147483647.*);
-// ensures(*The integer result is greater than or equal to 0 and is less than or equal to 9.*);
-// ensures(*If the integer parameter `num` is equal to 38, the integer result is equal to 2.*);
-// ensures(*If the integer parameter `num` is equal to 0, the integer result is equal to 0.*);
 method addDigits(num: int) returns (result: int)
 {
+    // requires(*The integer parameter `num` is greater than or equal to 0 and is less than or equal to 2147483647.*);
+    // ensures(*The integer result is greater than or equal to 0 and is less than or equal to 9.*);
+    // ensures(*If the integer parameter `num` is equal to 38, the integer result is equal to 2.*);
+    // ensures(*If the integer parameter `num` is equal to 0, the integer result is equal to 0.*);
+    // ensures(*The integer result is the single digit obtained by repeatedly adding all digits of the integer parameter `num` until the result has only one digit.*);
     if num == 0 {
         result := 0;
         return;

@@ -343,6 +343,17 @@ int __direct_syntax_synthesis__(struct astnode *node) {
         /* Skip empty interpretations (e.g., from java_type SIs) to prevent
            them from polluting the datalist and causing spurious interpretations. */
         enqueue(child->cstptr->datalist, (char *)strdup(targetsi->interpretation));
+        /* Bookmark co-reference values when multiple predicates bind to the same variable.
+           This is used by preposition resolution (e.g., between) to look up bound values. */
+        if (child->cstptr->datalist->count > 1) {
+            if (child->cstptr->coref_values && child->cstptr->coref_values->count > 0) {
+                deallocatequeue(child->cstptr->coref_values, deallocatedata);
+            }
+            child->cstptr->coref_values = initqueue();
+            for (int k = 0; k < child->cstptr->datalist->count; ++k) {
+                enqueue(child->cstptr->coref_values, (char *)strdup((char *)gqueue(child->cstptr->datalist, k)));
+            }
+        }
         /*
         * for multiple SI
         * some statements may have multiple subjects and objects, we deal with the following section

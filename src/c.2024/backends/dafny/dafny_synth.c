@@ -100,10 +100,16 @@ void dafny_itoa(int N, char *str) {
 char *dafny_get_length_repr(struct datatype *dt) {
     if (dt->r == String) {
         return ".Length";
-    } else if (dt->r == Array || dt->r == String_Array) {
+    } else if (dt->r == Array || dt->r == String_Array || dt->r == Array2 || dt->r == Array3) {
         return ".Length";
-    } else if (dt->r == List) {
-        return "|%x|";  /* Dafny sequence cardinality - placeholder */
+    } else if (dt->r == List || dt->r == Seq) {
+        return "|%x|";  /* Dafny sequence cardinality */
+    } else if (dt->r == Set || dt->r == ISet) {
+        return "|%x|";  /* Dafny set cardinality */
+    } else if (dt->r == Multiset) {
+        return "|%x|";  /* Dafny multiset cardinality */
+    } else if (dt->r == Map || dt->r == IMap) {
+        return "|%x|";  /* Dafny map cardinality */
     } else {
         return NULL;
     }
@@ -120,13 +126,13 @@ char *dafny_get_access_repr(struct datatype *dt, int mode) {
         } else {
             return "%x[%i]";
         }
-    } else if (dt->r == Array || dt->r == String_Array) {
+    } else if (dt->r == Array || dt->r == String_Array || dt->r == Array2 || dt->r == Array3) {
         if (mode == 0) {
             return "%x[i]";
         } else {
             return "%x[%i]";
         }
-    } else if (dt->r == List) {
+    } else if (dt->r == List || dt->r == Seq) {
         if (mode == 0) {
             return "%x[i]";  /* Dafny sequences support indexing */
         } else {

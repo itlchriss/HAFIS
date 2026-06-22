@@ -19,11 +19,56 @@
   syntax:
   - IN
   arguments:
-  - symbol: '*'
-  synthesised_datatype:
+  - symbol: 'Subj'
     primitive_type: 'integer'
     reference_type: 'undefined'
-  interpretation: '+'
+  - symbol: 'Prep'
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: '(Subj) + (Prep)'
+
+# Character-reference SI for "+" in non-arithmetic POS categories
+# Per dictionary, only plus{IN} (preposition) is the arithmetic form.
+# Other POS variants are character references or MR faults.
+- term: "+"
+  syntax:
+  - NNP
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'undefined'
+  interpretation: "'+'"
+
+- term: "+"
+  syntax:
+  - JJ
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'undefined'
+  interpretation: "'+'"
+
+- term: "+"
+  syntax:
+  - CD
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'undefined'
+  interpretation: "'+'"
+
+- term: "+"
+  syntax:
+  - SYM
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'character'
+    reference_type: 'undefined'
+  interpretation: "'+'"
 
 - term: added_to
   syntax:
@@ -317,6 +362,23 @@
 
 # --- Divisibility ---
 - term: is_divisible_by
+  syntax:
+  - JJ
+  arguments:
+  - symbol: x
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  - symbol: y
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  synthesised_datatype:
+    primitive_type: 'boolean'
+    reference_type: 'undefined'
+  interpretation_type: 'expression'
+  interpretation: '(x) % (y) == 0'
+
+# Alias for ccg2lambda which derives _divisible{JJ} from "divisible by"
+- term: divisible
   syntax:
   - JJ
   arguments:

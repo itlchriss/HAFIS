@@ -232,28 +232,77 @@ int (*code_syntheses[])(struct astnode *) = {CC_code_synthesis, CD_code_synthesi
         cst         : a queue holding the compile time symbols, aka the identitiers in the meaning representation
 */
 void sisynthesis() {
+    #ifdef SIDEBUG
+    printf("[DEBUG] sisynthesis: starting\n");
+    #endif
     struct astnode *node;
     struct queue *tmp = initqueue();
     int retry_count = 0;
     int max_retries = predicates->count * predicates->count + 1;
-
-    #if SIDEBUG
-    printf("si synthesis: after sorting, there are %d predicates in the queue.\n", predicates->count);
-    for (int i = 0; i < predicates->count; ++i) {
-        node = (struct astnode*)gqueue(predicates, i);
-        printf("%d. %s(%s) %d\n", i + 1, node->token->symbol, ptbsyntax2string(node->syntax), node->si_q->count);
-    }
+    
+    #ifdef SIDEBUG
+    printf("[DEBUG] sisynthesis: predicates count=%d\n", predicates->count);
+    fflush(stdout);
     #endif
 
-    
+    #ifdef SIDEBUG
+    printf("si synthesis: after sorting, there are %d predicates in the queue.\n", predicates->count);
+    fflush(stdout);
+    for (int i = 0; i < predicates->count; ++i) {
+        printf("[DEBUG] checking predicate %d\n", i);
+        fflush(stdout);
+        node = (struct astnode*)gqueue(predicates, i);
+        if (node == NULL) {
+            printf("%d. NULL node\n", i + 1);
+        } else if (node->token == NULL) {
+            printf("%d. NULL token\n", i + 1);
+        } else if (node->si_q == NULL) {
+            printf("%d. %s(%s) si_q=NULL\n", i + 1, node->token->symbol, ptbsyntax2string(node->syntax));
+        } else {
+            printf("%d. %s(%s) %d\n", i + 1, node->token->symbol, ptbsyntax2string(node->syntax), node->si_q->count);
+        }
+        fflush(stdout);
+    }
+    printf("[DEBUG] sisynthesis: finished checking predicates\n");
+    fflush(stdout);
+    #endif
+
+    #ifdef SIDEBUG
+    printf("[DEBUG] sisynthesis: starting main synthesis loop\n");
+    fflush(stdout);
+    #endif
+
     while (!isempty(predicates)) {    
         node = (struct astnode*)dequeue(predicates);
+        #ifdef SIDEBUG
+        if (node != NULL && node->token != NULL && node->token->symbol != NULL) {
+            printf("[DEBUG] sisynthesis: dequeued predicate %s\n", node->token->symbol);
+            if (node->si_q == NULL) {
+                printf("[DEBUG]   si_q is NULL\n");
+            } else {
+                printf("[DEBUG]   si_q count=%d\n", node->si_q->count);
+            }
+            printf("[DEBUG]   syntax=%d\n", node->syntax);
+            fflush(stdout);
+        }
+        #endif
         #if SIDEBUG
         printf("si synthesis: processing predicate %s(%s) with %d SIs available.\n", node->token->symbol, ptbsyntax2string(node->syntax), node->si_q->count);
+        printf("[DEBUG]   about to showast\n");
+        fflush(stdout);
         showast(root, 0);
-        showqueue(cst, showcstsymbol);
+        printf("[DEBUG]   showast completed\n");
+        fflush(stdout);
+        /* Temporarily disabled showqueue to debug segfault */
+        /* printf("[DEBUG]   about to showqueue\n");
+        fflush(stdout);
+        showqueue(cst, showcstsymbol); */
         #endif
 
+        #if SIDEBUG
+        printf("[DEBUG]   about to count children\n");
+        fflush(stdout);
+        #endif
         /* 
             Rigorously checking the child status
             1. If there is only one child, then
@@ -263,9 +312,21 @@ void sisynthesis() {
             2. If there are two or more children, then all children must be Assigned
         */
         int child_count = countastchildren(node);
+        #if SIDEBUG
+        printf("[DEBUG]   child_count = %d\n", child_count);
+        fflush(stdout);
+        #endif
         /* NOTE: remember to update the event variable making its status to Assigned when all the event components are Assigned */
         if (child_count == 1) { 
             struct astnode *child = (struct astnode *) getastchild(node, 0);
+            #if SIDEBUG
+            printf("[DEBUG]   child = %p\n", child);
+            printf("[DEBUG]   child->cstptr = %p\n", child->cstptr);
+            printf("[DEBUG]   child->cstptr->symbol = %s\n", child->cstptr->symbol);
+            printf("[DEBUG]   child->cstptr->status = %d\n", child->cstptr->status);
+            printf("[DEBUG]   __is_event_variable__(child) = %d\n", __is_event_variable__(child));
+            fflush(stdout);
+            #endif
             if (__is_event_variable__(child)) {
                 /* the child is an event variable, and it is marked with Assigned which indicates all event components (related variables) are marked Assigned */
                 if (child->cstptr->status != Assigned) {
@@ -280,6 +341,12 @@ void sisynthesis() {
                 /* there can be a case that the preposition comes before the adjectives. we have to think of retry */
                 semantic_error("Synthesis is stopped because a predicate(%s) has non-noun and non-CD syntax and its argument has not been assigned.", node->token->symbol); 
             } else {
+                #if SIDEBUG
+                printf("[DEBUG]   entering synthesis branch\n");
+                printf("[DEBUG]   __is_noun_predicate__(node) = %d\n", __is_noun_predicate__(node));
+                printf("[DEBUG]   node->syntax = %d\n", node->syntax);
+                fflush(stdout);
+                #endif
                 #if SIDEBUG
                 printf("si synthesis: processing predicate %s\n", node->token->symbol);
                 #endif
@@ -472,6 +539,67 @@ void opresolution() {
         showast(root, 0);
         #endif
     }
+}
+
+/*
+    Resolve aliases for equal predicates using event structure.
+    
+    When the MR contains `_equal{JJ}(eN) & (Subj(eN) = xA) & (Dat(eN) = xB)`,
+    the Subj and Dat are parsed as event_terms, not operators. This means
+    opresolution() doesn't create an alias between xA and xB.
+    
+    This function scans the events queue to find Subj/Dat pairs for the same
+    event variable, and creates aliases between their entity variables.
+    This is essential for NN predicates like arr_a that require alias resolution.
+*/
+void resolve_equal_predicate_aliases() {
+    if (events == NULL || isempty(events)) return;
+    
+    #if SIDEBUG
+    printf("DEBUG: resolve_equal_predicate_aliases: events->count = %d\n", events->count);
+    #endif
+    
+    /* Scan events to find those with both Subj and Dat entities */
+    for (int i = 0; i < events->count; i++) {
+        struct event *ev = (struct event *)gqueue(events, i);
+        if (ev == NULL || ev->cstptr == NULL) continue;
+        if (ev->entities == NULL || ev->entities->count == 0) continue;
+        
+        struct cstsymbol *subj_entity = NULL;
+        struct cstsymbol *dat_entity = NULL;
+        
+        #if SIDEBUG
+        printf("DEBUG: Event %d: %s, entities->count = %d\n", i, ev->cstptr->symbol, ev->entities->count);
+        #endif
+        
+        /* Check entities for this event */
+        for (int j = 0; j < ev->entities->count; j++) {
+            struct entity *ent = (struct entity *)gqueue(ev->entities, j);
+            if (ent == NULL || ent->cstptr == NULL) continue;
+            
+            #if SIDEBUG
+            printf("DEBUG:   Entity %d: %s, type = %d\n", j, ent->cstptr->symbol, ent->type);
+            #endif
+            
+            if (ent->type == SubjectOf) {
+                subj_entity = ent->cstptr;
+            } else if (ent->type == Dative) {
+                dat_entity = ent->cstptr;
+            }
+        }
+        
+        /* Create alias if both Subj and Dat are present */
+        if (subj_entity != NULL && dat_entity != NULL && subj_entity != dat_entity) {
+            #if SIDEBUG
+            printf("DEBUG: Creating alias: %s <-> %s\n", subj_entity->symbol, dat_entity->symbol);
+            #endif
+            /* Use only the legacy alias table for now */
+            addalias(subj_entity, dat_entity);
+        }
+    }
+    #if SIDEBUG
+    printf("DEBUG: resolve_equal_predicate_aliases completed\n");
+    #endif
 }
 
 /* Display SI information */

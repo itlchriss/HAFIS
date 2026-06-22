@@ -305,6 +305,8 @@
   - NN
   arguments:
   - symbol: '*'
+  prepositions:
+  - of
   synthesised_datatype:
     primitive_type: 'relative'
     reference_type: 'relative'
@@ -314,6 +316,8 @@
   - NN
   arguments:
   - symbol: '*'
+  prepositions:
+  - of
   synthesised_datatype:
     primitive_type: 'relative'
     reference_type: 'relative'
@@ -323,6 +327,8 @@
   - NN
   arguments:
   - symbol: '*'
+  prepositions:
+  - of
   synthesised_datatype:
     primitive_type: 'relative'
     reference_type: 'relative'
@@ -330,8 +336,11 @@
 - term: first_element
   syntax:
   - NN
+  - JJ  # Fallback for ccg2lambda tagger errors
   arguments:
   - symbol: '*'
+  prepositions:
+  - of
   synthesised_datatype:
     primitive_type: 'relative'
     reference_type: 'relative'
@@ -341,6 +350,8 @@
   - NNS
   arguments:
   - symbol: '*'
+  prepositions:
+  - of
   synthesised_datatype:
     primitive_type: 'relative'
     reference_type: 'relative'
@@ -348,8 +359,11 @@
 - term: second_element
   syntax:
   - NN
+  - JJ  # Fallback for ccg2lambda tagger errors
   arguments:
   - symbol: '*'
+  prepositions:
+  - of
   synthesised_datatype:
     primitive_type: 'relative'
     reference_type: 'relative'
@@ -359,10 +373,13 @@
   - NN
   arguments:
   - symbol: '*'
+  prepositions:
+  - of
   interpretation: __REL__size
 - term: value
   syntax:
   - NNS
+  - NN  # Fallback for ccg2lambda tagger errors
   arguments:
   - symbol: '*'
     primitive_type: 'any'
@@ -533,6 +550,8 @@
     primitive_type: 'any'
     reference_type: 'array'
     lazy_resolve: __REF__type
+  prepositions:
+  - of
   interpretation_type: 'expression'
   interpretation: __REL__sum
 - term: summation
@@ -542,7 +561,54 @@
   - symbol: '*'
     primitive_type: 'any'
     reference_type: 'any'
+  prepositions:
+  - of
   interpretation: __REL__sum
+
+- term: minimum_value
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  prepositions:
+  - of
+  synthesised_datatype:
+    primitive_type: 'relative'
+    reference_type: 'relative'
+  interpretation: __REL__minimum_value
+- term: maximum_value
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  prepositions:
+  - of
+  synthesised_datatype:
+    primitive_type: 'relative'
+    reference_type: 'relative'
+  interpretation: __REL__maximum_value
+- term: string_representation
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  prepositions:
+  - of
+  synthesised_datatype:
+    primitive_type: 'relative'
+    reference_type: 'relative'
+  interpretation: __REL__string_representation
+- term: hexadecimal_representation
+  syntax:
+  - NN
+  arguments:
+  - symbol: '*'
+  prepositions:
+  - of
+  synthesised_datatype:
+    primitive_type: 'relative'
+    reference_type: 'relative'
+  interpretation: __REL__hexadecimal_representation
 
 # === Basic arithmetic expressions ===
 - term: HYPHEN
@@ -874,6 +940,250 @@
     reference_type: 'any'
   interpretation: ''
 - term: up
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+
+# === Semantic prepositions (Subj+Acc, resolved via CST co-reference lookup at compile time) ===
+- term: between
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: for
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: with
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: as
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: than
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: into
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: before
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: except
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: 'on'
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: by
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: upon
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: around
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: under
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: toward
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: across
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: above
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: without
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: through
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: outside
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: out
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: inside
+  syntax:
+  - IN
+  arguments:
+  - symbol: Subj
+    primitive_type: 'any'
+    reference_type: 'any'
+  - symbol: Acc
+    primitive_type: 'any'
+    reference_type: 'any'
+  interpretation: ''
+- term: among
   syntax:
   - IN
   arguments:

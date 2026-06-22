@@ -20,12 +20,12 @@
 - name: integer_array
   pattern: '(\[[,\-0-9 ]+\])'
   key_prefix: 'arr_'
-  replacement_template: ' {key}'
+  replacement_template: ' the {key}'
   value_transform: strip_brackets
 
 # Tuples: (1, 2, 3)
 - name: integer_tuple
   pattern: '(\([,\-0-9 ]+\))'
   key_prefix: 'tuple_'
-  replacement_template: ' {key}'
+  replacement_template: ' the {key}'
   value_transform: strip_parens

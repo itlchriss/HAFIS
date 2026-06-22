@@ -133,6 +133,9 @@ int satisfy(struct astnode *node, struct queue *visited_variables) {
     Handles adverb preprocessing and predicate reordering.
 */
 void sianalysis() {
+    #ifdef SIDEBUG
+    printf("[DEBUG] sianalysis: starting\n");
+    #endif
     struct astnode *node = NULL;
     struct queue *visited_variables = initqueue(), *target = initqueue(), *last = initqueue();
     int check = -1;
@@ -151,8 +154,16 @@ void sianalysis() {
         the MR is considered to have semantic error
     */
     struct queue *rbqueue = initqueue();
+    #ifdef SIDEBUG
+    printf("[DEBUG] sianalysis: starting predicate processing loop, predicates count=%d\n", predicates->count);
+    #endif
     while (!isempty(predicates)) {
         node = (struct astnode *)dequeue(predicates);
+        #ifdef SIDEBUG
+        if (node != NULL && node->token != NULL && node->token->symbol != NULL) {
+            printf("[DEBUG] sianalysis: processing predicate %s\n", node->token->symbol);
+        }
+        #endif
         #if SIANALYSIS
         if (node->token->symbol != NULL) {
             printf("Analysing symbol (%s).......\n", node->token->symbol);
@@ -220,7 +231,8 @@ void sianalysis() {
                 check_validity(node);           
                 if (check_need_assigned_entity(node) && !has_Rel_SI(node->si_q)) {
                     /* current assumption of this case is that there must be an alias to the variable */
-                    struct cstsymbol *_aliased_cstptr = searchalias(getastchild(node, 0)->cstptr);
+                    /* Use unified co-reference resolution (checks alias_of first, then legacy table) */
+                    struct cstsymbol *_aliased_cstptr = resolve_coref(getastchild(node, 0)->cstptr);
                     if (_aliased_cstptr == NULL) {
                         semantic_error("Please check with sianalysis function for case NN. An entity for predicate(%s) that does not have an alias, and its cstptr is only referenced by itself.", node->token->symbol);
                     } else {
@@ -306,7 +318,13 @@ void sianalysis() {
         }
         count++;
     }
+    #ifdef SIDEBUG
+    printf("[DEBUG] sianalysis: main loop completed, target count=%d, last count=%d\n", target->count, last->count);
+    #endif
     while (!isempty(last)) enqueue(target, dequeue(last));
+    #ifdef SIDEBUG
+    printf("[DEBUG] sianalysis: merged last into target, target count=%d\n", target->count);
+    #endif
     #if SIANALYSIS
     printf("Analysed predicate sequence:\n");
     for (int i = 0; i < target->count; ++i) {
@@ -318,4 +336,7 @@ void sianalysis() {
     deallocatequeue(predicates, NULL);
     deallocatequeue(visited_variables, NULL);
     predicates = target;
+    #ifdef SIDEBUG
+    printf("[DEBUG] sianalysis: completed\n");
+    #endif
 }

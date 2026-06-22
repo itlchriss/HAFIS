@@ -1,9 +1,10 @@
+// method: frequencySort
 - The length of the string parameter `s` is greater than or equal to 1 and is less than or equal to 500000.
-- The string parameter `s` consists of only uppercase and lowercase English letters and digits.
 - The string parameter `s` is not equal to the null literal.
+- All values in the string parameter `s` are uppercase English letters, lowercase English letters, or digits.
 - The string result is not equal to the null literal.
 - The length of the string result is equal to the length of the string parameter `s`.
-- The string result is sorted in decreasing order based on the frequency of the characters.
-- If the string parameter `s` is equal to "tree", the string result is equal to "eert".
-- If the string parameter `s` is equal to "cccaaa", the string result is equal to "aaaccc".
-- If the string parameter `s` is equal to "Aabb", the string result is equal to "bbAa".
+- The string result is sorted in descending order by the frequency of characters.
+- If the string parameter `s` is equal to "tree", the string result is equal to "eert" or the string result is equal to "eetr".
+- If the string parameter `s` is equal to "cccaaa", the string result is equal to "cccaaa" or the string result is equal to "aaaccc".
+- If the string parameter `s` is equal to "Aabb", the string result is equal to "bbAa" or the string result is equal to "bbaA".

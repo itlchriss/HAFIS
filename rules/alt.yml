@@ -20,6 +20,9 @@
 - to the false literal:
     - to false
 
+- where:
+    - such that
+
 - is greater_than_or_equal to:
     - greater than or equal
 
@@ -431,13 +434,18 @@
 - "+":
     - plus
 
-- is equal to:
+- is equal_to:
     - "is an "
     - "is a "
+    - is equal to
 
-- is not equal to:
+- are equal_to:
+    - are equal to
+
+- is not equal_to:
     - "is not an "
     - "is not a "
+    - is not equal to
 
 # =============================================================================
 # Dafny Extension: Type synonyms
@@ -477,9 +485,6 @@
 
 - there exists:
     - there is at least one
-
-- such that:
-    - satisfying
 
 - it is not the case that:
     - it is false that

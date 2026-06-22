@@ -150,6 +150,16 @@ def main(config_path: str, prog_file: str, backend: str = 'jml') -> None:
             debug and print('DEBUG: going to translate the following mr: ')
             debug and print('DEBUG: ', mr)
             pass
+        
+        # Repair arithmetic MR faults (wrong POS for +, incomplete divisible, etc.)
+        try:
+            from preprocess.mr_arithmetic_repair import repair_mr
+            mr = repair_mr(mr.strip())
+            with open(mr_file_path, 'w') as fp:
+                fp.write(mr)
+            debug and print('DEBUG: repaired mr: ', mr)
+        except ImportError:
+            pass  # MR repair module not available, skip
 
         cmd = "./bin/main -f%s -s%s,%s -b%s" % (mr_file_path, si_file_path, std_si_file, _configs['BACKEND'])
         process = subprocess.run(

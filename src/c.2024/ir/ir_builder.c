@@ -101,10 +101,11 @@ static enum reference_datatype ir_builder_resolve_ref_type(struct cstsymbol *cst
 
 /*
     Check if a reference type should use cardinality notation (|x|).
-    This is for Dafny sequences (List type).
+    This is for Dafny sequences, sets, multisets, and maps.
 */
 static int ir_builder_uses_cardinality(enum reference_datatype r) {
-    return (r == List) ? 1 : 0;
+    return (r == List || r == Seq || r == Set || r == ISet || 
+            r == Multiset || r == Map || r == IMap) ? 1 : 0;
 }
 
 /* Forward declaration for the main builder function */

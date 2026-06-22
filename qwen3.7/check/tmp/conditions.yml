@@ -1,0 +1,4 @@
+requires:
+  - 'There exist a non-negative integer `i` and a non-negative integer `j` such that the sum of the value at index `i` of the integer array parameter `numbers` and the value at index `j` of the integer array parameter `numbers` is equal to the integer parameter `target`.'
+ensures: []
+assert: []

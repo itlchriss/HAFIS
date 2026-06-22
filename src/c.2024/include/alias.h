@@ -15,6 +15,9 @@ struct alias {
 void addalias(struct cstsymbol *, struct cstsymbol *);
 struct cstsymbol *searchalias(struct cstsymbol *);
 
+/* New unified co-reference resolution functions */
+void setaliasof(struct cstsymbol *source, struct cstsymbol *target);
+struct cstsymbol *resolve_coref(struct cstsymbol *target);
 
 
 #endif 

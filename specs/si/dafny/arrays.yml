@@ -5,6 +5,19 @@
 # Based on Dafny Reference Manual Section 15
 # =============================================================================
 
+# --- Index marker ---
+# Marker term for array index positions
+- term: index
+  syntax:
+  - NN
+  - NNS  # Fallback for ccg2lambda tagger errors
+  arguments:
+  - symbol: '*'
+  synthesised_datatype:
+    primitive_type: 'integer'
+    reference_type: 'undefined'
+  interpretation: ''
+
 # --- Array Allocation (Section 15.1) ---
 - term: new_array
   syntax:

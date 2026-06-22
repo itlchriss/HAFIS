@@ -1,6 +1,7 @@
+// method: bulbSwitch
 - The integer parameter `n` is greater than or equal to 0 and is less than or equal to 1000000000.
-- The integer result is greater than or equal to 0.
-- The integer result is equal to the integer square root of the integer parameter `n`.
-- If the integer parameter `n` is equal to 3, the integer result is equal to 1.
+- The integer result is greater than or equal to 0 and is less than or equal to the integer parameter `n`.
 - If the integer parameter `n` is equal to 0, the integer result is equal to 0.
 - If the integer parameter `n` is equal to 1, the integer result is equal to 1.
+- If the integer parameter `n` is equal to 3, the integer result is equal to 1.
+- The integer result is equal to the count of all non-negative integers `i` such that `i` is less than or equal to the integer parameter `n` and the product of the non-negative integer `i` and the non-negative integer `i` is less than or equal to the integer parameter `n`.

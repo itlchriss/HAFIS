@@ -178,7 +178,10 @@ def __check_is_SI_string__(word: str) -> bool:
     return re.match(r'^str[a-z]_[a-z]$', word)
 
 def __check_is_posessive_preposition__(word: str) -> bool:
-    return word == 'of' or word == 'in'
+    # DEPRECATED: __pos_prep__ patterns have been removed from syntax_rules.yml.
+    # Prepositions are now handled via 'prepositions' field in SI declarations.
+    # Kept for backward compatibility but always returns False.
+    return False
 
 def __check_is_values_with_param_or_result__(word: str) -> bool:
     return word.endswith("'s") and (word.replace("'s", '') == 'result' or word.startswith("param_"))
@@ -211,7 +214,7 @@ func_map = {
     '__filter_num__': __get_number__,
     '__word__': __match_any_word__,
     '__expr_string__': __check_is_SI_string__,
-    '__pos_prep__': __check_is_posessive_preposition__,
+    '__pos_prep__': __check_is_posessive_preposition__,  # DEPRECATED: no longer used in syntax_rules.yml
     '__param_or_result_values__': __check_is_values_with_param_or_result__,
     '__vocontain__': __convert_to_vocontain__,  
     '__contain__': __check_is_contain__,

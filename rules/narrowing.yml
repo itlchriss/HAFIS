@@ -133,6 +133,29 @@
   replacement: 'raised to the power of'
   description: 'Normalize exponentiation phrasing'
 
+# --- Normalize divisibility phrasings ---
+# Replace "divisible" with SI term "is_divisible_by" before ccg2lambda
+# Order matters: longer patterns first to avoid partial matches
+- pattern: 'are not divisible by'
+  replacement: 'are not is_divisible_by'
+  description: 'Normalize negative divisibility (plural)'
+
+- pattern: 'is not divisible by'
+  replacement: 'is not is_divisible_by'
+  description: 'Normalize negative divisibility (singular)'
+
+- pattern: 'is divisible by both'
+  replacement: 'is is_divisible_by both'
+  description: 'Normalize dual divisibility'
+
+- pattern: 'is divisible by'
+  replacement: 'is is_divisible_by'
+  description: 'Normalize divisibility to SI term'
+
+- pattern: 'are divisible by'
+  replacement: 'are is_divisible_by'
+  description: 'Normalize divisibility to SI term (plural)'
+
 # --- Normalize comparison phrasings ---
 - pattern: 'is at least'
   replacement: 'is greater than or equal to'

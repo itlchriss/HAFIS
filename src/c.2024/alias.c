@@ -30,3 +30,34 @@ struct cstsymbol *searchalias(struct cstsymbol *target) {
         else return tmp->a;
     }
 }
+
+/*
+    Set direct alias relationship between two cstsymbols.
+    This is the preferred method for establishing aliases,
+    as it's more efficient than the alias table lookup.
+*/
+void setaliasof(struct cstsymbol *source, struct cstsymbol *target) {
+    if (source != NULL && target != NULL) {
+        source->alias_of = target;
+    }
+}
+
+/*
+    Unified co-reference resolution function.
+    Resolves alias relationships by checking:
+    1. Direct alias_of field (fastest)
+    2. Legacy alias table (fallback for backward compatibility)
+    
+    Returns the aliased cstsymbol, or NULL if no alias found.
+*/
+struct cstsymbol *resolve_coref(struct cstsymbol *target) {
+    if (target == NULL) return NULL;
+    
+    // First check direct alias_of field
+    if (target->alias_of != NULL) {
+        return target->alias_of;
+    }
+    
+    // Fall back to legacy alias table
+    return searchalias(target);
+}

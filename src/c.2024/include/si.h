@@ -1,5 +1,6 @@
 #ifndef SI_H
 #define SI_H
+#include <stdio.h>
 #include "ast.h"
 #include "cst.h"
 #include "util.h"
@@ -28,7 +29,10 @@ enum interpretation_type {
     SI_INT_TYPE_EXPR_REQ_PARAM = 100,
     SI_INT_TYPE_TEMPLATE = 101,
     SI_INT_TYPE_CONSTRUCT = 102,
-    SI_INT_TYPE_JAVA_METHOD = 103
+    SI_INT_TYPE_JAVA_METHOD = 103,
+    SI_INT_TYPE_DAFNY_TYPE = 104,
+    SI_INT_TYPE_VALUE = 105,
+    SI_INT_TYPE_CUSTOM_FUNCTION = 10
 };
 
 struct si_arg {
@@ -86,7 +90,18 @@ struct si {
 void sianalysis();
 void sisynthesis();
 void opresolution();
+void resolve_equal_predicate_aliases();
 void showsi(void *_si);
 void deallocatesi(void *);
+
+/*
+    Custom function support
+    Function definitions are stored as .dfy files in specs/functions/
+    When an SI with interpretation_type custom_function is matched,
+    the corresponding .dfy file is loaded and emitted as a ghost function.
+*/
+
+char *loadFunctionByName(const char *name);
+void emit_custom_functions(struct queue *silist, FILE *output);
 
 #endif

@@ -10,8 +10,8 @@
      <rule type="fa" cat="NP[nb]">
       <lf start="0" span="1" word="The" lemma="the" pos="DT" chunk="I-NP" entity="O" cat="NP[nb]/N" />
       <rule type="fa" cat="N">
-       <lf start="1" span="1" word="type_integer_array_" lemma="type_integer_array_" pos="NN" chunk="I-NP" entity="O" cat="N/N" />
-       <lf start="2" span="1" word="param_nums_" lemma="param_nums_" pos="NN" chunk="I-NP" entity="O" cat="N" />
+       <lf start="1" span="1" word="_type_integer_array_" lemma="_type_integer_array_" pos="NNP" chunk="I-NP" entity="I-ORG" cat="N/N" />
+       <lf start="2" span="1" word="param_nums_" lemma="param_nums_" pos="NN" chunk="I-NP" entity="I-ORG" cat="N" />
       </rule>
      </rule>
      <lf start="3" span="1" word="'s" lemma="'s" pos="POS" chunk="B-NP" entity="O" cat="(NP[nb]/N)\NP" />

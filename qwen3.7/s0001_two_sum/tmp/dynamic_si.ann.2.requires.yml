@@ -1,0 +1,9 @@
+- arguments:
+  - symbol: '*'
+  interpretation: target
+  syntax:
+  - NN
+  synthesised_datatype:
+  - primitive_type: integer
+    reference_type: undefined
+  term: param_target_

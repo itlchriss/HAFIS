@@ -1,0 +1,1 @@
+There exist a _type_non_negative_integer_ chrs_a and a _type_non_negative_integer_ chrs_b that the value 's sum at index chrs_a of the _type_integer_array_ param_numbers_ and the value at index chrs_b of the _type_integer_array_ param_numbers_ is equal to the _type_integer_ param_target_ . 

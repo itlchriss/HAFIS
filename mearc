@@ -242,6 +242,12 @@ run_nlp_pipeline() {
     # Step 5: Normalize MR
     $PYCMD ./src/python/depccg/nltk2normal.py "${basename}.mr" 2>/dev/null || true
     
+    # Step 6: Repair arithmetic MR faults (wrong POS for +, incomplete divisible, etc.)
+    local mr_name=$(basename "${basename}")
+    local mr_dir=$(dirname "${basename}")
+    $PYCMD ./src/python/preprocess/mr_arithmetic_repair.py "${basename}.mr" \
+        --dynamic-si "${mr_dir}/dynamic_si.${mr_name}.yml" 2>/dev/null || true
+    
     echo "${basename}.mr"
 }
 
@@ -251,15 +257,16 @@ compile_mr() {
     local backend="$2"
     local si_config="$3"
     
-    local cmd="./bin/main -f $mr_file -s $si_config -b $backend"
-    # log_info "$cmd"
+    local cmd="./bin/main -f $mr_file -b $backend"
     
-    # Add dynamic SI if available
+    # Add dynamic SI to the SI config if available
     local mr_dir=$(dirname "$mr_file")
     local mr_name=$(basename "$mr_file" .mr)
+    local full_si="$si_config"
     if [[ -f "$mr_dir/dynamic_si.$mr_name.yml" ]]; then
-        cmd="$cmd,$mr_dir/dynamic_si.$mr_name.yml"
+        full_si="$full_si,$mr_dir/dynamic_si.$mr_name.yml"
     fi
+    cmd="$cmd -s $full_si"
     
     local ans
     ans=$(eval "$cmd" 2>&1)
@@ -268,17 +275,24 @@ compile_mr() {
     if [[ "$ans" == *"error"* || "$ans" == *"Lexer:"* || "$ans" == *"Parser:"* ]]; then
         log_error "Compilation failed for $(basename "$mr_file"):"
         echo "$ans"
+        log_error "Running: $cmd"
         return 1
     fi
     
-    # Parse output
+    # Parse output - find pcount line (may be preceded by warnings/precautions)
     if [[ -n "$ans" ]]; then
         IFS=$'\n' read -rd '' -a lines <<< "$ans" || true
-        local line1="${lines[0]}"
-        
-        if [[ "$line1" =~ pcount:([0-9]+) ]]; then
+        local pcount_line_idx=-1
+        for i in "${!lines[@]}"; do
+            if [[ "${lines[$i]}" =~ pcount:([0-9]+) ]]; then
+                pcount_line_idx=$i
+                break
+            fi
+        done
+
+        if [[ $pcount_line_idx -ge 0 ]]; then
             local pcount="${BASH_REMATCH[1]}"
-            for i in $(seq 1 "$pcount"); do
+            for i in $(seq $((pcount_line_idx + 1)) $((pcount_line_idx + pcount))); do
                 local body="${lines[$i]}"
                 if [[ "$backend" == "jml" ]]; then
                     body="${body/\\ /\\}"
@@ -381,36 +395,80 @@ extract_annotations() {
 }
 
 # Extract from Dafny NL annotations
-# In Dafny, requires/ensures appear BEFORE the method they belong to,
-# so we need to look FORWARD to find the associated method.
+# Annotations can be inside method bodies, so we need to find the enclosing method.
 extract_from_dafny() {
-    # First pass: collect all method declarations and their line numbers
-    declare -a METHOD_LINES
-    declare -a METHOD_NAMES
+    # First pass: collect all method declarations, their body boundaries
+    declare -a METHOD_LINES METHOD_NAMES METHOD_BODY_STARTS METHOD_BODY_ENDS
     local method_count=0
     local line_num=0
     
+    # Read all lines into array for easier processing
+    declare -a ALL_LINES
+    local total_lines=0
     while IFS= read -r line; do
-        line_num=$((line_num + 1))
-        if [[ "$line" =~ ^[[:space:]]*method[[:space:]]+([a-zA-Z_][a-zA-Z0-9_]*) ]]; then
-            METHOD_LINES[$method_count]=$line_num
-            METHOD_NAMES[$method_count]="${BASH_REMATCH[1]}"
-            method_count=$((method_count + 1))
-        fi
+        ALL_LINES[$total_lines]="$line"
+        total_lines=$((total_lines + 1))
     done < "$INPUT_FILE"
     
-    # Helper function to find the method that follows a given line
-    find_following_method() {
+    # Find all methods and their body boundaries
+    local i=0
+    while [[ $i -lt $total_lines ]]; do
+        local line="${ALL_LINES[$i]}"
+        if [[ "$line" =~ ^[[:space:]]*method[[:space:]]+([a-zA-Z_][a-zA-Z0-9_]*) ]]; then
+            METHOD_LINES[$method_count]=$((i + 1))
+            METHOD_NAMES[$method_count]="${BASH_REMATCH[1]}"
+            
+            # Find the opening brace of the method body
+            local j=$((i + 1))
+            local body_start=-1
+            while [[ $j -lt $total_lines ]]; do
+                if [[ "${ALL_LINES[$j]}" =~ ^[[:space:]]*\{ ]]; then
+                    body_start=$((j + 1))  # 1-based line number
+                    break
+                fi
+                j=$((j + 1))
+            done
+            METHOD_BODY_STARTS[$method_count]=$body_start
+            
+            # Find the closing brace (track brace count)
+            if [[ $body_start -gt 0 ]]; then
+                local brace_count=1
+                local k=$((body_start))  # 0-based index
+                while [[ $k -lt $total_lines && $brace_count -gt 0 ]]; do
+                    local kline="${ALL_LINES[$k]}"
+                    # Count braces (simple approach - doesn't handle strings/comments)
+                    local opens="${kline//[^\{]/}"
+                    local closes="${kline//[^\}]/}"
+                    brace_count=$((brace_count + ${#opens} - ${#closes}))
+                    if [[ $brace_count -eq 0 ]]; then
+                        METHOD_BODY_ENDS[$method_count]=$((k + 1))  # 1-based
+                        break
+                    fi
+                    k=$((k + 1))
+                done
+            fi
+            
+            method_count=$((method_count + 1))
+        fi
+        i=$((i + 1))
+    done
+    
+    # Helper function to find the method that encloses a given line
+    find_enclosing_method() {
         local annotation_line="$1"
         local i=0
         while [[ $i -lt $method_count ]]; do
-            if [[ ${METHOD_LINES[$i]} -gt $annotation_line ]]; then
-                echo "${METHOD_NAMES[$i]}"
-                return
+            local body_start=${METHOD_BODY_STARTS[$i]}
+            local body_end=${METHOD_BODY_ENDS[$i]}
+            if [[ $body_start -gt 0 && $body_end -gt 0 ]]; then
+                if [[ $annotation_line -ge $body_start && $annotation_line -le $body_end ]]; then
+                    echo "${METHOD_NAMES[$i]}"
+                    return
+                fi
             fi
             i=$((i + 1))
         done
-        # No method found after this line, use __global__
+        # No enclosing method found, use __global__
         echo "__global__"
     }
     
@@ -430,9 +488,9 @@ extract_from_dafny() {
                     indent="${BASH_REMATCH[1]}"
                 fi
                 
-                # Find the method that follows this annotation
+                # Find the method that encloses this annotation
                 local associated_method
-                associated_method=$(find_following_method $line_num)
+                associated_method=$(find_enclosing_method $line_num)
                 
                 ANN_LINES[$total_ann]=$line_num
                 ANN_KEYWORDS[$total_ann]="$keyword"

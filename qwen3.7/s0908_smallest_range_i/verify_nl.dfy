@@ -1,17 +1,16 @@
 // s0908 - Smallest Range I
 // Complete Dafny formal specification with verified implementation
 
-// requires(*The length of the integer array parameter `nums` is greater than or equal to 1 and is less than or equal to 10000.*);
-// requires(*All values in the integer array parameter `nums` are greater than or equal to 0 and are less than or equal to 10000.*);
-// requires(*The integer parameter `k` is greater than or equal to 0 and is less than or equal to 10000.*);
-// requires(*The integer array parameter `nums` is not equal to the null literal.*);
-// ensures(*The integer result is greater than or equal to 0.*);
-// ensures(*The integer result is equal to the maximum value of 0 and the difference between the maximum value of the integer array parameter `nums` and the minimum value of the integer array parameter `nums` minus 2 multiplied by the integer parameter `k`.*);
-// ensures(*If the integer array parameter `nums` is equal to [1] and the integer parameter `k` is equal to 0, the integer result is equal to 0.*);
-// ensures(*If the integer array parameter `nums` is equal to [0,10] and the integer parameter `k` is equal to 2, the integer result is equal to 6.*);
-// ensures(*If the integer array parameter `nums` is equal to [1,3,6] and the integer parameter `k` is equal to 3, the integer result is equal to 0.*);
 method smallestRangeI(nums: array<int>, k: int) returns (result: int)
 {
+    // requires(*The length of the integer array parameter `nums` is greater than or equal to 1 and is less than or equal to 10000.*);
+    // requires(*The integer array parameter `nums` is not equal to the null literal.*);
+    // requires(*All values in the integer array parameter `nums` are greater than or equal to 0 and are less than or equal to 10000.*);
+    // requires(*The integer parameter `k` is greater than or equal to 0 and is less than or equal to 10000.*);
+    // ensures(*The integer result is greater than or equal to 0.*);
+    // ensures(*If the integer array parameter `nums` is equal to [1] and the integer parameter `k` is equal to 0, the integer result is equal to 0.*);
+    // ensures(*If the integer array parameter `nums` is equal to [0,10] and the integer parameter `k` is equal to 2, the integer result is equal to 6.*);
+    // ensures(*If the integer array parameter `nums` is equal to [1,3,6] and the integer parameter `k` is equal to 3, the integer result is equal to 0.*);
     var lo := nums[0];
     var hi := nums[0];
     var i := 1;

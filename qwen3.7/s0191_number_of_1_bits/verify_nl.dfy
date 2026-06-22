@@ -23,14 +23,14 @@ function countSetBits(n: int, limit: nat): nat
          + countSetBits(n, limit - 1)
 }
 
-// requires(*The integer parameter `n` is a 32-bit binary string.*);
-// ensures(*The integer result is greater than or equal to 0 and is less than or equal to 32.*);
-// ensures(*The integer result is equal to the number of '1' bits in the binary representation of the integer parameter `n`.*);
-// ensures(*If the integer parameter `n` is equal to 11, the integer result is equal to 3.*);
-// ensures(*If the integer parameter `n` is equal to 128, the integer result is equal to 1.*);
-// ensures(*If the integer parameter `n` is equal to 4294967293, the integer result is equal to 31.*);
 method hammingWeight(n: int) returns (result: int)
 {
+    // requires(*The integer parameter `n` is greater than or equal to -2147483648 and is less than or equal to 2147483647.*);
+    // ensures(*The integer result is greater than or equal to 0 and is less than or equal to 32.*);
+    // ensures(*The integer result is equal to the total number of 1 bits in the binary representation of the integer parameter `n`.*);
+    // ensures(*If the integer parameter `n` is equal to 11, the integer result is equal to 3.*);
+    // ensures(*If the integer parameter `n` is equal to 128, the integer result is equal to 1.*);
+    // ensures(*If the integer parameter `n` is equal to -3, the integer result is equal to 31.*);
     if n >= 0 {
         result := 0;
         var m: int := n;

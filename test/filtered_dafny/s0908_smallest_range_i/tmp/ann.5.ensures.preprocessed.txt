@@ -1,0 +1,1 @@
+If the _type_integer_array_ param_nums_ is equal to arr_a and the _type_integer_ param_k_ is equal to 2 , the _type_integer_ result is equal to 6.

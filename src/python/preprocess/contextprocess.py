@@ -16,6 +16,17 @@ reference_datatypes = ['array', 'string', 'object', 'list', 'set', 'sequence', '
 rulespath = os.path.join('.', 'rules')
 ALT_RULE_FILENAME = 'alt.yml'
 
+# Default SI path - can be overridden via set_si_path()
+_sispecspath = os.path.join('.', 'specs', 'si', 'common', 'typed_si.yml')
+
+def set_si_path(path):
+    """Set the SI specs file path for context processing.
+    
+    Call this before creating ContextProcessor instances.
+    """
+    global _sispecspath
+    _sispecspath = path
+
 # Hardcoded rules for special patterns (always applied first due to length)
 HARDCODED_RULES = {
     "arithmetic_operators": [
@@ -186,9 +197,16 @@ def get_rule_engine() -> AltRuleEngine:
 
 class ContextProcessor:
 
+    # Fallback terms for possessive conversion when SI data is unavailable
+    _fallback_possessable_terms = {'length', 'sum', 'size', 'minimum_value', 'maximum_value',
+                                   'first_element', 'second_element', 'summation',
+                                   'string_representation', 'ones_complement',
+                                   'number_of_unique_elements', 'hexadecimal_representation'}
+
     def __init__(self) -> None:
         self.dynamic_si = {}
         self._rule_engine = get_rule_engine()
+        self._preposition_terms = self._load_preposition_terms()
 
     def _type_processor(self):
         """Convert data type mentions to type tokens (_type_X_ format).
@@ -389,13 +407,38 @@ class ContextProcessor:
         self.sent = re.sub(r"`*'\s*\{\s*'`*", 'leftb', self.sent)
         self.sent = re.sub(r"`*'\s*\}\s*'`*", 'rightb', self.sent)
 
-    # Known SI terms that support possessive "X of Y" → "Y's X" transformation
-    possessable_terms = {'length', 'sum', 'size', 'minimum_value', 'maximum_value',
-                         'first_element', 'second_element', 'summation',
-                         'string_representation', 'ones_complement',
-                         'number_of_unique_elements', 'hexadecimal_representation'}
+    def _load_preposition_terms(self) -> set:
+        """Load SI declarations and build the set of terms that declare preposition support.
+        
+        Reads the SI YAML file and collects all terms that have a 'prepositions' field.
+        These terms will SKIP possessive conversion (keeping 'X of Y' form).
+        Falls back to hardcoded possessable_terms if SI file is unavailable.
+        """
+        terms = set()
+        try:
+            paths = []
+            if isinstance(_sispecspath, str) and ',' in _sispecspath:
+                paths = [p.strip() for p in _sispecspath.split(',')]
+            elif isinstance(_sispecspath, list):
+                paths = _sispecspath
+            else:
+                paths = [_sispecspath]
+            for p in paths:
+                if os.path.exists(p):
+                    with open(p, encoding='utf-8') as fp:
+                        data = yaml.full_load(fp)
+                        if data:
+                            for entry in data:
+                                if isinstance(entry, dict) and 'term' in entry and 'prepositions' in entry:
+                                    terms.add(entry['term'])
+        except Exception:
+            pass
+        # If no SI terms found, fall back to hardcoded set for backward compatibility
+        if not terms:
+            terms = set(self._fallback_possessable_terms)
+        return terms
 
-    # Ordinal words → (number, suffix) for normalization
+    # Ordinal words -> (number, suffix) for normalization
     ORDINAL_WORDS = {
         'third': (3, 'rd'), 'fourth': (4, 'th'), 'fifth': (5, 'th'),
         'sixth': (6, 'th'), 'seventh': (7, 'th'), 'eighth': (8, 'th'),
@@ -415,18 +458,13 @@ class ContextProcessor:
             return 'th'
         return {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')
 
-    def _is_possessable(self, term: str) -> bool:
-        """Check if a term supports 'X of Y' → 'Y's X' possessive transformation.
+    def _has_preposition_si(self, term: str) -> bool:
+        """Check if a term has preposition support declared in SI.
         
-        Recognises:
-        - Known SI terms in possessable_terms
-        - Any Nth_element pattern (1st_element, 2nd_element, 3rd_element, etc.)
+        Terms with 'prepositions' field in SI declarations should keep
+        the prepositional form ('X of Y') rather than converting to possessive ('Y's X').
         """
-        if term in self.possessable_terms:
-            return True
-        if re.match(r'^\d+(st|nd|rd|th)_element$', term):
-            return True
-        return False
+        return term in self._preposition_terms
 
     def _normalize_ordinals(self):
         """Normalize ordinal expressions to Nth_element form.
@@ -470,11 +508,19 @@ class ContextProcessor:
         self.sent = sent
 
     # converting 'length of x' to 'x's length'
+    # DEPRECATED: Terms with 'prepositions: [of]' in SI declarations now skip this conversion.
     def _of_2_possesive(self):
         arr = self.sent.split(' ')
         while 'of' in arr:
             index = arr.index('of')
-            if index < 2 or arr[index - 2].lower() != 'the' or not self._is_possessable(arr[index - 1]):
+            if index < 2 or arr[index - 2].lower() != 'the':
+                break
+            term = arr[index - 1]
+            # Skip conversion for terms that declare preposition support in SI
+            if self._has_preposition_si(term):
+                break
+            # Also skip for Nth_element patterns (e.g., 3rd_element)
+            if re.match(r'^\d+(st|nd|rd|th)_element$', term):
                 break
             # Skip article "the"/"a"/"an" after "of" so the noun becomes the possessor
             after_of = index + 1

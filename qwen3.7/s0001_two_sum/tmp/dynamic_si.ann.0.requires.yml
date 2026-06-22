@@ -1,0 +1,9 @@
+- arguments:
+  - symbol: '*'
+  interpretation: numbers
+  syntax:
+  - NN
+  synthesised_datatype:
+  - primitive_type: integer
+    reference_type: array
+  term: param_numbers_

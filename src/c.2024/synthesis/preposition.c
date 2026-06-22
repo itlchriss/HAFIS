@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "util.h"
 #include "ast.h"
@@ -66,6 +67,45 @@ int IN_code_synthesis(struct astnode *node) {
     }
 
     struct entity *en = (struct entity *)gqueue(__searchevent(eventnode->cstptr)->entities, 0);    
+
+    /*
+        Special handling for 'between' preposition.
+        between has an empty interpretation but needs to generate range/comparison code
+        using CST co-reference values. Two cases:
+        1. varnode has coref_values (two cardinals bound to same variable): generate full range check
+        2. varnode has regular datalist: generate single comparison (>= for first between instance)
+    */
+    if (node->token && node->token->symbol && strcmp(node->token->symbol, "between") == 0) {
+        if (en->cstptr->datalist->count == 0) {
+            sinotfound_error(node->token->symbol);
+        }
+        char *var_name = (char *)gqueue(en->cstptr->datalist, 0);
+        char tmp[512];
+        if (varnode->cstptr->coref_values && varnode->cstptr->coref_values->count >= 2) {
+            /* Two cardinals bound to same variable: generate full range check */
+            char *val1 = (char *)gqueue(varnode->cstptr->coref_values, 0);
+            char *val2 = (char *)gqueue(varnode->cstptr->coref_values, 1);
+            snprintf(tmp, sizeof(tmp), "(%s) >= (%s) && (%s) <= (%s)", var_name, val1, var_name, val2);
+        } else if (varnode->cstptr->datalist->count > 0) {
+            /* Single entity argument: generate >= comparison */
+            char *acc_val = (char *)gqueue(varnode->cstptr->datalist, 0);
+            snprintf(tmp, sizeof(tmp), "(%s) >= (%s)", var_name, acc_val);
+        } else {
+            sinotfound_error(node->token->symbol);
+        }
+        node->si_q = initqueue();
+        enqueue(node->si_q, (void *)strdup(tmp));
+        /* Write result to event entity's datalist */
+        deallocatequeue(en->cstptr->datalist, deallocatedata);
+        en->cstptr->datalist = initqueue();
+        enqueue(en->cstptr->datalist, (char *)strdup(tmp));
+        /* Decrement reference counts for the consumed nodes */
+        varnode->cstptr->ref_count--;
+        eventnode->cstptr->ref_count--;
+        en->cstptr->ref_count--;
+        root = consumeastnodeandedge(node, root);
+        return TRUE;
+    }
 
     /*
         20250113 added support of abstract noun

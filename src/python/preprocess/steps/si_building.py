@@ -193,6 +193,16 @@ class SIBuildingStep(ProcessingStep):
             sp = 'integer'
             sr = 'undefined'
             interpretation = str(value).replace('`', '')
+        elif key.startswith('chrs_'):
+            # Backtick-extracted character - type from key prefix
+            sp = 'character'
+            sr = 'undefined'
+            interpretation = str(value)
+        elif key.startswith('strs_'):
+            # Backtick-extracted string - type from key prefix
+            sp = 'undefined'
+            sr = 'string'
+            interpretation = str(value).replace('`', '')
         elif 'chr' in key:
             sp = 'character'
             sr = 'undefined'

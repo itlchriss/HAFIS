@@ -18,7 +18,7 @@ extern struct queue *predicates, *operators, *silist, *events, *alias;
 extern struct astnode *root;
 
 
-struct queue *__obtain_si_with_1_cstptr_(struct cstsymbol *x, struct queue *siq) {    
+struct queue *__obtain_si_with_1_cstptr_(struct cstsymbol *x, struct queue *siq) {
     struct queue *result = initqueue();
     for (int k = 0; k < siq->count; ++k) {
         struct si *si = (struct si *)gqueue(siq, k);
@@ -28,6 +28,10 @@ struct queue *__obtain_si_with_1_cstptr_(struct cstsymbol *x, struct queue *siq)
             char *xdata = (char *)gqueue(x->datalist, i);
             char *tmp = strrep(s, arg1->symbol, xdata);
             free(s);    
+            /* If strrep returns NULL (pattern not found), use the original interpretation */
+            if (tmp == NULL) {
+                tmp = (char *)strdup(si->interpretation);
+            }
             enqueue(result, (void *)tmp);
         }
     }
@@ -57,6 +61,7 @@ int Nseries_code_synthesis(struct astnode *node) {
         struct cstsymbol *_aliased_cstptr = searchalias(getastchild(node, 0)->cstptr);
         /* check if the aliased ptr is assigned */
         /* return FALSE to indicate the aliased ptr is not assigned yet */
+        if (_aliased_cstptr == NULL) return FALSE;
         if (_aliased_cstptr->status != Assigned) return FALSE;
         /* if assigned, use the intermediate si of the aliased ptr to do the synthesis and replace the node->si_q */
         node->si_q = __obtain_si_with_1_cstptr_(_aliased_cstptr, node->si_q);        

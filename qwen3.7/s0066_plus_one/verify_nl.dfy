@@ -1,18 +1,18 @@
 // s0066 - Plus One
 // Dafny formal specification with verified implementation
 
-// requires(*The length of the integer array parameter `digits` is greater than or equal to 1 and is less than or equal to 100.*);
-// requires(*All values in the integer array parameter `digits` are greater than or equal to 0 and are less than or equal to 9.*);
-// requires(*The integer array parameter `digits` does not contain leading zeros.*);
-// requires(*The integer array parameter `digits` is not equal to the null literal.*);
-// ensures(*The integer array result is not equal to the null literal.*);
-// ensures(*The integer array result represents the integer formed by adding 1 to the integer represented by the integer array parameter `digits`.*);
-// ensures(*If the integer array parameter `digits` is equal to [1,2,3], the integer array result is equal to [1,2,4].*);
-// ensures(*If the integer array parameter `digits` is equal to [4,3,2,1], the integer array result is equal to [4,3,2,2].*);
-// ensures(*If the integer array parameter `digits` is equal to [0], the integer array result is equal to [1].*);
-// ensures(*If the integer array parameter `digits` is equal to [9], the integer array result is equal to [1,0].*);
 method plusOne(digits: array<int>) returns (result: array<int>)
 {
+    // requires(*The length of the integer array parameter `digits` is greater than or equal to 1 and is less than or equal to 100.*);
+    // requires(*All values in the integer array parameter `digits` are greater than or equal to 0 and are less than or equal to 9.*);
+    // requires(*The integer array parameter `digits` is not equal to the null literal.*);
+    // ensures(*The integer array result is not equal to the null literal.*);
+    // ensures(*The length of the integer array result is greater than or equal to the length of the integer array parameter `digits` and is less than or equal to the sum of the length of the integer array parameter `digits` and 1.*);
+    // ensures(*All values in the integer array result are greater than or equal to 0 and are less than or equal to 9.*);
+    // ensures(*If the integer array parameter `digits` is equal to [1,2,3], the integer array result is equal to [1,2,4].*);
+    // ensures(*If the integer array parameter `digits` is equal to [4,3,2,1], the integer array result is equal to [4,3,2,2].*);
+    // ensures(*If the integer array parameter `digits` is equal to [0], the integer array result is equal to [1].*);
+    // ensures(*If the integer array parameter `digits` is equal to [9], the integer array result is equal to [1,0].*);
     var n := digits.Length;
     var res := new int[n];
     var ci := 0;

@@ -1,0 +1,36 @@
+- arguments:
+  - symbol: '*'
+  interpretation: 3,3
+  syntax:
+  - NN
+  synthesised_datatype:
+  - primitive_type: integer
+    reference_type: array
+  term: arr_a
+- arguments:
+  - symbol: '*'
+  interpretation: 0,1
+  syntax:
+  - NN
+  synthesised_datatype:
+  - primitive_type: integer
+    reference_type: array
+  term: arr_b
+- arguments:
+  - symbol: '*'
+  interpretation: numbers
+  syntax:
+  - NN
+  synthesised_datatype:
+  - primitive_type: integer
+    reference_type: array
+  term: param_numbers_
+- arguments:
+  - symbol: '*'
+  interpretation: target
+  syntax:
+  - NN
+  synthesised_datatype:
+  - primitive_type: integer
+    reference_type: undefined
+  term: param_target_

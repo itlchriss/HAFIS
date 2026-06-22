@@ -16,6 +16,9 @@ from ..pipeline import ProcessingContext, ProcessingStep
 # Default path to expression extraction rules
 DEFAULT_RULES_PATH = os.path.join('.', 'rules', 'expression_extraction.yml')
 
+# Articles/determiners that signal a noun phrase to ccg2lambda
+_DETERMINERS = ('the ', 'a ', 'an ')
+
 
 def _strip_brackets(s: str) -> str:
     """Remove surrounding square brackets."""
@@ -37,6 +40,32 @@ VALUE_TRANSFORMS = {
     'strip_parens': _strip_parens,
     'strip_backticks': _strip_backticks,
 }
+
+
+def _replace_with_determiner(sent: str, match: str, replacement: str) -> str:
+    """Replace first occurrence of *match* in *sent* with *replacement*,
+    prepending 'the' if the replacement starts with a placeholder key
+    and no determiner already precedes the match position.
+
+    This avoids producing 'the the arr_a' when the source text already
+    contains a determiner before the bracketed expression.
+    """
+    idx = sent.find(match)
+    if idx == -1:
+        return sent
+
+    # Does a determiner already immediately precede the match?
+    preceding = sent[:idx].lower()
+    has_det = any(preceding.endswith(d) for d in _DETERMINERS)
+
+    if has_det:
+        # Strip a leading 'the ' from the replacement to avoid duplication
+        if replacement.startswith(' the '):
+            replacement = ' ' + replacement[5:]
+        elif replacement.startswith('the '):
+            replacement = replacement[4:]
+
+    return sent[:idx] + replacement + sent[idx + len(match):]
 
 
 class ExpressionExtractionStep(ProcessingStep):
@@ -119,9 +148,8 @@ class ExpressionExtractionStep(ProcessingStep):
         # 7. Fix type distribution for "A or B noun" patterns
         sent = self._fix_type_distribution(sent)
         
-        # 8. Fix 'or' article insertion
-        sent = re.sub(r'or str_', 'or the str_', sent)
-        sent = re.sub(r'or expr_', 'or the expr_', sent)
+        # 8. Fix 'or' article insertion (skip if 'the' already present)
+        sent = re.sub(r'\bor (?!the )(str_|expr_)', r'or the \1', sent)
         
         return sent
     
@@ -133,145 +161,110 @@ class ExpressionExtractionStep(ProcessingStep):
             template = rule['replacement_template']
             transform_name = rule.get('value_transform', '')
             transform = VALUE_TRANSFORMS.get(transform_name, lambda x: x)
-            
+
             matches = re.findall(pattern, sent, re.ASCII)
             for i, match in enumerate(matches):
-                index = chr(i + 97)  # a, b, c, ...
-                key = key_prefix + index
-                value = transform(match)
-                exprs[key] = value
+                key = key_prefix + chr(i + 97)  # a, b, c, ...
+                exprs[key] = transform(match)
                 replacement = template.format(key=key)
-                sent = sent.replace(match, replacement, 1)
-        
+                sent = _replace_with_determiner(sent, match, replacement)
+
         return sent
     
     def _extract_backtick_exprs(self, sent: str, exprs: Dict) -> str:
-        """Extract backtick-quoted expressions with character/string classification."""
+        """Extract backtick-quoted expressions with character/string classification.
+
+        Duplicate backtick content reuses the first assigned key.
+        """
         matches = re.findall(r'(`[0-9 <>\-\+\*!,a-zA-Z\[\]=\.\^\(\)\%\|\/_\'\{\}]+`)', sent)
-        
-        for i, e in enumerate(matches):
-            index = chr(i + 97)
+
+        seen: Dict[str, str] = {}
+        new_index = 0
+
+        for e in matches:
             _t = e.replace('`', '').replace("'", '').strip()
-            
+            original_t = _t  # save for dedup before any mutation
+
+            # Reuse key for duplicate content
+            if original_t in seen:
+                sent = _replace_with_determiner(sent, e, ' ' + seen[original_t])
+                continue
+
+            index = chr(new_index + 97)
+            new_index += 1
+
             if not _t:
-                # Empty symbol means space character
-                symbol = 'chrs_'
-                _type = 'type_character_'
-                _t = ' '
+                symbol, _t = 'chrs_', ' '
             elif _t == 'period':
-                # Hard fix for period character
-                symbol = 'chrs_'
-                _type = 'type_character_'
-                _t = '.'
+                symbol, _t = 'chrs_', '.'
             elif len(_t) == 1:
-                # Single character
                 symbol = 'chrs_'
-                _type = 'type_character_'
             else:
-                # String
                 symbol = 'strs_'
-                _type = 'type_string_'
-            
-            if len(_t) == 1:
-                exprs[symbol + index] = "'%s'" % _t
-            else:
-                exprs[symbol + index] = "\"%s\"" % _t
-            
-            sent = sent.replace(e, ' the %s %s' % (_type, symbol) + index, 1)
-        
+
+            key = symbol + index
+            exprs[key] = ("'%s'" if len(_t) == 1 else '"%s"') % _t
+            seen[original_t] = key
+
+            sent = _replace_with_determiner(sent, e, ' ' + key)
+
         return sent
     
     def _extract_char_or_pattern(self, sent: str, exprs: Dict) -> str:
         """Extract 'x' or 'y' characters pattern."""
         if r := re.findall(r'((\'[^ ]+\')\s+or\s+(\'[^ ]+\')\s+characters)', sent):
-            r = r[0]
-            s = r[0]
+            s = r[0][0]
             _s = s.replace('characters', '')
-            t = r[1:]
-            for i, e in enumerate(t):
+            for i, e in enumerate(r[0][1:]):
                 index = chr(i + 97)
                 exprs['chrx_' + index] = e
                 _s = _s.replace(e, ' chrx_' + index, 1)
             sent = sent.replace(s, _s)
         return sent
-    
+
     def _extract_single_quoted_chars(self, sent: str, exprs: Dict) -> str:
         """Extract single-quoted character literals."""
-        if r := re.findall(r'(\'[^, ]+\')', sent):
-            for i, e in enumerate(r):
-                index = chr(i + 97)
-                exprs['chry_' + index] = e
-                sent = sent.replace(e, 'the chry_' + index, 1)
+        for i, e in enumerate(re.findall(r'(\'[^, ]+\')', sent)):
+            index = chr(i + 97)
+            exprs['chry_' + index] = e
+            sent = _replace_with_determiner(sent, e, 'the chry_' + index)
         return sent
-    
+
     def _extract_double_quoted_strings(self, sent: str, exprs: Dict) -> str:
         """Extract double-quoted string literals (multiple specificity levels)."""
-        # Level 1: Simple strings without commas
-        if r := re.findall(r'(\"[^, ]+\")', sent):
-            for i, e in enumerate(r):
-                index = chr(i + 97)
-                exprs['stry_' + index] = e
-                sent = sent.replace(e, ' stry_' + index, 1)
-        
-        # Level 2: Strings with letters and commas
-        if r := re.findall(r'(\"[a-zA-Z, ]+\")', sent):
-            for i, e in enumerate(r):
-                index = chr(i + 97)
-                exprs['strz_' + index] = e
-                sent = sent.replace(e, ' strz_' + index, 1)
-        
-        # Level 3: Strings without commas
-        if r := re.findall(r'(\"[^,]+\")', sent):
-            for i, e in enumerate(r):
-                index = chr(i + 97)
-                exprs['strl_' + index] = e
-                sent = sent.replace(e, ' strl_' + index, 1)
-        
-        # Level 4: Catch-all for remaining quoted strings
-        if r := re.findall(r'(\".*\")', sent):
-            for i, e in enumerate(r):
-                index = chr(i + 97)
-                v = e
-                if ',' in v:
-                    v = v.replace(' ', '')
-                exprs['strkk_' + index] = v
-                sent = sent.replace(e, ' strkk_' + index, 1)
-        
+        levels = [
+            (r'(\"[^, ]+\")',  'stry_'),
+            (r'(\"[a-zA-Z, ]+\")', 'strz_'),
+            (r'(\"[^,]+\")',   'strl_'),
+            (r'(\".*\")',      'strkk_'),
+        ]
+        for pattern, prefix in levels:
+            for i, e in enumerate(re.findall(pattern, sent)):
+                key = prefix + chr(i + 97)
+                v = e.replace(' ', '') if ',' in e else e
+                exprs[key] = v
+                sent = _replace_with_determiner(sent, e, ' ' + key)
         return sent
     
     def _handle_power_sign(self, sent: str) -> str:
         """Replace ^ with _pow_ in words."""
-        words = sent.split(' ')
-        targets = {}
-        for w in words:
-            if "^" in w:
-                targets[w] = w.replace("^", "_pow_")
-        for k, v in targets.items():
-            sent = sent.replace(k, v)
+        for w in sent.split():
+            if '^' in w:
+                sent = sent.replace(w, w.replace('^', '_pow_'))
         return sent
-    
+
     def _fix_type_distribution(self, sent: str) -> str:
-        """Fix 'A or B noun' patterns where the noun should distribute to both.
-        
-        For example: 'str_a or str_b strings' -> 
-                     'the type_string_ str_a or the type_string_ str_b'
-        """
+        """Fix 'A or B noun' patterns where the noun distributes to both."""
         types = ['characters', 'strings']
         pattern = r'(str_[^ ]+)\s+(or)\s+(str_[^ ]+)\s+(\b(?:{})\b)'.format('|'.join(types))
-        
         if r := re.findall(pattern, sent):
             from nltk.stem import WordNetLemmatizer
             lemmatizer = WordNetLemmatizer()
-            
-            t = r[0]
-            a = t[0]
-            conj = t[1]
-            b = t[2]
-            _type = 'type_' + lemmatizer.lemmatize(t[3]) + '_'
+            a, conj, b, noun = r[0]
+            _type = 'type_' + lemmatizer.lemmatize(noun) + '_'
             sent = re.sub(
-                r'%s\s+%s\s+%s\s+%s' % (a, conj, b, t[3]),
+                r'%s\s+%s\s+%s\s+%s' % (a, conj, b, noun),
                 r'the %s %s %s the %s %s' % (_type, a, conj, _type, b),
                 sent
             )
-        
         return sent

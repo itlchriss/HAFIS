@@ -8,7 +8,7 @@
    <rule type="fa" cat="NP[nb]">
     <lf start="0" span="1" word="The" lemma="the" pos="DT" chunk="I-NP" entity="O" cat="NP[nb]/N" />
     <rule type="fa" cat="N">
-     <lf start="1" span="1" word="type_integer_" lemma="type_integer_" pos="NN" chunk="I-NP" entity="O" cat="N/N" />
+     <lf start="1" span="1" word="_type_integer_" lemma="_type_integer_" pos="JJ" chunk="I-NP" entity="O" cat="N/N" />
      <lf start="2" span="1" word="result" lemma="result" pos="NN" chunk="I-NP" entity="O" cat="N" />
     </rule>
    </rule>
@@ -48,7 +48,7 @@
            <rule type="fa" cat="NP[nb]">
             <lf start="16" span="1" word="the" lemma="the" pos="DT" chunk="I-NP" entity="O" cat="NP[nb]/N" />
             <rule type="fa" cat="N">
-             <lf start="17" span="1" word="type_integer_array_" lemma="type_integer_array_" pos="NN" chunk="I-NP" entity="O" cat="N/N" />
+             <lf start="17" span="1" word="_type_integer_array_" lemma="_type_integer_array_" pos="NN" chunk="I-NP" entity="O" cat="N/N" />
              <lf start="18" span="1" word="param_nums_" lemma="param_nums_" pos="NN" chunk="I-NP" entity="O" cat="N" />
             </rule>
            </rule>
@@ -69,7 +69,7 @@
             <rule type="fa" cat="NP[nb]">
              <lf start="24" span="1" word="the" lemma="the" pos="DT" chunk="I-NP" entity="O" cat="NP[nb]/N" />
              <rule type="fa" cat="N">
-              <lf start="25" span="1" word="type_integer_array_" lemma="type_integer_array_" pos="NN" chunk="I-NP" entity="O" cat="N/N" />
+              <lf start="25" span="1" word="_type_integer_array_" lemma="_type_integer_array_" pos="NN" chunk="I-NP" entity="O" cat="N/N" />
               <lf start="26" span="1" word="param_nums_" lemma="param_nums_" pos="NN" chunk="I-NP" entity="O" cat="N" />
              </rule>
             </rule>

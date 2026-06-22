@@ -1,0 +1,88 @@
+# =============================================================================
+# Custom Function SI References
+# =============================================================================
+# Semantic interpretations that reference user-defined custom functions.
+# These SIs allow custom functions (defined in specs/functions/*.dfy) to be
+# used in meaning representations and synthesised into Dafny ghost functions.
+# =============================================================================
+
+# Array aggregation functions
+- term: sum_array_elements
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: integer
+    reference_type: array
+  synthesised_datatype:
+    primitive_type: integer
+    reference_type: undefined
+  interpretation_type: 'custom_function'
+  interpretation: 'sum_array_elements(x)'
+
+- term: product_array_elements
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: integer
+    reference_type: array
+  synthesised_datatype:
+    primitive_type: integer
+    reference_type: undefined
+  interpretation_type: 'custom_function'
+  interpretation: 'product_array_elements(x)'
+
+- term: max_array
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: integer
+    reference_type: array
+  synthesised_datatype:
+    primitive_type: integer
+    reference_type: undefined
+  interpretation_type: 'custom_function'
+  interpretation: 'max_array(x)'
+
+- term: min_array
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: integer
+    reference_type: array
+  synthesised_datatype:
+    primitive_type: integer
+    reference_type: undefined
+  interpretation_type: 'custom_function'
+  interpretation: 'min_array(x)'
+
+# Subarray functions
+- term: max_subarray_sum
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: integer
+    reference_type: array
+  synthesised_datatype:
+    primitive_type: integer
+    reference_type: undefined
+  interpretation_type: 'custom_function'
+  interpretation: 'max_subarray_sum(x)'
+
+# Utility functions
+- term: abs_val
+  syntax:
+  - NN
+  arguments:
+  - symbol: x
+    primitive_type: integer
+    reference_type: undefined
+  synthesised_datatype:
+    primitive_type: integer
+    reference_type: undefined
+  interpretation_type: 'custom_function'
+  interpretation: 'abs_val(x)'

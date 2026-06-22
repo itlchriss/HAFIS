@@ -7,13 +7,13 @@
 // For any num >= 1, if mask is the smallest power of 2 > num,
 // complement = (mask - 1) - num
 
-// requires(*The integer parameter `num` is greater than or equal to 1 and is less than 2147483647.*);
-// ensures(*The integer result is greater than or equal to 0.*);
-// ensures(*The integer result is equal to the complement of the integer parameter `num` when all bits in the binary representation of the integer parameter `num` excluding leading zeros are flipped.*);
-// ensures(*If the integer parameter `num` is equal to 5, the integer result is equal to 2.*);
-// ensures(*If the integer parameter `num` is equal to 1, the integer result is equal to 0.*);
 method findComplement(num: int) returns (result: int)
 {
+    // requires(*The integer parameter `num` is greater than or equal to 1 and is less than 2147483648.*);
+    // ensures(*The integer result is greater than or equal to 0.*);
+    // ensures(*The integer result is the complement of the integer parameter `num`.*);
+    // ensures(*If the integer parameter `num` is equal to 5, the integer result is equal to 2.*);
+    // ensures(*If the integer parameter `num` is equal to 1, the integer result is equal to 0.*);
     // Find the smallest power of 2 that is > num
     var mask: int := 1;
     while mask <= num

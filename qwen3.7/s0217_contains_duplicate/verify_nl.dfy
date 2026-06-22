@@ -1,16 +1,15 @@
 // s0217 - Contains Duplicate
 // Complete Dafny formal specification with verified implementation
 
-// requires(*The length of the integer array parameter `nums` is greater than or equal to 1 and is less than or equal to 100000.*);
-// requires(*All values in the integer array parameter `nums` are greater than or equal to -1000000000 and are less than or equal to 1000000000.*);
-// requires(*The integer array parameter `nums` is not equal to the null literal.*);
-// ensures(*If the boolean result is equal to the true literal, there exist a non-negative integer `the int array parameter `nums`` and a non-negative integer `j` such the boolean result `the int array parameter `nums`` is less than `j` and `j` is less than the length of the integer array parameter `nums` and the value at index `the int array parameter `nums`` of the integer array parameter `nums` is equal to the value at index `j` of the integer array parameter `nums`.*);
-// ensures(*If the boolean result is equal to the false literal, all values in the integer array parameter `nums` are unique.*);
-// ensures(*If the integer array parameter `nums` is equal to [1,2,3,1], the boolean result is equal to the true literal.*);
-// ensures(*If the integer array parameter `nums` is equal to [1,2,3,4], the boolean result is equal to the false literal.*);
-// ensures(*If the integer array parameter `nums` is equal to [1,1,1,3,3,4,3,2,4,2], the boolean result is equal to the true literal.*);
 method containsDuplicate(nums: array<int>) returns (result: bool)
 {
+    // requires(*The length of the integer array parameter `nums` is greater than or equal to 1 and is less than or equal to 100000.*);
+    // requires(*All values in the integer array parameter `nums` are greater than or equal to -1000000000 and are less than or equal to 1000000000.*);
+    // requires(*The integer array parameter `nums` is not equal to the null literal.*);
+    // ensures(*If the integer array parameter `nums` is equal to [1,2,3,1], the boolean result is equal to the true literal.*);
+    // ensures(*If the integer array parameter `nums` is equal to [1,2,3,4], the boolean result is equal to the false literal.*);
+    // ensures(*If the integer array parameter `nums` is equal to [1,1,1,3,3,4,3,2,4,2], the boolean result is equal to the true literal.*);
+    // ensures(*The boolean result is equal to the true literal if and only if there exist at least two distinct indices in the integer array parameter `nums` such that the values at those indices are equal.*);
     var seen: set<int> := {};
     var idx: nat := 0;
     while idx < nums.Length

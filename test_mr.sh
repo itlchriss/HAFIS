@@ -1,6 +1,6 @@
 #!/bin/bash
 # Test script for HAFIS compiler
-SI_FILES="specs/si/common/typed_si.yml,specs/si/dafny/types.yml,specs/si/dafny/arithmetic.yml,specs/si/dafny/logic.yml,specs/si/dafny/quantifiers.yml,specs/si/dafny/frames.yml,specs/si/dafny/sequences.yml,specs/si/dafny/sets.yml"
+SI_FILES="specs/si/common/typed_si.yml,specs/si/dafny/types.yml,specs/si/dafny/typed_si.yml,specs/si/dafny/arithmetic.yml,specs/si/dafny/logic.yml,specs/si/dafny/quantifiers.yml,specs/si/dafny/frames.yml,specs/si/dafny/sequences.yml,specs/si/dafny/sets.yml,specs/si/dafny/functions.yml"
 
 ANN=$1
 if [ -z "$ANN" ]; then

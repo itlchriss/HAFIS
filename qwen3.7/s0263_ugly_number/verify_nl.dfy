@@ -4,15 +4,14 @@
 // An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
 // By convention, 1 is an ugly number.
 
-// requires(*The integer parameter `n` is greater than or equal to -2147483648 and is less than or equal to 2147483647.*);
-// ensures(*If the integer parameter `n` is greater than 0 and the boolean result is equal to the true literal, the integer parameter `n` can be expressed as a product of powers of 2 and 3 and 5.*);
-// ensures(*If the integer parameter `n` is less than or equal to 0, the boolean result is equal to the false literal.*);
-// ensures(*If the integer parameter `n` is equal to 6, the boolean result is equal to the true literal.*);
-// ensures(*If the integer parameter `n` is equal to 8, the boolean result is equal to the true literal.*);
-// ensures(*If the integer parameter `n` is equal to 14, the boolean result is equal to the false literal.*);
-// ensures(*If the integer parameter `n` is equal to 1, the boolean result is equal to the true literal.*);
 method isUgly(n: int) returns (result: bool)
 {
+    // requires(*The integer parameter `n` is greater than or equal to -2147483648 and is less than or equal to 2147483647.*);
+    // ensures(*If the integer parameter `n` is equal to 6, the boolean result is equal to the true literal.*);
+    // ensures(*If the integer parameter `n` is equal to 8, the boolean result is equal to the true literal.*);
+    // ensures(*If the integer parameter `n` is equal to 14, the boolean result is equal to the false literal.*);
+    // ensures(*If the integer parameter `n` is equal to 1, the boolean result is equal to the true literal.*);
+    // ensures(*The boolean result is equal to the true literal if and only if the integer parameter `n` is a positive integer whose prime factors are limited to 2 and 3 and 5.*);
     if n <= 0 {
         result := false;
         return;

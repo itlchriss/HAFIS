@@ -1,6 +1,0 @@
-- The length of the integer array parameter `nums` is greater than or equal to 1 and is less than or equal to 20000.
-- All values in the integer array parameter `nums` are greater than or equal to -10 and are less than or equal to 10.
-- The integer array parameter `nums` is not equal to the null literal.
-- The integer result is equal to the maximum product of any contiguous subarray of the integer array parameter `nums`.
-- If the integer array parameter `nums` is equal to [2,3,-2,4], the integer result is equal to 6.
-- If the integer array parameter `nums` is equal to [-2,0,-1], the integer result is equal to 0.

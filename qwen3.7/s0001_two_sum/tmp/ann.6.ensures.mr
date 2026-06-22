@@ -1,0 +1,1 @@
+exists x01.(_length{NN}(x01) & exists x02.(exists e03.(_type_integer_array_{NN}(x02) & _result{NN}(x02)) & exists e04.(_of{IN}(e04,x02) & (Subj(e04) = x01))) & exists x05.(_2{CD}(x05) & exists e06.(_equal{JJ}(e06) & (Subj(e06) = x01) & (Dat(e06) = x05))))

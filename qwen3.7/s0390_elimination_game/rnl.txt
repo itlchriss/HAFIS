@@ -1,5 +1,6 @@
+// method: lastRemaining
 - The integer parameter `n` is greater than or equal to 1 and is less than or equal to 1000000000.
 - The integer result is greater than or equal to 1 and is less than or equal to the integer parameter `n`.
-- The integer result is the last number The integer result remains after applying the elimination algorithm on the list of all integers from 1 to the integer parameter `n`.
-- If the integer parameter `n` is equal to 9, the integer result is equal to 6.
 - If the integer parameter `n` is equal to 1, the integer result is equal to 1.
+- If the integer parameter `n` is equal to 9, the integer result is equal to 6.
+- The integer result is the last number that remains after applying the elimination algorithm on the list of all integers in the range [1, the integer parameter `n`].

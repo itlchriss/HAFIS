@@ -32,7 +32,14 @@ enum primitive_datatype {
     Integer = 4,
     Long = 5,
     Float = 6,
-    Double = 7
+    Double = 7,
+    // Dafny-specific primitive types
+    Real = 8,
+    BV8 = 9,
+    BV16 = 10,
+    BV32 = 11,
+    BV64 = 12,
+    Ordinal = 13
 };
 
 
@@ -50,7 +57,14 @@ enum reference_datatype {
     Multiset = 7,
     Map = 8,
     IMap = 9,
-    FunctionType = 10
+    FunctionType = 10,
+    Array2 = 11,
+    Array3 = 12,
+    ISet = 13,
+    Subset = 14,
+    Newtype = 15,
+    TypeSynonym = 16,
+    OpaqueType = 17
 };
 
 // SI_INT_TYPE_EXPR_REQ_PARAM = 100,
@@ -85,7 +99,9 @@ enum intermediate_SI_type {
     INT_SI_TYPE_EXPR_REQ_PARAM = 100,
     INT_SI_TYPE_TEMPLATE = 101,
     INT_SI_TYPE_CONSTRUCT = 102,
-    INT_SI_TYPE_JAVA_METHOD = 103
+    INT_SI_TYPE_JAVA_METHOD = 103,
+    INT_SI_TYPE_DAFNY_TYPE = 104,
+    INT_SI_TYPE_VALUE = 105
     
 };
 
@@ -181,6 +197,17 @@ struct cstsymbol {
         TRUE indicates the symbol has a type defined in the input
      */
     int type_assigned;
+
+    /* Bookmarked co-reference values for preposition resolution (e.g., between) */
+    struct queue *coref_values;
+
+    /*
+        Direct alias relationship for unified co-reference resolution.
+        Points to the cstsymbol this is an alias of.
+        Used when multiple predicates bind to the same entity variable
+        through equal predicates (e.g., arr_a aliases param_numbers_).
+    */
+    struct cstsymbol *alias_of;
 };
 
 

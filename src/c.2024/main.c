@@ -75,6 +75,21 @@ int get_datatype(char *s) {
     else if (strcmp(s, "map") == 0) return Map;
     else if (strcmp(s, "imap") == 0) return IMap;
     else if (strcmp(s, "function_type") == 0) return FunctionType;
+    // Dafny-specific primitive types
+    else if (strcmp(s, "real") == 0) return Real;
+    else if (strcmp(s, "bv8") == 0) return BV8;
+    else if (strcmp(s, "bv16") == 0) return BV16;
+    else if (strcmp(s, "bv32") == 0) return BV32;
+    else if (strcmp(s, "bv64") == 0) return BV64;
+    else if (strcmp(s, "ordinal") == 0) return Ordinal;
+    // Dafny-specific reference types
+    else if (strcmp(s, "array2") == 0) return Array2;
+    else if (strcmp(s, "array3") == 0) return Array3;
+    else if (strcmp(s, "iset") == 0) return ISet;
+    else if (strcmp(s, "subset") == 0) return Subset;
+    else if (strcmp(s, "newtype") == 0) return Newtype;
+    else if (strcmp(s, "type_synonym") == 0) return TypeSynonym;
+    else if (strcmp(s, "opaque_type") == 0) return OpaqueType;
     else {
         sisyntax_error("Invalid primitive type used in SI file", "type", s);
         return -1;
@@ -156,7 +171,6 @@ int main(int argc, char** argv) {
     /* A structure implemented by a queue containing semantic interpretations */  
     silist = readSI(dstfiles);
 
-
     FILE *fp = fopen(specfile, "r");
     if (!fp) {
         printf("The spec file path cannot be opened...\n");
@@ -199,7 +213,9 @@ int main(int argc, char** argv) {
         For each abstract syntax tree, we traverse all nodes to find the nodes which are predicates, trying to map the semantic interpretations from si list
     */
     root = ast;
-    opresolution(operators, cst);        
+    opresolution(operators, cst);
+    /* Resolve aliases for equal predicates using event structure (Subj/Dat) */
+    resolve_equal_predicate_aliases();
     sianalysis();
     sisynthesis();
     /* Post-synthesis AST simplification: mark empty Quantifier/Connective nodes
@@ -216,6 +232,13 @@ int main(int argc, char** argv) {
         Instead, the IR builder skips consumed nodes and applies simplification
         during IR construction. This preserves the original parse AST for debugging.
     */
+    
+    /* Emit custom function definitions before the contract (Dafny only) */
+    /* Must be done before silist is deallocated */
+    if (get_backend() == BACKEND_TYPE_DAFNY) {
+        emit_custom_functions(silist, stdout);
+    }
+
     deallocatequeue(silist, deallocatesi);
     
     /* Build IR from AST after synthesis - IR builder handles consumed nodes and simplification */
@@ -225,7 +248,7 @@ int main(int argc, char** argv) {
     printf("IR Dump:\n");
     ir_dump(ir, 0);
     #endif
-    
+
     /* Call the appropriate backend's code generator with IR */
     if (get_backend() == BACKEND_TYPE_DAFNY) {
         #ifdef BACKEND_DAFNY
@@ -532,6 +555,11 @@ struct queue* readSI(char *dstfilepaths) {
 
                         do { yaml_parser_scan(&parser, &token); } while (token.type != YAML_KEY_TOKEN);
                         goto SWITCH;
+                    } else if (strcmp(key, "prepositions") == 0) {
+                        /* prepositions field is used by Python preprocessing only - skip its value */
+                        do { yaml_parser_scan(&parser, &token); } while (token.type != YAML_KEY_TOKEN && token.type != YAML_BLOCK_END_TOKEN && token.type != YAML_STREAM_END_TOKEN);
+                        if (token.type == YAML_KEY_TOKEN) goto SWITCH;
+                        else goto START;
                     }
                 } else if (token_flag == 2) {
                     value = (char*) strdup((char*)token.data.scalar.value);
@@ -597,6 +625,12 @@ struct queue* readSI(char *dstfilepaths) {
                                 si->type = SI_INT_TYPE_JAVA_TYPE;
                             } else if (strcmp(value, "multiple_si") == 0) { 
                                 si->type = SI_INT_TYPE_MULTIPLE_SI;
+                            } else if (strcmp(value, "dafny_type") == 0) {
+                                si->type = SI_INT_TYPE_DAFNY_TYPE;
+                            } else if (strcmp(value, "value") == 0) {
+                                si->type = SI_INT_TYPE_VALUE;
+                            } else if (strcmp(value, "custom_function") == 0) {
+                                si->type = SI_INT_TYPE_CUSTOM_FUNCTION;
                             } else if (strcmp(value, "java_boolean") == 0) {
                                 si->type = 50;
                             } else if (strcmp(value, "java_byte") == 0) {
@@ -648,4 +682,77 @@ struct queue* readSI(char *dstfilepaths) {
     return new;
 }
 
+/*
+    Load a custom function definition from specs/functions/<name>.dfy.
+    Returns a malloc'd string containing the Dafny code, or NULL if not found.
+    Caller is responsible for freeing the returned string.
+*/
+char *loadFunctionByName(const char *name) {
+    char filepath[512];
+    snprintf(filepath, sizeof(filepath), "specs/functions/%s.dfy", name);
+
+    FILE *fp = fopen(filepath, "r");
+    if (!fp) {
+        #if SIDEBUG
+        fprintf(stderr, "Cannot find function file at %s\n", filepath);
+        #endif
+        return NULL;
+    }
+
+    /* Get file size */
+    fseek(fp, 0, SEEK_END);
+    long fsize = ftell(fp);
+    fseek(fp, 0, SEEK_SET);
+
+    if (fsize <= 0) {
+        fclose(fp);
+        return NULL;
+    }
+
+    /* Read entire file */
+    char *content = (char *)malloc(fsize + 1);
+    if (!content) {
+        fclose(fp);
+        return NULL;
+    }
+    fread(content, 1, fsize, fp);
+    content[fsize] = '\0';
+    fclose(fp);
+
+    /* Trim trailing newlines */
+    int len = strlen(content);
+    while (len > 0 && (content[len-1] == '\n' || content[len-1] == '\r')) {
+        content[--len] = '\0';
+    }
+
+    #if SIDEBUG
+    printf("Loaded custom function from %s\n", filepath);
+    #endif
+
+    return content;
+}
+
+/*
+    Emit custom function definitions as Dafny ghost functions.
+    Scans the SI list for custom_function types and loads each function on-demand
+    from specs/functions/<name>.dfy.
+*/
+void emit_custom_functions(struct queue *silist, FILE *output) {
+    if (!silist || silist->count == 0) return;
+
+    for (int i = 0; i < silist->count; ++i) {
+        struct si *s = (struct si *)gqueue(silist, i);
+        if (!s || s->type != SI_INT_TYPE_CUSTOM_FUNCTION) continue;
+        if (!s->symbol) continue;
+
+        /* Load the function definition on-demand */
+        char *content = loadFunctionByName(s->symbol);
+        if (!content) continue;
+
+        /* Emit the raw Dafny code directly */
+        fprintf(output, "%s\n\n", content);
+
+        free(content);
+    }
+}
 

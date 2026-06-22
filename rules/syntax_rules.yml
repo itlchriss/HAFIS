@@ -174,7 +174,7 @@
   format: "the __type__ result's length"
 
 - pattern: [The, length, of, the, '__type__', result]
-  format: "The __type__ result's length"
+  format: "The length of the __type__ result"
 
 - pattern: [any, value, appears, at, least, twice, in, the, '__word__']
   format: 'the __word__ is not unique'
@@ -182,56 +182,62 @@
 - pattern: [contain, the, substring, '__expr_string__']
   format: 'contain the __expr_string__'
 
-- pattern: [All, values, '__pos_prep__', the, '__type__', '__param__']
-  format: "The __type__ __param__'s values"
+- pattern: [All, values, of, the, '__type__', '__param__']
+  format: "All values of the __type__ __param__"
 
-- pattern: [all, values, '__pos_prep__', the, '__type__', '__param__']
-  format: "the __type__ __param__'s values"
+- pattern: [all, values, of, the, '__type__', '__param__']
+  format: "all values of the __type__ __param__"
 
-- pattern: [If, all, values, '__pos_prep__', the, '__type__', '__param__']
-  format: "If the __type__ __param__'s values"
+- pattern: [If, all, values, of, the, '__type__', '__param__']
+  format: "If all values of the __type__ __param__"
 
-- pattern: [All, 'the values', '__pos_prep__', the, '__type__', '__param__']
-  format: "The __type__ __param__'s values"
+- pattern: [All, 'the values', of, the, '__type__', '__param__']
+  format: "All the values of the __type__ __param__"
 
-- pattern: [All, the, values, '__pos_prep__', '__type__', '__param__']
-  format: "The __type__ __param__'s values"
+- pattern: [All, the, values, of, '__type__', '__param__']
+  format: "All the values of the __type__ __param__"
 
-- pattern: [All, values, '__pos_prep__', '__type__', '__param__']
-  format: "The __type__ __param__'s values"
+- pattern: [All, values, of, '__type__', '__param__']
+  format: "All values of the __type__ __param__"
 
-- pattern: [All, values, '__pos_prep__', the, '__type__', '__param_or_result__']
-  format: "The __type__ __param_or_result__'s values"
+- pattern: [All, values, of, the, '__type__', '__param_or_result__']
+  format: "All values of the __type__ __param_or_result__"
 
-- pattern: [not, equal, to, the, summation, in, the, '__type__', '__param__']
-  format: "not_equal to the __type__ __param__'s summation"
+- pattern: [not, equal, to, the, summation, of, the, '__type__', '__param__']
+  format: "not_equal to the summation of the __type__ __param__"
+
+- pattern: [The, summation, of, the, '__type__', '__param_or_result__']
+  format: "The summation of the __type__ __param_or_result__"
+
+- pattern: [the, summation, of, the, '__type__', '__param_or_result__']
+  format: "the summation of the __type__ __param_or_result__"
+
+- pattern: [the, summation, in, the, '__type__', '__param__']
+  format: "the summation of the __type__ __param__"
 
 - pattern: [The, summation, in, the, '__type__', '__param_or_result__']
-  format: "The __type__ __param_or_result__'s summation"
-
-- pattern: [the, summation, in, the, '__type__', '__param_or_result__']
-  format: "the __type__ __param_or_result__'s summation"
+  format: "The summation of the __type__ __param_or_result__"
 
 - pattern: [the, minimum_value, in, the, '__type__', '__param__']
-  format: "the __type__ __param__'s minimum_value"
+  format: "the minimum_value of the __type__ __param__"
 
 - pattern: [the, minimum_value, of, the, '__type__', '__param__']
-  format: "the __type__ __param__'s minimum_value"
+  format: "the minimum_value of the __type__ __param__"
 
 - pattern: [the, maximum_value, in, the, '__type__', '__param__']
-  format: "the __type__ __param__'s maximum_value"
+  format: "the maximum_value of the __type__ __param__"
 
 - pattern: [the, maximum_value, of, the, '__type__', '__param__']
-  format: "the __type__ __param__'s maximum_value"
+  format: "the maximum_value of the __type__ __param__"
 
-- pattern: [first_element, '__pos_prep__', the, '__type__', '__param_or_result__']
-  format: "__type__ __param_or_result__'s first_element"
+- pattern: [first_element, of, the, '__type__', '__param_or_result__']
+  format: "first_element of the __type__ __param_or_result__"
 
-- pattern: [second_element, '__pos_prep__', the, '__type__', '__param_or_result__']
-  format: "__type__ __param_or_result__'s second_element"
+- pattern: [second_element, of, the, '__type__', '__param_or_result__']
+  format: "second_element of the __type__ __param_or_result__"
 
-- pattern: [number_of_unique_elements, '__pos_prep__', the, '__type__', '__param_or_result__']
-  format: "__type__ __param_or_result__'s number_of_unique_elements"
+- pattern: [number_of_unique_elements, of, the, '__type__', '__param_or_result__']
+  format: "number_of_unique_elements of the __type__ __param_or_result__"
 
 - pattern: [length, plus, '__num__']
   format: 'length + __num__'
@@ -248,8 +254,10 @@
 - pattern: ['__be__', unique, sorted, to, the, ascending_order]
   format: '__be__ unique and __be__ sorted to the ascending_order'
 
-- pattern: ['__be__', between, '__num__', and, '__num__']
-  format: '__be__ greater than __num__ and __be__ less than __num__'
+# DEPRECATED: 'between' is now a semantic preposition with SI declaration.
+# The parser produces _between{IN}(e,x) directly; resolution happens at compile time via CST co-reference lookup.
+# - pattern: ['__be__', between, '__num__', and, '__num__']
+#   format: '__be__ greater than __num__ and __be__ less than __num__'
 
 - pattern: ['__param_or_result_values__', values, only, '__contain__']
   format: '__vocontain__'
@@ -323,8 +331,10 @@
 - pattern: [the, sum, of, the, value, at, index, '__quoted__', of, the, '__type__', '__param__']
   format: "the __type__ __param__'s value at index __quoted__"
 
-- pattern: [the, difference, between, the, length, of, the, '__type__', '__param__', and]
-  format: "the length of the __type__ __param__ minus"
+# DEPRECATED: 'between' is now a semantic preposition with SI declaration.
+# The parser handles 'difference between ... and' via _between{IN} + _of{IN} MR structure.
+# - pattern: [the, difference, between, the, length, of, the, '__type__', '__param__', and]
+#   format: "the length of the __type__ __param__ minus"
 
 - pattern: ['__num__', raised, to, the, power, of, '__quoted__']
   format: '__num__ raised to the power of __quoted__'
